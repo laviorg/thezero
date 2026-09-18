@@ -12,18 +12,18 @@ export function Verdict({
   underrated: string;
 }) {
   return (
-    <div className="my-8 grid gap-3 sm:grid-cols-2">
-      <div className="border border-alert/35 bg-surface p-5">
-        <p className="text-[0.68rem] font-medium tracking-[0.2em] text-alert uppercase">
+    <div className="my-7 grid gap-3 sm:grid-cols-2">
+      <div className="border border-alert/35 bg-surface p-4">
+        <p className="eyebrow text-alert">
           Overrated
         </p>
-        <p className="mt-3 text-lg leading-snug text-fg">{overrated}</p>
+        <p className="mt-2.5 text-[1.02rem] leading-snug text-fg">{overrated}</p>
       </div>
-      <div className="border border-accent/35 bg-surface p-5">
-        <p className="text-[0.68rem] font-medium tracking-[0.2em] text-accent uppercase">
+      <div className="border border-accent/35 bg-surface p-4">
+        <p className="eyebrow page-kicker">
           Underrated
         </p>
-        <p className="mt-3 text-lg leading-snug text-fg">{underrated}</p>
+        <p className="mt-2.5 text-[1.02rem] leading-snug text-fg">{underrated}</p>
       </div>
     </div>
   );
@@ -31,11 +31,11 @@ export function Verdict({
 
 export function Rule({ children }: { children: ReactNode }) {
   return (
-    <aside className="my-8 border-l-2 border-accent bg-surface px-5 py-4">
-      <p className="text-[0.68rem] tracking-[0.2em] text-accent uppercase">
+    <aside className="my-7 border-l-2 border-accent bg-surface px-4 py-3.5">
+      <p className="eyebrow page-kicker">
         Regra do The Zero
       </p>
-      <div className="mt-2 text-base leading-relaxed text-fg">{children}</div>
+      <div className="mt-2 text-[0.98rem] leading-7 text-fg">{children}</div>
     </aside>
   );
 }
@@ -69,7 +69,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   h2: ({ className, ...props }) => (
     <h2
       className={cn(
-        "mt-10 mb-3 text-[clamp(1.25rem,2.5vw,1.7rem)] font-semibold tracking-tight leading-snug",
+        "mt-8 mb-3 text-[clamp(1.18rem,1rem+0.9vw,1.55rem)] font-semibold leading-snug tracking-tight",
         className,
       )}
       {...props}
@@ -78,7 +78,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   h3: ({ className, ...props }) => (
     <h3
       className={cn(
-        "mt-7 mb-2.5 text-lg font-semibold tracking-tight",
+        "mt-6 mb-2 text-[1.02rem] font-semibold tracking-tight sm:text-[1.1rem]",
         className,
       )}
       {...props}
@@ -98,15 +98,15 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
     }
 
     return (
-      <p className={cn("my-4 leading-[1.75] sm:my-5", className)} {...props}>
+      <p className={cn("my-3.5 leading-[1.72] sm:my-4", className)} {...props}>
         {children}
       </p>
     );
   },
   table: ({ className, ...props }) => (
-    <div className="my-8 overflow-x-auto border border-white/10">
+    <div className="my-7 overflow-x-auto border border-white/10">
       <table
-        className={cn("w-full min-w-[28rem] text-left text-base", className)}
+        className={cn("w-full min-w-[28rem] text-left text-[0.98rem]", className)}
         {...props}
       />
     </div>
@@ -114,7 +114,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   thead: ({ className, ...props }) => (
     <thead
       className={cn(
-        "border-b border-white/10 bg-surface text-sm tracking-wide text-muted uppercase",
+          "border-b border-white/10 bg-surface text-[0.78rem] tracking-[0.14em] text-muted uppercase",
         className,
       )}
       {...props}
@@ -144,7 +144,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   ul: ({ className, ...props }) => (
     <ul
       className={cn(
-        "my-4 list-disc space-y-2 pl-5 leading-[1.75] sm:my-5",
+        "my-3.5 list-disc space-y-1.5 pl-5 leading-[1.72] sm:my-4",
         className,
       )}
       {...props}
@@ -153,7 +153,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   ol: ({ className, ...props }) => (
     <ol
       className={cn(
-        "my-4 list-decimal space-y-2 pl-5 leading-[1.75] sm:my-5",
+        "my-3.5 list-decimal space-y-1.5 pl-5 leading-[1.72] sm:my-4",
         className,
       )}
       {...props}
@@ -165,7 +165,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   blockquote: ({ className, ...props }) => (
     <blockquote
       className={cn(
-        "my-8 border-l-2 border-white/20 pl-5 text-xl leading-snug text-muted italic",
+        "my-7 border-l-2 border-white/20 pl-4 text-[1.05rem] leading-7 text-muted italic sm:text-[1.12rem]",
         className,
       )}
       {...props}
@@ -174,7 +174,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   strong: ({ className, ...props }) => (
     <strong className={cn("font-semibold text-fg", className)} {...props} />
   ),
-  hr: () => <hr className="my-10 border-white/10" />,
+  hr: () => <hr className="my-8 border-white/10" />,
   pre: ({ className, ...props }) => (
     <pre
       className={cn(

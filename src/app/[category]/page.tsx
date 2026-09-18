@@ -73,23 +73,21 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         ]}
       />
 
-      <header className="max-w-3xl border-b border-white/10 pb-6">
+      <header className="max-w-3xl border-b border-white/10 pb-5">
         <Breadcrumbs
           items={[
             { href: "/", label: "Newsroom" },
             { label: category.label },
           ]}
         />
-        <p className="text-[0.65rem] font-medium tracking-[0.2em] text-accent uppercase">
-          {category.kicker}
-        </p>
-        <h1 className="mt-2 text-[clamp(1.85rem,4.5vw,3rem)] font-semibold leading-[1.05] tracking-tight text-balance">
+        <p className="eyebrow page-kicker">{category.kicker}</p>
+        <h1 className="page-title mt-2 font-semibold text-balance">
           {category.label}
         </h1>
-        <p className="mt-3 max-w-2xl text-base leading-7 text-muted text-pretty sm:text-lg">
+        <p className="lede mt-3 text-pretty">
           {category.description}
         </p>
-        <p className="mt-4 text-xs tracking-wide text-muted uppercase">
+        <p className="mt-4 text-[0.72rem] tracking-[0.14em] text-muted uppercase">
           {posts.length === 0
             ? "Nenhuma matéria"
             : posts.length === 1
@@ -106,11 +104,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       ) : (
         <div
           className={
-            rest.length > 0 ? "mt-7 grid gap-10 lg:grid-cols-12" : "mt-7"
+            rest.length > 0 ? "mt-6 grid gap-6 lg:grid-cols-12 lg:gap-8" : "mt-6"
           }
         >
           {featured ? (
-            <div className={rest.length > 0 ? "lg:col-span-7" : "max-w-3xl"}>
+            <div className={rest.length > 0 ? "lg:col-span-7 xl:col-span-8" : "max-w-3xl"}>
               <ArticleCard
                 post={featured}
                 layout="lead"
@@ -119,10 +117,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             </div>
           ) : null}
           {rest.length > 0 ? (
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 lg:border-l lg:border-white/10 lg:pl-6 xl:col-span-4">
               <SectionHeading title="Nesta editoria" as="h2" />
               <div className="mt-1">
-                {rest.map((post) => (
+                {rest.slice(0, 6).map((post) => (
                   <ArticleCard
                     key={post.slug}
                     post={post}
@@ -138,7 +136,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       <nav
         aria-label="Outras editorias"
-        className="mt-12 flex flex-wrap gap-2 border-t border-white/10 pt-6"
+        className="mt-10 flex flex-wrap gap-2 border-t border-white/10 pt-5"
       >
         {categoryList
           .filter((item) => item.slug !== category.slug)
@@ -146,7 +144,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <Link
               key={item.slug}
               href={item.href}
-              className="border border-white/12 px-3 py-1.5 text-[0.8rem] tracking-wide text-muted uppercase transition-colors hover:border-accent hover:text-accent"
+              className="chip-link"
             >
               {item.label}
             </Link>

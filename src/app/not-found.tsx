@@ -1,3 +1,4 @@
+import { PageShell } from "@/components/layout/page-shell";
 import { site } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -10,14 +11,14 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
-      <p className="text-[0.7rem] font-medium tracking-[0.22em] text-alert uppercase">
+    <PageShell width="narrow">
+      <p className="eyebrow text-alert">
         404
       </p>
-      <h1 className="mt-4 text-[clamp(1.85rem,6vw,3.4rem)] font-semibold leading-[1.05] tracking-tight">
+      <h1 className="page-title mt-3 font-semibold text-balance">
         Isso aqui é zero. A matéria não existe.
       </h1>
-      <p className="mt-6 max-w-xl text-lg text-muted">
+      <p className="lede mt-4 max-w-xl">
         Link morto, slug errado ou hype que a gente recusou publicar.
       </p>
       <p className="mt-8">
@@ -33,6 +34,6 @@ export default function NotFound() {
           Instagram
         </a>
       </p>
-    </div>
+    </PageShell>
   );
 }

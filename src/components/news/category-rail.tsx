@@ -13,7 +13,7 @@ export function CategoryRail({
 }) {
   return (
     <section
-      className="border-t border-white/10 py-8 [content-visibility:auto] [contain-intrinsic-size:auto_20rem]"
+      className="border-t border-white/10 py-7 [content-visibility:auto] [contain-intrinsic-size:auto_20rem] lg:py-8"
       aria-labelledby={`editoria-${category.slug}`}
     >
       <SectionHeading
@@ -33,10 +33,10 @@ export function CategoryRail({
           className={
             posts.length === 1
               ? "mt-5 max-w-md"
-              : "mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+              : "mt-5 grid gap-x-5 gap-y-6 sm:grid-cols-2 xl:grid-cols-4"
           }
         >
-          {posts.slice(0, 3).map((post) => (
+          {posts.slice(0, 4).map((post) => (
             <ArticleCard
               key={post.slug}
               post={post}

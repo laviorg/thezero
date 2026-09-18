@@ -23,21 +23,21 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "flex items-end justify-between gap-4 border-b border-white/10 pb-3",
+        "flex items-end justify-between gap-3 border-b border-white/10 pb-2.5",
         className,
       )}
     >
       <div className="min-w-0">
         {eyebrow ? (
-          <p className="text-[0.65rem] font-medium tracking-[0.2em] text-accent uppercase">
+          <p className="eyebrow page-kicker">
             {eyebrow}
           </p>
         ) : null}
         <Title
           id={id}
           className={cn(
-            "font-semibold tracking-tight text-pretty",
-            eyebrow ? "mt-1 text-xl sm:text-2xl" : "text-xl sm:text-2xl",
+            "font-semibold leading-tight tracking-tight text-pretty",
+            eyebrow ? "mt-1 text-[1.15rem] sm:text-[1.35rem]" : "text-[1.15rem] sm:text-[1.35rem]",
           )}
         >
           {title}
@@ -46,7 +46,7 @@ export function SectionHeading({
       {href ? (
         <Link
           href={href}
-          className="hidden shrink-0 text-sm text-accent transition-colors hover:text-fg sm:inline"
+          className="hidden shrink-0 text-[0.8rem] font-medium tracking-[0.12em] text-accent uppercase transition-colors hover:text-fg sm:inline"
         >
           {actionLabel}
         </Link>

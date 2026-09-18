@@ -34,14 +34,14 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-bg/90 backdrop-blur-md">
-      <div className="mx-auto flex h-12 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:h-14 sm:px-6">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-bg/92 backdrop-blur-md">
+      <div className="shell-frame flex h-11 items-center justify-between gap-4 sm:h-12">
         <Link
           href="/"
           className="flex items-center text-fg outline-none"
           aria-label="The Zero — newsroom"
         >
-          <Wordmark className="h-7 w-auto sm:h-8" />
+          <Wordmark className="h-[1.65rem] w-auto sm:h-7" />
         </Link>
 
         <div className="flex items-center gap-1">
@@ -125,7 +125,7 @@ export function SiteHeader() {
         aria-label="Editorias"
         className="hidden border-t border-white/10 md:block"
       >
-        <div className="mx-auto flex h-10 w-full max-w-6xl items-center gap-5 overflow-x-auto px-4 sm:px-6">
+        <div className="shell-frame flex h-9 items-center gap-4 overflow-x-auto">
           {editorias.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -133,7 +133,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`shrink-0 text-[0.8rem] tracking-wide ${navClass(active)}`}
+                className={`shrink-0 text-[0.76rem] tracking-[0.12em] uppercase ${navClass(active)}`}
                 aria-current={active ? "page" : undefined}
               >
                 {item.label}
@@ -147,7 +147,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`shrink-0 text-[0.8rem] tracking-wide ${navClass(active)}`}
+                className={`shrink-0 text-[0.76rem] tracking-[0.12em] uppercase ${navClass(active)}`}
                 aria-current={active ? "page" : undefined}
               >
                 {item.label}

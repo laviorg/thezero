@@ -30,13 +30,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <PageShell width="narrow">
-      <p className="text-[0.65rem] font-medium tracking-[0.2em] text-accent uppercase">
-        Busca
-      </p>
-      <h1 className="mt-3 text-[clamp(1.7rem,5vw,2.8rem)] font-semibold leading-[1.08] tracking-tight">
+      <p className="eyebrow page-kicker">Busca</p>
+      <h1 className="page-title mt-2.5 font-semibold">
         {query ? `Resultados para “${query}”` : "O que você quer cortar o hype."}
       </h1>
-      <p className="mt-3 mb-6 text-muted">
+      <p className="lede mt-3 mb-5">
         Newsroom inteiro, no repo. Sem caixa-preta.
       </p>
       <SearchForm defaultValue={query} autoFocus={!query} />
@@ -55,7 +53,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               <Link
                 key={category.slug}
                 href={category.href}
-                className="border border-white/12 px-3 py-1.5 text-[0.8rem] tracking-wide text-muted uppercase transition-colors hover:border-accent hover:text-accent"
+                className="chip-link"
               >
                 {category.label}
               </Link>
