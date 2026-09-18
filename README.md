@@ -1,6 +1,6 @@
 # The Zero
 
-Newsroom de tech do Brasil — IA, computadores, dispositivos, aplicativos e jogos. Tom direto, irônico, sem hype de lançamento.
+Newsroom de tech do Brasil — tecnologia, IA, computadores, dispositivos, aplicativos e jogos. Tom direto, irônico, sem hype de lançamento.
 
 Site: [thezero.com.br](https://thezero.com.br) · Instagram [@hello.the.zero](https://www.instagram.com/hello.the.zero/) · YouTube [@TheZero_Media](https://www.youtube.com/@TheZero_Media)
 
@@ -31,7 +31,7 @@ npm run lint
 | Rota | O quê |
 | --- | --- |
 | `/` | Newsroom (destaque + editorias) |
-| `/ia` `/computadores` `/dispositivos` `/aplicativos` `/jogos` | Editorias |
+| `/tecnologia` `/ia` `/computadores` `/dispositivos` `/aplicativos` `/jogos` | Editorias |
 | `/[editoria]/[subcategoria]` | Assuntos ativos dentro de uma editoria |
 | `/noticia/[slug]` | Matéria |
 | `/sobre` | Manifesto e regras de voz |
@@ -62,7 +62,7 @@ coverCredit: "Apple / Divulgação"
 ---
 ```
 
-`category` tem de ser um de: `ia` · `computadores` · `dispositivos` · `aplicativos` · `jogos`.
+`category` tem de ser um de: `tecnologia` · `ia` · `computadores` · `dispositivos` · `aplicativos` · `jogos`.
 
 `subcategory` é opcional, mas recomendada quando houver encaixe. Ela precisa pertencer à editoria escolhida; a lista e as regras de fronteira ficam em [`docs/TAXONOMY.md`](docs/TAXONOMY.md). Subcategorias com matérias ganham hub próprio em `/[editoria]/[subcategoria]`.
 

@@ -1,4 +1,5 @@
 export const CATEGORY_SLUGS = [
+  "tecnologia",
   "ia",
   "computadores",
   "dispositivos",
@@ -9,6 +10,9 @@ export const CATEGORY_SLUGS = [
 export type CategorySlug = (typeof CATEGORY_SLUGS)[number];
 
 export const SUBCATEGORY_SLUGS = [
+  "ciencia-aplicada",
+  "tendencias",
+  "negocios",
   "ferramentas",
   "agentes",
   "modelos",
@@ -76,6 +80,46 @@ function subcategory(
 }
 
 export const categories: Record<CategorySlug, Category> = {
+  tecnologia: {
+    slug: "tecnologia",
+    label: "Tecnologia",
+    href: "/tecnologia",
+    description:
+      "Indústria, ciência aplicada, infraestrutura e tendências que atravessam o setor. Contexto, consequência e número — sem futurologia de palco.",
+    kicker: "Além do produto",
+    subcategories: [
+      subcategory(
+        "tecnologia",
+        "industria",
+        "Indústria",
+        "Fabricação, cadeias produtivas, padrões e bastidores que movem o setor.",
+      ),
+      subcategory(
+        "tecnologia",
+        "ciencia-aplicada",
+        "Ciência aplicada",
+        "Pesquisa e protótipos quando saem do laboratório e encostam no uso real.",
+      ),
+      subcategory(
+        "tecnologia",
+        "infraestrutura",
+        "Infraestrutura",
+        "Internet, redes, nuvem, data centers e energia fora de uma pauta específica de IA.",
+      ),
+      subcategory(
+        "tecnologia",
+        "tendencias",
+        "Tendências",
+        "Mudanças transversais de uso e comportamento sustentadas por adoção ou dados.",
+      ),
+      subcategory(
+        "tecnologia",
+        "negocios",
+        "Negócios",
+        "Empresas, aquisições, regulação, trabalho e modelos de negócio em tecnologia.",
+      ),
+    ],
+  },
   ia: {
     slug: "ia",
     label: "IA",

@@ -37,6 +37,7 @@ export const metadata: Metadata = {
   keywords: [
     "The Zero",
     "tech",
+    "tecnologia",
     "IA",
     "computadores",
     "componentes",

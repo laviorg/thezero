@@ -47,9 +47,9 @@ export default function AboutPage() {
       <div className="mt-8 space-y-5 text-[1.02rem] leading-7 text-fg/90">
         <p>
           The Zero é o newsroom de tech do Brasil pra quem já passou do unboxing
-          emocional. IA, computadores, dispositivos, aplicativos e jogos.
-          Opinião em uma frase. Nome de ferramenta, atalho, preço ou número.
-          Ironia no hype — não hate bait.
+          emocional. Tecnologia, IA, computadores, dispositivos, aplicativos e
+          jogos. Opinião em uma frase. Nome de ferramenta, atalho, preço ou
+          número. Ironia no hype — não hate bait.
         </p>
         <p>
           O critério é de bastidor técnico: setup, falha, workaround, o que você

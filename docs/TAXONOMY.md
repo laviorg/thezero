@@ -6,10 +6,11 @@ de loja.
 
 ## Resumo da decisão
 
-O The Zero passa a ter cinco editorias:
+O The Zero passa a ter seis editorias:
 
 | Slug | Rótulo | Regra editorial |
 | --- | --- | --- |
+| `tecnologia` | Tecnologia | A tese é o setor de tecnologia, uma aplicação científica, infraestrutura geral ou uma mudança transversal que não pertence com clareza às outras editorias. |
 | `ia` | IA | A capacidade, o limite ou o efeito da inteligência artificial é a tese da matéria. |
 | `computadores` | Computadores | PCs, notebooks, peças e periféricos são o objeto principal do teste. |
 | `dispositivos` | Dispositivos | Tecnologia pessoal ou doméstica fora do universo de PC: celular, relógio, fone, TV e casa conectada. |
@@ -20,6 +21,12 @@ Cada matéria tem uma editoria primária e pode ter uma subcategoria pertencente
 a ela. A taxonomia não usa categorias secundárias: assuntos transversais
 continuam no `kicker` e no texto até existir uma necessidade comprovada de
 tags.
+
+**Tecnologia é a rede de segurança, não o guarda-chuva padrão.** Ela recebe
+cobertura mais ampla de indústria, ciência aplicada, infraestrutura geral,
+tendências e pautas transversais quando a tese é “tech”, mas não especificamente
+IA, PCs, tecnologia pessoal/doméstica, aplicativos ou jogos. Se uma das cinco
+editorias específicas resolver a pauta, ela tem prioridade.
 
 ## Método e referências
 
@@ -69,6 +76,16 @@ Problemas:
   brasileiros procuram e criavam dívida de URL.
 
 ## Subcategorias e escopo
+
+### Tecnologia (`/tecnologia`)
+
+| Slug | Rótulo | Escopo |
+| --- | --- | --- |
+| `industria` | Indústria | Fabricação, cadeias produtivas, padrões e bastidores do setor. |
+| `ciencia-aplicada` | Ciência aplicada | Pesquisa e protótipos quando chegam ao uso real. |
+| `infraestrutura` | Infraestrutura | Internet, redes, nuvem, data centers e energia fora de uma tese de IA. |
+| `tendencias` | Tendências | Mudanças transversais de uso apoiadas por adoção ou dados. |
+| `negocios` | Negócios | Empresas, aquisições, regulação, trabalho e modelos de negócio. |
 
 ### IA (`/ia`)
 
@@ -127,7 +144,8 @@ Problemas:
 
 ## Regras de fronteira
 
-Use a tese da manchete e aplique a primeira regra que resolver a pauta:
+Use a tese da manchete e aplique a primeira regra específica que resolver a
+pauta:
 
 1. É sobre jogar, um título, um console dedicado, uma loja ou a indústria de
    videogames? **Jogos**.
@@ -141,10 +159,20 @@ Use a tese da manchete e aplique a primeira regra que resolver a pauta:
 5. A tese só existe por causa da capacidade, limitação, segurança ou política
    de IA? **IA**. Se IA for apenas um recurso dentro de um fluxo de software, a
    matéria continua em **Aplicativos**.
+6. A tese continua sendo tecnologia, mas atravessa essas divisões ou trata de
+   indústria, ciência aplicada, infraestrutura geral, negócios ou uma tendência
+   multissetorial? **Tecnologia**.
 
 Marca não define editoria. Apple pode aparecer em Dispositivos, Aplicativos ou
 IA. “Setup” também não define editoria: compra física vai para Computadores;
 mudança de fluxo vai para Aplicativos.
+
+Dois limites evitam que a nova editoria absorva tudo: desempenho de um chip ou
+peça fica em `computadores/componentes`, enquanto fabricação e cadeia de
+semicondutores ficam em `tecnologia/industria`; infraestrutura criada
+especificamente para modelos de IA fica em `ia/infraestrutura`, enquanto
+conectividade, nuvem, energia e data centers em geral ficam em
+`tecnologia/infraestrutura`.
 
 ## Migração do arquivo
 
@@ -173,6 +201,12 @@ Todos os 18 posts recebem `subcategory`. Só frontmatter e kickers que
 funcionavam como rótulo editorial foram alterados; o corpo das matérias foi
 preservado.
 
+A inclusão de Tecnologia não remapeia o arquivo atual. As pautas potencialmente
+transversais ainda têm uma tese específica: Nokia/Carajás trata de IA na borda,
+Claude/OpenAI trata de segurança de IA e KaBuM/WhatsApp trata de um serviço
+digital. Mover qualquer uma apenas para preencher o novo hub reduziria a
+precisão da classificação.
+
 ## URLs, navegação e SEO
 
 Editorias continuam em uma rota curta, `/{editoria}`. Subcategorias ativas usam
@@ -196,15 +230,16 @@ preservados. Não há redirecionamento de matérias porque seus slugs não mudam
 Os hubs pai e filho têm canonical próprio, metadados Open Graph, imagem social,
 `CollectionPage` e `BreadcrumbList`. Matérias incluem a subcategoria na trilha,
 nas palavras-chave e nas tags Open Graph. O sitemap lista apenas URLs canônicas;
-o RSS publica editoria e subcategoria. Cabeçalho, menu móvel, chips, trilhos da
-home e rodapé mostram somente as cinco editorias para manter a navegação curta.
+o RSS publica editoria e subcategoria. Cabeçalho, menu móvel, chips e rodapé
+mostram as seis editorias; a home só abre um trilho quando a editoria já tem
+matérias.
 
 ## Alternativas rejeitadas
 
 - **Só traduzir os seis nomes antigos:** preservaria a mistura entre assunto,
   aparelho e plataforma e não criaria lugar para componentes ou vestíveis.
 - **Celulares, Vestíveis e Casa como editorias globais:** é claro em portais
-  grandes, mas cria hubs vazios e alonga o cabeçalho no arquivo atual.
+  grandes, mas fragmenta uma mesma família de produtos e alonga o cabeçalho.
   `Dispositivos` mantém essas palavras explícitas um nível abaixo.
 - **Produtos como editoria guarda-chuva:** junta PC, celular, TV e console
   novamente e torna a decisão editorial dependente do formato da pauta.

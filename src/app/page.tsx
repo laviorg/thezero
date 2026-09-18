@@ -39,6 +39,12 @@ export default function HomePage() {
   const rail = rest.slice(0, 4);
   const latest = rest.slice(4, 10);
   const listed = featured ? [featured, ...rest.slice(0, 8)] : rest.slice(0, 9);
+  const categoryRails = categoryList
+    .map((category) => ({
+      category,
+      posts: getPostsByCategory(category.slug),
+    }))
+    .filter(({ posts: categoryPosts }) => categoryPosts.length > 0);
 
   return (
     <PageShell>
@@ -136,11 +142,11 @@ export default function HomePage() {
         ))}
       </nav>
 
-      {categoryList.map((category) => (
+      {categoryRails.map(({ category, posts: categoryPosts }) => (
         <CategoryRail
           key={category.slug}
           category={category}
-          posts={getPostsByCategory(category.slug)}
+          posts={categoryPosts}
         />
       ))}
     </PageShell>
