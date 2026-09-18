@@ -1,0 +1,49 @@
+---
+title: "Cursor não é IA que escreve código. É autocomplete que entende o repo."
+excerpt: "A diferença entre snippet de Stack Overflow e um diff que fecha a issue. Menos chat. Mais contexto do repositório."
+category: apps
+date: "2026-09-08"
+kicker: "Apps · repo, não snippet"
+author: "The Zero"
+---
+
+“IA que escreve código” é a frase que o marketing quer. O que vale é outra: **modelo com o repositório inteiro no colo**, sugerindo o diff certo.
+
+Cursor (e o que vier no mesmo formato) não substitui engenharia. Substitui a ida ao Stack Overflow pra colar uma função fora de contexto.
+
+<Verdict overrated="chat que gera o arquivo do zero" underrated="tab que lê o módulo ao lado" />
+
+## Chat versus tab
+
+Chat é útil quando você não sabe o nome da coisa. “Onde este auth token é validado?”. “Por que este teste quebra quando o clock anda?”.
+
+Tab é útil quando você já sabe e quer velocidade. Completar o mapeamento, o case, o teste espelhado. O modelo viu `lib/posts.ts`. Ele não inventa um `utils` paralelo.
+
+O erro clássico: abrir o chat, pedir “faz um blog em Next”, aceitar 14 arquivos genéricos e passar a tarde desfazendo. Isso não é acelerar. É gerar dívida com boa pontuação.
+
+## O que eu colo no contexto
+
+O mesmo bloco da [matéria de contexto](/noticia/contexto-maior-que-prompt). Adaptado:
+
+- Quem: este repo, App Router, MDX, sem CMS.
+- Objetivo: fechar a issue, não “melhorar a arquitetura”.
+- Não fazer: nova lib, rename cosmético, comentário óbvio.
+- Exemplo bom: o último diff que eu mesmo escrevi.
+
+Aí o pedido específico. Um arquivo. Uma função. Sem “refatora tudo”.
+
+## Copilot, Cursor, o próximo nome
+
+A marca muda. A pergunta não:
+
+1. Ele lê o repo ou só o buffer?
+2. O diff é pequeno o bastante pra você revisar de verdade?
+3. Em 7 dias, você abriu sem lembrar — ou só quando o Twitter lembrou?
+
+Se a resposta for buffer, diff gigante e hype, você tem um gerador de snippet. Trate como tal. Não trate como sênior.
+
+<Rule>
+Menos arquivo gerado. Mais arquivo lido. Se você não revisa o diff, você não programou — você aceitou.
+</Rule>
+
+The Zero.
