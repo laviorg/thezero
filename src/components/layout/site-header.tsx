@@ -65,7 +65,7 @@ export function SiteHeader() {
           <Button
             variant="ghost"
             size="icon"
-            className="h-9 w-9 sm:w-auto sm:px-3"
+            className="h-10 w-10 sm:h-9 sm:w-auto sm:px-3"
             asChild
           >
             <Link
