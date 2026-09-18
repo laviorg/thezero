@@ -19,7 +19,6 @@ import {
 } from "@/lib/posts";
 import {
   articleOgImagePath,
-  assetUrl,
   coverAlt,
   newsRobots,
 } from "@/lib/seo";
@@ -100,7 +99,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         url={pageUrl}
         section={post.categoryLabel}
         author={post.author}
-        image={assetUrl(post.cover)}
+        image={absoluteUrl(articleOgImagePath(post.slug))}
         wordCount={post.wordCount}
         readingMinutes={post.readingMinutes}
         keywords={[

@@ -32,7 +32,7 @@ export function NewsMeta({
       <span className="mx-1.5 text-white/20" aria-hidden>
         /
       </span>
-      <time dateTime={post.date}>{formatShortDate(post.date)}</time>
+      <time dateTime={post.dateIso}>{formatShortDate(post.date)}</time>
       <span className="mx-1.5 text-white/20" aria-hidden>
         /
       </span>

@@ -51,6 +51,7 @@ excerpt: "Uma linha que funciona sozinha no card e no OG."
 category: ia
 date: "2026-09-18"
 featured: false
+featuredPriority: 1
 kicker: "IA · dock"
 author: "The Zero"
 cover: "https://www.apple.com/newsroom/images/.../foto.jpg"
@@ -61,7 +62,7 @@ coverCredit: "Apple / Divulgação"
 
 `category` tem de ser um de: `ia` · `hardware` · `consoles` · `gadgets` · `apps` · `games`.
 
-Opcionais: `updated`, `featured`, `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa), **`coverAlt`** (descrição objetiva da imagem) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
+Opcionais: `updated`, `featured`, `featuredPriority` (desempata vários destaques; maior vence), `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa), **`coverAlt`** (descrição objetiva da imagem) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
 
 Sem `cover`, o card e a matéria seguem só com tipografia — o layout não quebra.
 

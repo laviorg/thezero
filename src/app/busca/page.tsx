@@ -3,7 +3,9 @@ import { SectionHeading } from "@/components/news/section-heading";
 import { PageShell } from "@/components/layout/page-shell";
 import { SearchForm } from "@/components/search/search-form";
 import { categoryList } from "@/lib/categories";
+import { buildPageMetadata } from "@/lib/metadata";
 import { getAllPosts, searchPosts } from "@/lib/posts";
+import { site } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -16,10 +18,17 @@ export async function generateMetadata({
 }: SearchPageProps): Promise<Metadata> {
   const { q } = await searchParams;
   const query = q?.trim();
-  return {
+  const pageMetadata = buildPageMetadata({
     title: query ? `Busca: ${query}` : "Busca",
     description: "Busca no newsroom do The Zero. Título, trecho, editoria.",
-    alternates: { canonical: "/busca" },
+    path: "/busca",
+    noIndex: true,
+    imagePath: "/opengraph-image",
+    imageAlt: `${site.name} — ${site.tagline}`,
+  });
+
+  return {
+    ...pageMetadata,
     robots: { index: false, follow: true, nocache: true },
   };
 }

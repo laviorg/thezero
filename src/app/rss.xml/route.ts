@@ -37,6 +37,7 @@ export function GET() {
       <link>${url}</link>
       <guid isPermaLink="true">${url}</guid>
       <pubDate>${new Date(post.dateIso).toUTCString()}</pubDate>
+      <dc:date>${escapeXml(post.updatedIso)}</dc:date>
       <description>${escapeXml(post.excerpt)}</description>
       <category>${escapeXml(post.categoryLabel)}</category>
       <author>${escapeXml(site.email)} (${escapeXml(post.author)})</author>
@@ -46,12 +47,19 @@ export function GET() {
     .join("\n");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>${escapeXml(site.name)}</title>
     <link>${site.url}</link>
     <description>${escapeXml(site.description)}</description>
     <language>pt-BR</language>
+    <image>
+      <url>${site.url}/icon</url>
+      <title>${escapeXml(site.name)}</title>
+      <link>${site.url}</link>
+      <width>32</width>
+      <height>32</height>
+    </image>
     <lastBuildDate>${built}</lastBuildDate>
     <ttl>60</ttl>
     <copyright>© ${new Date().getFullYear()} ${escapeXml(site.name)}</copyright>

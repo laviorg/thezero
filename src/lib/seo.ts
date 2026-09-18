@@ -14,7 +14,7 @@ export const newsRobots: Metadata["robots"] = {
 };
 
 export function languageAlternate(path = "/") {
-  return { "pt-BR": path } as const;
+  return { "pt-BR": path, "x-default": path } as const;
 }
 
 export function assetUrl(src?: string) {

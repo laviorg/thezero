@@ -1,16 +1,21 @@
 import { PageShell } from "@/components/layout/page-shell";
 import { Wordmark } from "@/components/brand/logo";
-import { BreadcrumbJsonLd } from "@/components/news/json-ld";
+import {
+  AboutPageJsonLd,
+  BreadcrumbJsonLd,
+} from "@/components/news/json-ld";
 import { Breadcrumbs } from "@/components/news/breadcrumbs";
 import { buildPageMetadata } from "@/lib/metadata";
 import { absoluteUrl, site } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const aboutDescription =
+  "The Zero é o canal de tech que mostra o que funciona de verdade — demo na tela, opinião sem filtro, zero hype de lançamento.";
+
 export const metadata: Metadata = buildPageMetadata({
   title: "Sobre",
-  description:
-    "The Zero é o canal de tech que mostra o que funciona de verdade — demo na tela, opinião sem filtro, zero hype de lançamento.",
+  description: aboutDescription,
   path: "/sobre",
   imagePath: "/opengraph-image",
   imageAlt: `${site.name} — ${site.tagline}`,
@@ -19,6 +24,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function AboutPage() {
   return (
     <PageShell width="narrow">
+      <AboutPageJsonLd description={aboutDescription} />
       <BreadcrumbJsonLd
         items={[
           { name: site.name, url: site.url },

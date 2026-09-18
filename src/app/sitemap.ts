@@ -14,7 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: contentFreshness,
       changeFrequency: "daily",
       priority: 1,
-      alternates: { languages: { "pt-BR": site.url } },
+      alternates: {
+        languages: { "pt-BR": site.url, "x-default": site.url },
+      },
     },
     {
       url: `${site.url}/sobre`,
@@ -22,7 +24,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.5,
       alternates: {
-        languages: { "pt-BR": `${site.url}/sobre` },
+        languages: {
+          "pt-BR": `${site.url}/sobre`,
+          "x-default": `${site.url}/sobre`,
+        },
       },
     },
   ];
@@ -35,7 +40,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily" as const,
       priority: 0.8,
       alternates: {
-        languages: { "pt-BR": `${site.url}${category.href}` },
+        languages: {
+          "pt-BR": `${site.url}${category.href}`,
+          "x-default": `${site.url}${category.href}`,
+        },
       },
     };
   });
@@ -48,7 +56,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: post.featured ? 0.9 : 0.7,
       alternates: {
-        languages: { "pt-BR": `${site.url}${post.href}` },
+        languages: {
+          "pt-BR": `${site.url}${post.href}`,
+          "x-default": `${site.url}${post.href}`,
+        },
       },
       ...(image ? { images: [image] } : {}),
     };

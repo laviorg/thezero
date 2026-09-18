@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   }),
   alternates: {
     canonical: "/",
-    languages: { "pt-BR": "/" },
+    languages: { "pt-BR": "/", "x-default": "/" },
     types: {
       "application/rss+xml": "/rss.xml",
     },
