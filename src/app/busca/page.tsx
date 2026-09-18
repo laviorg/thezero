@@ -18,8 +18,8 @@ export async function generateMetadata({
   return {
     title: query ? `Busca: ${query}` : "Busca",
     description: "Busca no newsroom do The Zero. Título, trecho, editoria.",
-    alternates: { canonical: query ? `/busca?q=${encodeURIComponent(query)}` : "/busca" },
-    robots: { index: false, follow: true },
+    alternates: { canonical: "/busca" },
+    robots: { index: false, follow: true, nocache: true },
   };
 }
 

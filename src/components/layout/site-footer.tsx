@@ -51,6 +51,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <a href="/rss.xml" className="hover:text-accent">
+                RSS
+              </a>
+            </li>
+            <li>
               <a
                 href={site.storeUrl}
                 className="hover:text-accent"

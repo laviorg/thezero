@@ -1,18 +1,35 @@
 import { Wordmark } from "@/components/brand/logo";
-import { site } from "@/lib/site";
+import { BreadcrumbJsonLd } from "@/components/news/json-ld";
+import { Breadcrumbs } from "@/components/news/breadcrumbs";
+import { buildPageMetadata } from "@/lib/metadata";
+import { absoluteUrl, site } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Sobre",
   description:
     "The Zero é o canal de tech que mostra o que funciona de verdade — demo na tela, opinião sem filtro, zero hype de lançamento.",
-  alternates: { canonical: "/sobre" },
-};
+  path: "/sobre",
+  imagePath: "/opengraph-image",
+  imageAlt: `${site.name} — ${site.tagline}`,
+});
 
 export default function AboutPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
+      <BreadcrumbJsonLd
+        items={[
+          { name: site.name, url: site.url },
+          { name: "Sobre", url: absoluteUrl("/sobre") },
+        ]}
+      />
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "Newsroom" },
+          { label: "Sobre" },
+        ]}
+      />
       <Wordmark className="mb-8 h-12 w-auto text-fg sm:h-16" />
       <p className="text-[0.7rem] font-medium tracking-[0.22em] text-accent uppercase">
         Sobre · {site.tagline}

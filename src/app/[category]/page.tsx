@@ -1,9 +1,15 @@
 import { ArticleCard } from "@/components/news/article-card";
+import { Breadcrumbs } from "@/components/news/breadcrumbs";
+import {
+  BreadcrumbJsonLd,
+  CollectionPageJsonLd,
+} from "@/components/news/json-ld";
 import { SectionHeading } from "@/components/news/section-heading";
 import { PageShell } from "@/components/layout/page-shell";
 import { categoryList, getCategory, isCategorySlug } from "@/lib/categories";
+import { buildPageMetadata } from "@/lib/metadata";
 import { getPostsByCategory } from "@/lib/posts";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -28,17 +34,13 @@ export async function generateMetadata({
   const title = category.label;
   const description = `${category.label} no The Zero. ${category.description}`;
 
-  return {
+  return buildPageMetadata({
     title,
     description,
-    alternates: { canonical: category.href },
-    openGraph: {
-      title: `${title} · ${site.name}`,
-      description,
-      url: category.href,
-      type: "website",
-    },
-  };
+    path: category.href,
+    imagePath: `/${category.slug}/opengraph-image`,
+    imageAlt: `${category.label} · ${site.name}`,
+  });
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
@@ -51,10 +53,33 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const posts = getPostsByCategory(category.slug);
   const featured = posts[0];
   const rest = posts.slice(1);
+  const pageUrl = absoluteUrl(category.href);
 
   return (
     <PageShell>
+      <CollectionPageJsonLd
+        name={`${category.label} · ${site.name}`}
+        description={`${category.label} no The Zero. ${category.description}`}
+        url={pageUrl}
+        items={posts.map((post) => ({
+          name: post.title,
+          url: absoluteUrl(post.href),
+        }))}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: site.name, url: site.url },
+          { name: category.label, url: pageUrl },
+        ]}
+      />
+
       <header className="max-w-3xl border-b border-white/10 pb-6">
+        <Breadcrumbs
+          items={[
+            { href: "/", label: "Newsroom" },
+            { label: category.label },
+          ]}
+        />
         <p className="text-[0.65rem] font-medium tracking-[0.2em] text-accent uppercase">
           {category.kicker}
         </p>
@@ -81,9 +106,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       ) : (
         <div
           className={
-            rest.length > 0
-              ? "mt-7 grid gap-10 lg:grid-cols-12"
-              : "mt-7"
+            rest.length > 0 ? "mt-7 grid gap-10 lg:grid-cols-12" : "mt-7"
           }
         >
           {featured ? (

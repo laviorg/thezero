@@ -1,4 +1,5 @@
-import { getAllPosts } from "@/lib/posts";
+import { getAllPosts, getLatestModifiedDate } from "@/lib/posts";
+import { assetUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -12,29 +13,49 @@ function escapeXml(value: string) {
     .replaceAll("'", "&apos;");
 }
 
+function imageMime(url: string) {
+  if (url.endsWith(".webp")) return "image/webp";
+  if (url.endsWith(".png")) return "image/png";
+  if (url.endsWith(".gif")) return "image/gif";
+  return "image/jpeg";
+}
+
 export function GET() {
   const posts = getAllPosts();
+  const built = getLatestModifiedDate().toUTCString();
+  const feedUrl = `${site.url}/rss.xml`;
+
   const items = posts
     .map((post) => {
       const url = `${site.url}${post.href}`;
+      const image = assetUrl(post.cover);
+      const media = image
+        ? `<media:content url="${escapeXml(image)}" medium="image" type="${imageMime(image)}" />`
+        : "";
       return `<item>
       <title>${escapeXml(post.title)}</title>
       <link>${url}</link>
-      <guid>${url}</guid>
+      <guid isPermaLink="true">${url}</guid>
       <pubDate>${new Date(post.dateIso).toUTCString()}</pubDate>
       <description>${escapeXml(post.excerpt)}</description>
       <category>${escapeXml(post.categoryLabel)}</category>
+      <author>${escapeXml(site.email)} (${escapeXml(post.author)})</author>
+      ${media}
     </item>`;
     })
     .join("\n");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>${escapeXml(site.name)}</title>
     <link>${site.url}</link>
     <description>${escapeXml(site.description)}</description>
     <language>pt-BR</language>
+    <lastBuildDate>${built}</lastBuildDate>
+    <ttl>60</ttl>
+    <copyright>© ${new Date().getFullYear()} ${escapeXml(site.name)}</copyright>
+    <atom:link href="${feedUrl}" rel="self" type="application/rss+xml"/>
     ${items}
   </channel>
 </rss>`;

@@ -1,6 +1,7 @@
 import { CoverImage } from "@/components/news/cover-image";
 import { NewsMeta } from "@/components/news/news-meta";
 import type { Post } from "@/lib/posts";
+import { coverAlt } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -45,6 +46,7 @@ export function ArticleCard({
 
   const Heading = headingLevel ?? (isLead ? "h1" : isCompact ? "h3" : "h2");
   const kicker = post.kicker ?? post.categoryLabel;
+  const imageAlt = coverAlt(post.title, post.coverCredit);
 
   const coverSizes = isLead
     ? "(min-width: 1152px) 44rem, (min-width: 768px) 60vw, 100vw"
@@ -79,7 +81,7 @@ export function ArticleCard({
           {post.cover ? (
             <CoverImage
               src={post.cover}
-              alt={post.title}
+              alt={imageAlt}
               crop
               zoom
               watermarkSize="compact"
@@ -107,7 +109,7 @@ export function ArticleCard({
           {post.cover ? (
             <CoverImage
               src={post.cover}
-              alt={post.title}
+              alt={imageAlt}
               crop
               zoom
               watermarkSize="micro"
@@ -134,7 +136,7 @@ export function ArticleCard({
         {post.cover ? (
           <CoverImage
             src={post.cover}
-            alt={post.title}
+            alt={imageAlt}
             crop
             priority={isLead}
             watermarkSize={isLead ? "default" : "compact"}
