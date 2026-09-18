@@ -1,6 +1,8 @@
-import type { ReactNode } from "react";
+import { WatermarkedPhoto } from "@/components/brand/photo-watermark";
+import { Children, isValidElement, type ComponentPropsWithoutRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
+import Image from "next/image";
 
 export function Verdict({
   overrated,
@@ -38,9 +40,32 @@ export function Rule({ children }: { children: ReactNode }) {
   );
 }
 
+function MarkdownImage({
+  src,
+  alt,
+}: ComponentPropsWithoutRef<"img">) {
+  if (!src || typeof src !== "string") return null;
+
+  return (
+    <figure className="my-8">
+      <WatermarkedPhoto>
+        <Image
+          src={src}
+          alt={alt ?? ""}
+          width={1600}
+          height={900}
+          className="h-auto w-full"
+          sizes="(min-width: 1024px) 42rem, 100vw"
+        />
+      </WatermarkedPhoto>
+    </figure>
+  );
+}
+
 export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   Verdict,
   Rule,
+  img: MarkdownImage,
   h2: ({ className, ...props }) => (
     <h2
       className={cn(
@@ -59,8 +84,53 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
       {...props}
     />
   ),
-  p: ({ className, ...props }) => (
-    <p className={cn("my-5 text-lg leading-8 text-fg/90", className)} {...props} />
+  p: ({ className, children, ...props }) => {
+    const items = Children.toArray(children).filter((child) =>
+      typeof child === "string" ? child.trim().length > 0 : true,
+    );
+
+    if (
+      items.length === 1 &&
+      isValidElement(items[0]) &&
+      items[0].type === MarkdownImage
+    ) {
+      return items[0];
+    }
+
+    return (
+      <p className={cn("my-5 text-lg leading-8 text-fg/90", className)} {...props}>
+        {children}
+      </p>
+    );
+  },
+  table: ({ className, ...props }) => (
+    <div className="my-8 overflow-x-auto border border-white/10">
+      <table
+        className={cn("w-full min-w-[28rem] text-left text-base", className)}
+        {...props}
+      />
+    </div>
+  ),
+  thead: ({ className, ...props }) => (
+    <thead
+      className={cn(
+        "border-b border-white/10 bg-surface text-sm tracking-wide text-muted uppercase",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  th: ({ className, ...props }) => (
+    <th className={cn("px-4 py-3 font-medium", className)} {...props} />
+  ),
+  td: ({ className, ...props }) => (
+    <td
+      className={cn("border-t border-white/10 px-4 py-3 text-fg/90", className)}
+      {...props}
+    />
+  ),
+  tr: ({ className, ...props }) => (
+    <tr className={cn("even:bg-white/[0.02]", className)} {...props} />
   ),
   a: ({ className, ...props }) => (
     <a

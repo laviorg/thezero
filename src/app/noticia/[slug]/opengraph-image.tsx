@@ -1,4 +1,4 @@
-import { OgWordmark } from "@/components/brand/og-mark";
+import { OgWatermarkBadge, OgWordmark } from "@/components/brand/og-mark";
 import { getPostBySlug } from "@/lib/posts";
 import { site } from "@/lib/site";
 import { ImageResponse } from "next/og";
@@ -17,6 +17,7 @@ export default async function ArticleOpenGraphImage({
 
   const kicker = post?.kicker ?? post?.categoryLabel ?? "The Zero";
   const title = post?.title ?? site.name;
+  const cover = post?.cover;
 
   return new ImageResponse(
     (
@@ -30,17 +31,50 @@ export default async function ArticleOpenGraphImage({
           background: "#0A0A0B",
           color: "#F4F4F5",
           padding: "72px",
+          position: "relative",
         }}
       >
+        {cover ? (
+          <img
+            src={cover}
+            alt=""
+            width={1200}
+            height={630}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: 1200,
+              height: 630,
+              objectFit: "cover",
+            }}
+          />
+        ) : null}
+        {cover ? (
+          <div
+            style={{
+              display: "flex",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: 1200,
+              height: 630,
+              background:
+                "linear-gradient(180deg, rgba(10,10,11,0.35) 0%, rgba(10,10,11,0.15) 40%, rgba(10,10,11,0.82) 100%)",
+            }}
+          />
+        ) : null}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            position: "relative",
           }}
         >
           <div
             style={{
+              display: "flex",
               color: "#7CFFB2",
               fontSize: 22,
               letterSpacing: "0.22em",
@@ -49,20 +83,33 @@ export default async function ArticleOpenGraphImage({
           >
             {kicker}
           </div>
-          <OgWordmark width={168} />
+          {!cover ? <OgWordmark width={168} /> : null}
         </div>
         <div
           style={{
-            fontSize: title.length > 70 ? 52 : 64,
-            fontWeight: 650,
-            lineHeight: 0.95,
-            letterSpacing: "-0.04em",
-            maxWidth: 1040,
+            display: "flex",
+            flexDirection: "column",
+            position: "relative",
+            gap: 20,
           }}
         >
-          {title}
+          <div
+            style={{
+              display: "flex",
+              fontSize: title.length > 70 ? 52 : 64,
+              fontWeight: 650,
+              lineHeight: 0.95,
+              letterSpacing: "-0.04em",
+              maxWidth: 1040,
+            }}
+          >
+            {title}
+          </div>
+          <div style={{ display: "flex", color: "#8B8B93", fontSize: 22 }}>
+            {site.domain}
+          </div>
         </div>
-        <div style={{ color: "#8B8B93", fontSize: 22 }}>{site.domain}</div>
+        <OgWatermarkBadge handle={site.social.instagramHandle} />
       </div>
     ),
     { ...size },

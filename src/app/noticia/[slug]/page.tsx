@@ -1,5 +1,6 @@
 import { ArticleBody } from "@/components/news/article-body";
 import { ArticleCard } from "@/components/news/article-card";
+import { CoverImage } from "@/components/news/cover-image";
 import { NewsArticleJsonLd } from "@/components/news/json-ld";
 import { getCategory } from "@/lib/categories";
 import { formatDate, readingTimeLabel } from "@/lib/format";
@@ -71,6 +72,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         url={absoluteUrl(post.href)}
         section={post.categoryLabel}
         author={post.author}
+        image={post.cover}
       />
 
       <header className="max-w-4xl border-b border-white/10 pb-10">
@@ -95,6 +97,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <span className="mx-2 text-white/20">/</span>
           {readingTimeLabel(post.readingMinutes)}
         </p>
+        {post.cover ? (
+          <CoverImage
+            src={post.cover}
+            alt={post.title}
+            credit={post.coverCredit}
+            priority
+            sizes="(min-width: 896px) 56rem, 100vw"
+            className="mt-8"
+          />
+        ) : null}
       </header>
 
       <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,42rem)_1fr] lg:gap-16">

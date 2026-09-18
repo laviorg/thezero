@@ -1,3 +1,4 @@
+import { CoverImage } from "@/components/news/cover-image";
 import type { Post } from "@/lib/posts";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -16,9 +17,26 @@ export function ArticleCard({
   const isLead = priority === "lead";
   const isCompact = priority === "compact";
 
+  const coverSizes = isLead
+    ? "(min-width: 1152px) 1152px, 100vw"
+    : isCompact
+      ? "(min-width: 1024px) 20rem, 100vw"
+      : "(min-width: 768px) 50vw, 100vw";
+
   return (
     <article className={cn("group", className)}>
       <Link href={post.href} className="flex h-full flex-col outline-none">
+        {post.cover ? (
+          <CoverImage
+            src={post.cover}
+            alt={post.title}
+            crop
+            priority={isLead}
+            watermarkSize={isLead ? "default" : "compact"}
+            sizes={coverSizes}
+            className={cn("mb-4", isLead && "mb-6", isCompact && "mb-3")}
+          />
+        ) : null}
         <p className="text-[0.7rem] font-medium tracking-[0.22em] text-accent uppercase">
           {post.kicker ?? post.categoryLabel}
         </p>

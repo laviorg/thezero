@@ -49,3 +49,12 @@ body {
 .skip-link:focus {
   top: 1rem;
 }
+
+.article-body figure + p:has(> em:only-child) {
+  margin-top: -1.25rem;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--color-muted);
+}

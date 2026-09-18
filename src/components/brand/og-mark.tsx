@@ -51,3 +51,40 @@ export function OgSplitO({
     </svg>
   );
 }
+
+/** Corner badge for generated OG / social images (wordmark + Instagram). */
+export function OgWatermarkBadge({
+  handle = "@hello.the.zero",
+}: {
+  handle?: string;
+}) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        position: "absolute",
+        right: 28,
+        bottom: 28,
+        background: "rgba(10, 10, 11, 0.68)",
+        borderRadius: 999,
+        padding: "8px 16px 8px 14px",
+        border: "1px solid rgba(255, 255, 255, 0.14)",
+      }}
+    >
+      <OgWordmark width={86} />
+      <div
+        style={{
+          display: "flex",
+          color: "#F4F4F5",
+          fontSize: 18,
+          letterSpacing: "0.02em",
+          fontWeight: 500,
+        }}
+      >
+        {handle}
+      </div>
+    </div>
+  );
+}
