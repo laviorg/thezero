@@ -79,9 +79,15 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           pauta no Instagram.
         </p>
       ) : (
-        <div className="mt-7 grid gap-10 lg:grid-cols-12">
+        <div
+          className={
+            rest.length > 0
+              ? "mt-7 grid gap-10 lg:grid-cols-12"
+              : "mt-7"
+          }
+        >
           {featured ? (
-            <div className="lg:col-span-7">
+            <div className={rest.length > 0 ? "lg:col-span-7" : "max-w-3xl"}>
               <ArticleCard
                 post={featured}
                 layout="lead"
@@ -89,27 +95,21 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               />
             </div>
           ) : null}
-          <div className="lg:col-span-5">
-            {rest.length > 0 ? (
-              <>
-                <SectionHeading title="Nesta editoria" as="h2" />
-                <div className="mt-1">
-                  {rest.map((post) => (
-                    <ArticleCard
-                      key={post.slug}
-                      post={post}
-                      layout="stream"
-                      headingLevel="h3"
-                    />
-                  ))}
-                </div>
-              </>
-            ) : (
-              <p className="text-sm text-muted">
-                Primeira matéria desta casa. As próximas entram neste fio.
-              </p>
-            )}
-          </div>
+          {rest.length > 0 ? (
+            <div className="lg:col-span-5">
+              <SectionHeading title="Nesta editoria" as="h2" />
+              <div className="mt-1">
+                {rest.map((post) => (
+                  <ArticleCard
+                    key={post.slug}
+                    post={post}
+                    layout="stream"
+                    headingLevel="h3"
+                  />
+                ))}
+              </div>
+            </div>
+          ) : null}
         </div>
       )}
 

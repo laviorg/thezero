@@ -48,11 +48,13 @@ export function ArticleCard({
 
   const coverSizes = isLead
     ? "(min-width: 1152px) 44rem, (min-width: 768px) 60vw, 100vw"
-    : isPack || isStream || isCompact
-      ? "(min-width: 1024px) 10rem, 30vw"
-      : isRail
-        ? "(min-width: 1024px) 22rem, (min-width: 640px) 50vw, 100vw"
-        : "(min-width: 768px) 50vw, 100vw";
+    : isPack
+      ? "(min-width: 1024px) 22rem, 100vw"
+      : isStream || isCompact
+        ? "(min-width: 1024px) 10rem, 30vw"
+        : isRail
+          ? "(min-width: 1024px) 22rem, (min-width: 640px) 50vw, 100vw"
+          : "(min-width: 768px) 50vw, 100vw";
 
   const titleClass = cn(
     "font-semibold tracking-tight text-fg text-pretty transition-colors duration-200 group-hover:text-accent group-focus-visible:text-accent",
@@ -65,19 +67,15 @@ export function ArticleCard({
     isCompact && "mt-1.5 text-base leading-snug",
   );
 
-  if (isStream || isPack) {
+  if (isPack) {
     return (
       <article
         className={cn(
-          "group border-b border-white/10 last:border-b-0",
-          isPack ? "py-3.5 first:pt-0 last:pb-0" : "py-4 first:pt-0 last:pb-0",
+          "group border-b border-white/10 py-4 first:pt-0 last:border-b-0 last:pb-0",
           className,
         )}
       >
-        <Link
-          href={post.href}
-          className="flex gap-3.5 outline-none sm:gap-4"
-        >
+        <Link href={post.href} className="flex flex-col outline-none">
           {post.cover ? (
             <CoverImage
               src={post.cover}
@@ -86,22 +84,43 @@ export function ArticleCard({
               zoom
               watermarkSize="compact"
               sizes={coverSizes}
-              className={cn(
-                "shrink-0",
-                isPack
-                  ? "w-[5.5rem] sm:w-[6.5rem]"
-                  : "w-[6.75rem] sm:w-40",
-              )}
+              className="mb-2.5"
+            />
+          ) : null}
+          <Kicker>{kicker}</Kicker>
+          <Heading className={titleClass}>{post.title}</Heading>
+          <NewsMeta post={post} className="mt-2" />
+        </Link>
+      </article>
+    );
+  }
+
+  if (isStream) {
+    return (
+      <article
+        className={cn(
+          "group border-b border-white/10 py-4 first:pt-0 last:border-b-0 last:pb-0",
+          className,
+        )}
+      >
+        <Link href={post.href} className="flex gap-4 outline-none">
+          {post.cover ? (
+            <CoverImage
+              src={post.cover}
+              alt={post.title}
+              crop
+              zoom
+              watermarkSize="micro"
+              sizes={coverSizes}
+              className="w-28 shrink-0 sm:w-40"
             />
           ) : null}
           <div className="min-w-0 flex-1">
             <Kicker>{kicker}</Kicker>
             <Heading className={titleClass}>{post.title}</Heading>
-            {isStream ? (
-              <p className="mt-1.5 hidden text-sm leading-5 text-muted text-pretty line-clamp-2 lg:block">
-                {post.excerpt}
-              </p>
-            ) : null}
+            <p className="mt-1.5 hidden text-sm leading-5 text-muted text-pretty line-clamp-2 lg:block">
+              {post.excerpt}
+            </p>
             <NewsMeta post={post} className="mt-2" />
           </div>
         </Link>
