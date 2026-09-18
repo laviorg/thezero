@@ -23,3 +23,5 @@ export function absoluteUrl(path = "/") {
   if (!path || path === "/") return base;
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
+
+// deploy-trigger: slogan removed
