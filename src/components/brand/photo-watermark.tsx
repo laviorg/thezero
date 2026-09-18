@@ -57,7 +57,12 @@ export function WatermarkedPhoto({
   size?: PhotoWatermarkSize;
 }) {
   return (
-    <div className={cn("relative overflow-hidden rounded-md bg-surface", className)}>
+    <div
+      className={cn(
+        "cover-frame relative overflow-hidden rounded-md bg-surface",
+        className,
+      )}
+    >
       {children}
       <PhotoWatermark size={size} />
     </div>

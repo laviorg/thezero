@@ -93,7 +93,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         ]}
       />
 
-      <header className="max-w-3xl border-b border-white/10 pb-5">
+      <header className="newsroom-masthead max-w-4xl border-b border-white/10 border-l border-l-accent/40 pb-5 pl-4 sm:pl-5">
         <Breadcrumbs
           items={[
             { href: "/", label: "Newsroom" },
@@ -122,7 +122,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           pauta no Instagram.
         </p>
       ) : useRail ? (
-        <div className="mt-6 grid gap-7 lg:grid-cols-12 lg:gap-10">
+        <div className="newsroom-lead mt-6 grid gap-7 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-8">
             <ArticleCard post={featured} layout="lead" headingLevel="h2" />
           </div>

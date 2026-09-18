@@ -1,12 +1,16 @@
-import { Wordmark } from "@/components/brand/logo";
+import { SplitOMark, Wordmark } from "@/components/brand/logo";
 import { categoryList } from "@/lib/categories";
 import { site } from "@/lib/site";
 import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-white/10 bg-bg">
-      <div className="shell-frame grid gap-8 py-9 md:grid-cols-12 lg:gap-10">
+    <footer className="relative mt-auto overflow-hidden border-t border-white/10 bg-bg">
+      <SplitOMark
+        className="pointer-events-none absolute -top-16 -right-16 size-72 text-white/[0.018]"
+        aria-hidden
+      />
+      <div className="shell-frame relative grid gap-8 py-10 md:grid-cols-12 lg:gap-10 lg:py-12">
         <div className="md:col-span-5">
           <Link
             href="/"
@@ -47,6 +51,11 @@ export function SiteFooter() {
             Casa
           </p>
           <ul className="mt-3 space-y-1.5 text-sm">
+            <li>
+              <Link href="/" className="hover:text-accent">
+                Newsroom
+              </Link>
+            </li>
             <li>
               <Link href="/sobre" className="hover:text-accent">
                 Sobre
@@ -107,7 +116,13 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} The Zero · {site.domain}
           </p>
-          <p>The Zero.</p>
+          <a
+            href="#conteudo"
+            className="inline-flex items-center gap-1.5 tracking-wide hover:text-accent"
+          >
+            Voltar ao topo
+            <span aria-hidden>↑</span>
+          </a>
         </div>
       </div>
     </footer>

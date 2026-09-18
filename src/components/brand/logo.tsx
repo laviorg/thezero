@@ -5,24 +5,28 @@ import {
   WORDMARK_VIEWBOX,
 } from "@/components/brand/wordmark-paths";
 import { cn } from "@/lib/utils";
+import type { ComponentPropsWithoutRef } from "react";
 
-type BrandSvgProps = {
-  className?: string;
+type BrandSvgProps = ComponentPropsWithoutRef<"svg"> & {
   title?: string;
 };
 
 export function Wordmark({
   className,
   title = "The Zero",
+  ...props
 }: BrandSvgProps) {
+  const hidden = props["aria-hidden"] === true;
+
   return (
     <svg
       viewBox={WORDMARK_VIEWBOX}
-      role="img"
-      aria-label={title}
+      role={hidden ? undefined : "img"}
+      aria-label={hidden ? undefined : title}
       className={cn("h-9 w-auto fill-current", className)}
+      {...props}
     >
-      <title>{title}</title>
+      {hidden ? null : <title>{title}</title>}
       {WORDMARK_PATHS.map((d) => (
         <path key={d} d={d} />
       ))}
@@ -33,15 +37,19 @@ export function Wordmark({
 export function SplitOMark({
   className,
   title = "The Zero",
+  ...props
 }: BrandSvgProps) {
+  const hidden = props["aria-hidden"] === true;
+
   return (
     <svg
       viewBox={MARK_VIEWBOX}
-      role="img"
-      aria-label={title}
+      role={hidden ? undefined : "img"}
+      aria-label={hidden ? undefined : title}
       className={cn("size-8 fill-current", className)}
+      {...props}
     >
-      <title>{title}</title>
+      {hidden ? null : <title>{title}</title>}
       <path d={MARK_PATH} />
     </svg>
   );

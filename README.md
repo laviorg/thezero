@@ -35,7 +35,7 @@ npm run lint
 | `/noticia/[slug]` | Matéria |
 | `/sobre` | Manifesto e regras de voz |
 | `/busca?q=` | Busca no título, trecho e corpo |
-| `/rss.xml` `/sitemap.xml` `/robots.txt` | Syndication e SEO |
+| `/rss.xml` `/sitemap.xml` `/news-sitemap.xml` `/robots.txt` | Syndication e SEO |
 
 O footer tem um link **Loja** para `https://loja.thezero.com.br` (placeholder). Isto não é e-commerce.
 
@@ -54,13 +54,14 @@ featured: false
 kicker: "IA · dock"
 author: "The Zero"
 cover: "https://www.apple.com/newsroom/images/.../foto.jpg"
+coverAlt: "iPhone 18 Pro em quatro cores, visto pela traseira"
 coverCredit: "Apple / Divulgação"
 ---
 ```
 
 `category` tem de ser um de: `ia` · `hardware` · `consoles` · `gadgets` · `apps` · `games`.
 
-Opcionais: `updated`, `featured`, `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
+Opcionais: `updated`, `featured`, `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa), **`coverAlt`** (descrição objetiva da imagem) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
 
 Sem `cover`, o card e a matéria seguem só com tipografia — o layout não quebra.
 
@@ -96,7 +97,7 @@ Arquitetura: `content/posts` → `src/lib/posts.ts` (gray-matter) → páginas e
 
 - `metadata` + `metadataBase` no layout
 - Open Graph / Twitter por página; imagem OG gerada (`opengraph-image`)
-- `sitemap.ts`, `robots.ts`, RSS em `/rss.xml`
+- `sitemap.ts`, Google News sitemap em `/news-sitemap.xml`, `robots.ts` e RSS em `/rss.xml`
 - JSON-LD `NewsMediaOrganization` + `WebSite` no layout; `NewsArticle` em cada matéria
 
 ## Deploy (Vercel + Origin) para thezero.com.br

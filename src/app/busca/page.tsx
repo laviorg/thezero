@@ -32,7 +32,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <PageShell>
-      <div className="max-w-3xl">
+      <div className="max-w-3xl border-l border-l-accent/40 pl-4 sm:pl-5">
         <p className="eyebrow page-kicker">Busca</p>
         <h1 className="page-title mt-2.5 font-semibold text-balance">
           {query ? `Resultados para “${query}”` : "O que você quer cortar o hype."}

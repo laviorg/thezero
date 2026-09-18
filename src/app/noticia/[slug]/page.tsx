@@ -58,7 +58,7 @@ export async function generateMetadata({
 
   return {
     ...base,
-    authors: [{ name: post.author, url: site.url }],
+    authors: [{ name: post.author, url: absoluteUrl("/sobre") }],
     category: post.categoryLabel,
     keywords: [post.categoryLabel, post.kicker, "The Zero"].filter(
       (value): value is string => Boolean(value),
@@ -70,7 +70,7 @@ export async function generateMetadata({
       url,
       publishedTime: post.dateIso,
       modifiedTime: post.updatedIso,
-      authors: [post.author],
+      authors: [absoluteUrl("/sobre")],
       section: post.categoryLabel,
       tags: [post.categoryLabel],
     },
@@ -89,6 +89,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <article>
+      <div className="reading-progress" aria-hidden>
+        <span />
+      </div>
       <NewsArticleJsonLd
         headline={post.title}
         description={post.excerpt}
@@ -100,6 +103,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         image={assetUrl(post.cover)}
         wordCount={post.wordCount}
         readingMinutes={post.readingMinutes}
+        keywords={[
+          post.categoryLabel,
+          ...(post.kicker ? [post.kicker] : []),
+          "tecnologia",
+        ]}
       />
       <BreadcrumbJsonLd
         items={[
@@ -115,7 +123,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             page instead of leaving the right half empty beside the headline. */}
         <div className="grid gap-9 lg:grid-cols-[minmax(0,44rem)_minmax(16rem,1fr)] lg:items-start lg:gap-12 xl:gap-14">
           <div className="min-w-0">
-            <header>
+            <header className="border-l border-l-accent/40 pl-4 sm:pl-5">
               {category ? (
                 <Breadcrumbs
                   items={[
@@ -134,12 +142,25 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 {post.title}
               </h1>
               <p className="lede mt-3.5 text-pretty">{post.excerpt}</p>
-              <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 border-y border-white/10 py-3 text-sm text-muted">
                 <span className="font-medium text-fg">{post.author}</span>
                 <span className="text-white/20" aria-hidden>
                   ·
                 </span>
                 <time dateTime={post.dateIso}>{formatDate(post.date)}</time>
+                {post.updated && post.updated !== post.date ? (
+                  <>
+                    <span className="text-white/20" aria-hidden>
+                      ·
+                    </span>
+                    <span>
+                      Atualizado em{" "}
+                      <time dateTime={post.updatedIso}>
+                        {formatDate(post.updated)}
+                      </time>
+                    </span>
+                  </>
+                ) : null}
                 <span className="text-white/20" aria-hidden>
                   ·
                 </span>
@@ -160,7 +181,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             {post.cover ? (
               <CoverImage
                 src={post.cover}
-                alt={coverAlt(post.title, post.coverCredit)}
+                alt={coverAlt(post.title, post.coverAlt)}
                 credit={post.coverCredit}
                 priority
                 flush
@@ -184,6 +205,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   <Link href={older.href} className="group block">
                     <p className="eyebrow text-muted">Mais antiga</p>
                     <p className="mt-2 font-semibold tracking-tight group-hover:text-accent">
+                      <span aria-hidden>← </span>
                       {older.title}
                     </p>
                   </Link>
@@ -195,6 +217,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <p className="eyebrow text-muted">Mais recente</p>
                     <p className="mt-2 font-semibold tracking-tight group-hover:text-accent">
                       {newer.title}
+                      <span aria-hidden> →</span>
                     </p>
                   </Link>
                 ) : null}
@@ -203,7 +226,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </div>
 
           <aside
-            className="border-t border-white/10 pt-6 lg:sticky lg:top-24 lg:border-t-0 lg:pt-0"
+            className="article-aside p-4 sm:p-5 lg:sticky lg:top-24"
             aria-labelledby="mais-nesta-casa"
           >
             <SectionHeading

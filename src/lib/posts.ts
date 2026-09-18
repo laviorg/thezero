@@ -21,6 +21,7 @@ export type PostFrontmatter = {
   draft?: boolean;
   kicker?: string;
   cover?: string;
+  coverAlt?: string;
   coverCredit?: string;
 };
 
@@ -51,6 +52,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
   }
 
   const cover = typeof data.cover === "string" ? data.cover.trim() : "";
+  const coverAlt = typeof data.coverAlt === "string" ? data.coverAlt.trim() : "";
   const coverCredit =
     typeof data.coverCredit === "string" ? data.coverCredit.trim() : "";
 
@@ -65,6 +67,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     draft: Boolean(data.draft),
     kicker: typeof data.kicker === "string" ? data.kicker : undefined,
     cover: cover || undefined,
+    coverAlt: coverAlt || undefined,
     coverCredit: coverCredit || undefined,
   };
 }

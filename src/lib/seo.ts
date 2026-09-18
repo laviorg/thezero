@@ -33,15 +33,14 @@ export function ogImageMeta(url: string, alt: string) {
   };
 }
 
-export function coverAlt(title: string, credit?: string) {
-  if (credit) return `${title}. ${credit}`;
-  return title;
+export function coverAlt(title: string, customAlt?: string) {
+  return customAlt?.trim() || title;
 }
 
 export function articleOgImagePath(slug: string) {
   return `/noticia/${slug}/opengraph-image`;
 }
 
-export const publisherLogoUrl = `${site.url}/brand/logo-on-light.svg`;
+export const publisherLogoUrl = `${site.url}/apple-icon`;
 export const organizationId = `${site.url}/#organization`;
 export const websiteId = `${site.url}/#website`;

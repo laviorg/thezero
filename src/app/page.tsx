@@ -49,20 +49,24 @@ export default function HomePage() {
           url: absoluteUrl(post.href),
         }))}
       />
-      <div className="flex flex-wrap items-end justify-between gap-3 border-b border-white/10 pb-4">
+      <div className="newsroom-masthead flex flex-wrap items-end justify-between gap-3 border-b border-white/10 pb-4">
         <div>
           <p className="eyebrow page-kicker">Newsroom</p>
           <p className="mt-1 text-sm text-muted">
             {site.tagline} · Brasil
           </p>
         </div>
-        <time className="text-[0.7rem] tracking-wide text-muted uppercase">
-          {formatToday()}
-        </time>
+        <div className="flex items-center gap-2.5 text-[0.7rem] tracking-wide text-muted uppercase">
+          <span>{posts.length} matérias</span>
+          <span className="text-white/20" aria-hidden>
+            /
+          </span>
+          <time>{formatToday()}</time>
+        </div>
       </div>
 
       {featured ? (
-        <section className="grid gap-7 border-b border-white/10 py-6 lg:grid-cols-12 lg:gap-8 xl:gap-10">
+        <section className="newsroom-lead grid gap-7 border-b border-white/10 py-6 lg:grid-cols-12 lg:gap-8 xl:gap-10">
           <div className="lg:col-span-8">
             <ArticleCard post={featured} layout="lead" headingLevel="h1" />
           </div>
