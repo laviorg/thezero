@@ -83,7 +83,7 @@ export function ArticleCard({
             /* Keeps the text edge aligned when a story has no cover. */
             <div
               aria-hidden
-              className="hidden aspect-video w-[5.25rem] shrink-0 items-center justify-center rounded-md bg-surface @min-[17rem]:flex @min-[26rem]:w-[7.5rem]"
+              className="hidden aspect-video w-[5.25rem] shrink-0 items-center justify-center rounded-md border border-white/5 bg-surface @min-[17rem]:flex @min-[26rem]:w-[7.5rem]"
             >
               <SplitOMark className="size-4 text-white/15" />
             </div>

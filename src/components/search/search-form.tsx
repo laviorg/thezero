@@ -26,7 +26,7 @@ export function SearchForm({
         autoFocus={autoFocus}
         placeholder="IA, Cursor, Steam Deck, setup..."
         autoComplete="off"
-        className="border-transparent bg-transparent"
+        className="border-transparent bg-transparent focus-visible:border-transparent"
       />
       <Button type="submit" size="lg" className="px-4">
         <Search />
