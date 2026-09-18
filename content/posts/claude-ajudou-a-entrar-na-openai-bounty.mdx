@@ -1,0 +1,57 @@
+---
+title: "Claude ajudou a achar o buraco na OpenAI. Bounty: US$ 6.500."
+excerpt: "Hacktron usou modelos Claude da Anthropic, reportou, e a OpenAI pagou. A imprensa fala em upload de imagem e SSO — sem receita de invasão neste texto."
+category: ia
+date: "2026-09-18"
+featured: false
+kicker: "IA · segurança"
+author: "The Zero"
+cover: "/images/posts/claude-openai/cover.jpg"
+coverCredit: "The Guardian"
+---
+
+Não foi filme. Foi **bug bounty** com IA no loop — e um cheque de **US$ 6.500**.
+
+A startup de segurança [Hacktron AI](https://www.hacktron.ai/blog/hacking-openai) publicou, em setembro de 2026, o relato responsável de uma pesquisa: em julho, a equipe usou modelos **Claude** da Anthropic para ajudar a mapear um caminho até contas e integrações ligadas a funcionários da OpenAI, demonstrou impacto de forma controlada, parou o teste e reportou. A OpenAI corrigiu o lado dela em cerca de **14 horas** após o report e pagou o bounty. O [Guardian](https://www.theguardian.com/technology/2026/sep/18/openai-hacked-anthropic-claude-chatbot) e a [Forbes](https://www.forbes.com/sites/siladityaray/2026/09/18/security-researchers-hacked-into-openai-using-anthropics-claude/) repercutiram o caso.
+
+![Ilustração / foto de imprensa sobre o caso OpenAI × Claude](/images/posts/claude-openai/cover.jpg)
+
+*The Guardian — crédito da capa. Watermark The Zero é aplicado pelo componente do site; não precisa “assar” na imagem remota.*
+
+<Verdict overrated="“IA hackeou a OpenAI” como meme" underrated="divulgação responsável + patch em horas" />
+
+## O que foi divulgado (alto nível)
+
+Segundo o post da Hacktron e a cobertura da imprensa, a cadeia envolveu, em linhas gerais:
+
+1. **Upload de imagem** no fórum comunitário da OpenAI (plataforma Discourse) — classe de problema no pipeline de processamento de imagem, não um tutorial.
+2. **Falha / misconfiguração de SSO** no lado OpenAI — o que transformou comprometimento do fórum em caminho para contas ChatGPT/Codex de membros ativos, segundo os pesquisadores.
+3. **Prova de impacto limitada**: a equipe descreve ter demonstrado acesso real (incluindo um pull request inofensivo via integração) **sem** vasculhar código sensível, e encerrou o teste ao reportar.
+
+A própria OpenAI, no comentário citado pela Hacktron, esclareceu o escopo do prêmio: o **US$ 6.500** reconhece o achado **do lado OpenAI** (identidade/SSO). Testar o Discourse hospedado em `community.openai.com` estava **fora** do programa de bug bounty. Discourse foi notificado à parte e, segundo o relato, patchou rápido e reforçou isolamento do processamento de imagem.
+
+![Capa / asset do post da Hacktron sobre o caso](/images/posts/claude-openai/hacktron.webp)
+
+*Hacktron AI — asset do blog. Fonte primária do relato.*
+
+## O que isso não é
+
+Não é “IA maligna venceu o laboratório”. É **pesquisa de segurança assistida por modelo**, com humanos no comando, report e correção. Também não é desculpa pra colar PoC em thread: este texto **não** traz passos, payloads nem receita. Quem quiser o detalhe técnico vai ao blog da Hacktron e aos advisories oficiais — e mesmo lá o ponto útil pra empresa média é arquitetura, patch e raio de explosão, não o hobby de reproduzir.
+
+## O que isso diz sobre IA na segurança
+
+A Hacktron resume o óbvio que o mercado ainda trata como hype: o que antes exigia meses de expertise escassa agora cabe em **dias** de compute + time pequeno. Opus mais novo ajudou onde a geração anterior “engasgou”, segundo eles. Defesa precisa atualizar o modelo de ameaça: menos “ninguém vai se dar ao trabalho”, mais **tempo de patch**, **SSO com blast radius curto** e **sandboxes** em tudo que processa arquivo de usuário.
+
+Ironia barata, mas verdadeira: a empresa que vende o futuro da IA foi lembrada — via concorrente Anthropic no toolbox dos pesquisadores — que SSO frouxo e pipeline de imagem ainda são 2014 com rebrand.
+
+<Rule>
+Reporta. Para. Cobra o patch. Não transforma jornalismo em manual. Se a sua stack aceita upload e SSO compartilha sessão com o resto do mundo, o “caso OpenAI” já é o seu checklist.
+</Rule>
+
+## Fontes
+
+- [Hacktron — Hacking OpenAI](https://www.hacktron.ai/blog/hacking-openai)
+- [The Guardian — OpenAI ‘ethically hacked’ with help of Anthropic’s Claude](https://www.theguardian.com/technology/2026/sep/18/openai-hacked-anthropic-claude-chatbot)
+- [Forbes — Security Researchers Hacked Into OpenAI Using Anthropic’s Claude](https://www.forbes.com/sites/siladityaray/2026/09/18/security-researchers-hacked-into-openai-using-anthropics-claude/)
+
+The Zero.
