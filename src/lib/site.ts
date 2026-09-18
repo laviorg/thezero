@@ -10,7 +10,7 @@ export const site = {
   language: "pt-BR",
   tagline: "tech sem hype",
   description:
-    "The Zero é o newsroom de tech do Brasil que mostra o que funciona de verdade — IA, software, hardware, consoles, gadgets e games. Opinião sem filtro, zero hype de lançamento.",
+    "The Zero é o newsroom de tech do Brasil que mostra o que funciona de verdade — IA, computadores, dispositivos, aplicativos e jogos. Opinião sem filtro, zero hype de lançamento.",
   bio: "tech sem hype · demos, opinião, setup. O que funciona de verdade — e o que não.",
   email: "redacao@thezero.com.br",
   social: {

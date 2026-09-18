@@ -1,5 +1,11 @@
 import { categoryList } from "@/lib/categories";
-import { getAllPosts, getLatestModifiedDate, getPostsByCategory } from "@/lib/posts";
+import {
+  getActiveSubcategories,
+  getAllPosts,
+  getLatestModifiedDate,
+  getPostsByCategory,
+  getPostsBySubcategory,
+} from "@/lib/posts";
 import { assetUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 import type { MetadataRoute } from "next";
@@ -48,6 +54,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
+  const subcategories = getActiveSubcategories().map((subcategory) => {
+    const latest = getPostsBySubcategory(
+      subcategory.parent,
+      subcategory.slug,
+    )[0];
+    return {
+      url: `${site.url}${subcategory.href}`,
+      lastModified: latest ? new Date(latest.updatedIso) : contentFreshness,
+      changeFrequency: "daily" as const,
+      priority: 0.7,
+      alternates: {
+        languages: {
+          "pt-BR": `${site.url}${subcategory.href}`,
+          "x-default": `${site.url}${subcategory.href}`,
+        },
+      },
+    };
+  });
+
   const postEntries = posts.map((post) => {
     const image = assetUrl(post.cover);
     return {
@@ -65,5 +90,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticEntries, ...categories, ...postEntries];
+  return [...staticEntries, ...categories, ...subcategories, ...postEntries];
 }

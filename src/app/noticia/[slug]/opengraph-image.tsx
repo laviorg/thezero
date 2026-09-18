@@ -21,7 +21,11 @@ export default async function ArticleOpenGraphImage({
   const { slug } = await params;
   const post = getPostBySlug(slug);
 
-  const kicker = post?.kicker ?? post?.categoryLabel ?? "The Zero";
+  const kicker =
+    post?.kicker ??
+    post?.subcategoryLabel ??
+    post?.categoryLabel ??
+    "The Zero";
   const title = post?.title ?? site.name;
   const cover =
     post?.cover?.toLowerCase().endsWith(".webp")
