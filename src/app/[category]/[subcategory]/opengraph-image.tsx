@@ -24,7 +24,7 @@ export default async function SubcategoryOpenGraphImage({
   const category = getCategory(categorySlug);
   const subcategory = getSubcategory(categorySlug, subcategorySlug);
   const label = subcategory?.label ?? site.name;
-  const kicker = category?.label ?? site.tagline;
+  const kicker = category?.label ?? site.name;
 
   return new ImageResponse(
     (

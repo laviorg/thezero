@@ -19,7 +19,7 @@ export default async function CategoryOpenGraphImage({
   const { category: slug } = await params;
   const category = getCategory(slug);
   const label = category?.label ?? site.name;
-  const kicker = category?.kicker ?? site.tagline;
+  const kicker = category?.kicker ?? site.name;
 
   return new ImageResponse(
     (

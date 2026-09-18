@@ -1,17 +1,12 @@
-const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://thezero.com.br"
-).replace(/\/$/, "");
-
 export const site = {
   name: "The Zero",
   domain: "thezero.com.br",
-  url: siteUrl,
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://thezero.com.br",
   locale: "pt_BR",
   language: "pt-BR",
-  tagline: "tech sem hype",
   description:
     "The Zero é o newsroom de tech do Brasil que mostra o que funciona de verdade — tecnologia, IA, computadores, dispositivos, aplicativos e jogos. Opinião sem filtro, zero hype de lançamento.",
-  bio: "tech sem hype · demos, opinião, setup. O que funciona de verdade — e o que não.",
+  bio: "Demos, opinião, setup. O que funciona de verdade — e o que não.",
   email: "redacao@thezero.com.br",
   social: {
     instagram: "https://www.instagram.com/hello.the.zero/",
@@ -24,6 +19,9 @@ export const site = {
 } as const;
 
 export function absoluteUrl(path = "/") {
-  if (!path || path === "/") return site.url;
-  return `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
+  const base = site.url.replace(/\/$/, "");
+  if (!path || path === "/") return base;
+  return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
+
+// deploy-trigger: slogan removed

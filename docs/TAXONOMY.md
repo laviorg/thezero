@@ -32,7 +32,7 @@ editorias específicas resolver a pauta, ela tem prioridade.
 
 A decisão combina:
 
-1. inventário dos 18 MDX publicados;
+1. inventário dos 19 MDX publicados;
 2. teste de exclusividade: dois editores devem chegar à mesma editoria olhando
    para a tese, não apenas para as marcas citadas;
 3. teste de escala: uma editoria deve continuar compreensível com centenas de
@@ -57,7 +57,7 @@ descrevem como a pauta foi feita, não sobre o que ela trata.
 
 O conjunto plano era `ia`, `hardware`, `consoles`, `gadgets`, `apps` e `games`.
 No arquivo anterior havia 5 matérias em IA, 2 em Hardware, 1 em Consoles, 3 em
-Gadgets, 3 em Apps e 4 em Games.
+Gadgets, 3 em Apps e 5 em Games.
 
 Problemas:
 
@@ -179,6 +179,7 @@ conectividade, nuvem, energia e data centers em geral ficam em
 | Arquivo | Categoria anterior | Nova classificação |
 | --- | --- | --- |
 | `twd-streets-of-survival-day-one.mdx` | Games | Jogos / Lançamentos |
+| `xbox-tgs-sale-re4-49.mdx` | Games | Jogos / Lojas e assinaturas |
 | `iphone-18-pro-brasil-hoje-preco.mdx` | Gadgets | Dispositivos / Celulares |
 | `s25-ultra-200mp-ninguem-usa.mdx` | Gadgets | Dispositivos / Celulares |
 | `lancamento-e-trailer-jogo-e-o-patch.mdx` | Games | Jogos / Lançamentos |
@@ -197,7 +198,7 @@ conectividade, nuvem, energia e data centers em geral ficam em
 | `tres-ias-que-uso-duas-que-parei.mdx` | IA | IA / Ferramentas |
 | `switch-2-hype-vs-frame-rate.mdx` | Consoles | Jogos / Consoles e portáteis |
 
-Todos os 18 posts recebem `subcategory`. Só frontmatter e kickers que
+Todos os 19 posts recebem `subcategory`. Só frontmatter e kickers que
 funcionavam como rótulo editorial foram alterados; o corpo das matérias foi
 preservado.
 
@@ -247,6 +248,6 @@ matérias.
   volume justificar, deve virar um campo `format`, não competir com `category`.
 - **Mobile ou Tecnologia pessoal:** o primeiro volta ao inglês; o segundo é
   menos direto para busca e não acomoda bem TV e casa conectada.
-- **Tags livres desde já:** com 18 textos, aumentariam sinônimos e erros sem
+- **Tags livres desde já:** com 19 textos, aumentariam sinônimos e erros sem
   melhorar navegação. O modelo tipado pode ganhar tags controladas quando
   houver volume e uma regra de uso.

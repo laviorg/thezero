@@ -1,50 +1,26 @@
-import { PageShell } from "@/components/layout/page-shell";
 import { Wordmark } from "@/components/brand/logo";
-import {
-  AboutPageJsonLd,
-  BreadcrumbJsonLd,
-} from "@/components/news/json-ld";
-import { Breadcrumbs } from "@/components/news/breadcrumbs";
-import { buildPageMetadata } from "@/lib/metadata";
-import { absoluteUrl, site } from "@/lib/site";
+import { site } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const aboutDescription =
-  "The Zero é o canal de tech que mostra o que funciona de verdade — demo na tela, opinião sem filtro, zero hype de lançamento.";
-
-export const metadata: Metadata = buildPageMetadata({
+export const metadata: Metadata = {
   title: "Sobre",
-  description: aboutDescription,
-  path: "/sobre",
-  imagePath: "/opengraph-image",
-  imageAlt: `${site.name} — ${site.tagline}`,
-});
+  description:
+    "The Zero é o canal de tech que mostra o que funciona de verdade — demo na tela, opinião sem filtro, zero hype de lançamento.",
+  alternates: { canonical: "/sobre" },
+};
 
 export default function AboutPage() {
   return (
-    <PageShell width="narrow">
-      <AboutPageJsonLd description={aboutDescription} />
-      <BreadcrumbJsonLd
-        items={[
-          { name: site.name, url: site.url },
-          { name: "Sobre", url: absoluteUrl("/sobre") },
-        ]}
-      />
-      <Breadcrumbs
-        items={[
-          { href: "/", label: "Newsroom" },
-          { label: "Sobre" },
-        ]}
-      />
-      <Wordmark className="mb-6 h-11 w-auto text-fg sm:h-14" />
-      <p className="eyebrow page-kicker">
-        Sobre · {site.tagline}
+    <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 sm:py-16">
+      <Wordmark className="mb-10 h-16 w-auto text-fg sm:h-20" />
+      <p className="text-[0.7rem] font-medium tracking-[0.22em] text-accent uppercase">
+        Sobre
       </p>
-      <h1 className="page-title mt-3 font-semibold text-balance">
+      <h1 className="mt-4 text-[clamp(2.4rem,7vw,4.6rem)] font-semibold leading-[0.94] tracking-tight text-balance">
         Se não dá pra testar, medir ou discordar em 40 segundos, não entra.
       </h1>
-      <div className="mt-8 space-y-5 text-[1.02rem] leading-7 text-fg/90">
+      <div className="mt-10 space-y-6 text-lg leading-8 text-fg/90">
         <p>
           The Zero é o newsroom de tech do Brasil pra quem já passou do unboxing
           emocional. Tecnologia, IA, computadores, dispositivos, aplicativos e
@@ -78,9 +54,9 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <section className="mt-12 border-t border-white/10 pt-8">
-        <h2 className="text-[1.35rem] font-semibold tracking-tight">Cinco regras de voz</h2>
-        <ol className="mt-5 list-decimal space-y-4 pl-5 text-base leading-7 text-fg/90">
+      <section className="mt-14 border-t border-white/10 pt-10">
+        <h2 className="text-2xl font-semibold tracking-tight">Cinco regras de voz</h2>
+        <ol className="mt-6 list-decimal space-y-4 pl-5 text-base leading-7 text-fg/90">
           <li>
             <strong className="text-fg">Opinião clara em 1 frase</strong> no
             gancho. Sem “vamos falar sobre…”.
@@ -104,7 +80,7 @@ export default function AboutPage() {
         </ol>
       </section>
 
-      <p className="mt-10 text-muted">
+      <p className="mt-12 text-muted">
         Pauta, correção, parceria:{" "}
         <a className="text-accent" href={`mailto:${site.email}`}>
           {site.email}
@@ -115,6 +91,6 @@ export default function AboutPage() {
         </Link>
         .
       </p>
-    </PageShell>
+    </div>
   );
 }
