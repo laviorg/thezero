@@ -7,10 +7,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/busca", "/busca/"],
       },
     ],
-    sitemap: `${site.url}/sitemap.xml`,
+    sitemap: [`${site.url}/sitemap.xml`, `${site.url}/news-sitemap.xml`],
     host: site.domain,
   };
 }

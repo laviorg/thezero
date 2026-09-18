@@ -18,9 +18,11 @@ export type PostFrontmatter = {
   updated?: string;
   author?: string;
   featured?: boolean;
+  featuredPriority?: number;
   draft?: boolean;
   kicker?: string;
   cover?: string;
+  coverAlt?: string;
   coverCredit?: string;
 };
 
@@ -51,6 +53,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
   }
 
   const cover = typeof data.cover === "string" ? data.cover.trim() : "";
+  const coverAlt = typeof data.coverAlt === "string" ? data.coverAlt.trim() : "";
   const coverCredit =
     typeof data.coverCredit === "string" ? data.coverCredit.trim() : "";
 
@@ -62,9 +65,15 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     updated: typeof data.updated === "string" ? data.updated : undefined,
     author: typeof data.author === "string" ? data.author : undefined,
     featured: Boolean(data.featured),
+    featuredPriority:
+      typeof data.featuredPriority === "number" &&
+      Number.isFinite(data.featuredPriority)
+        ? data.featuredPriority
+        : undefined,
     draft: Boolean(data.draft),
     kicker: typeof data.kicker === "string" ? data.kicker : undefined,
     cover: cover || undefined,
+    coverAlt: coverAlt || undefined,
     coverCredit: coverCredit || undefined,
   };
 }
@@ -130,7 +139,15 @@ export function getPostsByCategory(category: CategorySlug): Post[] {
 
 export function getFeaturedPost(): Post | undefined {
   const posts = getAllPosts();
-  return posts.find((post) => post.featured) ?? posts[0];
+  const featured = posts
+    .filter((post) => post.featured)
+    .sort(
+      (a, b) =>
+        (b.featuredPriority ?? 0) - (a.featuredPriority ?? 0) ||
+        b.dateIso.localeCompare(a.dateIso) ||
+        a.slug.localeCompare(b.slug),
+    );
+  return featured[0] ?? posts[0];
 }
 
 export function getRelatedPosts(post: Post, limit = 3): Post[] {

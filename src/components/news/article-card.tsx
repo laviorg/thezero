@@ -55,7 +55,7 @@ export function ArticleCard({
 
   const Heading = headingLevel ?? (isLead ? "h1" : isCompact ? "h3" : "h2");
   const kicker = post.kicker ?? post.categoryLabel;
-  const imageAlt = coverAlt(post.title, post.coverCredit);
+  const imageAlt = coverAlt(post.title, post.coverAlt);
 
   const linkTitle =
     "font-semibold tracking-tight text-fg text-pretty transition-colors duration-200 group-hover:text-accent group-focus-visible:text-accent";
@@ -63,8 +63,9 @@ export function ArticleCard({
   if (isRow) {
     return (
       <article
+        data-layout={variant}
         className={cn(
-          "group @container border-b border-white/10 py-3.5 first:pt-0 last:border-b-0 last:pb-0",
+          "article-card group @container border-b border-white/10 py-3.5 first:pt-0 last:border-b-0 last:pb-0",
           className,
         )}
       >
@@ -97,6 +98,9 @@ export function ArticleCard({
               )}
             >
               {post.title}
+              <span className="card-arrow" aria-hidden>
+                ↗
+              </span>
             </Heading>
             <p className="mt-1 hidden text-[0.9rem] leading-5 text-muted text-pretty line-clamp-2 @min-[30rem]:block">
               {post.excerpt}
@@ -109,7 +113,10 @@ export function ArticleCard({
   }
 
   return (
-    <article className={cn("group @container", className)}>
+    <article
+      data-layout={variant}
+      className={cn("article-card group @container", className)}
+    >
       <Link href={post.href} className="flex h-full flex-col outline-none">
         {post.cover ? (
           <CoverImage
@@ -134,6 +141,9 @@ export function ArticleCard({
           )}
         >
           {post.title}
+          <span className="card-arrow" aria-hidden>
+            ↗
+          </span>
         </Heading>
         <p
           className={cn(

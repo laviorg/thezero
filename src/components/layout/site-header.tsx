@@ -45,20 +45,38 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-bg/92 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-bg/90 shadow-[0_8px_32px_rgba(0,0,0,0.22)] backdrop-blur-xl">
       <div className="shell-frame flex h-11 items-center justify-between gap-4 sm:h-12">
-        <Link
-          href="/"
-          className="flex items-center text-fg outline-none"
-          aria-label="The Zero — newsroom"
-        >
-          <Wordmark className="h-[1.65rem] w-auto sm:h-7" />
-        </Link>
+        <div className="flex min-w-0 items-center gap-3">
+          <Link
+            href="/"
+            className="flex shrink-0 items-center text-fg outline-none transition-colors hover:text-accent"
+            aria-label="The Zero — newsroom"
+          >
+            <Wordmark className="h-[1.65rem] w-auto sm:h-7" />
+          </Link>
+          <span className="hidden h-4 w-px bg-white/15 sm:block" aria-hidden />
+          <span className="hidden truncate text-[0.65rem] font-medium tracking-[0.17em] text-muted uppercase sm:block">
+            {site.tagline}
+          </span>
+        </div>
 
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="/busca" aria-label="Buscar matérias">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-10 w-10 sm:h-9 sm:w-auto sm:px-3"
+            asChild
+          >
+            <Link
+              href="/busca"
+              aria-label="Buscar matérias"
+              aria-current={pathname === "/busca" ? "page" : undefined}
+            >
               <Search />
+              <span className="hidden text-[0.7rem] tracking-[0.13em] uppercase sm:inline">
+                Buscar
+              </span>
             </Link>
           </Button>
           <Sheet>
@@ -134,9 +152,9 @@ export function SiteHeader() {
 
       <nav
         aria-label="Editorias"
-        className="hidden border-t border-white/10 md:block"
+        className="hidden border-t border-white/[0.08] md:block"
       >
-        <div className="shell-frame flex items-center gap-5 overflow-x-auto">
+        <div className="shell-frame flex items-center gap-6 overflow-x-auto">
           {editorias.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(`${item.href}/`);

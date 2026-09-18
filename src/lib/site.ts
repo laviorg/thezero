@@ -1,7 +1,11 @@
+const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://thezero.com.br"
+).replace(/\/$/, "");
+
 export const site = {
   name: "The Zero",
   domain: "thezero.com.br",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://thezero.com.br",
+  url: siteUrl,
   locale: "pt_BR",
   language: "pt-BR",
   tagline: "tech sem hype",
@@ -20,7 +24,6 @@ export const site = {
 } as const;
 
 export function absoluteUrl(path = "/") {
-  const base = site.url.replace(/\/$/, "");
-  if (!path || path === "/") return base;
-  return `${base}${path.startsWith("/") ? path : `/${path}`}`;
+  if (!path || path === "/") return site.url;
+  return `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
 }

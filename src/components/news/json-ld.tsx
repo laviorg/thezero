@@ -22,8 +22,8 @@ const publisher = {
   logo: {
     "@type": "ImageObject" as const,
     url: publisherLogoUrl,
-    width: 112,
-    height: 48,
+    width: 180,
+    height: 180,
   },
 };
 
@@ -63,11 +63,6 @@ export function WebsiteJsonLd() {
         description: site.description,
         inLanguage: site.language,
         publisher: { "@id": organizationId },
-        potentialAction: {
-          "@type": "SearchAction",
-          target: `${site.url}/busca?q={search_term_string}`,
-          "query-input": "required name=search_term_string",
-        },
       }}
     />
   );
@@ -84,6 +79,7 @@ export function NewsArticleJsonLd({
   image,
   wordCount,
   readingMinutes,
+  keywords,
 }: {
   headline: string;
   description: string;
@@ -92,10 +88,16 @@ export function NewsArticleJsonLd({
   url: string;
   section: string;
   author: string;
-  image?: string;
+  image: string;
   wordCount?: number;
   readingMinutes?: number;
+  keywords?: string[];
 }) {
+  const articleAuthor =
+    author === site.defaultAuthor
+      ? { "@id": organizationId }
+      : { "@type": "Person" as const, name: author };
+
   return (
     <JsonLd
       data={{
@@ -107,8 +109,18 @@ export function NewsArticleJsonLd({
         dateModified,
         inLanguage: site.language,
         articleSection: section,
+        ...(keywords?.length ? { keywords } : {}),
         isAccessibleForFree: true,
-        ...(image ? { image: [image] } : {}),
+        image: [
+          {
+            "@type": "ImageObject",
+            url: image,
+            width: 1200,
+            height: 630,
+            caption: headline,
+          },
+        ],
+        thumbnailUrl: image,
         ...(wordCount ? { wordCount } : {}),
         ...(readingMinutes
           ? { timeRequired: `PT${readingMinutes}M` }
@@ -117,11 +129,8 @@ export function NewsArticleJsonLd({
           "@type": "WebPage",
           "@id": url,
         },
-        author: {
-          "@type": "Organization",
-          name: author,
-          url: site.url,
-        },
+        isPartOf: { "@id": websiteId },
+        author: articleAuthor,
         publisher,
         url,
       }}
@@ -177,6 +186,7 @@ export function ItemListJsonLd({
         "@context": "https://schema.org",
         "@type": "ItemList",
         name,
+        isPartOf: { "@id": websiteId },
         itemListOrder: "https://schema.org/ItemListOrderDescending",
         numberOfItems: items.length,
         itemListElement: items.map((item, index) => ({
@@ -185,6 +195,24 @@ export function ItemListJsonLd({
           url: item.url,
           name: item.name,
         })),
+      }}
+    />
+  );
+}
+
+export function AboutPageJsonLd({ description }: { description: string }) {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "@id": `${site.url}/sobre#webpage`,
+        url: `${site.url}/sobre`,
+        name: `Sobre · ${site.name}`,
+        description,
+        inLanguage: site.language,
+        isPartOf: { "@id": websiteId },
+        publisher: { "@id": organizationId },
       }}
     />
   );

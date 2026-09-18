@@ -36,7 +36,13 @@ export function CoverImage({
   const badge = watermarkSize ?? (crop ? "compact" : "default");
 
   return (
-    <figure className={cn("block", className)}>
+    <figure
+      className={cn(
+        "reveal-media block",
+        priority && "reveal-immediate",
+        className,
+      )}
+    >
       <WatermarkedPhoto
         size={badge}
         className={cn(

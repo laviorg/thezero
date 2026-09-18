@@ -13,7 +13,7 @@ export function SearchForm({
     <form
       action="/busca"
       role="search"
-      className="flex w-full gap-2 border border-white/10 bg-surface/60 p-2 transition-colors focus-within:border-accent/70"
+      className="flex w-full gap-2 rounded-lg border border-white/10 bg-surface/60 p-2 shadow-[0_16px_48px_rgba(0,0,0,0.18)] transition-colors focus-within:border-accent/70"
     >
       <label htmlFor="q" className="sr-only">
         Buscar matérias

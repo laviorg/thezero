@@ -1,5 +1,5 @@
 import { OgWatermarkBadge, OgWordmark } from "@/components/brand/og-mark";
-import { getPostBySlug } from "@/lib/posts";
+import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { assetUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { ImageResponse } from "next/og";
@@ -7,6 +7,11 @@ import { ImageResponse } from "next/og";
 export const alt = site.name;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getAllPosts().map((post) => ({ slug: post.slug }));
+}
 
 export default async function ArticleOpenGraphImage({
   params,
@@ -18,7 +23,10 @@ export default async function ArticleOpenGraphImage({
 
   const kicker = post?.kicker ?? post?.categoryLabel ?? "The Zero";
   const title = post?.title ?? site.name;
-  const cover = assetUrl(post?.cover);
+  const cover =
+    post?.cover?.toLowerCase().endsWith(".webp")
+      ? undefined
+      : assetUrl(post?.cover);
 
   return new ImageResponse(
     (

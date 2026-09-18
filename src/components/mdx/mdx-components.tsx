@@ -47,7 +47,7 @@ function MarkdownImage({
   if (!src || typeof src !== "string") return null;
 
   return (
-    <figure className="my-7">
+    <figure className="reveal-media my-7">
       <WatermarkedPhoto>
         <Image
           src={src}
