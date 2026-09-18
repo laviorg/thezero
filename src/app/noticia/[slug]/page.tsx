@@ -135,7 +135,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <ArticleCard
                 key={item.slug}
                 post={item}
-                layout="pack"
+                layout="stream"
                 headingLevel="h3"
               />
             ))}
