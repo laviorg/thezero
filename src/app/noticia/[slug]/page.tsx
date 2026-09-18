@@ -2,6 +2,7 @@ import { ArticleBody } from "@/components/news/article-body";
 import { ArticleCard } from "@/components/news/article-card";
 import { CoverImage } from "@/components/news/cover-image";
 import { NewsArticleJsonLd } from "@/components/news/json-ld";
+import { SectionHeading } from "@/components/news/section-heading";
 import { getCategory } from "@/lib/categories";
 import { formatDate, readingTimeLabel } from "@/lib/format";
 import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/posts";
@@ -63,7 +64,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const related = getRelatedPosts(post);
 
   return (
-    <article className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+    <article className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-10">
       <NewsArticleJsonLd
         headline={post.title}
         description={post.excerpt}
@@ -75,49 +76,68 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         image={post.cover}
       />
 
-      <header className="max-w-4xl border-b border-white/10 pb-10">
+      <header className="max-w-3xl">
         {category && (
           <Link
             href={category.href}
-            className="text-[0.7rem] font-medium tracking-[0.22em] text-accent uppercase"
+            className="text-[0.65rem] font-medium tracking-[0.2em] text-accent uppercase"
           >
             {post.kicker ?? category.label}
           </Link>
         )}
-        <h1 className="mt-4 text-[clamp(2.2rem,6.5vw,4.8rem)] font-semibold leading-[0.94] tracking-tight text-balance">
+        <h1 className="mt-3 text-[clamp(1.7rem,5.2vw,3.15rem)] font-semibold leading-[1.08] tracking-tight text-balance">
           {post.title}
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-muted text-pretty sm:text-xl">
+        <p className="mt-4 max-w-2xl text-[1.05rem] leading-7 text-muted text-pretty sm:text-lg sm:leading-8">
           {post.excerpt}
         </p>
-        <p className="mt-6 text-sm text-muted">
-          <span className="text-fg">{post.author}</span>
-          <span className="mx-2 text-white/20">/</span>
+        <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+          <span className="font-medium text-fg">{post.author}</span>
+          <span className="text-white/20" aria-hidden>
+            ·
+          </span>
           <time dateTime={post.date}>{formatDate(post.date)}</time>
-          <span className="mx-2 text-white/20">/</span>
-          {readingTimeLabel(post.readingMinutes)}
-        </p>
-        {post.cover ? (
-          <CoverImage
-            src={post.cover}
-            alt={post.title}
-            credit={post.coverCredit}
-            priority
-            sizes="(min-width: 896px) 56rem, 100vw"
-            className="mt-8"
-          />
-        ) : null}
+          <span className="text-white/20" aria-hidden>
+            ·
+          </span>
+          <span>{readingTimeLabel(post.readingMinutes)}</span>
+          {category ? (
+            <>
+              <span className="text-white/20" aria-hidden>
+                ·
+              </span>
+              <Link href={category.href} className="hover:text-accent">
+                {category.label}
+              </Link>
+            </>
+          ) : null}
+        </div>
       </header>
 
-      <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,42rem)_1fr] lg:gap-16">
+      {post.cover ? (
+        <CoverImage
+          src={post.cover}
+          alt={post.title}
+          credit={post.coverCredit}
+          priority
+          flush
+          sizes="(min-width: 896px) 56rem, 100vw"
+          className="mt-6 -mx-4 max-w-4xl sm:mx-0 sm:mt-8"
+        />
+      ) : null}
+
+      <div className="mt-8 grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,42rem)_1fr] lg:gap-14">
         <ArticleBody source={post.content} />
-        <aside className="lg:pt-4">
-          <p className="text-[0.7rem] tracking-[0.2em] text-muted uppercase">
-            Mais nesta casa
-          </p>
-          <div className="mt-6 space-y-8">
+        <aside className="lg:pt-1">
+          <SectionHeading title="Mais nesta casa" as="h2" />
+          <div className="mt-1">
             {related.map((item) => (
-              <ArticleCard key={item.slug} post={item} priority="compact" />
+              <ArticleCard
+                key={item.slug}
+                post={item}
+                layout="stream"
+                headingLevel="h3"
+              />
             ))}
           </div>
         </aside>

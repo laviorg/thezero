@@ -16,6 +16,7 @@
 html {
   color-scheme: dark;
   background: var(--color-bg);
+  scroll-padding-top: 6.5rem;
 }
 
 body {
@@ -50,11 +51,32 @@ body {
   top: 1rem;
 }
 
+.article-body {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--color-fg) 92%, transparent);
+}
+
+@media (min-width: 640px) {
+  .article-body {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+}
+
 .article-body figure + p:has(> em:only-child) {
-  margin-top: -1.25rem;
-  margin-bottom: 2rem;
+  margin-top: -0.85rem;
+  margin-bottom: 1.75rem;
   font-size: 0.875rem;
   line-height: 1.5;
   font-style: italic;
   color: var(--color-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-zoom,
+  .group:hover .cover-zoom {
+    transform: none;
+    transition: none;
+  }
 }

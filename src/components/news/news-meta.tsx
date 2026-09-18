@@ -1,0 +1,42 @@
+import { formatShortDate } from "@/lib/format";
+import type { Post } from "@/lib/posts";
+import { cn } from "@/lib/utils";
+
+export function NewsMeta({
+  post,
+  className,
+  showAuthor = false,
+}: {
+  post: Post;
+  className?: string;
+  showAuthor?: boolean;
+}) {
+  return (
+    <p
+      className={cn(
+        "text-[0.68rem] tracking-wide text-muted uppercase",
+        className,
+      )}
+    >
+      {showAuthor ? (
+        <>
+          <span className="text-fg/85 normal-case tracking-normal">
+            {post.author}
+          </span>
+          <span className="mx-1.5 text-white/20" aria-hidden>
+            /
+          </span>
+        </>
+      ) : null}
+      {post.categoryLabel}
+      <span className="mx-1.5 text-white/20" aria-hidden>
+        /
+      </span>
+      <time dateTime={post.date}>{formatShortDate(post.date)}</time>
+      <span className="mx-1.5 text-white/20" aria-hidden>
+        /
+      </span>
+      {post.readingMinutes} min
+    </p>
+  );
+}

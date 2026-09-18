@@ -20,6 +20,18 @@ export function formatShortDate(iso: string) {
   return shortDateFormatter.format(new Date(`${iso}T12:00:00-03:00`));
 }
 
+const todayFormatter = new Intl.DateTimeFormat("pt-BR", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "America/Sao_Paulo",
+});
+
+export function formatToday(date = new Date()) {
+  return todayFormatter.format(date);
+}
+
 export function toIsoDate(iso: string) {
   return `${iso}T08:00:00-03:00`;
 }
