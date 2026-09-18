@@ -4,6 +4,7 @@ export const CATEGORY_SLUGS = [
   "consoles",
   "gadgets",
   "apps",
+  "games",
 ] as const;
 
 export type CategorySlug = (typeof CATEGORY_SLUGS)[number];
@@ -56,6 +57,14 @@ export const categories: Record<CategorySlug, Category> = {
     description:
       "Software que você abre sem lembrar. O resto vai pra lixeira em 7 dias.",
     kicker: "7 dias sem abrir = fora",
+  },
+  games: {
+    slug: "games",
+    label: "Games",
+    href: "/games",
+    description:
+      "Jogo, patch, loja, indústria. PC, mobile, software de console. Esports só com número. Plataforma fica em Consoles.",
+    kicker: "Patch, não trailer",
   },
 };
 
