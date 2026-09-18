@@ -1,0 +1,68 @@
+---
+title: "Sua extensão de navegador manda no Gemini e você não vê"
+excerpt: "Pesquisador expõe falha grave que permite extensões comuns sequestrarem IAs nativas no Chrome, Edge, Perplexity, Opera e Claude."
+kicker: "VULNERABILIDADE"
+category: ia
+date: "2026-09-18"
+featured: true
+author: "The Zero"
+cover: "/images/posts/extensoes-chrome-edge-sequestram-ias/cover.jpg"
+coverCredit: "Forever Security"
+---
+
+Dar acesso de endpoint para uma IA é um risco. Deixar uma extensão qualquer controlar essa IA pelas suas costas é pura negligência. O pesquisador Gal Weizman, da Forever Security, provou isso em 16 de setembro de 2026. Ele revelou o BragJack. É uma vulnerabilidade bizarra que atinge assistentes nativos em cinco plataformas. A lista inclui Gemini Live no Chrome, Copilot no Edge, Perplexity Comet, Opera Neon e a extensão do Claude no Chrome.
+
+A falha não é o clássico "prompt injection". É um "prompt-forcing". A extensão maliciosa escreve o comando inteiro. Você, no seu Chrome, não vê absolutamente nada. A IA recebe a ordem e executa.
+
+O ataque se aproveita de scripts de conteúdo (content scripts). Muitas extensões comuns usam isso para ler ou alterar a página atual. O erro ocorreu porque os navegadores não bloquearam esses scripts nas páginas internas das IAs. A extensão ganhou passe livre para interagir com o assistente.
+
+No Google Chrome, o buraco ganhou o código CVE-2026-0628. A nota de severidade da CISA foi alta: 8.8. A brecha foi apelidada de GlicJack. Uma extensão consegue forçar o Gemini Live a ligar a sua câmera, abrir o microfone, ler arquivos ou tirar screenshots. O patch de correção saiu no Chrome versão 143.0.7499.192.
+
+O Microsoft Edge sofreu com o CVE-2026-55945. A nota ficou em 4.2. O ataque envolvia uma corrida de execução (race condition) na página de marketing do Copilot. A Microsoft lançou a correção no Edge 150.0.4078.48 no dia 2 de julho de 2026.
+
+O pior cenário foi o Perplexity Comet. A equipe esqueceu um domínio de testes ativo (testing.perplexity.com). A falha entregou acesso aos arquivos locais, histórico de conversas e controle total do agente.
+
+O Opera Neon facilitou as coisas. O domínio oficial da Opera não impedia a execução dos scripts. Já o Claude in Chrome teve uma severidade média. O ataque ocorreu de extensão contra extensão.
+
+O pesquisador embolsou cerca de US$ 20.500 pelas descobertas (bounties). O Google pagou 7 mil. A Perplexity deu mais 7 mil. A Microsoft liberou 5 mil. Opera pagou 900 e a Anthropic fechou com 600 dólares.
+
+![Arte de capa da pesquisa BragJack — Forever Security](/images/posts/extensoes-chrome-edge-sequestram-ias/cover.jpg)
+
+*Forever Security — capa da pesquisa BragJack (crédito da fonte).*
+
+O BragJack é uma demonstração de pesquisa. Não existe um ataque em massa rodando na rua hoje. O invasor precisa que você tenha uma extensão comprometida já instalada no computador.
+
+O alerta que fica é estrutural. IAs ganharam poder de mexer nos seus arquivos e periféricos. Extensões de navegador continuam baratas de fazer e fáceis de instalar. Essa soma gerou uma superfície de ataque inteiramente nova.
+
+<Verdict overrated="confiar cegamente em extensões" underrated="manter o navegador enxuto e atualizado" />
+
+<Rule>
+Atualize o navegador e remova extensões que você não usa.
+</Rule>
+
+![Cobertura The Hacker News sobre o sequestro de IAs por extensão](/images/posts/extensoes-chrome-edge-sequestram-ias/inline-thn.jpg)
+
+*The Hacker News — ilustração da cobertura (16/09/2026).*
+
+![Matéria Estadão/TecMundo sobre a brecha em Chrome e Edge](/images/posts/extensoes-chrome-edge-sequestram-ias/inline-estadao.jpg)
+
+*Estadão / TecMundo — foto de capa da repercussão em PT.*
+
+A solução exige um novo hábito. Menos lixo no navegador e atualização em dia.
+
+## Checklist
+
+- Atualize o Chrome para a versão 143.0.7499.192 ou superior.
+- Confirme se o Edge passou da versão 150.0.4078.48.
+- Apague extensões que não servem para nada.
+
+Uma extensão obscura nunca deve ter o mesmo nível de permissão que o assistente do seu navegador.
+
+## Fontes
+
+- https://forever.security/blog/bragjack-hijacking-5-browsers-via-built-in-ai-assistants/
+- https://thehackernews.com/2026/09/one-extension-could-hijack-ai.html
+- https://nvd.nist.gov/vuln/detail/CVE-2026-0628
+- https://www.estadao.com.br/tecmundo/ciberseguranca/extensoes-do-chrome-e-edge-abrem-brecha-para-roubar-controle-de-ias/
+
+The Zero.
