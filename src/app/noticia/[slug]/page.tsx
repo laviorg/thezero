@@ -8,7 +8,7 @@ import {
 } from "@/components/news/json-ld";
 import { SectionHeading } from "@/components/news/section-heading";
 import { PageShell } from "@/components/layout/page-shell";
-import { categoryList, getCategory } from "@/lib/categories";
+import { categoryList, getCategory, getSubcategory } from "@/lib/categories";
 import { formatDate, readingTimeLabel } from "@/lib/format";
 import { buildPageMetadata } from "@/lib/metadata";
 import {
@@ -43,6 +43,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
+  const subcategory = post.subcategory
+    ? getSubcategory(post.category, post.subcategory)
+    : undefined;
 
   const url = absoluteUrl(post.href);
   const ogPath = articleOgImagePath(post.slug);
@@ -59,9 +62,12 @@ export async function generateMetadata({
     ...base,
     authors: [{ name: post.author, url: absoluteUrl("/sobre") }],
     category: post.categoryLabel,
-    keywords: [post.categoryLabel, post.kicker, "The Zero"].filter(
-      (value): value is string => Boolean(value),
-    ),
+    keywords: [
+      post.categoryLabel,
+      subcategory?.label,
+      post.kicker,
+      "The Zero",
+    ].filter((value): value is string => Boolean(value)),
     robots: newsRobots,
     openGraph: {
       ...base.openGraph,
@@ -71,7 +77,9 @@ export async function generateMetadata({
       modifiedTime: post.updatedIso,
       authors: [absoluteUrl("/sobre")],
       section: post.categoryLabel,
-      tags: [post.categoryLabel],
+      tags: [post.categoryLabel, subcategory?.label].filter(
+        (value): value is string => Boolean(value),
+      ),
     },
   };
 }
@@ -82,6 +90,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   if (!post) notFound();
 
   const category = getCategory(post.category);
+  const subcategory = post.subcategory
+    ? getSubcategory(post.category, post.subcategory)
+    : undefined;
   const related = getRelatedPosts(post);
   const { newer, older } = getAdjacentPosts(post);
   const pageUrl = absoluteUrl(post.href);
@@ -104,6 +115,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         readingMinutes={post.readingMinutes}
         keywords={[
           post.categoryLabel,
+          ...(post.subcategoryLabel ? [post.subcategoryLabel] : []),
           ...(post.kicker ? [post.kicker] : []),
           "tecnologia",
         ]}
@@ -113,6 +125,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           { name: site.name, url: site.url },
           ...(category
             ? [{ name: category.label, url: absoluteUrl(category.href) }]
+            : []),
+          ...(subcategory
+            ? [
+                {
+                  name: subcategory.label,
+                  url: absoluteUrl(subcategory.href),
+                },
+              ]
             : []),
           { name: post.title, url: pageUrl },
         ]}
@@ -128,13 +148,24 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   items={[
                     { href: "/", label: "Newsroom" },
                     { href: category.href, label: category.label },
+                    ...(subcategory
+                      ? [
+                          {
+                            href: subcategory.href,
+                            label: subcategory.label,
+                          },
+                        ]
+                      : []),
                     { label: post.title },
                   ]}
                 />
               ) : null}
               {category && (
-                <Link href={category.href} className="eyebrow page-kicker">
-                  {post.kicker ?? category.label}
+                <Link
+                  href={subcategory?.href ?? category.href}
+                  className="eyebrow page-kicker"
+                >
+                  {post.kicker ?? subcategory?.label ?? category.label}
                 </Link>
               )}
               <h1 className="story-title mt-2.5 font-semibold text-balance">
@@ -169,8 +200,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <span className="text-white/20" aria-hidden>
                       ·
                     </span>
-                    <Link href={category.href} className="hover:text-accent">
-                      {category.label}
+                    <Link
+                      href={subcategory?.href ?? category.href}
+                      className="hover:text-accent"
+                    >
+                      {subcategory?.label ?? category.label}
                     </Link>
                   </>
                 ) : null}

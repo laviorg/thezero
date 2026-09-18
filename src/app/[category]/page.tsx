@@ -8,7 +8,11 @@ import { SectionHeading } from "@/components/news/section-heading";
 import { PageShell } from "@/components/layout/page-shell";
 import { categoryList, getCategory, isCategorySlug } from "@/lib/categories";
 import { buildPageMetadata } from "@/lib/metadata";
-import { getAllPosts, getPostsByCategory } from "@/lib/posts";
+import {
+  getActiveSubcategories,
+  getAllPosts,
+  getPostsByCategory,
+} from "@/lib/posts";
 import { absoluteUrl, site } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -51,6 +55,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   if (!category) notFound();
 
   const posts = getPostsByCategory(category.slug);
+  const activeSubcategories = getActiveSubcategories(category.slug);
   const featured = posts[0];
   const rest = posts.slice(1);
   const pageUrl = absoluteUrl(category.href);
@@ -107,6 +112,22 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <p className="lede mt-3 text-pretty">
           {category.description}
         </p>
+        {activeSubcategories.length > 0 ? (
+          <nav
+            aria-label={`Assuntos em ${category.label}`}
+            className="mt-5 flex flex-wrap gap-2"
+          >
+            {activeSubcategories.map((subcategory) => (
+              <Link
+                key={subcategory.slug}
+                href={subcategory.href}
+                className="chip-link"
+              >
+                {subcategory.label}
+              </Link>
+            ))}
+          </nav>
+        ) : null}
         <p className="mt-4 text-[0.72rem] tracking-[0.14em] text-muted uppercase">
           {posts.length === 0
             ? "Nenhuma matéria"

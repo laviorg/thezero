@@ -5,7 +5,7 @@ export const site = {
   locale: "pt_BR",
   language: "pt-BR",
   description:
-    "The Zero é o newsroom de tech do Brasil que mostra o que funciona de verdade — IA, software, hardware, consoles, gadgets e games. Opinião sem filtro, zero hype de lançamento.",
+    "The Zero é o newsroom de tech do Brasil que mostra o que funciona de verdade — tecnologia, IA, computadores, dispositivos, aplicativos e jogos. Opinião sem filtro, zero hype de lançamento.",
   bio: "Demos, opinião, setup. O que funciona de verdade — e o que não.",
   email: "redacao@thezero.com.br",
   social: {

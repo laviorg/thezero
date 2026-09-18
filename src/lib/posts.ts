@@ -3,9 +3,14 @@ import path from "node:path";
 import matter from "gray-matter";
 import {
   CATEGORY_SLUGS,
+  SUBCATEGORY_SLUGS,
   getCategory,
+  getSubcategory,
   isCategorySlug,
+  subcategoryList,
   type CategorySlug,
+  type Subcategory,
+  type SubcategorySlug,
 } from "@/lib/categories";
 import { readingTimeMinutes, toIsoDate } from "@/lib/format";
 import { site } from "@/lib/site";
@@ -14,6 +19,7 @@ export type PostFrontmatter = {
   title: string;
   excerpt: string;
   category: CategorySlug;
+  subcategory?: SubcategorySlug;
   date: string;
   updated?: string;
   author?: string;
@@ -33,6 +39,8 @@ export type Post = PostFrontmatter & {
   wordCount: number;
   href: string;
   categoryLabel: string;
+  subcategoryLabel?: string;
+  subcategoryHref?: string;
   author: string;
   dateIso: string;
   updatedIso: string;
@@ -44,11 +52,23 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
   const title = typeof data.title === "string" ? data.title : "";
   const excerpt = typeof data.excerpt === "string" ? data.excerpt : "";
   const category = typeof data.category === "string" ? data.category : "";
+  const subcategory =
+    typeof data.subcategory === "string" ? data.subcategory : "";
   const date = typeof data.date === "string" ? data.date : "";
 
   if (!title || !excerpt || !date || !isCategorySlug(category)) {
     throw new Error(
       `Frontmatter inválido em ${slug}: title, excerpt, date e category (${CATEGORY_SLUGS.join("|")}) são obrigatórios.`,
+    );
+  }
+
+  const resolvedSubcategory = subcategory
+    ? getSubcategory(category, subcategory)
+    : undefined;
+
+  if (subcategory && !resolvedSubcategory) {
+    throw new Error(
+      `Frontmatter inválido em ${slug}: subcategory deve pertencer a ${category} (${SUBCATEGORY_SLUGS.join("|")}).`,
     );
   }
 
@@ -61,6 +81,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     title,
     excerpt,
     category,
+    subcategory: resolvedSubcategory?.slug,
     date,
     updated: typeof data.updated === "string" ? data.updated : undefined,
     author: typeof data.author === "string" ? data.author : undefined,
@@ -88,6 +109,9 @@ function toPost(slug: string, raw: string): Post | null {
 
   const category = getCategory(frontmatter.category);
   if (!category) return null;
+  const subcategory = frontmatter.subcategory
+    ? getSubcategory(frontmatter.category, frontmatter.subcategory)
+    : undefined;
 
   const updated = frontmatter.updated ?? frontmatter.date;
   const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
@@ -100,6 +124,8 @@ function toPost(slug: string, raw: string): Post | null {
     wordCount,
     href: `/noticia/${slug}`,
     categoryLabel: category.label,
+    subcategoryLabel: subcategory?.label,
+    subcategoryHref: subcategory?.href,
     author: frontmatter.author ?? site.defaultAuthor,
     dateIso: toIsoDate(frontmatter.date),
     updatedIso: toIsoDate(updated),
@@ -137,6 +163,32 @@ export function getPostsByCategory(category: CategorySlug): Post[] {
   return getAllPosts().filter((post) => post.category === category);
 }
 
+export function getPostsBySubcategory(
+  category: CategorySlug,
+  subcategory: SubcategorySlug,
+): Post[] {
+  return getAllPosts().filter(
+    (post) =>
+      post.category === category && post.subcategory === subcategory,
+  );
+}
+
+export function getActiveSubcategories(
+  category?: CategorySlug,
+): Subcategory[] {
+  const active = new Set(
+    getAllPosts()
+      .filter((post) => post.subcategory)
+      .map((post) => `${post.category}/${post.subcategory}`),
+  );
+
+  return subcategoryList.filter(
+    (subcategory) =>
+      (!category || subcategory.parent === category) &&
+      active.has(`${subcategory.parent}/${subcategory.slug}`),
+  );
+}
+
 export function getFeaturedPost(): Post | undefined {
   const posts = getAllPosts();
   const featured = posts
@@ -152,15 +204,27 @@ export function getFeaturedPost(): Post | undefined {
 
 export function getRelatedPosts(post: Post, limit = 3): Post[] {
   const posts = getAllPosts();
+  const sameSubcategory = post.subcategory
+    ? posts.filter(
+        (item) =>
+          item.slug !== post.slug &&
+          item.category === post.category &&
+          item.subcategory === post.subcategory,
+      )
+    : [];
   const sameCategory = posts.filter(
-    (item) => item.slug !== post.slug && item.category === post.category,
+    (item) =>
+      item.slug !== post.slug &&
+      item.category === post.category &&
+      (!post.subcategory || item.subcategory !== post.subcategory),
   );
-  if (sameCategory.length >= limit) return sameCategory.slice(0, limit);
+  const relevant = [...sameSubcategory, ...sameCategory];
+  if (relevant.length >= limit) return relevant.slice(0, limit);
 
   const extras = posts.filter(
     (item) => item.slug !== post.slug && item.category !== post.category,
   );
-  return [...sameCategory, ...extras].slice(0, limit);
+  return [...relevant, ...extras].slice(0, limit);
 }
 
 export function getAdjacentPosts(post: Post) {
@@ -193,6 +257,7 @@ export function searchPosts(query: string): Post[] {
       post.excerpt,
       post.kicker ?? "",
       post.categoryLabel,
+      post.subcategoryLabel ?? "",
       post.content,
     ]
       .join(" ")

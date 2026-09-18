@@ -18,6 +18,12 @@ export default function HomePage() {
   const rest = featured
     ? posts.filter((post) => post.slug !== featured.slug)
     : posts;
+  const categoryRails = categoryList
+    .map((category) => ({
+      category,
+      posts: getPostsByCategory(category.slug),
+    }))
+    .filter(({ posts: categoryPosts }) => categoryPosts.length > 0);
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
@@ -51,11 +57,11 @@ export default function HomePage() {
         </section>
       )}
 
-      {categoryList.map((category) => (
+      {categoryRails.map(({ category, posts: categoryPosts }) => (
         <CategoryRail
           key={category.slug}
           category={category}
-          posts={getPostsByCategory(category.slug)}
+          posts={categoryPosts}
         />
       ))}
     </div>

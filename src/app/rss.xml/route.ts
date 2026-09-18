@@ -40,6 +40,7 @@ export function GET() {
       <dc:date>${escapeXml(post.updatedIso)}</dc:date>
       <description>${escapeXml(post.excerpt)}</description>
       <category>${escapeXml(post.categoryLabel)}</category>
+      ${post.subcategoryLabel ? `<category>${escapeXml(post.subcategoryLabel)}</category>` : ""}
       <author>${escapeXml(site.email)} (${escapeXml(post.author)})</author>
       ${media}
     </item>`;

@@ -24,7 +24,7 @@ export async function generateMetadata({
     path: "/busca",
     noIndex: true,
     imagePath: "/opengraph-image",
-    imageAlt: `${site.name} — ${site.tagline}`,
+    imageAlt: site.name,
   });
 
   return {

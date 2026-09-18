@@ -28,7 +28,7 @@ export function NewsMeta({
           </span>
         </>
       ) : null}
-      {post.categoryLabel}
+      {post.subcategoryLabel ?? post.categoryLabel}
       <span className="mx-1.5 text-white/20" aria-hidden>
         /
       </span>

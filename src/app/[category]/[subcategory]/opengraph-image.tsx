@@ -1,5 +1,6 @@
 import { OgWatermarkBadge, OgWordmark } from "@/components/brand/og-mark";
-import { categoryList, getCategory } from "@/lib/categories";
+import { getCategory, getSubcategory } from "@/lib/categories";
+import { getActiveSubcategories } from "@/lib/posts";
 import { site } from "@/lib/site";
 import { ImageResponse } from "next/og";
 
@@ -8,18 +9,22 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export function generateStaticParams() {
-  return categoryList.map((category) => ({ category: category.slug }));
+  return getActiveSubcategories().map((subcategory) => ({
+    category: subcategory.parent,
+    subcategory: subcategory.slug,
+  }));
 }
 
-export default async function CategoryOpenGraphImage({
+export default async function SubcategoryOpenGraphImage({
   params,
 }: {
-  params: Promise<{ category: string }>;
+  params: Promise<{ category: string; subcategory: string }>;
 }) {
-  const { category: slug } = await params;
-  const category = getCategory(slug);
-  const label = category?.label ?? site.name;
-  const kicker = category?.kicker ?? site.name;
+  const { category: categorySlug, subcategory: subcategorySlug } = await params;
+  const category = getCategory(categorySlug);
+  const subcategory = getSubcategory(categorySlug, subcategorySlug);
+  const label = subcategory?.label ?? site.name;
+  const kicker = category?.label ?? site.name;
 
   return new ImageResponse(
     (
@@ -52,7 +57,7 @@ export default async function CategoryOpenGraphImage({
           <div
             style={{
               display: "flex",
-              fontSize: 72,
+              fontSize: 68,
               fontWeight: 650,
               lineHeight: 0.95,
               letterSpacing: "-0.04em",

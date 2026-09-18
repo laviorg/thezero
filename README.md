@@ -1,6 +1,6 @@
 # The Zero
 
-Newsroom de tech do Brasil — IA, software, hardware, consoles, gadgets e games. Tom direto, irônico, sem hype de lançamento.
+Newsroom de tech do Brasil — tecnologia, IA, computadores, dispositivos, aplicativos e jogos. Tom direto, irônico, sem hype de lançamento.
 
 Site: [thezero.com.br](https://thezero.com.br) · Instagram [@hello.the.zero](https://www.instagram.com/hello.the.zero/) · YouTube [@TheZero_Media](https://www.youtube.com/@TheZero_Media)
 
@@ -31,7 +31,8 @@ npm run lint
 | Rota | O quê |
 | --- | --- |
 | `/` | Newsroom (destaque + editorias) |
-| `/ia` `/hardware` `/consoles` `/gadgets` `/apps` `/games` | Editorias |
+| `/tecnologia` `/ia` `/computadores` `/dispositivos` `/aplicativos` `/jogos` | Editorias |
+| `/[editoria]/[subcategoria]` | Assuntos ativos dentro de uma editoria |
 | `/noticia/[slug]` | Matéria |
 | `/sobre` | Manifesto e regras de voz |
 | `/busca?q=` | Busca no título, trecho e corpo |
@@ -49,6 +50,7 @@ O footer tem um link **Loja** para `https://loja.thezero.com.br` (placeholder). 
 title: "Headline viral, opinião na primeira frase."
 excerpt: "Uma linha que funciona sozinha no card e no OG."
 category: ia
+subcategory: ferramentas
 date: "2026-09-18"
 featured: false
 featuredPriority: 1
@@ -60,7 +62,9 @@ coverCredit: "Apple / Divulgação"
 ---
 ```
 
-`category` tem de ser um de: `ia` · `hardware` · `consoles` · `gadgets` · `apps` · `games`.
+`category` tem de ser um de: `tecnologia` · `ia` · `computadores` · `dispositivos` · `aplicativos` · `jogos`.
+
+`subcategory` é opcional, mas recomendada quando houver encaixe. Ela precisa pertencer à editoria escolhida; a lista e as regras de fronteira ficam em [`docs/TAXONOMY.md`](docs/TAXONOMY.md). Subcategorias com matérias ganham hub próprio em `/[editoria]/[subcategoria]`.
 
 Opcionais: `updated`, `featured`, `featuredPriority` (desempata vários destaques; maior vence), `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa), **`coverAlt`** (descrição objetiva da imagem) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
 

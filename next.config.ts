@@ -4,6 +4,35 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   agentRules: false,
   transpilePackages: ["next-mdx-remote"],
+  async redirects() {
+    return [
+      {
+        source: "/hardware",
+        destination: "/computadores",
+        permanent: true,
+      },
+      {
+        source: "/gadgets",
+        destination: "/dispositivos",
+        permanent: true,
+      },
+      {
+        source: "/apps",
+        destination: "/aplicativos",
+        permanent: true,
+      },
+      {
+        source: "/games",
+        destination: "/jogos",
+        permanent: true,
+      },
+      {
+        source: "/consoles",
+        destination: "/jogos/consoles",
+        permanent: true,
+      },
+    ];
+  },
   outputFileTracingIncludes: {
     "/*": ["./content/posts/**/*"],
   },

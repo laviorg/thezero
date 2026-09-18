@@ -24,7 +24,7 @@ export function SiteFooter() {
             discordar, não entra.
           </p>
           <p className="mt-4 text-[0.7rem] tracking-[0.14em] text-muted/80 uppercase">
-            {site.tagline} · Brasil
+            Brasil
           </p>
         </div>
 
