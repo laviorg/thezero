@@ -1,5 +1,12 @@
 import { site } from "@/lib/site";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Página não encontrada",
+  description: "Essa URL não existe no newsroom do The Zero.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

@@ -51,7 +51,7 @@ function MarkdownImage({
       <WatermarkedPhoto>
         <Image
           src={src}
-          alt={alt ?? ""}
+          alt={alt && alt.trim().length > 0 ? alt : ""}
           width={1600}
           height={900}
           className="h-auto w-full"

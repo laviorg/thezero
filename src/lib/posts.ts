@@ -28,6 +28,7 @@ export type Post = PostFrontmatter & {
   slug: string;
   content: string;
   readingMinutes: number;
+  wordCount: number;
   href: string;
   categoryLabel: string;
   author: string;
@@ -80,12 +81,14 @@ function toPost(slug: string, raw: string): Post | null {
   if (!category) return null;
 
   const updated = frontmatter.updated ?? frontmatter.date;
+  const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
 
   return {
     ...frontmatter,
     slug,
     content: content.trim(),
     readingMinutes: readingTimeMinutes(content),
+    wordCount,
     href: `/noticia/${slug}`,
     categoryLabel: category.label,
     author: frontmatter.author ?? site.defaultAuthor,
@@ -141,6 +144,26 @@ export function getRelatedPosts(post: Post, limit = 3): Post[] {
     (item) => item.slug !== post.slug && item.category !== post.category,
   );
   return [...sameCategory, ...extras].slice(0, limit);
+}
+
+export function getAdjacentPosts(post: Post) {
+  const posts = getAllPosts();
+  const index = posts.findIndex((item) => item.slug === post.slug);
+  if (index < 0) return { newer: undefined, older: undefined };
+  return {
+    newer: index > 0 ? posts[index - 1] : undefined,
+    older: index < posts.length - 1 ? posts[index + 1] : undefined,
+  };
+}
+
+export function getLatestModifiedDate() {
+  const posts = getAllPosts();
+  let latest = 0;
+  for (const post of posts) {
+    const time = new Date(post.updatedIso).getTime();
+    if (time > latest) latest = time;
+  }
+  return latest ? new Date(latest) : new Date();
 }
 
 export function searchPosts(query: string): Post[] {

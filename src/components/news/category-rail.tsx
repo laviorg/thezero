@@ -37,7 +37,12 @@ export function CategoryRail({
           }
         >
           {posts.slice(0, 3).map((post) => (
-            <ArticleCard key={post.slug} post={post} layout="rail" />
+            <ArticleCard
+              key={post.slug}
+              post={post}
+              layout="rail"
+              headingLevel="h3"
+            />
           ))}
         </div>
       )}

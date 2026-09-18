@@ -1,11 +1,27 @@
 import { ArticleBody } from "@/components/news/article-body";
 import { ArticleCard } from "@/components/news/article-card";
+import { Breadcrumbs } from "@/components/news/breadcrumbs";
 import { CoverImage } from "@/components/news/cover-image";
-import { NewsArticleJsonLd } from "@/components/news/json-ld";
+import {
+  BreadcrumbJsonLd,
+  NewsArticleJsonLd,
+} from "@/components/news/json-ld";
 import { SectionHeading } from "@/components/news/section-heading";
 import { getCategory } from "@/lib/categories";
 import { formatDate, readingTimeLabel } from "@/lib/format";
-import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/posts";
+import { buildPageMetadata } from "@/lib/metadata";
+import {
+  getAdjacentPosts,
+  getAllPosts,
+  getPostBySlug,
+  getRelatedPosts,
+} from "@/lib/posts";
+import {
+  articleOgImagePath,
+  assetUrl,
+  coverAlt,
+  newsRobots,
+} from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -29,28 +45,33 @@ export async function generateMetadata({
   if (!post) return {};
 
   const url = absoluteUrl(post.href);
-
-  return {
+  const ogPath = articleOgImagePath(post.slug);
+  const base = buildPageMetadata({
     title: post.title,
     description: post.excerpt,
-    authors: [{ name: post.author }],
-    alternates: { canonical: post.href },
+    path: post.href,
+    type: "article",
+    imagePath: ogPath,
+    imageAlt: post.title,
+  });
+
+  return {
+    ...base,
+    authors: [{ name: post.author, url: site.url }],
+    category: post.categoryLabel,
+    keywords: [post.categoryLabel, post.kicker, "The Zero"].filter(
+      (value): value is string => Boolean(value),
+    ),
+    robots: newsRobots,
     openGraph: {
+      ...base.openGraph,
       type: "article",
-      locale: site.locale,
       url,
-      title: post.title,
-      description: post.excerpt,
       publishedTime: post.dateIso,
       modifiedTime: post.updatedIso,
       authors: [post.author],
       section: post.categoryLabel,
-      siteName: site.name,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
+      tags: [post.categoryLabel],
     },
   };
 }
@@ -62,6 +83,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   const category = getCategory(post.category);
   const related = getRelatedPosts(post);
+  const { newer, older } = getAdjacentPosts(post);
+  const pageUrl = absoluteUrl(post.href);
 
   return (
     <article className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-10">
@@ -70,13 +93,33 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         description={post.excerpt}
         datePublished={post.dateIso}
         dateModified={post.updatedIso}
-        url={absoluteUrl(post.href)}
+        url={pageUrl}
         section={post.categoryLabel}
         author={post.author}
-        image={post.cover}
+        image={assetUrl(post.cover)}
+        wordCount={post.wordCount}
+        readingMinutes={post.readingMinutes}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: site.name, url: site.url },
+          ...(category
+            ? [{ name: category.label, url: absoluteUrl(category.href) }]
+            : []),
+          { name: post.title, url: pageUrl },
+        ]}
       />
 
       <header className="max-w-3xl">
+        {category ? (
+          <Breadcrumbs
+            items={[
+              { href: "/", label: "Newsroom" },
+              { href: category.href, label: category.label },
+              { label: post.title },
+            ]}
+          />
+        ) : null}
         {category && (
           <Link
             href={category.href}
@@ -96,7 +139,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <span className="text-white/20" aria-hidden>
             ·
           </span>
-          <time dateTime={post.date}>{formatDate(post.date)}</time>
+          <time dateTime={post.dateIso}>{formatDate(post.date)}</time>
           <span className="text-white/20" aria-hidden>
             ·
           </span>
@@ -117,7 +160,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       {post.cover ? (
         <CoverImage
           src={post.cover}
-          alt={post.title}
+          alt={coverAlt(post.title, post.coverCredit)}
           credit={post.coverCredit}
           priority
           flush
@@ -127,9 +170,40 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       ) : null}
 
       <div className="mt-8 grid gap-10 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,42rem)_1fr] lg:gap-14">
-        <ArticleBody source={post.content} />
-        <aside className="lg:pt-1">
-          <SectionHeading title="Mais nesta casa" as="h2" />
+        <div>
+          <ArticleBody source={post.content} />
+          {(newer || older) && (
+            <nav
+              aria-label="Matérias vizinhas"
+              className="mt-12 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-2"
+            >
+              {older ? (
+                <Link href={older.href} className="group block">
+                  <p className="text-[0.65rem] tracking-[0.18em] text-muted uppercase">
+                    Mais antiga
+                  </p>
+                  <p className="mt-2 font-semibold tracking-tight group-hover:text-accent">
+                    {older.title}
+                  </p>
+                </Link>
+              ) : (
+                <span />
+              )}
+              {newer ? (
+                <Link href={newer.href} className="group block sm:text-right">
+                  <p className="text-[0.65rem] tracking-[0.18em] text-muted uppercase">
+                    Mais recente
+                  </p>
+                  <p className="mt-2 font-semibold tracking-tight group-hover:text-accent">
+                    {newer.title}
+                  </p>
+                </Link>
+              ) : null}
+            </nav>
+          )}
+        </div>
+        <aside className="lg:pt-1" aria-labelledby="mais-nesta-casa">
+          <SectionHeading title="Mais nesta casa" as="h2" id="mais-nesta-casa" />
           <div className="mt-1">
             {related.map((item) => (
               <ArticleCard

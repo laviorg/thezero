@@ -1,5 +1,6 @@
 import { OgWatermarkBadge, OgWordmark } from "@/components/brand/og-mark";
 import { getPostBySlug } from "@/lib/posts";
+import { assetUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { ImageResponse } from "next/og";
 
@@ -17,7 +18,7 @@ export default async function ArticleOpenGraphImage({
 
   const kicker = post?.kicker ?? post?.categoryLabel ?? "The Zero";
   const title = post?.title ?? site.name;
-  const cover = post?.cover;
+  const cover = assetUrl(post?.cover);
 
   return new ImageResponse(
     (
