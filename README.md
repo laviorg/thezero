@@ -72,7 +72,9 @@ A capa entra na página da matéria e nos cards (`next/image`). No corpo, Markdo
 *Apple / Divulgação*
 ```
 
-A imagem fica full-width, com cantos arredondados. A linha em itálico logo abaixo vira legenda/crédito.
+A imagem fica full-width, com cantos arredondados. A linha em itálico logo abaixo vira legenda/crédito **da fonte** (ex. Apple / Divulgação) — separado do selo da casa.
+
+**Marca em toda foto publicada:** capa, imagens no corpo e assets OG gerados levam no canto inferior direito um selo translúcido com o wordmark **THE / ZERO** (O partido, SVGs em `public/brand`) e o handle `@hello.the.zero`. Componente: `src/components/brand/photo-watermark.tsx` (`WatermarkedPhoto` / `PhotoWatermark`). Não cobrir o assunto: o selo é pequeno, canto, `pointer-events-none`. Crédito da assessoria continua na figcaption, não no selo.
 
 **Instagram:** cada post do [@hello.the.zero](https://www.instagram.com/hello.the.zero/) precisa de uma matéria MDX correspondente, **com fotos de verdade** (capa e/ou imagens no corpo). Texto solto não vale. Preferir fotos oficiais de imprensa (Apple Newsroom, etc.) e creditá-las na legenda.
 
@@ -117,7 +119,8 @@ Wordmark oficial **THE / ZERO** (O partido ao meio em duas semicircunferências)
 - Header, rodapé e Sobre: SVG em `src/components/brand/logo.tsx` (`currentColor`, inverte no dark)
 - Ficheiros: `public/brand/logo.svg` (currentColor), `logo-on-light.svg`, `logo-on-dark.svg`, `mark.svg` (só o O)
 - Favicon: o O partido, adaptado a 32px
-- OG default: wordmark centrado no fundo `#0A0A0B`
+- OG default: wordmark centrado no fundo `#0A0A0B`, com selo de marca (wordmark + `@hello.the.zero`) no canto
+- Fotos de matéria: o mesmo selo no canto inferior direito; ver secção **Como publicar uma matéria**
 
 Não usar quadrado preto sólido como logo.
 

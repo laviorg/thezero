@@ -32,6 +32,7 @@ export function ArticleCard({
             alt={post.title}
             crop
             priority={isLead}
+            watermarkSize={isLead ? "default" : "compact"}
             sizes={coverSizes}
             className={cn("mb-4", isLead && "mb-6", isCompact && "mb-3")}
           />

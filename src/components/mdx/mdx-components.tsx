@@ -1,3 +1,4 @@
+import { WatermarkedPhoto } from "@/components/brand/photo-watermark";
 import { Children, isValidElement, type ComponentPropsWithoutRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
@@ -47,14 +48,16 @@ function MarkdownImage({
 
   return (
     <figure className="my-8">
-      <Image
-        src={src}
-        alt={alt ?? ""}
-        width={1600}
-        height={900}
-        className="h-auto w-full rounded-xl bg-surface"
-        sizes="(min-width: 1024px) 42rem, 100vw"
-      />
+      <WatermarkedPhoto>
+        <Image
+          src={src}
+          alt={alt ?? ""}
+          width={1600}
+          height={900}
+          className="h-auto w-full"
+          sizes="(min-width: 1024px) 42rem, 100vw"
+        />
+      </WatermarkedPhoto>
     </figure>
   );
 }

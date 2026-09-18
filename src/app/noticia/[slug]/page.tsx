@@ -45,13 +45,11 @@ export async function generateMetadata({
       authors: [post.author],
       section: post.categoryLabel,
       siteName: site.name,
-      ...(post.cover ? { images: [{ url: post.cover, alt: post.title }] } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      ...(post.cover ? { images: [post.cover] } : {}),
     },
   };
 }

@@ -1,4 +1,4 @@
-import { OgWordmark } from "@/components/brand/og-mark";
+import { OgWatermarkBadge, OgWordmark } from "@/components/brand/og-mark";
 import { site } from "@/lib/site";
 import { ImageResponse } from "next/og";
 
@@ -20,11 +20,13 @@ export default function OpenGraphImage() {
           background: "#0A0A0B",
           color: "#F4F4F5",
           gap: 36,
+          position: "relative",
         }}
       >
         <OgWordmark width={640} />
         <div
           style={{
+            display: "flex",
             color: "#7CFFB2",
             fontSize: 22,
             letterSpacing: "0.28em",
@@ -33,7 +35,10 @@ export default function OpenGraphImage() {
         >
           {site.tagline}
         </div>
-        <div style={{ color: "#8B8B93", fontSize: 20 }}>{site.domain}</div>
+        <div style={{ display: "flex", color: "#8B8B93", fontSize: 20 }}>
+          {site.domain}
+        </div>
+        <OgWatermarkBadge handle={site.social.instagramHandle} />
       </div>
     ),
     { ...size },
