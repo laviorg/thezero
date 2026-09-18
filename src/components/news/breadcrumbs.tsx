@@ -11,8 +11,15 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.7rem] tracking-wide text-muted uppercase">
         {items.map((item, index) => {
           const last = index === items.length - 1;
+          const longTail = last && items.length > 2;
           return (
-            <li key={`${item.label}-${index}`} className="flex items-center gap-2">
+            <li
+              key={`${item.label}-${index}`}
+              /* A full headline in the trail wraps badly on phones. */
+              className={
+                longTail ? "hidden min-w-0 items-center gap-2 sm:flex" : "flex items-center gap-2"
+              }
+            >
               {index > 0 ? (
                 <span className="text-white/20" aria-hidden>
                   /
@@ -23,7 +30,13 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
                   {item.label}
                 </Link>
               ) : (
-                <span className={last ? "text-fg/80 normal-case tracking-normal" : undefined}>
+                <span
+                  className={
+                    last
+                      ? "max-w-[46ch] truncate text-fg/80 normal-case tracking-normal"
+                      : undefined
+                  }
+                >
                   {item.label}
                 </span>
               )}

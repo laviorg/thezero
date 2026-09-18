@@ -1,3 +1,4 @@
+import { PageShell } from "@/components/layout/page-shell";
 import { Wordmark } from "@/components/brand/logo";
 import { BreadcrumbJsonLd } from "@/components/news/json-ld";
 import { Breadcrumbs } from "@/components/news/breadcrumbs";
@@ -17,7 +18,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
+    <PageShell width="narrow">
       <BreadcrumbJsonLd
         items={[
           { name: site.name, url: site.url },
@@ -30,14 +31,14 @@ export default function AboutPage() {
           { label: "Sobre" },
         ]}
       />
-      <Wordmark className="mb-8 h-12 w-auto text-fg sm:h-16" />
-      <p className="text-[0.7rem] font-medium tracking-[0.22em] text-accent uppercase">
+      <Wordmark className="mb-6 h-11 w-auto text-fg sm:h-14" />
+      <p className="eyebrow page-kicker">
         Sobre · {site.tagline}
       </p>
-      <h1 className="mt-4 text-[clamp(1.85rem,5.5vw,3.4rem)] font-semibold leading-[1.05] tracking-tight text-balance">
+      <h1 className="page-title mt-3 font-semibold text-balance">
         Se não dá pra testar, medir ou discordar em 40 segundos, não entra.
       </h1>
-      <div className="mt-10 space-y-6 text-lg leading-8 text-fg/90">
+      <div className="mt-8 space-y-5 text-[1.02rem] leading-7 text-fg/90">
         <p>
           The Zero é o newsroom de tech do Brasil pra quem já passou do unboxing
           emocional. IA, software, hardware, consoles, gadgets, games. Opinião em uma
@@ -71,9 +72,9 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <section className="mt-14 border-t border-white/10 pt-10">
-        <h2 className="text-2xl font-semibold tracking-tight">Cinco regras de voz</h2>
-        <ol className="mt-6 list-decimal space-y-4 pl-5 text-base leading-7 text-fg/90">
+      <section className="mt-12 border-t border-white/10 pt-8">
+        <h2 className="text-[1.35rem] font-semibold tracking-tight">Cinco regras de voz</h2>
+        <ol className="mt-5 list-decimal space-y-4 pl-5 text-base leading-7 text-fg/90">
           <li>
             <strong className="text-fg">Opinião clara em 1 frase</strong> no
             gancho. Sem “vamos falar sobre…”.
@@ -97,7 +98,7 @@ export default function AboutPage() {
         </ol>
       </section>
 
-      <p className="mt-12 text-muted">
+      <p className="mt-10 text-muted">
         Pauta, correção, parceria:{" "}
         <a className="text-accent" href={`mailto:${site.email}`}>
           {site.email}
@@ -108,6 +109,6 @@ export default function AboutPage() {
         </Link>
         .
       </p>
-    </div>
+    </PageShell>
   );
 }

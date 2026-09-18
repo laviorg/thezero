@@ -1,8 +1,9 @@
 import { ArticleCard } from "@/components/news/article-card";
+import { SectionHeading } from "@/components/news/section-heading";
 import { PageShell } from "@/components/layout/page-shell";
 import { SearchForm } from "@/components/search/search-form";
 import { categoryList } from "@/lib/categories";
-import { searchPosts } from "@/lib/posts";
+import { getAllPosts, searchPosts } from "@/lib/posts";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -27,67 +28,81 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const { q } = await searchParams;
   const query = q?.trim() ?? "";
   const results = query ? searchPosts(query) : [];
+  const latest = getAllPosts().slice(0, 6);
 
   return (
-    <PageShell width="narrow">
-      <p className="text-[0.65rem] font-medium tracking-[0.2em] text-accent uppercase">
-        Busca
-      </p>
-      <h1 className="mt-3 text-[clamp(1.7rem,5vw,2.8rem)] font-semibold leading-[1.08] tracking-tight">
-        {query ? `Resultados para “${query}”` : "O que você quer cortar o hype."}
-      </h1>
-      <p className="mt-3 mb-6 text-muted">
-        Newsroom inteiro, no repo. Sem caixa-preta.
-      </p>
-      <SearchForm defaultValue={query} autoFocus={!query} />
-
-      {!query && (
-        <div className="mt-8">
-          <p className="text-sm text-muted">
-            Tenta Cursor, Steam Deck, prompt ou setup — ou entra direto numa
-            editoria.
-          </p>
-          <nav
-            aria-label="Editorias"
-            className="mt-4 flex flex-wrap gap-2"
-          >
-            {categoryList.map((category) => (
-              <Link
-                key={category.slug}
-                href={category.href}
-                className="border border-white/12 px-3 py-1.5 text-[0.8rem] tracking-wide text-muted uppercase transition-colors hover:border-accent hover:text-accent"
-              >
-                {category.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
-
-      {query && results.length === 0 && (
-        <p className="mt-8 text-lg text-muted">
-          Zero resultados pra “{query}”. Ou não existe, ou o hype ainda não
-          passou no critério.
+    <PageShell>
+      <div className="max-w-3xl">
+        <p className="eyebrow page-kicker">Busca</p>
+        <h1 className="page-title mt-2.5 font-semibold text-balance">
+          {query ? `Resultados para “${query}”` : "O que você quer cortar o hype."}
+        </h1>
+        <p className="lede mt-3 mb-5">
+          Newsroom inteiro, no repo. Sem caixa-preta.
         </p>
-      )}
+        <SearchForm defaultValue={query} autoFocus={!query} />
 
-      {results.length > 0 && (
-        <div className="mt-8">
-          <p className="mb-2 text-sm text-muted">
-            {results.length === 1
-              ? "1 matéria"
-              : `${results.length} matérias`}
+        {!query && (
+          <div className="mt-6">
+            <p className="text-sm text-muted">
+              Tenta Cursor, Steam Deck, prompt ou setup — ou entra direto numa
+              editoria.
+            </p>
+            <nav aria-label="Editorias" className="mt-3 flex flex-wrap gap-2">
+              {categoryList.map((category) => (
+                <Link
+                  key={category.slug}
+                  href={category.href}
+                  className="chip-link"
+                >
+                  {category.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        )}
+
+        {query && results.length === 0 && (
+          <p className="mt-7 text-[1.02rem] text-muted">
+            Zero resultados pra “{query}”. Ou não existe, ou o hype ainda não
+            passou no critério.
           </p>
-          {results.map((post) => (
-            <ArticleCard
-              key={post.slug}
-              post={post}
-              layout="stream"
-              headingLevel="h2"
-            />
-          ))}
-        </div>
-      )}
+        )}
+
+        {results.length > 0 && (
+          <div className="mt-7">
+            <p className="eyebrow mb-2 text-muted">
+              {results.length === 1
+                ? "1 matéria"
+                : `${results.length} matérias`}
+            </p>
+            {results.map((post) => (
+              <ArticleCard
+                key={post.slug}
+                post={post}
+                layout="stream"
+                headingLevel="h2"
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {results.length === 0 && latest.length > 0 ? (
+        <section className="mt-9 border-t border-white/10 pt-7">
+          <SectionHeading title="Últimas no newsroom" as="h2" />
+          <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
+            {latest.map((post) => (
+              <ArticleCard
+                key={post.slug}
+                post={post}
+                layout="standard"
+                headingLevel="h3"
+              />
+            ))}
+          </div>
+        </section>
+      ) : null}
     </PageShell>
   );
 }

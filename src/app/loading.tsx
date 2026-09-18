@@ -1,6 +1,8 @@
+import { PageShell } from "@/components/layout/page-shell";
+
 export default function Loading() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
+    <PageShell>
       <div className="flex justify-between border-b border-white/10 pb-4">
         <div className="h-3 w-28 bg-surface" />
         <div className="h-3 w-36 bg-surface" />
@@ -18,6 +20,6 @@ export default function Loading() {
         </div>
       </div>
       <p className="text-sm text-muted">Carregando o newsroom…</p>
-    </div>
+    </PageShell>
   );
 }

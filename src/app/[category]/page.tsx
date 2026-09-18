@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/news/section-heading";
 import { PageShell } from "@/components/layout/page-shell";
 import { categoryList, getCategory, isCategorySlug } from "@/lib/categories";
 import { buildPageMetadata } from "@/lib/metadata";
-import { getPostsByCategory } from "@/lib/posts";
+import { getAllPosts, getPostsByCategory } from "@/lib/posts";
 import { absoluteUrl, site } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -54,6 +54,26 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const featured = posts[0];
   const rest = posts.slice(1);
   const pageUrl = absoluteUrl(category.href);
+  const elsewhere = getAllPosts().filter(
+    (post) => post.category !== category.slug,
+  );
+
+  /**
+   * The side rail only pays off next to a lead with a cover: a short text-only
+   * lead beside a tall rail is exactly what leaves dead space on the hub.
+   */
+  const useRail = Boolean(featured?.cover) && rest.length > 0;
+  /**
+   * Four rows keep the rail just under the lead's height, so the leftover lands
+   * in the rail's bottom link instead of as dead space beside it.
+   */
+  const railOwn = useRail ? rest.slice(0, 4) : [];
+  const railMixed = useRail && railOwn.length < 4;
+  const railPosts = railMixed
+    ? [...railOwn, ...elsewhere.slice(0, 4 - railOwn.length)]
+    : railOwn;
+  const gridPosts = useRail ? rest.slice(4) : rest;
+  const newsroomFill = !useRail && rest.length < 4 ? elsewhere.slice(0, 6) : [];
 
   return (
     <PageShell>
@@ -73,23 +93,21 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         ]}
       />
 
-      <header className="max-w-3xl border-b border-white/10 pb-6">
+      <header className="max-w-3xl border-b border-white/10 pb-5">
         <Breadcrumbs
           items={[
             { href: "/", label: "Newsroom" },
             { label: category.label },
           ]}
         />
-        <p className="text-[0.65rem] font-medium tracking-[0.2em] text-accent uppercase">
-          {category.kicker}
-        </p>
-        <h1 className="mt-2 text-[clamp(1.85rem,4.5vw,3rem)] font-semibold leading-[1.05] tracking-tight text-balance">
+        <p className="eyebrow page-kicker">{category.kicker}</p>
+        <h1 className="page-title mt-2 font-semibold text-balance">
           {category.label}
         </h1>
-        <p className="mt-3 max-w-2xl text-base leading-7 text-muted text-pretty sm:text-lg">
+        <p className="lede mt-3 text-pretty">
           {category.description}
         </p>
-        <p className="mt-4 text-xs tracking-wide text-muted uppercase">
+        <p className="mt-4 text-[0.72rem] tracking-[0.14em] text-muted uppercase">
           {posts.length === 0
             ? "Nenhuma matéria"
             : posts.length === 1
@@ -99,46 +117,85 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       </header>
 
       {posts.length === 0 ? (
-        <p className="mt-8 max-w-xl text-muted">
+        <p className="mt-6 max-w-xl text-muted">
           Zero matérias nesta editoria por enquanto. Volta amanhã — ou manda
           pauta no Instagram.
         </p>
+      ) : useRail ? (
+        <div className="mt-6 grid gap-7 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-8">
+            <ArticleCard post={featured} layout="lead" headingLevel="h2" />
+          </div>
+          <div className="flex flex-col border-t border-white/10 pt-5 lg:col-span-4 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-7">
+            <SectionHeading
+              title={railMixed ? "Leia também" : "Nesta editoria"}
+              as="h2"
+            />
+            <div className="mt-1">
+              {railPosts.map((post) => (
+                <ArticleCard
+                  key={post.slug}
+                  post={post}
+                  layout="stream"
+                  headingLevel="h3"
+                />
+              ))}
+            </div>
+            <Link
+              href="/busca"
+              className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[0.78rem] font-medium tracking-[0.12em] text-accent uppercase transition-colors hover:text-fg"
+            >
+              Ver todo o newsroom
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+        </div>
       ) : (
-        <div
-          className={
-            rest.length > 0 ? "mt-7 grid gap-10 lg:grid-cols-12" : "mt-7"
-          }
-        >
-          {featured ? (
-            <div className={rest.length > 0 ? "lg:col-span-7" : "max-w-3xl"}>
-              <ArticleCard
-                post={featured}
-                layout="lead"
-                headingLevel="h2"
-              />
-            </div>
-          ) : null}
-          {rest.length > 0 ? (
-            <div className="lg:col-span-5">
-              <SectionHeading title="Nesta editoria" as="h2" />
-              <div className="mt-1">
-                {rest.map((post) => (
-                  <ArticleCard
-                    key={post.slug}
-                    post={post}
-                    layout="stream"
-                    headingLevel="h3"
-                  />
-                ))}
-              </div>
-            </div>
-          ) : null}
+        <div className="mt-6 max-w-4xl">
+          <ArticleCard post={featured} layout="lead" headingLevel="h2" />
         </div>
       )}
 
+      {gridPosts.length > 0 ? (
+        <section className="mt-9 border-t border-white/10 pt-7">
+          <SectionHeading title={`Mais em ${category.label}`} as="h2" />
+          <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
+            {gridPosts.map((post) => (
+              <ArticleCard
+                key={post.slug}
+                post={post}
+                layout="standard"
+                headingLevel="h3"
+              />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {newsroomFill.length > 0 ? (
+        <section className="mt-9 border-t border-white/10 pt-7">
+          <SectionHeading
+            title="Últimas no newsroom"
+            as="h2"
+            href="/busca"
+            actionLabel="Ver tudo"
+          />
+          <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
+            {newsroomFill.map((post) => (
+              <ArticleCard
+                key={post.slug}
+                post={post}
+                layout="standard"
+                headingLevel="h3"
+              />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <nav
         aria-label="Outras editorias"
-        className="mt-12 flex flex-wrap gap-2 border-t border-white/10 pt-6"
+        className="mt-10 flex flex-wrap gap-2 border-t border-white/10 pt-5"
       >
         {categoryList
           .filter((item) => item.slug !== category.slug)
@@ -146,7 +203,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <Link
               key={item.slug}
               href={item.href}
-              className="border border-white/12 px-3 py-1.5 text-[0.8rem] tracking-wide text-muted uppercase transition-colors hover:border-accent hover:text-accent"
+              className="chip-link"
             >
               {item.label}
             </Link>

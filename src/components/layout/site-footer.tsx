@@ -6,14 +6,21 @@ import Link from "next/link";
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-white/10 bg-bg">
-      <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-12">
+      <div className="shell-frame grid gap-8 py-9 md:grid-cols-12 lg:gap-10">
         <div className="md:col-span-5">
-          <Link href="/" className="inline-flex text-fg" aria-label="The Zero">
+          <Link
+            href="/"
+            className="inline-flex text-fg transition-colors hover:text-accent"
+            aria-label="The Zero"
+          >
             <Wordmark className="h-8 w-auto" />
           </Link>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
             {site.bio} Newsroom em pt-BR. Se não dá pra testar, medir ou
             discordar, não entra.
+          </p>
+          <p className="mt-4 text-[0.7rem] tracking-[0.14em] text-muted/80 uppercase">
+            {site.tagline} · Brasil
           </p>
         </div>
 
@@ -96,7 +103,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div className="shell-frame flex flex-col gap-2 py-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} The Zero · {site.domain}
           </p>

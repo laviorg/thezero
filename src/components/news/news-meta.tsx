@@ -14,7 +14,7 @@ export function NewsMeta({
   return (
     <p
       className={cn(
-        "text-[0.68rem] tracking-wide text-muted uppercase",
+        "text-[0.67rem] tracking-[0.14em] text-muted uppercase",
         className,
       )}
     >

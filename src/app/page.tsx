@@ -36,8 +36,8 @@ export default function HomePage() {
   const rest = featured
     ? posts.filter((post) => post.slug !== featured.slug)
     : posts;
-  const pack = rest.slice(0, 3);
-  const latest = rest.slice(3, 9);
+  const rail = rest.slice(0, 4);
+  const latest = rest.slice(4, 10);
   const listed = featured ? [featured, ...rest.slice(0, 8)] : rest.slice(0, 9);
 
   return (
@@ -51,9 +51,7 @@ export default function HomePage() {
       />
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-white/10 pb-4">
         <div>
-          <p className="text-[0.65rem] font-medium tracking-[0.22em] text-accent uppercase">
-            Newsroom
-          </p>
+          <p className="eyebrow page-kicker">Newsroom</p>
           <p className="mt-1 text-sm text-muted">
             {site.tagline} · Brasil
           </p>
@@ -64,32 +62,39 @@ export default function HomePage() {
       </div>
 
       {featured ? (
-        <section className="grid gap-8 border-b border-white/10 py-6 lg:grid-cols-12 lg:gap-10 lg:py-7">
-          <div className="lg:col-span-7 xl:col-span-8">
+        <section className="grid gap-7 border-b border-white/10 py-6 lg:grid-cols-12 lg:gap-8 xl:gap-10">
+          <div className="lg:col-span-8">
             <ArticleCard post={featured} layout="lead" headingLevel="h1" />
           </div>
-          {pack.length > 0 ? (
-            <div className="flex flex-col lg:col-span-5 xl:col-span-4 lg:border-l lg:border-white/10 lg:pl-8">
-              <p className="mb-3 text-[0.65rem] font-medium tracking-[0.2em] text-muted uppercase">
-                Também nesta edição
-              </p>
-              {pack.map((post) => (
-                <ArticleCard
-                  key={post.slug}
-                  post={post}
-                  layout="pack"
-                  headingLevel="h2"
-                />
-              ))}
+          {rail.length > 0 ? (
+            <div className="flex flex-col border-t border-white/10 pt-5 lg:col-span-4 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-7">
+              <p className="eyebrow mb-2 text-muted">Também nesta edição</p>
+              <div>
+                {rail.map((post) => (
+                  <ArticleCard
+                    key={post.slug}
+                    post={post}
+                    layout="stream"
+                    headingLevel="h2"
+                  />
+                ))}
+              </div>
+              <Link
+                href="/busca"
+                className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[0.78rem] font-medium tracking-[0.12em] text-accent uppercase transition-colors hover:text-fg"
+              >
+                Ver todo o newsroom
+                <span aria-hidden>→</span>
+              </Link>
             </div>
           ) : null}
         </section>
       ) : (
-        <section className="max-w-2xl py-10">
-          <h1 className="text-[clamp(2rem,6vw,3.5rem)] font-semibold leading-[0.95] tracking-tight">
+        <section className="max-w-2xl py-8 sm:py-10">
+          <h1 className="page-title font-semibold text-balance">
             O newsroom ainda está vazio.
           </h1>
-          <p className="mt-5 text-lg text-muted">
+          <p className="mt-4 lede">
             Coloca o primeiro MDX em{" "}
             <code className="text-accent">content/posts</code>.
           </p>
@@ -97,14 +102,18 @@ export default function HomePage() {
       )}
 
       {latest.length > 0 ? (
-        <section className="border-b border-white/10 py-8">
-          <SectionHeading title="Últimas" />
-          <div className="mt-2">
+        <section className="border-b border-white/10 py-7">
+          <SectionHeading
+            title="Últimas"
+            href="/busca"
+            actionLabel="Ver tudo"
+          />
+          <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
             {latest.map((post) => (
               <ArticleCard
                 key={post.slug}
                 post={post}
-                layout="stream"
+                layout="standard"
                 headingLevel="h2"
               />
             ))}
@@ -114,14 +123,10 @@ export default function HomePage() {
 
       <nav
         aria-label="Ir para editorias"
-        className="flex flex-wrap gap-2 border-b border-white/10 py-5"
+        className="flex flex-wrap gap-2 border-b border-white/10 py-4"
       >
         {categoryList.map((category) => (
-          <Link
-            key={category.slug}
-            href={category.href}
-            className="border border-white/12 px-3 py-1.5 text-[0.8rem] tracking-wide text-muted uppercase transition-colors hover:border-accent hover:text-accent"
-          >
+          <Link key={category.slug} href={category.href} className="chip-link">
             {category.label}
           </Link>
         ))}

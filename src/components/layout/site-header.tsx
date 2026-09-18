@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { categoryList } from "@/lib/categories";
 import { site } from "@/lib/site";
+import { cn } from "@/lib/utils";
 import { Menu, Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -30,18 +31,28 @@ function navClass(active: boolean) {
     : "text-muted transition-colors hover:text-fg";
 }
 
+/** Editoria tab: the active one carries an accent underline, like a newsroom masthead. */
+function tabClass(active: boolean) {
+  return cn(
+    "relative shrink-0 py-2 text-[0.76rem] tracking-[0.12em] uppercase after:absolute after:inset-x-0 after:-bottom-px after:h-[2px] after:transition-colors",
+    active
+      ? "text-accent after:bg-accent"
+      : "text-muted after:bg-transparent hover:text-fg hover:after:bg-white/20",
+  );
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-bg/90 backdrop-blur-md">
-      <div className="mx-auto flex h-12 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:h-14 sm:px-6">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-bg/92 backdrop-blur-md">
+      <div className="shell-frame flex h-11 items-center justify-between gap-4 sm:h-12">
         <Link
           href="/"
           className="flex items-center text-fg outline-none"
           aria-label="The Zero — newsroom"
         >
-          <Wordmark className="h-7 w-auto sm:h-8" />
+          <Wordmark className="h-[1.65rem] w-auto sm:h-7" />
         </Link>
 
         <div className="flex items-center gap-1">
@@ -125,7 +136,7 @@ export function SiteHeader() {
         aria-label="Editorias"
         className="hidden border-t border-white/10 md:block"
       >
-        <div className="mx-auto flex h-10 w-full max-w-6xl items-center gap-5 overflow-x-auto px-4 sm:px-6">
+        <div className="shell-frame flex items-center gap-5 overflow-x-auto">
           {editorias.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -133,21 +144,21 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`shrink-0 text-[0.8rem] tracking-wide ${navClass(active)}`}
+                className={tabClass(active)}
                 aria-current={active ? "page" : undefined}
               >
                 {item.label}
               </Link>
             );
           })}
-          <span className="mx-1 h-3 w-px shrink-0 bg-white/15" aria-hidden />
+          <span className="h-3 w-px shrink-0 bg-white/15" aria-hidden />
           {extraNav.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`shrink-0 text-[0.8rem] tracking-wide ${navClass(active)}`}
+                className={tabClass(active)}
                 aria-current={active ? "page" : undefined}
               >
                 {item.label}
