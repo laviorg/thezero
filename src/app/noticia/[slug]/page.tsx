@@ -8,7 +8,7 @@ import {
 } from "@/components/news/json-ld";
 import { SectionHeading } from "@/components/news/section-heading";
 import { PageShell } from "@/components/layout/page-shell";
-import { getCategory } from "@/lib/categories";
+import { categoryList, getCategory } from "@/lib/categories";
 import { formatDate, readingTimeLabel } from "@/lib/format";
 import { buildPageMetadata } from "@/lib/metadata";
 import {
@@ -111,63 +111,70 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         ]}
       />
       <PageShell width="article">
-        <header className="max-w-[46rem]">
-          {category ? (
-            <Breadcrumbs
-              items={[
-                { href: "/", label: "Newsroom" },
-                { href: category.href, label: category.label },
-                { label: post.title },
-              ]}
-            />
-          ) : null}
-          {category && (
-            <Link href={category.href} className="eyebrow page-kicker">
-              {post.kicker ?? category.label}
-            </Link>
-          )}
-          <h1 className="story-title mt-2.5 font-semibold text-balance">
-            {post.title}
-          </h1>
-          <p className="lede mt-3.5 text-pretty">{post.excerpt}</p>
-          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.82rem] tracking-[0.08em] text-muted uppercase sm:text-sm sm:tracking-normal sm:normal-case">
-            <span className="font-medium text-fg normal-case">{post.author}</span>
-            <span className="text-white/20" aria-hidden>
-              ·
-            </span>
-            <time dateTime={post.dateIso}>{formatDate(post.date)}</time>
-            <span className="text-white/20" aria-hidden>
-              ·
-            </span>
-            <span>{readingTimeLabel(post.readingMinutes)}</span>
-            {category ? (
-              <>
+        {/* Story column and rail share one grid so the rail fills the top of the
+            page instead of leaving the right half empty beside the headline. */}
+        <div className="grid gap-9 lg:grid-cols-[minmax(0,44rem)_minmax(16rem,1fr)] lg:items-start lg:gap-12 xl:gap-14">
+          <div className="min-w-0">
+            <header>
+              {category ? (
+                <Breadcrumbs
+                  items={[
+                    { href: "/", label: "Newsroom" },
+                    { href: category.href, label: category.label },
+                    { label: post.title },
+                  ]}
+                />
+              ) : null}
+              {category && (
+                <Link href={category.href} className="eyebrow page-kicker">
+                  {post.kicker ?? category.label}
+                </Link>
+              )}
+              <h1 className="story-title mt-2.5 font-semibold text-balance">
+                {post.title}
+              </h1>
+              <p className="lede mt-3.5 text-pretty">{post.excerpt}</p>
+              <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+                <span className="font-medium text-fg">{post.author}</span>
                 <span className="text-white/20" aria-hidden>
                   ·
                 </span>
-                <Link href={category.href} className="hover:text-accent">
-                  {category.label}
-                </Link>
-              </>
+                <time dateTime={post.dateIso}>{formatDate(post.date)}</time>
+                <span className="text-white/20" aria-hidden>
+                  ·
+                </span>
+                <span>{readingTimeLabel(post.readingMinutes)}</span>
+                {category ? (
+                  <>
+                    <span className="text-white/20" aria-hidden>
+                      ·
+                    </span>
+                    <Link href={category.href} className="hover:text-accent">
+                      {category.label}
+                    </Link>
+                  </>
+                ) : null}
+              </div>
+            </header>
+
+            {post.cover ? (
+              <CoverImage
+                src={post.cover}
+                alt={coverAlt(post.title, post.coverCredit)}
+                credit={post.coverCredit}
+                priority
+                flush
+                crop
+                watermarkSize="default"
+                sizes="(min-width: 1280px) 44rem, (min-width: 1024px) 58vw, 100vw"
+                className="mt-5 -mx-[var(--shell-gutter)] sm:mx-0 sm:mt-6"
+              />
             ) : null}
-          </div>
-        </header>
 
-        {post.cover ? (
-          <CoverImage
-            src={post.cover}
-            alt={coverAlt(post.title, post.coverCredit)}
-            credit={post.coverCredit}
-            priority
-            flush
-            sizes="(min-width: 1280px) 50rem, (min-width: 1024px) 64vw, 100vw"
-            className="mt-5 -mx-4 max-w-[50rem] sm:mx-0 sm:mt-6"
-          />
-        ) : null}
+            <div className="mt-7 border-t border-white/10 pt-7">
+              <ArticleBody source={post.content} />
+            </div>
 
-        <div className="mt-7 grid gap-8 border-t border-white/10 pt-7 lg:grid-cols-[minmax(0,44rem)_minmax(17rem,1fr)] lg:items-start lg:gap-10 xl:gap-12">
-          <div>
-            <ArticleBody source={post.content} />
             {(newer || older) && (
               <nav
                 aria-label="Matérias vizinhas"
@@ -194,8 +201,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </nav>
             )}
           </div>
-          <aside className="lg:sticky lg:top-24" aria-labelledby="mais-nesta-casa">
-            <SectionHeading title="Mais nesta casa" as="h2" id="mais-nesta-casa" />
+
+          <aside
+            className="border-t border-white/10 pt-6 lg:sticky lg:top-24 lg:border-t-0 lg:pt-0"
+            aria-labelledby="mais-nesta-casa"
+          >
+            <SectionHeading
+              title="Mais nesta casa"
+              as="h2"
+              id="mais-nesta-casa"
+            />
             <div className="mt-1">
               {related.map((item) => (
                 <ArticleCard
@@ -206,6 +221,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 />
               ))}
             </div>
+            <p className="eyebrow mt-7 text-muted">Editorias</p>
+            <nav aria-label="Editorias" className="mt-3 flex flex-wrap gap-2">
+              {categoryList.map((item) => (
+                <Link key={item.slug} href={item.href} className="chip-link">
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </aside>
         </div>
       </PageShell>

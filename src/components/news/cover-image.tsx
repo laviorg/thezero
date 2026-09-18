@@ -73,7 +73,7 @@ export function CoverImage({
         <figcaption
           className={cn(
             "mt-2 text-[0.8rem] leading-5 text-muted",
-            flush && "px-4 sm:px-0",
+            flush && "px-[var(--shell-gutter)] sm:px-0",
           )}
         >
           <span className="font-medium tracking-[0.14em] text-muted/80 uppercase">

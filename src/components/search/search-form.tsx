@@ -10,7 +10,11 @@ export function SearchForm({
   autoFocus?: boolean;
 }) {
   return (
-    <form action="/busca" role="search" className="flex w-full gap-2">
+    <form
+      action="/busca"
+      role="search"
+      className="flex w-full gap-2 border border-white/10 bg-surface/60 p-2 transition-colors focus-within:border-accent/70"
+    >
       <label htmlFor="q" className="sr-only">
         Buscar matérias
       </label>
@@ -22,6 +26,7 @@ export function SearchForm({
         autoFocus={autoFocus}
         placeholder="IA, Cursor, Steam Deck, setup..."
         autoComplete="off"
+        className="border-transparent bg-transparent"
       />
       <Button type="submit" size="lg" className="px-4">
         <Search />
