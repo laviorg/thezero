@@ -53,12 +53,28 @@ date: "2026-09-18"
 featured: false
 kicker: "IA · dock"
 author: "The Zero"
+cover: "https://www.apple.com/newsroom/images/.../foto.jpg"
+coverCredit: "Apple / Divulgação"
 ---
 ```
 
 `category` tem de ser um de: `ia` · `hardware` · `consoles` · `gadgets` · `apps`.
 
-Opcionais: `updated`, `featured`, `kicker`, `author`, `draft` (`true` some em produção).
+Opcionais: `updated`, `featured`, `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
+
+Sem `cover`, o card e a matéria seguem só com tipografia — o layout não quebra.
+
+A capa entra na página da matéria e nos cards (`next/image`). No corpo, Markdown padrão:
+
+```mdx
+![iPhone 18 Pro nas quatro cores](https://www.apple.com/newsroom/images/.../lineup.jpg)
+
+*Apple / Divulgação*
+```
+
+A imagem fica full-width, com cantos arredondados. A linha em itálico logo abaixo vira legenda/crédito.
+
+**Instagram:** cada post do [@hello.the.zero](https://www.instagram.com/hello.the.zero/) precisa de uma matéria MDX correspondente, **com fotos de verdade** (capa e/ou imagens no corpo). Texto solto não vale. Preferir fotos oficiais de imprensa (Apple Newsroom, etc.) e creditá-las na legenda.
 
 3. No corpo, Markdown + MDX. Componentes de marca:
 

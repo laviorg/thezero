@@ -19,6 +19,8 @@ export type PostFrontmatter = {
   featured?: boolean;
   draft?: boolean;
   kicker?: string;
+  cover?: string;
+  coverCredit?: string;
 };
 
 export type Post = PostFrontmatter & {
@@ -46,6 +48,10 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     );
   }
 
+  const cover = typeof data.cover === "string" ? data.cover.trim() : "";
+  const coverCredit =
+    typeof data.coverCredit === "string" ? data.coverCredit.trim() : "";
+
   return {
     title,
     excerpt,
@@ -56,6 +62,8 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     featured: Boolean(data.featured),
     draft: Boolean(data.draft),
     kicker: typeof data.kicker === "string" ? data.kicker : undefined,
+    cover: cover || undefined,
+    coverCredit: coverCredit || undefined,
   };
 }
 

@@ -50,6 +50,7 @@ export function NewsArticleJsonLd({
   url,
   section,
   author,
+  image,
 }: {
   headline: string;
   description: string;
@@ -58,6 +59,7 @@ export function NewsArticleJsonLd({
   url: string;
   section: string;
   author: string;
+  image?: string;
 }) {
   const data = {
     "@context": "https://schema.org",
@@ -68,6 +70,7 @@ export function NewsArticleJsonLd({
     dateModified,
     inLanguage: site.language,
     articleSection: section,
+    ...(image ? { image } : {}),
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": url,
