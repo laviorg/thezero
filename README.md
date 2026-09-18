@@ -1,6 +1,6 @@
 # The Zero
 
-Newsroom de tech do Brasil — IA, software, hardware, consoles e gadgets. Tom direto, irônico, sem hype de lançamento.
+Newsroom de tech do Brasil — IA, software, hardware, consoles, gadgets e games. Tom direto, irônico, sem hype de lançamento.
 
 Site: [thezero.com.br](https://thezero.com.br) · Instagram [@hello.the.zero](https://www.instagram.com/hello.the.zero/) · YouTube [@TheZero_Media](https://www.youtube.com/@TheZero_Media)
 
@@ -31,7 +31,7 @@ npm run lint
 | Rota | O quê |
 | --- | --- |
 | `/` | Newsroom (destaque + editorias) |
-| `/ia` `/hardware` `/consoles` `/gadgets` `/apps` | Editorias |
+| `/ia` `/hardware` `/consoles` `/gadgets` `/apps` `/games` | Editorias |
 | `/noticia/[slug]` | Matéria |
 | `/sobre` | Manifesto e regras de voz |
 | `/busca?q=` | Busca no título, trecho e corpo |
@@ -58,7 +58,7 @@ coverCredit: "Apple / Divulgação"
 ---
 ```
 
-`category` tem de ser um de: `ia` · `hardware` · `consoles` · `gadgets` · `apps`.
+`category` tem de ser um de: `ia` · `hardware` · `consoles` · `gadgets` · `apps` · `games`.
 
 Opcionais: `updated`, `featured`, `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
 

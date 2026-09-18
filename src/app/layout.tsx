@@ -32,6 +32,8 @@ export const metadata: Metadata = {
     "consoles",
     "gadgets",
     "apps",
+    "games",
+    "jogos",
     "Brasil",
     "notícias de tecnologia",
   ],

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import {
+  CATEGORY_SLUGS,
   getCategory,
   isCategorySlug,
   type CategorySlug,
@@ -44,7 +45,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
 
   if (!title || !excerpt || !date || !isCategorySlug(category)) {
     throw new Error(
-      `Frontmatter inválido em ${slug}: title, excerpt, date e category (ia|hardware|consoles|gadgets|apps) são obrigatórios.`,
+      `Frontmatter inválido em ${slug}: title, excerpt, date e category (${CATEGORY_SLUGS.join("|")}) são obrigatórios.`,
     );
   }
 
