@@ -23,7 +23,10 @@ export default async function ArticleOpenGraphImage({
 
   const kicker = post?.kicker ?? post?.categoryLabel ?? "The Zero";
   const title = post?.title ?? site.name;
-  const cover = assetUrl(post?.cover);
+  const cover =
+    post?.cover?.toLowerCase().endsWith(".webp")
+      ? undefined
+      : assetUrl(post?.cover);
 
   return new ImageResponse(
     (
