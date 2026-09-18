@@ -18,6 +18,12 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "thezero-blue.vercel.app", pathname: "/**" },
       { protocol: "https", hostname: "thezero.com.br", pathname: "/**" },
       { protocol: "https", hostname: "www.thezero.com.br", pathname: "/**" },
+      { protocol: "https", hostname: "i.guim.co.uk", pathname: "/**" },
+      { protocol: "https", hostname: "media.guim.co.uk", pathname: "/**" },
+      { protocol: "https", hostname: "www.hacktron.ai", pathname: "/**" },
+      { protocol: "https", hostname: "hacktron.ai", pathname: "/**" },
+      { protocol: "https", hostname: "mercadoeconsumo.com.br", pathname: "/**" },
+      { protocol: "https", hostname: "www.mercadoeconsumo.com.br", pathname: "/**" },
     ],
   },
 };
