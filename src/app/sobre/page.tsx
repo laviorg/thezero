@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 sm:py-16">
-      <Wordmark className="mb-10 h-16 w-auto text-fg sm:h-20" />
+    <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
+      <Wordmark className="mb-8 h-12 w-auto text-fg sm:h-16" />
       <p className="text-[0.7rem] font-medium tracking-[0.22em] text-accent uppercase">
         Sobre · {site.tagline}
       </p>
-      <h1 className="mt-4 text-[clamp(2.4rem,7vw,4.6rem)] font-semibold leading-[0.94] tracking-tight text-balance">
+      <h1 className="mt-4 text-[clamp(1.85rem,5.5vw,3.4rem)] font-semibold leading-[1.05] tracking-tight text-balance">
         Se não dá pra testar, medir ou discordar em 40 segundos, não entra.
       </h1>
       <div className="mt-10 space-y-6 text-lg leading-8 text-fg/90">

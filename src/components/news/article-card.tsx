@@ -1,27 +1,113 @@
 import { CoverImage } from "@/components/news/cover-image";
+import { NewsMeta } from "@/components/news/news-meta";
 import type { Post } from "@/lib/posts";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
+export type ArticleCardLayout =
+  | "lead"
+  | "pack"
+  | "standard"
+  | "rail"
+  | "stream"
+  | "compact";
+
 type ArticleCardProps = {
   post: Post;
   className?: string;
-  priority?: "lead" | "standard" | "compact";
+  /** @deprecated use `layout` — kept so existing call sites keep working */
+  priority?: ArticleCardLayout;
+  layout?: ArticleCardLayout;
+  headingLevel?: "h1" | "h2" | "h3";
 };
+
+function Kicker({ children }: { children: string }) {
+  return (
+    <p className="text-[0.65rem] font-medium tracking-[0.18em] text-accent uppercase">
+      {children}
+    </p>
+  );
+}
 
 export function ArticleCard({
   post,
   className,
-  priority = "standard",
+  priority,
+  layout,
+  headingLevel,
 }: ArticleCardProps) {
-  const isLead = priority === "lead";
-  const isCompact = priority === "compact";
+  const variant = layout ?? priority ?? "standard";
+  const isLead = variant === "lead";
+  const isPack = variant === "pack";
+  const isRail = variant === "rail";
+  const isStream = variant === "stream";
+  const isCompact = variant === "compact";
+
+  const Heading = headingLevel ?? (isLead ? "h1" : isCompact ? "h3" : "h2");
+  const kicker = post.kicker ?? post.categoryLabel;
 
   const coverSizes = isLead
-    ? "(min-width: 1152px) 1152px, 100vw"
-    : isCompact
-      ? "(min-width: 1024px) 20rem, 100vw"
-      : "(min-width: 768px) 50vw, 100vw";
+    ? "(min-width: 1152px) 44rem, (min-width: 768px) 60vw, 100vw"
+    : isPack || isStream || isCompact
+      ? "(min-width: 1024px) 10rem, 30vw"
+      : isRail
+        ? "(min-width: 1024px) 22rem, (min-width: 640px) 50vw, 100vw"
+        : "(min-width: 768px) 50vw, 100vw";
+
+  const titleClass = cn(
+    "font-semibold tracking-tight text-fg text-pretty transition-colors duration-200 group-hover:text-accent group-focus-visible:text-accent",
+    isLead && "mt-2 text-[clamp(1.65rem,4vw,2.85rem)] leading-[1.08]",
+    isPack && "mt-1.5 text-[1.05rem] leading-snug sm:text-lg",
+    variant === "standard" &&
+      "mt-2 text-[clamp(1.15rem,2vw,1.55rem)] leading-snug",
+    isRail && "mt-2 text-base leading-snug sm:text-lg",
+    isStream && "mt-1 text-[1.05rem] leading-snug sm:text-lg",
+    isCompact && "mt-1.5 text-base leading-snug",
+  );
+
+  if (isStream || isPack) {
+    return (
+      <article
+        className={cn(
+          "group border-b border-white/10 last:border-b-0",
+          isPack ? "py-3.5 first:pt-0 last:pb-0" : "py-4 first:pt-0 last:pb-0",
+          className,
+        )}
+      >
+        <Link
+          href={post.href}
+          className="flex gap-3.5 outline-none sm:gap-4"
+        >
+          {post.cover ? (
+            <CoverImage
+              src={post.cover}
+              alt={post.title}
+              crop
+              zoom
+              watermarkSize="compact"
+              sizes={coverSizes}
+              className={cn(
+                "shrink-0",
+                isPack
+                  ? "w-[5.5rem] sm:w-[6.5rem]"
+                  : "w-[6.75rem] sm:w-40",
+              )}
+            />
+          ) : null}
+          <div className="min-w-0 flex-1">
+            <Kicker>{kicker}</Kicker>
+            <Heading className={titleClass}>{post.title}</Heading>
+            {isStream ? (
+              <p className="mt-1.5 hidden text-sm leading-5 text-muted text-pretty line-clamp-2 lg:block">
+                {post.excerpt}
+              </p>
+            ) : null}
+            <NewsMeta post={post} className="mt-2" />
+          </div>
+        </Link>
+      </article>
+    );
+  }
 
   return (
     <article className={cn("group", className)}>
@@ -34,40 +120,33 @@ export function ArticleCard({
             priority={isLead}
             watermarkSize={isLead ? "default" : "compact"}
             sizes={coverSizes}
-            className={cn("mb-4", isLead && "mb-6", isCompact && "mb-3")}
+            zoom
+            className={cn(
+              "mb-3",
+              isLead && "mb-4",
+              isCompact && "mb-2.5",
+            )}
           />
         ) : null}
-        <p className="text-[0.7rem] font-medium tracking-[0.22em] text-accent uppercase">
-          {post.kicker ?? post.categoryLabel}
-        </p>
-        <h2
-          className={cn(
-            "mt-3 font-semibold tracking-tight text-fg text-balance transition-colors group-hover:text-accent group-focus-visible:text-accent",
-            isLead &&
-              "text-[clamp(2.4rem,8vw,5.6rem)] leading-[0.92]",
-            !isLead &&
-              !isCompact &&
-              "text-[clamp(1.35rem,2.4vw,2rem)] leading-[1.08]",
-            isCompact && "text-lg leading-snug",
-          )}
-        >
-          {post.title}
-        </h2>
-        {!isCompact && (
+        <Kicker>{kicker}</Kicker>
+        <Heading className={titleClass}>{post.title}</Heading>
+        {!isCompact && !isRail && (
           <p
             className={cn(
-              "mt-4 max-w-2xl text-muted text-pretty",
-              isLead ? "text-lg sm:text-xl" : "text-sm sm:text-base",
+              "mt-2.5 text-muted text-pretty",
+              isLead
+                ? "max-w-2xl text-[1.05rem] leading-7 sm:text-lg sm:leading-8"
+                : "text-sm leading-6 line-clamp-3",
             )}
           >
             {post.excerpt}
           </p>
         )}
-        <p className="mt-4 text-xs tracking-wide text-muted uppercase">
-          {post.categoryLabel}
-          <span className="mx-2 text-white/20">/</span>
-          {post.readingMinutes} min
-        </p>
+        <NewsMeta
+          post={post}
+          showAuthor={isLead}
+          className={cn("mt-3", isCompact && "mt-2")}
+        />
       </Link>
     </article>
   );

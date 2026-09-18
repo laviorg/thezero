@@ -15,6 +15,10 @@ type CoverImageProps = {
   /** Crop to 16:9 for cards. Article pages keep the photo’s natural ratio. */
   crop?: boolean;
   watermarkSize?: PhotoWatermarkSize;
+  /** Subtle zoom on card hover. Disabled when the user prefers reduced motion. */
+  zoom?: boolean;
+  /** Edge-to-edge on small screens (article covers). */
+  flush?: boolean;
 };
 
 export function CoverImage({
@@ -26,6 +30,8 @@ export function CoverImage({
   className,
   crop = false,
   watermarkSize,
+  zoom = false,
+  flush = false,
 }: CoverImageProps) {
   const badge = watermarkSize ?? (crop ? "compact" : "default");
 
@@ -33,7 +39,10 @@ export function CoverImage({
     <figure className={cn("block", className)}>
       <WatermarkedPhoto
         size={badge}
-        className={crop ? "aspect-video" : undefined}
+        className={cn(
+          crop && "aspect-video",
+          flush && "rounded-none sm:rounded-md",
+        )}
       >
         {crop ? (
           <Image
@@ -41,7 +50,11 @@ export function CoverImage({
             alt={alt}
             fill
             priority={priority}
-            className="object-cover"
+            className={cn(
+              "object-cover",
+              zoom &&
+                "cover-zoom transition-transform duration-500 ease-out group-hover:scale-[1.03]",
+            )}
             sizes={sizes}
           />
         ) : (
@@ -57,7 +70,20 @@ export function CoverImage({
         )}
       </WatermarkedPhoto>
       {credit ? (
-        <figcaption className="mt-2 text-sm text-muted italic">{credit}</figcaption>
+        <figcaption
+          className={cn(
+            "mt-2 text-[0.8rem] leading-5 text-muted",
+            flush && "px-4 sm:px-0",
+          )}
+        >
+          <span className="font-medium tracking-[0.14em] text-muted/80 uppercase">
+            Foto
+          </span>
+          <span className="mx-2 text-white/20" aria-hidden>
+            /
+          </span>
+          <span className="italic">{credit}</span>
+        </figcaption>
       ) : null}
     </figure>
   );

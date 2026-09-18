@@ -6,27 +6,27 @@ import Link from "next/link";
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-white/10 bg-bg">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-12">
+      <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-12">
         <div className="md:col-span-5">
           <Link href="/" className="inline-flex text-fg" aria-label="The Zero">
-            <Wordmark className="h-10 w-auto" />
+            <Wordmark className="h-8 w-auto" />
           </Link>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
+          <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
             {site.bio} Newsroom em pt-BR. Se não dá pra testar, medir ou
             discordar, não entra.
           </p>
         </div>
 
         <div className="md:col-span-3">
-          <p className="text-[0.7rem] tracking-[0.2em] text-muted uppercase">
+          <p className="text-[0.65rem] tracking-[0.2em] text-muted uppercase">
             Editorias
           </p>
-          <ul className="mt-4 space-y-2 text-sm">
+          <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
             {categoryList.map((category) => (
               <li key={category.slug}>
                 <Link
                   href={category.href}
-                  className="text-fg/90 hover:text-accent"
+                  className="text-fg/90 transition-colors hover:text-accent"
                 >
                   {category.label}
                 </Link>
@@ -36,10 +36,10 @@ export function SiteFooter() {
         </div>
 
         <div className="md:col-span-2">
-          <p className="text-[0.7rem] tracking-[0.2em] text-muted uppercase">
+          <p className="text-[0.65rem] tracking-[0.2em] text-muted uppercase">
             Casa
           </p>
-          <ul className="mt-4 space-y-2 text-sm">
+          <ul className="mt-3 space-y-1.5 text-sm">
             <li>
               <Link href="/sobre" className="hover:text-accent">
                 Sobre
@@ -63,10 +63,10 @@ export function SiteFooter() {
         </div>
 
         <div className="md:col-span-2">
-          <p className="text-[0.7rem] tracking-[0.2em] text-muted uppercase">
+          <p className="text-[0.65rem] tracking-[0.2em] text-muted uppercase">
             Redes
           </p>
-          <ul className="mt-4 space-y-2 text-sm">
+          <ul className="mt-3 space-y-1.5 text-sm">
             <li>
               <a
                 href={site.social.instagram}
@@ -91,8 +91,10 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p>© {new Date().getFullYear()} The Zero · {site.domain}</p>
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <p>
+            © {new Date().getFullYear()} The Zero · {site.domain}
+          </p>
           <p>The Zero.</p>
         </div>
       </div>

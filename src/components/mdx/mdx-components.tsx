@@ -12,7 +12,7 @@ export function Verdict({
   underrated: string;
 }) {
   return (
-    <div className="my-10 grid gap-3 sm:grid-cols-2">
+    <div className="my-8 grid gap-3 sm:grid-cols-2">
       <div className="border border-alert/35 bg-surface p-5">
         <p className="text-[0.68rem] font-medium tracking-[0.2em] text-alert uppercase">
           Overrated
@@ -31,7 +31,7 @@ export function Verdict({
 
 export function Rule({ children }: { children: ReactNode }) {
   return (
-    <aside className="my-10 border-l-2 border-accent bg-surface px-5 py-4">
+    <aside className="my-8 border-l-2 border-accent bg-surface px-5 py-4">
       <p className="text-[0.68rem] tracking-[0.2em] text-accent uppercase">
         Regra do The Zero
       </p>
@@ -47,7 +47,7 @@ function MarkdownImage({
   if (!src || typeof src !== "string") return null;
 
   return (
-    <figure className="my-8">
+    <figure className="my-7">
       <WatermarkedPhoto>
         <Image
           src={src}
@@ -69,7 +69,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   h2: ({ className, ...props }) => (
     <h2
       className={cn(
-        "mt-12 mb-4 text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-tight",
+        "mt-10 mb-3 text-[clamp(1.25rem,2.5vw,1.7rem)] font-semibold tracking-tight leading-snug",
         className,
       )}
       {...props}
@@ -78,7 +78,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   h3: ({ className, ...props }) => (
     <h3
       className={cn(
-        "mt-8 mb-3 text-xl font-semibold tracking-tight",
+        "mt-7 mb-2.5 text-lg font-semibold tracking-tight",
         className,
       )}
       {...props}
@@ -98,7 +98,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
     }
 
     return (
-      <p className={cn("my-5 text-lg leading-8 text-fg/90", className)} {...props}>
+      <p className={cn("my-4 leading-[1.75] sm:my-5", className)} {...props}>
         {children}
       </p>
     );
@@ -144,7 +144,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   ul: ({ className, ...props }) => (
     <ul
       className={cn(
-        "my-5 list-disc space-y-2 pl-5 text-lg leading-8 text-fg/90",
+        "my-4 list-disc space-y-2 pl-5 leading-[1.75] sm:my-5",
         className,
       )}
       {...props}
@@ -153,7 +153,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   ol: ({ className, ...props }) => (
     <ol
       className={cn(
-        "my-5 list-decimal space-y-2 pl-5 text-lg leading-8 text-fg/90",
+        "my-4 list-decimal space-y-2 pl-5 leading-[1.75] sm:my-5",
         className,
       )}
       {...props}

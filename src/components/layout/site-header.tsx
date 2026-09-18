@@ -17,13 +17,12 @@ import { Menu, Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const nav = [
-  ...categoryList.map((category) => ({
-    href: category.href,
-    label: category.label,
-  })),
-  { href: "/sobre", label: "Sobre" },
-];
+const editorias = categoryList.map((category) => ({
+  href: category.href,
+  label: category.label,
+}));
+
+const extraNav = [{ href: "/sobre", label: "Sobre" }] as const;
 
 function navClass(active: boolean) {
   return active
@@ -35,31 +34,15 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-bg/85 backdrop-blur-md">
-      <div className="mx-auto flex h-[4.25rem] w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-bg/90 backdrop-blur-md">
+      <div className="mx-auto flex h-12 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:h-14 sm:px-6">
         <Link
           href="/"
           className="flex items-center text-fg outline-none"
           aria-label="The Zero — newsroom"
         >
-          <Wordmark className="h-8 w-auto sm:h-9" />
+          <Wordmark className="h-7 w-auto sm:h-8" />
         </Link>
-
-        <nav aria-label="Editorias" className="hidden items-center gap-6 lg:flex">
-          {nav.map((item) => {
-            const active =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm tracking-wide ${navClass(active)}`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
 
         <div className="flex items-center gap-1">
           <Button variant="ghost" size="icon" asChild>
@@ -72,7 +55,7 @@ export function SiteHeader() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="lg:hidden"
+                className="md:hidden"
                 aria-label="Abrir menu"
               >
                 <Menu />
@@ -84,26 +67,51 @@ export function SiteHeader() {
                 <Wordmark className="h-8 w-auto text-fg" />
                 <SheetDescription>{site.tagline}</SheetDescription>
               </SheetHeader>
-              <nav className="mt-10 flex flex-col gap-5" aria-label="Menu">
+              <nav className="mt-8 flex flex-col" aria-label="Menu">
                 <SheetClose asChild>
-                  <Link href="/" className={navClass(pathname === "/")}>
+                  <Link
+                    href="/"
+                    className={`border-b border-white/10 py-3 text-lg ${navClass(pathname === "/")}`}
+                    aria-current={pathname === "/" ? "page" : undefined}
+                  >
                     Newsroom
                   </Link>
                 </SheetClose>
-                {nav.map((item) => {
+                {editorias.map((item) => {
                   const active =
                     pathname === item.href ||
                     pathname.startsWith(`${item.href}/`);
                   return (
                     <SheetClose asChild key={item.href}>
-                      <Link href={item.href} className={`text-lg ${navClass(active)}`}>
+                      <Link
+                        href={item.href}
+                        className={`border-b border-white/10 py-3 text-lg ${navClass(active)}`}
+                        aria-current={active ? "page" : undefined}
+                      >
+                        {item.label}
+                      </Link>
+                    </SheetClose>
+                  );
+                })}
+                {extraNav.map((item) => {
+                  const active = pathname === item.href;
+                  return (
+                    <SheetClose asChild key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={`border-b border-white/10 py-3 text-lg ${navClass(active)}`}
+                        aria-current={active ? "page" : undefined}
+                      >
                         {item.label}
                       </Link>
                     </SheetClose>
                   );
                 })}
                 <SheetClose asChild>
-                  <Link href="/busca" className="text-lg text-muted hover:text-fg">
+                  <Link
+                    href="/busca"
+                    className="py-3 text-lg text-muted hover:text-fg"
+                  >
                     Busca
                   </Link>
                 </SheetClose>
@@ -112,6 +120,42 @@ export function SiteHeader() {
           </Sheet>
         </div>
       </div>
+
+      <nav
+        aria-label="Editorias"
+        className="hidden border-t border-white/10 md:block"
+      >
+        <div className="mx-auto flex h-10 w-full max-w-6xl items-center gap-5 overflow-x-auto px-4 sm:px-6">
+          {editorias.map((item) => {
+            const active =
+              pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`shrink-0 text-[0.8rem] tracking-wide ${navClass(active)}`}
+                aria-current={active ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+          <span className="mx-1 h-3 w-px shrink-0 bg-white/15" aria-hidden />
+          {extraNav.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`shrink-0 text-[0.8rem] tracking-wide ${navClass(active)}`}
+                aria-current={active ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </div>
+      </nav>
     </header>
   );
 }

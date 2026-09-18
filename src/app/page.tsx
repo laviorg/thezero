@@ -1,7 +1,9 @@
 import { ArticleCard } from "@/components/news/article-card";
 import { CategoryRail } from "@/components/news/category-rail";
-import { Button } from "@/components/ui/button";
+import { SectionHeading } from "@/components/news/section-heading";
+import { PageShell } from "@/components/layout/page-shell";
 import { categoryList } from "@/lib/categories";
+import { formatToday } from "@/lib/format";
 import { getAllPosts, getFeaturedPost, getPostsByCategory } from "@/lib/posts";
 import { site } from "@/lib/site";
 import type { Metadata } from "next";
@@ -19,38 +21,78 @@ export default function HomePage() {
   const rest = featured
     ? posts.filter((post) => post.slug !== featured.slug)
     : posts;
+  const pack = rest.slice(0, 3);
+  const latest = rest.slice(3, 9);
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
-      <p className="text-[0.7rem] font-medium tracking-[0.25em] text-accent uppercase">
-        Newsroom · {site.tagline} · Brasil
-      </p>
+    <PageShell>
+      <div className="flex flex-wrap items-end justify-between gap-3 border-b border-white/10 pb-4">
+        <div>
+          <p className="text-[0.65rem] font-medium tracking-[0.22em] text-accent uppercase">
+            Newsroom
+          </p>
+          <p className="mt-1 text-sm text-muted">
+            {site.tagline} · Brasil
+          </p>
+        </div>
+        <time className="text-[0.7rem] tracking-wide text-muted uppercase">
+          {formatToday()}
+        </time>
+      </div>
 
       {featured ? (
-        <section className="mt-6 border-b border-white/10 pb-12">
-          <ArticleCard post={featured} priority="lead" />
-          <Button asChild className="mt-8" size="lg">
-            <Link href={featured.href}>Ler a matéria</Link>
-          </Button>
+        <section className="grid gap-8 border-b border-white/10 py-6 lg:grid-cols-12 lg:gap-10 lg:py-7">
+          <div className="lg:col-span-7 xl:col-span-8">
+            <ArticleCard post={featured} layout="lead" />
+          </div>
+          {pack.length > 0 ? (
+            <div className="flex flex-col lg:col-span-5 xl:col-span-4 lg:border-l lg:border-white/10 lg:pl-8">
+              <p className="mb-3 text-[0.65rem] font-medium tracking-[0.2em] text-muted uppercase">
+                Também nesta edição
+              </p>
+              {pack.map((post) => (
+                <ArticleCard key={post.slug} post={post} layout="pack" />
+              ))}
+            </div>
+          ) : null}
         </section>
       ) : (
-        <section className="mt-10 max-w-2xl">
-          <h1 className="text-[clamp(2.4rem,8vw,5rem)] font-semibold leading-[0.92] tracking-tight">
+        <section className="max-w-2xl py-10">
+          <h1 className="text-[clamp(2rem,6vw,3.5rem)] font-semibold leading-[0.95] tracking-tight">
             O newsroom ainda está vazio.
           </h1>
-          <p className="mt-6 text-lg text-muted">
-            Coloca o primeiro MDX em <code className="text-accent">content/posts</code>.
+          <p className="mt-5 text-lg text-muted">
+            Coloca o primeiro MDX em{" "}
+            <code className="text-accent">content/posts</code>.
           </p>
         </section>
       )}
 
-      {rest.length > 0 && (
-        <section className="grid gap-10 border-b border-white/10 py-12 md:grid-cols-3">
-          {rest.slice(0, 3).map((post) => (
-            <ArticleCard key={post.slug} post={post} />
-          ))}
+      {latest.length > 0 ? (
+        <section className="border-b border-white/10 py-8">
+          <SectionHeading title="Últimas" />
+          <div className="mt-2">
+            {latest.map((post) => (
+              <ArticleCard key={post.slug} post={post} layout="stream" />
+            ))}
+          </div>
         </section>
-      )}
+      ) : null}
+
+      <nav
+        aria-label="Ir para editorias"
+        className="flex flex-wrap gap-2 border-b border-white/10 py-5"
+      >
+        {categoryList.map((category) => (
+          <Link
+            key={category.slug}
+            href={category.href}
+            className="border border-white/12 px-3 py-1.5 text-[0.8rem] tracking-wide text-muted uppercase transition-colors hover:border-accent hover:text-accent"
+          >
+            {category.label}
+          </Link>
+        ))}
+      </nav>
 
       {categoryList.map((category) => (
         <CategoryRail
@@ -59,6 +101,6 @@ export default function HomePage() {
           posts={getPostsByCategory(category.slug)}
         />
       ))}
-    </div>
+    </PageShell>
   );
 }
