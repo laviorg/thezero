@@ -203,9 +203,9 @@ input {
 }
 
 .lede {
-  max-width: 42rem;
-  font-size: clamp(1.125rem, 1.02rem + 0.45vw, 1.35rem);
-  line-height: 1.48;
+  max-width: 44rem;
+  font-size: clamp(1.125rem, 1.02rem + 0.5vw, 1.375rem);
+  line-height: 1.5;
   color: var(--tz-muted);
 }
 
@@ -292,7 +292,7 @@ input {
 }
 
 .story-header {
-  max-width: 46rem;
+  max-width: 52rem;
 }
 
 .story-crumbs {
@@ -328,15 +328,15 @@ input {
 }
 
 .story-dek {
-  max-width: 40rem;
+  max-width: 42rem;
 }
 
 .story-byline {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  margin-top: 1.75rem;
-  padding-top: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.1rem;
   border-top: 2px solid var(--tz-accent);
 }
 
@@ -381,13 +381,13 @@ input {
 }
 
 .story-cover {
-  margin-top: 1.75rem;
+  margin-top: 2rem;
   margin-inline: calc(var(--shell-gutter) * -1);
 }
 
 @media (min-width: 640px) {
   .story-cover {
-    margin-top: 2.25rem;
+    margin-top: 2.5rem;
     margin-inline: 0;
   }
 }
@@ -606,8 +606,8 @@ input {
 
 .article-body > p:first-of-type {
   color: var(--tz-fg);
-  font-size: 1.08em;
-  line-height: 1.6;
+  font-size: 1.06em;
+  line-height: 1.62;
 }
 
 @media (min-width: 640px) {
@@ -615,17 +615,6 @@ input {
     max-width: var(--reading-measure-wide);
     font-size: 1.1875rem;
     line-height: 1.72;
-  }
-
-  .article-body > p:first-of-type::first-letter {
-    float: left;
-    margin-right: 0.16em;
-    padding-top: 0.08em;
-    color: var(--tz-fg);
-    font-family: var(--font-bricolage), var(--font-source-sans), sans-serif;
-    font-size: 2.65em;
-    font-weight: 750;
-    line-height: 0.86;
   }
 }
 
@@ -637,14 +626,14 @@ input {
 }
 
 .article-h2 {
-  margin-top: 2.15em;
-  margin-bottom: 0.55em;
-  padding-top: 0.15em;
+  margin-top: 2.35em;
+  margin-bottom: 0.6em;
+  padding-top: 0.2em;
   font-family: var(--font-bricolage), var(--font-source-sans), sans-serif;
-  font-size: clamp(1.35rem, 1.12rem + 0.85vw, 1.75rem);
+  font-size: clamp(1.4rem, 1.15rem + 1vw, 1.85rem);
   font-weight: 750;
-  letter-spacing: -0.028em;
-  line-height: 1.2;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
   color: var(--tz-fg);
 }
 
