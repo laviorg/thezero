@@ -817,6 +817,17 @@ input {
   }
 }
 
+/* Caption under a figure is a <p><em>, never the drop cap. */
+.article-body > p:first-of-type:has(> em:only-child)::first-letter {
+  float: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding: 0;
+  margin: 0;
+}
+
 .article-h2,
 .article-h3,
 .article-body h2,

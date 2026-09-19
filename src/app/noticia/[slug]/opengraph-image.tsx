@@ -3,7 +3,24 @@ import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { assetUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { ogPalette } from "@/lib/theme";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { ImageResponse } from "next/og";
+
+async function ogCoverSrc(cover?: string) {
+  if (!cover) return undefined;
+  if (cover.toLowerCase().endsWith(".webp")) return undefined;
+  if (/^https?:\/\//i.test(cover)) return cover;
+
+  const filePath = path.join(process.cwd(), "public", cover.replace(/^\//, ""));
+  try {
+    const buf = await readFile(filePath);
+    const mime = cover.toLowerCase().endsWith(".png") ? "image/png" : "image/jpeg";
+    return `data:${mime};base64,${buf.toString("base64")}`;
+  } catch {
+    return assetUrl(cover);
+  }
+}
 
 export const alt = site.name;
 export const size = { width: 1200, height: 630 };
@@ -28,10 +45,7 @@ export default async function ArticleOpenGraphImage({
     post?.categoryLabel ??
     "The Zero";
   const title = post?.title ?? site.name;
-  const cover =
-    post?.cover?.toLowerCase().endsWith(".webp")
-      ? undefined
-      : assetUrl(post?.cover);
+  const cover = await ogCoverSrc(post?.cover);
 
   return new ImageResponse(
     (
