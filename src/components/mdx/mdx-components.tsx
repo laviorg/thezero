@@ -12,18 +12,18 @@ export function Verdict({
   underrated: string;
 }) {
   return (
-    <div className="my-7 grid gap-3 sm:grid-cols-2">
-      <div className="border border-alert/35 bg-surface p-4">
-        <p className="eyebrow text-alert">
-          Overrated
+    <div className="my-8 grid gap-3 sm:grid-cols-2">
+      <div className="border border-alert/40 bg-surface px-4 py-4">
+        <p className="eyebrow text-alert">Overrated</p>
+        <p className="font-display mt-2.5 text-[1.05rem] leading-snug font-semibold text-fg">
+          {overrated}
         </p>
-        <p className="mt-2.5 text-[1.02rem] leading-snug text-fg">{overrated}</p>
       </div>
-      <div className="border border-accent/35 bg-surface p-4">
-        <p className="eyebrow page-kicker">
-          Underrated
+      <div className="border border-accent/40 bg-surface px-4 py-4">
+        <p className="eyebrow page-kicker">Underrated</p>
+        <p className="font-display mt-2.5 text-[1.05rem] leading-snug font-semibold text-fg">
+          {underrated}
         </p>
-        <p className="mt-2.5 text-[1.02rem] leading-snug text-fg">{underrated}</p>
       </div>
     </div>
   );
@@ -31,11 +31,11 @@ export function Verdict({
 
 export function Rule({ children }: { children: ReactNode }) {
   return (
-    <aside className="article-rule my-7 border-l-[3px] border-accent bg-accent-soft px-4 py-3.5">
-      <p className="eyebrow page-kicker">
-        Regra do The Zero
-      </p>
-      <div className="mt-2 text-[0.98rem] leading-7 text-fg">{children}</div>
+    <aside className="article-rule my-8 border-l-[3px] border-accent bg-accent-soft px-4 py-4">
+      <p className="eyebrow page-kicker">Regra do The Zero</p>
+      <div className="font-display mt-2 text-[1.05rem] leading-snug font-semibold text-fg">
+        {children}
+      </div>
     </aside>
   );
 }

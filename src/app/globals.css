@@ -299,6 +299,10 @@ input {
   margin-bottom: 1.15rem;
 }
 
+.story-crumbs li:last-child {
+  display: none;
+}
+
 .story-kicker {
   display: inline-flex;
   align-items: center;
@@ -541,7 +545,7 @@ input {
 }
 
 .story-rail-thumb {
-  width: 4.75rem;
+  width: 5.5rem;
 }
 
 .story-rail-desks {
@@ -615,13 +619,13 @@ input {
 
   .article-body > p:first-of-type::first-letter {
     float: left;
-    margin-right: 0.12em;
-    padding-top: 0.06em;
+    margin-right: 0.16em;
+    padding-top: 0.08em;
     color: var(--tz-fg);
     font-family: var(--font-bricolage), var(--font-source-sans), sans-serif;
-    font-size: 3.15em;
+    font-size: 2.65em;
     font-weight: 750;
-    line-height: 0.8;
+    line-height: 0.86;
   }
 }
 
