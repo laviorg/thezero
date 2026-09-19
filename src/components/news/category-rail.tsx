@@ -17,7 +17,7 @@ export function CategoryRail({
 
   return (
     <section
-      className="border-t border-white/10 py-7 [content-visibility:auto] [contain-intrinsic-size:auto_22rem] lg:py-8"
+      className="border-t border-border py-7 [content-visibility:auto] [contain-intrinsic-size:auto_22rem] lg:py-8"
       aria-labelledby={`editoria-${category.slug}`}
     >
       <SectionHeading

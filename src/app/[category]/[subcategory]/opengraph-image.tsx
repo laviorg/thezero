@@ -2,6 +2,7 @@ import { OgWatermarkBadge, OgWordmark } from "@/components/brand/og-mark";
 import { getCategory, getSubcategory } from "@/lib/categories";
 import { getActiveSubcategories } from "@/lib/posts";
 import { site } from "@/lib/site";
+import { ogPalette } from "@/lib/theme";
 import { ImageResponse } from "next/og";
 
 export const alt = site.name;
@@ -35,8 +36,8 @@ export default async function SubcategoryOpenGraphImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0A0A0B",
-          color: "#F4F4F5",
+          background: ogPalette.bg,
+          color: ogPalette.fg,
           padding: "72px",
           position: "relative",
         }}
@@ -46,7 +47,7 @@ export default async function SubcategoryOpenGraphImage({
           <div
             style={{
               display: "flex",
-              color: "#7CFFB2",
+              color: ogPalette.accent,
               fontSize: 22,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
@@ -65,7 +66,7 @@ export default async function SubcategoryOpenGraphImage({
           >
             {label}
           </div>
-          <div style={{ display: "flex", color: "#8B8B93", fontSize: 22 }}>
+          <div style={{ display: "flex", color: ogPalette.muted, fontSize: 22 }}>
             {site.domain}
           </div>
         </div>

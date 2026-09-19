@@ -1,5 +1,6 @@
 import { OgWatermarkBadge, OgWordmark } from "@/components/brand/og-mark";
 import { site } from "@/lib/site";
+import { ogPalette } from "@/lib/theme";
 import { ImageResponse } from "next/og";
 
 export const alt = site.name;
@@ -17,14 +18,14 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0A0A0B",
-          color: "#F4F4F5",
+          background: ogPalette.bg,
+          color: ogPalette.fg,
           gap: 36,
           position: "relative",
         }}
       >
         <OgWordmark width={640} />
-        <div style={{ display: "flex", color: "#8B8B93", fontSize: 20 }}>
+        <div style={{ display: "flex", color: ogPalette.muted, fontSize: 20 }}>
           {site.domain}
         </div>
         <OgWatermarkBadge handle={site.social.instagramHandle} />

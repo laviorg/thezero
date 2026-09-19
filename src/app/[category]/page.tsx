@@ -98,7 +98,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         ]}
       />
 
-      <header className="newsroom-masthead max-w-4xl border-b border-white/10 border-l border-l-accent/40 pb-5 pl-4 sm:pl-5">
+      <header className="newsroom-masthead max-w-4xl border-b border-border border-l border-l-accent/40 pb-5 pl-4 sm:pl-5">
         <Breadcrumbs
           items={[
             { href: "/", label: "Newsroom" },
@@ -147,7 +147,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <div className="lg:col-span-8">
             <ArticleCard post={featured} layout="lead" headingLevel="h2" />
           </div>
-          <div className="flex flex-col border-t border-white/10 pt-5 lg:col-span-4 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-7">
+          <div className="flex flex-col border-t border-border pt-5 lg:col-span-4 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-7">
             <SectionHeading
               title={railMixed ? "Leia também" : "Nesta editoria"}
               as="h2"
@@ -178,7 +178,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       )}
 
       {gridPosts.length > 0 ? (
-        <section className="mt-9 border-t border-white/10 pt-7">
+        <section className="mt-9 border-t border-border pt-7">
           <SectionHeading title={`Mais em ${category.label}`} as="h2" />
           <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
             {gridPosts.map((post) => (
@@ -194,7 +194,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       ) : null}
 
       {newsroomFill.length > 0 ? (
-        <section className="mt-9 border-t border-white/10 pt-7">
+        <section className="mt-9 border-t border-border pt-7">
           <SectionHeading
             title="Últimas no newsroom"
             as="h2"
@@ -216,7 +216,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
       <nav
         aria-label="Outras editorias"
-        className="mt-10 flex flex-wrap gap-2 border-t border-white/10 pt-5"
+        className="mt-10 flex flex-wrap gap-2 border-t border-border pt-5"
       >
         {categoryList
           .filter((item) => item.slug !== category.slug)

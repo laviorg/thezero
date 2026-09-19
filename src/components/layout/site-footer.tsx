@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="relative mt-auto overflow-hidden border-t border-white/10 bg-bg">
+    <footer className="relative mt-auto overflow-hidden border-t border-border bg-bg">
       <SplitOMark
-        className="pointer-events-none absolute -top-16 -right-16 size-72 text-white/[0.018]"
+        className="pointer-events-none absolute -top-16 -right-16 size-72 text-fg/[0.045]"
         aria-hidden
       />
       <div className="shell-frame relative grid gap-8 py-10 md:grid-cols-12 lg:gap-10 lg:py-12">
@@ -111,7 +111,7 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10">
+      <div className="border-t border-border">
         <div className="shell-frame flex flex-col gap-2 py-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} The Zero · {site.domain}

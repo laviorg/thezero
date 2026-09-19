@@ -1,6 +1,7 @@
 "use client";
 
 import { Wordmark } from "@/components/brand/logo";
+import { ThemeSwitcher, ThemeToggle } from "@/components/theme/theme-toggle";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -26,7 +27,7 @@ const nav = [
 
 function navClass(active: boolean) {
   return active
-    ? "text-accent"
+    ? "font-medium text-accent"
     : "text-muted transition-colors hover:text-fg";
 }
 
@@ -34,8 +35,8 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-bg/85 backdrop-blur-md">
-      <div className="mx-auto flex h-[4.25rem] w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+    <header className="sticky top-0 z-40 border-b border-border border-t-[3px] border-t-accent bg-bg/85 backdrop-blur-md">
+      <div className="shell-frame flex h-[4.25rem] items-center justify-between gap-4">
         <Link
           href="/"
           className="flex items-center text-fg outline-none"
@@ -61,6 +62,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-1">
+          <ThemeToggle />
           <Button variant="ghost" size="icon" asChild>
             <Link href="/busca" aria-label="Buscar matérias">
               <Search />
@@ -109,6 +111,10 @@ export function SiteHeader() {
                   </Link>
                 </SheetClose>
               </nav>
+              <div className="mt-auto pt-8">
+                <p className="eyebrow mb-3 text-muted">Aparência</p>
+                <ThemeSwitcher />
+              </div>
             </SheetContent>
           </Sheet>
         </div>

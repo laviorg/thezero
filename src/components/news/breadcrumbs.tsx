@@ -21,7 +21,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
               }
             >
               {index > 0 ? (
-                <span className="text-white/20" aria-hidden>
+                <span className="text-hairline" aria-hidden>
                   /
                 </span>
               ) : null}
