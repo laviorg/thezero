@@ -34,19 +34,21 @@ export function ArticleHeader({
   return (
     <header className="story-header">
       {crumbs && crumbs.length > 0 ? (
-        <Breadcrumbs items={crumbs} className="story-crumbs" />
+        <Breadcrumbs items={crumbs} className="story-crumbs mb-0" />
       ) : null}
 
-      {kickerHref ? (
-        <Link href={kickerHref} className="story-kicker">
-          {kicker}
-        </Link>
-      ) : (
-        <p className="story-kicker">{kicker}</p>
-      )}
+      <div className="story-headline">
+        {kickerHref ? (
+          <Link href={kickerHref} className="story-kicker">
+            {kicker}
+          </Link>
+        ) : (
+          <p className="story-kicker">{kicker}</p>
+        )}
 
-      <h1 className="story-title mt-3.5 text-balance">{title}</h1>
-      <p className="lede story-dek mt-4 text-pretty">{excerpt}</p>
+        <h1 className="story-title text-balance">{title}</h1>
+        <p className="story-dek text-pretty">{excerpt}</p>
+      </div>
 
       <div className="story-byline">
         <p className="story-byline-author">

@@ -98,7 +98,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const kickerHref = subcategory?.href ?? category?.href;
 
   return (
-    <article>
+    <article className="story-page">
       <div className="reading-progress" aria-hidden>
         <span />
       </div>
@@ -137,33 +137,37 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           { name: post.title, url: pageUrl },
         ]}
       />
-      <PageShell width="article" className="story-page">
-        <ArticleHeader
-          title={post.title}
-          excerpt={post.excerpt}
-          kicker={kicker}
-          kickerHref={kickerHref}
-          author={post.author}
-          date={post.date}
-          dateIso={post.dateIso}
-          updated={post.updated}
-          updatedIso={post.updatedIso}
-          readingMinutes={post.readingMinutes}
-          crumbs={
-            category
-              ? [
-                  { href: "/", label: "Newsroom" },
-                  { href: category.href, label: category.label },
-                  ...(subcategory
-                    ? [{ href: subcategory.href, label: subcategory.label }]
-                    : []),
-                  { label: post.title },
-                ]
-              : undefined
-          }
-        />
+      <div className="story-stage">
+        <div className="story-stage-inner">
+          <ArticleHeader
+            title={post.title}
+            excerpt={post.excerpt}
+            kicker={kicker}
+            kickerHref={kickerHref}
+            author={post.author}
+            date={post.date}
+            dateIso={post.dateIso}
+            updated={post.updated}
+            updatedIso={post.updatedIso}
+            readingMinutes={post.readingMinutes}
+            crumbs={
+              category
+                ? [
+                    { href: "/", label: "Newsroom" },
+                    { href: category.href, label: category.label },
+                    ...(subcategory
+                      ? [{ href: subcategory.href, label: subcategory.label }]
+                      : []),
+                    { label: post.title },
+                  ]
+                : undefined
+            }
+          />
+        </div>
+      </div>
 
-        {post.cover ? (
+      {post.cover ? (
+        <div className="story-hero">
           <CoverImage
             src={post.cover}
             alt={coverAlt(post.title, post.coverAlt)}
@@ -172,11 +176,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             flush
             hero
             watermarkSize="default"
-            sizes="(min-width: 1280px) 76rem, 100vw"
+            sizes="100vw"
             className="story-cover"
           />
-        ) : null}
+        </div>
+      ) : null}
 
+      <PageShell width="article" className="story-body-shell">
         <div className="story-split">
           <div className="story-main">
             <ArticleBody source={post.content} />
