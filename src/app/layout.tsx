@@ -6,7 +6,7 @@ import { ThemeScript } from "@/components/theme/theme-script";
 import { site } from "@/lib/site";
 import { themeColor } from "@/lib/theme";
 import type { Metadata, Viewport } from "next";
-import { fontDisplay, fontMono, fontSans } from "@/lib/fonts";
+import { fontDisplay, fontMono, fontSans, fontSerif } from "@/lib/fonts";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -75,7 +75,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="pt-BR"
       suppressHydrationWarning
-      className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable} h-full antialiased`}
+      className={`${fontSans.variable} ${fontSerif.variable} ${fontDisplay.variable} ${fontMono.variable} h-full antialiased`}
     >
       <head>
         <ThemeScript />

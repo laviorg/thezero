@@ -50,9 +50,10 @@ export function CoverImage({
       <WatermarkedPhoto
         size={badge}
         className={cn(
-          hero && "aspect-[3/2] lg:aspect-video",
+          hero && "aspect-[4/3] sm:aspect-[3/2] lg:aspect-[2/1]",
           crop && !hero && "aspect-video",
-          flush && "rounded-none sm:rounded-md",
+          flush && "rounded-none",
+          flush && !hero && "sm:rounded-md",
         )}
       >
         {framed ? (
@@ -85,7 +86,7 @@ export function CoverImage({
           className={cn(
             "cover-credit",
             hero && "cover-credit-hero",
-            flush && "px-[var(--shell-gutter)] sm:px-0",
+            flush && "px-[var(--shell-gutter)]",
           )}
         >
           <span className="cover-credit-label">Foto</span>
