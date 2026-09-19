@@ -18,7 +18,6 @@ import {
 
 type ConsentContextValue = {
   consent: StoredConsent | null;
-  ready: boolean;
   showBanner: boolean;
   advertisingAllowed: boolean;
   acceptAdvertising: () => void;
@@ -29,45 +28,64 @@ type ConsentContextValue = {
 const ConsentContext = createContext<ConsentContextValue | null>(null);
 
 const listeners = new Set<() => void>();
+let cachedRaw: string | null | undefined;
+let cachedValue: StoredConsent | null = null;
 
 function emit() {
   listeners.forEach((listener) => listener());
 }
 
-function readConsent(): StoredConsent | null {
-  return parseStoredConsent(localStorage.getItem(CONSENT_STORAGE_KEY));
+function getConsentSnapshot(): StoredConsent | null {
+  const raw = localStorage.getItem(CONSENT_STORAGE_KEY);
+  if (raw === cachedRaw) return cachedValue;
+  cachedRaw = raw;
+  cachedValue = parseStoredConsent(raw);
+  return cachedValue;
 }
 
-function subscribe(listener: () => void) {
+function getServerConsentSnapshot(): StoredConsent | null {
+  return null;
+}
+
+function subscribeConsent(listener: () => void) {
   listeners.add(listener);
-  const onExternalChange = () => listener();
-  window.addEventListener("storage", onExternalChange);
+  const onStorage = () => listener();
+  window.addEventListener("storage", onStorage);
   return () => {
     listeners.delete(listener);
-    window.removeEventListener("storage", onExternalChange);
+    window.removeEventListener("storage", onStorage);
   };
 }
 
-function writeConsent(advertising: boolean) {
-  localStorage.setItem(CONSENT_STORAGE_KEY, serializeConsent(advertising));
+function persistConsent(advertising: boolean) {
+  const raw = serializeConsent(advertising);
+  localStorage.setItem(CONSENT_STORAGE_KEY, raw);
+  cachedRaw = raw;
+  cachedValue = parseStoredConsent(raw);
   emit();
+  return cachedValue;
+}
+
+function subscribeClient() {
+  return () => {};
 }
 
 export function ConsentProvider({ children }: { children: ReactNode }) {
+  const isClient = useSyncExternalStore(subscribeClient, () => true, () => false);
   const consent = useSyncExternalStore(
-    subscribe,
-    readConsent,
-    () => null,
+    subscribeConsent,
+    getConsentSnapshot,
+    getServerConsentSnapshot,
   );
   const [forceBanner, setForceBanner] = useState(false);
 
   const acceptAdvertising = useCallback(() => {
-    writeConsent(true);
+    persistConsent(true);
     setForceBanner(false);
   }, []);
 
   const rejectAdvertising = useCallback(() => {
-    writeConsent(false);
+    persistConsent(false);
     setForceBanner(false);
   }, []);
 
@@ -78,14 +96,20 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   const value = useMemo<ConsentContextValue>(
     () => ({
       consent,
-      ready: true,
-      showBanner: forceBanner || consent === null,
+      showBanner: isClient && (forceBanner || consent === null),
       advertisingAllowed: consent?.advertising === true,
       acceptAdvertising,
       rejectAdvertising,
       openPreferences,
     }),
-    [consent, forceBanner, acceptAdvertising, rejectAdvertising, openPreferences],
+    [
+      consent,
+      isClient,
+      forceBanner,
+      acceptAdvertising,
+      rejectAdvertising,
+      openPreferences,
+    ],
   );
 
   return (

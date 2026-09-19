@@ -2,28 +2,18 @@
 
 import { Button } from "@/components/ui/button";
 import { useConsent } from "@/components/consent/consent-provider";
-import { useEffect, useSyncExternalStore } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 
-function subscribeNoop() {
-  return () => {};
-}
-
 export function CookieBanner() {
-  const mounted = useSyncExternalStore(
-    subscribeNoop,
-    () => true,
-    () => false,
-  );
   const { showBanner, acceptAdvertising, rejectAdvertising } = useConsent();
-  const visible = mounted && showBanner;
 
   useEffect(() => {
-    document.body.classList.toggle("has-cookie-banner", visible);
+    document.body.classList.toggle("has-cookie-banner", showBanner);
     return () => document.body.classList.remove("has-cookie-banner");
-  }, [visible]);
+  }, [showBanner]);
 
-  if (!visible) return null;
+  if (!showBanner) return null;
 
   return (
     <div
