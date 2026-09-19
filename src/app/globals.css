@@ -424,7 +424,7 @@ input {
 .story-split {
   display: grid;
   gap: 2.75rem;
-  margin-top: 2.35rem;
+  margin-top: 2.65rem;
 }
 
 @media (min-width: 1024px) {
@@ -432,7 +432,7 @@ input {
     grid-template-columns: minmax(0, 40rem) minmax(16.5rem, 1fr);
     align-items: start;
     gap: 3.25rem 3.75rem;
-    margin-top: 2.85rem;
+    margin-top: 3.1rem;
   }
 
   .story-rail {
