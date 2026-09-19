@@ -22,6 +22,7 @@ import {
   newsRobots,
 } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
+import { articleHeadline } from "@/lib/titles";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -45,15 +46,17 @@ export async function generateMetadata({
     ? getSubcategory(post.category, post.subcategory)
     : undefined;
 
+  const headline = articleHeadline(post);
   const url = absoluteUrl(post.href);
   const ogPath = articleOgImagePath(post.slug);
   const base = buildPageMetadata({
-    title: post.title,
+    title: post.seoTitle || post.title,
     description: post.excerpt,
     path: post.href,
     type: "article",
+    brand: "auto",
     imagePath: ogPath,
-    imageAlt: post.title,
+    imageAlt: headline,
   });
 
   return {
@@ -103,7 +106,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <span />
       </div>
       <NewsArticleJsonLd
-        headline={post.title}
+        headline={headline}
         description={post.excerpt}
         datePublished={post.dateIso}
         dateModified={post.updatedIso}

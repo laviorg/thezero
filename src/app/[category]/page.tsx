@@ -14,6 +14,7 @@ import {
   getPostsByCategory,
 } from "@/lib/posts";
 import { absoluteUrl, site } from "@/lib/site";
+import { categoryPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -35,15 +36,16 @@ export async function generateMetadata({
   const category = getCategory(slug);
   if (!category) return {};
 
-  const title = category.label;
+  const title = categoryPageTitle(category);
   const description = `${category.label} no The Zero. ${category.description}`;
 
   return buildPageMetadata({
-    title,
+    title: category.seoTitle,
     description,
     path: category.href,
+    brand: "always",
     imagePath: `/${category.slug}/opengraph-image`,
-    imageAlt: `${category.label} · ${site.name}`,
+    imageAlt: title,
   });
 }
 
@@ -83,7 +85,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   return (
     <PageShell>
       <CollectionPageJsonLd
-        name={`${category.label} · ${site.name}`}
+        name={categoryPageTitle(category)}
         description={`${category.label} no The Zero. ${category.description}`}
         url={pageUrl}
         items={posts.map((post) => ({

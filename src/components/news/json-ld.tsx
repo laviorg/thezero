@@ -4,6 +4,7 @@ import {
   websiteId,
 } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { ABOUT_TITLE } from "@/lib/titles";
 
 function JsonLd({ data }: { data: unknown }) {
   return (
@@ -208,7 +209,7 @@ export function AboutPageJsonLd({ description }: { description: string }) {
         "@type": "AboutPage",
         "@id": `${site.url}/sobre#webpage`,
         url: `${site.url}/sobre`,
-        name: `Sobre · ${site.name}`,
+        name: ABOUT_TITLE,
         description,
         inLanguage: site.language,
         isPartOf: { "@id": websiteId },

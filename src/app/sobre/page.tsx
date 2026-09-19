@@ -1,19 +1,28 @@
 import { Wordmark } from "@/components/brand/logo";
 import { PageShell } from "@/components/layout/page-shell";
+import { AboutPageJsonLd } from "@/components/news/json-ld";
+import { buildPageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
+import { ABOUT_TITLE } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Sobre",
-  description:
-    "The Zero é o canal de tech que mostra o que funciona de verdade — demo na tela, opinião sem filtro, zero hype de lançamento.",
-  alternates: { canonical: "/sobre" },
-};
+const aboutDescription =
+  "The Zero é o canal de tech que mostra o que funciona de verdade — demo na tela, opinião sem filtro, zero hype de lançamento.";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: ABOUT_TITLE,
+  description: aboutDescription,
+  path: "/sobre",
+  brand: "never",
+  imagePath: "/opengraph-image",
+  imageAlt: ABOUT_TITLE,
+});
 
 export default function AboutPage() {
   return (
     <PageShell width="narrow">
+      <AboutPageJsonLd description={aboutDescription} />
       <Wordmark className="mb-10 h-16 w-auto text-fg sm:h-20" />
       <p className="eyebrow page-kicker">Sobre</p>
       <h1 className="font-display mt-4 text-[clamp(2.4rem,7vw,4.6rem)] font-extrabold leading-[0.98] tracking-tight text-balance">

@@ -1,13 +1,17 @@
 import { PageShell } from "@/components/layout/page-shell";
+import { buildPageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
+import { NOT_FOUND_CORE } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Página não encontrada",
+export const metadata: Metadata = buildPageMetadata({
+  title: NOT_FOUND_CORE,
   description: "Essa URL não existe no newsroom do The Zero.",
-  robots: { index: false, follow: true },
-};
+  path: "/404",
+  brand: "always",
+  noIndex: true,
+});
 
 export default function NotFound() {
   return (

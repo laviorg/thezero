@@ -13,6 +13,7 @@ import {
   getPostsBySubcategory,
 } from "@/lib/posts";
 import { absoluteUrl, site } from "@/lib/site";
+import { subcategoryPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -38,15 +39,16 @@ export async function generateMetadata({
   const subcategory = getSubcategory(categorySlug, subcategorySlug);
   if (!category || !subcategory) return {};
 
-  const title = `${subcategory.label} em ${category.label}`;
+  const title = subcategoryPageTitle(subcategory);
   const description = `${subcategory.label} no The Zero. ${subcategory.description}`;
 
   return buildPageMetadata({
-    title,
+    title: subcategory.seoTitle,
     description,
     path: subcategory.href,
+    brand: "always",
     imagePath: `${subcategory.href}/opengraph-image`,
-    imageAlt: `${subcategory.label} · ${site.name}`,
+    imageAlt: title,
   });
 }
 
@@ -71,7 +73,7 @@ export default async function SubcategoryPage({
   return (
     <PageShell>
       <CollectionPageJsonLd
-        name={`${subcategory.label} em ${category.label} · ${site.name}`}
+        name={subcategoryPageTitle(subcategory)}
         description={`${subcategory.label} no The Zero. ${subcategory.description}`}
         url={pageUrl}
         items={posts.map((post) => ({

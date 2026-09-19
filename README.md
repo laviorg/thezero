@@ -48,6 +48,7 @@ O footer tem um link **Loja** para `https://loja.thezero.com.br` (placeholder). 
 ```mdx
 ---
 title: "Headline viral, opinião na primeira frase."
+seoTitle: "Entidade: tese curta para a SERP"
 excerpt: "Uma linha que funciona sozinha no card e no OG."
 category: ia
 subcategory: ferramentas
@@ -62,11 +63,13 @@ coverCredit: "Apple / Divulgação"
 ---
 ```
 
+`title` é a manchete (H1, cards, RSS, Google News). `seoTitle` é opcional: entra no `<title>` e no Open Graph só quando a manchete é longa demais para a SERP. A marca ` · The Zero` é sufixo do código, não se escreve no frontmatter. Regras em [`docs/SEO_TITLES.md`](docs/SEO_TITLES.md).
+
 `category` tem de ser um de: `tecnologia` · `ia` · `computadores` · `dispositivos` · `aplicativos` · `jogos`.
 
 `subcategory` é opcional, mas recomendada quando houver encaixe. Ela precisa pertencer à editoria escolhida; a lista e as regras de fronteira ficam em [`docs/TAXONOMY.md`](docs/TAXONOMY.md). Subcategorias com matérias ganham hub próprio em `/[editoria]/[subcategoria]`.
 
-Opcionais: `updated`, `featured`, `featuredPriority` (desempata vários destaques; maior vence), `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa), **`coverAlt`** (descrição objetiva da imagem) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
+Opcionais: `seoTitle` (recorte do `<title>` quando a manchete não cabe na SERP), `updated`, `featured`, `featuredPriority` (desempata vários destaques; maior vence), `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa), **`coverAlt`** (descrição objetiva da imagem) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
 
 Sem `cover`, o card e a matéria seguem só com tipografia — o layout não quebra.
 
@@ -100,6 +103,7 @@ Arquitetura: `content/posts` → `src/lib/posts.ts` (gray-matter) → páginas e
 
 ## SEO
 
+- Regras de `<title>` / OG / H1 em [`docs/SEO_TITLES.md`](docs/SEO_TITLES.md)
 - `metadata` + `metadataBase` no layout
 - Open Graph / Twitter por página; imagem OG gerada (`opengraph-image`)
 - `sitemap.ts`, Google News sitemap em `/news-sitemap.xml`, `robots.ts` e RSS em `/rss.xml`

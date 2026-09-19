@@ -17,6 +17,8 @@ import { site } from "@/lib/site";
 
 export type PostFrontmatter = {
   title: string;
+  /** Núcleo do `<title>` / OG quando a manchete é longa demais para a SERP. */
+  seoTitle?: string;
   excerpt: string;
   category: CategorySlug;
   subcategory?: SubcategorySlug;
@@ -50,6 +52,8 @@ const POSTS_DIR = path.join(process.cwd(), "content", "posts");
 
 function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFrontmatter {
   const title = typeof data.title === "string" ? data.title : "";
+  const seoTitleRaw = typeof data.seoTitle === "string" ? data.seoTitle.trim() : "";
+  const seoTitle = seoTitleRaw && seoTitleRaw !== title ? seoTitleRaw : undefined;
   const excerpt = typeof data.excerpt === "string" ? data.excerpt : "";
   const category = typeof data.category === "string" ? data.category : "";
   const subcategory =
@@ -79,6 +83,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
 
   return {
     title,
+    seoTitle,
     excerpt,
     category,
     subcategory: resolvedSubcategory?.slug,
@@ -254,6 +259,7 @@ export function searchPosts(query: string): Post[] {
   return getAllPosts().filter((post) => {
     const haystack = [
       post.title,
+      post.seoTitle ?? "",
       post.excerpt,
       post.kicker ?? "",
       post.categoryLabel,

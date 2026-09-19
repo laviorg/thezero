@@ -229,8 +229,9 @@ Os destinos emitem redirect permanente do Next.js. Parâmetros de consulta são
 preservados. Não há redirecionamento de matérias porque seus slugs não mudam.
 
 Os hubs pai e filho têm canonical próprio, metadados Open Graph, imagem social,
-`CollectionPage` e `BreadcrumbList`. Matérias incluem a subcategoria na trilha,
-nas palavras-chave e nas tags Open Graph. O sitemap lista apenas URLs canônicas;
+`CollectionPage` e `BreadcrumbList`. Os padrões de `<title>` (home, editoria,
+subeditoria, matéria, busca, sobre) estão em [`docs/SEO_TITLES.md`](./SEO_TITLES.md).
+Matérias incluem a subcategoria na trilha, nas palavras-chave e nas tags Open Graph. O sitemap lista apenas URLs canônicas;
 o RSS publica editoria e subcategoria. Cabeçalho, menu móvel, chips e rodapé
 mostram as seis editorias; a home só abre um trilho quando a editoria já tem
 matérias.

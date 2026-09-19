@@ -8,18 +8,18 @@ import { formatToday } from "@/lib/format";
 import { buildPageMetadata } from "@/lib/metadata";
 import { getAllPosts, getFeaturedPost, getPostsByCategory } from "@/lib/posts";
 import { absoluteUrl, site } from "@/lib/site";
+import { HOME_TITLE, homePageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
-    title: site.name,
+    title: HOME_TITLE,
     description: site.description,
     path: "/",
-    absoluteTitle: true,
-    ogTitle: site.name,
+    brand: "never",
     imagePath: "/opengraph-image",
-    imageAlt: site.name,
+    imageAlt: homePageTitle(),
   }),
   alternates: {
     canonical: "/",
