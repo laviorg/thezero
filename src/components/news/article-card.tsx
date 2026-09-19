@@ -58,7 +58,7 @@ export function ArticleCard({
   const imageAlt = coverAlt(post.title, post.coverAlt);
 
   const linkTitle =
-    "font-display font-semibold tracking-tight text-fg text-pretty transition-colors duration-200 group-hover:text-accent group-focus-visible:text-accent";
+    "font-display font-bold tracking-tight text-fg text-pretty transition-colors duration-200 group-hover:text-accent group-focus-visible:text-accent";
 
   if (isRow) {
     return (

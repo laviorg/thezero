@@ -1,25 +1,27 @@
-import { Fraunces, Geist_Mono, Source_Sans_3, Source_Serif_4 } from "next/font/google";
+import { Geist, Geist_Mono, Source_Sans_3, Source_Serif_4 } from "next/font/google";
 
 /**
  * Open newsroom pairing via next/font (self-hosted at build — no hotlinked
- * foundry files, no proprietary Verge faces such as Tiempos).
+ * foundry files, no proprietary Verge faces such as Tiempos / GT America).
  *
- * Chosen so article pages are obviously not generic UI sans:
+ * Article pages use a three-role stack (inspiration: contemporary review
+ * sites — heavy sans display + serif reading column + small UI sans):
  *
- * - Fraunces (Undercase Type): DISPLAY. Soft-serif with optical size, SOFT and
- *   WONK axes. Magazine headline presence for story titles, section heads,
- *   pullquotes, and byline names. Distinct from the previous Bricolage
- *   Grotesque stack and from Inter/system UI.
+ * - Geist (Vercel): DISPLAY. Neo-grotesque with a true ExtraBold/Black.
+ *   Story headlines, in-article headings, drop cap, and other display
+ *   type. Tight tracking and weight 800 do the “thick modern sans” job —
+ *   not a serif display (Fraunces) and not a copy of Verge’s licensed faces.
+ *   latin-ext for pt-BR. Pairs with Geist Mono already in the stack.
  * - Source Serif 4 (Adobe): BODY. High-contrast newsroom text face for the
- *   reading column and story dek. latin-ext for pt-BR.
- * - Source Sans 3 (Adobe): UI. Nav, footer, chips, kickers, captions, chrome.
+ *   reading column. latin-ext for pt-BR.
+ * - Source Sans 3 (Adobe): UI / META. Kickers, tags, bylines, credits, nav,
+ *   footer, chips. Small, clean, high x-height.
  * - Geist Mono: code only.
  */
-export const fontDisplay = Fraunces({
-  variable: "--font-fraunces",
+export const fontDisplay = Geist({
+  variable: "--font-geist",
   subsets: ["latin", "latin-ext"],
   display: "swap",
-  axes: ["SOFT", "WONK", "opsz"],
 });
 
 export const fontSerif = Source_Serif_4({

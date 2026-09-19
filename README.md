@@ -130,6 +130,19 @@ Wordmark oficial **THE / ZERO** (O partido ao meio em duas semicircunferências)
 
 Não usar quadrado preto sólido como logo.
 
+## Tipografia
+
+Open fonts via `next/font` (self-hosted no build — sem faces proprietárias tipo Tiempos / GT America). Emparelhamento da matéria:
+
+| Papel | Face | Uso |
+| --- | --- | --- |
+| Display | **Geist** ExtraBold (Vercel) | Headline, headings, drop cap |
+| Corpo | **Source Serif 4** (Adobe) | Coluna de leitura |
+| UI / meta | **Source Sans 3** (Adobe) | Kickers, byline, créditos, nav |
+| Código | **Geist Mono** | Blocos e inline code |
+
+Geist no display (não Fraunces/serif) é o grotesk pesado e apertado das headlines; Source Serif fica só no texto corrido. Definição: `src/lib/fonts.ts`.
+
 ## Paleta
 
 | Token | Hex |

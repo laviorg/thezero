@@ -96,7 +96,7 @@ export default async function SubcategoryPage({
           ]}
         />
         <p className="eyebrow page-kicker">{category.label}</p>
-        <h1 className="page-title mt-2 font-semibold text-balance">
+        <h1 className="page-title mt-2 font-extrabold text-balance">
           {subcategory.label}
         </h1>
         <p className="lede mt-3 text-pretty">{subcategory.description}</p>

@@ -17,7 +17,7 @@
   --color-background: var(--color-bg);
   --color-foreground: var(--color-fg);
   --font-sans: var(--font-source-sans);
-  --font-display: var(--font-fraunces);
+  --font-display: var(--font-geist);
   --font-serif: var(--font-source-serif);
   --font-mono: var(--font-geist-mono);
   --shadow-card: var(--tz-shadow-card);
@@ -31,7 +31,7 @@
   --reading-measure: 40rem;
   --reading-measure-wide: 42.5rem;
   --shell-gutter: 1rem;
-  --tz-display: var(--font-fraunces), "Iowan Old Style", Palatino, "Palatino Linotype", serif;
+  --tz-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --tz-serif: var(--font-source-serif), "Source Serif 4", Georgia, "Times New Roman", serif;
   --tz-bg: #f4f6fb;
   --tz-surface: #ffffff;
@@ -202,8 +202,7 @@ input {
 .page-title,
 .story-title {
   font-family: var(--tz-display);
-  font-optical-sizing: auto;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .page-title {
@@ -415,20 +414,19 @@ input {
   margin-top: 0.85rem;
   overflow-wrap: break-word;
   color: var(--tz-stage-fg);
-  font-size: clamp(2.7rem, 2.15rem + 3.2vw, 3.45rem);
-  font-weight: 600;
-  line-height: 0.96;
-  letter-spacing: -0.03em;
-  font-variation-settings: "SOFT" 42, "WONK" 1;
+  font-size: clamp(2.45rem, 1.85rem + 3.4vw, 3.55rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.042em;
 }
 
 .story-dek {
   max-width: 38rem;
   margin-top: 1.05rem;
-  font-family: var(--tz-serif);
-  font-size: clamp(1.1rem, 1.02rem + 0.45vw, 1.35rem);
+  font-family: var(--font-source-sans), ui-sans-serif, sans-serif;
+  font-size: clamp(1.08rem, 1rem + 0.4vw, 1.28rem);
   font-weight: 400;
-  line-height: 1.42;
+  line-height: 1.45;
   color: var(--tz-muted);
 }
 
@@ -504,8 +502,9 @@ input {
   }
 
   .story-title {
-    font-size: clamp(2.55rem, 1.15rem + 2.9vw, 4.05rem);
-    line-height: 1;
+    font-size: clamp(2.7rem, 1.05rem + 3.2vw, 4.35rem);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
   }
 }
 
@@ -526,15 +525,16 @@ input {
 
 .story-byline-by {
   color: var(--tz-muted);
-  font-family: var(--tz-serif);
-  font-style: italic;
+  font-family: var(--font-source-sans), ui-sans-serif, sans-serif;
+  font-style: normal;
+  font-weight: 500;
 }
 
 .story-byline-name {
-  font-family: var(--tz-display);
-  font-weight: 600;
-  font-size: 1.15rem;
-  letter-spacing: -0.02em;
+  font-family: var(--font-source-sans), ui-sans-serif, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0;
   color: var(--tz-fg);
 }
 
@@ -657,9 +657,9 @@ input {
 .story-rail-title {
   margin-top: 0.35rem;
   font-family: var(--tz-display);
-  font-size: 1.55rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   line-height: 1.12;
 }
 
@@ -704,10 +704,10 @@ input {
 
 .story-rail-item-title {
   font-family: var(--tz-display);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.22;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
   color: var(--tz-fg);
 }
 
@@ -758,9 +758,9 @@ input {
 .story-pager-title {
   margin-top: 0.45rem;
   font-family: var(--tz-display);
-  font-size: 1.12rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
   line-height: 1.28;
 }
 
@@ -776,8 +776,9 @@ input {
 .article-body {
   max-width: var(--reading-measure);
   font-family: var(--tz-serif);
-  font-size: 1.2rem;
-  line-height: 1.75;
+  font-optical-sizing: auto;
+  font-size: 1.175rem;
+  line-height: 1.68;
   color: color-mix(in srgb, var(--tz-fg) 94%, transparent);
 }
 
@@ -787,15 +788,32 @@ input {
 
 .article-body > p:first-of-type {
   color: var(--tz-fg);
-  font-size: 1.08em;
-  line-height: 1.62;
+}
+
+/* Drop cap: heavy display sans into the serif column (~3 lines). */
+.article-body > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--tz-display), ui-sans-serif, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 4.55em;
+  line-height: 0.72;
+  padding: 0.1em 0.14em 0 0;
+  margin: 0.04em 0.04em 0 0;
+  color: var(--tz-fg);
 }
 
 @media (min-width: 640px) {
   .article-body {
     max-width: var(--reading-measure-wide);
-    font-size: 1.275rem;
-    line-height: 1.78;
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .article-body > p:first-of-type::first-letter {
+    font-size: 4.85em;
+    line-height: 0.7;
+    padding-right: 0.12em;
   }
 }
 
@@ -811,12 +829,11 @@ input {
   margin-bottom: 0.6em;
   padding-top: 0.2em;
   font-family: var(--tz-display);
-  font-size: clamp(1.55rem, 1.2rem + 1.15vw, 2.15rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.45rem, 1.15rem + 1.05vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
   line-height: 1.16;
   color: var(--tz-fg);
-  font-variation-settings: "SOFT" 30, "WONK" 0;
 }
 
 .article-h2::before {
@@ -832,9 +849,9 @@ input {
   margin-top: 1.55em;
   margin-bottom: 0.4em;
   font-family: var(--tz-display);
-  font-size: 1.28rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-size: 1.22rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   line-height: 1.28;
   color: var(--tz-fg);
 }
@@ -858,12 +875,11 @@ input {
   border-left: 5px solid var(--tz-accent);
   color: var(--tz-fg);
   font-family: var(--tz-display);
-  font-size: clamp(1.45rem, 1.15rem + 1.1vw, 1.95rem);
+  font-size: clamp(1.4rem, 1.12rem + 1vw, 1.85rem);
   font-style: normal;
-  font-weight: 600;
-  letter-spacing: -0.028em;
-  line-height: 1.28;
-  font-variation-settings: "SOFT" 50, "WONK" 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.22;
 }
 
 .article-pullquote cite,
