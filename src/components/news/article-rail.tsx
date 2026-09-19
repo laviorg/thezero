@@ -12,19 +12,16 @@ type ArticleRailProps = {
 export function ArticleRail({ posts }: ArticleRailProps) {
   return (
     <aside className="article-aside" aria-labelledby="mais-nesta-casa">
-      <p className="story-rail-kicker">Nesta casa</p>
+      <p className="story-rail-kicker">Relacionadas</p>
       <h2 id="mais-nesta-casa" className="story-rail-title">
-        Mais para ler
+        Nesta casa
       </h2>
       <ol className="story-rail-list">
-        {posts.map((post, index) => {
+        {posts.map((post) => {
           const kicker = post.kicker ?? post.subcategoryLabel ?? post.categoryLabel;
           return (
             <li key={post.slug} className="story-rail-item">
               <Link href={post.href} className="story-rail-link">
-                <span className="story-rail-index" aria-hidden>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
                 <span className="story-rail-copy">
                   <span className="story-rail-item-kicker">{kicker}</span>
                   <span className="story-rail-item-title">{post.title}</span>

@@ -94,7 +94,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const related = getRelatedPosts(post, 4);
   const { newer, older } = getAdjacentPosts(post);
   const pageUrl = absoluteUrl(post.href);
-  const kicker = post.kicker ?? subcategory?.label ?? category?.label ?? "The Zero";
+  const kicker = subcategory?.label ?? category?.label ?? post.kicker ?? "The Zero";
   const kickerHref = subcategory?.href ?? category?.href;
 
   return (
@@ -161,8 +161,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 ]
               : undefined
           }
-          sectionLabel={subcategory?.label ?? category?.label}
-          sectionHref={kickerHref}
         />
 
         {post.cover ? (

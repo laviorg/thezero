@@ -6,7 +6,7 @@ import { Bricolage_Grotesque, Geist_Mono, Source_Sans_3 } from "next/font/google
  *
  * - Bricolage Grotesque: display. Tight, slightly quirky grotesque for
  *   headlines, kickers, and section titles — the “strong display” role in a
- *   contemporary review stack.
+ *   contemporary review / longform-feature stack.
  * - Source Sans 3: text + UI. High x-height, newsroom-readable, latin-ext
  *   for pt-BR. Used for body, dek, bylines, nav, and captions.
  * - Geist Mono: code only.

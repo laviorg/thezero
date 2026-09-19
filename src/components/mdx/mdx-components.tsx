@@ -47,7 +47,7 @@ function MarkdownImage({
   if (!src || typeof src !== "string") return null;
 
   return (
-    <figure className="reveal-media my-7">
+    <figure className="reveal-media my-8">
       <WatermarkedPhoto>
         <Image
           src={src}
@@ -158,6 +158,9 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
       className={cn("article-pullquote", className)}
       {...props}
     />
+  ),
+  cite: ({ className, ...props }) => (
+    <cite className={cn("not-italic", className)} {...props} />
   ),
   strong: ({ className, ...props }) => (
     <strong className={cn("font-semibold text-fg", className)} {...props} />

@@ -15,8 +15,6 @@ type ArticleHeaderProps = {
   updatedIso?: string;
   readingMinutes: number;
   crumbs?: Crumb[];
-  sectionLabel?: string;
-  sectionHref?: string;
 };
 
 export function ArticleHeader({
@@ -32,8 +30,6 @@ export function ArticleHeader({
   updatedIso,
   readingMinutes,
   crumbs,
-  sectionLabel,
-  sectionHref,
 }: ArticleHeaderProps) {
   return (
     <header className="story-header">
@@ -49,8 +45,8 @@ export function ArticleHeader({
         <p className="story-kicker">{kicker}</p>
       )}
 
-      <h1 className="story-title mt-4 text-balance">{title}</h1>
-      <p className="lede story-dek mt-5 text-pretty">{excerpt}</p>
+      <h1 className="story-title mt-3.5 text-balance">{title}</h1>
+      <p className="lede story-dek mt-4 text-pretty">{excerpt}</p>
 
       <div className="story-byline">
         <p className="story-byline-author">
@@ -76,16 +72,6 @@ export function ArticleHeader({
             ·
           </span>
           <span>{readingTimeLabel(readingMinutes)}</span>
-          {sectionLabel && sectionHref ? (
-            <>
-              <span className="story-byline-dot" aria-hidden>
-                ·
-              </span>
-              <Link href={sectionHref} className="story-byline-section">
-                {sectionLabel}
-              </Link>
-            </>
-          ) : null}
         </p>
       </div>
     </header>

@@ -292,7 +292,7 @@ input {
 }
 
 .story-header {
-  max-width: 52rem;
+  max-width: 54rem;
 }
 
 .story-crumbs {
@@ -341,12 +341,13 @@ input {
 }
 
 .story-byline-author {
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   line-height: 1.35;
 }
 
 .story-byline-by {
   color: var(--tz-muted);
+  font-style: italic;
 }
 
 .story-byline-name {
@@ -372,14 +373,6 @@ input {
   color: var(--tz-hairline);
 }
 
-.story-byline-section {
-  color: var(--tz-accent);
-}
-
-.story-byline-section:hover {
-  color: var(--tz-fg);
-}
-
 .story-cover {
   margin-top: 2rem;
   margin-inline: calc(var(--shell-gutter) * -1);
@@ -393,32 +386,30 @@ input {
 }
 
 .cover-credit {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.55rem 0.75rem;
-  margin-top: 0.7rem;
-  font-size: 0.8rem;
+  display: block;
+  margin-top: 0.55rem;
+  font-size: 0.78rem;
   line-height: 1.45;
   color: var(--tz-muted);
 }
 
 .cover-credit-hero {
-  padding-top: 0.65rem;
-  border-top: 1px solid color-mix(in srgb, var(--tz-accent) 35%, var(--tz-border));
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--tz-border);
 }
 
 .cover-credit-label {
+  margin-right: 0.35rem;
   font-family: var(--font-bricolage), var(--font-source-sans), sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--tz-accent);
 }
 
 .cover-credit-text {
-  font-style: italic;
+  font-style: normal;
 }
 
 .story-split {
@@ -470,9 +461,9 @@ input {
 }
 
 .story-rail-title {
-  margin-top: 0.35rem;
+  margin-top: 0.3rem;
   font-family: var(--font-bricolage), var(--font-source-sans), sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 750;
   letter-spacing: -0.03em;
   line-height: 1.15;
@@ -492,22 +483,13 @@ input {
 
 .story-rail-link {
   display: grid;
-  grid-template-columns: 1.7rem minmax(0, 1fr);
-  gap: 0.65rem 0.7rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.65rem 0.85rem;
   align-items: start;
 }
 
 .story-rail-link:has(.story-rail-thumb) {
-  grid-template-columns: 1.7rem minmax(0, 1fr) auto;
-}
-
-.story-rail-index {
-  font-family: var(--font-bricolage), var(--font-source-sans), sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--tz-accent);
-  padding-top: 0.15rem;
+  grid-template-columns: minmax(0, 1fr) auto;
 }
 
 .story-rail-copy {
@@ -545,7 +527,7 @@ input {
 }
 
 .story-rail-thumb {
-  width: 5.5rem;
+  width: 4.75rem;
 }
 
 .story-rail-desks {
@@ -670,26 +652,51 @@ input {
 }
 
 .article-pullquote {
-  margin-block: 2rem;
-  padding: 0.35rem 0 0.35rem 1.2rem;
+  margin-block: 2.25rem;
+  padding: 0.2rem 0 0.2rem 1.25rem;
   border-left: 3px solid var(--tz-accent);
   color: var(--tz-fg);
   font-family: var(--font-bricolage), var(--font-source-sans), sans-serif;
-  font-size: clamp(1.2rem, 1.05rem + 0.7vw, 1.5rem);
+  font-size: clamp(1.3rem, 1.1rem + 0.85vw, 1.65rem);
   font-style: normal;
   font-weight: 650;
-  letter-spacing: -0.025em;
-  line-height: 1.35;
+  letter-spacing: -0.028em;
+  line-height: 1.32;
+}
+
+.article-pullquote cite,
+.article-pullquote footer {
+  display: block;
+  margin-top: 0.7rem;
+  color: var(--tz-muted);
+  font-family: var(--font-source-sans), ui-sans-serif, sans-serif;
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 .article-body figure + p:has(> em:only-child),
 .article-body figure + .article-p:has(> em:only-child) {
-  margin-top: -0.55rem;
-  margin-bottom: 1.65rem;
-  font-size: 0.82rem;
-  line-height: 1.5;
-  font-style: italic;
+  margin-top: -0.45rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  font-style: normal;
   color: var(--tz-muted);
+}
+
+.article-body figure + p:has(> em:only-child)::before,
+.article-body figure + .article-p:has(> em:only-child)::before {
+  margin-right: 0.35rem;
+  color: var(--tz-accent);
+  font-family: var(--font-bricolage), var(--font-source-sans), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  content: "Foto";
 }
 
 @media (hover: hover) {
