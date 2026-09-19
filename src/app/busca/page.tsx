@@ -98,7 +98,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
       </div>
 
       {results.length === 0 && latest.length > 0 ? (
-        <section className="mt-9 border-t border-white/10 pt-7">
+        <section className="mt-9 border-t border-border pt-7">
           <SectionHeading title="Últimas no newsroom" as="h2" />
           <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
             {latest.map((post) => (

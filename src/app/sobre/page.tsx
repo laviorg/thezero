@@ -1,4 +1,5 @@
 import { Wordmark } from "@/components/brand/logo";
+import { PageShell } from "@/components/layout/page-shell";
 import { site } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -12,11 +13,9 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 sm:py-16">
+    <PageShell width="narrow">
       <Wordmark className="mb-10 h-16 w-auto text-fg sm:h-20" />
-      <p className="text-[0.7rem] font-medium tracking-[0.22em] text-accent uppercase">
-        Sobre
-      </p>
+      <p className="eyebrow page-kicker">Sobre</p>
       <h1 className="mt-4 text-[clamp(2.4rem,7vw,4.6rem)] font-semibold leading-[0.94] tracking-tight text-balance">
         Se não dá pra testar, medir ou discordar em 40 segundos, não entra.
       </h1>
@@ -54,7 +53,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <section className="mt-14 border-t border-white/10 pt-10">
+      <section className="mt-14 border-t border-border pt-10">
         <h2 className="text-2xl font-semibold tracking-tight">Cinco regras de voz</h2>
         <ol className="mt-6 list-decimal space-y-4 pl-5 text-base leading-7 text-fg/90">
           <li>
@@ -91,6 +90,6 @@ export default function AboutPage() {
         </Link>
         .
       </p>
-    </div>
+    </PageShell>
   );
 }

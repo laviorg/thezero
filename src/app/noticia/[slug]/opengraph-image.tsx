@@ -2,6 +2,7 @@ import { OgWatermarkBadge, OgWordmark } from "@/components/brand/og-mark";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { assetUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { ogPalette } from "@/lib/theme";
 import { ImageResponse } from "next/og";
 
 export const alt = site.name;
@@ -41,8 +42,8 @@ export default async function ArticleOpenGraphImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0A0A0B",
-          color: "#F4F4F5",
+          background: ogPalette.bg,
+          color: ogPalette.fg,
           padding: "72px",
           position: "relative",
         }}
@@ -73,7 +74,7 @@ export default async function ArticleOpenGraphImage({
               width: 1200,
               height: 630,
               background:
-                "linear-gradient(180deg, rgba(10,10,11,0.35) 0%, rgba(10,10,11,0.15) 40%, rgba(10,10,11,0.82) 100%)",
+                "linear-gradient(180deg, rgba(12,18,32,0.35) 0%, rgba(12,18,32,0.15) 40%, rgba(12,18,32,0.82) 100%)",
             }}
           />
         ) : null}
@@ -88,7 +89,7 @@ export default async function ArticleOpenGraphImage({
           <div
             style={{
               display: "flex",
-              color: "#7CFFB2",
+              color: ogPalette.accent,
               fontSize: 22,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
@@ -118,7 +119,7 @@ export default async function ArticleOpenGraphImage({
           >
             {title}
           </div>
-          <div style={{ display: "flex", color: "#8B8B93", fontSize: 22 }}>
+          <div style={{ display: "flex", color: ogPalette.muted, fontSize: 22 }}>
             {site.domain}
           </div>
         </div>

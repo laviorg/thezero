@@ -23,17 +23,17 @@ export function NewsMeta({
           <span className="text-fg/85 normal-case tracking-normal">
             {post.author}
           </span>
-          <span className="mx-1.5 text-white/20" aria-hidden>
+          <span className="mx-1.5 text-hairline" aria-hidden>
             /
           </span>
         </>
       ) : null}
       {post.subcategoryLabel ?? post.categoryLabel}
-      <span className="mx-1.5 text-white/20" aria-hidden>
+      <span className="mx-1.5 text-hairline" aria-hidden>
         /
       </span>
       <time dateTime={post.dateIso}>{formatShortDate(post.date)}</time>
-      <span className="mx-1.5 text-white/20" aria-hidden>
+      <span className="mx-1.5 text-hairline" aria-hidden>
         /
       </span>
       {post.readingMinutes} min

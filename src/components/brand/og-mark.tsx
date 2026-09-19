@@ -4,6 +4,7 @@ import {
   WORDMARK_PATHS,
   WORDMARK_VIEWBOX,
 } from "@/components/brand/wordmark-paths";
+import { ogPalette } from "@/lib/theme";
 
 const [, , viewW, viewH] = WORDMARK_VIEWBOX.split(" ").map(Number);
 
@@ -13,7 +14,7 @@ export function ogWordmarkSize(width: number) {
 
 export function OgWordmark({
   width,
-  color = "#F4F4F5",
+  color = ogPalette.fg,
 }: {
   width: number;
   color?: string;
@@ -35,7 +36,7 @@ export function OgWordmark({
 
 export function OgSplitO({
   size,
-  color = "#F4F4F5",
+  color = ogPalette.fg,
 }: {
   size: number;
   color?: string;
@@ -67,7 +68,7 @@ export function OgWatermarkBadge({
         position: "absolute",
         right: 28,
         bottom: 28,
-        background: "rgba(10, 10, 11, 0.68)",
+        background: "rgba(12, 18, 32, 0.68)",
         borderRadius: 999,
         padding: "8px 16px 8px 14px",
         border: "1px solid rgba(255, 255, 255, 0.14)",
@@ -77,7 +78,7 @@ export function OgWatermarkBadge({
       <div
         style={{
           display: "flex",
-          color: "#F4F4F5",
+          color: ogPalette.fg,
           fontSize: 18,
           letterSpacing: "0.02em",
           fontWeight: 500,

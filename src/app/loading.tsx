@@ -3,7 +3,7 @@ import { PageShell } from "@/components/layout/page-shell";
 export default function Loading() {
   return (
     <PageShell>
-      <div className="flex justify-between border-b border-white/10 pb-4">
+      <div className="flex justify-between border-b border-border pb-4">
         <div className="h-3 w-28 bg-surface" />
         <div className="h-3 w-36 bg-surface" />
       </div>

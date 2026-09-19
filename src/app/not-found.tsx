@@ -25,11 +25,11 @@ export default function NotFound() {
         <Link href="/" className="text-accent underline-offset-4 hover:underline">
           Voltar ao newsroom
         </Link>
-        <span className="mx-3 text-white/20">/</span>
+        <span className="mx-3 text-hairline">/</span>
         <Link href="/busca" className="text-muted hover:text-fg">
           Buscar
         </Link>
-        <span className="mx-3 text-white/20">/</span>
+        <span className="mx-3 text-hairline">/</span>
         <a href={site.social.instagram} className="text-muted hover:text-fg">
           Instagram
         </a>

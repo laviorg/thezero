@@ -172,15 +172,15 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 {post.title}
               </h1>
               <p className="lede mt-3.5 text-pretty">{post.excerpt}</p>
-              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 border-y border-white/10 py-3 text-sm text-muted">
+              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 border-y border-border py-3 text-sm text-muted">
                 <span className="font-medium text-fg">{post.author}</span>
-                <span className="text-white/20" aria-hidden>
+                <span className="text-hairline" aria-hidden>
                   ·
                 </span>
                 <time dateTime={post.dateIso}>{formatDate(post.date)}</time>
                 {post.updated && post.updated !== post.date ? (
                   <>
-                    <span className="text-white/20" aria-hidden>
+                    <span className="text-hairline" aria-hidden>
                       ·
                     </span>
                     <span>
@@ -191,13 +191,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     </span>
                   </>
                 ) : null}
-                <span className="text-white/20" aria-hidden>
+                <span className="text-hairline" aria-hidden>
                   ·
                 </span>
                 <span>{readingTimeLabel(post.readingMinutes)}</span>
                 {category ? (
                   <>
-                    <span className="text-white/20" aria-hidden>
+                    <span className="text-hairline" aria-hidden>
                       ·
                     </span>
                     <Link
@@ -225,14 +225,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               />
             ) : null}
 
-            <div className="mt-7 border-t border-white/10 pt-7">
+            <div className="mt-7 border-t border-border pt-7">
               <ArticleBody source={post.content} />
             </div>
 
             {(newer || older) && (
               <nav
                 aria-label="Matérias vizinhas"
-                className="mt-10 grid gap-5 border-t border-white/10 pt-7 sm:grid-cols-2"
+                className="mt-10 grid gap-5 border-t border-border pt-7 sm:grid-cols-2"
               >
                 {older ? (
                   <Link href={older.href} className="group block">

@@ -85,7 +85,7 @@ export function CoverImage({
           <span className="font-medium tracking-[0.14em] text-muted/80 uppercase">
             Foto
           </span>
-          <span className="mx-2 text-white/20" aria-hidden>
+          <span className="mx-2 text-hairline" aria-hidden>
             /
           </span>
           <span className="italic">{credit}</span>

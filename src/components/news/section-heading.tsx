@@ -23,7 +23,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "section-heading flex items-end justify-between gap-3 border-b border-white/10 pb-2.5",
+        "section-heading flex items-end justify-between gap-3 border-b border-border pb-2.5",
         className,
       )}
     >

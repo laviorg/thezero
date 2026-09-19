@@ -87,7 +87,7 @@ export default async function SubcategoryPage({
         ]}
       />
 
-      <header className="newsroom-masthead max-w-4xl border-b border-white/10 border-l border-l-accent/40 pb-5 pl-4 sm:pl-5">
+      <header className="newsroom-masthead max-w-4xl border-b border-border border-l border-l-accent/40 pb-5 pl-4 sm:pl-5">
         <Breadcrumbs
           items={[
             { href: "/", label: "Newsroom" },
@@ -110,7 +110,7 @@ export default async function SubcategoryPage({
       </div>
 
       {rest.length > 0 ? (
-        <section className="mt-9 border-t border-white/10 pt-7">
+        <section className="mt-9 border-t border-border pt-7">
           <SectionHeading title={`Mais em ${subcategory.label}`} as="h2" />
           <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
             {rest.map((post) => (
@@ -127,7 +127,7 @@ export default async function SubcategoryPage({
 
       <nav
         aria-label={`Mais assuntos em ${category.label}`}
-        className="mt-10 flex flex-wrap gap-2 border-t border-white/10 pt-5"
+        className="mt-10 flex flex-wrap gap-2 border-t border-border pt-5"
       >
         <Link href={category.href} className="chip-link">
           Tudo em {category.label}

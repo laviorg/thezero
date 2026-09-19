@@ -104,7 +104,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
     );
   },
   table: ({ className, ...props }) => (
-    <div className="my-7 overflow-x-auto border border-white/10">
+    <div className="my-7 overflow-x-auto border border-border">
       <table
         className={cn("w-full min-w-[28rem] text-left text-[0.98rem]", className)}
         {...props}
@@ -114,7 +114,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   thead: ({ className, ...props }) => (
     <thead
       className={cn(
-          "border-b border-white/10 bg-surface text-[0.78rem] tracking-[0.14em] text-muted uppercase",
+          "border-b border-border bg-surface text-[0.78rem] tracking-[0.14em] text-muted uppercase",
         className,
       )}
       {...props}
@@ -125,12 +125,12 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   ),
   td: ({ className, ...props }) => (
     <td
-      className={cn("border-t border-white/10 px-4 py-3 text-fg/90", className)}
+      className={cn("border-t border-border px-4 py-3 text-fg/90", className)}
       {...props}
     />
   ),
   tr: ({ className, ...props }) => (
-    <tr className={cn("even:bg-white/[0.02]", className)} {...props} />
+    <tr className={cn("even:bg-fg/[0.03]", className)} {...props} />
   ),
   a: ({ className, ...props }) => (
     <a
@@ -165,7 +165,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   blockquote: ({ className, ...props }) => (
     <blockquote
       className={cn(
-        "my-7 border-l-2 border-white/20 pl-4 text-[1.05rem] leading-7 text-muted italic sm:text-[1.12rem]",
+        "my-7 border-l-2 border-border pl-4 text-[1.05rem] leading-7 text-muted italic sm:text-[1.12rem]",
         className,
       )}
       {...props}
@@ -174,11 +174,11 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   strong: ({ className, ...props }) => (
     <strong className={cn("font-semibold text-fg", className)} {...props} />
   ),
-  hr: () => <hr className="my-8 border-white/10" />,
+  hr: () => <hr className="my-8 border-border" />,
   pre: ({ className, ...props }) => (
     <pre
       className={cn(
-        "my-6 overflow-x-auto border border-white/10 bg-surface p-4 font-mono text-sm leading-6 text-fg",
+        "my-6 overflow-x-auto border border-border bg-surface p-4 font-mono text-sm leading-6 text-fg",
         className,
       )}
       {...props}

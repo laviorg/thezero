@@ -1,4 +1,5 @@
 import { OgSplitO } from "@/components/brand/og-mark";
+import { ogPalette } from "@/lib/theme";
 import { ImageResponse } from "next/og";
 
 export const size = { width: 32, height: 32 };
@@ -11,7 +12,7 @@ export default function Icon() {
         style={{
           width: 32,
           height: 32,
-          background: "#0A0A0B",
+          background: ogPalette.bg,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
