@@ -106,7 +106,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           ]}
         />
         <p className="eyebrow page-kicker">{category.kicker}</p>
-        <h1 className="page-title mt-2 font-semibold text-balance">
+        <h1 className="page-title mt-2 font-extrabold text-balance">
           {category.label}
         </h1>
         <p className="lede mt-3 text-pretty">

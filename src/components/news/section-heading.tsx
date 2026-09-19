@@ -36,7 +36,7 @@ export function SectionHeading({
         <Title
           id={id}
           className={cn(
-            "font-display font-semibold leading-tight tracking-tight text-pretty",
+            "font-display font-bold leading-tight tracking-tight text-pretty",
             eyebrow ? "mt-1 text-[1.15rem] sm:text-[1.35rem]" : "text-[1.15rem] sm:text-[1.35rem]",
           )}
         >

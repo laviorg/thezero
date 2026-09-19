@@ -17,13 +17,10 @@ import { Menu, Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const nav = [
-  ...categoryList.map((category) => ({
-    href: category.href,
-    label: category.label,
-  })),
-  { href: "/sobre", label: "Sobre" },
-];
+const nav = categoryList.map((category) => ({
+  href: category.href,
+  label: category.label,
+}));
 
 function navClass(active: boolean) {
   return active

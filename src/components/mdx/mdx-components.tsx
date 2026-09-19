@@ -15,13 +15,13 @@ export function Verdict({
     <div className="my-10 grid gap-3 sm:grid-cols-2">
       <div className="border border-alert/50 bg-surface px-5 py-5">
         <p className="eyebrow text-alert">Overrated</p>
-        <p className="font-display mt-2.5 text-[1.15rem] leading-snug font-semibold text-fg">
+        <p className="font-display mt-2.5 text-[1.15rem] leading-snug font-bold text-fg">
           {overrated}
         </p>
       </div>
       <div className="border-t-[3px] border-t-accent border border-accent/40 bg-accent-soft px-5 py-5">
         <p className="eyebrow page-kicker">Underrated</p>
-        <p className="font-display mt-2.5 text-[1.15rem] leading-snug font-semibold text-fg">
+        <p className="font-display mt-2.5 text-[1.15rem] leading-snug font-bold text-fg">
           {underrated}
         </p>
       </div>
@@ -33,7 +33,7 @@ export function Rule({ children }: { children: ReactNode }) {
   return (
     <aside className="article-rule my-10 border-l-[5px] border-accent bg-accent-soft px-5 py-5">
       <p className="eyebrow page-kicker">Regra do The Zero</p>
-      <div className="font-display mt-2.5 text-[1.2rem] leading-snug font-semibold text-fg">
+      <div className="font-display mt-2.5 text-[1.2rem] leading-snug font-bold text-fg">
         {children}
       </div>
     </aside>

@@ -15,7 +15,7 @@ export default function NotFound() {
       <p className="eyebrow text-alert">
         404
       </p>
-      <h1 className="page-title mt-3 font-semibold text-balance">
+      <h1 className="page-title mt-3 font-extrabold text-balance">
         Isso aqui é zero. A matéria não existe.
       </h1>
       <p className="lede mt-4 max-w-xl">

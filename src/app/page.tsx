@@ -104,7 +104,7 @@ export default function HomePage() {
         )
       ) : (
         <section className="max-w-2xl py-8 sm:py-10">
-          <h1 className="page-title font-semibold text-balance">
+          <h1 className="page-title font-extrabold text-balance">
             O newsroom ainda está vazio.
           </h1>
           <p className="lede mt-4">
