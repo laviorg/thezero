@@ -139,48 +139,50 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       />
       <div className="story-stage">
         <div className="story-stage-inner">
-          <ArticleHeader
-            title={post.title}
-            excerpt={post.excerpt}
-            kicker={kicker}
-            kickerHref={kickerHref}
-            author={post.author}
-            date={post.date}
-            dateIso={post.dateIso}
-            updated={post.updated}
-            updatedIso={post.updatedIso}
-            readingMinutes={post.readingMinutes}
-            crumbs={
-              category
-                ? [
-                    { href: "/", label: "Newsroom" },
-                    { href: category.href, label: category.label },
-                    ...(subcategory
-                      ? [{ href: subcategory.href, label: subcategory.label }]
-                      : []),
-                    { label: post.title },
-                  ]
-                : undefined
+          <div
+            className={
+              post.cover ? "story-hero" : "story-hero story-hero--solo"
             }
-          />
+          >
+            <ArticleHeader
+              title={post.title}
+              excerpt={post.excerpt}
+              kicker={kicker}
+              kickerHref={kickerHref}
+              author={post.author}
+              date={post.date}
+              dateIso={post.dateIso}
+              updated={post.updated}
+              updatedIso={post.updatedIso}
+              readingMinutes={post.readingMinutes}
+              crumbs={
+                category
+                  ? [
+                      { href: "/", label: "Newsroom" },
+                      { href: category.href, label: category.label },
+                      ...(subcategory
+                        ? [{ href: subcategory.href, label: subcategory.label }]
+                        : []),
+                      { label: post.title },
+                    ]
+                  : undefined
+              }
+            />
+            {post.cover ? (
+              <CoverImage
+                src={post.cover}
+                alt={coverAlt(post.title, post.coverAlt)}
+                credit={post.coverCredit}
+                priority
+                hero
+                watermarkSize="default"
+                sizes="(min-width: 960px) 38vw, 92vw"
+                className="story-cover"
+              />
+            ) : null}
+          </div>
         </div>
       </div>
-
-      {post.cover ? (
-        <div className="story-hero">
-          <CoverImage
-            src={post.cover}
-            alt={coverAlt(post.title, post.coverAlt)}
-            credit={post.coverCredit}
-            priority
-            flush
-            hero
-            watermarkSize="default"
-            sizes="100vw"
-            className="story-cover"
-          />
-        </div>
-      ) : null}
 
       <PageShell width="article" className="story-body-shell">
         <div className="story-split">
