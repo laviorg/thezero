@@ -1,4 +1,5 @@
 import { SplitOMark, Wordmark } from "@/components/brand/logo";
+import { FooterCookiesLink } from "@/components/consent/footer-cookies-link";
 import { categoryList } from "@/lib/categories";
 import { site } from "@/lib/site";
 import Link from "next/link";
@@ -62,6 +63,21 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/contato" className="hover:text-accent">
+                Contato
+              </Link>
+            </li>
+            <li>
+              <Link href="/privacidade" className="hover:text-accent">
+                Privacidade
+              </Link>
+            </li>
+            <li>
+              <Link href="/termos" className="hover:text-accent">
+                Termos
+              </Link>
+            </li>
+            <li>
               <Link href="/busca" className="hover:text-accent">
                 Busca
               </Link>
@@ -112,17 +128,29 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border">
-        <div className="shell-frame flex flex-col gap-2 py-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="shell-frame flex flex-col gap-3 py-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} The Zero · {site.domain}
           </p>
-          <a
-            href="#conteudo"
-            className="inline-flex items-center gap-1.5 tracking-wide hover:text-accent"
-          >
-            Voltar ao topo
-            <span aria-hidden>↑</span>
-          </a>
+          <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <Link href="/privacidade" className="hover:text-accent">
+              Privacidade
+            </Link>
+            <Link href="/termos" className="hover:text-accent">
+              Termos
+            </Link>
+            <FooterCookiesLink />
+            <a href={`mailto:${site.email}`} className="hover:text-accent">
+              {site.email}
+            </a>
+            <a
+              href="#conteudo"
+              className="inline-flex items-center gap-1.5 tracking-wide hover:text-accent"
+            >
+              Voltar ao topo
+              <span aria-hidden>↑</span>
+            </a>
+          </nav>
         </div>
       </div>
     </footer>

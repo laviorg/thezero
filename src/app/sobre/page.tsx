@@ -63,6 +63,31 @@ export default function AboutPage() {
       </div>
 
       <section className="mt-14 border-t border-border pt-10">
+        <h2 className="text-2xl font-semibold tracking-tight">
+          Quem publica
+        </h2>
+        <div className="mt-6 space-y-4 text-base leading-7 text-fg/90">
+          <p>
+            The Zero é um newsroom independente de tecnologia, publicado no
+            Brasil. Não somos assessoria, loja de hype nem agregador. A
+            pauta, o critério e o texto são da casa. Se um fabricante mandou
+            o produto, a gente diz. Se não testamos, não fingimos.
+          </p>
+          <p>
+            Existimos para mostrar o que funciona de verdade — IA,
+            computadores, dispositivos, apps e jogos — em português do
+            Brasil, com opinião e número. Sem unboxing emocional. Sem
+            página feita só para anúncio.
+          </p>
+          <p>
+            Quando houver publicidade no site, ela financia o newsroom.{" "}
+            <strong className="text-fg">Não compra a pauta.</strong> O
+            critério continua o das cinco regras abaixo.
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-14 border-t border-border pt-10">
         <h2 className="text-2xl font-semibold tracking-tight">Cinco regras de voz</h2>
         <ol className="mt-6 list-decimal space-y-4 pl-5 text-base leading-7 text-fg/90">
           <li>
@@ -93,7 +118,12 @@ export default function AboutPage() {
         <a className="text-accent" href={`mailto:${site.email}`}>
           {site.email}
         </a>
-        . Ou o Direct do Instagram.{" "}
+        {" "}
+        ou a página de{" "}
+        <Link href="/contato" className="text-accent">
+          contato
+        </Link>
+        . Privacidade e termos no rodapé.{" "}
         <Link href="/" className="text-accent">
           Voltar ao newsroom
         </Link>

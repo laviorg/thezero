@@ -26,6 +26,8 @@ npm run lint
 
 `NEXT_PUBLIC_SITE_URL` entra em canonical, Open Graph, sitemap, robots e JSON-LD. Em local podes apontar para `http://127.0.0.1:43127`.
 
+`NEXT_PUBLIC_ADSENSE_PUB_ID` é opcional e **só** se preenche depois da aprovação no AdSense (`pub-` + 16 dígitos). Sem ela o site não carrega script de anúncio e o `/ads.txt` não declara vendedor Google. Checklist: [`docs/ADSENSE.md`](docs/ADSENSE.md).
+
 ## Páginas
 
 | Rota | O quê |
@@ -34,8 +36,12 @@ npm run lint
 | `/tecnologia` `/ia` `/computadores` `/dispositivos` `/aplicativos` `/jogos` | Editorias |
 | `/[editoria]/[subcategoria]` | Assuntos ativos dentro de uma editoria |
 | `/noticia/[slug]` | Matéria |
-| `/sobre` | Manifesto e regras de voz |
+| `/sobre` | Manifesto, quem publica e regras de voz |
+| `/contato` | E-mail da redação e canais |
+| `/privacidade` | Política de Privacidade (LGPD + cookies / AdSense) |
+| `/termos` | Termos de uso |
 | `/busca?q=` | Busca no título, trecho e corpo |
+| `/ads.txt` | Vendedores autorizados (vazio de Google até existir publisher ID) |
 | `/rss.xml` `/sitemap.xml` `/news-sitemap.xml` `/robots.txt` | Syndication e SEO |
 
 O footer tem um link **Loja** para `https://loja.thezero.com.br` (placeholder). Isto não é e-commerce.
@@ -113,7 +119,7 @@ Arquitetura: `content/posts` → `src/lib/posts.ts` (gray-matter) → páginas e
 
 1. Cria o repositório Origin com o nome **thezero** (Create repo no fluxo New Project, ou `origin repo create thezero` na tua máquina). Liga o mirror GitHub se quiseres CI extra.
 2. Importa o repo na [Vercel](https://vercel.com): framework Next.js, comando `npm run build`, output default.
-3. Environment variable: `NEXT_PUBLIC_SITE_URL=https://thezero.com.br`.
+3. Environment variable: `NEXT_PUBLIC_SITE_URL=https://thezero.com.br`. Depois da aprovação no AdSense, `NEXT_PUBLIC_ADSENSE_PUB_ID=pub-…` (ver [`docs/ADSENSE.md`](docs/ADSENSE.md)).
 4. Domínio: adiciona `thezero.com.br` e `www.thezero.com.br` na Vercel. No DNS (Registro.br / Cloudflare):
    - `A` / `CNAME` conforme o painel da Vercel (geralmente CNAME `www` → `cname.vercel-dns.com` e apex com os IPs que a Vercel mostrar).
    - Redirect `www` → apex, ou o contrário — escolhe um canónico e mantém.

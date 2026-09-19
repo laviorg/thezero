@@ -107,6 +107,16 @@ export function SiteHeader() {
                     Busca
                   </Link>
                 </SheetClose>
+                <SheetClose asChild>
+                  <Link href="/sobre" className="text-lg text-muted hover:text-fg">
+                    Sobre
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link href="/contato" className="text-lg text-muted hover:text-fg">
+                    Contato
+                  </Link>
+                </SheetClose>
               </nav>
               <div className="mt-auto pt-8">
                 <p className="eyebrow mb-3 text-muted">Aparência</p>
