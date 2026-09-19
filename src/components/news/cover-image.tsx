@@ -19,7 +19,7 @@ type CoverImageProps = {
   zoom?: boolean;
   /** Edge-to-edge on small screens (article covers). */
   flush?: boolean;
-  /** Magazine hero: 3:2 on phones, 16:9 from lg up. */
+  /** Split-stage hero: roughly square, inset on the colored field. */
   hero?: boolean;
 };
 
@@ -50,7 +50,7 @@ export function CoverImage({
       <WatermarkedPhoto
         size={badge}
         className={cn(
-          hero && "aspect-[4/3] sm:aspect-[3/2] lg:aspect-[2/1]",
+          hero && "aspect-square rounded-none",
           crop && !hero && "aspect-video",
           flush && "rounded-none",
           flush && !hero && "sm:rounded-md",
