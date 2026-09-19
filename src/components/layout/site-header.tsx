@@ -27,7 +27,7 @@ const nav = [
 
 function navClass(active: boolean) {
   return active
-    ? "text-accent"
+    ? "font-medium text-accent"
     : "text-muted transition-colors hover:text-fg";
 }
 
@@ -35,7 +35,7 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-bg/85 shadow-[inset_0_2px_0_0_var(--tz-accent)] backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-border border-t-[3px] border-t-accent bg-bg/85 backdrop-blur-md">
       <div className="shell-frame flex h-[4.25rem] items-center justify-between gap-4">
         <Link
           href="/"
