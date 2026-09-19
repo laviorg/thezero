@@ -99,6 +99,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const pageUrl = absoluteUrl(post.href);
   const kicker = subcategory?.label ?? category?.label ?? post.kicker ?? "The Zero";
   const kickerHref = subcategory?.href ?? category?.href;
+  const headline = articleHeadline(post);
 
   return (
     <article className="story-page">
