@@ -4,14 +4,20 @@ import {
   ogImageMeta,
 } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
+import {
+  composePageTitle,
+  includesBrand,
+  type BrandMode,
+} from "@/lib/titles";
 import type { Metadata } from "next";
 
 type BuildPageMetaInput = {
+  /** Núcleo ou title absoluto. A marca segue `brand`, salvo se o texto já a contém. */
   title: string;
   description: string;
   path: string;
   type?: "website" | "article";
-  absoluteTitle?: boolean;
+  brand?: BrandMode;
   noIndex?: boolean;
   ogTitle?: string;
   imagePath?: string;
@@ -23,20 +29,23 @@ export function buildPageMetadata({
   description,
   path,
   type = "website",
-  absoluteTitle = false,
+  brand = "auto",
   noIndex = false,
   ogTitle,
   imagePath,
   imageAlt,
 }: BuildPageMetaInput): Metadata {
   const url = absoluteUrl(path);
-  const socialTitle = ogTitle ?? (absoluteTitle ? title : `${title} · ${site.name}`);
+  const documentTitle = composePageTitle(title, brand);
+  const socialTitle = ogTitle
+    ? composePageTitle(ogTitle, includesBrand(ogTitle) ? "never" : brand)
+    : documentTitle;
   const image = imagePath
     ? ogImageMeta(absoluteUrl(imagePath), imageAlt ?? socialTitle)
     : undefined;
 
   return {
-    title: absoluteTitle ? { absolute: title } : title,
+    title: { absolute: documentTitle },
     description,
     alternates: {
       canonical: path,

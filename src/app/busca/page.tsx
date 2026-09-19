@@ -6,6 +6,7 @@ import { categoryList } from "@/lib/categories";
 import { buildPageMetadata } from "@/lib/metadata";
 import { getAllPosts, searchPosts } from "@/lib/posts";
 import { site } from "@/lib/site";
+import { searchPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -19,9 +20,10 @@ export async function generateMetadata({
   const { q } = await searchParams;
   const query = q?.trim();
   const pageMetadata = buildPageMetadata({
-    title: query ? `Busca: ${query}` : "Busca",
+    title: searchPageTitle(query),
     description: "Busca no newsroom do The Zero. Título, trecho, editoria.",
     path: "/busca",
+    brand: "never",
     noIndex: true,
     imagePath: "/opengraph-image",
     imageAlt: site.name,

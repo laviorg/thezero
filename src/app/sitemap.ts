@@ -1,3 +1,4 @@
+import { assertUniqueDocumentTitles } from "@/lib/title-audit";
 import { categoryList } from "@/lib/categories";
 import {
   getActiveSubcategories,
@@ -11,6 +12,7 @@ import { site } from "@/lib/site";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  assertUniqueDocumentTitles();
   const posts = getAllPosts();
   const contentFreshness = getLatestModifiedDate();
 
