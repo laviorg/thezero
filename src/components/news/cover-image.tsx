@@ -12,13 +12,15 @@ type CoverImageProps = {
   priority?: boolean;
   sizes?: string;
   className?: string;
-  /** Crop to 16:9 for cards. Article pages keep the photo’s natural ratio. */
+  /** Crop to 16:9 for cards. Article heroes use `hero` instead. */
   crop?: boolean;
   watermarkSize?: PhotoWatermarkSize;
   /** Subtle zoom on card hover. Disabled when the user prefers reduced motion. */
   zoom?: boolean;
   /** Edge-to-edge on small screens (article covers). */
   flush?: boolean;
+  /** Magazine hero: 3:2 on phones, 16:9 from lg up. */
+  hero?: boolean;
 };
 
 export function CoverImage({
@@ -32,8 +34,10 @@ export function CoverImage({
   watermarkSize,
   zoom = false,
   flush = false,
+  hero = false,
 }: CoverImageProps) {
-  const badge = watermarkSize ?? (crop ? "compact" : "default");
+  const framed = crop || hero;
+  const badge = watermarkSize ?? (crop && !hero ? "compact" : "default");
 
   return (
     <figure
@@ -46,11 +50,12 @@ export function CoverImage({
       <WatermarkedPhoto
         size={badge}
         className={cn(
-          crop && "aspect-video",
+          hero && "aspect-[3/2] lg:aspect-video",
+          crop && !hero && "aspect-video",
           flush && "rounded-none sm:rounded-md",
         )}
       >
-        {crop ? (
+        {framed ? (
           <Image
             src={src}
             alt={alt}
@@ -78,17 +83,13 @@ export function CoverImage({
       {credit ? (
         <figcaption
           className={cn(
-            "mt-2 text-[0.8rem] leading-5 text-muted",
+            "cover-credit",
+            hero && "cover-credit-hero",
             flush && "px-[var(--shell-gutter)] sm:px-0",
           )}
         >
-          <span className="font-medium tracking-[0.14em] text-muted/80 uppercase">
-            Foto
-          </span>
-          <span className="mx-2 text-hairline" aria-hidden>
-            /
-          </span>
-          <span className="italic">{credit}</span>
+          <span className="cover-credit-label">Foto</span>
+          <span className="cover-credit-text">{credit}</span>
         </figcaption>
       ) : null}
     </figure>

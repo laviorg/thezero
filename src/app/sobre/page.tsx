@@ -16,7 +16,7 @@ export default function AboutPage() {
     <PageShell width="narrow">
       <Wordmark className="mb-10 h-16 w-auto text-fg sm:h-20" />
       <p className="eyebrow page-kicker">Sobre</p>
-      <h1 className="mt-4 text-[clamp(2.4rem,7vw,4.6rem)] font-semibold leading-[0.94] tracking-tight text-balance">
+      <h1 className="font-display mt-4 text-[clamp(2.4rem,7vw,4.6rem)] font-semibold leading-[0.94] tracking-tight text-balance">
         Se não dá pra testar, medir ou discordar em 40 segundos, não entra.
       </h1>
       <div className="mt-10 space-y-6 text-lg leading-8 text-fg/90">

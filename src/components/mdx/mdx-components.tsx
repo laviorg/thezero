@@ -12,18 +12,18 @@ export function Verdict({
   underrated: string;
 }) {
   return (
-    <div className="my-7 grid gap-3 sm:grid-cols-2">
-      <div className="border border-alert/35 bg-surface p-4">
-        <p className="eyebrow text-alert">
-          Overrated
+    <div className="my-8 grid gap-3 sm:grid-cols-2">
+      <div className="border border-alert/40 bg-surface px-4 py-4">
+        <p className="eyebrow text-alert">Overrated</p>
+        <p className="font-display mt-2.5 text-[1.05rem] leading-snug font-semibold text-fg">
+          {overrated}
         </p>
-        <p className="mt-2.5 text-[1.02rem] leading-snug text-fg">{overrated}</p>
       </div>
-      <div className="border border-accent/35 bg-surface p-4">
-        <p className="eyebrow page-kicker">
-          Underrated
+      <div className="border border-accent/40 bg-surface px-4 py-4">
+        <p className="eyebrow page-kicker">Underrated</p>
+        <p className="font-display mt-2.5 text-[1.05rem] leading-snug font-semibold text-fg">
+          {underrated}
         </p>
-        <p className="mt-2.5 text-[1.02rem] leading-snug text-fg">{underrated}</p>
       </div>
     </div>
   );
@@ -31,11 +31,11 @@ export function Verdict({
 
 export function Rule({ children }: { children: ReactNode }) {
   return (
-    <aside className="my-7 border-l-2 border-accent bg-surface px-4 py-3.5">
-      <p className="eyebrow page-kicker">
-        Regra do The Zero
-      </p>
-      <div className="mt-2 text-[0.98rem] leading-7 text-fg">{children}</div>
+    <aside className="article-rule my-8 border-l-[3px] border-accent bg-accent-soft px-4 py-4">
+      <p className="eyebrow page-kicker">Regra do The Zero</p>
+      <div className="font-display mt-2 text-[1.05rem] leading-snug font-semibold text-fg">
+        {children}
+      </div>
     </aside>
   );
 }
@@ -47,7 +47,7 @@ function MarkdownImage({
   if (!src || typeof src !== "string") return null;
 
   return (
-    <figure className="reveal-media my-7">
+    <figure className="reveal-media my-8">
       <WatermarkedPhoto>
         <Image
           src={src}
@@ -68,19 +68,13 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   img: MarkdownImage,
   h2: ({ className, ...props }) => (
     <h2
-      className={cn(
-        "mt-8 mb-3 text-[clamp(1.18rem,1rem+0.9vw,1.55rem)] font-semibold leading-snug tracking-tight",
-        className,
-      )}
+      className={cn("article-h2", className)}
       {...props}
     />
   ),
   h3: ({ className, ...props }) => (
     <h3
-      className={cn(
-        "mt-6 mb-2 text-[1.02rem] font-semibold tracking-tight sm:text-[1.1rem]",
-        className,
-      )}
+      className={cn("article-h3", className)}
       {...props}
     />
   ),
@@ -98,7 +92,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
     }
 
     return (
-      <p className={cn("my-3.5 leading-[1.72] sm:my-4", className)} {...props}>
+      <p className={cn("article-p", className)} {...props}>
         {children}
       </p>
     );
@@ -134,10 +128,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   ),
   a: ({ className, ...props }) => (
     <a
-      className={cn(
-        "text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent",
-        className,
-      )}
+      className={cn("article-link", className)}
       {...props}
     />
   ),
@@ -164,17 +155,17 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   ),
   blockquote: ({ className, ...props }) => (
     <blockquote
-      className={cn(
-        "my-7 border-l-2 border-border pl-4 text-[1.05rem] leading-7 text-muted italic sm:text-[1.12rem]",
-        className,
-      )}
+      className={cn("article-pullquote", className)}
       {...props}
     />
+  ),
+  cite: ({ className, ...props }) => (
+    <cite className={cn("not-italic", className)} {...props} />
   ),
   strong: ({ className, ...props }) => (
     <strong className={cn("font-semibold text-fg", className)} {...props} />
   ),
-  hr: () => <hr className="my-8 border-border" />,
+  hr: () => <hr className="my-8 border-accent/25" />,
   pre: ({ className, ...props }) => (
     <pre
       className={cn(
