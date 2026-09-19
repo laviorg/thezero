@@ -164,6 +164,19 @@ Sobre o The Zero — newsroom de tech sem hype
 Absoluto. H1 continua sendo a frase de manifesto (“Se não dá pra testar…”).
 “Sobre · The Zero” é o tipo de title vago que a Google cita para *não* fazer.
 
+### Privacidade, contato, termos
+
+Absolutos (a marca já está no núcleo):
+
+```
+Privacidade no The Zero — dados, cookies e LGPD
+Fale com a redação do The Zero
+Termos de uso do The Zero
+```
+
+H1 pode ser mais direto (“O que a gente coleta”, “A redação responde aqui”).
+O title tag nomeia o documento legal, não o gancho.
+
 ### 404
 
 ```

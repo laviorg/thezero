@@ -14,6 +14,9 @@ export const BRAND_NAME = site.name;
 
 export const HOME_TITLE = "The Zero — o que funciona de verdade em tech";
 export const ABOUT_TITLE = "Sobre o The Zero — newsroom de tech sem hype";
+export const PRIVACY_TITLE = "Privacidade no The Zero — dados, cookies e LGPD";
+export const CONTACT_TITLE = "Fale com a redação do The Zero";
+export const TERMS_TITLE = "Termos de uso do The Zero";
 export const SEARCH_HUB_CORE = "Busca no newsroom";
 export const NOT_FOUND_CORE = "Página não encontrada";
 
@@ -117,6 +120,18 @@ export function homePageTitle(): string {
 
 export function aboutPageTitle(): string {
   return composePageTitle(ABOUT_TITLE, "never");
+}
+
+export function privacyPageTitle(): string {
+  return composePageTitle(PRIVACY_TITLE, "never");
+}
+
+export function contactPageTitle(): string {
+  return composePageTitle(CONTACT_TITLE, "never");
+}
+
+export function termsPageTitle(): string {
+  return composePageTitle(TERMS_TITLE, "never");
 }
 
 export function notFoundPageTitle(): string {

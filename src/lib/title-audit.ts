@@ -6,10 +6,13 @@ import {
   aboutPageTitle,
   articlePageTitle,
   categoryPageTitle,
+  contactPageTitle,
   homePageTitle,
   notFoundPageTitle,
+  privacyPageTitle,
   searchPageTitle,
   subcategoryPageTitle,
+  termsPageTitle,
   titleLength,
 } from "./titles";
 
@@ -23,6 +26,9 @@ export function collectDocumentTitles(): TitledPath[] {
   const rows: TitledPath[] = [
     { path: "/", title: homePageTitle(), indexable: true },
     { path: "/sobre", title: aboutPageTitle(), indexable: true },
+    { path: "/privacidade", title: privacyPageTitle(), indexable: true },
+    { path: "/contato", title: contactPageTitle(), indexable: true },
+    { path: "/termos", title: termsPageTitle(), indexable: true },
     { path: "/busca", title: searchPageTitle(), indexable: false },
     { path: "/404", title: notFoundPageTitle(), indexable: false },
   ];

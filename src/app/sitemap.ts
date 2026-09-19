@@ -38,6 +38,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
+    {
+      url: `${site.url}/contato`,
+      lastModified: contentFreshness,
+      changeFrequency: "monthly",
+      priority: 0.4,
+      alternates: {
+        languages: {
+          "pt-BR": `${site.url}/contato`,
+          "x-default": `${site.url}/contato`,
+        },
+      },
+    },
+    {
+      url: `${site.url}/privacidade`,
+      lastModified: contentFreshness,
+      changeFrequency: "monthly",
+      priority: 0.3,
+      alternates: {
+        languages: {
+          "pt-BR": `${site.url}/privacidade`,
+          "x-default": `${site.url}/privacidade`,
+        },
+      },
+    },
+    {
+      url: `${site.url}/termos`,
+      lastModified: contentFreshness,
+      changeFrequency: "monthly",
+      priority: 0.3,
+      alternates: {
+        languages: {
+          "pt-BR": `${site.url}/termos`,
+          "x-default": `${site.url}/termos`,
+        },
+      },
+    },
   ];
 
   const categories = categoryList.map((category) => {

@@ -2,14 +2,20 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   ABOUT_TITLE,
+  CONTACT_TITLE,
   HOME_TITLE,
+  PRIVACY_TITLE,
+  TERMS_TITLE,
   TITLE_HARD_MAX,
   TITLE_SOFT_MAX,
   articlePageTitle,
   composePageTitle,
+  contactPageTitle,
   fitTitle,
   homePageTitle,
+  privacyPageTitle,
   searchPageTitle,
+  termsPageTitle,
   titleLength,
 } from "./titles.ts";
 
@@ -70,6 +76,18 @@ describe("articlePageTitle", () => {
       }),
       "KaBuM enfiou um vendedor de IA no WhatsApp · The Zero",
     );
+  });
+});
+
+describe("legal page titles", () => {
+  it("keeps brand inside the core and stays under the hard max", () => {
+    assert.equal(privacyPageTitle(), PRIVACY_TITLE);
+    assert.equal(contactPageTitle(), CONTACT_TITLE);
+    assert.equal(termsPageTitle(), TERMS_TITLE);
+    assert.ok(titleLength(PRIVACY_TITLE) <= TITLE_HARD_MAX);
+    assert.ok(titleLength(CONTACT_TITLE) <= TITLE_HARD_MAX);
+    assert.ok(titleLength(TERMS_TITLE) <= TITLE_HARD_MAX);
+    assert.equal(new Set([HOME_TITLE, ABOUT_TITLE, PRIVACY_TITLE, CONTACT_TITLE, TERMS_TITLE]).size, 5);
   });
 });
 
