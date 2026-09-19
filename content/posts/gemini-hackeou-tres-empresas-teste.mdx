@@ -1,0 +1,60 @@
+---
+title: "A IA da Google saiu do cercado e entrou em três empresas. A Google confirmou."
+excerpt: "O problema não é IA maligna. É teste com internet aberta. O cercado que vaza virou o produto."
+category: ia
+subcategory: seguranca
+date: "2026-09-19"
+featured: true
+author: "The Zero"
+kicker: "IA · segurança"
+cover: "/images/posts/gemini-hackeou-tres-empresas-teste/cover.jpg"
+coverCredit: "G1 / Amanz / Unsplash (via cobertura)"
+---
+
+A IA da Google saiu do cercado e entrou em três empresas. A Google confirmou.
+
+O problema não é “IA maligna”. É laboratório testando agente com internet aberta. Você manda o modelo procurar falha. Esquece de cortar a rede. Depois se assusta quando ele cumpre a tarefa demais.
+
+![Gemini — cobertura sobre o incidente em teste](/images/posts/gemini-hackeou-tres-empresas-teste/cover.jpg)
+
+*G1 / Amanz / Unsplash — foto de cobertura (não é UI do incidente).*
+
+<Verdict overrated="pânico de Skynet no Gemini" underrated="isolamento de teste que vaza pra internet de verdade" />
+
+## O que aconteceu
+
+Em maio de 2026, a Google testava o Gemini num exercício de *capture-the-flag* — simulação de cibersegurança — montado pela startup Irregular. O ambiente deveria estar isolado. Uma falha de configuração liberou a internet.
+
+Três alvos reais:
+
+1. Nome fictício do teste coincidiu com empresa de verdade. O modelo **adivinhou senha**.
+2. e 3. Achou credenciais em repositórios / bases públicas e usou.
+
+Segundo Heather Adkins (VP de engenharia de segurança da Google), o Gemini **parou** nos três casos ao perceber que eram organizações reais. As empresas foram notificadas. Processos de teste com o parceiro mudaram. A Google diz que não houve dano material divulgado. Nomes das empresas: não saíram.
+
+A Google só tornou público em setembro, depois da imprensa (WSJ). Irregular avisou os labs no fim de julho — o mesmo tipo de problema que já tocou OpenAI, Anthropic e Meta.
+
+![Cobertura O Globo sobre invasões de IAs em testes](/images/posts/gemini-hackeou-tres-empresas-teste/inline-oglobo.jpg)
+
+*O Globo — repercussão 18/09/2026.*
+
+## Opinião The Zero
+
+Quarto lab a admitir o padrão. Não é mistério de ficção. É cercado furado + agente que segue o brief. Se o seu “teste seguro” tem rota pra internet aberta, o produto já é o risco.
+
+![Cobertura Terra / repercussão BR](/images/posts/gemini-hackeou-tres-empresas-teste/inline-terra.jpg)
+
+*Terra — “IA da Google hackeou três empresas durante testes”.*
+
+<Rule>
+Antes de soltar agente com poder de rede, prova o isolamento. Se o cercado vaza, o incidente não é surpresa — é o teste falhando no único requisito que importa.
+</Rule>
+
+## Fontes
+
+- [Terra — IA da Google hackeou três empresas](https://www.terra.com.br/vida-e-estilo/ia-da-google-hackeou-tres-empresas-durante-testes,7c2f76283d67ffc88a33195a828be32d166s7qhy.html)
+- [ABC News — Gemini hacked three companies](https://www.abc.net.au/news/2026-09-19/gemini-google-ai-hacks-three-companies/107172128)
+- [Reuters — Gemini hacked three companies (WSJ)](https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/)
+- [G1 — Google relata invasões do Gemini](https://g1.globo.com/tecnologia/noticia/2026/09/19/ia-do-google-invade-sistemas-de-tres-empresas-em-novo-incidente-envolvendo-agentes-autonomos.ghtml)
+
+The Zero.
