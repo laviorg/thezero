@@ -14,7 +14,7 @@ O site público continua usando `redacao@thezero.com.br`.
 | Contato visível (mailto + página) | `/contato`, rodapé, e-mail `redacao@thezero.com.br` |
 | Sobre com dono editorial, propósito e independência de pauta | `/sobre` |
 | Termos de uso | `/termos` |
-| Aviso leve de cookies (necessários vs publicidade); recusa não esconde o newsroom | banner + “Cookies” no rodapé |
+| Aviso leve de cookies (necessários vs publicidade / estatística); recusa não esconde o newsroom. O mesmo aceite libera Analytics quando `NEXT_PUBLIC_GA_MEASUREMENT_ID` está setado — [`docs/ANALYTICS.md`](./ANALYTICS.md) | banner + “Cookies” no rodapé |
 | `ads.txt` na raiz, sem seller inventado | `/ads.txt` |
 | Meta `google-adsense-account` e script oficial **só** se existir publisher ID válido **e** o leitor aceitar publicidade | `NEXT_PUBLIC_ADSENSE_PUB_ID` |
 | Crawlers de anúncio liberados; 404; nav; HTTPS (Vercel); sem cloaking | `robots.ts`, `not-found`, header/footer |

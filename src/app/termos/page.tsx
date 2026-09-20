@@ -78,9 +78,9 @@ export default function TermsPage() {
         Quando houver anúncios (Google AdSense, depois da aprovação da
         conta), eles financiam o newsroom. <strong>Não compram a pauta.</strong>{" "}
         Anúncio é anúncio — não rotulamos peça paga como matéria. Você
-        pode recusar cookies de publicidade; o conteúdo editorial continua
-        no ar. Clique em anúncio por engano é do anunciante, não nosso
-        endosso.
+        pode recusar cookies de estatística (Google Analytics) e de
+        publicidade; o conteúdo editorial continua no ar. Clique em anúncio
+        por engano é do anunciante, não nosso endosso.
       </p>
       <p>
         É proibido pedir a alguém que clique nos anúncios, clicar nos

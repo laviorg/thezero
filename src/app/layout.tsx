@@ -1,4 +1,5 @@
 import { AdSenseScript } from "@/components/ads/adsense-script";
+import { GoogleAnalyticsScript } from "@/components/analytics/ga-script";
 import { CookieBanner } from "@/components/consent/cookie-banner";
 import { ConsentProvider } from "@/components/consent/consent-provider";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/news/json-ld";
@@ -104,6 +105,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <SiteFooter />
             <CookieBanner />
             <AdSenseScript />
+            <GoogleAnalyticsScript />
           </ConsentProvider>
         </ThemeProvider>
       </body>
