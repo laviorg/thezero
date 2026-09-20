@@ -312,7 +312,6 @@ metadados de editoria/matéria e titles ao vivo em thezero.com.br (19/09/2026).
 | `/noticia/cursor-nao-e-ia-que-escreve-codigo` | Cursor não é IA que escreve código. É autocomplete que entende o repo. · The Zero (81) | Corta no autocomplete / na marca. |
 | `/noticia/twd-streets-of-survival-day-one` | …porrada pixelada de R$ 67 · The Zero (100) | Corta o nome do jogo ou o preço. |
 | `/noticia/contexto-maior-que-prompt` | Contexto &gt; prompt. … · The Zero | `>` vira entidade HTML na SERP. |
-| `/noticia/lancamento-e-trailer-jogo-e-o-patch` | O lançamento é trailer. O jogo é o patch de terça. · The Zero | Manchete sem entidade pesquisável. |
 | `/noticia/setup-produtividade-overrated` | Seu setup não é lento porque falta monitor. · The Zero | Tese incompleta; parece conselho genérico. |
 
 ### Manchetes (H1) que mereciam recorte, não esterilização
@@ -332,7 +331,6 @@ Ultra ficha técnica preço Brasil”.
 | `/noticia/cursor-nao-e-ia-que-escreve-codigo` | Cursor não é IA que escreve código. É autocomplete que entende o repo. · The Zero (81) | Cursor: autocomplete que entende o repo · The Zero (51) |
 | `/noticia/twd-streets-of-survival-day-one` | …porrada pixelada de R$ 67 · The Zero (100) | The Walking Dead: Streets of Survival a R$ 67 · The Zero |
 | `/noticia/contexto-maior-que-prompt` | Contexto &gt; prompt. … · The Zero | Contexto pesa mais que prompt — o truque de IA · The Zero |
-| `/noticia/lancamento-e-trailer-jogo-e-o-patch` | O lançamento é trailer. O jogo é o patch de terça. · The Zero | Jogo não lança no trailer. Lança no patch de terça |
 
 O H1 das matérias longas **não** muda para o recorte: a manchete editorial
 continua no cartaz, no RSS e no JSON-LD. A unicidade de todos os titles
