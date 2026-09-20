@@ -180,7 +180,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 priority
                 hero
                 watermarkSize="default"
-                sizes="(min-width: 960px) 38vw, 92vw"
+                sizes="(min-width: 960px) 38vw, calc(100vw - 2rem)"
                 className="story-cover"
               />
             ) : null}
