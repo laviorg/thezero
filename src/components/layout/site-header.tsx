@@ -33,10 +33,10 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border border-t-[3px] border-t-accent bg-bg/85 backdrop-blur-md">
-      <div className="shell-frame flex h-[4.25rem] items-center justify-between gap-4">
+      <div className="shell-frame site-header-bar">
         <Link
           href="/"
-          className="flex items-center text-fg outline-none"
+          className="site-header-brand flex items-center text-fg outline-none"
           aria-label="The Zero — newsroom"
         >
           <Wordmark className="h-8 w-auto sm:h-9" />
@@ -58,7 +58,7 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="flex items-center gap-1">
+        <div className="site-header-actions flex items-center gap-1">
           <ThemeToggle />
           <Button variant="ghost" size="icon" asChild>
             <Link href="/busca" aria-label="Buscar matérias">
