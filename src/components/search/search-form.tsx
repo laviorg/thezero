@@ -6,12 +6,12 @@ export function SearchForm({
   defaultValue = "",
   autoFocus = false,
   inputId = "q",
-  showSubmitLabel = "sm",
+  compact = false,
 }: {
   defaultValue?: string;
   autoFocus?: boolean;
   inputId?: string;
-  showSubmitLabel?: "sm" | "always";
+  compact?: boolean;
 }) {
   return (
     <form
@@ -32,11 +32,18 @@ export function SearchForm({
         autoComplete="off"
         className="border-transparent bg-transparent focus-visible:border-transparent"
       />
-      <Button type="submit" size="lg" className="px-4">
+      <Button
+        type="submit"
+        size={compact ? "icon" : "lg"}
+        className={compact ? "shrink-0" : "px-4"}
+        aria-label={compact ? "Buscar matérias" : undefined}
+      >
         <Search />
-        <span className={showSubmitLabel === "always" ? undefined : "hidden sm:inline"}>
-          Buscar
-        </span>
+        {compact ? (
+          <span className="sr-only">Buscar</span>
+        ) : (
+          <span className="hidden sm:inline">Buscar</span>
+        )}
       </Button>
     </form>
   );
