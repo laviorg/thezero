@@ -92,7 +92,7 @@ export function SiteHeader() {
               </SheetHeader>
               <div className="mt-8">
                 <p className="eyebrow mb-3 text-muted">Busca</p>
-                <SearchForm inputId="menu-q" compact />
+                <SearchForm inputId="menu-q" compact autoFocus={false} />
               </div>
               <nav className="mt-10 flex flex-col gap-5" aria-label="Menu">
                 <SheetClose asChild>
