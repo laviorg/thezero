@@ -19,7 +19,7 @@ type CoverImageProps = {
   zoom?: boolean;
   /** Edge-to-edge on small screens (article covers). */
   flush?: boolean;
-  /** Split-stage hero: roughly square, inset on the colored field. */
+  /** Square hero crop. Desktop: inset on the split stage. Mobile: inset, straddling the stage/paper seam. */
   hero?: boolean;
 };
 
