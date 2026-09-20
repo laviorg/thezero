@@ -46,6 +46,7 @@ function SheetOverlay({
 function SheetContent({
   className,
   children,
+  onOpenAutoFocus,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content>) {
   return (
@@ -58,9 +59,28 @@ function SheetContent({
           className,
         )}
         {...props}
+        onOpenAutoFocus={(event) => {
+          onOpenAutoFocus?.(event);
+          if (event.defaultPrevented) {
+            return;
+          }
+
+          // Radix focuses the first tabbable, which is the search field and
+          // opens the mobile keyboard over the menu. Keep focus in the sheet
+          // on the close control; the input stays reachable by tap or Tab.
+          event.preventDefault();
+          const root = event.target as HTMLElement | null;
+          const dismiss = root?.querySelector<HTMLElement>(
+            "[data-slot='sheet-dismiss']",
+          );
+          (dismiss ?? root)?.focus();
+        }}
       >
         {children}
-        <DialogPrimitive.Close className="absolute top-4 right-4 text-muted transition-colors hover:text-fg focus-visible:ring-2 focus-visible:ring-accent">
+        <DialogPrimitive.Close
+          data-slot="sheet-dismiss"
+          className="absolute top-4 right-4 text-muted transition-colors hover:text-fg focus-visible:ring-2 focus-visible:ring-accent"
+        >
           <X className="size-5" />
           <span className="sr-only">Fechar menu</span>
         </DialogPrimitive.Close>
