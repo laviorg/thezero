@@ -182,7 +182,6 @@ conectividade, nuvem, energia e data centers em geral ficam em
 | `xbox-tgs-sale-re4-49.mdx` | Games | Jogos / Lojas e assinaturas |
 | `iphone-18-pro-brasil-hoje-preco.mdx` | Gadgets | Dispositivos / Celulares |
 | `s25-ultra-200mp-ninguem-usa.mdx` | Gadgets | Dispositivos / Celulares |
-| `lancamento-e-trailer-jogo-e-o-patch.mdx` | Games | Jogos / Lançamentos |
 | `iphone-18-pro-abertura-variavel-nao-e-megapixel.mdx` | Gadgets | Dispositivos / Celulares |
 | `lego-batman-switch-2-hoje-pt-br.mdx` | Games | Jogos / Lançamentos |
 | `teclado-caro-atalhos-baratos.mdx` | Hardware | Computadores / Periféricos |
