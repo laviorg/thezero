@@ -1,6 +1,7 @@
 "use client";
 
 import { Wordmark } from "@/components/brand/logo";
+import { SearchForm } from "@/components/search/search-form";
 import { ThemeSwitcher, ThemeToggle } from "@/components/theme/theme-toggle";
 import { Button } from "@/components/ui/button";
 import {
@@ -59,8 +60,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="site-header-actions flex items-center gap-1">
-          <ThemeToggle />
-          <Button variant="ghost" size="icon" asChild>
+          <ThemeToggle className="max-lg:hidden" />
+          <Button
+            variant="ghost"
+            size="icon"
+            asChild
+            className="max-lg:hidden"
+          >
             <Link href="/busca" aria-label="Buscar matérias">
               <Search />
             </Link>
@@ -81,9 +87,13 @@ export function SiteHeader() {
                 <SheetTitle className="sr-only">The Zero</SheetTitle>
                 <Wordmark className="h-8 w-auto text-fg" />
                 <SheetDescription className="sr-only">
-                  Menu de navegação
+                  Menu de navegação, busca e aparência
                 </SheetDescription>
               </SheetHeader>
+              <div className="mt-8">
+                <p className="eyebrow mb-3 text-muted">Busca</p>
+                <SearchForm inputId="menu-q" compact />
+              </div>
               <nav className="mt-10 flex flex-col gap-5" aria-label="Menu">
                 <SheetClose asChild>
                   <Link href="/" className={navClass(pathname === "/")}>
@@ -102,11 +112,6 @@ export function SiteHeader() {
                     </SheetClose>
                   );
                 })}
-                <SheetClose asChild>
-                  <Link href="/busca" className="text-lg text-muted hover:text-fg">
-                    Busca
-                  </Link>
-                </SheetClose>
                 <SheetClose asChild>
                   <Link href="/sobre" className="text-lg text-muted hover:text-fg">
                     Sobre
