@@ -29,8 +29,8 @@ export function CookieBanner() {
           </p>
           <p id="cookie-banner-copy" className="mt-1.5 text-sm leading-relaxed text-fg/90">
             Cookies necessários (tema, esta escolha) ficam no seu navegador.
-            Publicidade do Google AdSense — quando a conta estiver no ar —
-            só entra se você aceitar.{" "}
+            Google Analytics e a publicidade do AdSense — quando a conta
+            estiver no ar — só entram se você aceitar.{" "}
             <Link href="/privacidade" className="text-accent underline-offset-4 hover:underline">
               Política de Privacidade
             </Link>

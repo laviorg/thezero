@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const description =
-  "Como o The Zero trata dados, cookies e terceiros (incluindo Google AdSense, quando ligado), e quais são os seus direitos sob a LGPD.";
+  "Como o The Zero trata dados, cookies e terceiros (incluindo Google Analytics e, quando ligado, AdSense), e quais são os seus direitos sob a LGPD.";
 
 export const metadata: Metadata = buildPageMetadata({
   title: PRIVACY_TITLE,
@@ -25,7 +25,7 @@ export default function PrivacyPage() {
     <LegalDocument
       kicker="Privacidade"
       title="O que a gente coleta — e o que não."
-      lede="Política em português, alinhada à LGPD. Sem conta, sem newsletter, sem fingir que não existe cookie de anúncio."
+      lede="Política em português, alinhada à LGPD. Sem conta, sem newsletter, sem fingir que não existe cookie de estatística ou de anúncio."
       updated={LEGAL_UPDATED_LABEL}
       jsonLd={<LegalPageJsonLd path="/privacidade" name={PRIVACY_TITLE} description={description} />}
     >
@@ -76,19 +76,23 @@ export default function PrivacyPage() {
           parceria.
         </li>
         <li>
+          <strong>Estatística (só com aceite).</strong> O Google Analytics 4
+          mede audiência agregada: páginas vistas, referrer, tipo de
+          dispositivo, idioma e sinais semelhantes. Só carrega o script do
+          Google (gtag) se você aceitar no aviso de cookies. Recusar (“Só
+          o necessário”) não dispara o script. Sem cadastro nosso: a
+          medição fica no Google, não num perfil que a gente monta.
+        </li>
+        <li>
           <strong>Publicidade (só com aceite, e só quando o AdSense estiver
           ligado).</strong> O Google AdSense e parceiros certificados podem
           usar cookies, identificadores, endereço IP e sinais semelhantes para
           servir, medir e, se você permitir, personalizar anúncios. Isso{" "}
           <strong>não está no ar</strong> até a conta ser aprovada e o site
-          publicar o código. Quando estiver, vale esta mesma política.
+          publicar o código. Quando estiver, vale esta mesma política — e o
+          mesmo aceite do aviso de cookies.
         </li>
       </ul>
-      <p>
-        Não usamos Google Analytics neste site hoje. Se isso mudar, esta
-        página muda antes — e o aviso de cookies também, se a finalidade
-        for nova.
-      </p>
 
       <h2>2. Bases legais (LGPD)</h2>
       <ul>
@@ -98,7 +102,8 @@ export default function PrivacyPage() {
         </li>
         <li>
           <strong>Consentimento</strong> (art. 7º, I): cookies e identificadores
-          de publicidade. Dá para recusar e depois mudar de ideia.
+          de estatística (Google Analytics) e de publicidade (AdSense, quando
+          ligado). Dá para recusar e depois mudar de ideia.
         </li>
         <li>
           <strong>Legítimo interesse / exercício regular de direito:</strong>{" "}
@@ -132,6 +137,14 @@ export default function PrivacyPage() {
             <td>Não — são do serviço</td>
           </tr>
           <tr>
+            <td>Estatística</td>
+            <td>
+              Google Analytics 4: páginas vistas, referrer, dispositivo —
+              só depois do aceite
+            </td>
+            <td>Sim (mesmo aceite da publicidade)</td>
+          </tr>
+          <tr>
             <td>Publicidade</td>
             <td>
               Google AdSense e parceiros: cookies, pixels, IP, medição e (se
@@ -142,8 +155,8 @@ export default function PrivacyPage() {
         </tbody>
       </table>
       <p>
-        Publicidade se gerencia neste site pelo aviso de cookies (rodapé) e,
-        no Google, em{" "}
+        Estatística e publicidade se gerenciam neste site pelo aviso de
+        cookies (rodapé). Anúncios do Google, quando existirem, também em{" "}
         <a href={googlePolicy.adSettings} rel="noopener noreferrer">
           adssettings.google.com
         </a>
@@ -167,6 +180,11 @@ export default function PrivacyPage() {
             Como o Google usa cookies em publicidade
           </a>
         </li>
+        <li>
+          <a href={googlePolicy.analytics} rel="noopener noreferrer">
+            Proteção de dados no Google Analytics
+          </a>
+        </li>
       </ul>
       <p>
         <ManageCookiesButton />
@@ -178,8 +196,9 @@ export default function PrivacyPage() {
           <strong>Vercel</strong> — hospedagem e entrega do site.
         </li>
         <li>
-          <strong>Google</strong> — AdSense, quando o código estiver publicado
-          e houver aceite de publicidade.
+          <strong>Google</strong> — Analytics 4 (medição de audiência, só com
+          aceite) e AdSense, quando o código de anúncio estiver publicado e
+          houver o mesmo aceite.
         </li>
         <li>
           <strong>Autoridade ou ordem legal</strong> — se a lei exigir.
@@ -200,7 +219,7 @@ export default function PrivacyPage() {
         A hospedagem e os produtos Google podem processar dados fora do
         Brasil (por exemplo, nos Estados Unidos). Nesses casos o tratamento
         se apoia nas salvaguardas dos próprios provedores e, para
-        publicidade, no seu consentimento.
+        estatística e publicidade, no seu consentimento.
       </p>
 
       <h2>6. Quanto tempo guardamos</h2>
@@ -214,7 +233,10 @@ export default function PrivacyPage() {
           Preferências no aparelho: até você limpar o armazenamento do
           navegador.
         </li>
-        <li>Dados de anúncio: conforme as políticas do Google.</li>
+        <li>
+          Dados de Analytics e de anúncio: conforme as políticas e a
+          retenção da propriedade no Google.
+        </li>
       </ul>
 
       <h2>7. Seus direitos (LGPD, art. 18)</h2>
@@ -256,9 +278,9 @@ export default function PrivacyPage() {
 
       <h2>10. Mudanças</h2>
       <p>
-        Se a gente passar a coletar coisa nova (newsletter, comentário,
-        Analytics), esta política e a data no topo mudam. Consentimento de
-        publicidade a gente pede de novo se a finalidade mudar de verdade.
+        Se a gente passar a coletar coisa nova (newsletter, comentário),
+        esta política e a data no topo mudam. Consentimento de estatística
+        e publicidade a gente pede de novo se a finalidade mudar de verdade.
       </p>
 
       <h2>11. Contato</h2>

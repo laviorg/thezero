@@ -28,6 +28,8 @@ npm run lint
 
 `NEXT_PUBLIC_ADSENSE_PUB_ID` é opcional e **só** se preenche depois da aprovação no AdSense (`pub-` + 16 dígitos). Sem ela o site não carrega script de anúncio e o `/ads.txt` não declara vendedor Google. Checklist: [`docs/ADSENSE.md`](docs/ADSENSE.md).
 
+`NEXT_PUBLIC_GA_MEASUREMENT_ID` é o measurement ID do GA4. Em **Production** no Vercel: `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-3H0Z0NNQ1J` (conta hello.shimenawa, propriedade The Zero, stream www.thezero.com.br). Sem ela — o caso de Preview e local — o site não carrega `gtag`. O script só entra depois do aceite de cookies de publicidade / estatística. Checklist: [`docs/ANALYTICS.md`](docs/ANALYTICS.md).
+
 ## Páginas
 
 | Rota | O quê |
@@ -38,7 +40,7 @@ npm run lint
 | `/noticia/[slug]` | Matéria |
 | `/sobre` | Manifesto, quem publica e regras de voz |
 | `/contato` | E-mail da redação e canais |
-| `/privacidade` | Política de Privacidade (LGPD + cookies / AdSense) |
+| `/privacidade` | Política de Privacidade (LGPD + cookies / Analytics / AdSense) |
 | `/termos` | Termos de uso |
 | `/busca?q=` | Busca no título, trecho e corpo |
 | `/ads.txt` | Vendedores autorizados (vazio de Google até existir publisher ID) |
@@ -119,7 +121,7 @@ Arquitetura: `content/posts` → `src/lib/posts.ts` (gray-matter) → páginas e
 
 1. Cria o repositório Origin com o nome **thezero** (Create repo no fluxo New Project, ou `origin repo create thezero` na tua máquina). Liga o mirror GitHub se quiseres CI extra.
 2. Importa o repo na [Vercel](https://vercel.com): framework Next.js, comando `npm run build`, output default.
-3. Environment variable: `NEXT_PUBLIC_SITE_URL=https://thezero.com.br`. Depois da aprovação no AdSense, `NEXT_PUBLIC_ADSENSE_PUB_ID=pub-…` (ver [`docs/ADSENSE.md`](docs/ADSENSE.md)).
+3. Environment variables: `NEXT_PUBLIC_SITE_URL=https://thezero.com.br`. Em Production, `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-3H0Z0NNQ1J` (ver [`docs/ANALYTICS.md`](docs/ANALYTICS.md)). Depois da aprovação no AdSense, `NEXT_PUBLIC_ADSENSE_PUB_ID=pub-…` (ver [`docs/ADSENSE.md`](docs/ADSENSE.md)).
 4. Domínio: adiciona `thezero.com.br` e `www.thezero.com.br` na Vercel. No DNS (Registro.br / Cloudflare):
    - `A` / `CNAME` conforme o painel da Vercel (geralmente CNAME `www` → `cname.vercel-dns.com` e apex com os IPs que a Vercel mostrar).
    - Redirect `www` → apex, ou o contrário — escolhe um canónico e mantém.
