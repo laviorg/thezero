@@ -12,14 +12,14 @@ export function Verdict({
   underrated: string;
 }) {
   return (
-    <div className="my-10 grid gap-3 sm:grid-cols-2">
-      <div className="border border-alert/50 bg-surface px-5 py-5">
+    <div className="my-10 grid min-w-0 gap-3 sm:grid-cols-2">
+      <div className="min-w-0 border border-alert/50 bg-surface px-5 py-5">
         <p className="eyebrow text-alert">Overrated</p>
         <p className="font-display mt-2.5 text-[1.15rem] leading-snug font-bold text-fg">
           {overrated}
         </p>
       </div>
-      <div className="border-t-[3px] border-t-accent border border-accent/40 bg-accent-soft px-5 py-5">
+      <div className="min-w-0 border-t-[3px] border-t-accent border border-accent/40 bg-accent-soft px-5 py-5">
         <p className="eyebrow page-kicker">Underrated</p>
         <p className="font-display mt-2.5 text-[1.15rem] leading-snug font-bold text-fg">
           {underrated}
@@ -31,7 +31,7 @@ export function Verdict({
 
 export function Rule({ children }: { children: ReactNode }) {
   return (
-    <aside className="article-rule my-10 border-l-[5px] border-accent bg-accent-soft px-5 py-5">
+    <aside className="article-rule my-10 min-w-0 max-w-full border-l-[5px] border-accent bg-accent-soft px-5 py-5">
       <p className="eyebrow page-kicker">Regra do The Zero</p>
       <div className="font-display mt-2.5 text-[1.2rem] leading-snug font-bold text-fg">
         {children}
@@ -54,8 +54,8 @@ function MarkdownImage({
           alt={alt && alt.trim().length > 0 ? alt : ""}
           width={1600}
           height={900}
-          className="h-auto w-full"
-          sizes="(min-width: 1024px) 42rem, 100vw"
+          className="h-auto w-full max-w-full"
+          sizes="(min-width: 1024px) 42rem, min(100vw, 42rem)"
         />
       </WatermarkedPhoto>
     </figure>
@@ -98,7 +98,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
     );
   },
   table: ({ className, ...props }) => (
-    <div className="my-7 overflow-x-auto border border-border">
+    <div className="my-7 max-w-full overflow-x-auto border border-border">
       <table
         className={cn("w-full min-w-[28rem] text-left text-[0.98rem]", className)}
         {...props}
@@ -169,7 +169,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   pre: ({ className, ...props }) => (
     <pre
       className={cn(
-        "my-6 overflow-x-auto border border-border bg-surface p-4 font-mono text-sm leading-6 text-fg",
+        "my-6 max-w-full overflow-x-auto border border-border bg-surface p-4 font-mono text-sm leading-6 text-fg",
         className,
       )}
       {...props}

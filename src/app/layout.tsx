@@ -99,7 +99,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               Ir para o conteúdo
             </a>
             <SiteHeader />
-            <main id="conteudo" className="flex-1">
+            <main id="conteudo" className="min-w-0 flex-1">
               {children}
             </main>
             <SiteFooter />

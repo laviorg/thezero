@@ -59,7 +59,7 @@ export function WatermarkedPhoto({
   return (
     <div
       className={cn(
-        "cover-frame relative overflow-hidden rounded-md bg-surface",
+        "cover-frame relative min-w-0 max-w-full overflow-hidden rounded-md bg-surface",
         className,
       )}
     >
