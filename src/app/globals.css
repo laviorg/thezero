@@ -96,6 +96,9 @@
 html {
   background: var(--tz-bg);
   scroll-padding-top: 5.75rem;
+  overflow-x: clip;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -888,7 +891,7 @@ input {
 .article-body {
   max-width: min(var(--reading-measure), 100%);
   min-width: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   font-family: var(--tz-serif);
   font-optical-sizing: auto;
   font-size: 1.175rem;
@@ -914,14 +917,17 @@ input {
 .article-p {
   margin-block: 1.05em;
   min-width: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .article-body > p:first-of-type {
+  display: flow-root;
   color: var(--tz-fg);
 }
 
-/* Drop cap: heavy display sans into the serif column (~3 lines). */
+/* Drop cap: heavy display sans into the serif column (~3 lines).
+   flow-root on the paragraph keeps the float from widening the page
+   (WebKit ::first-letter + float is a common mobile overflow). */
 .article-body > p:first-of-type::first-letter {
   float: left;
   font-family: var(--tz-display), ui-sans-serif, sans-serif;
