@@ -147,6 +147,7 @@ input {
 
 .page-shell {
   width: 100%;
+  min-width: 0;
   margin-inline: auto;
   padding-inline: var(--shell-gutter);
 }
@@ -332,9 +333,16 @@ input {
 /* Story pages — colored stage + paper body                            */
 /* Mobile: title on stage, inset cover straddling the stage/paper seam */
 /* Desktop: square cover left / title right on the full colored stage  */
+/*                                                                     */
+/* min-width: 0 / minmax(0, 1fr) on this column is required: body is a */
+/* flex column, the story split is a grid, and MDX images declare a    */
+/* 1600px width. Without it, min-content blows the page past the       */
+/* viewport — horizontal scroll, clipped dek, and cut-off body text.   */
 /* ------------------------------------------------------------------ */
 
 .story-page {
+  width: 100%;
+  min-width: 0;
   background: var(--tz-surface);
 }
 
@@ -345,6 +353,7 @@ input {
 .story-stage {
   position: relative;
   isolation: isolate;
+  min-width: 0;
   background: transparent;
 }
 
@@ -352,18 +361,22 @@ input {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: var(--shell-article);
+  min-width: 0;
+  max-width: min(var(--shell-article), 100%);
   margin-inline: auto;
   padding-inline: var(--shell-gutter);
 }
 
 .story-hero {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
     "copy"
     "media";
   gap: 0;
   align-items: start;
+  width: 100%;
+  min-width: 0;
 }
 
 .story-hero--solo {
@@ -401,8 +414,9 @@ input {
   position: relative;
   z-index: 1;
   margin: 0;
-  width: auto;
-  max-width: none;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   background: transparent;
 }
 
@@ -416,8 +430,9 @@ input {
   position: absolute;
   z-index: 0;
   top: -2px;
+  right: calc(-1 * var(--shell-gutter));
   left: calc(-1 * var(--shell-gutter));
-  width: calc(100% + 2 * var(--shell-gutter));
+  width: auto;
   height: 0;
   padding-bottom: calc(var(--story-cover-overlap) + 2px);
   background: var(--tz-stage);
@@ -440,6 +455,8 @@ input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
+  min-width: 0;
 }
 
 .story-kicker {
@@ -467,6 +484,7 @@ input {
 
 .story-title {
   margin-top: 0.85rem;
+  max-width: 100%;
   overflow-wrap: break-word;
   color: var(--tz-stage-fg);
   font-size: clamp(2.45rem, 1.85rem + 3.4vw, 3.55rem);
@@ -476,8 +494,10 @@ input {
 }
 
 .story-dek {
-  max-width: 38rem;
+  max-width: min(38rem, 100%);
+  min-width: 0;
   margin-top: 1.05rem;
+  overflow-wrap: break-word;
   font-family: var(--font-source-sans), ui-sans-serif, sans-serif;
   font-size: clamp(1.08rem, 1rem + 0.4vw, 1.28rem);
   font-weight: 400;
@@ -489,8 +509,11 @@ input {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  min-width: 0;
+  max-width: 100%;
   margin-top: 1.45rem;
   padding-top: 1rem;
+  overflow-wrap: break-word;
   border-top: 1px solid var(--tz-stage-hairline);
 }
 
@@ -632,10 +655,12 @@ input {
 .cover-credit-hero {
   position: relative;
   z-index: 1;
-  max-width: none;
+  max-width: 100%;
+  min-width: 0;
   margin-inline: 0;
   padding: 0.7rem 0 0.15rem;
   border-top: none;
+  overflow-wrap: break-word;
   color: var(--tz-muted);
 }
 
@@ -659,7 +684,9 @@ input {
 
 .cover-credit {
   display: block;
+  max-width: 100%;
   margin-top: 0.55rem;
+  overflow-wrap: break-word;
   font-size: 0.78rem;
   line-height: 1.45;
   color: var(--tz-muted);
@@ -681,7 +708,14 @@ input {
 
 .story-split {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2.75rem;
+  min-width: 0;
+}
+
+.story-main,
+.story-rail {
+  min-width: 0;
 }
 
 @media (min-width: 1080px) {
@@ -698,7 +732,14 @@ input {
   }
 }
 
+.article-rule {
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
 .article-aside {
+  min-width: 0;
   padding: 1.35rem 1.25rem 1.55rem;
   border: 1px solid var(--tz-border);
   border-top: 7px solid var(--tz-accent);
@@ -802,6 +843,7 @@ input {
 
 .story-pager {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
   margin-top: 3.25rem;
   padding-top: 1.75rem;
@@ -810,7 +852,7 @@ input {
 
 @media (min-width: 640px) {
   .story-pager {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1.75rem;
   }
 }
@@ -826,6 +868,7 @@ input {
 
 .story-pager-title {
   margin-top: 0.45rem;
+  overflow-wrap: break-word;
   font-family: var(--tz-display);
   font-size: 1.08rem;
   font-weight: 700;
@@ -843,7 +886,9 @@ input {
 }
 
 .article-body {
-  max-width: var(--reading-measure);
+  max-width: min(var(--reading-measure), 100%);
+  min-width: 0;
+  overflow-wrap: break-word;
   font-family: var(--tz-serif);
   font-optical-sizing: auto;
   font-size: 1.175rem;
@@ -851,8 +896,25 @@ input {
   color: color-mix(in srgb, var(--tz-fg) 94%, transparent);
 }
 
+.article-body img,
+.article-body video,
+.article-body iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.article-body figure,
+.article-body .reveal-media,
+.article-body .cover-frame {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
 .article-p {
   margin-block: 1.05em;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .article-body > p:first-of-type {
@@ -874,7 +936,7 @@ input {
 
 @media (min-width: 640px) {
   .article-body {
-    max-width: var(--reading-measure-wide);
+    max-width: min(var(--reading-measure-wide), 100%);
     font-size: 1.25rem;
     line-height: 1.7;
   }
@@ -908,6 +970,7 @@ input {
   margin-top: 2.45em;
   margin-bottom: 0.6em;
   padding-top: 0.2em;
+  overflow-wrap: break-word;
   font-family: var(--tz-display);
   font-size: clamp(1.45rem, 1.15rem + 1.05vw, 2rem);
   font-weight: 800;
@@ -928,6 +991,7 @@ input {
 .article-h3 {
   margin-top: 1.55em;
   margin-bottom: 0.4em;
+  overflow-wrap: break-word;
   font-family: var(--tz-display);
   font-size: 1.22rem;
   font-weight: 800;
@@ -937,6 +1001,7 @@ input {
 }
 
 .article-link {
+  overflow-wrap: anywhere;
   color: var(--tz-accent);
   text-decoration: underline;
   text-decoration-color: var(--tz-accent);
@@ -951,7 +1016,10 @@ input {
 
 .article-pullquote {
   margin-block: 2.5rem;
+  max-width: 100%;
+  min-width: 0;
   padding: 0.35rem 0 0.35rem 1.4rem;
+  overflow-wrap: break-word;
   border-left: 5px solid var(--tz-accent);
   color: var(--tz-fg);
   font-family: var(--tz-display);
