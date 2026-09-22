@@ -1,0 +1,84 @@
+---
+title: "Microsoft derruba o EvilTokens. O código no login oficial entregou a caixa."
+seoTitle: "Microsoft derruba o EvilTokens, kit de e-mail"
+excerpt: "Serviço no Telegram lia a caixa da Microsoft sem levar a senha. Mais de 12 mil caixas em 10 mil organizações. A infraestrutura caiu nesta terça. O método, não."
+category: aplicativos
+subcategory: seguranca-digital
+date: "2026-09-22"
+kicker: "Aplicativos · segurança digital"
+author: "The Zero"
+cover: "/images/posts/microsoft-desmonta-eviltokens/cover.jpg"
+coverAlt: "Fachada de vidro do Building 92, centro de visitantes da Microsoft, no campus de Redmond, com o logo da empresa sobre a entrada"
+coverCredit: "Jiaqian AirplaneFan / Wikimedia Commons (CC BY 3.0) — Building 92, Redmond, junho de 2015"
+---
+
+Microsoft derruba o EvilTokens. O código no login oficial entregou a caixa.
+
+Nesta terça (22), a unidade de crimes digitais da Microsoft anunciou que interrompeu a infraestrutura do EvilTokens, serviço vendido no Telegram para tomar conta de e-mail corporativo. A senha não precisava vazar. A pessoa colava um código na página oficial de login da Microsoft e autenticava a sessão de outra pessoa. O número da Microsoft: mais de **12 mil** caixas, em mais de **10 mil** organizações.
+
+O que caiu foi a operação desse kit. O tipo de golpe não.
+
+![Fachada de vidro do Building 92, centro de visitantes da Microsoft em Redmond](/images/posts/microsoft-desmonta-eviltokens/cover.jpg)
+
+*Jiaqian AirplaneFan / Wikimedia Commons (CC BY 3.0) — Building 92, Redmond, junho de 2015. Arquivo redimensionado para publicação.*
+
+<Verdict overrated="trocar a senha e achar que a caixa voltou a ser sua" underrated="bloquear o código de dispositivo e confirmar pagamento por outro canal" />
+
+## O que a Microsoft anunciou hoje
+
+O texto é de Steven Masada, conselheiro-geral associado e gerente-geral da Digital Crimes Unit, no [blog oficial](https://blogs.microsoft.com/on-the-issues/2026/09/22/disrupting-eviltokens-the-ai-chatbot-built-for-cybercrime/). A formulação dele, em paráfrase fiel: a IA do serviço não servia só para escrever isca mais convincente. Servia para decidir quem atacar, quem imitar e como tirar o máximo de dinheiro da relação.
+
+O EvilTokens surgiu em **fevereiro de 2026**. No Telegram, a entrada custava **US$ 1.500** e a mensalidade, **US$ 500**. No pacote: tomar a conta, ler a caixa, escolher o alvo e preparar a fraude. Masada descreve um chatbot no centro. Ele resumia e traduzia e-mail, puxava conversa financeira, mapeava cargo, apontava relação de confiança e sugeria alvo. Havia atalho no painel para achar discussão de transferência, localizar quem move dinheiro, achar fatura de fornecedor e indicar quem valia a pena imitar.
+
+Investigadores da Microsoft dizem que boa parte da plataforma foi escrita com ajuda de modelo — o termo do blog é *vibe coded* — e que o kit puxava capacidade de mais de um modelo. A empresa não nomeou quais. A OpenAI aparece na lista de quem ajudou a **derrubar** o serviço, não como fornecedora do golpe.
+
+A ação teve autorização do tribunal federal do Distrito Leste da Virgínia. O [CyberScoop](https://cyberscoop.com/microsoft-eviltokens-cybercrime-service-takedown/) registra que a ordem é de **15 de setembro**. A Health-ISAC, entidade de segurança do setor de saúde, entrou como coautora: hospitais estavam entre os alvos. No corte operacional, a Microsoft e os parceiros apreenderam **50** sites usados pelo serviço e desativaram **mais de 150** domínios de apoio. Na lista de parceiros do blog: Cloudflare, Coinbase, OpenAI, Railway, SpyCloud, Shadowserver Foundation e TRM Labs.
+
+É a **40ª** vez, em quase duas décadas, que a Digital Crimes Unit corta infraestrutura com ordem de tribunal. A primeira, diz a Microsoft, contra um serviço que cobria a fraude de ponta a ponta com IA.
+
+A própria empresa escreve o limite: a infraestrutura do EvilTokens foi atingida; o modelo de negócio não some com ela. O [BleepingComputer](https://www.bleepingcomputer.com/news/security/eviltokens-phaas-disrupted-after-compromising-12-000-microsoft-accounts/) trata do mesmo jeito. O volume desse kit deve cair. O método já circula em outros.
+
+## O login oficial era a isca
+
+O fluxo existe para aparelho sem teclado decente: TV, impressora, equipamento de reunião. A pessoa digita um código curto no navegador, na página real da Microsoft, e autoriza o aparelho.
+
+O EvilTokens invertia a origem. O criminoso abria o pedido. A vítima recebia o código numa isca — fatura, arquivo, aviso de senha — e concluía o login oficial. A senha não ia para um site falso. O segundo fator também era cumprido pela própria vítima. No fim, a sessão autenticada era a do atacante.
+
+A Microsoft avisa o detalhe que a troca de senha esconde: o acesso pode continuar se a sessão e o token não forem revogados. No [blog técnico](https://www.microsoft.com/en-us/security/blog/2026/09/22/unmasking-eviltokens-getting-to-the-root-of-device-code-phishing/) do mesmo dia, a recomendação é bloquear esse fluxo onde a empresa não precisa dele. Do lado do dinheiro, o texto de Masada pede outro canal para confirmar mudança de conta, desvio de pagamento ou transação fora do padrão. Uma vez dentro da caixa, o serviço lia o conteúdo em minutos, não em dias.
+
+A Microsoft rastreia quem desenvolvia e sustentava o kit como **Storm-2992**.
+
+## O tamanho, sem somar base diferente
+
+Os países com mais atividade de vítima, na observação da Microsoft: Estados Unidos, Canadá, Reino Unido, Austrália, Índia e França. Os setores citados: atacado, construção, serviços financeiros, imobiliário, ensino superior e saúde. O Brasil **não** está nessa lista. Não há, no material de hoje, contagem de caixas brasileiras.
+
+O que há é o produto. Outlook e Microsoft 365 autenticam na mesma página. Empresa daqui que paga fornecedor porque o financeiro mandou e-mail está no tipo de fraude que o kit automatizava.
+
+Números de terceiros, com a fonte na frente, para não misturar com os 12 mil:
+
+- Porta-voz da Microsoft ao CyberScoop: cerca de **mil** criminosos usaram o serviço. A fraude total não foi estimada. Deu para ligar pelo menos **13** queixas no IC3 — o centro de denúncias de crime na internet do FBI — a atividade do EvilTokens, cerca de **US$ 1,7 milhão** em prejuízo reportado. A empresa chama isso de estimativa conservadora.
+- Coinbase, também ao CyberScoop: cerca de **US$ 1,1 milhão** de receita dos clientes pagantes, mais de mil depósitos a partir de mais de 700 endereços, contados até junho de 2026.
+- SpyCloud, no recorte do BleepingComputer: **8.708** contas em **6.585** domínios corporativos, **79** países, **97,5%** empresariais. É outra base. Não soma com os 12 mil.
+
+## Londres: dois homens, fiança, duas datas
+
+A Microsoft diz que a polícia metropolitana de Londres prendeu dois homens, de **32** e **38** anos, sob suspeita de delitos ligados à operação alegada do EvilTokens. Os dois foram soltos sob fiança, com condições. A investigação continua. Não há condenação.
+
+As datas não batem, e a matéria não escolhe uma no escuro. O blog da Microsoft marca a prisão em **11 de setembro**. A própria Metropolitan Police, ouvida pelo [The Record](https://therecord.media/two-arrested-in-uk-after-microsoft-takedown-eviltokens), diz que os mandados saíram na sexta, **18**, em dois endereços. A suspeita policial, nessa nota: produzir material para uso em fraude e lavagem de dinheiro. A Microsoft procurou a polícia em agosto e se recusou a identificar os dois. O porta-voz disse ao The Record que seriam operadores alegados do serviço e que outras pessoas podem ter dado apoio.
+
+Serena D'Adamo, detective inspector que chefiou a investigação na Met, disse ao The Record que serviços de phishing “trazem miséria a milhares de pessoas, tirando dinheiro de gente comum no mundo inteiro”.
+
+<Rule>
+Código colado no login oficial da Microsoft não é “site falso”. É a sessão do outro. MFA não viu. Trocar a senha não apaga o token.
+</Rule>
+
+## Fontes
+
+- [Microsoft On the Issues — Steven Masada, disrupção do EvilTokens (22/09/2026)](https://blogs.microsoft.com/on-the-issues/2026/09/22/disrupting-eviltokens-the-ai-chatbot-built-for-cybercrime/)
+- [Microsoft Security Blog — análise do phishing por código de dispositivo (22/09/2026)](https://www.microsoft.com/en-us/security/blog/2026/09/22/unmasking-eviltokens-getting-to-the-root-of-device-code-phishing/)
+- [CyberScoop — ordem de 15/09, receita e prejuízo reportado (22/09/2026)](https://cyberscoop.com/microsoft-eviltokens-cybercrime-service-takedown/)
+- [The Record — nota da Metropolitan Police e recusa da Microsoft em identificar os presos (22/09/2026)](https://therecord.media/two-arrested-in-uk-after-microsoft-takedown-eviltokens)
+- [BleepingComputer — recorte SpyCloud e o limite da disrupção (22/09/2026)](https://www.bleepingcomputer.com/news/security/eviltokens-phaas-disrupted-after-compromising-12-000-microsoft-accounts/)
+- [Wikimedia Commons — Building 92, CC BY 3.0, Jiaqian AirplaneFan. Arquivo redimensionado para publicação.](https://commons.wikimedia.org/wiki/File:Building_92_of_Microsoft_Redmond_Campus_-_panoramio.jpg)
+
+The Zero.
