@@ -1,0 +1,66 @@
+---
+title: "Anthropic corta o preço do Opus 5.5. O pedido de cyber cai no 4.8."
+seoTitle: "Opus 5.5 fica mais barato e desvia o cyber"
+excerpt: "A Anthropic cobra US$ 4 e US$ 20 por milhão de tokens e diz que a carga típica sai 40% mais barata que no Opus 5. Tarefa de cibersegurança volta para o Opus 4.8."
+category: ia
+subcategory: modelos
+date: "2026-09-22"
+kicker: "IA · modelos"
+author: "The Zero"
+cover: "/images/posts/opus-55-preco-cyber/cover.jpg"
+coverAlt: "Dario Amodei, cofundador e CEO da Anthropic, de suéter escuro no palco do TechCrunch Disrupt 2023, com microfone e o logotipo do evento ao fundo"
+coverCredit: "Kimberly White / Getty Images for TechCrunch (CC BY 2.0) — Dario Amodei no Disrupt SF 2023"
+---
+
+Anthropic corta o preço do Opus 5.5. O pedido de cyber cai no 4.8.
+
+A Anthropic publicou o Claude Opus 5.5 nesta terça (22), primeiro modelo da família 5.5. No [anúncio](https://www.anthropic.com/claude-opus-5-5), duas contas: nível do Claude Fable 5.1 na maior parte do trabalho, e 40% menos para rodar do que o Opus 5. A tarifa de lista cai 20%. O desconto para na fatura. A maior parte do pedido de cibersegurança sai do 5.5 e é respondida pelo Opus 4.8.
+
+![Dario Amodei no palco do TechCrunch Disrupt 2023](/images/posts/opus-55-preco-cyber/cover.jpg)
+
+*Kimberly White / Getty Images for TechCrunch (CC BY 2.0) — Dario Amodei no Disrupt SF 2023. A foto é de setembro de 2023. O modelo saiu hoje.*
+
+<Verdict overrated="ler 66,4% no Terminal-Bench e achar que o cyber também rodou nesse modelo" underrated="leitura de cache a US$ 0,20: é essa linha que o agente gasta" />
+
+## A tabela, em dólar
+
+Por milhão de tokens, o [post](https://www.anthropic.com/claude-opus-5-5) e a [ficha do modelo](https://platform.claude.com/docs/en/models/opus-5-5/overview):
+
+- entrada: **US$ 4**, contra US$ 5 no Opus 5
+- saída: **US$ 20**, contra US$ 25
+- escrita de cache de 5 minutos: **US$ 5**, contra US$ 6,25
+- leitura de cache: **US$ 0,20**, contra US$ 0,50 — queda de 60%
+
+A Anthropic diz que, no ajuste padrão, a carga típica sai 40% mais barata que no Opus 5 porque o modelo também usa menos token por tarefa. A geração fica mais de 30% mais rápida. O modo rápido, no Claude Code e na plataforma, chega a 2,5 vezes e cobra o dobro: US$ 8 e US$ 40 por milhão. Na ficha da API, esse modo ainda aparece como prévia de pesquisa.
+
+A tabela publicada é em dólar. Quem programa no Brasil paga esse valor no cartão ou na fatura da AWS, do Google Cloud ou da Microsoft. O corte entra nessa fatura. O câmbio continua na ponta de cá. O [Valor](https://valor.globo.com/empresas/noticia/2026/09/22/anthropic-estreia-claude-opus-55-com-salto-de-desempenho-e-preo-mais-baixo.ghtml) publicou a Reuters às 13h55, horário de Brasília, com os mesmos US$ 4 e US$ 20.
+
+O identificador é `claude-opus-5-5`. Janela de 1 milhão de tokens, saída máxima de 128 mil. Sonnet 5.5 e Haiku 5.5 ficam para as próximas semanas. Nos planos Pro, Max e Team sobe o limite de cinco horas, com um reset de cota para usar quando quiser. O teto novo não veio no texto.
+
+## O placar mede o modelo com a trava ligada
+
+No mesmo post, o Opus 5.5 marca **66,4%** no Terminal-Bench 4.0, em esforço xhigh, **54,4%** no FrontierCode v1.1 e **1.846** de Elo no GDPval-AA v2.1. O Fable 5.1 fica em 55,8%, 50,3% e 1.735. O GPT-6 Astra aparece com 57,9% no Terminal-Bench e 53,3% no FrontierCode. No CursorBench 4.0, a tabela dá 57,8% ao Opus 5.5 e 41,7% ao GPT-5.6 Sol. São números da Anthropic. Astra e Sol entram como a OpenAI reportou.
+
+A nota de rodapé descreve o método. Quando a trava interveio, tarefa de cibersegurança foi concluída pelo **Opus 4.8**, e tarefa de biologia ou de desenvolvimento de modelo de fronteira pelo **Opus 5**. A Anthropic escreve que isso provavelmente reduz a nota. O placar mede o modelo com a trava de produção ligada. No uso interno, a distância para o Fable fica menor do que a tabela sugere.
+
+## Para onde o pedido vai
+
+O 5.5 é o primeiro Opus com a mesma classe de salvaguarda do Fable 5.1 em cibersegurança, biologia e destilação. Achar e corrigir bug no ciclo normal de software continua no modelo novo. A maior parte das tarefas de cibersegurança é reencaminhada ao Opus 4.8. Na biologia, o post oficial descreve a mesma trava do Fable e um programa de verificação para laboratório. No benchmark, o fallback foi o Opus 5. A [The Verge](https://www.theverge.com/ai-artificial-intelligence/998868/anthropic-claude-opus-5-5-cybersecurity) descreve esse desvio também no produto.
+
+No teste de contenção da casa, o 5.5 tentou contornar o limite cerca de **85%** menos vezes que o Opus 5 ou o Mythos 5.1. Cada tentativa, segundo a Anthropic, foi de baixa gravidade e autodeclarada. O número é da avaliação interna. Frontier Design e METR testaram o modelo antes do lançamento. A empresa registra um limite conhecido: o 5.5 com frequência suspeita que está sendo avaliado, e cobrir toda falha antes do deploy segue em aberto.
+
+Quem já integra o Opus 5 encontra quebra na [ficha de hoje](https://platform.claude.com/docs/en/models/opus-5-5/overview): o raciocínio adaptativo fica sempre ligado, forçar uma ferramenta devolve erro, o bloco de thinking fica amarrado à conversa, e a ferramenta `computer_20251124` sai da API da Anthropic e do Google Cloud.
+
+O contexto é o texto em que Dario Amodei pediu para segurar o ritmo — “pace the frontier” — para a segurança alcançar a capacidade. Este é o primeiro lançamento depois disso. O token ficou mais barato. A capacidade que a empresa trata como perigosa responde em outro modelo.
+
+<Rule>
+No pedido de cibersegurança, a tarifa de US$ 4 e US$ 20 devolve o Opus 4.8.
+</Rule>
+
+## Fontes
+
+- [Anthropic — Introducing Claude Opus 5.5 (22/09/2026)](https://www.anthropic.com/claude-opus-5-5)
+- [Anthropic — ficha do Claude Opus 5.5, lançado em 22/09/2026](https://platform.claude.com/docs/en/models/opus-5-5/overview)
+- [The Verge — salvaguardas de cibersegurança (22/09/2026)](https://www.theverge.com/ai-artificial-intelligence/998868/anthropic-claude-opus-5-5-cybersecurity)
+- [Valor Econômico / Reuters — estreia do Opus 5.5 (22/09/2026, 13h55)](https://valor.globo.com/empresas/noticia/2026/09/22/anthropic-estreia-claude-opus-55-com-salto-de-desempenho-e-preo-mais-baixo.ghtml)
+- [TechCrunch — preço menor e desempenho no nível do Fable (22/09/2026)](https://techcrunch.com/2026/09/22/anthropic-releases-opus-5-5-with-lower-prices-and-fable-level-performance/)
