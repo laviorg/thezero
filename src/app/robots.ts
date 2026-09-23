@@ -18,6 +18,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: [`${site.url}/sitemap.xml`, `${site.url}/news-sitemap.xml`],
-    host: site.domain,
+    host: new URL(site.url).host,
   };
 }

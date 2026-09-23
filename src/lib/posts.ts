@@ -242,14 +242,19 @@ export function getAdjacentPosts(post: Post) {
   };
 }
 
-export function getLatestModifiedDate() {
-  const posts = getAllPosts();
+export function latestUpdatedDate(
+  posts: { updatedIso: string }[],
+): Date | undefined {
   let latest = 0;
   for (const post of posts) {
     const time = new Date(post.updatedIso).getTime();
     if (time > latest) latest = time;
   }
-  return latest ? new Date(latest) : new Date();
+  return latest ? new Date(latest) : undefined;
+}
+
+export function getLatestModifiedDate() {
+  return latestUpdatedDate(getAllPosts()) ?? new Date();
 }
 
 export function searchPosts(query: string): Post[] {

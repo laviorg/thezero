@@ -1,15 +1,15 @@
+import type { Metadata } from "next";
 import {
   languageAlternate,
   newsRobots,
   ogImageMeta,
-} from "@/lib/seo";
-import { absoluteUrl, site } from "@/lib/site";
+} from "./seo.ts";
+import { absoluteUrl, site } from "./site.ts";
 import {
   composePageTitle,
   includesBrand,
   type BrandMode,
-} from "@/lib/titles";
-import type { Metadata } from "next";
+} from "./titles.ts";
 
 type BuildPageMetaInput = {
   /** Núcleo ou title absoluto. A marca segue `brand`, salvo se o texto já a contém. */
@@ -22,6 +22,8 @@ type BuildPageMetaInput = {
   ogTitle?: string;
   imagePath?: string;
   imageAlt?: string;
+  /** 404 and other non-URLs must not canonicalize to a path that does not exist. */
+  omitCanonical?: boolean;
 };
 
 export function buildPageMetadata({
@@ -34,6 +36,7 @@ export function buildPageMetadata({
   ogTitle,
   imagePath,
   imageAlt,
+  omitCanonical = false,
 }: BuildPageMetaInput): Metadata {
   const url = absoluteUrl(path);
   const documentTitle = composePageTitle(title, brand);
@@ -48,10 +51,23 @@ export function buildPageMetadata({
     title: { absolute: documentTitle },
     description,
     alternates: {
-      canonical: path,
-      languages: languageAlternate(path),
+      ...(omitCanonical
+        ? {}
+        : {
+            canonical: path,
+            languages: languageAlternate(path),
+          }),
+      types: {
+        "application/rss+xml": "/rss.xml",
+      },
     },
-    robots: noIndex ? { index: false, follow: true } : newsRobots,
+    robots: noIndex
+      ? {
+          index: false,
+          follow: true,
+          googleBot: { index: false, follow: true },
+        }
+      : newsRobots,
     openGraph: {
       type,
       locale: site.locale,
@@ -65,7 +81,9 @@ export function buildPageMetadata({
       card: "summary_large_image",
       title: socialTitle,
       description,
-      ...(image ? { images: [image.url] } : {}),
+      ...(image
+        ? { images: [{ url: image.url, alt: image.alt }] }
+        : {}),
     },
   };
 }

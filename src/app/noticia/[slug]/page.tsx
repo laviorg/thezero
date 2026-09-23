@@ -1,4 +1,5 @@
 import { ArticleBody } from "@/components/news/article-body";
+import { ArticleDeskLinks } from "@/components/news/article-desk-links";
 import { ArticleHeader } from "@/components/news/article-header";
 import { ArticlePager } from "@/components/news/article-pager";
 import { ArticleRail } from "@/components/news/article-rail";
@@ -8,6 +9,7 @@ import {
   NewsArticleJsonLd,
 } from "@/components/news/json-ld";
 import { PageShell } from "@/components/layout/page-shell";
+import { articleImages } from "@/lib/article-images";
 import { getCategory, getSubcategory } from "@/lib/categories";
 import { buildPageMetadata } from "@/lib/metadata";
 import {
@@ -17,6 +19,7 @@ import {
   getRelatedPosts,
 } from "@/lib/posts";
 import {
+  HOME_CRUMB_LABEL,
   articleOgImagePath,
   coverAlt,
   newsRobots,
@@ -114,19 +117,20 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         url={pageUrl}
         section={post.categoryLabel}
         author={post.author}
-        image={absoluteUrl(articleOgImagePath(post.slug))}
+        images={articleImages(post)}
         wordCount={post.wordCount}
         readingMinutes={post.readingMinutes}
         keywords={[
           post.categoryLabel,
           ...(post.subcategoryLabel ? [post.subcategoryLabel] : []),
-          ...(post.kicker ? [post.kicker] : []),
-          "tecnologia",
+          ...(post.kicker && post.kicker !== post.subcategoryLabel
+            ? [post.kicker]
+            : []),
         ]}
       />
       <BreadcrumbJsonLd
         items={[
-          { name: site.name, url: site.url },
+          { name: HOME_CRUMB_LABEL, url: site.url },
           ...(category
             ? [{ name: category.label, url: absoluteUrl(category.href) }]
             : []),
@@ -162,7 +166,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               crumbs={
                 category
                   ? [
-                      { href: "/", label: "Newsroom" },
+                      { href: "/", label: HOME_CRUMB_LABEL },
                       { href: category.href, label: category.label },
                       ...(subcategory
                         ? [{ href: subcategory.href, label: subcategory.label }]
@@ -192,6 +196,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="story-split">
           <div className="story-main">
             <ArticleBody source={post.content} />
+            {category ? (
+              <ArticleDeskLinks
+                category={category}
+                subcategory={subcategory}
+              />
+            ) : null}
             <ArticlePager older={older} newer={newer} />
           </div>
           <div className="story-rail">

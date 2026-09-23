@@ -844,6 +844,39 @@ input {
   border-top: 2px solid var(--tz-accent);
 }
 
+.story-desk {
+  margin-top: 2.75rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--tz-border);
+}
+
+.story-desk-links {
+  margin-top: 0.55rem;
+  font-family: var(--font-source-sans), ui-sans-serif, sans-serif;
+  font-size: 1.02rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.story-desk-links a:hover,
+.story-desk-links a:focus-visible {
+  color: var(--tz-accent);
+}
+
+.story-desk-dot {
+  margin-inline: 0.45rem;
+  color: var(--tz-muted);
+}
+
+.story-desk-blurb {
+  margin-top: 0.4rem;
+  max-width: 62ch;
+  color: var(--tz-muted);
+  font-family: var(--font-source-sans), ui-sans-serif, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
 .story-pager {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

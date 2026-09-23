@@ -1,8 +1,9 @@
 import { WatermarkedPhoto } from "@/components/brand/photo-watermark";
-import { Children, isValidElement, type ComponentPropsWithoutRef, type ReactNode } from "react";
+import { readLocalImageSize } from "@/lib/image-size";
 import { cn } from "@/lib/utils";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import Image from "next/image";
+import { Children, isValidElement, type ComponentPropsWithoutRef, type ReactNode } from "react";
 
 export function Verdict({
   overrated,
@@ -46,15 +47,20 @@ function MarkdownImage({
 }: ComponentPropsWithoutRef<"img">) {
   if (!src || typeof src !== "string") return null;
 
+  const size = readLocalImageSize(src);
+  const width = size?.width ?? 1600;
+  const height = size?.height ?? 900;
+
   return (
     <figure className="reveal-media my-8">
       <WatermarkedPhoto>
         <Image
           src={src}
           alt={alt && alt.trim().length > 0 ? alt : ""}
-          width={1600}
-          height={900}
+          width={width}
+          height={height}
           className="h-auto w-full max-w-full"
+          style={{ width: "100%", height: "auto" }}
           sizes="(min-width: 1024px) 42rem, min(100vw, 42rem)"
         />
       </WatermarkedPhoto>

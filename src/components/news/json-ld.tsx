@@ -1,4 +1,6 @@
+import type { ArticleImage } from "@/lib/article-images";
 import {
+  articleAuthorLd,
   organizationId,
   publisherLogoUrl,
   websiteId,
@@ -6,11 +8,15 @@ import {
 import { site } from "@/lib/site";
 import { ABOUT_TITLE, CONTACT_TITLE } from "@/lib/titles";
 
+function jsonLdHtml(data: unknown) {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
 function JsonLd({ data }: { data: unknown }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: jsonLdHtml(data) }}
     />
   );
 }
@@ -84,7 +90,7 @@ export function NewsArticleJsonLd({
   url,
   section,
   author,
-  image,
+  images,
   wordCount,
   readingMinutes,
   keywords,
@@ -96,15 +102,12 @@ export function NewsArticleJsonLd({
   url: string;
   section: string;
   author: string;
-  image: string;
+  images: ArticleImage[];
   wordCount?: number;
   readingMinutes?: number;
   keywords?: string[];
 }) {
-  const articleAuthor =
-    author === site.defaultAuthor
-      ? { "@id": organizationId }
-      : { "@type": "Person" as const, name: author };
+  const primaryImage = images[0]?.url;
 
   return (
     <JsonLd
@@ -119,16 +122,15 @@ export function NewsArticleJsonLd({
         articleSection: section,
         ...(keywords?.length ? { keywords } : {}),
         isAccessibleForFree: true,
-        image: [
-          {
-            "@type": "ImageObject",
-            url: image,
-            width: 1200,
-            height: 630,
-            caption: headline,
-          },
-        ],
-        thumbnailUrl: image,
+        image: images.map((image) => ({
+          "@type": "ImageObject",
+          url: image.url,
+          ...(image.width && image.height
+            ? { width: image.width, height: image.height }
+            : {}),
+          caption: image.caption,
+        })),
+        ...(primaryImage ? { thumbnailUrl: primaryImage } : {}),
         ...(wordCount ? { wordCount } : {}),
         ...(readingMinutes
           ? { timeRequired: `PT${readingMinutes}M` }
@@ -138,7 +140,7 @@ export function NewsArticleJsonLd({
           "@id": url,
         },
         isPartOf: { "@id": websiteId },
-        author: articleAuthor,
+        author: [articleAuthorLd(author)],
         publisher,
         url,
       }}

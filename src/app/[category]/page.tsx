@@ -13,6 +13,7 @@ import {
   getAllPosts,
   getPostsByCategory,
 } from "@/lib/posts";
+import { HOME_CRUMB_LABEL } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import { categoryPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
@@ -38,6 +39,7 @@ export async function generateMetadata({
 
   const title = categoryPageTitle(category);
   const description = `${category.label} no The Zero. ${category.description}`;
+  const hasPosts = getPostsByCategory(category.slug).length > 0;
 
   return buildPageMetadata({
     title: category.seoTitle,
@@ -46,6 +48,7 @@ export async function generateMetadata({
     brand: "always",
     imagePath: `/${category.slug}/opengraph-image`,
     imageAlt: title,
+    noIndex: !hasPosts,
   });
 }
 
@@ -85,7 +88,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   return (
     <PageShell>
       <CollectionPageJsonLd
-        name={categoryPageTitle(category)}
+        name={category.label}
         description={`${category.label} no The Zero. ${category.description}`}
         url={pageUrl}
         items={posts.map((post) => ({
@@ -95,7 +98,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: site.name, url: site.url },
+          { name: HOME_CRUMB_LABEL, url: site.url },
           { name: category.label, url: pageUrl },
         ]}
       />
@@ -103,7 +106,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <header className="newsroom-masthead max-w-4xl border-b border-border border-l border-l-accent/40 pb-5 pl-4 sm:pl-5">
         <Breadcrumbs
           items={[
-            { href: "/", label: "Newsroom" },
+            { href: "/", label: HOME_CRUMB_LABEL },
             { label: category.label },
           ]}
         />

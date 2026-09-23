@@ -1,130 +1,92 @@
-import { assertUniqueDocumentTitles } from "@/lib/title-audit";
+import { articleImageUrls } from "@/lib/article-images";
 import { categoryList } from "@/lib/categories";
 import {
   getActiveSubcategories,
   getAllPosts,
-  getLatestModifiedDate,
   getPostsByCategory,
   getPostsBySubcategory,
+  latestUpdatedDate,
 } from "@/lib/posts";
-import { assetUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { assertUniqueDocumentTitles } from "@/lib/title-audit";
 import type { MetadataRoute } from "next";
+
+function languageAlternates(url: string) {
+  return {
+    languages: {
+      "pt-BR": url,
+      "x-default": url,
+    },
+  };
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   assertUniqueDocumentTitles();
   const posts = getAllPosts();
-  const contentFreshness = getLatestModifiedDate();
+  const contentFreshness = latestUpdatedDate(posts);
 
   const staticEntries: MetadataRoute.Sitemap = [
     {
       url: site.url,
-      lastModified: contentFreshness,
-      changeFrequency: "daily",
-      priority: 1,
-      alternates: {
-        languages: { "pt-BR": site.url, "x-default": site.url },
-      },
+      ...(contentFreshness ? { lastModified: contentFreshness } : {}),
+      alternates: languageAlternates(site.url),
     },
     {
       url: `${site.url}/sobre`,
-      lastModified: contentFreshness,
-      changeFrequency: "monthly",
-      priority: 0.5,
-      alternates: {
-        languages: {
-          "pt-BR": `${site.url}/sobre`,
-          "x-default": `${site.url}/sobre`,
-        },
-      },
+      alternates: languageAlternates(`${site.url}/sobre`),
     },
     {
       url: `${site.url}/contato`,
-      lastModified: contentFreshness,
-      changeFrequency: "monthly",
-      priority: 0.4,
-      alternates: {
-        languages: {
-          "pt-BR": `${site.url}/contato`,
-          "x-default": `${site.url}/contato`,
-        },
-      },
+      alternates: languageAlternates(`${site.url}/contato`),
     },
     {
       url: `${site.url}/privacidade`,
-      lastModified: contentFreshness,
-      changeFrequency: "monthly",
-      priority: 0.3,
-      alternates: {
-        languages: {
-          "pt-BR": `${site.url}/privacidade`,
-          "x-default": `${site.url}/privacidade`,
-        },
-      },
+      alternates: languageAlternates(`${site.url}/privacidade`),
     },
     {
       url: `${site.url}/termos`,
-      lastModified: contentFreshness,
-      changeFrequency: "monthly",
-      priority: 0.3,
-      alternates: {
-        languages: {
-          "pt-BR": `${site.url}/termos`,
-          "x-default": `${site.url}/termos`,
-        },
-      },
+      alternates: languageAlternates(`${site.url}/termos`),
     },
   ];
 
-  const categories = categoryList.map((category) => {
-    const latest = getPostsByCategory(category.slug)[0];
-    return {
-      url: `${site.url}${category.href}`,
-      lastModified: latest ? new Date(latest.updatedIso) : contentFreshness,
-      changeFrequency: "daily" as const,
-      priority: 0.8,
-      alternates: {
-        languages: {
-          "pt-BR": `${site.url}${category.href}`,
-          "x-default": `${site.url}${category.href}`,
-        },
+  const categories = categoryList.flatMap((category) => {
+    const categoryPosts = getPostsByCategory(category.slug);
+    if (categoryPosts.length === 0) return [];
+    const url = `${site.url}${category.href}`;
+    const lastModified = latestUpdatedDate(categoryPosts);
+    return [
+      {
+        url,
+        ...(lastModified ? { lastModified } : {}),
+        alternates: languageAlternates(url),
       },
-    };
+    ];
   });
 
-  const subcategories = getActiveSubcategories().map((subcategory) => {
-    const latest = getPostsBySubcategory(
+  const subcategories = getActiveSubcategories().flatMap((subcategory) => {
+    const subcategoryPosts = getPostsBySubcategory(
       subcategory.parent,
       subcategory.slug,
-    )[0];
-    return {
-      url: `${site.url}${subcategory.href}`,
-      lastModified: latest ? new Date(latest.updatedIso) : contentFreshness,
-      changeFrequency: "daily" as const,
-      priority: 0.7,
-      alternates: {
-        languages: {
-          "pt-BR": `${site.url}${subcategory.href}`,
-          "x-default": `${site.url}${subcategory.href}`,
-        },
+    );
+    if (subcategoryPosts.length === 0) return [];
+    const url = `${site.url}${subcategory.href}`;
+    const lastModified = latestUpdatedDate(subcategoryPosts);
+    return [
+      {
+        url,
+        ...(lastModified ? { lastModified } : {}),
+        alternates: languageAlternates(url),
       },
-    };
+    ];
   });
 
   const postEntries = posts.map((post) => {
-    const image = assetUrl(post.cover);
+    const url = `${site.url}${post.href}`;
     return {
-      url: `${site.url}${post.href}`,
+      url,
       lastModified: new Date(post.updatedIso),
-      changeFrequency: "weekly" as const,
-      priority: post.featured ? 0.9 : 0.7,
-      alternates: {
-        languages: {
-          "pt-BR": `${site.url}${post.href}`,
-          "x-default": `${site.url}${post.href}`,
-        },
-      },
-      ...(image ? { images: [image] } : {}),
+      alternates: languageAlternates(url),
+      images: articleImageUrls(post),
     };
   });
 
