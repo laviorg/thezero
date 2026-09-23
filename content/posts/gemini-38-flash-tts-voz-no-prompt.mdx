@@ -1,0 +1,83 @@
+---
+title: "Google lança o Gemini 3.8 Flash TTS. A voz sai do prompt — ou de 30 segundos."
+seoTitle: "Gemini 3.8 Flash TTS: voz no prompt ou em 30s"
+excerpt: "O Flash desenha uma voz por texto e replica outra com 30 segundos de áudio, depois do consentimento. No teste cego em português do Brasil, o Flash-Lite, mais barato, ficou na frente."
+category: ia
+subcategory: modelos
+date: "2026-09-23"
+kicker: "IA · modelos"
+author: "The Zero"
+cover: "/images/posts/gemini-38-flash-tts-voz-no-prompt/cover.jpg"
+coverAlt: "Microfone condensador preto com filtro pop circular, num estúdio de gravação com pouca luz"
+coverCredit: "Shixart1985 / Wikimedia Commons (CC BY 2.0)"
+---
+
+Google lança o Gemini 3.8 Flash TTS. A voz sai do prompt — ou de 30 segundos.
+
+O Google publicou nesta quarta (23) dois modelos de fala: o Gemini 3.8 Flash TTS e o Gemini 3.8 Flash-Lite TTS. Os dois começam a sair hoje na API do Gemini e no Google AI Studio. O Flash é o estúdio: cria uma voz do zero com um texto e, se o dono autorizar, replica outra a partir de 30 segundos de áudio. O Flash-Lite é a linha de volume, para dublagem e agente. No teste cego em português do Brasil, o barato ficou na frente.
+
+![Microfone condensador com filtro pop num estúdio escuro](/images/posts/gemini-38-flash-tts-voz-no-prompt/cover.jpg)
+
+*Shixart1985 / Wikimedia Commons (CC BY 2.0). A foto é de janeiro de 2026, num estúdio. Não é imagem do anúncio.*
+
+<Verdict overrated="ler 71,4 no desenho de voz e achar que o Flash ganhou o português" underrated="o Flash-Lite, a US$ 6 o milhão de tokens de áudio, na frente no teste cego em pt-BR" />
+
+## Dois modelos, dois trabalhos
+
+No [post](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/), o Flash TTS desenha a voz por texto: papel, sotaque e jeito. A página da API é mais específica que o "mais de 100 idiomas" do anúncio. O `gemini-3.8-flash-tts` declara **130** idiomas, entre eles o português. O `gemini-3.8-flash-lite-tts` declara **101**. Os dois detectam o idioma do texto sozinhos. O desenho de voz do zero, na página da DeepMind, é só do Flash.
+
+A biblioteca anunciada passa de **2.000** vozes prontas, com variedades como espanhol do México, francês do Quebec e inglês escocês. O Google diz que isso escala a partir de 30 vozes originais. Remixar timbre, tom, ritmo e sotaque de uma voz da biblioteca fica para depois. Ainda não está no ar.
+
+Replicar voz também é recurso do Flash. A amostra é de **30 segundos**, da própria voz ou de uma voz com direito de uso. Antes de criar o perfil, o sistema pede uma gravação falada de consentimento do dono e só segue se ela bater com a amostra. Cada clipe dos modelos de áudio do Gemini sai com marca d'água SynthID. A voz replicada também leva credencial C2PA.
+
+Os dois dirigem a fala linha a linha, montam cena de dois falantes a partir de um roteiro só e aceitam marca de riso, suspiro e um "mhm". A promessa de marketing é horas de áudio com pouco desvio de voz. O teto publicado da chamada é outro.
+
+## A conta, em dólar
+
+Na [tabela da API](https://ai.google.dev/gemini-api/docs/pricing), por milhão de tokens, no plano pago padrão, até 31 de dezembro de 2026:
+
+- Flash TTS: entrada de texto **US$ 0,50**; saída de áudio **US$ 9**
+- Flash-Lite TTS: entrada **US$ 0,50**; saída **US$ 6**
+
+Em 1º de janeiro de 2027 a entrada dos dois sobe para **US$ 1** e a saída dobra: **US$ 18** no Flash e **US$ 12** no Lite. O Gemini 3.1 Flash TTS, ainda em prévia, continua em **US$ 1** de texto e **US$ 20** de áudio, sem essa janela de desconto.
+
+A nota da tabela: **25 tokens de áudio por segundo**. Uma hora são 90.000 tokens. Só a saída, até o fim de 2026, sai a **US$ 0,81** no Flash e **US$ 0,54** no Lite. Em 2027, **US$ 1,62** e **US$ 1,08**. O texto do roteiro é cobrado à parte. Quem programa no Brasil paga isso em dólar no cartão. O câmbio fica na ponta de cá.
+
+No plano grátis a geração não é cobrada, e a mesma página marca que esses dados **são usados para melhorar os produtos**. No pago, não. Quem sobe 30 segundos da própria voz no grátis entra nessa regra.
+
+Os identificadores são `gemini-3.8-flash-tts` e `gemini-3.8-flash-lite-tts`. Lote e flex cobram metade do áudio padrão até o fim do ano: **US$ 4,50** no Flash e **US$ 3** no Lite. Prioridade cobra mais: **US$ 16,20** e **US$ 10,80**.
+
+## O placar que o Google publicou
+
+O post dá ao Flash o primeiro lugar no Voice Design Benchmark da Hume, com **71,4**, e **60,8** em modelagem de sotaque. No gráfico do mesmo post, a ElevenLabs Voice Design v3 marca 70,8 no geral em inglês e a Inworld, 69,8. A distância no geral é de seis décimos. No sotaque a folga é real: 60,8 contra 45,4 e 35,8. Em qualidade de voz com uma etiqueta só, o Flash perde: **74,6**, atrás de 76,6 e 76,3.
+
+O post diz que Flash e Flash-Lite ficam em primeiro e segundo no Overall Quality Index da Hume. No gráfico, a linha Overall Reliability x Expressiveness marca **0,920** e **0,914**. O 3.1 fica em 0,783. A Cartesia Sonic 3.6 marca 0,840. A ElevenLabs v3, 0,706. Na linha de controle de estilo com uma etiqueta, o Flash marca 4,34 e o 3.1 marca 4,31. O salto sobre o modelo anterior da casa, nessa linha, é de três centésimos. Na variação "parecida com humano", a ElevenLabs v3 está em 5,00 e o Flash em 4,58. A nota do gráfico diz que número mais baixo é voz mais chapada ou mais selvagem do que a de uma pessoa.
+
+O teste cego da Voice Arena é o número que importa em português. Em **português do Brasil**, o gráfico do post marca o Flash-Lite em **1.134**, o Flash em **1.104**, o 3.1 em **1.094**, a Cartesia em **1.080**, a ElevenLabs em **1.040** e o gpt-4o-mini-tts da OpenAI em **946**. Em inglês, o Lite também lidera (1.087). A Cartesia (1.068) passa o Flash (1.061). O Flash lidera japonês, árabe padrão e espanhol do México. No hindi, a vantagem sobre a Cartesia é de dois pontos: 1.106 a 1.104. O modelo caro não é o preferido na língua desta matéria.
+
+O post é assinado por Leland Rechis e por Alan Cowen, diretor de pesquisa em nome do time de áudio do Gemini. No [LinkedIn](https://www.linkedin.com/in/alan-cowen), Cowen se descreve como fundador da Hume AI: CEO e cientista-chefe até janeiro de 2026, quando entrou na DeepMind. O placar que o anúncio usa para dizer que o modelo é o primeiro é o da empresa que ele fundou. Os números acima são os que o Google publicou no post. A régua é da Hume.
+
+## Onze minutos, ou 43
+
+A [ficha do modelo](https://deepmind.google/models/model-cards/gemini-3-8-audio/) diz que os dois TTS recebem texto de até 8K tokens e devolvem áudio de até **64K**. Na página da API, esse 8K de entrada aparece como **8.192** tokens. Se o K da ficha for o mesmo, 64K são 65.536 tokens: **43 minutos e 41 segundos** a 25 por segundo.
+
+A [página do Flash na API](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts), com rodapé de 23 de setembro de 2026, escreve outro teto de saída: **16.384** tokens. Isso é **10 minutos e 55 segundos** por chamada. O Lite tem os mesmos números na página irmã. As duas fontes são do Google. Quem integra deve ler o erro da API, não o adjetivo "horas" do post.
+
+O status na página da DeepMind é disponibilidade geral. Para desenvolvedor, os dois estão na API e no AI Studio. Para todo mundo, o Flash TTS entra no Gemini Notebook e o Flash-Lite entra no Google Vids. API no Gemini Enterprise fica para depois, nos dois.
+
+A replicação de voz pelo AI Studio **não está disponível** em Illinois, Texas, Espaço Econômico Europeu, Reino Unido, Suíça e Índia. O Brasil não está nessa lista. A nota não diz que a função foi ligada aqui. Diz onde ela não abre.
+
+<Rule>
+Em português, o teste cego prefere o Flash-Lite. O Flash é o que desenha a voz e o que copia, depois do consentimento.
+</Rule>
+
+## Fontes
+
+- [Google — Gemini 3.8 text-to-speech says hello (23/09/2026)](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/)
+- [Google DeepMind — Speech generation, ficha dos dois TTS](https://deepmind.google/models/gemini-audio/speech-generation/)
+- [Google DeepMind — model card Gemini 3.8 Audio](https://deepmind.google/models/model-cards/gemini-3-8-audio/)
+- [Gemini API — preço do gemini-3.8-flash-tts e do gemini-3.8-flash-lite-tts](https://ai.google.dev/gemini-api/docs/pricing)
+- [Gemini API — ficha do gemini-3.8-flash-tts, rodapé de 23/09/2026](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts)
+- [Gemini API — ficha do gemini-3.8-flash-lite-tts](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts)
+- [Google DeepMind — metodologia dos evals de TTS, setembro de 2026](https://deepmind.google/models/evals-methodology/gemini-3-8-tts)
+- [LinkedIn — Alan Cowen, fundador da Hume e diretor na DeepMind](https://www.linkedin.com/in/alan-cowen)
