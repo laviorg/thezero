@@ -12,6 +12,7 @@ import {
   getActiveSubcategories,
   getPostsBySubcategory,
 } from "@/lib/posts";
+import { HOME_CRUMB_LABEL } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import { subcategoryPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
@@ -73,7 +74,7 @@ export default async function SubcategoryPage({
   return (
     <PageShell>
       <CollectionPageJsonLd
-        name={subcategoryPageTitle(subcategory)}
+        name={subcategory.label}
         description={`${subcategory.label} no The Zero. ${subcategory.description}`}
         url={pageUrl}
         items={posts.map((post) => ({
@@ -83,7 +84,7 @@ export default async function SubcategoryPage({
       />
       <BreadcrumbJsonLd
         items={[
-          { name: site.name, url: site.url },
+          { name: HOME_CRUMB_LABEL, url: site.url },
           { name: category.label, url: absoluteUrl(category.href) },
           { name: subcategory.label, url: pageUrl },
         ]}
@@ -92,7 +93,7 @@ export default async function SubcategoryPage({
       <header className="newsroom-masthead max-w-4xl border-b border-border border-l border-l-accent/40 pb-5 pl-4 sm:pl-5">
         <Breadcrumbs
           items={[
-            { href: "/", label: "Newsroom" },
+            { href: "/", label: HOME_CRUMB_LABEL },
             { href: category.href, label: category.label },
             { label: subcategory.label },
           ]}

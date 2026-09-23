@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.thezero.com.br" }],
+        destination: "https://thezero.com.br/:path*",
+        permanent: true,
+      },
+      {
         source: "/hardware",
         destination: "/computadores",
         permanent: true,

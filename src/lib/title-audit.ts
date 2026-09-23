@@ -1,5 +1,5 @@
 import { categoryList, subcategoryList } from "./categories";
-import { getAllPosts } from "./posts";
+import { getAllPosts, getPostsByCategory } from "./posts";
 import {
   BRAND_NAME,
   TITLE_HARD_MAX,
@@ -37,7 +37,7 @@ export function collectDocumentTitles(): TitledPath[] {
     rows.push({
       path: category.href,
       title: categoryPageTitle(category),
-      indexable: true,
+      indexable: getPostsByCategory(category.slug).length > 0,
     });
   }
 

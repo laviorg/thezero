@@ -71,7 +71,7 @@ coverCredit: "Apple / Divulgação"
 ---
 ```
 
-`title` é a manchete (H1, cards, RSS, Google News). `seoTitle` é opcional: entra no `<title>` e no Open Graph só quando a manchete é longa demais para a SERP. A marca ` · The Zero` é sufixo do código, não se escreve no frontmatter. Regras em [`docs/SEO_TITLES.md`](docs/SEO_TITLES.md).
+`title` é a manchete (H1, cards, RSS, Google News). `seoTitle` é opcional: entra no `<title>` e no Open Graph só quando a manchete é longa demais para a SERP. A marca ` · The Zero` é sufixo do código, não se escreve no frontmatter. Regras em [`docs/SEO_TITLES.md`](docs/SEO_TITLES.md). Checklist de indexação, sitemap e Search Console: [`docs/SEO.md`](docs/SEO.md).
 
 `category` tem de ser um de: `tecnologia` · `ia` · `computadores` · `dispositivos` · `aplicativos` · `jogos`.
 

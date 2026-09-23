@@ -39,4 +39,6 @@ export const fontSans = Source_Sans_3({
 export const fontMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });

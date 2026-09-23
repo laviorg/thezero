@@ -11,6 +11,7 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/404",
   brand: "always",
   noIndex: true,
+  omitCanonical: true,
 });
 
 export default function NotFound() {
