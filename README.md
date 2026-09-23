@@ -2,7 +2,7 @@
 
 Newsroom de tech do Brasil — tecnologia, IA, computadores, dispositivos, aplicativos e jogos. Tom direto, irônico, sem hype de lançamento.
 
-Site: [thezero.com.br](https://thezero.com.br) · Instagram [@hello.the.zero](https://www.instagram.com/hello.the.zero/) · YouTube [@TheZero_Media](https://www.youtube.com/@TheZero_Media)
+Site: [www.thezero.com.br](https://www.thezero.com.br) · Instagram [@hello.the.zero](https://www.instagram.com/hello.the.zero/) · YouTube [@TheZero_Media](https://www.youtube.com/@TheZero_Media)
 
 Stack: **Next.js App Router**, TypeScript, Tailwind CSS v4, conteúdo MDX no repositório (sem CMS no v1).
 
@@ -12,7 +12,7 @@ Requisitos: Node.js 20+.
 
 ```bash
 npm install
-cp .env.example .env.local   # opcional; o default já é https://thezero.com.br
+cp .env.example .env.local   # opcional; o default já é https://www.thezero.com.br
 npm run dev
 ```
 
@@ -24,7 +24,7 @@ npm run start    # serve o build na mesma porta
 npm run lint
 ```
 
-`NEXT_PUBLIC_SITE_URL` entra em canonical, Open Graph, sitemap, robots e JSON-LD. Em local podes apontar para `http://127.0.0.1:43127`.
+`NEXT_PUBLIC_SITE_URL` entra em canonical, Open Graph, sitemap, robots e JSON-LD. Em produção o host público é `https://www.thezero.com.br` — `https://thezero.com.br` é reescrito para www, porque o apex só redireciona. Em local podes apontar para `http://127.0.0.1:43127`.
 
 `NEXT_PUBLIC_ADSENSE_PUB_ID` é opcional e **só** se preenche depois da aprovação no AdSense (`pub-` + 16 dígitos). Sem ela o site não carrega script de anúncio e o `/ads.txt` não declara vendedor Google. Checklist: [`docs/ADSENSE.md`](docs/ADSENSE.md).
 
@@ -121,11 +121,11 @@ Arquitetura: `content/posts` → `src/lib/posts.ts` (gray-matter) → páginas e
 
 1. Cria o repositório Origin com o nome **thezero** (Create repo no fluxo New Project, ou `origin repo create thezero` na tua máquina). Liga o mirror GitHub se quiseres CI extra.
 2. Importa o repo na [Vercel](https://vercel.com): framework Next.js, comando `npm run build`, output default.
-3. Environment variables: `NEXT_PUBLIC_SITE_URL=https://thezero.com.br`. Em Production, `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-3H0Z0NNQ1J` (ver [`docs/ANALYTICS.md`](docs/ANALYTICS.md)). Depois da aprovação no AdSense, `NEXT_PUBLIC_ADSENSE_PUB_ID=pub-…` (ver [`docs/ADSENSE.md`](docs/ADSENSE.md)).
+3. Environment variables: `NEXT_PUBLIC_SITE_URL=https://www.thezero.com.br`. Em Production, `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-3H0Z0NNQ1J` (ver [`docs/ANALYTICS.md`](docs/ANALYTICS.md)). Depois da aprovação no AdSense, `NEXT_PUBLIC_ADSENSE_PUB_ID=pub-…` (ver [`docs/ADSENSE.md`](docs/ADSENSE.md)).
 4. Domínio: adiciona `thezero.com.br` e `www.thezero.com.br` na Vercel. No DNS (Registro.br / Cloudflare):
    - `A` / `CNAME` conforme o painel da Vercel (geralmente CNAME `www` → `cname.vercel-dns.com` e apex com os IPs que a Vercel mostrar).
-   - Redirect `www` → apex, ou o contrário — escolhe um canónico e mantém.
-5. SSL a Vercel emite sozinha. Confirma `https://thezero.com.br/sitemap.xml` e o Rich Results da Google no JSON-LD da home e de uma matéria.
+   - Redirect permanente do apex para `https://www.thezero.com.br`. O código também faz esse 308 se o pedido chegar na app. Não inverter.
+5. SSL a Vercel emite sozinha. Confirma `https://www.thezero.com.br/sitemap.xml` e `https://www.thezero.com.br/news-sitemap.xml` (os dois têm de responder 200, sem redirect) e o Rich Results da Google no JSON-LD da home e de uma matéria.
 6. Cada `git push` na branch de produção dispara o deploy. Preview deployments nas outras branches.
 
 Loja (quando existir) fica em `https://loja.thezero.com.br`, fora desta app.

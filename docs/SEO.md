@@ -58,7 +58,7 @@ cartaz que o site realmente serve.
 A trilha visível começa em “Newsroom”. O `BreadcrumbList` usa o mesmo nome.
 Antes dizia “The Zero” no JSON-LD e “Newsroom” na página.
 
-`author.url` da casa é `https://thezero.com.br`. O byline continua linkando
+`author.url` da casa é `https://www.thezero.com.br`. O byline continua linkando
 `/sobre`, que é a página sobre a redação. Um autor pessoa, se aparecer,
 não ganha URL até existir perfil — `/sobre` não é a bio dessa pessoa.
 
@@ -74,6 +74,7 @@ JSON-LD escapa `<` para não quebrar o `<script>`.
 - Cada matéria lista a capa e o cartaz OG em `image:image`.
 - O news sitemap só tem matéria publicada nas últimas 48 horas, com `news:name` = `The Zero`, `news:language` = `pt`, `news:publication_date` = data original (não a data em que entrou no sitemap) e `news:title` = H1. Sem `news:keywords`.
 - O news sitemap revalida a cada 5 minutos para a matéria cair da janela de 48 h mesmo sem um deploy novo. Matéria nova continua dependendo de deploy, porque o MDX vai no build.
+- Cada `<loc>` usa o origin `https://www.thezero.com.br`. URL do apex no sitemap faria o Google buscar um 308.
 
 hreflang `pt-BR` e `x-default` apontam para a mesma URL em todas as páginas
 indexáveis e no sitemap. É um site só, em português do Brasil. Não há versão
@@ -99,7 +100,7 @@ de listar a outra e a si mesma. Até lá, não inventar locale.
 
 | De | Para |
 | --- | --- |
-| `www.thezero.com.br` | `https://thezero.com.br` |
+| `thezero.com.br` (apex) | `https://www.thezero.com.br` |
 | `/hardware` | `/computadores` |
 | `/gadgets` | `/dispositivos` |
 | `/apps` | `/aplicativos` |
@@ -110,22 +111,39 @@ Todos permanentes. Query string é preservada. Não há redirect de matéria:
 o slug não mudou. Não criar redirect para texto apagado sem uma URL antiga
 conhecida.
 
-`robots.txt` libera a raiz, inclusive `Mediapartners-Google`. `/busca` não
+`robots.txt` libera a raiz, inclusive `Mediapartners-Google` e os dois sitemaps. `/busca` não
 está em `Disallow`: a página precisa ser rastreada para o `noindex` valer.
-A diretiva `Host` é do Yandex; o Google ignora.
+A diretiva `Host` é do Yandex; o Google ignora. O valor segue o origin canônico (`www.thezero.com.br` em produção).
+
+## Search Console (hello.shimenawa, sc-domain:thezero.com.br)
+
+Achados de 23/09/2026 e o que o código passou a fazer. Não há número de posição aqui.
+
+O apex `https://thezero.com.br` já respondia **308** para `https://www.thezero.com.br` na Vercel. O HTML, o `robots.txt` e os dois sitemaps ainda anunciavam o apex. O Google via a home em www com canonical no apex, e o apex só redirecionava — daí “Página alternativa com tag canônica adequada” e a home fora do índice. O news sitemap enviado era o do apex (é o que o `robots.txt` listava); essa URL não devolve XML, devolve redirect. O Search Console marca isso como “Não foi possível buscar” / 0 páginas, mesmo com o XML válido em www.
+
+O host público agora é **sempre** `https://www.thezero.com.br`:
+
+- `resolveSiteUrl` reescreve `thezero.com.br` e `www.thezero.com.br` para esse origin, mesmo se `NEXT_PUBLIC_SITE_URL` ainda estiver sem www.
+- Canonical, `og:url`, hreflang, JSON-LD, RSS, `sitemap.xml` e `news-sitemap.xml` saem em www.
+- `robots.txt` lista os dois sitemaps em www e `Allow: /` (nada bloqueia `/news-sitemap.xml`). `Host` aponta para `www.thezero.com.br`.
+- O news sitemap responde **200**, `Content-Type: application/xml; charset=utf-8`, sem `noindex`. As `<loc>` são as URLs canônicas (200), com `lastmod` da matéria no sitemap geral.
+- O rodapé de todas as páginas linka as quatro matérias mais novas, além dos hubs de editoria. Matéria nova entra no sitemap no deploy, com `lastmod` = `updated` (ou `date`).
+
+A URL do apex continua sendo redirect de propósito. No relatório de páginas ela deve permanecer como “Página com redirecionamento”. Isso não é uma URL para indexar. “Rastreada, mas não indexada” nas outras costuma ser o cluster do canonical quebrado; depois do recrawl o Google decide de novo. Não dá para forçar a indexação no código.
 
 ## O que o dono faz no Search Console
 
 Isto não entra no repositório.
 
-1. Confirmar a propriedade `https://thezero.com.br` (prefixo de URL, não só o domínio solto se os dois existirem). Preferir a versão sem `www`.
-2. Em Configurações → robots.txt e em Sitemaps, enviar:
-   - `https://thezero.com.br/sitemap.xml`
-   - `https://thezero.com.br/news-sitemap.xml`
-3. Inspeção de URL na home, numa editoria (`/ia`) e numa matéria nova. Pedir indexação das que estiverem “URL is not on Google” e o HTML renderizado mostrar título, canonical e a capa.
+1. A propriedade de domínio `sc-domain:thezero.com.br` cobre apex e www. O host canônico é www. Não criar uma propriedade separada só no apex.
+2. Remover o sitemap `https://thezero.com.br/news-sitemap.xml` (e o `sitemap.xml` do apex, se estiver enviado). Enviar só:
+   - `https://www.thezero.com.br/sitemap.xml`
+   - `https://www.thezero.com.br/news-sitemap.xml`
+   Os dois têm de aparecer como sucesso, com páginas descobertas, sem “Não foi possível buscar”.
+3. Inspeção de URL em `https://www.thezero.com.br/`, em `https://www.thezero.com.br/ia` e numa matéria nova. O HTML renderizado tem de mostrar canonical www, título e capa. Pedir indexação dessas. A URL do apex deve continuar como redirect.
 4. Relatório de breadcrumbs e de artigos: o esperado é zero erro crítico. Aviso de headline longa pode aparecer. A manchete editorial pode passar de 110 caracteres; o `<title>` é que é cortado no código. Não encurtar o H1 só para calar o aviso se a frase for a da casa. O Publisher Center ainda recomenda manchete de até 110 caracteres para o Google Notícias — isso é decisão de redação, matéria a matéria, via `title` / `seoTitle`.
-5. Confirmar que `NEXT_PUBLIC_SITE_URL` em Production é `https://thezero.com.br`, sem barra no fim e sem `www`. Canonical, sitemap e JSON-LD saem daí.
-6. No [Publisher Center](https://publishercenter.google.com/), se a publicação for criada, o nome tem de ser exatamente `The Zero` — é o `news:name` do sitemap. Idioma `pt`. Site `https://thezero.com.br`.
+5. Confirmar que `NEXT_PUBLIC_SITE_URL` em Production é `https://www.thezero.com.br`, sem barra no fim. Se ainda estiver o apex, o código reescreve — mesmo assim vale alinhar a env para o próximo leitor não se perder.
+6. No [Publisher Center](https://publishercenter.google.com/), se a publicação for criada, o nome tem de ser exatamente `The Zero` — é o `news:name` do sitemap. Idioma `pt`. Site `https://www.thezero.com.br`.
 7. Não marcar a caixa de sitelinks search box: o Google não usa mais `SearchAction`.
 8. Performance: filtrar Brasil e as queries das editorias (tecnologia, IA, computadores, dispositivos, aplicativos, jogos, mais o nome do produto da matéria). Isso mostra impressão e clique reais. Não dá para prometer posição.
 9. Quando uma editoria antiga ainda aparecer com URL morta, usar a inspeção. Os 301 acima cobrem os slugs de editoria que existiram. Slug de matéria apagada só ganha redirect se houver URL indexada conhecida.

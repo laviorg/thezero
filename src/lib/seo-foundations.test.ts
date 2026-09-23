@@ -8,7 +8,24 @@ import {
   selectRecentPublications,
 } from "./news-sitemap.ts";
 import { articleAuthorLd } from "./seo.ts";
-import { site } from "./site.ts";
+import { resolveSiteUrl, site } from "./site.ts";
+
+describe("resolveSiteUrl", () => {
+  it("keeps www as the only public origin for thezero.com.br", () => {
+    assert.equal(resolveSiteUrl(undefined), "https://www.thezero.com.br");
+    assert.equal(resolveSiteUrl("https://thezero.com.br"), "https://www.thezero.com.br");
+    assert.equal(
+      resolveSiteUrl("https://thezero.com.br/"),
+      "https://www.thezero.com.br",
+    );
+    assert.equal(
+      resolveSiteUrl("http://www.thezero.com.br"),
+      "https://www.thezero.com.br",
+    );
+    assert.equal(resolveSiteUrl("http://127.0.0.1:43127"), "http://127.0.0.1:43127");
+    assert.equal(site.url, resolveSiteUrl(process.env.NEXT_PUBLIC_SITE_URL));
+  });
+});
 
 describe("articleAuthorLd", () => {
   it("gives the house author a name and a homepage URL", () => {

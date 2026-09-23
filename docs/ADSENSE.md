@@ -25,11 +25,11 @@ Unidades visuais de anúncio **não** foram colocadas nas matérias de propósit
 ## O que Nicholas faz na UI do AdSense
 
 1. Entrar em [adsense.google.com](https://www.google.com/adsense/) com `nicholasharuo@gmail.com` (criar a conta se ainda não existir). País: Brasil. Fuso e moeda conforme o painel.
-2. Adicionar o site **`https://thezero.com.br`** (Sites → Adicionar site). URL certa, HTTPS, sem path.
+2. Adicionar o site **`https://www.thezero.com.br`** (Sites → Adicionar site). É o host que responde 200. O apex redireciona. HTTPS, sem path.
 3. Copiar o **publisher ID** (`pub-` + 16 dígitos) em Conta → Informações da conta. Não usar o prefixo de produto (`ca-`) no `ads.txt`; o código aceita os dois e normaliza.
 4. No projeto Vercel do The Zero, criar a env **`NEXT_PUBLIC_ADSENSE_PUB_ID=pub-xxxxxxxxxxxxxxxx`** (Production; Preview se quiser testar). Redeploy. Sem esse valor o `/ads.txt` só declara `OWNERDOMAIN` / `CONTACT` e um comentário — correto enquanto o anúncio não está no ar.
 5. Conferir no ar:
-   - `https://thezero.com.br/ads.txt` tem a linha  
+   - `https://www.thezero.com.br/ads.txt` tem a linha  
      `google.com, pub-SEU_ID, DIRECT, f08c47fec0942fa0`
    - o HTML tem `<meta name="google-adsense-account" content="ca-pub-SEU_ID">`
 6. No AdSense, **verificar** o site. O arquivo `ads.txt` costuma bastar. Alternativas oficiais: snippet no `<head>` (o loader deste repo só dispara com ID + aceite de cookie) ou propriedade verificada no [Search Console](https://search.google.com/search-console).

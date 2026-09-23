@@ -17,9 +17,11 @@ export function GET() {
   }));
 
   return new Response(buildNewsSitemapXml(entries, site.name), {
+    status: 200,
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
-      "Cache-Control": "s-maxage=300, stale-while-revalidate=86400",
+      "Cache-Control": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400",
+      "X-Content-Type-Options": "nosniff",
     },
   });
 }
