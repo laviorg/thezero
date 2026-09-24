@@ -151,7 +151,10 @@ function readAllPosts(): Post[] {
       return toPost(slug, raw);
     })
     .filter((post): post is Post => post !== null)
-    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+    .sort(
+      (a, b) =>
+        b.dateIso.localeCompare(a.dateIso) || a.slug.localeCompare(b.slug),
+    );
 
   return posts;
 }

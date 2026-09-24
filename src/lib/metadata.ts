@@ -39,6 +39,7 @@ export function buildPageMetadata({
   omitCanonical = false,
 }: BuildPageMetaInput): Metadata {
   const url = absoluteUrl(path);
+  const canonicalUrl = url;
   const documentTitle = composePageTitle(title, brand);
   const socialTitle = ogTitle
     ? composePageTitle(ogTitle, includesBrand(ogTitle) ? "never" : brand)
@@ -54,8 +55,8 @@ export function buildPageMetadata({
       ...(omitCanonical
         ? {}
         : {
-            canonical: path,
-            languages: languageAlternate(path),
+            canonical: canonicalUrl,
+            languages: languageAlternate(canonicalUrl),
           }),
       types: {
         "application/rss+xml": "/rss.xml",

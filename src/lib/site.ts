@@ -36,6 +36,12 @@ export const site = {
     instagramHandle: "@hello.the.zero",
     youtube: "https://www.youtube.com/@TheZero_Media",
     youtubeHandle: "@TheZero_Media",
+    /**
+     * Live Threads profile, when the newsroom has one.
+     * Leave empty — do not invent a handle. `sameAs` ignores this until it
+     * is an https URL.
+     */
+    threads: "",
   },
   storeUrl: "https://loja.thezero.com.br",
   defaultAuthor: "The Zero",

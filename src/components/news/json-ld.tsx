@@ -46,7 +46,11 @@ export function OrganizationJsonLd() {
         logo: publisher.logo,
         description: site.description,
         email: site.email,
-        sameAs: [site.social.instagram, site.social.youtube],
+        sameAs: [
+          site.social.instagram,
+          site.social.youtube,
+          site.social.threads,
+        ].filter((url) => url.startsWith("https://")),
         inLanguage: site.language,
         areaServed: {
           "@type": "Country",

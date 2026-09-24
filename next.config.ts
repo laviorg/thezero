@@ -37,6 +37,26 @@ const nextConfig: NextConfig = {
         destination: "/jogos/consoles",
         permanent: true,
       },
+      {
+        source: "/noticia/lancamento-e-trailer-jogo-e-o-patch",
+        destination: "/jogos",
+        permanent: true,
+      },
+      {
+        source: "/sitemap_index.xml",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
+        source: "/feed",
+        destination: "/rss.xml",
+        permanent: true,
+      },
+      {
+        source: "/rss",
+        destination: "/rss.xml",
+        permanent: true,
+      },
     ];
   },
   outputFileTracingIncludes: {

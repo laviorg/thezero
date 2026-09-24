@@ -50,6 +50,15 @@ export default function HomePage() {
       posts: getPostsByCategory(category.slug),
     }))
     .filter(({ posts: categoryPosts }) => categoryPosts.length > 0);
+  const shownOnHome = new Set<string>([
+    ...(featured ? [featured.slug] : []),
+    ...rail.map((post) => post.slug),
+    ...latest.map((post) => post.slug),
+    ...categoryRails.flatMap(({ posts: categoryPosts }) =>
+      categoryPosts.slice(0, 4).map((post) => post.slug),
+    ),
+  ]);
+  const alsoInArchive = posts.filter((post) => !shownOnHome.has(post.slug));
 
   return (
     <PageShell>
@@ -152,6 +161,27 @@ export default function HomePage() {
           posts={categoryPosts}
         />
       ))}
+
+      {alsoInArchive.length > 0 ? (
+        <nav
+          aria-label="Mais matérias no arquivo"
+          className="border-t border-border py-7"
+        >
+          <SectionHeading title="Também no arquivo" as="h2" />
+          <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+            {alsoInArchive.map((post) => (
+              <li key={post.slug}>
+                <Link
+                  href={post.href}
+                  className="text-sm leading-snug text-fg/90 transition-colors hover:text-accent"
+                >
+                  {post.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : null}
     </PageShell>
   );
 }
