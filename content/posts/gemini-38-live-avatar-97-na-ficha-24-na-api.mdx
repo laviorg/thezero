@@ -1,0 +1,101 @@
+---
+title: "O avatar do Gemini 3.8 entra em produção. O post fala em 97 idiomas. A tabela da API lista 24."
+seoTitle: "Gemini 3.8 Live Avatar: 97 no post, 24 na API"
+excerpt: "O Google liberou o Live Avatar no Gemini Enterprise nesta quinta. Os dois posts falam em 97 idiomas. A tabela da Live API, atualizada no mesmo dia, lista 24, com português do Brasil."
+category: ia
+subcategory: modelos
+date: "2026-09-24T18:08:00-03:00"
+kicker: "IA · modelos"
+author: "The Zero"
+cover: "/images/posts/gemini-38-live-avatar-97-na-ficha-24-na-api/cover.jpg"
+coverAlt: "Homem de terno azul-escuro e camisa clara numa videochamada, na interface do Gemini 3.8 Live, com a transcrição da conversa ao lado"
+coverCredit: "Google Cloud / Divulgação"
+---
+
+O avatar do Gemini 3.8 entra em produção. O post fala em 97 idiomas. A tabela da API lista 24.
+
+O Google publicou nesta quinta (24) que o **Gemini 3.8 Live com Live Avatar** está em disponibilidade geral no Gemini Enterprise. O [post do Cloud](https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-8-live-with-live-avatar-is-now-generally-available) e o [blog](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/) usam o mesmo número de idiomas: **97**. A [tabela da Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice), com atualização em 24 de setembro de 2026, lista **24**. A linha de português é `pt-BR`. O rosto gerado a partir de uma foto segue para clientes selecionados, via time de conta.
+
+![Homem de terno numa videochamada dentro do Gemini 3.8 Live, com a transcrição ao lado](/images/posts/gemini-38-live-avatar-97-na-ficha-24-na-api/cover.jpg)
+
+*Google Cloud / Divulgação. Captura do post que anuncia a disponibilidade geral.*
+
+<Verdict overrated="ler 97 idiomas e achar que o app do celular ganhou um rosto" underrated="US$ 1 por milhão de tokens de vídeo, e a cobrança do vídeo só corre enquanto a boca mexe" />
+
+## O que a ficha de hoje descreve
+
+O ID na documentação é `gemini-3.8-live`. A [visão geral da Live API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api), também atualizada em 24 de setembro, marca esse modelo como generally available e inclui “Live avatar” na lista de recursos. O Gemini 3.8 Live Extended Thinking fica de fora deste anúncio: o post do Cloud diz que segue em prévia privada.
+
+O que os dois posts e a documentação descrevem. Sem ensaio desta redação.
+
+1. **Vídeo com lip-sync.** Para ligar o avatar, a [página de configuração](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-live-avatars) manda `response_modalities` em `VIDEO`. A ficha técnica da visão geral registra a saída de vídeo do avatar como mp4.
+2. **Ferramenta no fundo.** O Cloud diz que a chamada de ferramenta segue enquanto a conversa continua.
+3. **Câmera e tela.** O mesmo post diz que o modelo processa câmera ao vivo e compartilhamento de tela junto com o áudio. A ficha de entrada marca imagem e vídeo como JPEG a **1 quadro por segundo**.
+4. **Onde roda.** Endpoints nos Estados Unidos e na União Europeia, com throughput provisionado. O texto manda falar com o vendedor da Google Cloud. Brasil não entra nessa frase.
+5. **SynthID** no áudio e no vídeo gerados. Os dois posts dizem que a marca é imperceptível.
+
+O [model card](https://deepmind.google/models/model-cards/gemini-3-8-audio/) do Gemini 3.8 Audio, publicado em 15 de setembro, já tratava o avatar como capacidade opcional. A novidade desta quinta é a disponibilidade geral no Enterprise.
+
+## 97 no post, 24 na tabela
+
+O blog fala em troca de idioma no meio da conversa, com lip-sync, em 97 idiomas. O Cloud diz que o Gemini 3.8 Live entende e fala 97 idiomas, com detecção automática.
+
+A página de idioma e voz tem outra conta. A seção “Languages supported” traz 24 linhas, com código BCP-47. Estão lá árabe do Egito, inglês dos EUA, hindi, japonês, espanhol dos EUA e português do Brasil. A visão geral resume a mesma página numa frase: “Converse in 24 supported languages.”
+
+O número que a documentação manda configurar é o da tabela. O 97 está nos posts. Esta redação não recebeu da Google uma lista dos 97.
+
+Na mesma página de voz, as opções prontas são **30**. O exemplo de código do avatar usa o nome `Ben` e a voz `Puck`. É amostra de documentação, não um catálogo de um rosto só.
+
+## O segundo de vídeo é barato. A sessão acumula.
+
+Na [tabela de preço](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) do Agent Platform, a linha Gemini 3.8 Live API, na coluna que a página chama de non-global, cobra por milhão de tokens:
+
+- entrada de texto, **US$ 0,75**
+- entrada de vídeo e imagem, **US$ 1**
+- entrada de áudio, **US$ 3**
+- saída de texto, resposta e raciocínio, **US$ 4,50**
+- saída de áudio, **US$ 12**
+- saída de vídeo do avatar, **US$ 1**
+
+A nota de cobrança da Live API, na mesma página, converte vídeo de avatar em **6.192 tokens por segundo**. A cobrança dessa linha, diz a nota, vale enquanto o avatar fala. O tempo em que ele só escuta fica de fora do vídeo.
+
+A conta desta redação, com esses dois números: 6.192 ÷ 1.000.000 × US$ 1 = **US$ 0,006192** por segundo de vídeo. Um minuto dá **US$ 0,37**. Isso é o vídeo. A mesma nota converte áudio em **25 tokens por segundo** e não separa, nessa frase, entrada e saída. Aplicada à saída de áudio, a US$ 12 por milhão, a conta dá **US$ 0,018** por minuto de fala.
+
+A nota ainda diz que tokens de turnos anteriores são reprocessados e cobrados de novo a cada turno, até o limite da janela. O minuto de boca aberta é uma linha. A fatura é a janela inteira.
+
+O model card corta a sessão por outro lado. Com Live Avatar, a saída declarada é de **24 mil tokens** — áudio, vídeo e texto. Sem o avatar, o mesmo card fala em 64 mil. A limitação conhecida é direta: o avatar aguenta alguns minutos de interação contínua, e o card contrapõe isso a horas seguidas. O corte de conhecimento do card é janeiro de 2025.
+
+## O rosto da foto passa pelo time de conta
+
+Avatar pronto, a documentação configura no console: modelo `gemini-3.8-live`, Live Avatar ligado, um avatar e uma voz. Avatar a partir de uma foto é outra porta. A imagem entra em `customized_avatar`. O Cloud e a documentação repetem a trava: clientes selecionados, pelo time de conta da Google Cloud. O cliente é quem precisa ter o direito sobre o rosto e sobre a voz.
+
+![Tela do Gemini Enterprise com o avatar de uma mulher de óculos e os campos de instrução, voz e imagem de referência](/images/posts/gemini-38-live-avatar-97-na-ficha-24-na-api/avatar-custom.jpg)
+
+*Google Cloud / Divulgação. Demonstração de avatar customizado no post do Cloud.*
+
+A especificação da foto, na documentação atualizada hoje:
+
+- PNG, RGB, no mínimo **704 × 1280**, menos de **5 MB**. O padrão é retrato 9:16. Paisagem também entra.
+- Busto. Cabeça e ombros em mais de 60% do quadro. Sem braço, sem mão, sem microfone, sem celular na foto.
+- Fundo simples, sem outra pessoa. Rosto de frente, expressão neutra, sem sorriso, sem dente à mostra.
+- A página veta imagem de menor, de celebridade e conteúdo ofensivo.
+
+Voz customizada é outra lista de acesso. A amostra pedida é PCM de **10 a 20 segundos**. O demo do Cloud mostra foto e amostra de áudio no mesmo fluxo. A documentação separa as duas travas.
+
+Os posts desta quinta colocam o Live Avatar no Gemini Enterprise. O model card de 15 de setembro lista o app Gemini entre os canais do Gemini 3.8 Live, o modelo de áudio. São frases de produtos diferentes.
+
+<Rule>
+97 idiomas é a frase dos posts. A tabela que a API publica hoje tem 24 linhas, com pt-BR. O rosto de uma foto continua no time de conta, e o card limita a sessão a alguns minutos.
+</Rule>
+
+## Fontes
+
+- [Google Cloud Blog — Gemini 3.8 Live with Live Avatar is now generally available (24/09/2026)](https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-8-live-with-live-avatar-is-now-generally-available)
+- [blog.google — Introducing Gemini 3.8 Live with Live Avatar (24/09/2026)](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/)
+- [Google Cloud — Gemini Live API overview (atualizado em 24/09/2026)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)
+- [Google Cloud — Configure language and voice (atualizado em 24/09/2026)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice)
+- [Google Cloud — Configure live avatars (atualizado em 24/09/2026)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-live-avatars)
+- [Google Cloud — Agent Platform generative AI pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+- [Google DeepMind — Gemini 3.8 Audio model card (publicado em 15/09/2026)](https://deepmind.google/models/model-cards/gemini-3-8-audio/)
+
+The Zero.
