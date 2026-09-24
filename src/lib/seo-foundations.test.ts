@@ -24,11 +24,11 @@ describe("site.social", () => {
         "https://www.instagram.com/hello.the.zero/",
         "https://www.youtube.com/@TheZero_Media",
         "https://www.threads.com/@hello.the.zero",
-        "https://x.com/HelloShimenawa",
+        "https://x.com/hello_the_zero",
       ],
     );
     assert.equal(site.social.threadsHandle, "@hello.the.zero");
-    assert.equal(site.social.xHandle, "@HelloShimenawa");
+    assert.equal(site.social.xHandle, "@hello_the_zero");
     for (const url of [
       site.social.instagram,
       site.social.youtube,

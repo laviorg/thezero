@@ -38,9 +38,8 @@ export const site = {
     youtubeHandle: "@TheZero_Media",
     threads: "https://www.threads.com/@hello.the.zero",
     threadsHandle: "@hello.the.zero",
-    /** Temporary X account. Keep this URL until a hello_the_zero profile exists. */
-    x: "https://x.com/HelloShimenawa",
-    xHandle: "@HelloShimenawa",
+    x: "https://x.com/hello_the_zero",
+    xHandle: "@hello_the_zero",
   },
   storeUrl: "https://loja.thezero.com.br",
   defaultAuthor: "The Zero",
