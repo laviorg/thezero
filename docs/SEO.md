@@ -44,7 +44,7 @@ o Google. A busca canônica continua `/busca`, sem a query.
 `NewsArticle` leva:
 
 - `headline` = H1 (a manchete editorial, não o recorte da SERP);
-- `datePublished` e `dateModified` em ISO 8601 com fuso `-03:00` (`toIsoDate` usa 08:00 quando o MDX só tem o dia);
+- `datePublished` e `dateModified` em ISO 8601 com fuso `-03:00` (`toIsoDate` usa 08:00 quando o MDX só tem o dia; um timestamp completo no frontmatter é preservado e normalizado para `-03:00`);
 - `author` com `name` e, no caso da redação, `url` da home;
 - `image`: a capa (com largura e altura reais se o arquivo está em `public/`) e, em seguida, o cartaz `/noticia/[slug]/opengraph-image` (1200×630, sempre neste domínio);
 - `isAccessibleForFree: true` — não há paywall.
@@ -106,6 +106,9 @@ de listar a outra e a si mesma. Até lá, não inventar locale.
 | `/apps` | `/aplicativos` |
 | `/games` | `/jogos` |
 | `/consoles` | `/jogos/consoles` |
+| `/noticia/lancamento-e-trailer-jogo-e-o-patch` | `/jogos` |
+| `/sitemap_index.xml` | `/sitemap.xml` |
+| `/feed` e `/rss` | `/rss.xml` |
 
 Todos permanentes. Query string é preservada. Não há redirect de matéria:
 o slug não mudou. Não criar redirect para texto apagado sem uma URL antiga

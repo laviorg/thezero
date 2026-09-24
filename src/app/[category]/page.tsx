@@ -84,6 +84,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     : railOwn;
   const gridPosts = useRail ? rest.slice(4) : rest;
   const newsroomFill = !useRail && rest.length < 4 ? elsewhere.slice(0, 6) : [];
+  const elsewhereLinks =
+    newsroomFill.length > 0 ? [] : elsewhere.slice(0, 6);
 
   return (
     <PageShell>
@@ -196,6 +198,32 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             ))}
           </div>
         </section>
+      ) : null}
+
+      {elsewhereLinks.length > 0 ? (
+        <nav
+          aria-label="Últimas no newsroom"
+          className="mt-9 border-t border-border pt-7"
+        >
+          <SectionHeading
+            title="Últimas no newsroom"
+            as="h2"
+            href="/"
+            actionLabel="Abrir a home"
+          />
+          <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+            {elsewhereLinks.map((post) => (
+              <li key={post.slug}>
+                <Link
+                  href={post.href}
+                  className="text-sm leading-snug text-fg/90 transition-colors hover:text-accent"
+                >
+                  {post.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       ) : null}
 
       {newsroomFill.length > 0 ? (

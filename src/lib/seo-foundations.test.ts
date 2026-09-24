@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
+import { toIsoDate } from "./format.ts";
 import { articleImages } from "./article-images.ts";
 import { parseImageSize, readLocalImageSize } from "./image-size.ts";
 import { buildPageMetadata } from "./metadata.ts";
@@ -77,6 +78,40 @@ describe("buildPageMetadata", () => {
     assert.ok(Array.isArray(images));
     const first = images[0];
     assert.equal(typeof first === "object" && first && "alt" in first ? first.alt : "", "IA: ferramentas, modelos e limites · The Zero");
+  });
+
+  it("emits an absolute www canonical for article paths", () => {
+    const meta = buildPageMetadata({
+      title: "Google Gemini invadiu três empresas em teste",
+      description: "Teste.",
+      path: "/noticia/gemini-hackeou-tres-empresas-teste",
+      type: "article",
+    });
+    assert.equal(
+      meta.alternates?.canonical,
+      "https://www.thezero.com.br/noticia/gemini-hackeou-tres-empresas-teste",
+    );
+    const languages = meta.alternates?.languages;
+    assert.equal(
+      languages && "pt-BR" in languages ? languages["pt-BR"] : "",
+      "https://www.thezero.com.br/noticia/gemini-hackeou-tres-empresas-teste",
+    );
+    assert.equal(String(meta.openGraph?.url), "https://www.thezero.com.br/noticia/gemini-hackeou-tres-empresas-teste");
+    assert.doesNotMatch(String(meta.alternates?.canonical), /^https:\/\/thezero\.com\.br\//);
+  });
+});
+
+describe("toIsoDate", () => {
+  it("keeps a date-only value at 08:00 and preserves a real timestamp", () => {
+    assert.equal(toIsoDate("2026-09-19"), "2026-09-19T08:00:00-03:00");
+    assert.equal(
+      toIsoDate("2026-09-23T18:54:06-03:00"),
+      "2026-09-23T18:54:06-03:00",
+    );
+    assert.equal(
+      toIsoDate("2026-09-23T21:54:06Z"),
+      "2026-09-23T18:54:06-03:00",
+    );
   });
 });
 
