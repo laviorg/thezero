@@ -76,6 +76,18 @@ export default function ContactPage() {
         >
           {site.social.youtubeHandle}
         </a>
+        . Threads{" "}
+        <a
+          href={site.social.threads}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {site.social.threadsHandle}
+        </a>
+        . X{" "}
+        <a href={site.social.x} target="_blank" rel="noopener noreferrer">
+          {site.social.xHandle}
+        </a>
         . Direct e comentário chegam, mas o e-mail é o canal que a gente
         consegue arquivar.
       </p>

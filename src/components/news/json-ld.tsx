@@ -50,6 +50,7 @@ export function OrganizationJsonLd() {
           site.social.instagram,
           site.social.youtube,
           site.social.threads,
+          site.social.x,
         ].filter((url) => url.startsWith("https://")),
         inLanguage: site.language,
         areaServed: {
