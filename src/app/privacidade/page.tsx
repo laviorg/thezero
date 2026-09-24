@@ -71,6 +71,14 @@ export default function PrivacyPage() {
           /{" "}
           <a href={site.social.youtube} rel="noopener noreferrer">
             YouTube
+          </a>
+          {" / "}
+          <a href={site.social.threads} rel="noopener noreferrer">
+            Threads
+          </a>
+          {" / "}
+          <a href={site.social.x} rel="noopener noreferrer">
+            X
           </a>{" "}
           — tratamos o que você enviou para responder pauta, correção ou
           parceria.

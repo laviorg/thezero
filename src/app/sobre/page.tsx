@@ -58,6 +58,24 @@ export default function AboutPage() {
           >
             {site.social.youtubeHandle}
           </a>
+          . Threads{" "}
+          <a
+            className="text-accent underline decoration-accent/40 underline-offset-4"
+            href={site.social.threads}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {site.social.threadsHandle}
+          </a>
+          . X{" "}
+          <a
+            className="text-accent underline decoration-accent/40 underline-offset-4"
+            href={site.social.x}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {site.social.xHandle}
+          </a>
           . Idioma: pt-BR. Casa: {site.domain}.
         </p>
       </div>

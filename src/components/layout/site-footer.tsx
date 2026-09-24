@@ -127,6 +127,26 @@ export function SiteFooter() {
                 YouTube {site.social.youtubeHandle}
               </a>
             </li>
+            <li>
+              <a
+                href={site.social.threads}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent"
+              >
+                Threads {site.social.threadsHandle}
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.social.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent"
+              >
+                X {site.social.xHandle}
+              </a>
+            </li>
           </ul>
         </div>
       </div>

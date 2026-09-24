@@ -11,6 +11,35 @@ import {
 import { articleAuthorLd } from "./seo.ts";
 import { resolveSiteUrl, site } from "./site.ts";
 
+describe("site.social", () => {
+  it("lists the live Instagram, YouTube, Threads, and X profiles", () => {
+    assert.deepEqual(
+      [
+        site.social.instagram,
+        site.social.youtube,
+        site.social.threads,
+        site.social.x,
+      ],
+      [
+        "https://www.instagram.com/hello.the.zero/",
+        "https://www.youtube.com/@TheZero_Media",
+        "https://www.threads.com/@hello.the.zero",
+        "https://x.com/HelloShimenawa",
+      ],
+    );
+    assert.equal(site.social.threadsHandle, "@hello.the.zero");
+    assert.equal(site.social.xHandle, "@HelloShimenawa");
+    for (const url of [
+      site.social.instagram,
+      site.social.youtube,
+      site.social.threads,
+      site.social.x,
+    ]) {
+      assert.equal(url.startsWith("https://"), true);
+    }
+  });
+});
+
 describe("resolveSiteUrl", () => {
   it("keeps www as the only public origin for thezero.com.br", () => {
     assert.equal(resolveSiteUrl(undefined), "https://www.thezero.com.br");

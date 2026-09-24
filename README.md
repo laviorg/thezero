@@ -2,7 +2,7 @@
 
 Newsroom de tech do Brasil — tecnologia, IA, computadores, dispositivos, aplicativos e jogos. Tom direto, irônico, sem hype de lançamento.
 
-Site: [www.thezero.com.br](https://www.thezero.com.br) · Instagram [@hello.the.zero](https://www.instagram.com/hello.the.zero/) · YouTube [@TheZero_Media](https://www.youtube.com/@TheZero_Media)
+Site: [www.thezero.com.br](https://www.thezero.com.br) · Instagram [@hello.the.zero](https://www.instagram.com/hello.the.zero/) · YouTube [@TheZero_Media](https://www.youtube.com/@TheZero_Media) · Threads [@hello.the.zero](https://www.threads.com/@hello.the.zero) · X [@HelloShimenawa](https://x.com/HelloShimenawa)
 
 Stack: **Next.js App Router**, TypeScript, Tailwind CSS v4, conteúdo MDX no repositório (sem CMS no v1).
 
