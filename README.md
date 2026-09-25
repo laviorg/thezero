@@ -62,8 +62,6 @@ excerpt: "Uma linha que funciona sozinha no card e no OG."
 category: ia
 subcategory: ferramentas
 date: "2026-09-18"
-featured: false
-featuredPriority: 1
 kicker: "IA · dock"
 author: "The Zero"
 cover: "https://www.apple.com/newsroom/images/.../foto.jpg"
@@ -78,9 +76,11 @@ coverCredit: "Apple / Divulgação"
 
 `format` é opcional: `noticia` (padrão), `review`, `guia` ou `comparativo`. Não vira item do menu. Review, guia e comparativo aparecem em `/reviews` e na editoria do assunto; ficam fora do destaque, das Últimas, do RSS e do news sitemap.
 
+O destaque da home é automático: a `noticia` com a data de publicação mais recente. No mesmo dia, vale a hora se o `date` tiver timestamp (`2026-09-25T14:00:00-03:00`); sem hora, o desempate é o slug em ordem alfabética. Não há marcação manual. `featured` e `featuredPriority` em matérias antigas continuam no ficheiro e são ignorados. A home é estática e entra no build: matéria nova no `main` aparece no destaque no deploy seguinte. Não há revalidação que segure o hero antigo.
+
 `subcategory` é opcional, mas recomendada quando houver encaixe. Ela precisa pertencer à editoria escolhida; a lista e as regras de fronteira ficam em [`docs/TAXONOMY.md`](docs/TAXONOMY.md). Subcategorias com matérias ganham hub próprio em `/[editoria]/[subcategoria]`.
 
-Opcionais: `seoTitle` (recorte do `<title>` quando a manchete não cabe na SERP), `updated`, `featured`, `featuredPriority` (desempata vários destaques; maior vence), `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa), **`coverAlt`** (descrição objetiva da imagem) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
+Opcionais: `seoTitle` (recorte do `<title>` quando a manchete não cabe na SERP), `updated`, `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa), **`coverAlt`** (descrição objetiva da imagem) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
 
 Sem `cover`, o card e a matéria seguem só com tipografia — o layout não quebra.
 
