@@ -84,6 +84,8 @@ Opcionais: `seoTitle` (recorte do `<title>` quando a manchete não cabe na SERP)
 
 Sem `cover`, o card e a matéria seguem só com tipografia — o layout não quebra.
 
+Evergreen (`review`, `guia`, `comparativo`) sem foto ganha cartaz em `public/covers/reviews/[slug].webp` (1200×675). `npm run covers` desenha o arquivo com a paleta do cartaz OG (`next/og` + sharp) e grava `cover` e `coverAlt`. Capa que já é foto não é trocada. O bloco “Leia também” sai de `scripts/link-evergreen.ts` (`npm run link-evergreen`) e só aponta slug que existe.
+
 A capa entra na página da matéria e nos cards (`next/image`). No corpo, Markdown padrão:
 
 ```mdx
