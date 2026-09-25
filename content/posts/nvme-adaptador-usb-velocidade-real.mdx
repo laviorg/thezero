@@ -1,0 +1,47 @@
+---
+title: "NVMe em adaptador USB: a velocidade que o enclosure realmente entrega"
+seoTitle: "NVMe em adaptador USB: a velocidade real"
+excerpt: "O SSD de 7.000 MB/s vira cerca de 1.000 MB/s dentro de um enclosure USB de 10 Gbps. O limite é a ponte e o calor, não o selo PCIe do disco."
+category: computadores
+subcategory: componentes
+format: guia
+date: "2026-08-21T11:55:00-03:00"
+kicker: "USB · ponte"
+author: "The Zero"
+---
+
+Um NVMe dentro de adaptador USB não entrega a velocidade da ficha do disco. Na ponte de 10 Gbps, comum e barata, o teto real fica na casa de 1.000 MB/s, e cai quando a carcaça esquenta. Comprar o SSD mais rápido do mercado para morar nesse enclosure é pagar PCIe 5.0 para usar USB.
+
+O enclosure é uma caixa com um chip no meio, traduzindo NVMe para USB. Esse chip é o produto. O disco é o passageiro.
+
+<Verdict overrated="NVMe de vitrine dentro da caixinha de 10 Gbps" underrated="ponte USB estável, dissipação e um disco que cabe nesse teto" />
+
+## Onde a velocidade some
+
+USB 3.2 Gen 2, o “10 Gbps” do anúncio, na prática sustenta por volta de 1.000 MB/s se o chip for decente e o cabo for o que veio no padrão certo. Gen 2x2, de 20 Gbps, quase não aparece em porta de PC comum. USB4 ou Thunderbolt, 40 Gbps, é o único desenho em que um NVMe rápido chega perto do que faria num slot — e a caixa custa outra categoria, e a porta do notebook tem de ser de fato USB4, não um USB-C que só carrega.
+
+PCIe 4.0 e 5.0, discutidos em [vale pagar a geração do SSD](/noticia/pcie-4-vs-5-ssd-vale-a-diferenca), valem dentro do computador. Na caixa USB de 10 Gbps, os dois viram o mesmo número. Para esse uso, um NVMe de leitura real acima de uns 1.500 MB/s já sobra. O que importa é ser TLC com cache decente, não o pico do gráfico do fabricante.
+
+Calor: a caixa de alumínio fina segura alguns minutos de cópia e depois limita. Teste com um arquivo grande, não com o benchmark de dois segundos que cabe no cache. Se a velocidade cai pela metade no meio da pasta de vídeo, o enclosure é o gargalo térmico. Dissipação e parafuso que encosta o disco no metal mudam isso. Plástico fechado, não.
+
+## O que comprar no Brasil
+
+Chip com nome — famílias como RTL9210 ou JMS583 aparecem em caixa que presta — e cabo soldado ou muito bem especificado. UASP tem de estar ligado. Sem isso, o disco cai para um modo lento que parece pendrive antigo. Loja com nota: caixa morta em trinta dias é comum no lote sem marca.
+
+Não confunda este uso com o do guia [HD externo contra SSD portátil](/noticia/hd-externo-vs-ssd-portatil). Lá a pergunta é backup e levar jogo. Aqui a pergunta é: o SSD que você já tirou de um notebook, ou o NVMe em oferta, sobrevive como disco externo sem mentir a velocidade. Para backup frio, o HD ainda custa menos por terabyte. Para pasta de trabalho que você abre todo dia, o NVMe na caixa de 10 Gbps já é outro patamar — desde que você não tenha pago o patamar interno.
+
+Conector: M.2 NVMe não é M.2 SATA. Caixa errada não reconhece o disco. Leia o protocolo, não só “M.2”.
+
+Ejeção pelo sistema, sempre. Tirar no meio da cópia corrompe. A ponte USB é pior nisso do que o slot da placa-mãe, porque o cabo sai com um esbarrão.
+
+## Veredito
+
+Enclosure de 10 Gbps com dissipação, mais um NVMe honesto, se a porta do PC for USB comum. USB4 só se a porta e a caixa forem USB4 de verdade. Deixe o SSD de ponta no slot interno, onde o número da ficha existe.
+
+<Rule>
+No adaptador USB, o chip da caixa manda na velocidade. O PCIe escrito no SSD, não.
+</Rule>
+
+Mais em [Componentes](/computadores/componentes) e no arquivo de [Reviews](/reviews).
+
+The Zero.
