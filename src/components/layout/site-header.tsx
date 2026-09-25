@@ -13,21 +13,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { categoryList } from "@/lib/categories";
+import type { NavMenuSection } from "@/lib/site-nav";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Menu, Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const nav = categoryList.map((category) => ({
-  href: category.href,
-  label: category.label,
-}));
-
-export type ReviewNavLink = {
-  href: string;
-  label: string;
+type OpenMenu = {
+  pathname: string;
+  id: string | null;
 };
 
 function navClass(active: boolean) {
@@ -36,63 +31,76 @@ function navClass(active: boolean) {
     : "text-muted transition-colors hover:text-fg";
 }
 
-function reviewsActive(pathname: string) {
-  return pathname === "/reviews" || pathname.startsWith("/reviews/");
+function sectionActive(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-function ReviewsDesktopMenu({
-  links,
+function submenuAriaLabel(section: NavMenuSection) {
+  return section.id === "reviews"
+    ? "Por produto"
+    : `Assuntos em ${section.label}`;
+}
+
+function toggleAriaLabel(section: NavMenuSection, open: boolean) {
+  if (section.id === "reviews") {
+    return open ? "Fechar linhas de produto" : "Abrir linhas de produto";
+  }
+  return open
+    ? `Fechar assuntos de ${section.label}`
+    : `Abrir assuntos de ${section.label}`;
+}
+
+function DesktopNavMenu({
+  section,
   pathname,
+  open,
+  align,
+  onOpen,
+  onClose,
+  onToggle,
 }: {
-  links: readonly ReviewNavLink[];
+  section: NavMenuSection;
   pathname: string;
+  open: boolean;
+  align: "left" | "right";
+  onOpen: () => void;
+  onClose: () => void;
+  onToggle: () => void;
 }) {
-  const [open, setOpen] = useState(false);
-  const active = reviewsActive(pathname);
+  const active = sectionActive(pathname, section.href);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    if (!open) return;
-    function onKey(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
-
-  if (links.length === 0) {
+  if (section.links.length === 0) {
     return (
       <Link
-        href="/reviews"
-        className={cn("text-sm tracking-wide", navClass(active))}
+        href={section.href}
+        className={cn("text-sm tracking-wide whitespace-nowrap", navClass(active))}
         aria-current={active ? "page" : undefined}
       >
-        Reviews
+        {section.label}
       </Link>
     );
   }
 
+  const wide = section.links.length > 8;
+
   return (
     <div
       className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={onOpen}
+      onMouseLeave={onClose}
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-          setOpen(false);
+          onClose();
         }
       }}
     >
       <div className="flex items-center">
         <Link
-          href="/reviews"
-          className={cn("text-sm tracking-wide", navClass(active))}
+          href={section.href}
+          className={cn("text-sm tracking-wide whitespace-nowrap", navClass(active))}
           aria-current={active ? "page" : undefined}
         >
-          Reviews
+          {section.label}
         </Link>
         <button
           type="button"
@@ -101,9 +109,9 @@ function ReviewsDesktopMenu({
             active ? "text-accent" : "text-muted hover:text-fg",
           )}
           aria-expanded={open}
-          aria-controls="menu-reviews"
-          aria-label={open ? "Fechar linhas de produto" : "Abrir linhas de produto"}
-          onClick={() => setOpen((value) => !value)}
+          aria-controls={`menu-${section.id}`}
+          aria-label={toggleAriaLabel(section, open)}
+          onClick={onToggle}
         >
           <ChevronDown
             aria-hidden
@@ -111,17 +119,27 @@ function ReviewsDesktopMenu({
           />
         </button>
       </div>
-      <div hidden={!open} className="absolute right-0 top-full z-50 pt-2">
+      <div
+        hidden={!open}
+        className={cn(
+          "absolute top-full z-50 pt-2",
+          align === "right" ? "right-0" : "left-0",
+        )}
+      >
         <nav
-          id="menu-reviews"
-          aria-label="Por produto"
+          id={`menu-${section.id}`}
+          aria-label={submenuAriaLabel(section)}
           className="border border-border border-t-2 border-t-accent bg-bg p-2 shadow-card"
         >
           <p className="px-2 pt-1 pb-1 text-[0.65rem] tracking-[0.16em] text-muted uppercase">
-            Por produto
+            {section.menuLabel}
           </p>
-          <ul className="grid w-[26rem] grid-cols-2 gap-x-1">
-            {links.map((link) => {
+          <ul
+            className={cn(
+              wide ? "grid w-[26rem] grid-cols-2 gap-x-1" : "w-60",
+            )}
+          >
+            {section.links.map((link) => {
               const itemActive = pathname === link.href;
               return (
                 <li key={link.href}>
@@ -145,35 +163,35 @@ function ReviewsDesktopMenu({
   );
 }
 
-function ReviewsMobileLinks({
-  links,
+function MobileNavSection({
+  section,
   pathname,
 }: {
-  links: readonly ReviewNavLink[];
+  section: NavMenuSection;
   pathname: string;
 }) {
-  const active = reviewsActive(pathname);
+  const active = sectionActive(pathname, section.href);
 
   return (
     <div className="flex flex-col gap-3">
       <SheetClose asChild>
         <Link
-          href="/reviews"
+          href={section.href}
           className={cn("text-lg", navClass(active))}
           aria-current={active ? "page" : undefined}
         >
-          Reviews
+          {section.label}
         </Link>
       </SheetClose>
-      {links.length > 0 ? (
+      {section.links.length > 0 ? (
         <nav
-          aria-label="Por produto"
+          aria-label={submenuAriaLabel(section)}
           className="flex flex-col gap-2.5 border-l border-border pl-4"
         >
           <p className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
-            Por produto
+            {section.menuLabel}
           </p>
-          {links.map((link) => {
+          {section.links.map((link) => {
             const itemActive = pathname === link.href;
             return (
               <SheetClose asChild key={link.href}>
@@ -194,11 +212,31 @@ function ReviewsMobileLinks({
 }
 
 export function SiteHeader({
-  reviewLinks,
+  sections,
 }: {
-  reviewLinks: readonly ReviewNavLink[];
+  sections: readonly NavMenuSection[];
 }) {
   const pathname = usePathname();
+  const [menu, setMenu] = useState<OpenMenu>({ pathname, id: null });
+
+  if (menu.pathname !== pathname) {
+    setMenu({ pathname, id: null });
+  }
+
+  const openId = menu.pathname === pathname ? menu.id : null;
+
+  useEffect(() => {
+    if (!openId) return;
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setMenu((current) =>
+          current.id ? { ...current, id: null } : current,
+        );
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [openId]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-border border-t-[3px] border-t-accent bg-bg/85 backdrop-blur-md">
@@ -211,21 +249,33 @@ export function SiteHeader({
           <Wordmark className="h-8 w-auto sm:h-9" />
         </Link>
 
-        <nav aria-label="Navegação" className="hidden items-center gap-6 lg:flex">
-          {nav.map((item) => {
-            const active =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm tracking-wide ${navClass(active)}`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-          <ReviewsDesktopMenu links={reviewLinks} pathname={pathname} />
+        <nav aria-label="Navegação" className="hidden items-center gap-3 xl:gap-4 lg:flex">
+          {sections.map((section, index) => (
+            <DesktopNavMenu
+              key={section.id}
+              section={section}
+              pathname={pathname}
+              open={openId === section.id}
+              align={index >= 3 ? "right" : "left"}
+              onOpen={() => setMenu({ pathname, id: section.id })}
+              onClose={() =>
+                setMenu((current) =>
+                  current.id === section.id
+                    ? { pathname, id: null }
+                    : current,
+                )
+              }
+              onToggle={() =>
+                setMenu((current) => ({
+                  pathname,
+                  id:
+                    current.pathname === pathname && current.id === section.id
+                      ? null
+                      : section.id,
+                }))
+              }
+            />
+          ))}
         </nav>
 
         <div className="site-header-actions flex items-center gap-1">
@@ -269,19 +319,13 @@ export function SiteHeader({
                     Newsroom
                   </Link>
                 </SheetClose>
-                {nav.map((item) => {
-                  const active =
-                    pathname === item.href ||
-                    pathname.startsWith(`${item.href}/`);
-                  return (
-                    <SheetClose asChild key={item.href}>
-                      <Link href={item.href} className={`text-lg ${navClass(active)}`}>
-                        {item.label}
-                      </Link>
-                    </SheetClose>
-                  );
-                })}
-                <ReviewsMobileLinks links={reviewLinks} pathname={pathname} />
+                {sections.map((section) => (
+                  <MobileNavSection
+                    key={section.id}
+                    section={section}
+                    pathname={pathname}
+                  />
+                ))}
                 <SheetClose asChild>
                   <Link href="/sobre" className="text-lg text-muted hover:text-fg">
                     Sobre

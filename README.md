@@ -74,7 +74,7 @@ coverCredit: "Apple / Divulgação"
 
 `category` tem de ser um de: `tecnologia` · `ia` · `computadores` · `dispositivos` · `aplicativos` · `jogos`.
 
-`format` é opcional: `noticia` (padrão), `review`, `guia` ou `comparativo`. Não vira editoria. Review, guia e comparativo aparecem em `/reviews`, na linha de produto quando o mapa em `src/lib/review-buckets.ts` reconhece uma, e na editoria do assunto. Ficam fora do destaque, das Últimas, do RSS e do news sitemap. O menu tem o item **Reviews** para esse hub, com submenu das linhas que já têm matéria.
+`format` é opcional: `noticia` (padrão), `review`, `guia` ou `comparativo`. Não vira editoria. Review, guia e comparativo aparecem em `/reviews`, na linha de produto quando o mapa em `src/lib/review-buckets.ts` reconhece uma, e na editoria do assunto. Ficam fora do destaque, das Últimas, do RSS e do news sitemap. O menu tem o item **Reviews** para esse hub, com submenu das linhas que já têm matéria. As seis editorias abrem o submenu **Assuntos** só com subcategorias que já têm matéria, nos hubs `/{editoria}/{subcategoria}` que já existem.
 
 O destaque da home é automático: a `noticia` com a data de publicação mais recente. No mesmo dia, vale a hora se o `date` tiver timestamp (`2026-09-25T14:00:00-03:00`); sem hora, o desempate é o slug em ordem alfabética. Não há marcação manual. `featured` e `featuredPriority` em matérias antigas continuam no ficheiro e são ignorados. A home é estática e entra no build: matéria nova no `main` aparece no destaque no deploy seguinte. Não há revalidação que segure o hero antigo.
 

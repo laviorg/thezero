@@ -238,7 +238,10 @@ subeditoria, matéria, busca, sobre) estão em [`docs/SEO_TITLES.md`](./SEO_TITL
 Matérias incluem a subcategoria na trilha, nas palavras-chave e nas tags Open Graph. O sitemap lista apenas URLs canônicas;
 o RSS publica editoria e subcategoria. Cabeçalho, menu móvel, chips e rodapé
 mostram as seis editorias; a home só abre um trilho quando a editoria já tem
-matérias.
+matérias. No cabeçalho (desktop e mobile) cada editoria com subcategoria
+publicada abre o submenu **Assuntos**, com o rótulo e a URL já usados no hub
+`/{editoria}/{subcategoria}`. Subcategoria sem matéria fica fora do submenu,
+como já fica fora da rota estática e do sitemap. Hub vazio continua `noindex`.
 
 **Reviews** entra no cabeçalho (desktop e mobile) como hub de formato, com
 submenu por linha de produto. Não é uma sétima editoria e não usa o
