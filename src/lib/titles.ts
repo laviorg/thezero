@@ -1,4 +1,5 @@
 import type { Category, Subcategory } from "./categories.ts";
+import type { ReviewBucket } from "./review-buckets.ts";
 import { site } from "./site.ts";
 
 /** Visible range we write toward. Desktop SERP is ~580–600px, not a char cap. */
@@ -141,6 +142,12 @@ export function notFoundPageTitle(): string {
 
 export function reviewsPageTitle(): string {
   return composePageTitle(REVIEWS_HUB_CORE, "always");
+}
+
+export function reviewBucketPageTitle(
+  bucket: Pick<ReviewBucket, "seoTitle">,
+): string {
+  return composePageTitle(bucket.seoTitle, "always");
 }
 
 export function searchPageTitle(query?: string): string {

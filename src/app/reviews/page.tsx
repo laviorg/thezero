@@ -1,12 +1,13 @@
 import { ArticleCard } from "@/components/news/article-card";
-import { Breadcrumbs } from "@/components/news/breadcrumbs";
 import {
   BreadcrumbJsonLd,
   CollectionPageJsonLd,
 } from "@/components/news/json-ld";
+import { ReviewsMasthead } from "@/components/news/reviews-masthead";
+import { SectionHeading } from "@/components/news/section-heading";
 import { PageShell } from "@/components/layout/page-shell";
 import { buildPageMetadata } from "@/lib/metadata";
-import { getReviewPosts } from "@/lib/posts";
+import { getReviewPosts, groupReviewPosts } from "@/lib/posts";
 import { HOME_CRUMB_LABEL } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import { REVIEWS_HUB_CORE, reviewsPageTitle } from "@/lib/titles";
@@ -31,7 +32,12 @@ export function generateMetadata(): Metadata {
 }
 
 export default function ReviewsPage() {
-  const posts = getReviewPosts();
+  const { groups, rest } = groupReviewPosts();
+  const posts = [
+    ...groups.flatMap((group) => group.posts),
+    ...rest,
+  ];
+  const lines = groups.map((group) => group.bucket);
   const pageUrl = absoluteUrl("/reviews");
 
   return (
@@ -52,24 +58,17 @@ export default function ReviewsPage() {
         ]}
       />
 
-      <header className="newsroom-masthead max-w-4xl border-b border-border border-l border-l-accent/40 pb-5 pl-4 sm:pl-5">
-        <Breadcrumbs
-          items={[
-            { href: "/", label: HOME_CRUMB_LABEL },
-            { label: "Reviews" },
-          ]}
-        />
-        <p className="eyebrow page-kicker">Uso, não ficha</p>
-        <h1 className="page-title mt-2 font-extrabold text-balance">Reviews</h1>
-        <p className="lede mt-3 text-pretty">{DESCRIPTION}</p>
-        <p className="mt-4 text-[0.72rem] tracking-[0.14em] text-muted uppercase">
-          {posts.length === 0
-            ? "Nenhuma matéria"
-            : posts.length === 1
-              ? "1 matéria"
-              : `${posts.length} matérias`}
-        </p>
-      </header>
+      <ReviewsMasthead
+        crumbs={[
+          { href: "/", label: HOME_CRUMB_LABEL },
+          { label: "Reviews" },
+        ]}
+        eyebrow="Uso, não ficha"
+        title="Reviews"
+        lede={DESCRIPTION}
+        count={posts.length}
+        lines={lines}
+      />
 
       {posts.length === 0 ? (
         <p className="mt-6 max-w-xl text-muted">
@@ -77,16 +76,50 @@ export default function ReviewsPage() {
           também na editoria do aparelho.
         </p>
       ) : (
-        <div className="mt-6 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
-          {posts.map((post) => (
-            <ArticleCard
-              key={post.slug}
-              post={post}
-              layout="standard"
-              headingLevel="h2"
-            />
+        <>
+          {groups.map((group) => (
+            <section
+              key={group.bucket.slug}
+              className="mt-10"
+              aria-labelledby={`linha-${group.bucket.slug}`}
+            >
+              <SectionHeading
+                id={`linha-${group.bucket.slug}`}
+                title={group.bucket.label}
+                href={group.bucket.href}
+                actionLabel="Ver tudo"
+              />
+              <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
+                {group.posts.map((post) => (
+                  <ArticleCard
+                    key={post.slug}
+                    post={post}
+                    layout="standard"
+                    headingLevel="h3"
+                  />
+                ))}
+              </div>
+            </section>
           ))}
-        </div>
+          {rest.length > 0 ? (
+            <section className="mt-10" aria-labelledby="reviews-resto">
+              <SectionHeading id="reviews-resto" title="Também no arquivo" />
+              <p className="mt-3 max-w-2xl text-sm text-muted">
+                Guias que não cabem numa linha de produto. Continuam neste hub.
+              </p>
+              <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
+                {rest.map((post) => (
+                  <ArticleCard
+                    key={post.slug}
+                    post={post}
+                    layout="standard"
+                    headingLevel="h3"
+                  />
+                ))}
+              </div>
+            </section>
+          ) : null}
+        </>
       )}
     </PageShell>
   );

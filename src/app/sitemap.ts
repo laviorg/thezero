@@ -5,7 +5,7 @@ import {
   getAllPosts,
   getPostsByCategory,
   getPostsBySubcategory,
-  getReviewPosts,
+  groupReviewPosts,
   latestUpdatedDate,
 } from "@/lib/posts";
 import { site } from "@/lib/site";
@@ -50,7 +50,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const reviewPosts = getReviewPosts();
+  const { groups: reviewGroups, rest: reviewRest } = groupReviewPosts();
+  const reviewPosts = [
+    ...reviewGroups.flatMap((group) => group.posts),
+    ...reviewRest,
+  ];
   const reviewsUpdated = latestUpdatedDate(reviewPosts);
   const reviews =
     reviewPosts.length === 0
@@ -62,6 +66,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
             alternates: languageAlternates(`${site.url}/reviews`),
           },
         ];
+
+  const reviewLines = reviewGroups.flatMap((group) => {
+    const url = `${site.url}${group.bucket.href}`;
+    const lastModified = latestUpdatedDate(group.posts);
+    return [
+      {
+        url,
+        ...(lastModified ? { lastModified } : {}),
+        alternates: languageAlternates(url),
+      },
+    ];
+  });
 
   const categories = categoryList.flatMap((category) => {
     const categoryPosts = getPostsByCategory(category.slug);
@@ -107,6 +123,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticEntries,
     ...reviews,
+    ...reviewLines,
     ...categories,
     ...subcategories,
     ...postEntries,

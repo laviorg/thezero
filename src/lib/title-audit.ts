@@ -1,5 +1,10 @@
 import { categoryList, subcategoryList } from "./categories";
-import { getAllPosts, getPostsByCategory, getReviewPosts } from "./posts";
+import {
+  getActiveReviewBuckets,
+  getAllPosts,
+  getPostsByCategory,
+  getReviewPosts,
+} from "./posts";
 import {
   BRAND_NAME,
   TITLE_HARD_MAX,
@@ -10,6 +15,7 @@ import {
   homePageTitle,
   notFoundPageTitle,
   privacyPageTitle,
+  reviewBucketPageTitle,
   reviewsPageTitle,
   searchPageTitle,
   subcategoryPageTitle,
@@ -38,6 +44,14 @@ export function collectDocumentTitles(): TitledPath[] {
     },
     { path: "/404", title: notFoundPageTitle(), indexable: false },
   ];
+
+  for (const bucket of getActiveReviewBuckets()) {
+    rows.push({
+      path: bucket.href,
+      title: reviewBucketPageTitle(bucket),
+      indexable: true,
+    });
+  }
 
   for (const category of categoryList) {
     rows.push({

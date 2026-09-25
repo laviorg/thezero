@@ -8,6 +8,8 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { adsenseClientId, getAdsensePubId } from "@/lib/adsense";
+import { getActiveReviewBuckets, getActiveSubcategories } from "@/lib/posts";
+import { categoryMenus } from "@/lib/site-nav";
 import { site } from "@/lib/site";
 import { themeColor } from "@/lib/theme";
 import type { Metadata, Viewport } from "next";
@@ -81,6 +83,20 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const sections = [
+    ...categoryMenus(getActiveSubcategories()),
+    {
+      id: "reviews",
+      href: "/reviews",
+      label: "Reviews",
+      menuLabel: "Por produto",
+      links: getActiveReviewBuckets().map((bucket) => ({
+        href: bucket.href,
+        label: bucket.label,
+      })),
+    },
+  ];
+
   return (
     <html
       lang="pt-BR"
@@ -98,7 +114,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <a href="#conteudo" className="skip-link">
               Ir para o conteúdo
             </a>
-            <SiteHeader />
+            <SiteHeader sections={sections} />
             <main id="conteudo" className="min-w-0 flex-1">
               {children}
             </main>

@@ -238,7 +238,21 @@ subeditoria, matéria, busca, sobre) estão em [`docs/SEO_TITLES.md`](./SEO_TITL
 Matérias incluem a subcategoria na trilha, nas palavras-chave e nas tags Open Graph. O sitemap lista apenas URLs canônicas;
 o RSS publica editoria e subcategoria. Cabeçalho, menu móvel, chips e rodapé
 mostram as seis editorias; a home só abre um trilho quando a editoria já tem
-matérias.
+matérias. No cabeçalho (desktop e mobile) cada editoria com subcategoria
+publicada abre o submenu **Assuntos**, com o rótulo e a URL já usados no hub
+`/{editoria}/{subcategoria}`. Subcategoria sem matéria fica fora do submenu,
+como já fica fora da rota estática e do sitemap. Hub vazio continua `noindex`.
+
+**Reviews** entra no cabeçalho (desktop e mobile) como hub de formato, com
+submenu por linha de produto. Não é uma sétima editoria e não usa o
+roteamento `/{editoria}`. O mapa está em `src/lib/review-buckets.ts`: a
+subcategoria manda; título e slug só separam notebook de PC dentro de
+`notebooks-e-pcs` / `componentes`, e tiram dock e power bank de
+`pcs-portateis`. Linha sem matéria não ganha rota, item de menu nem
+sitemap. `/reviews` lista o arquivo evergreen inteiro. `/reviews/celulares`
+e as outras linhas com matéria têm canonical, `CollectionPage` e entrada no
+sitemap regular. O evergreen continua fora das Últimas, do destaque, do RSS
+e do news sitemap.
 
 ## Alternativas rejeitadas
 

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
+import { REVIEW_BUCKET_LIST } from "./review-buckets.ts";
 import {
   ABOUT_TITLE,
   CONTACT_TITLE,
@@ -10,6 +11,7 @@ import {
   TITLE_SOFT_MAX,
   articlePageTitle,
   composePageTitle,
+  reviewBucketPageTitle,
   reviewsPageTitle,
   contactPageTitle,
   fitTitle,
@@ -99,6 +101,19 @@ describe("reviewsPageTitle", () => {
       "Reviews: hardware, celular e jogos · The Zero",
     );
     assert.ok(titleLength(reviewsPageTitle()) <= TITLE_SOFT_MAX);
+  });
+
+  it("gives each product line its own title under the hard max", () => {
+    const titles = REVIEW_BUCKET_LIST.map((bucket) =>
+      reviewBucketPageTitle(bucket),
+    );
+    assert.equal(new Set(titles).size, titles.length);
+    assert.equal(titles.includes(reviewsPageTitle()), false);
+    for (const title of titles) {
+      assert.ok(titleLength(title) <= TITLE_HARD_MAX, title);
+      assert.match(title, /^Reviews: /u);
+      assert.match(title, / · The Zero$/u);
+    }
   });
 });
 

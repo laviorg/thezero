@@ -20,6 +20,12 @@ import {
   type PostFormat,
 } from "@/lib/post-format";
 import { selectMostRecentPublication } from "@/lib/publication-order";
+import {
+  REVIEW_BUCKET_LIST,
+  assignReviewBucket,
+  getReviewBucket,
+  type ReviewBucket,
+} from "@/lib/review-buckets";
 import { site } from "@/lib/site";
 
 export { isEvergreenFormat, isNewsFormat, type PostFormat };
@@ -199,6 +205,51 @@ export function getPostsByFormat(format: PostFormat): Post[] {
 export function getReviewPosts(limit?: number): Post[] {
   const posts = getAllPosts().filter(isEvergreenFormat);
   return typeof limit === "number" ? posts.slice(0, limit) : posts;
+}
+
+export type ReviewBucketGroup = {
+  bucket: ReviewBucket;
+  posts: Post[];
+};
+
+/**
+ * Evergreen posts split by product line. `rest` stays on `/reviews` only.
+ * Bucket order follows `REVIEW_BUCKET_LIST`. Within a line, newest first.
+ */
+export function groupReviewPosts(posts = getReviewPosts()): {
+  groups: ReviewBucketGroup[];
+  rest: Post[];
+} {
+  const grouped = new Map<string, Post[]>();
+  const rest: Post[] = [];
+
+  for (const post of posts) {
+    const slug = assignReviewBucket(post);
+    if (!slug) {
+      rest.push(post);
+      continue;
+    }
+    const list = grouped.get(slug) ?? [];
+    list.push(post);
+    grouped.set(slug, list);
+  }
+
+  return {
+    groups: REVIEW_BUCKET_LIST.flatMap((bucket) => {
+      const items = grouped.get(bucket.slug);
+      return items && items.length > 0 ? [{ bucket, posts: items }] : [];
+    }),
+    rest,
+  };
+}
+
+export function getActiveReviewBuckets(): ReviewBucket[] {
+  return groupReviewPosts().groups.map((group) => group.bucket);
+}
+
+export function getReviewPostsByBucket(slug: string): Post[] {
+  if (!getReviewBucket(slug)) return [];
+  return getReviewPosts().filter((post) => assignReviewBucket(post) === slug);
 }
 
 export function getPostsByCategory(category: CategorySlug): Post[] {
