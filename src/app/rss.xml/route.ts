@@ -1,4 +1,4 @@
-import { getAllPosts, getLatestModifiedDate } from "@/lib/posts";
+import { getNewsPosts, latestUpdatedDate } from "@/lib/posts";
 import { assetUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -21,8 +21,8 @@ function imageMime(url: string) {
 }
 
 export function GET() {
-  const posts = getAllPosts();
-  const built = getLatestModifiedDate().toUTCString();
+  const posts = getNewsPosts();
+  const built = (latestUpdatedDate(posts) ?? new Date()).toUTCString();
   const feedUrl = `${site.url}/rss.xml`;
 
   const items = posts

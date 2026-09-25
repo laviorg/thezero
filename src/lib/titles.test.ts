@@ -10,6 +10,7 @@ import {
   TITLE_SOFT_MAX,
   articlePageTitle,
   composePageTitle,
+  reviewsPageTitle,
   contactPageTitle,
   fitTitle,
   homePageTitle,
@@ -88,6 +89,16 @@ describe("legal page titles", () => {
     assert.ok(titleLength(CONTACT_TITLE) <= TITLE_HARD_MAX);
     assert.ok(titleLength(TERMS_TITLE) <= TITLE_HARD_MAX);
     assert.equal(new Set([HOME_TITLE, ABOUT_TITLE, PRIVACY_TITLE, CONTACT_TITLE, TERMS_TITLE]).size, 5);
+  });
+});
+
+describe("reviewsPageTitle", () => {
+  it("names the subjects, not the format, and keeps the brand", () => {
+    assert.equal(
+      reviewsPageTitle(),
+      "Reviews: hardware, celular e jogos · The Zero",
+    );
+    assert.ok(titleLength(reviewsPageTitle()) <= TITLE_SOFT_MAX);
   });
 });
 

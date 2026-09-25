@@ -1,12 +1,19 @@
 import { ArticleCard } from "@/components/news/article-card";
 import { CategoryRail } from "@/components/news/category-rail";
 import { ItemListJsonLd } from "@/components/news/json-ld";
+import { ReviewRail } from "@/components/news/review-rail";
 import { SectionHeading } from "@/components/news/section-heading";
 import { PageShell } from "@/components/layout/page-shell";
 import { categoryList } from "@/lib/categories";
 import { formatToday } from "@/lib/format";
 import { buildPageMetadata } from "@/lib/metadata";
-import { getAllPosts, getFeaturedPost, getPostsByCategory } from "@/lib/posts";
+import {
+  getFeaturedPost,
+  getNewsPosts,
+  getPostsByCategory,
+  getReviewPosts,
+  isNewsFormat,
+} from "@/lib/posts";
 import { absoluteUrl, site } from "@/lib/site";
 import { HOME_TITLE, homePageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
@@ -31,8 +38,9 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const posts = getAllPosts();
-  const featured = getFeaturedPost();
+  const posts = getNewsPosts();
+  const featured = getFeaturedPost(posts);
+  const reviews = getReviewPosts(6);
   const rest = featured
     ? posts.filter((post) => post.slug !== featured.slug)
     : posts;
@@ -47,7 +55,7 @@ export default function HomePage() {
   const categoryRails = categoryList
     .map((category) => ({
       category,
-      posts: getPostsByCategory(category.slug),
+      posts: getPostsByCategory(category.slug).filter(isNewsFormat),
     }))
     .filter(({ posts: categoryPosts }) => categoryPosts.length > 0);
   const shownOnHome = new Set<string>([
@@ -153,6 +161,8 @@ export default function HomePage() {
           </Link>
         ))}
       </nav>
+
+      {reviews.length > 0 ? <ReviewRail posts={reviews} /> : null}
 
       {categoryRails.map(({ category, posts: categoryPosts }) => (
         <CategoryRail

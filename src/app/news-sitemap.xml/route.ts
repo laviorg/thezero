@@ -1,7 +1,7 @@
 import { articleImageUrls } from "@/lib/article-images";
 import {
   buildNewsSitemapXml,
-  selectRecentPublications,
+  selectGoogleNewsPosts,
 } from "@/lib/news-sitemap";
 import { getAllPosts } from "@/lib/posts";
 import { absoluteUrl, site } from "@/lib/site";
@@ -9,7 +9,7 @@ import { absoluteUrl, site } from "@/lib/site";
 export const revalidate = 300;
 
 export function GET() {
-  const entries = selectRecentPublications(getAllPosts()).map((post) => ({
+  const entries = selectGoogleNewsPosts(getAllPosts()).map((post) => ({
     loc: absoluteUrl(post.href),
     title: post.title,
     publicationDate: post.dateIso,

@@ -6,6 +6,7 @@ import { parseImageSize, readLocalImageSize } from "./image-size.ts";
 import { buildPageMetadata } from "./metadata.ts";
 import {
   buildNewsSitemapXml,
+  selectGoogleNewsPosts,
   selectRecentPublications,
 } from "./news-sitemap.ts";
 import { articleAuthorLd } from "./seo.ts";
@@ -156,6 +157,24 @@ describe("news sitemap", () => {
     assert.deepEqual(
       selectRecentPublications(posts, now).map((post) => post.id),
       ["fresh"],
+    );
+  });
+
+  it("drops evergreen formats even when they are inside the 48-hour window", () => {
+    const posts = [
+      { dateIso: "2026-09-22T08:00:00-03:00", id: "news", format: "noticia" },
+      { dateIso: "2026-09-22T09:00:00-03:00", id: "review", format: "review" },
+      { dateIso: "2026-09-22T10:00:00-03:00", id: "guide", format: "guia" },
+      {
+        dateIso: "2026-09-22T11:00:00-03:00",
+        id: "compare",
+        format: "comparativo",
+      },
+      { dateIso: "2026-09-22T12:00:00-03:00", id: "legacy" },
+    ];
+    assert.deepEqual(
+      selectGoogleNewsPosts(posts, now).map((post) => post.id),
+      ["news", "legacy"],
     );
   });
 
