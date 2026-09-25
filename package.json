@@ -10,7 +10,8 @@
     "lint": "eslint",
     "test": "node --experimental-strip-types --test src/lib/*.test.ts",
     "covers": "node --experimental-strip-types scripts/generate-review-covers.ts",
-    "link-evergreen": "node --experimental-strip-types scripts/link-evergreen.ts"
+    "link-evergreen": "node --experimental-strip-types scripts/link-evergreen.ts",
+    "check:posts": "node scripts/check-posts.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.23",
