@@ -13,7 +13,7 @@ import { REVIEWS_HUB_CORE, reviewsPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
 
 const DESCRIPTION =
-  "Análises, guias e comparativos no The Zero. O assunto continua na editoria; aqui fica o que não é notícia de 48 horas.";
+  "PC, celular e console medidos no uso, com o preço em real. A editoria guarda o assunto; aqui fica a compra que ainda vale depois do lançamento.";
 
 export function generateMetadata(): Metadata {
   const hasPosts = getReviewPosts().length > 0;
@@ -59,7 +59,7 @@ export default function ReviewsPage() {
             { label: "Reviews" },
           ]}
         />
-        <p className="eyebrow page-kicker">Análise e guia</p>
+        <p className="eyebrow page-kicker">Uso, não ficha</p>
         <h1 className="page-title mt-2 font-extrabold text-balance">Reviews</h1>
         <p className="lede mt-3 text-pretty">{DESCRIPTION}</p>
         <p className="mt-4 text-[0.72rem] tracking-[0.14em] text-muted uppercase">
@@ -73,8 +73,8 @@ export default function ReviewsPage() {
 
       {posts.length === 0 ? (
         <p className="mt-6 max-w-xl text-muted">
-          Zero reviews por enquanto. Quando uma análise, um guia ou um
-          comparativo entrar, aparece aqui — e continua na editoria do assunto.
+          Ainda não há review nesta página. Quando entrar, aparece aqui e
+          também na editoria do aparelho.
         </p>
       ) : (
         <div className="mt-6 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">

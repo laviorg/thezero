@@ -150,7 +150,7 @@ nomeia a entidade, não inventar `seoTitle`.
 Hub de formato, não editoria. Não entra no cabeçalho.
 
 ```
-Reviews: análise, guia e comparativo · The Zero
+Reviews: hardware, celular e jogos · The Zero
 ```
 
 H1 = `Reviews`. O núcleo segue o padrão de hub (`rótulo: ângulo curto`).

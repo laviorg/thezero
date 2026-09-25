@@ -18,7 +18,7 @@ export function ReviewRail({ posts }: { posts: Post[] }) {
     >
       <SectionHeading
         id="secao-reviews"
-        eyebrow="Análise e guia"
+        eyebrow="Uso, não ficha"
         title="Reviews"
         href="/reviews"
         actionLabel="Ver reviews"

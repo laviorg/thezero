@@ -18,7 +18,7 @@ export const PRIVACY_TITLE = "Privacidade no The Zero — dados, cookies e LGPD"
 export const CONTACT_TITLE = "Fale com a redação do The Zero";
 export const TERMS_TITLE = "Termos de uso do The Zero";
 export const SEARCH_HUB_CORE = "Busca no newsroom";
-export const REVIEWS_HUB_CORE = "Reviews: análise, guia e comparativo";
+export const REVIEWS_HUB_CORE = "Reviews: hardware, celular e jogos";
 export const NOT_FOUND_CORE = "Página não encontrada";
 
 export type BrandMode = "auto" | "always" | "never";
