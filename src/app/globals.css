@@ -267,7 +267,8 @@ input {
 }
 
 .chip-link:hover,
-.chip-link:focus-visible {
+.chip-link:focus-visible,
+.chip-link[aria-current="page"] {
   border-color: var(--tz-accent);
   background: var(--tz-accent-soft);
   color: var(--tz-accent);

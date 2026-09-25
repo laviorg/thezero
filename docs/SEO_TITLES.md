@@ -145,18 +145,24 @@ explícito (`Celulares e smartphones`).
 entidade (produto, empresa, jogo) no começo. Se a manchete já cabe e já
 nomeia a entidade, não inventar `seoTitle`.
 
-### Reviews (`/reviews`)
+### Reviews (`/reviews` e `/reviews/{linha}`)
 
-Hub de formato, não editoria. Não entra no cabeçalho.
+Hub de formato, não editoria. O item **Reviews** no cabeçalho abre o hub e
+o submenu das linhas que já têm matéria. Não cria slug de editoria e não
+compete com `/ia` ou `/jogos`.
 
 ```
 Reviews: hardware, celular e jogos · The Zero
+Reviews: {linha} · The Zero
 ```
 
-H1 = `Reviews`. O núcleo segue o padrão de hub (`rótulo: ângulo curto`).
-Vazio: `noindex`, fora do sitemap — o mesmo critério de editoria sem matéria.
-Matérias evergreen continuam indexáveis em `/noticia/[slug]` e no sitemap
-regular; só saem do Google News sitemap.
+H1 do hub = `Reviews`. H1 da linha = o rótulo (`Celulares`, `Consoles
+portáteis`). Núcleos em `src/lib/review-buckets.ts`. Linha sem matéria não
+é gerada: sem rota, sem menu, sem sitemap. O hub sem matéria fica
+`noindex` e fora do sitemap. Cada linha indexável tem canonical próprio,
+`CollectionPage` e `BreadcrumbList`. Matérias evergreen continuam
+indexáveis em `/noticia/[slug]` e no sitemap regular; só saem do Google
+News sitemap, das Últimas, do destaque e do RSS.
 
 ### Busca (`/busca`, noindex)
 

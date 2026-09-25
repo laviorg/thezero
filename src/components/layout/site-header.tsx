@@ -14,14 +14,21 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { categoryList } from "@/lib/categories";
-import { Menu, Search } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { ChevronDown, Menu, Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const nav = categoryList.map((category) => ({
   href: category.href,
   label: category.label,
 }));
+
+export type ReviewNavLink = {
+  href: string;
+  label: string;
+};
 
 function navClass(active: boolean) {
   return active
@@ -29,7 +36,168 @@ function navClass(active: boolean) {
     : "text-muted transition-colors hover:text-fg";
 }
 
-export function SiteHeader() {
+function reviewsActive(pathname: string) {
+  return pathname === "/reviews" || pathname.startsWith("/reviews/");
+}
+
+function ReviewsDesktopMenu({
+  links,
+  pathname,
+}: {
+  links: readonly ReviewNavLink[];
+  pathname: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const active = reviewsActive(pathname);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  if (links.length === 0) {
+    return (
+      <Link
+        href="/reviews"
+        className={cn("text-sm tracking-wide", navClass(active))}
+        aria-current={active ? "page" : undefined}
+      >
+        Reviews
+      </Link>
+    );
+  }
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setOpen(false);
+        }
+      }}
+    >
+      <div className="flex items-center">
+        <Link
+          href="/reviews"
+          className={cn("text-sm tracking-wide", navClass(active))}
+          aria-current={active ? "page" : undefined}
+        >
+          Reviews
+        </Link>
+        <button
+          type="button"
+          className={cn(
+            "inline-flex size-6 items-center justify-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+            active ? "text-accent" : "text-muted hover:text-fg",
+          )}
+          aria-expanded={open}
+          aria-controls="menu-reviews"
+          aria-label={open ? "Fechar linhas de produto" : "Abrir linhas de produto"}
+          onClick={() => setOpen((value) => !value)}
+        >
+          <ChevronDown
+            aria-hidden
+            className={cn("size-3.5 transition-transform", open && "rotate-180")}
+          />
+        </button>
+      </div>
+      <div hidden={!open} className="absolute right-0 top-full z-50 pt-2">
+        <nav
+          id="menu-reviews"
+          aria-label="Por produto"
+          className="border border-border border-t-2 border-t-accent bg-bg p-2 shadow-card"
+        >
+          <p className="px-2 pt-1 pb-1 text-[0.65rem] tracking-[0.16em] text-muted uppercase">
+            Por produto
+          </p>
+          <ul className="grid w-[26rem] grid-cols-2 gap-x-1">
+            {links.map((link) => {
+              const itemActive = pathname === link.href;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "block rounded-sm px-2 py-1.5 text-sm hover:bg-accent-soft",
+                      navClass(itemActive),
+                    )}
+                    aria-current={itemActive ? "page" : undefined}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  );
+}
+
+function ReviewsMobileLinks({
+  links,
+  pathname,
+}: {
+  links: readonly ReviewNavLink[];
+  pathname: string;
+}) {
+  const active = reviewsActive(pathname);
+
+  return (
+    <div className="flex flex-col gap-3">
+      <SheetClose asChild>
+        <Link
+          href="/reviews"
+          className={cn("text-lg", navClass(active))}
+          aria-current={active ? "page" : undefined}
+        >
+          Reviews
+        </Link>
+      </SheetClose>
+      {links.length > 0 ? (
+        <nav
+          aria-label="Por produto"
+          className="flex flex-col gap-2.5 border-l border-border pl-4"
+        >
+          <p className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
+            Por produto
+          </p>
+          {links.map((link) => {
+            const itemActive = pathname === link.href;
+            return (
+              <SheetClose asChild key={link.href}>
+                <Link
+                  href={link.href}
+                  className={cn("text-base", navClass(itemActive))}
+                  aria-current={itemActive ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              </SheetClose>
+            );
+          })}
+        </nav>
+      ) : null}
+    </div>
+  );
+}
+
+export function SiteHeader({
+  reviewLinks,
+}: {
+  reviewLinks: readonly ReviewNavLink[];
+}) {
   const pathname = usePathname();
 
   return (
@@ -43,7 +211,7 @@ export function SiteHeader() {
           <Wordmark className="h-8 w-auto sm:h-9" />
         </Link>
 
-        <nav aria-label="Editorias" className="hidden items-center gap-6 lg:flex">
+        <nav aria-label="Navegação" className="hidden items-center gap-6 lg:flex">
           {nav.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -57,6 +225,7 @@ export function SiteHeader() {
               </Link>
             );
           })}
+          <ReviewsDesktopMenu links={reviewLinks} pathname={pathname} />
         </nav>
 
         <div className="site-header-actions flex items-center gap-1">
@@ -112,6 +281,7 @@ export function SiteHeader() {
                     </SheetClose>
                   );
                 })}
+                <ReviewsMobileLinks links={reviewLinks} pathname={pathname} />
                 <SheetClose asChild>
                   <Link href="/sobre" className="text-lg text-muted hover:text-fg">
                     Sobre
