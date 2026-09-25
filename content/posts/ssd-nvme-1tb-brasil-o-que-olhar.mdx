@@ -1,0 +1,70 @@
+---
+title: "SSD NVMe de 1 TB no Brasil: o que olhar antes do Pix"
+excerpt: "1 TB é o piso em 2026. O que separa um SSD honesto de um que engasga no meio do jogo é o tipo de memória, a garantia com nota e o preço por terabyte no dia."
+category: computadores
+subcategory: componentes
+format: guia
+date: "2026-09-10T18:20:00-03:00"
+kicker: "Armazenamento · 1 TB"
+author: "The Zero"
+---
+
+Compre um SSD NVMe de 1 TB com memória TLC, garantia de verdade e nota no seu nome. Ignore o número enorme de leitura sequencial na caixa. Esse número quase não muda o tempo de abrir o Windows nem o jogo.
+
+NVMe é o SSD que entra no conector M.2 da placa-mãe e fala pela pista PCIe, bem mais rápido que um HD e que a maioria dos SSDs de 2,5 polegada. Em 2026, 1 TB é o tamanho mínimo de um PC que guarda sistema, alguns jogos e trabalho. 512 GB enche no segundo AAA.
+
+<Verdict overrated="GB/s estampado na embalagem" underrated="TLC, TBW e nota fiscal" />
+
+## TLC, QLC e o que acontece quando o cache acaba
+
+TLC guarda três bits por célula. QLC guarda quatro. QLC é mais barato e, em arquivo grande e contínuo, fica lento quando o cache se esgota. O cache é uma área que o SSD finge ser mais rápida por um tempo. Copiar um jogo de 80 GB para um QLC cheio é o teste que a ficha não mostra.
+
+Para sistema e jogo, prefira TLC. QLC de marca boa serve para arquivo morto, filme e backup frio, não para o disco em que o jogo instala.
+
+DRAM é uma memória cache própria do SSD. Modelos sem DRAM usam um pedaço da RAM do PC (HMB, host memory buffer). Num desktop com 16 GB ou mais, HMB de um controlador decente chega perto no uso normal. O problema é o SSD sem DRAM, sem HMB de verdade e com QLC. Esse combo aparece em oferta de marketplace.
+
+TBW é terabytes written: quanto dado o fabricante diz que o disco aguenta escrever na garantia. Em 1 TB, algo na casa de 600 TBW já é folgado para jogo e escritório. Quem edita vídeo o dia inteiro olha TBW e parte para um modelo de endurance maior, ou para um segundo disco.
+
+## O que a loja brasileira esconde no anúncio
+
+O anúncio mistura geração, dissipador e “até 7.000 MB/s”. Separe assim:
+
+- PCIe 4.0 de marca conhecida, TLC, chega para quase todo mundo. A briga com PCIe 5.0 está em [vale pagar a geração nova](/noticia/pcie-4-vs-5-ssd-vale-a-diferenca).
+- Dissipador incluso só importa se a placa-mãe não tapa o M.2. Muitos B650 já trazem chapa. Dois dissipadores empilhados entortam o conector.
+- Garantia de cinco anos no site do fabricante não vale sem nota. Guarde o PDF. Mercado Livre e grupos de oferta adoram unidade “paralela” com serial que a assistência recusa.
+- Preço por terabyte. Um 1 TB a um valor e um 2 TB com desconto por giga mudam a decisão se você instala mais de quatro jogos grandes.
+
+Marcas que aparecem com nota em loja brasileira — Kingston, WD, Samsung, Crucial, XPG, Corsair — não são um ranking. São um filtro contra o no-name que troca de nome todo mês. Dentro da marca, leia o modelo. A linha de entrada da mesma empresa pode ser QLC.
+
+## Instalação que não vira suporte
+
+O slot M.2 certo é o que sai do processador, em geral o primeiro, perto do soquete. Slot ligado ao chipset também funciona; em placa barata ele divide banda com portas SATA. O manual diz qual SATA morre quando o segundo M.2 está ocupado. Leia antes de aparafusar.
+
+Parafuso folgado, SSD sem contato, placa que não dá boot: na maioria das vezes é encaixe, não defeito. Atualizar a BIOS da placa-mãe antes de um SSD muito novo evita a placa “não ver” o disco.
+
+Não encha o SSD até 95%. Acima de uns 80% ocupados, o controlador tem menos espaço para organizar escrita e a máquina parece velha sem estar.
+
+HD externo e SSD portátil resolvem outra tarefa — cópia e backup — e não substituem o NVMe interno. A diferença está em [HD externo contra SSD portátil](/noticia/hd-externo-vs-ssd-portatil).
+
+## O que não comprar
+
+- SSD de 1 TB sem o tipo de NAND escrito em lugar nenhum.
+- Anúncio que só mostra “NVMe” e uma foto genérica.
+- Preço muito abaixo da Kingston ou WD do mesmo tamanho na mesma semana. Ou é QLC sem dizer, ou é golpe.
+- “2 TB” vendido por vendedor novo, com avaliação comprada. Capacidade falsa ainda existe. Confira no Gerenciamento de Disco do Windows e no CrystalDiskInfo depois de instalar. Se o número não bater, devolva na hora.
+
+Formate como GPT e instale o Windows nele, não num HD que sobrou “porque ainda funciona”. O HD pode ser arquivo. Não pode ser o disco do sistema.
+
+## Veredito
+
+1 TB, TLC, marca que tem assistência no Brasil, nota no seu CPF ou CNPJ. PCIe 4.0 basta. Gaste a diferença de um PCIe 5.0 em capacidade: 2 TB TLC quando a promoção for real.
+
+Se o orçamento só fecha com QLC, aceite que cópia grande vai engasgar e não use esse disco como único lugar dos seus arquivos.
+
+<Rule>
+Sequencial da caixa é marketing. TLC, TBW e nota fiscal são o produto.
+</Rule>
+
+O resto das peças está em [Componentes](/computadores/componentes). O arquivo evergreen fica em [Reviews](/reviews).
+
+The Zero.
