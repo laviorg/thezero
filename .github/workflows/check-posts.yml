@@ -1,0 +1,42 @@
+name: check-posts
+
+on:
+  pull_request:
+    paths:
+      - "content/posts/**"
+      - "public/images/posts/**"
+
+permissions:
+  contents: read
+
+jobs:
+  check-posts:
+    name: check-posts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Verificar posts alterados
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="${{ github.event.pull_request.base.sha }}"
+          head="${{ github.event.pull_request.head.sha }}"
+          mapfile -t files < <(git diff --name-only --diff-filter=ACMR "$base" "$head" -- content/posts public/images/posts)
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "Nenhum post ou imagem de post alterado."
+            exit 0
+          fi
+          node scripts/check-posts.mjs "${files[@]}"
