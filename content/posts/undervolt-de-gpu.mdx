@@ -1,0 +1,52 @@
+---
+title: "Undervolt de GPU: menos calor sem perder fps"
+excerpt: "Baixar a voltagem da placa reduz calor e barulho e, no ponto certo, mantém o fps. Passe do ponto e o jogo fecha. O teste é o jogo que você joga, não um benchmark de três minutos."
+category: computadores
+subcategory: componentes
+format: guia
+date: "2026-09-17T11:10:00-03:00"
+kicker: "GPU · undervolt"
+author: "The Zero"
+---
+
+Undervolt na placa de vídeo vale a pena quando ela esquenta, faz barulho ou o notebook reduz o clock no meio da partida. Você pede a mesma performance com menos voltagem. No ponto certo, o fps fica. Abaixo desse ponto, o driver cai ou o jogo fecha. Não é overclock ao contrário com mágica: é margem que a placa já tinha.
+
+Undervolt é diminuir a tensão elétrica do chip. Menos tensão, menos calor, para um clock parecido. A placa para de gritar e, em notebook, para de se afogar na própria temperatura.
+
+<Verdict overrated="copiar a curva de um vídeo qualquer" underrated="testar no seu jogo por uma hora" />
+
+## O que você mexe
+
+Na Nvidia, o caminho comum é o MSI Afterburner: curva de frequência por voltagem. Você achata a curva num clock que a placa já segura e numa tensão menor que a de fábrica. Na AMD, o Adrenalin tem limite de voltagem e offset. Os menus mudam de versão. O princípio não muda: um passo pequeno, aplicar, testar.
+
+Não comece no mínimo do slider. Comece perto do padrão e desça. Se a tela piscar, se o driver resetar ou se o jogo fechar, volte um passo. Salve o perfil que aguentou. Coloque para aplicar com o Windows só depois de uma semana estável. Perfil que só viveu num benchmark de três minutos não é perfil.
+
+O jogo de teste é o que você joga, com a qualidade que você usa. Benchmark sintético não carrega a memória do mesmo jeito. Uma hora de partida vale mais que o gráfico bonito do tutorial.
+
+## O que não esperar
+
+Não espere fps maior. Em desktop com cooler folgado, o fps fica igual e a ventoinha desacelera. O ganho de quadro aparece quando a placa estava derrubando clock por calor — típico de notebook e de gabinete sem ar. Aí o undervolt segura o clock que o térmico roubava. É menos queda, não é uma placa nova.
+
+Não substitui fonte ruim. Placa que reinicia em pico pode ser alimentação, não voltagem fina. A conta de watts da [4060 e da 4070](/noticia/fonte-rtx-4060-e-4070-quantos-watts) continua valendo. Não substitui pasta seca nem gabinete tampado; isso está em [quando trocar a pasta](/noticia/pasta-termica-quando-trocar).
+
+Cada chip sai de fábrica com uma margem. A curva do vídeo do seu modelo é ponto de partida, não é garantia. A 4060 do vídeo não é a sua 4060.
+
+## Risco
+
+O risco prático é instabilidade: fechamento, artefato na tela, boot que volta ao driver padrão. Não é, no uso normal, queimar a placa. Você não está subindo voltagem. Mesmo assim, não faça undervolt e overclock de memória no mesmo dia. Uma variável por vez.
+
+Notebook com modo de fabricante (Armoury Crate, Lenovo Vantage, e por aí vai) pode repor a curva na atualização. Anote o que você fez. Garantia: undervolt em software dificilmente deixa marca, e a loja pode discutir se você mexeu. Se o aparelho está na garantia e o defeito é temperatura absurda de fábrica, acione a garantia antes de virar técnico.
+
+Atualização de driver às vezes zera o Afterburner. Se o PC esquentou “do nada” depois de um update, o perfil não subiu. Confira.
+
+## Veredito
+
+Vale em placa quente ou barulhenta, com passo curto e teste no jogo real. Não vale como projeto de fim de semana num desktop que já fica a 65 °C quieto. Estável por uma semana: deixa. Instável: desfaz. fps igual com menos barulho já é o resultado.
+
+<Rule>
+Undervolt bom é o que você esquece. Se precisa rezar na hora de abrir o jogo, a curva passou do ponto.
+</Rule>
+
+Mais em [Componentes](/computadores/componentes) e [Reviews](/reviews).
+
+The Zero.
