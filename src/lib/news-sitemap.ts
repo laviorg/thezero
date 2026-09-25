@@ -22,6 +22,16 @@ export function selectRecentPublications<T extends { dateIso: string }>(
   });
 }
 
+/** Google News only. Evergreen formats stay in the regular sitemap. */
+export function selectGoogleNewsPosts<
+  T extends { dateIso: string; format?: string },
+>(posts: T[], now = Date.now()): T[] {
+  return selectRecentPublications(
+    posts.filter((post) => (post.format ?? "noticia") === "noticia"),
+    now,
+  );
+}
+
 export function escapeXml(value: string) {
   return value
     .replaceAll("&", "&amp;")

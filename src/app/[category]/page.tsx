@@ -10,7 +10,7 @@ import { categoryList, getCategory, isCategorySlug } from "@/lib/categories";
 import { buildPageMetadata } from "@/lib/metadata";
 import {
   getActiveSubcategories,
-  getAllPosts,
+  getNewsPosts,
   getPostsByCategory,
 } from "@/lib/posts";
 import { HOME_CRUMB_LABEL } from "@/lib/seo";
@@ -64,7 +64,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const featured = posts[0];
   const rest = posts.slice(1);
   const pageUrl = absoluteUrl(category.href);
-  const elsewhere = getAllPosts().filter(
+  const elsewhere = getNewsPosts().filter(
     (post) => post.category !== category.slug,
   );
 

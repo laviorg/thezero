@@ -145,6 +145,19 @@ explícito (`Celulares e smartphones`).
 entidade (produto, empresa, jogo) no começo. Se a manchete já cabe e já
 nomeia a entidade, não inventar `seoTitle`.
 
+### Reviews (`/reviews`)
+
+Hub de formato, não editoria. Não entra no cabeçalho.
+
+```
+Reviews: análise, guia e comparativo · The Zero
+```
+
+H1 = `Reviews`. O núcleo segue o padrão de hub (`rótulo: ângulo curto`).
+Vazio: `noindex`, fora do sitemap — o mesmo critério de editoria sem matéria.
+Matérias evergreen continuam indexáveis em `/noticia/[slug]` e no sitemap
+regular; só saem do Google News sitemap.
+
 ### Busca (`/busca`, noindex)
 
 ```

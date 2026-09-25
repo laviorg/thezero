@@ -1,5 +1,5 @@
 import { categoryList, subcategoryList } from "./categories";
-import { getAllPosts, getPostsByCategory } from "./posts";
+import { getAllPosts, getPostsByCategory, getReviewPosts } from "./posts";
 import {
   BRAND_NAME,
   TITLE_HARD_MAX,
@@ -10,6 +10,7 @@ import {
   homePageTitle,
   notFoundPageTitle,
   privacyPageTitle,
+  reviewsPageTitle,
   searchPageTitle,
   subcategoryPageTitle,
   termsPageTitle,
@@ -30,6 +31,11 @@ export function collectDocumentTitles(): TitledPath[] {
     { path: "/contato", title: contactPageTitle(), indexable: true },
     { path: "/termos", title: termsPageTitle(), indexable: true },
     { path: "/busca", title: searchPageTitle(), indexable: false },
+    {
+      path: "/reviews",
+      title: reviewsPageTitle(),
+      indexable: getReviewPosts().length > 0,
+    },
     { path: "/404", title: notFoundPageTitle(), indexable: false },
   ];
 

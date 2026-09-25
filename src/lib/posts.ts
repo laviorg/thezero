@@ -13,7 +13,15 @@ import {
   type SubcategorySlug,
 } from "@/lib/categories";
 import { readingTimeMinutes, toIsoDate } from "@/lib/format";
+import {
+  isEvergreenFormat,
+  isNewsFormat,
+  parsePostFormat,
+  type PostFormat,
+} from "@/lib/post-format";
 import { site } from "@/lib/site";
+
+export { isEvergreenFormat, isNewsFormat, type PostFormat };
 
 export type PostFrontmatter = {
   title: string;
@@ -32,6 +40,11 @@ export type PostFrontmatter = {
   cover?: string;
   coverAlt?: string;
   coverCredit?: string;
+  /**
+   * Orthogonal to editoria. Omitted frontmatter stays `noticia`.
+   * `review` | `guia` | `comparativo` are evergreen and stay off the news stream.
+   */
+  format: PostFormat;
 };
 
 export type Post = PostFrontmatter & {
@@ -101,6 +114,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     cover: cover || undefined,
     coverAlt: coverAlt || undefined,
     coverCredit: coverCredit || undefined,
+    format: parsePostFormat(data.format, slug),
   };
 }
 
@@ -167,6 +181,20 @@ export function getPostBySlug(slug: string): Post | undefined {
   return getAllPosts().find((post) => post.slug === slug);
 }
 
+export function getNewsPosts(): Post[] {
+  return getAllPosts().filter(isNewsFormat);
+}
+
+export function getPostsByFormat(format: PostFormat): Post[] {
+  return getAllPosts().filter((post) => (post.format ?? "noticia") === format);
+}
+
+/** Evergreen formats (`review`, `guia`, `comparativo`), newest first. */
+export function getReviewPosts(limit?: number): Post[] {
+  const posts = getAllPosts().filter(isEvergreenFormat);
+  return typeof limit === "number" ? posts.slice(0, limit) : posts;
+}
+
 export function getPostsByCategory(category: CategorySlug): Post[] {
   return getAllPosts().filter((post) => post.category === category);
 }
@@ -197,8 +225,7 @@ export function getActiveSubcategories(
   );
 }
 
-export function getFeaturedPost(): Post | undefined {
-  const posts = getAllPosts();
+export function getFeaturedPost(posts = getNewsPosts()): Post | undefined {
   const featured = posts
     .filter((post) => post.featured)
     .sort(

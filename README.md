@@ -34,7 +34,8 @@ npm run lint
 
 | Rota | O quê |
 | --- | --- |
-| `/` | Newsroom (destaque + editorias) |
+| `/` | Newsroom (destaque + editorias + reviews, se houver) |
+| `/reviews` | Análises, guias e comparativos (não é editoria) |
 | `/tecnologia` `/ia` `/computadores` `/dispositivos` `/aplicativos` `/jogos` | Editorias |
 | `/[editoria]/[subcategoria]` | Assuntos ativos dentro de uma editoria |
 | `/noticia/[slug]` | Matéria |
@@ -74,6 +75,8 @@ coverCredit: "Apple / Divulgação"
 `title` é a manchete (H1, cards, RSS, Google News). `seoTitle` é opcional: entra no `<title>` e no Open Graph só quando a manchete é longa demais para a SERP. A marca ` · The Zero` é sufixo do código, não se escreve no frontmatter. Regras em [`docs/SEO_TITLES.md`](docs/SEO_TITLES.md). Checklist de indexação, sitemap e Search Console: [`docs/SEO.md`](docs/SEO.md).
 
 `category` tem de ser um de: `tecnologia` · `ia` · `computadores` · `dispositivos` · `aplicativos` · `jogos`.
+
+`format` é opcional: `noticia` (padrão), `review`, `guia` ou `comparativo`. Não vira item do menu. Review, guia e comparativo aparecem em `/reviews` e na editoria do assunto; ficam fora do destaque, das Últimas, do RSS e do news sitemap.
 
 `subcategory` é opcional, mas recomendada quando houver encaixe. Ela precisa pertencer à editoria escolhida; a lista e as regras de fronteira ficam em [`docs/TAXONOMY.md`](docs/TAXONOMY.md). Subcategorias com matérias ganham hub próprio em `/[editoria]/[subcategoria]`.
 

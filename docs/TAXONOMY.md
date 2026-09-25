@@ -22,6 +22,11 @@ a ela. A taxonomia não usa categorias secundárias: assuntos transversais
 continuam no `kicker` e no texto até existir uma necessidade comprovada de
 tags.
 
+Formato (`noticia`, `review`, `guia`, `comparativo`) é um campo de
+frontmatter, não uma sétima editoria. Sem `format`, a matéria é `noticia`.
+Reviews, guias e comparativos continuam na editoria do assunto e saem do
+fluxo de notícias da home, do RSS e do Google News sitemap.
+
 **Tecnologia é a rede de segurança, não o guarda-chuva padrão.** Ela recebe
 cobertura mais ampla de indústria, ciência aplicada, infraestrutura geral,
 tendências e pautas transversais quando a tese é “tech”, mas não especificamente

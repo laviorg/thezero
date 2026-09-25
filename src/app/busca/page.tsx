@@ -4,7 +4,7 @@ import { PageShell } from "@/components/layout/page-shell";
 import { SearchForm } from "@/components/search/search-form";
 import { categoryList } from "@/lib/categories";
 import { buildPageMetadata } from "@/lib/metadata";
-import { getAllPosts, searchPosts } from "@/lib/posts";
+import { getNewsPosts, searchPosts } from "@/lib/posts";
 import { site } from "@/lib/site";
 import { searchPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
@@ -39,7 +39,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const { q } = await searchParams;
   const query = q?.trim() ?? "";
   const results = query ? searchPosts(query) : [];
-  const latest = getAllPosts().slice(0, 6);
+  const latest = getNewsPosts().slice(0, 6);
 
   return (
     <PageShell>

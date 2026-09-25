@@ -72,7 +72,7 @@ JSON-LD escapa `<` para não quebrar o `<script>`.
 - Sobre, contato, privacidade e termos: sem `lastmod`. A data da última matéria não é a data dessas páginas, e um `lastmod` mentiroso faz o Google desconfiar do arquivo inteiro.
 - `changefreq` e `priority` saíram. O Google ignora os dois.
 - Cada matéria lista a capa e o cartaz OG em `image:image`.
-- O news sitemap só tem matéria publicada nas últimas 48 horas, com `news:name` = `The Zero`, `news:language` = `pt`, `news:publication_date` = data original (não a data em que entrou no sitemap) e `news:title` = H1. Sem `news:keywords`.
+- O news sitemap só tem matéria `noticia` publicada nas últimas 48 horas, com `news:name` = `The Zero`, `news:language` = `pt`, `news:publication_date` = data original (não a data em que entrou no sitemap) e `news:title` = H1. Sem `news:keywords`. `review`, `guia` e `comparativo` ficam no sitemap regular e em `/reviews`.
 - O news sitemap revalida a cada 5 minutos para a matéria cair da janela de 48 h mesmo sem um deploy novo. Matéria nova continua dependendo de deploy, porque o MDX vai no build.
 - Cada `<loc>` usa o origin `https://www.thezero.com.br`. URL do apex no sitemap faria o Google buscar um 308.
 

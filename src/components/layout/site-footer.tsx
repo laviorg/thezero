@@ -1,12 +1,12 @@
 import { SplitOMark, Wordmark } from "@/components/brand/logo";
 import { FooterCookiesLink } from "@/components/consent/footer-cookies-link";
 import { categoryList } from "@/lib/categories";
-import { getAllPosts } from "@/lib/posts";
+import { getNewsPosts } from "@/lib/posts";
 import { site } from "@/lib/site";
 import Link from "next/link";
 
 export function SiteFooter() {
-  const latestPosts = getAllPosts().slice(0, 4);
+  const latestPosts = getNewsPosts().slice(0, 4);
 
   return (
     <footer className="relative mt-auto overflow-hidden border-t border-border bg-bg">
@@ -78,6 +78,11 @@ export function SiteFooter() {
             <li>
               <Link href="/termos" className="hover:text-accent">
                 Termos
+              </Link>
+            </li>
+            <li>
+              <Link href="/reviews" className="hover:text-accent">
+                Reviews
               </Link>
             </li>
             <li>
