@@ -19,6 +19,13 @@ import { HOME_TITLE, homePageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
 
+/**
+ * Static HTML from the MDX shipped in this deploy. `/` has no `revalidate`,
+ * so a post merged to main is the hero on the next build. Posts are read
+ * from disk at build time, not through a data cache that could outlive the deploy.
+ */
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: HOME_TITLE,

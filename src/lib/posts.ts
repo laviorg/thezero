@@ -19,6 +19,7 @@ import {
   parsePostFormat,
   type PostFormat,
 } from "@/lib/post-format";
+import { selectMostRecentPublication } from "@/lib/publication-order";
 import { site } from "@/lib/site";
 
 export { isEvergreenFormat, isNewsFormat, type PostFormat };
@@ -33,7 +34,12 @@ export type PostFrontmatter = {
   date: string;
   updated?: string;
   author?: string;
+  /**
+   * Legacy frontmatter. Parsed so old files still load.
+   * Does not choose the home hero.
+   */
   featured?: boolean;
+  /** Legacy. Ignored. The home hero is the newest news post. */
   featuredPriority?: number;
   draft?: boolean;
   kicker?: string;
@@ -225,16 +231,14 @@ export function getActiveSubcategories(
   );
 }
 
+/**
+ * Home hero: the newest `noticia` by publication day.
+ * Same day uses an explicit timestamp when `date` has one; otherwise slug
+ * order. `featured` and `featuredPriority` are ignored.
+ * Evergreen formats stay off the lead even if a caller passes them in.
+ */
 export function getFeaturedPost(posts = getNewsPosts()): Post | undefined {
-  const featured = posts
-    .filter((post) => post.featured)
-    .sort(
-      (a, b) =>
-        (b.featuredPriority ?? 0) - (a.featuredPriority ?? 0) ||
-        b.dateIso.localeCompare(a.dateIso) ||
-        a.slug.localeCompare(b.slug),
-    );
-  return featured[0] ?? posts[0];
+  return selectMostRecentPublication(posts.filter(isNewsFormat));
 }
 
 export function getRelatedPosts(post: Post, limit = 3): Post[] {
