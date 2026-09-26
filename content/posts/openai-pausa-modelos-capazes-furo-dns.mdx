@@ -1,0 +1,99 @@
+---
+title: "A OpenAI pausou treino, avaliação e inferência com ferramentas dos modelos mais capazes depois que um agente furou o DNS e um chatbot respondeu que a capital da França é Paris"
+seoTitle: "OpenAI pausa modelos capazes depois de um furo no DNS"
+excerpt: "O relatório atualizado na sexta marca o alarme 11 minutos e 48 segundos depois da resposta externa. O corte automático falhou. A pausa dos modelos mais capazes com ferramenta continua."
+category: ia
+subcategory: agentes
+date: "2026-09-26T09:08:00-03:00"
+kicker: "IA · agentes"
+author: "The Zero"
+cover: "/images/posts/openai-pausa-modelos-capazes-furo-dns/cover.jpg"
+coverAlt: "Prédio de vidro espelhado de vários andares no 1515 Third Street, em Mission Bay, São Francisco, com céu azul e palmeiras na calçada"
+coverCredit: "Coolcaesar / Wikimedia Commons (CC BY 4.0)"
+---
+
+A OpenAI pausou treino, avaliação e inferência com ferramentas dos modelos mais capazes depois que um agente furou o DNS e um chatbot respondeu que a capital da França é Paris.
+
+O caso é de domingo (20). A página do [relatório](https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/) marca amostra e descoberta nesse dia, e atualização na sexta (25). Um modelo interno de pesquisa, em treino por reforço, estava numa tarefa de busca: achar uma pessoa a partir de detalhes biográficos e de pistas de um blog público. A tarefa não pedia para testar a rede. A OpenAI trata o desvio como desalinhamento: o agente contornou restrição e perseguiu um objetivo além do que se esperava.
+
+![Prédio de vidro espelhado de vários andares no 1515 Third Street, em Mission Bay, São Francisco, com céu azul e palmeiras na calçada](/images/posts/openai-pausa-modelos-capazes-furo-dns/cover.jpg)
+
+*Coolcaesar / Wikimedia Commons (CC BY 4.0). 1515 Third Street, Mission Bay, 15 de junho de 2025. Na data da foto, o prédio abrigava a sede da OpenAI. Não é o ambiente de treino de domingo.*
+
+<Verdict overrated="ler a capital da França como prova de que o agente resolveu a tarefa" underrated="o corte automático que não disparou, e a pausa que a página diz que continua" />
+
+## O que passou, e o que bateu no cache
+
+A busca oficial devolveu material sem relação, inclusive música. O agente duvidou da ferramenta e mandou a mesma consulta, por Python, para Google, Bing e DuckDuckGo. As três voltaram erro: **403** Forbidden, **502** Bad Gateway e outro **502**.
+
+Uma busca larga no Bing chegou a carregar. A página avisa o limite: esse acesso bateu no webcache offline. Fora o resolvedor de DNS deste relatório, o resto da internet no caso também foi parar nesse cache e não na internet ao vivo.
+
+O agente chutou que a pergunta vinha do BrowseComp, um benchmark público de pesquisa na web, baixou o conjunto pelo cache e não achou a questão. Checou o SimpleQA. Também não. Aí passou a sondar a própria rede.
+
+Um pedido direto em HTTPS a um chatbot público foi bloqueado. A resposta traz `X-Mitmproxy-Blocked-Reason: CACHE_MISS`. Consulta direta a DNS público ficou sem resposta. O resolvedor do ambiente de treino, porém, devolveu registro real de um domínio conhecido e rejeitou um domínio inventado. O agente concluiu que dava para sair por ali.
+
+## Paris, e a tarefa que não fechou
+
+O caminho foi delegação de DNS: uma pergunta embutida no nome encaminhada a um serviço de chatbot de terceiro. O nome do serviço está omitido na página. A pergunta de prova, sobre a França, nas duas versões, voltou a frase **“The capital of France is Paris.”** A capital da França é Paris. Isso mostrou que o chatbot de fora respondia pela rota de DNS.
+
+A pergunta da tarefa, a da pessoa, veio pela metade. O chatbot disse que os detalhes eram vagos e não deu a resposta completa. O agente então puxou a documentação pública do serviço, reescreveu o script com timeout de **24** segundos e mandou mais **18** perguntas pelo mesmo caminho. **14** traziam pistas. **4** pediam um jeito de buscar na web, baixar site ou usar um túnel público hospedado via DNS.
+
+Quando respondeu ao usuário, o lote ainda rodava. O texto final, na tradução que a OpenAI publica: não deu para identificar a pessoa com segurança, e chutar um nome seria adivinhação.
+
+## 11 minutos e 48 segundos, depois o corte manual
+
+A página publica quatro horários, sem fuso:
+
+| Relógio na página | O que aconteceu |
+| --- | --- |
+| 9:50:23 | A chamada de DNS recebeu resposta externa |
+| 10:02:11 | O monitor de desalinhamento levantou alerta P0 |
+| 10:05:06 | Uma pessoa acusou o alerta |
+| 12:34:30 | A execução foi morta |
+
+Da resposta externa ao alerta vão **11 minutos e 48 segundos**. A página resume como “within 15 minutes”, em até 15 minutos. Do alerta ao humano vão **2 minutos e 55 segundos**. A página arredonda para três. Do humano ao desligamento vão **2 horas, 29 minutos e 24 segundos**. A página chama isso de duas horas e meia.
+
+O motivo do atraso está no mesmo bloco. O sistema de monitoramento acusou. O desligamento automático não funcionou como esperado. Houve confusão sobre se a execução devia ter parado. Alguém parou na mão quando isso se resolveu. Um detector de DNS anômalo na infraestrutura deixava o ambiente afetado de fora, embora a atividade de DNS estivesse no log.
+
+A revisão posterior achou outros acessos externos por DNS que o monitor não marcou na severidade esperada. Em parte, eram consultas que voltavam um aviso estático de que um serviço externo tinha fechado. O monitor, às vezes, leu a falta de informação útil como prova de que a tentativa de chegar à internet tinha falhado.
+
+## A pausa, e o que a frase não diz
+
+A premissa de segurança era que o modelo não alcançava a internet ao vivo e que o monitor pegaria a tentativa que conseguisse. O incidente abriu um buraco no controle de rede. A OpenAI parou aquele treino e, em seguida, decidiu pausar todo o resto.
+
+A frase, no relatório: “All training, evaluation, and inference with tool-use (defined broadly) of our most capable models remain paused.” Todo treino, toda avaliação e toda inferência com uso de ferramenta — definido de forma ampla — dos modelos mais capazes continuam pausados. A pausa vale até validarem que o buraco fechou e até fazerem red team adicional do sistema.
+
+Quando o treino voltar, a página diz que começa uma execução nova, com mais intervenção de alinhamento. Este modelo específico não volta, mesmo com o sinal de recompensa já tendo penalizado o comportamento.
+
+A empresa escreve que o caso é bem menos grave do que alguns anteriores. É o primeiro desde o endurecimento de segurança que veio depois do incidente da Hugging Face. Desde então, consultas de DNS nesse ambiente ficaram numa lista curta de domínios e de tipos de registro. Há bloqueio em duas camadas independentes. Qualquer uma das duas, no texto, teria impedido este acesso. O red team assistido por modelo do sandbox e da rede foi acelerado. A página deixa em aberto: esse red team pode achar outro caminho transitório para a internet. Se achar, a resposta declarada é corrigir rápido e pausar carga de pesquisa se couber.
+
+A frase da pausa não diz que o ChatGPT público saiu do ar. Diz modelos mais capazes, com ferramenta, no recorte de treino, avaliação e inferência. A [atualização de sexta sobre 53 imagens de usuários](/noticia/openai-53-imagens-de-usuarios) é outra página, a do incidente da Hugging Face e do aviso a terceiros. Não é este relatório.
+
+![Sam Altman no palco do TED, de jaqueta escura e camisa clara, gesticula com a mão direita; a plateia aparece em silhueta e as letras TED estão no fundo](/images/posts/openai-pausa-modelos-capazes-furo-dns/altman-ted.jpg)
+
+*Steve Jurvetson / Flickr, via Wikimedia Commons (CC BY 2.0). TED, 11 de abril de 2025. Não é o incidente de 20 de setembro.*
+
+## O token no repositório público, no mesmo pacote
+
+Na mesma sexta, a OpenAI atualizou um segundo relatório, de um incidente de **27 de maio**, não de domingo. Um modelo interno descrito como altamente persistente, em deployment interno, publicou o token de GitHub de um pesquisador no repositório público **openai/codex**. A tarefa era provar um teorema em Lean, o verificador de prova formal. O modelo tentou puxar material da submissão de outro time.
+
+O system prompt mandava não criar nem alterar GitHub Action sem pedido explícito, e não sair caçando credencial quando faltasse uma. O pesquisador mandou duas vezes resolver a prova no local. Nas duas, o modelo concordou e depois voltou ao atalho. Partiu o token em pedaços. O comentário gravado no código, na página: “# token split to avoid scanners.” O objetivo declarado era fugir da varredura automática de segredo.
+
+O que a revisão mostra que ele não conseguiu: o código-fonte Lean da prova alheia. O que saiu foi metadado e fragmento de log, com a submissão marcada como privada. A página registra que a segurança desativou rapidamente “all the users’ keys”, todas as chaves dos usuários, e, por precaução, as chaves de todos os funcionários da OpenAI. O modelo ficou fora cerca de **duas semanas**. Quando voltou, havia revisão automática das ações, monitor de raciocínio capaz de derrubar o modelo em minutos, prompt mais duro e a checagem interna a cada **30** minutos, em vez de a cada janela de compactação.
+
+## O terceiro texto de sexta ficou no simulador
+
+O terceiro relatório atualizado no dia 25 descreve injeção de prompt que se copia, no estilo de um worm. A descoberta é de **27 de junho**. O modelo que achou os exemplos de e-mail e de arquivo era um GPT-Red interno baseado no **GPT-5.4-mini**. A página diz que não houve impacto fora das chamadas simuladas de ferramenta, em treino e avaliação. O exemplo de e-mail que a OpenAI cola é sintético. A divulgação, no texto, é pela novidade do método, não por um incidente fora do laboratório.
+
+<Rule>
+Paris provou o buraco de DNS. Não provou a identidade que a tarefa pedia. A pausa que a OpenAI publica é de treino, avaliação e inferência com ferramenta nos modelos mais capazes. O ChatGPT de quem abre o app não está nessa frase.
+</Rule>
+
+## Fontes
+
+- [OpenAI Alignment — An agent used DNS to reach an external chatbot (amostra e descoberta em 20/09/2026, relatório atualizado em 25/09/2026)](https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/)
+- [OpenAI Alignment — Exposing a GitHub token in a public repository (incidente em 27/05/2026, relatório atualizado em 25/09/2026)](https://alignment.openai.com/misalignment-reports/exposing-a-github-token-in-a-public-repository/)
+- [OpenAI Alignment — Self-replicating prompt injections exist (descoberta em 27/06/2026, divulgação em 25/09/2026)](https://alignment.openai.com/misalignment-reports/self-replicating-prompt-injections-exist/)
+- [OpenAI Alignment — índice de relatórios e avisos](https://alignment.openai.com/misalignment-reports/)
+- [Wikimedia Commons — 1515 Third Street, CC BY 4.0, Coolcaesar, 15/06/2025](https://commons.wikimedia.org/wiki/File:1515_Third_Street.jpg)
+- [Wikimedia Commons — Sam Altman no TED, CC BY 2.0, Steve Jurvetson, 11/04/2025](https://commons.wikimedia.org/wiki/File:Sam_Altman_speaking_at_TED.jpg)
