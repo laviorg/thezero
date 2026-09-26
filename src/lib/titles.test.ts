@@ -146,8 +146,8 @@ describe("format hub titles", () => {
     assert.equal(tutorials, "Tutoriais: iPhone, Android e jogos · The Zero");
     assert.ok(titleLength(vale) <= TITLE_HARD_MAX);
     assert.ok(titleLength(tutorials) <= TITLE_HARD_MAX);
-    assert.equal(vale === tutorials, false);
-    assert.equal(vale === reviewsPageTitle(), false);
+    assert.notEqual(vale, tutorials);
+    assert.notEqual(vale, reviewsPageTitle());
   });
 });
 
