@@ -409,6 +409,126 @@ const RELATED: Record<string, readonly string[]> = {
     "steam-deck-oled-vs-zeenix-pro",
     "rog-ally-x-brasil-preco-desempenho",
   ],
+  "anbernic-rg-cubexx-emulacao-classica": [
+    "pc-portatil-vs-android-odin-ayaneo",
+    "anbernic-rg35xx-h-barato",
+  ],
+  "anbernic-rg35xx-h-barato": [
+    "emular-no-steam-deck-expectativa-real",
+    "anbernic-rg-cubexx-emulacao-classica",
+  ],
+  "ayaneo-2s-desempenho-tela-brasil": [
+    "ayaneo-2s-vs-rog-ally",
+    "importar-ayaneo-ou-ayn-brasil",
+  ],
+  "ayaneo-2s-vs-rog-ally": [
+    "rog-ally-z1-extreme-2026-brasil",
+    "ayaneo-2s-desempenho-tela-brasil",
+  ],
+  "ayaneo-kun-tela-peso-preco": [
+    "ayaneo-2s-vs-rog-ally",
+    "legion-go-vs-rog-ally",
+  ],
+  "ayaneo-next-lite-entrada": [
+    "ayaneo-2s-vs-rog-ally",
+    "zeenix-lite-portatil-barato",
+  ],
+  "ayaneo-pocket-air-oled": [
+    "odin-2-vs-retroid-pocket-5",
+    "pc-portatil-vs-android-odin-ayaneo",
+  ],
+  "ayaneo-pocket-s-android-emulacao": [
+    "ayn-odin-2-setup-emulacao",
+    "odin-2-vs-retroid-pocket-5",
+  ],
+  "ayaneo-slide-teclado-faz-sentido": [
+    "importar-ayaneo-ou-ayn-brasil",
+    "gpd-win-4-teclado-para-quem",
+  ],
+  "ayn-odin-2-android-vs-pc-portatil": [
+    "ayn-odin-2-setup-emulacao",
+    "odin-2-vs-retroid-pocket-5",
+  ],
+  "ayn-odin-2-mini-compacto": [
+    "odin-2-vs-retroid-pocket-5",
+    "retroid-pocket-mini-bolso",
+  ],
+  "ayn-odin-2-portal-tela-maior": [
+    "ayn-odin-2-setup-emulacao",
+    "odin-2-vs-retroid-pocket-5",
+  ],
+  "ayn-odin-2-setup-emulacao": [
+    "ayn-odin-2-android-vs-pc-portatil",
+    "emular-no-steam-deck-expectativa-real",
+  ],
+  "ayn-thor-dual-screen": [
+    "ayn-odin-2-setup-emulacao",
+    "ayn-odin-2-portal-tela-maior",
+  ],
+  "gpd-win-4-teclado-para-quem": [
+    "importar-ayaneo-ou-ayn-brasil",
+    "ayaneo-slide-teclado-faz-sentido",
+  ],
+  "gpd-win-mini-7-ryzen": [
+    "windows-no-handheld-vs-steamos",
+    "gpd-win-4-teclado-para-quem",
+  ],
+  "importar-ayaneo-ou-ayn-brasil": [
+    "ayaneo-2s-desempenho-tela-brasil",
+    "steam-deck-oled-brasil-preco-doi",
+  ],
+  "legion-go-s-steamos": [
+    "windows-no-handheld-vs-steamos",
+    "legion-go-vs-rog-ally",
+  ],
+  "msi-claw-8-ai-bateria-jogos": [
+    "rog-ally-tdp-bateria-configs",
+    "rog-ally-x-brasil-preco-desempenho",
+  ],
+  "odin-2-vs-retroid-pocket-5": [
+    "ayn-odin-2-android-vs-pc-portatil",
+    "retroid-pocket-5-custo-beneficio",
+  ],
+  "onexplayer-x1-tablet-console-brasil": [
+    "qual-console-portatil-comprar-2026-brasil",
+    "legion-go-vs-rog-ally",
+  ],
+  "pc-portatil-vs-android-odin-ayaneo": [
+    "ayn-odin-2-android-vs-pc-portatil",
+    "rog-ally-x-brasil-preco-desempenho",
+  ],
+  "qual-console-portatil-comprar-2026-brasil": [
+    "steam-deck-oled-brasil-preco-doi",
+    "rog-ally-z1-extreme-2026-brasil",
+  ],
+  "retroid-pocket-5-custo-beneficio": [
+    "odin-2-vs-retroid-pocket-5",
+    "emular-no-steam-deck-expectativa-real",
+  ],
+  "retroid-pocket-mini-bolso": [
+    "odin-2-vs-retroid-pocket-5",
+    "anbernic-rg35xx-h-barato",
+  ],
+  "rog-ally-tdp-bateria-configs": [
+    "rog-ally-z1-extreme-2026-brasil",
+    "power-bank-pc-portatil-wattagem",
+  ],
+  "rog-ally-z1-extreme-2026-brasil": [
+    "windows-no-handheld-vs-steamos",
+    "ayaneo-2s-vs-rog-ally",
+  ],
+  "rog-xbox-ally-o-que-muda": [
+    "rog-ally-tdp-bateria-configs",
+    "rog-xbox-ally-vs-steam-deck-oled",
+  ],
+  "rog-xbox-ally-vs-steam-deck-oled": [
+    "rog-xbox-ally-o-que-muda",
+    "steam-deck-oled-brasil-preco-doi",
+  ],
+  "rog-xbox-ally-x-potencia-preco": [
+    "qual-console-portatil-comprar-2026-brasil",
+    "rog-ally-x-brasil-preco-desempenho",
+  ],
 };
 
 type Doc = {
