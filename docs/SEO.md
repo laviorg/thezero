@@ -15,6 +15,7 @@ Referências usadas nesta revisão (documentação vigente em setembro de 2026):
 - [Title links](https://developers.google.com/search/docs/appearance/title-link) — implementado em `src/lib/titles.ts`.
 - [Localized versions](https://developers.google.com/search/docs/specialty/international/localized-versions) — hreflang é para versões equivalentes. O site tem uma só.
 - Caixa de pesquisa nos sitelinks (`SearchAction`) foi descontinuada. Não está no JSON-LD de propósito.
+- [HowTo](https://developers.google.com/search/docs/appearance/structured-data/how-to) deixou de gerar rich result em 2023. Tutorial não leva JSON-LD `HowTo`. Markup que o Google não usa, ou que descreve passos que a página não tem, é pior do que omitir — o mesmo critério do `SearchAction`.
 
 Não há meta de ranking, posição ou “score”. Isso aqui é a parte técnica que a
 redação controla. O resto é conteúdo e o que o Google decide mostrar.
@@ -26,7 +27,7 @@ redação controla. O resto é conteúdo e o que o Google decide mostrar.
 | `<title>`, description, canonical, `pt-BR` + `x-default`, RSS, `max-image-preview:large` | `src/lib/metadata.ts` |
 | H1 da matéria = `title` do MDX; document title = `seoTitle` quando a manchete não cabe | `src/lib/titles.ts`, `docs/SEO_TITLES.md` |
 | `NewsArticle` + `BreadcrumbList` | `src/components/news/json-ld.tsx`, matéria |
-| `NewsMediaOrganization` + `WebSite` | layout |
+| `NewsMediaOrganization` + `WebSite` | layout. `publishingPrinciples` = `/politica-editorial`; `correctionsPolicy` = `/politica-editorial#correcoes`; `ethicsPolicy` = `/como-testamos`; `ownershipFundingInfo` = `/sobre#quem-publica` |
 | `CollectionPage` + trilha nos hubs | `src/app/[category]` |
 | Sitemap com imagem da capa e do cartaz OG | `src/app/sitemap.ts` |
 | News sitemap (48 h) com a mesma imagem | `src/app/news-sitemap.xml/route.ts` |
@@ -64,15 +65,25 @@ não ganha URL até existir perfil — `/sobre` não é a bio dessa pessoa.
 
 JSON-LD escapa `<` para não quebrar o `<script>`.
 
+`NewsMediaOrganization` aponta princípios de publicação para
+`/politica-editorial`, correções para `/politica-editorial#correcoes`,
+ética de avaliação para `/como-testamos` e financiamento/quem publica para
+`/sobre#quem-publica`. São páginas reais, indexáveis, no sitemap regular,
+sem `lastmod` inventado.
+
+Tutorial usa passos numerados, requisitos, problemas comuns e FAQ no MDX.
+Não há `HowTo` no JSON-LD.
+
 ## Sitemap e notícias
 
 - Home: `lastmod` = matéria mais recentemente atualizada, porque a home muda quando o arquivo muda.
 - Editoria e subeditoria: `lastmod` = `updated` mais recente daquela coleção. Hub sem matéria não entra.
 - Matéria: `lastmod` = `updated` (ou `date`, se nunca foi atualizada).
-- Sobre, contato, privacidade e termos: sem `lastmod`. A data da última matéria não é a data dessas páginas, e um `lastmod` mentiroso faz o Google desconfiar do arquivo inteiro.
+- Sobre, contato, privacidade, termos, `/como-testamos` e `/politica-editorial`: sem `lastmod`. A data da última matéria não é a data dessas páginas, e um `lastmod` mentiroso faz o Google desconfiar do arquivo inteiro.
+- `/vale-a-pena` e `/tutoriais`: `lastmod` = `updated` mais recente da coleção. Hub sem matéria não entra no sitemap e fica `noindex`.
 - `changefreq` e `priority` saíram. O Google ignora os dois.
 - Cada matéria lista a capa e o cartaz OG em `image:image`.
-- O news sitemap só tem matéria `noticia` publicada nas últimas 48 horas, com `news:name` = `The Zero`, `news:language` = `pt`, `news:publication_date` = data original (não a data em que entrou no sitemap) e `news:title` = H1. Sem `news:keywords`. `review`, `guia` e `comparativo` ficam no sitemap regular, em `/reviews` e na linha de produto (`/reviews/celulares` e as outras com matéria). Linha vazia não entra. Essas URLs não entram no news sitemap.
+- O news sitemap só tem matéria `noticia` publicada nas últimas 48 horas, com `news:name` = `The Zero`, `news:language` = `pt`, `news:publication_date` = data original (não a data em que entrou no sitemap) e `news:title` = H1. Sem `news:keywords`. `review`, `guia` e `comparativo` ficam no sitemap regular, em `/reviews` e na linha de produto (`/reviews/celulares` e as outras com matéria). `vale-a-pena` fica em `/vale-a-pena`. `tutorial` fica em `/tutoriais`. Linha de review vazia, grupo de tutorial vazio e hub sem matéria não entram. Essas URLs não entram no news sitemap.
 - O news sitemap revalida a cada 5 minutos para a matéria cair da janela de 48 h mesmo sem um deploy novo. Matéria nova continua dependendo de deploy, porque o MDX vai no build.
 - Cada `<loc>` usa o origin `https://www.thezero.com.br`. URL do apex no sitemap faria o Google buscar um 308.
 

@@ -23,6 +23,7 @@ type Row = {
   format: string;
   cover: string;
   coverAlt: string;
+  coverCredit: string;
   featured: boolean;
   content: string;
 };
@@ -39,6 +40,8 @@ function rows(): Row[] {
         format: typeof parsed.data.format === "string" ? parsed.data.format : "noticia",
         cover: typeof parsed.data.cover === "string" ? parsed.data.cover : "",
         coverAlt: typeof parsed.data.coverAlt === "string" ? parsed.data.coverAlt : "",
+        coverCredit:
+          typeof parsed.data.coverCredit === "string" ? parsed.data.coverCredit : "",
         featured: Boolean(parsed.data.featured),
         content: parsed.content,
       };
@@ -69,6 +72,34 @@ describe("evergreen covers", () => {
         continue;
       }
       assert.equal(post.cover, `/covers/reviews/${post.slug}.webp`, post.slug);
+      const file = path.join(ROOT, "public", post.cover.replace(/^\//, ""));
+      const buf = fs.readFileSync(file);
+      assert.ok(buf.length < 250 * 1024, `${post.slug} ${buf.length}`);
+      assert.deepEqual(parseImageSize(buf), { width: 1200, height: 675 });
+    }
+  });
+
+  it("serves photo covers for vale a pena and branded webp for tutorials", () => {
+    const series = posts.filter((post) => post.format === "vale-a-pena");
+    const tutorials = posts.filter((post) => post.format === "tutorial");
+    assert.ok(series.length >= 4);
+    assert.ok(tutorials.length >= 5);
+
+    for (const post of series) {
+      assert.equal(post.featured, false, post.slug);
+      assert.match(post.cover, /^\/images\/posts\//, post.slug);
+      assert.notEqual(post.coverAlt.trim(), "", post.slug);
+      assert.notEqual(post.coverCredit.trim(), "", post.slug);
+      const file = path.join(ROOT, "public", post.cover.replace(/^\//, ""));
+      const buf = fs.readFileSync(file);
+      const size = parseImageSize(buf);
+      assert.ok(size && size.width >= 1200, post.slug);
+    }
+
+    for (const post of tutorials) {
+      assert.equal(post.featured, false, post.slug);
+      assert.equal(post.cover, `/covers/tutoriais/${post.slug}.webp`, post.slug);
+      assert.notEqual(post.coverAlt.trim(), "", post.slug);
       const file = path.join(ROOT, "public", post.cover.replace(/^\//, ""));
       const buf = fs.readFileSync(file);
       assert.ok(buf.length < 250 * 1024, `${post.slug} ${buf.length}`);

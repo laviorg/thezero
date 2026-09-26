@@ -16,9 +16,14 @@ import { readingTimeMinutes, toIsoDate } from "@/lib/format";
 import {
   isEvergreenFormat,
   isNewsFormat,
+  isReviewArchiveFormat,
   parsePostFormat,
   type PostFormat,
 } from "@/lib/post-format";
+import {
+  parseTutorialPlatform,
+  type TutorialPlatform,
+} from "@/lib/tutorial-groups";
 import { selectMostRecentPublication } from "@/lib/publication-order";
 import {
   REVIEW_BUCKET_LIST,
@@ -54,9 +59,13 @@ export type PostFrontmatter = {
   coverCredit?: string;
   /**
    * Orthogonal to editoria. Omitted frontmatter stays `noticia`.
-   * `review` | `guia` | `comparativo` are evergreen and stay off the news stream.
+   * Evergreen formats stay off the news stream. `review` | `guia` |
+   * `comparativo` also feed `/reviews`. `vale-a-pena` and `tutorial`
+   * have their own hubs.
    */
   format: PostFormat;
+  /** Só em `tutorial`. Agrupa `/tutoriais`. Sem rota própria. */
+  platform?: TutorialPlatform;
 };
 
 export type Post = PostFrontmatter & {
@@ -105,6 +114,13 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
   const coverAlt = typeof data.coverAlt === "string" ? data.coverAlt.trim() : "";
   const coverCredit =
     typeof data.coverCredit === "string" ? data.coverCredit.trim() : "";
+  const format = parsePostFormat(data.format, slug);
+  const platform = parseTutorialPlatform(data.platform, slug);
+  if (platform && format !== "tutorial") {
+    throw new Error(
+      `Frontmatter inválido em ${slug}: platform só vale em format tutorial.`,
+    );
+  }
 
   return {
     title,
@@ -126,7 +142,8 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     cover: cover || undefined,
     coverAlt: coverAlt || undefined,
     coverCredit: coverCredit || undefined,
-    format: parsePostFormat(data.format, slug),
+    format,
+    platform,
   };
 }
 
@@ -201,9 +218,9 @@ export function getPostsByFormat(format: PostFormat): Post[] {
   return getAllPosts().filter((post) => (post.format ?? "noticia") === format);
 }
 
-/** Evergreen formats (`review`, `guia`, `comparativo`), newest first. */
+/** Review archive (`review`, `guia`, `comparativo`), newest first. */
 export function getReviewPosts(limit?: number): Post[] {
-  const posts = getAllPosts().filter(isEvergreenFormat);
+  const posts = getAllPosts().filter(isReviewArchiveFormat);
   return typeof limit === "number" ? posts.slice(0, limit) : posts;
 }
 

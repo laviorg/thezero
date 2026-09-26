@@ -1,4 +1,4 @@
-import { isEvergreenFormat } from "./post-format.ts";
+import { isReviewArchiveFormat } from "./post-format.ts";
 
 /**
  * Linhas de produto do hub `/reviews`.
@@ -6,6 +6,7 @@ import { isEvergreenFormat } from "./post-format.ts";
  * Formato (`review` | `guia` | `comparativo`) é ortogonal à editoria
  * (`docs/TAXONOMY.md`). Este mapa não cria categoria e não compete com
  * `/ia`, `/jogos` ou `/dispositivos/celulares`. Notícia não entra.
+ * `vale-a-pena` e `tutorial` também ficam de fora: têm hub próprio.
  * Linha sem matéria não entra no menu, na rota nem no sitemap — isso fica
  * com `getActiveReviewBuckets`.
  *
@@ -206,7 +207,7 @@ function isStrayAccessory(post: ReviewBucketInput): boolean {
 export function assignReviewBucket(
   post: ReviewBucketInput,
 ): ReviewBucketSlug | null {
-  if (!isEvergreenFormat(post)) return null;
+  if (!isReviewArchiveFormat(post)) return null;
 
   const subcategory = post.subcategory || undefined;
 

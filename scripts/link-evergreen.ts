@@ -1,6 +1,6 @@
 /**
  * Inserts a short “Leia também” block on evergreen posts that still lack a
- * cross-format link (guia ↔ review ↔ comparativo ↔ notícia).
+ * cross-format link (guia ↔ review ↔ comparativo ↔ vale-a-pena ↔ tutorial ↔ notícia).
  *
  * Targets come from RELATED, an editorial map of slugs that already exist.
  * The script never invents a slug and skips a file that already has the
@@ -15,7 +15,13 @@ import matter from "gray-matter";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const POSTS_DIR = path.join(ROOT, "content", "posts");
-const EVERGREEN = new Set(["review", "guia", "comparativo"]);
+const EVERGREEN = new Set([
+  "review",
+  "guia",
+  "comparativo",
+  "vale-a-pena",
+  "tutorial",
+]);
 
 /**
  * Ordered targets. The writer only keeps slugs that are not already linked
@@ -529,6 +535,38 @@ const RELATED: Record<string, readonly string[]> = {
     "qual-console-portatil-comprar-2026-brasil",
     "rog-ally-x-brasil-preco-desempenho",
   ],
+  "rog-xbox-ally-vale-a-pena-brasil": [
+    "rog-xbox-ally-o-que-muda",
+    "rog-xbox-ally-vs-steam-deck-oled",
+  ],
+  "steam-deck-oled-ainda-vale-a-pena-2026": [
+    "steam-deck-oled-brasil-preco-doi",
+    "steam-deck-lcd-usado-ainda-vale",
+  ],
+  "iphone-18-pro-vale-a-pena-brasil": [
+    "iphone-18-pro-brasil-hoje-preco",
+    "iphone-18-pro-abertura-variavel-nao-e-megapixel",
+  ],
+  "ea-sports-fc-27-vale-a-pena": [
+    "ea-sports-fc-27-hoje",
+    "game-pass-ultimate-vs-comprar-jogo",
+  ],
+  "ios-27-quais-iphones-e-como-atualizar": [
+    "iphone-18-pro-brasil-hoje-preco",
+    "iphone-seminovo-brasil-o-que-checar",
+  ],
+  "one-ui-9-quais-galaxy-e-como-atualizar": [
+    "galaxy-s25-vs-iphone-16-pra-quem",
+    "galaxy-a16-ou-a26-entrada-samsung",
+  ],
+  "desligar-historico-localizacao-google-android": [
+    "o-que-nao-colar-no-chat-de-ia",
+    "agente-ia-permissoes-que-nao-dar",
+  ],
+  "resgatar-jogos-gratis-epic-steam-prime-gaming": [
+    "steam-vs-epic-vs-xbox-pc-preco",
+    "key-de-jogo-barata-risco-de-conta",
+  ],
 };
 
 type Doc = {
@@ -578,7 +616,11 @@ function leadIn(format: string, used: Set<string>) {
         ? ["Para comparar lado a lado,", "Na comparação da casa,"]
         : format === "review"
           ? ["No teste da casa,", "Na análise da casa,"]
-          : ["Ainda neste assunto,", "No mesmo tema,"];
+          : format === "vale-a-pena"
+            ? ["No veredito da casa,", "Antes de comprar,"]
+            : format === "tutorial"
+              ? ["No passo a passo,", "Para fazer na prática,"]
+              : ["Ainda neste assunto,", "No mesmo tema,"];
   const lead = options.find((item) => !used.has(item)) ?? options[0] ?? "Leia também";
   used.add(lead);
   return lead;
@@ -643,7 +685,7 @@ function insertBlock(content: string, block: string) {
     last.length < 320 &&
     !last.startsWith("#") &&
     !last.startsWith("<") &&
-    /\]\(\/(reviews|computadores|dispositivos|jogos|ia|aplicativos|tecnologia)(\/|\)|\s)/.test(
+    /\]\(\/(reviews|vale-a-pena|tutoriais|computadores|dispositivos|jogos|ia|aplicativos|tecnologia)(\/|\)|\s)/.test(
       last,
     );
   const rest = content.slice(sign + "\nThe Zero.".length);

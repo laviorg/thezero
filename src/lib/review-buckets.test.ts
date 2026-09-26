@@ -144,6 +144,9 @@ describe("review buckets", () => {
       if ((post.format ?? "noticia") === "noticia") {
         assert.equal(assignReviewBucket(post), null, post.slug);
       }
+      if (post.format === "vale-a-pena" || post.format === "tutorial") {
+        assert.equal(assignReviewBucket(post), null, post.slug);
+      }
     }
 
     const evergreen = posts.filter(

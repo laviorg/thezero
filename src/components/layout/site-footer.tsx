@@ -86,6 +86,26 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/vale-a-pena" className="hover:text-accent">
+                Vale a pena?
+              </Link>
+            </li>
+            <li>
+              <Link href="/tutoriais" className="hover:text-accent">
+                Tutoriais
+              </Link>
+            </li>
+            <li>
+              <Link href="/como-testamos" className="hover:text-accent">
+                Como testamos
+              </Link>
+            </li>
+            <li>
+              <Link href="/politica-editorial" className="hover:text-accent">
+                Política editorial
+              </Link>
+            </li>
+            <li>
               <Link href="/busca" className="hover:text-accent">
                 Busca
               </Link>
@@ -183,6 +203,12 @@ export function SiteFooter() {
             © {new Date().getFullYear()} The Zero · {site.domain}
           </p>
           <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <Link href="/como-testamos" className="hover:text-accent">
+              Como testamos
+            </Link>
+            <Link href="/politica-editorial" className="hover:text-accent">
+              Política editorial
+            </Link>
             <Link href="/privacidade" className="hover:text-accent">
               Privacidade
             </Link>
