@@ -18,8 +18,12 @@ export const ABOUT_TITLE = "Sobre o The Zero — newsroom de tech sem hype";
 export const PRIVACY_TITLE = "Privacidade no The Zero — dados, cookies e LGPD";
 export const CONTACT_TITLE = "Fale com a redação do The Zero";
 export const TERMS_TITLE = "Termos de uso do The Zero";
+export const HOW_WE_TEST_TITLE = "Como o The Zero testa — preço, fonte e limite";
+export const EDITORIAL_POLICY_TITLE = "Política editorial do The Zero";
 export const SEARCH_HUB_CORE = "Busca no newsroom";
 export const REVIEWS_HUB_CORE = "Reviews: hardware, celular e jogos";
+export const VALE_A_PENA_HUB_CORE = "Vale a pena? comprar, esperar ou pular";
+export const TUTORIALS_HUB_CORE = "Tutoriais: iPhone, Android e jogos";
 export const NOT_FOUND_CORE = "Página não encontrada";
 
 export type BrandMode = "auto" | "always" | "never";
@@ -136,12 +140,28 @@ export function termsPageTitle(): string {
   return composePageTitle(TERMS_TITLE, "never");
 }
 
+export function howWeTestPageTitle(): string {
+  return composePageTitle(HOW_WE_TEST_TITLE, "never");
+}
+
+export function editorialPolicyPageTitle(): string {
+  return composePageTitle(EDITORIAL_POLICY_TITLE, "never");
+}
+
 export function notFoundPageTitle(): string {
   return composePageTitle(NOT_FOUND_CORE, "always");
 }
 
 export function reviewsPageTitle(): string {
   return composePageTitle(REVIEWS_HUB_CORE, "always");
+}
+
+export function valeAPenaPageTitle(): string {
+  return composePageTitle(VALE_A_PENA_HUB_CORE, "always");
+}
+
+export function tutorialsPageTitle(): string {
+  return composePageTitle(TUTORIALS_HUB_CORE, "always");
 }
 
 export function reviewBucketPageTitle(

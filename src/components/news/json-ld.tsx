@@ -57,7 +57,12 @@ export function OrganizationJsonLd() {
           "@type": "Country",
           name: "Brasil",
         },
-        publishingPrinciples: `${site.url}/sobre`,
+        publishingPrinciples: `${site.url}/politica-editorial`,
+        correctionsPolicy: `${site.url}/politica-editorial#correcoes`,
+        ethicsPolicy: `${site.url}/como-testamos`,
+        ownershipFundingInfo: `${site.url}/sobre#quem-publica`,
+        actionableFeedbackPolicy: `${site.url}/contato`,
+        masthead: `${site.url}/sobre`,
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "editorial",
@@ -253,6 +258,33 @@ export function ContactPageJsonLd({ description }: { description: string }) {
           url: `${site.url}/contato`,
           availableLanguage: ["Portuguese"],
         },
+      }}
+    />
+  );
+}
+
+export function TrustPageJsonLd({
+  path,
+  name,
+  description,
+}: {
+  path: "/como-testamos" | "/politica-editorial";
+  name: string;
+  description: string;
+}) {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${site.url}${path}#webpage`,
+        url: `${site.url}${path}`,
+        name,
+        description,
+        inLanguage: site.language,
+        isPartOf: { "@id": websiteId },
+        publisher: { "@id": organizationId },
+        about: { "@id": organizationId },
       }}
     />
   );

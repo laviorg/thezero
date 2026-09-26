@@ -4,7 +4,9 @@ import { REVIEW_BUCKET_LIST } from "./review-buckets.ts";
 import {
   ABOUT_TITLE,
   CONTACT_TITLE,
+  EDITORIAL_POLICY_TITLE,
   HOME_TITLE,
+  HOW_WE_TEST_TITLE,
   PRIVACY_TITLE,
   TERMS_TITLE,
   TITLE_HARD_MAX,
@@ -14,12 +16,16 @@ import {
   reviewBucketPageTitle,
   reviewsPageTitle,
   contactPageTitle,
+  editorialPolicyPageTitle,
   fitTitle,
   homePageTitle,
+  howWeTestPageTitle,
   privacyPageTitle,
   searchPageTitle,
   termsPageTitle,
   titleLength,
+  tutorialsPageTitle,
+  valeAPenaPageTitle,
 } from "./titles.ts";
 
 describe("composePageTitle", () => {
@@ -90,7 +96,22 @@ describe("legal page titles", () => {
     assert.ok(titleLength(PRIVACY_TITLE) <= TITLE_HARD_MAX);
     assert.ok(titleLength(CONTACT_TITLE) <= TITLE_HARD_MAX);
     assert.ok(titleLength(TERMS_TITLE) <= TITLE_HARD_MAX);
-    assert.equal(new Set([HOME_TITLE, ABOUT_TITLE, PRIVACY_TITLE, CONTACT_TITLE, TERMS_TITLE]).size, 5);
+    assert.equal(
+      new Set([
+        HOME_TITLE,
+        ABOUT_TITLE,
+        PRIVACY_TITLE,
+        CONTACT_TITLE,
+        TERMS_TITLE,
+        HOW_WE_TEST_TITLE,
+        EDITORIAL_POLICY_TITLE,
+      ]).size,
+      7,
+    );
+    assert.equal(howWeTestPageTitle(), HOW_WE_TEST_TITLE);
+    assert.equal(editorialPolicyPageTitle(), EDITORIAL_POLICY_TITLE);
+    assert.ok(titleLength(HOW_WE_TEST_TITLE) <= TITLE_HARD_MAX);
+    assert.ok(titleLength(EDITORIAL_POLICY_TITLE) <= TITLE_HARD_MAX);
   });
 });
 
@@ -114,6 +135,19 @@ describe("reviewsPageTitle", () => {
       assert.match(title, /^Reviews: /u);
       assert.match(title, / · The Zero$/u);
     }
+  });
+});
+
+describe("format hub titles", () => {
+  it("keeps Vale a pena and Tutoriais distinct, branded, and under the hard max", () => {
+    const vale = valeAPenaPageTitle();
+    const tutorials = tutorialsPageTitle();
+    assert.equal(vale, "Vale a pena? comprar, esperar ou pular · The Zero");
+    assert.equal(tutorials, "Tutoriais: iPhone, Android e jogos · The Zero");
+    assert.ok(titleLength(vale) <= TITLE_HARD_MAX);
+    assert.ok(titleLength(tutorials) <= TITLE_HARD_MAX);
+    assert.equal(vale === tutorials, false);
+    assert.equal(vale === reviewsPageTitle(), false);
   });
 });
 

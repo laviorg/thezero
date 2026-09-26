@@ -90,10 +90,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       href: "/reviews",
       label: "Reviews",
       menuLabel: "Por produto",
-      links: getActiveReviewBuckets().map((bucket) => ({
-        href: bucket.href,
-        label: bucket.label,
-      })),
+      links: [
+        ...getActiveReviewBuckets().map((bucket) => ({
+          href: bucket.href,
+          label: bucket.label,
+        })),
+        { href: "/vale-a-pena", label: "Vale a pena?" },
+      ],
+    },
+    {
+      id: "tutoriais",
+      href: "/tutoriais",
+      label: "Tutoriais",
+      menuLabel: "Plataforma",
+      links: [],
     },
   ];
 

@@ -12,6 +12,7 @@ import { HOME_CRUMB_LABEL } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import { REVIEWS_HUB_CORE, reviewsPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 const DESCRIPTION =
   "PC, celular e console medidos no uso, com o preço em real. A editoria guarda o assunto; aqui fica a compra que ainda vale depois do lançamento.";
@@ -69,6 +70,14 @@ export default function ReviewsPage() {
         count={posts.length}
         lines={lines}
       />
+
+      <p className="mt-6 max-w-2xl text-sm leading-6 text-muted">
+        A decisão de compra, com veredito curto, está em{" "}
+        <Link href="/vale-a-pena" className="text-accent">
+          Vale a pena?
+        </Link>
+        .
+      </p>
 
       {posts.length === 0 ? (
         <p className="mt-6 max-w-xl text-muted">

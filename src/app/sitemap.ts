@@ -4,6 +4,7 @@ import {
   getActiveSubcategories,
   getAllPosts,
   getPostsByCategory,
+  getPostsByFormat,
   getPostsBySubcategory,
   groupReviewPosts,
   latestUpdatedDate,
@@ -48,6 +49,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${site.url}/termos`,
       alternates: languageAlternates(`${site.url}/termos`),
     },
+    {
+      url: `${site.url}/como-testamos`,
+      alternates: languageAlternates(`${site.url}/como-testamos`),
+    },
+    {
+      url: `${site.url}/politica-editorial`,
+      alternates: languageAlternates(`${site.url}/politica-editorial`),
+    },
   ];
 
   const { groups: reviewGroups, rest: reviewRest } = groupReviewPosts();
@@ -64,6 +73,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${site.url}/reviews`,
             ...(reviewsUpdated ? { lastModified: reviewsUpdated } : {}),
             alternates: languageAlternates(`${site.url}/reviews`),
+          },
+        ];
+
+  const valeAPenaPosts = getPostsByFormat("vale-a-pena");
+  const valeAPenaUpdated = latestUpdatedDate(valeAPenaPosts);
+  const valeAPena =
+    valeAPenaPosts.length === 0
+      ? []
+      : [
+          {
+            url: `${site.url}/vale-a-pena`,
+            ...(valeAPenaUpdated ? { lastModified: valeAPenaUpdated } : {}),
+            alternates: languageAlternates(`${site.url}/vale-a-pena`),
+          },
+        ];
+
+  const tutorialPosts = getPostsByFormat("tutorial");
+  const tutorialsUpdated = latestUpdatedDate(tutorialPosts);
+  const tutorials =
+    tutorialPosts.length === 0
+      ? []
+      : [
+          {
+            url: `${site.url}/tutoriais`,
+            ...(tutorialsUpdated ? { lastModified: tutorialsUpdated } : {}),
+            alternates: languageAlternates(`${site.url}/tutoriais`),
           },
         ];
 
@@ -124,6 +159,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticEntries,
     ...reviews,
     ...reviewLines,
+    ...valeAPena,
+    ...tutorials,
     ...categories,
     ...subcategories,
     ...postEntries,
