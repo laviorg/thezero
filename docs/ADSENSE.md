@@ -12,7 +12,9 @@ O site público continua usando `redacao@thezero.com.br`.
 | --- | --- |
 | Política de Privacidade em pt-BR, alinhada à LGPD e às *Google Publisher Policies* (cookies, terceiros, direitos, [How Google uses data](https://policies.google.com/technologies/partner-sites)) | `/privacidade` |
 | Contato visível (mailto + página) | `/contato`, rodapé, e-mail `redacao@thezero.com.br` |
-| Sobre com dono editorial, propósito e independência de pauta | `/sobre` |
+| Sobre com dono editorial, propósito e independência de pauta | `/sobre` (`#quem-publica`) |
+| Como o site avalia produto, preço em R$ e o que não testa | `/como-testamos` |
+| Independência, correções, fontes e política de IA | `/politica-editorial` |
 | Termos de uso | `/termos` |
 | Aviso leve de cookies (necessários vs publicidade / estatística); recusa não esconde o newsroom. O mesmo aceite libera Analytics quando `NEXT_PUBLIC_GA_MEASUREMENT_ID` está setado — [`docs/ANALYTICS.md`](./ANALYTICS.md) | banner + “Cookies” no rodapé |
 | `ads.txt` na raiz, sem seller inventado | `/ads.txt` |

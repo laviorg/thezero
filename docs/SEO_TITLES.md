@@ -196,6 +196,38 @@ Termos de uso do The Zero
 H1 pode ser mais direto (“O que a gente coleta”, “A redação responde aqui”).
 O title tag nomeia o documento legal, não o gancho.
 
+### Como testamos e política editorial
+
+Absolutos (a marca já está no núcleo):
+
+```
+Como o The Zero testa — preço, fonte e limite
+Política editorial do The Zero
+```
+
+H1 pode ser mais curto. O title tag nomeia o documento. Sem `lastmod` no
+sitemap, pela mesma regra de sobre e privacidade.
+
+### Vale a pena? (`/vale-a-pena`)
+
+Hub de formato, separado de `/reviews`.
+
+```
+Vale a pena? comprar, esperar ou pular · The Zero
+```
+
+H1 = `Vale a pena?`. Matéria da série usa a mesma regra de manchete: entidade
+na frente, veredito na frase, `seoTitle` só se o composto passar do alvo.
+
+### Tutoriais (`/tutoriais`)
+
+```
+Tutoriais: iPhone, Android e jogos · The Zero
+```
+
+H1 = `Tutoriais`. Grupos por plataforma são âncoras na mesma URL, não
+titles novos. Hub vazio fica `noindex` e fora do sitemap.
+
 ### 404
 
 ```

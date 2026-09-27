@@ -22,10 +22,13 @@ a ela. A taxonomia não usa categorias secundárias: assuntos transversais
 continuam no `kicker` e no texto até existir uma necessidade comprovada de
 tags.
 
-Formato (`noticia`, `review`, `guia`, `comparativo`) é um campo de
-frontmatter, não uma sétima editoria. Sem `format`, a matéria é `noticia`.
-Reviews, guias e comparativos continuam na editoria do assunto e saem do
-fluxo de notícias da home, do RSS e do Google News sitemap.
+Formato (`noticia`, `review`, `guia`, `comparativo`, `vale-a-pena`,
+`tutorial`) é um campo de frontmatter, não uma sétima editoria. Sem
+`format`, a matéria é `noticia`. Reviews, guias, comparativos, a série
+Vale a pena? e tutoriais continuam na editoria do assunto e saem do fluxo
+de notícias da home, do RSS e do Google News sitemap. Só `review`, `guia`
+e `comparativo` entram em `/reviews` e nas linhas de produto. `vale-a-pena`
+e `tutorial` têm hub próprio.
 
 **Tecnologia é a rede de segurança, não o guarda-chuva padrão.** Ela recebe
 cobertura mais ampla de indústria, ciência aplicada, infraestrutura geral,
@@ -254,6 +257,23 @@ e as outras linhas com matéria têm canonical, `CollectionPage` e entrada no
 sitemap regular. O evergreen continua fora das Últimas, do destaque, do RSS
 e do news sitemap.
 
+**Vale a pena?** (`/vale-a-pena`) é hub de formato, não linha de
+`review-buckets.ts`. O frontmatter é `format: vale-a-pena` — não um `guia`
+com campo `series`, para a série não cair no arquivo de reviews. O texto
+responde comprar, esperar ou ficar na geração anterior, com preço em reais
+datado quando a loja oficial publica o número. Entra no submenu de Reviews
+(último item) e no sitemap regular, com `lastmod` da matéria mais recente.
+Não entra nas Últimas, no destaque, no RSS de notícias nem no news sitemap.
+
+**Tutoriais** (`/tutoriais`) também é hub de formato. O frontmatter é
+`format: tutorial`. O campo opcional `platform` (`iphone`, `android`,
+`windows`, `jogos`, `servicos`) só é válido nesse formato e agrupa a página
+em âncoras (`#iphone`, `#android`, …). Grupo sem matéria não aparece na
+página, não vira rota e não entra no sitemap. O cabeçalho ganha o item
+Tutoriais, sem submenu enquanto não houver lista de plataformas no menu.
+Mesmo tratamento evergreen dos reviews. Não há JSON-LD `HowTo` — ver
+[`SEO.md`](./SEO.md).
+
 ## Alternativas rejeitadas
 
 - **Só traduzir os seis nomes antigos:** preservaria a mistura entre assunto,
@@ -265,6 +285,10 @@ e do news sitemap.
   novamente e torna a decisão editorial dependente do formato da pauta.
 - **Notícias, Análises e Guias no topo:** formato é um eixo ortogonal. Se o
   volume justificar, deve virar um campo `format`, não competir com `category`.
+  `vale-a-pena` e `tutorial` seguem essa regra: hub próprio, não editoria.
+- **Série Vale a pena? como `guia` + `series`:** misturaria o veredito de
+  compra com o arquivo de `/reviews`. Formato próprio deixa o balde de
+  produto só com review, guia e comparativo.
 - **Mobile ou Tecnologia pessoal:** o primeiro volta ao inglês; o segundo é
   menos direto para busca e não acomoda bem TV e casa conectada.
 - **Tags livres desde já:** com 19 textos, aumentariam sinônimos e erros sem

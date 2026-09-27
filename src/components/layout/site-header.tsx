@@ -31,8 +31,14 @@ function navClass(active: boolean) {
     : "text-muted transition-colors hover:text-fg";
 }
 
-function sectionActive(pathname: string, href: string) {
-  return pathname === href || pathname.startsWith(`${href}/`);
+function sectionActive(pathname: string, section: NavMenuSection) {
+  if (
+    section.id === "reviews" &&
+    (pathname === "/vale-a-pena" || pathname.startsWith("/vale-a-pena/"))
+  ) {
+    return true;
+  }
+  return pathname === section.href || pathname.startsWith(`${section.href}/`);
 }
 
 function submenuAriaLabel(section: NavMenuSection) {
@@ -67,7 +73,7 @@ function DesktopNavMenu({
   onClose: () => void;
   onToggle: () => void;
 }) {
-  const active = sectionActive(pathname, section.href);
+  const active = sectionActive(pathname, section);
 
   if (section.links.length === 0) {
     return (
@@ -170,7 +176,7 @@ function MobileNavSection({
   section: NavMenuSection;
   pathname: string;
 }) {
-  const active = sectionActive(pathname, section.href);
+  const active = sectionActive(pathname, section);
 
   return (
     <div className="flex flex-col gap-3">

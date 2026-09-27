@@ -3,6 +3,7 @@ import {
   getActiveReviewBuckets,
   getAllPosts,
   getPostsByCategory,
+  getPostsByFormat,
   getReviewPosts,
 } from "./posts";
 import {
@@ -12,7 +13,9 @@ import {
   articlePageTitle,
   categoryPageTitle,
   contactPageTitle,
+  editorialPolicyPageTitle,
   homePageTitle,
+  howWeTestPageTitle,
   notFoundPageTitle,
   privacyPageTitle,
   reviewBucketPageTitle,
@@ -21,6 +24,8 @@ import {
   subcategoryPageTitle,
   termsPageTitle,
   titleLength,
+  tutorialsPageTitle,
+  valeAPenaPageTitle,
 } from "./titles";
 
 export type TitledPath = {
@@ -36,11 +41,27 @@ export function collectDocumentTitles(): TitledPath[] {
     { path: "/privacidade", title: privacyPageTitle(), indexable: true },
     { path: "/contato", title: contactPageTitle(), indexable: true },
     { path: "/termos", title: termsPageTitle(), indexable: true },
+    { path: "/como-testamos", title: howWeTestPageTitle(), indexable: true },
+    {
+      path: "/politica-editorial",
+      title: editorialPolicyPageTitle(),
+      indexable: true,
+    },
     { path: "/busca", title: searchPageTitle(), indexable: false },
     {
       path: "/reviews",
       title: reviewsPageTitle(),
       indexable: getReviewPosts().length > 0,
+    },
+    {
+      path: "/vale-a-pena",
+      title: valeAPenaPageTitle(),
+      indexable: getPostsByFormat("vale-a-pena").length > 0,
+    },
+    {
+      path: "/tutoriais",
+      title: tutorialsPageTitle(),
+      indexable: getPostsByFormat("tutorial").length > 0,
     },
     { path: "/404", title: notFoundPageTitle(), indexable: false },
   ];

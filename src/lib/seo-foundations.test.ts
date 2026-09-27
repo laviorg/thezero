@@ -170,6 +170,16 @@ describe("news sitemap", () => {
         id: "compare",
         format: "comparativo",
       },
+      {
+        dateIso: "2026-09-22T11:30:00-03:00",
+        id: "worth",
+        format: "vale-a-pena",
+      },
+      {
+        dateIso: "2026-09-22T11:45:00-03:00",
+        id: "howto",
+        format: "tutorial",
+      },
       { dateIso: "2026-09-22T12:00:00-03:00", id: "legacy" },
     ];
     assert.deepEqual(

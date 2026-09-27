@@ -80,7 +80,14 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <section className="mt-14 border-t border-border pt-10">
+      {/*
+        TODO(publisher): razão social — não consta em src/lib/site.ts nem no restante do repositório.
+        TODO(publisher): CNPJ — não consta no repositório. Não inventar.
+        TODO(publisher): endereço físico — não consta no repositório. Não inventar.
+        TODO(publisher): editor responsável (pessoa física) — o byline é a redação (`site.defaultAuthor`). Não há perfil de pessoa.
+        TODO(publisher): telefone — não consta no repositório.
+      */}
+      <section id="quem-publica" className="mt-14 border-t border-border pt-10">
         <h2 className="text-2xl font-semibold tracking-tight">
           Quem publica
         </h2>
@@ -91,6 +98,59 @@ export default function AboutPage() {
             pauta, o critério e o texto são da casa. Se um fabricante mandou
             o produto, a gente diz. Se não testamos, não fingimos.
           </p>
+          <dl className="grid gap-4 border border-border bg-surface px-5 py-5 sm:grid-cols-2">
+            <div>
+              <dt className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
+                Publicação
+              </dt>
+              <dd className="mt-1 text-fg">{site.name}</dd>
+            </div>
+            <div>
+              <dt className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
+                Site
+              </dt>
+              <dd className="mt-1 text-fg">{site.domain}</dd>
+            </div>
+            <div>
+              <dt className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
+                Redação
+              </dt>
+              <dd className="mt-1">
+                <a className="text-accent" href={`mailto:${site.email}`}>
+                  {site.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
+                Idioma e país
+              </dt>
+              <dd className="mt-1 text-fg">pt-BR · Brasil</dd>
+            </div>
+            <div className="sm:col-span-2">
+              <dt className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
+                Autor das matérias
+              </dt>
+              <dd className="mt-1 text-fg">
+                {site.defaultAuthor}. Não há página de pessoa: o byline é a
+                redação.
+              </dd>
+            </div>
+            <div className="sm:col-span-2">
+              <dt className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
+                Redes
+              </dt>
+              <dd className="mt-1 text-fg">
+                Instagram {site.social.instagramHandle}
+                {" · "}
+                YouTube {site.social.youtubeHandle}
+                {" · "}
+                Threads {site.social.threadsHandle}
+                {" · "}
+                X {site.social.xHandle}
+              </dd>
+            </div>
+          </dl>
           <p>
             Existimos para mostrar o que funciona de verdade — IA,
             computadores, dispositivos, apps e jogos — em português do
@@ -100,7 +160,15 @@ export default function AboutPage() {
           <p>
             Quando houver publicidade no site, ela financia o newsroom.{" "}
             <strong className="text-fg">Não compra a pauta.</strong> O
-            critério continua o das cinco regras abaixo.
+            critério de avaliação está em{" "}
+            <Link href="/como-testamos" className="text-accent">
+              Como testamos
+            </Link>
+            . Independência, correção, fonte e o uso de IA estão na{" "}
+            <Link href="/politica-editorial" className="text-accent">
+              política editorial
+            </Link>
+            .
           </p>
         </div>
       </section>
@@ -140,6 +208,14 @@ export default function AboutPage() {
         ou a página de{" "}
         <Link href="/contato" className="text-accent">
           contato
+        </Link>
+        . Método em{" "}
+        <Link href="/como-testamos" className="text-accent">
+          Como testamos
+        </Link>
+        . Regras da casa na{" "}
+        <Link href="/politica-editorial" className="text-accent">
+          política editorial
         </Link>
         . Privacidade e termos no rodapé.{" "}
         <Link href="/" className="text-accent">

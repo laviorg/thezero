@@ -1,10 +1,14 @@
 /**
- * Branded editorial covers for evergreen posts (review, guia, comparativo).
+ * Branded editorial covers for evergreen posts that do not already have a
+ * photo: review, guia, comparativo, vale-a-pena and tutorial.
  *
  * Reuses the article OG palette (`ogPalette` in src/lib/theme.ts): navy field,
  * category accent, Geist, and the split-O wordmark. Renders with `next/og`
  * (same engine as `opengraph-image.tsx`) and writes WebP via sharp.
- * Does not replace a cover that already points somewhere else (photos).
+ * Review-archive posters stay in `public/covers/reviews/`. Tutorials go to
+ * `public/covers/tutoriais/`. A vale-a-pena without a press photo goes to
+ * `public/covers/vale-a-pena/`. Anything already under `/images/` is left
+ * alone.
  *
  *   npm run covers
  *   npm run covers -- --slug rtx-4060-vs-5060-brasil
@@ -52,10 +56,22 @@ const WIDTH = 1200;
 const HEIGHT = 675;
 const ROOT = path.resolve(import.meta.dirname, "..");
 const POSTS_DIR = path.join(ROOT, "content", "posts");
-const OUT_DIR = path.join(ROOT, "public", "covers", "reviews");
 const FONT_DIR = path.join(ROOT, "scripts", "fonts");
 
-const EVERGREEN = new Set(["review", "guia", "comparativo"]);
+const EVERGREEN = new Set([
+  "review",
+  "guia",
+  "comparativo",
+  "vale-a-pena",
+  "tutorial",
+]);
+
+/** Folder under `public/covers/`. Review-archive formats share one directory. */
+function coverFolder(format: string) {
+  if (format === "tutorial") return "tutoriais";
+  if (format === "vale-a-pena") return "vale-a-pena";
+  return "reviews";
+}
 
 /** Category accent on the navy field. Names are used in coverAlt. */
 const CATEGORY_ACCENT: Record<
@@ -74,12 +90,16 @@ const FORMAT_LABEL: Record<string, string> = {
   review: "Review",
   guia: "Guia",
   comparativo: "Comparativo",
+  "vale-a-pena": "Vale a pena",
+  tutorial: "Tutorial",
 };
 
 const FORMAT_WORD: Record<string, string> = {
   review: "review",
   guia: "guia",
   comparativo: "comparativo",
+  "vale-a-pena": "vale a pena",
+  tutorial: "tutorial",
 };
 
 type CoverPost = {
@@ -141,7 +161,7 @@ function readEvergreen(): CoverPost[] {
 }
 
 function isGeneratedCover(cover?: string) {
-  return Boolean(cover?.startsWith("/covers/reviews/"));
+  return Boolean(cover?.startsWith("/covers/"));
 }
 
 function yamlEscape(value: string) {
@@ -422,7 +442,9 @@ function parseArgs(argv: string[]) {
 async function main() {
   const { force, slugs } = parseArgs(process.argv.slice(2));
   const fonts = loadFonts();
-  fs.mkdirSync(OUT_DIR, { recursive: true });
+  for (const folder of ["reviews", "tutoriais", "vale-a-pena"]) {
+    fs.mkdirSync(path.join(ROOT, "public", "covers", folder), { recursive: true });
+  }
 
   const posts = readEvergreen().filter((post) =>
     slugs.size === 0 ? true : slugs.has(post.slug),
@@ -445,8 +467,9 @@ async function main() {
       continue;
     }
 
-    const publicPath = `/covers/reviews/${post.slug}.webp`;
-    const filePath = path.join(OUT_DIR, `${post.slug}.webp`);
+    const folder = coverFolder(post.format);
+    const publicPath = `/covers/${folder}/${post.slug}.webp`;
+    const filePath = path.join(ROOT, "public", "covers", folder, `${post.slug}.webp`);
     const raw = fs.readFileSync(post.file, "utf8");
     const needsFile = force || !fs.existsSync(filePath);
     const needsFm = !raw.includes(`cover: "${publicPath}"`) && !/^cover:/m.test(
@@ -485,7 +508,7 @@ async function main() {
         skippedPhoto,
         skippedFresh,
         largestBytes: largest,
-        outDir: "public/covers/reviews",
+        outDir: "public/covers/{reviews,tutoriais,vale-a-pena}",
       },
       null,
       2,
