@@ -29,25 +29,13 @@ export function getAdsensePubId(
   return normalizeAdsensePubId(raw);
 }
 
-export function buildAdsTxt(
-  pubId: string | null = getAdsensePubId(),
-): string {
-  const lines = [
-    `# ads.txt for ${site.domain}`,
-    `# IAB Tech Lab authorized digital sellers.`,
-    `# After AdSense approval, set NEXT_PUBLIC_ADSENSE_PUB_ID=pub-xxxxxxxxxxxxxxxx`,
-    `# on Vercel and redeploy. Do not invent a publisher ID.`,
-    `OWNERDOMAIN=${site.domain}`,
+/** Publisher ID declared in ads.txt. The ad script still waits on the env var. */
+export const GOOGLE_ADS_PUB_ID = "pub-3679376723096233";
+
+export function buildAdsTxt(): string {
+  return [
+    `google.com, ${GOOGLE_ADS_PUB_ID}, DIRECT, ${GOOGLE_ADS_TXT_CERT}`,
     `CONTACT=mailto:${site.email}`,
-  ];
-
-  if (pubId) {
-    lines.push(`google.com, ${pubId}, DIRECT, ${GOOGLE_ADS_TXT_CERT}`);
-  } else {
-    lines.push(
-      "# No authorized Google seller yet — AdSense is not live on this site.",
-    );
-  }
-
-  return `${lines.join("\n")}\n`;
+    "",
+  ].join("\n");
 }

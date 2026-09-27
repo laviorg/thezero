@@ -155,7 +155,7 @@ Isto não entra no repositório.
    - `https://www.thezero.com.br/news-sitemap.xml`
    Os dois têm de aparecer como sucesso, com páginas descobertas, sem “Não foi possível buscar”.
 3. Inspeção de URL em `https://www.thezero.com.br/`, em `https://www.thezero.com.br/ia` e numa matéria nova. O HTML renderizado tem de mostrar canonical www, título e capa. Pedir indexação dessas. A URL do apex deve continuar como redirect.
-4. Relatório de breadcrumbs e de artigos: o esperado é zero erro crítico. Aviso de headline longa pode aparecer. A manchete editorial pode passar de 110 caracteres; o `<title>` é que é cortado no código. Não encurtar o H1 só para calar o aviso se a frase for a da casa. O Publisher Center ainda recomenda manchete de até 110 caracteres para o Google Notícias — isso é decisão de redação, matéria a matéria, via `title` / `seoTitle`.
+4. Relatório de breadcrumbs e de artigos: o esperado é zero erro crítico. O H1 continua a manchete inteira. O `headline` do JSON-LD usa `seoTitle` quando existe e, sem ele, trunca a manchete por palavra em 110 caracteres. Não encurtar o H1 só para calar um aviso: o recorte é `seoTitle`.
 5. Confirmar que `NEXT_PUBLIC_SITE_URL` em Production é `https://www.thezero.com.br`, sem barra no fim. Se ainda estiver o apex, o código reescreve — mesmo assim vale alinhar a env para o próximo leitor não se perder.
 6. No [Publisher Center](https://publishercenter.google.com/), se a publicação for criada, o nome tem de ser exatamente `The Zero` — é o `news:name` do sitemap. Idioma `pt`. Site `https://www.thezero.com.br`.
 7. Não marcar a caixa de sitelinks search box: o Google não usa mais `SearchAction`.
@@ -166,7 +166,7 @@ Isto não entra no repositório.
 ## Como publicar sem quebrar isso
 
 1. `title` com a tese e a entidade. `seoTitle` só se o document title cortar nome, preço ou a marca. Ver [`SEO_TITLES.md`](./SEO_TITLES.md).
-2. `excerpt` que funciona sozinho na description e no card.
+2. `excerpt` que funciona sozinho no card. Se passar de 160 caracteres, a meta description usa `seoDescription` ou trunca por palavra em 155. O dek da página fica com o excerpt inteiro.
 3. `category` / `subcategory` válidas. A subeditoria só vira URL quando tem pelo menos uma matéria.
 4. `date` no dia de publicação. `updated` só quando o texto mudou de verdade — não para “refrescar” a SERP.
 5. `cover` + `coverAlt` descrevendo a imagem, não repetindo a manchete se der para ser mais específico. `coverCredit` quando a foto não é nossa.

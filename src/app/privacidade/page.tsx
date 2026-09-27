@@ -217,9 +217,9 @@ export default function PrivacyPage() {
         </li>
       </ul>
       <p>
-        Quem pode vender inventário neste domínio, quando houver anúncio, está
-        no <a href="/ads.txt">ads.txt</a>. Sem publisher ID válido, esse
-        arquivo não autoriza o Google — de propósito.
+        Quem pode vender inventário neste domínio está no{" "}
+        <a href="/ads.txt">ads.txt</a>, que declara o Google como vendedor
+        direto.
       </p>
 
       <h2>5. Transferência internacional</h2>

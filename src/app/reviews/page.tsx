@@ -17,6 +17,9 @@ import Link from "next/link";
 const DESCRIPTION =
   "PC, celular e console medidos no uso, com o preço em real. A editoria guarda o assunto; aqui fica a compra que ainda vale depois do lançamento.";
 
+/** Cards per product line on the hub. The rest live on `/reviews/<linha>`. */
+const LINE_PREVIEW = 6;
+
 export function generateMetadata(): Metadata {
   const hasPosts = getReviewPosts().length > 0;
   const title = reviewsPageTitle();
@@ -86,7 +89,7 @@ export default function ReviewsPage() {
         </p>
       ) : (
         <>
-          {groups.map((group) => (
+          {groups.map((group, groupIndex) => (
             <section
               key={group.bucket.slug}
               className="mt-10"
@@ -96,15 +99,17 @@ export default function ReviewsPage() {
                 id={`linha-${group.bucket.slug}`}
                 title={group.bucket.label}
                 href={group.bucket.href}
-                actionLabel="Ver tudo"
+                actionLabel="ver todos"
+                actionVisible
               />
               <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
-                {group.posts.map((post) => (
+                {group.posts.slice(0, LINE_PREVIEW).map((post, index) => (
                   <ArticleCard
                     key={post.slug}
                     post={post}
                     layout="standard"
                     headingLevel="h3"
+                    imagePriority={groupIndex === 0 && index === 0}
                   />
                 ))}
               </div>
@@ -117,12 +122,13 @@ export default function ReviewsPage() {
                 Guias que não cabem numa linha de produto. Continuam neste hub.
               </p>
               <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
-                {rest.map((post) => (
+                {rest.map((post, index) => (
                   <ArticleCard
                     key={post.slug}
                     post={post}
                     layout="standard"
                     headingLevel="h3"
+                    imagePriority={groups.length === 0 && index === 0}
                   />
                 ))}
               </div>

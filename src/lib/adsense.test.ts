@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  GOOGLE_ADS_PUB_ID,
   GOOGLE_ADS_TXT_CERT,
   adsenseClientId,
   buildAdsTxt,
@@ -37,23 +38,19 @@ describe("adsenseClientId", () => {
 });
 
 describe("buildAdsTxt", () => {
-  it("never invents a google.com seller line", () => {
-    const body = buildAdsTxt(null);
-    assert.match(body, /^# ads\.txt for thezero\.com\.br/u);
-    assert.match(body, /OWNERDOMAIN=thezero\.com\.br/u);
-    assert.match(body, new RegExp(`CONTACT=mailto:${site.email}`));
-    assert.doesNotMatch(body, /^google\.com,/mu);
-    assert.doesNotMatch(body, /pub-\d{16}/u);
-  });
-
-  it("emits the IAB Google line only with a real pub id", () => {
-    const body = buildAdsTxt("pub-1234567890123456");
-    assert.match(
+  it("lists only the Google seller and the editorial contact", () => {
+    const body = buildAdsTxt();
+    assert.equal(
       body,
-      new RegExp(
-        `^google\\.com, pub-1234567890123456, DIRECT, ${GOOGLE_ADS_TXT_CERT}$`,
-        "m",
-      ),
+      [
+        `google.com, ${GOOGLE_ADS_PUB_ID}, DIRECT, ${GOOGLE_ADS_TXT_CERT}`,
+        `CONTACT=mailto:${site.email}`,
+        "",
+      ].join("\n"),
     );
+    assert.equal(GOOGLE_ADS_PUB_ID, "pub-3679376723096233");
+    assert.equal(site.email, "hello@thezero.com.br");
+    assert.doesNotMatch(body, /^#/m);
+    assert.doesNotMatch(body, /OWNERDOMAIN/);
   });
 });

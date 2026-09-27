@@ -9,6 +9,8 @@ type SectionHeadingProps = {
   as?: "h1" | "h2" | "h3";
   id?: string;
   className?: string;
+  /** Keep the action link visible below the `sm` breakpoint. */
+  actionVisible?: boolean;
 };
 
 export function SectionHeading({
@@ -19,6 +21,7 @@ export function SectionHeading({
   as: Title = "h2",
   id,
   className,
+  actionVisible = false,
 }: SectionHeadingProps) {
   return (
     <div
@@ -46,7 +49,10 @@ export function SectionHeading({
       {href ? (
         <Link
           href={href}
-          className="hidden shrink-0 text-[0.8rem] font-medium tracking-[0.12em] text-accent uppercase transition-colors hover:text-fg sm:inline"
+          className={cn(
+            "shrink-0 text-[0.8rem] font-medium tracking-[0.12em] text-accent uppercase transition-colors hover:text-fg",
+            actionVisible ? "inline" : "hidden sm:inline",
+          )}
         >
           {actionLabel}
         </Link>

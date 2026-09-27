@@ -1,23 +1,23 @@
 # AdSense — prontidão do site e o que falta na UI do Google
 
 O The Zero está preparado para a **revisão de site** do Google AdSense.
-Não há unidade de anúncio no ar e **não inventamos** um `ca-pub` / `pub-`.
+Não há unidade de anúncio no ar. O `/ads.txt` declara o publisher `pub-3679376723096233`. O script só carrega com `NEXT_PUBLIC_ADSENSE_PUB_ID` e o aceite de cookies.
 
 Conta prevista (passo manual, fora deste repo): `nicholasharuo@gmail.com`.
-O site público continua usando `redacao@thezero.com.br`.
+O site público usa `hello@thezero.com.br` (`site.email`).
 
 ## O que o código já faz
 
 | Item | Onde |
 | --- | --- |
 | Política de Privacidade em pt-BR, alinhada à LGPD e às *Google Publisher Policies* (cookies, terceiros, direitos, [How Google uses data](https://policies.google.com/technologies/partner-sites)) | `/privacidade` |
-| Contato visível (mailto + página) | `/contato`, rodapé, e-mail `redacao@thezero.com.br` |
+| Contato visível (mailto + página) | `/contato`, rodapé, e-mail `hello@thezero.com.br` |
 | Sobre com dono editorial, propósito e independência de pauta | `/sobre` (`#quem-publica`) |
 | Como o site avalia produto, preço em R$ e o que não testa | `/como-testamos` |
 | Independência, correções, fontes e política de IA | `/politica-editorial` |
 | Termos de uso | `/termos` |
 | Aviso leve de cookies (necessários vs publicidade / estatística); recusa não esconde o newsroom. O mesmo aceite libera Analytics quando `NEXT_PUBLIC_GA_MEASUREMENT_ID` está setado — [`docs/ANALYTICS.md`](./ANALYTICS.md) | banner + “Cookies” no rodapé |
-| `ads.txt` na raiz, sem seller inventado | `/ads.txt` |
+| `ads.txt` na raiz, com o vendedor Google e o contato | `/ads.txt` |
 | Meta `google-adsense-account` e script oficial **só** se existir publisher ID válido **e** o leitor aceitar publicidade | `NEXT_PUBLIC_ADSENSE_PUB_ID` |
 | Crawlers de anúncio liberados; 404; nav; HTTPS (Vercel); sem cloaking | `robots.ts`, `not-found`, header/footer |
 | Sitemap e titles únicos das páginas novas | `sitemap.ts`, `title-audit.ts` |
@@ -29,7 +29,7 @@ Unidades visuais de anúncio **não** foram colocadas nas matérias de propósit
 1. Entrar em [adsense.google.com](https://www.google.com/adsense/) com `nicholasharuo@gmail.com` (criar a conta se ainda não existir). País: Brasil. Fuso e moeda conforme o painel.
 2. Adicionar o site **`https://www.thezero.com.br`** (Sites → Adicionar site). É o host que responde 200. O apex redireciona. HTTPS, sem path.
 3. Copiar o **publisher ID** (`pub-` + 16 dígitos) em Conta → Informações da conta. Não usar o prefixo de produto (`ca-`) no `ads.txt`; o código aceita os dois e normaliza.
-4. No projeto Vercel do The Zero, criar a env **`NEXT_PUBLIC_ADSENSE_PUB_ID=pub-xxxxxxxxxxxxxxxx`** (Production; Preview se quiser testar). Redeploy. Sem esse valor o `/ads.txt` só declara `OWNERDOMAIN` / `CONTACT` e um comentário — correto enquanto o anúncio não está no ar.
+4. No projeto Vercel do The Zero, criar a env **`NEXT_PUBLIC_ADSENSE_PUB_ID=pub-3679376723096233`** (Production; Preview se quiser testar). Redeploy. Sem esse valor o script de anúncio não carrega. O `/ads.txt` já declara `google.com, pub-3679376723096233, DIRECT, f08c47fec0942fa0` e `CONTACT=mailto:hello@thezero.com.br`.
 5. Conferir no ar:
    - `https://www.thezero.com.br/ads.txt` tem a linha  
      `google.com, pub-SEU_ID, DIRECT, f08c47fec0942fa0`

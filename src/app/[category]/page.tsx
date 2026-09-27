@@ -13,7 +13,7 @@ import {
   getNewsPosts,
   getPostsByCategory,
 } from "@/lib/posts";
-import { HOME_CRUMB_LABEL } from "@/lib/seo";
+import { HOME_CRUMB_LABEL, isIndexableHub } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import { categoryPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
@@ -39,7 +39,7 @@ export async function generateMetadata({
 
   const title = categoryPageTitle(category);
   const description = `${category.label} no The Zero. ${category.description}`;
-  const hasPosts = getPostsByCategory(category.slug).length > 0;
+  const postCount = getPostsByCategory(category.slug).length;
 
   return buildPageMetadata({
     title: category.seoTitle,
@@ -48,7 +48,7 @@ export async function generateMetadata({
     brand: "always",
     imagePath: `/${category.slug}/opengraph-image`,
     imageAlt: title,
-    noIndex: !hasPosts,
+    noIndex: !isIndexableHub(postCount),
   });
 }
 

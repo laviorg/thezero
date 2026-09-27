@@ -21,6 +21,8 @@ type ArticleCardProps = {
   priority?: ArticleCardLayout;
   layout?: ArticleCardLayout;
   headingLevel?: "h1" | "h2" | "h3";
+  /** Preload the cover. The first card above the fold on a hub should set this. */
+  imagePriority?: boolean;
 };
 
 /**
@@ -46,6 +48,7 @@ export function ArticleCard({
   priority,
   layout,
   headingLevel,
+  imagePriority = false,
 }: ArticleCardProps) {
   const variant = layout ?? priority ?? "standard";
   const isLead = variant === "lead";
@@ -123,7 +126,7 @@ export function ArticleCard({
             src={post.cover}
             alt={imageAlt}
             crop
-            priority={isLead}
+            priority={isLead || imagePriority}
             watermarkSize={isLead ? "default" : "compact"}
             sizes={coverSizes[variant]}
             zoom

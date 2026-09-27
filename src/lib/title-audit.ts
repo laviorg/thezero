@@ -4,8 +4,11 @@ import {
   getAllPosts,
   getPostsByCategory,
   getPostsByFormat,
+  getPostsBySubcategory,
   getReviewPosts,
+  getReviewPostsByBucket,
 } from "./posts";
+import { isIndexableHub } from "./seo";
 import {
   BRAND_NAME,
   TITLE_HARD_MAX,
@@ -70,7 +73,7 @@ export function collectDocumentTitles(): TitledPath[] {
     rows.push({
       path: bucket.href,
       title: reviewBucketPageTitle(bucket),
-      indexable: true,
+      indexable: isIndexableHub(getReviewPostsByBucket(bucket.slug).length),
     });
   }
 
@@ -78,7 +81,7 @@ export function collectDocumentTitles(): TitledPath[] {
     rows.push({
       path: category.href,
       title: categoryPageTitle(category),
-      indexable: getPostsByCategory(category.slug).length > 0,
+      indexable: isIndexableHub(getPostsByCategory(category.slug).length),
     });
   }
 
@@ -86,7 +89,9 @@ export function collectDocumentTitles(): TitledPath[] {
     rows.push({
       path: subcategory.href,
       title: subcategoryPageTitle(subcategory),
-      indexable: true,
+      indexable: isIndexableHub(
+        getPostsBySubcategory(subcategory.parent, subcategory.slug).length,
+      ),
     });
   }
 

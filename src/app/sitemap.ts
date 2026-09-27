@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import { articleImageUrls } from "@/lib/article-images";
 import { categoryList } from "@/lib/categories";
 import {
@@ -9,9 +10,42 @@ import {
   groupReviewPosts,
   latestUpdatedDate,
 } from "@/lib/posts";
+import { isIndexableHub } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { assertUniqueDocumentTitles } from "@/lib/title-audit";
 import type { MetadataRoute } from "next";
+
+const STATIC_PAGE_SOURCES = [
+  { path: "/sobre", file: "src/app/sobre/page.tsx" },
+  { path: "/contato", file: "src/app/contato/page.tsx" },
+  { path: "/privacidade", file: "src/app/privacidade/page.tsx" },
+  { path: "/termos", file: "src/app/termos/page.tsx" },
+  { path: "/como-testamos", file: "src/app/como-testamos/page.tsx" },
+  { path: "/politica-editorial", file: "src/app/politica-editorial/page.tsx" },
+] as const;
+
+function gitCommitDate(args: string[]): Date | undefined {
+  try {
+    const iso = execFileSync("git", args, {
+      cwd: process.cwd(),
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    }).trim();
+    const date = new Date(iso);
+    if (!Number.isNaN(date.getTime())) return date;
+  } catch {
+    // Shallow builds without history fall through to HEAD, then a fixed date.
+  }
+  return undefined;
+}
+
+function staticPageLastModified(file: string): Date {
+  return (
+    gitCommitDate(["log", "-1", "--format=%cI", "--", file]) ??
+    gitCommitDate(["log", "-1", "--format=%cI"]) ??
+    new Date("2026-09-27T00:00:00-03:00")
+  );
+}
 
 function languageAlternates(url: string) {
   return {
@@ -33,30 +67,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...(contentFreshness ? { lastModified: contentFreshness } : {}),
       alternates: languageAlternates(site.url),
     },
-    {
-      url: `${site.url}/sobre`,
-      alternates: languageAlternates(`${site.url}/sobre`),
-    },
-    {
-      url: `${site.url}/contato`,
-      alternates: languageAlternates(`${site.url}/contato`),
-    },
-    {
-      url: `${site.url}/privacidade`,
-      alternates: languageAlternates(`${site.url}/privacidade`),
-    },
-    {
-      url: `${site.url}/termos`,
-      alternates: languageAlternates(`${site.url}/termos`),
-    },
-    {
-      url: `${site.url}/como-testamos`,
-      alternates: languageAlternates(`${site.url}/como-testamos`),
-    },
-    {
-      url: `${site.url}/politica-editorial`,
-      alternates: languageAlternates(`${site.url}/politica-editorial`),
-    },
+    ...STATIC_PAGE_SOURCES.map((page) => {
+      const url = `${site.url}${page.path}`;
+      return {
+        url,
+        lastModified: staticPageLastModified(page.file),
+        alternates: languageAlternates(url),
+      };
+    }),
   ];
 
   const { groups: reviewGroups, rest: reviewRest } = groupReviewPosts();
@@ -103,6 +121,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ];
 
   const reviewLines = reviewGroups.flatMap((group) => {
+    if (!isIndexableHub(group.posts.length)) return [];
     const url = `${site.url}${group.bucket.href}`;
     const lastModified = latestUpdatedDate(group.posts);
     return [
@@ -116,7 +135,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const categories = categoryList.flatMap((category) => {
     const categoryPosts = getPostsByCategory(category.slug);
-    if (categoryPosts.length === 0) return [];
+    if (!isIndexableHub(categoryPosts.length)) return [];
     const url = `${site.url}${category.href}`;
     const lastModified = latestUpdatedDate(categoryPosts);
     return [
@@ -133,7 +152,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       subcategory.parent,
       subcategory.slug,
     );
-    if (subcategoryPosts.length === 0) return [];
+    if (!isIndexableHub(subcategoryPosts.length)) return [];
     const url = `${site.url}${subcategory.href}`;
     const lastModified = latestUpdatedDate(subcategoryPosts);
     return [

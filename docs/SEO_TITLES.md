@@ -274,7 +274,8 @@ Artigo definido no H1 (`O KaBuM enfiou…`) pode cair no `seoTitle`
 
 | Superfície | Fonte | Pode diferir do H1? |
 | --- | --- | --- |
-| H1 da matéria, cards, trilho, breadcrumb, RSS `<title>`, `news:title`, JSON-LD `headline` | `title` | — (é a manchete) |
+| H1 da matéria, cards, trilho, breadcrumb, RSS `<title>`, `news:title` | `title` | — (é a manchete) |
+| JSON-LD `headline` | `seoTitle` ?? `title`, cortado por palavra em 110 | Sim, o título curto |
 | `<title>`, `og:title`, `twitter:title` | `seoTitle` ?? `title`, depois `composePageTitle` | Sim, se for a **mesma tese** mais curta |
 | Imagem OG gerada | `title` (manchete completa cabe em 1200×630) | Não: o cartaz leva a manchete, não o recorte SERP |
 
@@ -282,9 +283,9 @@ OG e Twitter **não** ganham um terceiro texto. Eles copiam o document title
 para o card e o browser não mentirem um para o outro. A arte OG continua com
 a manchete longa — ali há espaço.
 
-JSON-LD `headline` fica com a manchete porque no Google Notícias / Top
-Stories esse campo e o H1 pesam mais que a title tag. A title tag é o recorte
-para a busca web clássica, que trunca mais cedo.
+JSON-LD `headline` usa o título curto (`seoTitle`, ou a manchete cortada por
+palavra em 110). O H1 da página continua a manchete inteira. A title tag é o
+recorte para a busca web clássica, que trunca mais cedo (60, com a marca).
 
 ## Unicidade
 

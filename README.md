@@ -26,7 +26,7 @@ npm run lint
 
 `NEXT_PUBLIC_SITE_URL` entra em canonical, Open Graph, sitemap, robots e JSON-LD. Em produção o host público é `https://www.thezero.com.br` — `https://thezero.com.br` é reescrito para www, porque o apex só redireciona. Em local podes apontar para `http://127.0.0.1:43127`.
 
-`NEXT_PUBLIC_ADSENSE_PUB_ID` é opcional e **só** se preenche depois da aprovação no AdSense (`pub-` + 16 dígitos). Sem ela o site não carrega script de anúncio e o `/ads.txt` não declara vendedor Google. Checklist: [`docs/ADSENSE.md`](docs/ADSENSE.md).
+`NEXT_PUBLIC_ADSENSE_PUB_ID` é opcional e **só** liga o script de anúncio (`pub-` + 16 dígitos). Sem ela o site não carrega o script. O `/ads.txt` declara o vendedor Google (`pub-3679376723096233`) e o contato `hello@thezero.com.br`. Checklist: [`docs/ADSENSE.md`](docs/ADSENSE.md).
 
 `NEXT_PUBLIC_GA_MEASUREMENT_ID` é o measurement ID do GA4. Em **Production** no Vercel: `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-3H0Z0NNQ1J` (conta hello.shimenawa, propriedade The Zero, stream www.thezero.com.br). Sem ela — o caso de Preview e local — o site não carrega `gtag`. O script só entra depois do aceite de cookies de publicidade / estatística. Checklist: [`docs/ANALYTICS.md`](docs/ANALYTICS.md).
 
@@ -44,7 +44,7 @@ npm run lint
 | `/privacidade` | Política de Privacidade (LGPD + cookies / Analytics / AdSense) |
 | `/termos` | Termos de uso |
 | `/busca?q=` | Busca no título, trecho e corpo |
-| `/ads.txt` | Vendedores autorizados (vazio de Google até existir publisher ID) |
+| `/ads.txt` | Vendedor Google autorizado e contato da redação |
 | `/rss.xml` `/sitemap.xml` `/news-sitemap.xml` `/robots.txt` | Syndication e SEO |
 
 O footer tem um link **Loja** para `https://loja.thezero.com.br` (placeholder). Isto não é e-commerce.
@@ -70,7 +70,7 @@ coverCredit: "Apple / Divulgação"
 ---
 ```
 
-`title` é a manchete (H1, cards, RSS, Google News). `seoTitle` é opcional: entra no `<title>` e no Open Graph só quando a manchete é longa demais para a SERP. A marca ` · The Zero` é sufixo do código, não se escreve no frontmatter. Regras em [`docs/SEO_TITLES.md`](docs/SEO_TITLES.md). Checklist de indexação, sitemap e Search Console: [`docs/SEO.md`](docs/SEO.md).
+`title` é a manchete (H1, cards, RSS). `seoTitle` é opcional: entra no `<title>`, no Open Graph e no `headline` do JSON-LD quando a manchete é longa demais para a SERP. A marca ` · The Zero` é sufixo do `title.template`, e cai quando o título passa de 60 caracteres. `seoDescription` é opcional: vira a meta description quando o excerpt passa de 160; senão o código trunca por palavra em 155 com `…`. O excerpt longo continua no dek. Regras em [`docs/SEO_TITLES.md`](docs/SEO_TITLES.md). Checklist de indexação, sitemap e Search Console: [`docs/SEO.md`](docs/SEO.md).
 
 `category` tem de ser um de: `tecnologia` · `ia` · `computadores` · `dispositivos` · `aplicativos` · `jogos`.
 
@@ -80,7 +80,7 @@ O destaque da home é automático: a `noticia` com a data de publicação mais r
 
 `subcategory` é opcional, mas recomendada quando houver encaixe. Ela precisa pertencer à editoria escolhida; a lista e as regras de fronteira ficam em [`docs/TAXONOMY.md`](docs/TAXONOMY.md). Subcategorias com matérias ganham hub próprio em `/[editoria]/[subcategoria]`.
 
-Opcionais: `seoTitle` (recorte do `<title>` quando a manchete não cabe na SERP), `updated`, `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa), **`coverAlt`** (descrição objetiva da imagem) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
+Opcionais: `seoTitle` (recorte do `<title>` e do `headline` quando a manchete não cabe na SERP), `seoDescription` (meta description quando o excerpt passa de 160), `updated`, `kicker`, `author`, `draft` (`true` some em produção), **`cover`** (URL da foto de capa), **`coverAlt`** (descrição objetiva da imagem) e **`coverCredit`** (crédito sob a imagem, ex. `Apple / Divulgação`).
 
 Sem `cover`, o card e a matéria seguem só com tipografia — o layout não quebra.
 

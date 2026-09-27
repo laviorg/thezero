@@ -39,6 +39,11 @@ export type PostFrontmatter = {
   title: string;
   /** Núcleo do `<title>` / OG quando a manchete é longa demais para a SERP. */
   seoTitle?: string;
+  /**
+   * Meta description quando o excerpt passa de ~160 caracteres.
+   * O excerpt longo continua como dek na página.
+   */
+  seoDescription?: string;
   excerpt: string;
   category: CategorySlug;
   subcategory?: SubcategorySlug;
@@ -88,6 +93,9 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
   const title = typeof data.title === "string" ? data.title : "";
   const seoTitleRaw = typeof data.seoTitle === "string" ? data.seoTitle.trim() : "";
   const seoTitle = seoTitleRaw && seoTitleRaw !== title ? seoTitleRaw : undefined;
+  const seoDescriptionRaw =
+    typeof data.seoDescription === "string" ? data.seoDescription.trim() : "";
+  const seoDescription = seoDescriptionRaw || undefined;
   const excerpt = typeof data.excerpt === "string" ? data.excerpt : "";
   const category = typeof data.category === "string" ? data.category : "";
   const subcategory =
@@ -125,6 +133,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
   return {
     title,
     seoTitle,
+    seoDescription,
     excerpt,
     category,
     subcategory: resolvedSubcategory?.slug,
@@ -367,6 +376,7 @@ export function searchPosts(query: string): Post[] {
     const haystack = [
       post.title,
       post.seoTitle ?? "",
+      post.seoDescription ?? "",
       post.excerpt,
       post.kicker ?? "",
       post.categoryLabel,
