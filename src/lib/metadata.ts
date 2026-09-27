@@ -3,9 +3,12 @@ import {
   languageAlternate,
   newsRobots,
   ogImageMeta,
+  toMetaDescription,
 } from "./seo.ts";
 import { absoluteUrl, site } from "./site.ts";
 import {
+  BRAND_NAME,
+  TITLE_SEPARATOR,
   composePageTitle,
   includesBrand,
   type BrandMode,
@@ -26,6 +29,21 @@ type BuildPageMetaInput = {
   omitCanonical?: boolean;
 };
 
+/**
+ * The root layout template is `%s · The Zero`. Pass the core as a string so
+ * Next adds that suffix. When the composed title would pass 60 characters,
+ * or the brand is already inside the core, emit an absolute title and the
+ * template stays out of the way.
+ */
+function metadataTitle(documentTitle: string): Metadata["title"] {
+  const suffix = `${TITLE_SEPARATOR}${BRAND_NAME}`;
+  if (documentTitle.endsWith(suffix)) {
+    const core = documentTitle.slice(0, -suffix.length);
+    if (core && !includesBrand(core)) return core;
+  }
+  return { absolute: documentTitle };
+}
+
 export function buildPageMetadata({
   title,
   description,
@@ -41,6 +59,7 @@ export function buildPageMetadata({
   const url = absoluteUrl(path);
   const canonicalUrl = url;
   const documentTitle = composePageTitle(title, brand);
+  const metaDescription = toMetaDescription(description);
   const socialTitle = ogTitle
     ? composePageTitle(ogTitle, includesBrand(ogTitle) ? "never" : brand)
     : documentTitle;
@@ -49,8 +68,8 @@ export function buildPageMetadata({
     : undefined;
 
   return {
-    title: { absolute: documentTitle },
-    description,
+    title: metadataTitle(documentTitle),
+    description: metaDescription,
     alternates: {
       ...(omitCanonical
         ? {}
@@ -75,13 +94,13 @@ export function buildPageMetadata({
       url,
       siteName: site.name,
       title: socialTitle,
-      description,
+      description: metaDescription,
       ...(image ? { images: [image] } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title: socialTitle,
-      description,
+      description: metaDescription,
       ...(image
         ? { images: [{ url: image.url, alt: image.alt }] }
         : {}),

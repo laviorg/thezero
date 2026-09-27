@@ -57,6 +57,16 @@ const nextConfig: NextConfig = {
         destination: "/rss.xml",
         permanent: true,
       },
+      {
+        source: "/feed.xml",
+        destination: "/rss.xml",
+        permanent: true,
+      },
+      {
+        source: "/atom.xml",
+        destination: "/rss.xml",
+        permanent: true,
+      },
     ];
   },
   outputFileTracingIncludes: {

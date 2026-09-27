@@ -9,8 +9,9 @@ import {
   selectGoogleNewsPosts,
   selectRecentPublications,
 } from "./news-sitemap.ts";
-import { articleAuthorLd } from "./seo.ts";
+import { articleAuthorLd, isIndexableHub, toMetaDescription } from "./seo.ts";
 import { resolveSiteUrl, site } from "./site.ts";
+import { HOME_TITLE, composePageTitle } from "./titles.ts";
 
 describe("site.social", () => {
   it("lists the live Instagram, YouTube, Threads, and X profiles", () => {
@@ -74,6 +75,31 @@ describe("articleAuthorLd", () => {
   });
 });
 
+describe("toMetaDescription", () => {
+  it("keeps a short description and cuts a long one on a word boundary", () => {
+    assert.equal(toMetaDescription("  Curta e direta.  "), "Curta e direta.");
+    const exact = "a".repeat(155);
+    assert.equal(toMetaDescription(exact), exact);
+
+    const long =
+      "The Zero é o newsroom de tech do Brasil que mostra o que funciona de verdade em tecnologia, inteligência artificial, computadores, dispositivos, aplicativos e jogos, com opinião sem filtro.";
+    const meta = toMetaDescription(long);
+    assert.ok([...meta].length <= 155, String([...meta].length));
+    assert.equal(meta.endsWith("…"), true);
+    assert.equal(meta.endsWith(" …"), false);
+    assert.equal(/\s\S*$/u.test(meta.slice(0, -1)), true);
+    assert.equal(long.startsWith(meta.slice(0, -1)), true);
+  });
+});
+
+describe("isIndexableHub", () => {
+  it("indexes a hub only from the third story on", () => {
+    assert.equal(isIndexableHub(0), false);
+    assert.equal(isIndexableHub(2), false);
+    assert.equal(isIndexableHub(3), true);
+  });
+});
+
 describe("buildPageMetadata", () => {
   it("keeps the feed link and drops a fake canonical on 404", () => {
     const meta = buildPageMetadata({
@@ -128,6 +154,44 @@ describe("buildPageMetadata", () => {
     );
     assert.equal(String(meta.openGraph?.url), "https://www.thezero.com.br/noticia/gemini-hackeou-tres-empresas-teste");
     assert.doesNotMatch(String(meta.alternates?.canonical), /^https:\/\/thezero\.com\.br\//);
+  });
+
+  it("lets the layout template add the brand when the title fits in 60", () => {
+    const meta = buildPageMetadata({
+      title: "Ferramentas de IA",
+      description: "Demo antes da promessa.",
+      path: "/ia",
+      brand: "always",
+    });
+    assert.equal(meta.title, "Ferramentas de IA");
+    assert.equal(meta.openGraph?.title, "Ferramentas de IA · The Zero");
+  });
+
+  it("drops the suffix when the composed title would pass 60", () => {
+    const core =
+      "Cursor não é IA que escreve código. É autocomplete que entende o repo";
+    const meta = buildPageMetadata({
+      title: core,
+      description: "Teste.",
+      path: "/noticia/x",
+      brand: "auto",
+    });
+    const composed = composePageTitle(core, "auto");
+    assert.deepEqual(meta.title, { absolute: composed });
+    assert.equal(composed.includes("The Zero"), false);
+  });
+
+  it("keeps an absolute title when the brand is already in the core", () => {
+    const meta = buildPageMetadata({
+      title: HOME_TITLE,
+      description: "x".repeat(180),
+      path: "/",
+      brand: "never",
+    });
+    assert.deepEqual(meta.title, { absolute: HOME_TITLE });
+    const description = meta.description ?? "";
+    assert.ok([...description].length <= 155);
+    assert.equal(description.endsWith("…"), true);
   });
 });
 

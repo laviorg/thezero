@@ -22,6 +22,8 @@ const PUBLIC_DIR = path.join(ROOT, "public");
 const MIN_COVER_WIDTH = 1200;
 /** Depois disso a data de publicação é “futuro distante” (calendário de Brasília). */
 const MAX_FUTURE_DAYS = 30;
+/** Acima disso a meta description é truncada. Aviso, não erro. */
+const DESCRIPTION_WARN = 160;
 
 const DATE_ONLY = /^(\d{4})-(\d{2})-(\d{2})$/;
 const DATE_TIME =
@@ -425,7 +427,7 @@ async function checkPost(filePath, ctx) {
   try {
     raw = fs.readFileSync(filePath, "utf8");
   } catch {
-    return [`${rel}: arquivo não encontrado.`];
+    return { errors: [`${rel}: arquivo não encontrado.`], warnings: [] };
   }
 
   let parsed;
@@ -433,7 +435,10 @@ async function checkPost(filePath, ctx) {
     parsed = matter(raw);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    return [`${rel}: frontmatter inválido (${message}).`];
+    return {
+      errors: [`${rel}: frontmatter inválido (${message}).`],
+      warnings: [],
+    };
   }
 
   const data = parsed.data ?? {};
@@ -519,8 +524,17 @@ async function checkPost(filePath, ctx) {
     );
   }
 
-  if (issues.length === 0) return [];
-  return issues.map((issue) => `${rel} (${slug}): ${issue}`);
+  const errors = issues.map((issue) => `${rel} (${slug}): ${issue}`);
+  const warnings = [];
+  const excerpt = typeof data.excerpt === "string" ? data.excerpt.trim() : "";
+  const descriptionLength = [...excerpt].length;
+  if (descriptionLength > DESCRIPTION_WARN) {
+    warnings.push(
+      `${rel} (${slug}): AVISO: description tem ${descriptionLength} caracteres (passa de ${DESCRIPTION_WARN}).`,
+    );
+  }
+
+  return { errors, warnings };
 }
 
 function listAllPosts() {
@@ -639,7 +653,9 @@ Falhas (mensagem em português, exit 1):
   imagem do corpo fora de public/
   link para thezero.com.br sem www
   frontmatter obrigatório ausente ou inválido (title, excerpt, date, category; subcategory e format quando preenchidos)
-  data de publicação inválida ou mais de ${MAX_FUTURE_DAYS} dias no futuro (Brasília)`);
+  data de publicação inválida ou mais de ${MAX_FUTURE_DAYS} dias no futuro (Brasília)
+
+Aviso (não falha, exit 0): excerpt/description com mais de ${DESCRIPTION_WARN} caracteres.`);
 }
 
 async function main(argv = process.argv.slice(2)) {
@@ -683,12 +699,21 @@ async function main(argv = process.argv.slice(2)) {
   }
 
   const reports = [...errors];
+  const warnings = [];
   for (const file of files) {
-    reports.push(...(await checkPost(file, ctx)));
+    const result = await checkPost(file, ctx);
+    reports.push(...result.errors);
+    warnings.push(...result.warnings);
   }
 
+  for (const line of warnings) console.log(line);
+
   if (reports.length === 0) {
-    console.log(`OK: ${files.length} post(s) conferido(s).`);
+    const warningNote =
+      warnings.length > 0
+        ? ` ${warnings.length} aviso(s) — não bloqueiam a publicação.`
+        : "";
+    console.log(`OK: ${files.length} post(s) conferido(s).${warningNote}`);
     return 0;
   }
 

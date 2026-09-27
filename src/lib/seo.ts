@@ -44,6 +44,41 @@ export function articleOgImagePath(slug: string) {
   return `/noticia/${slug}/opengraph-image`;
 }
 
+/** Google’s usual meta description cutoff. We stay under it on purpose. */
+export const META_DESCRIPTION_MAX = 155;
+
+const META_ELLIPSIS = "…";
+
+/**
+ * SERP description. Keeps the text when it already fits; otherwise cuts on a
+ * word boundary and appends an ellipsis so the tag stays ≤155 characters.
+ * The long dek on the page is a different string.
+ */
+export function toMetaDescription(value: string): string {
+  const text = value.replace(/\s+/g, " ").trim();
+  if ([...text].length <= META_DESCRIPTION_MAX) return text;
+
+  const budget = META_DESCRIPTION_MAX - [...META_ELLIPSIS].length;
+  let slice = [...text].slice(0, budget).join("");
+  const lastSpace = slice.lastIndexOf(" ");
+  if (lastSpace > 0) slice = slice.slice(0, lastSpace);
+  slice = slice.trimEnd().replace(/(?<!\d)[.,;:!?]+$/u, "").trimEnd();
+  if (!slice) {
+    slice = [...text].slice(0, budget).join("").trimEnd();
+  }
+  return `${slice}${META_ELLIPSIS}`;
+}
+
+/**
+ * Editorias, subeditorias and review lines with fewer stories are thin:
+ * noindex and absent from the sitemap until they reach this count.
+ */
+export const MIN_INDEXABLE_HUB_POSTS = 3;
+
+export function isIndexableHub(postCount: number): boolean {
+  return postCount >= MIN_INDEXABLE_HUB_POSTS;
+}
+
 export const publisherLogoUrl = `${site.url}/apple-icon`;
 export const organizationId = `${site.url}/#organization`;
 export const websiteId = `${site.url}/#website`;

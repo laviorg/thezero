@@ -5,6 +5,7 @@ import {
   ABOUT_TITLE,
   CONTACT_TITLE,
   EDITORIAL_POLICY_TITLE,
+  HEADLINE_MAX,
   HOME_TITLE,
   HOW_WE_TEST_TITLE,
   PRIVACY_TITLE,
@@ -12,6 +13,7 @@ import {
   TITLE_HARD_MAX,
   TITLE_SOFT_MAX,
   articlePageTitle,
+  articleSchemaHeadline,
   composePageTitle,
   reviewBucketPageTitle,
   reviewsPageTitle,
@@ -85,6 +87,26 @@ describe("articlePageTitle", () => {
       }),
       "KaBuM enfiou um vendedor de IA no WhatsApp · The Zero",
     );
+  });
+});
+
+describe("articleSchemaHeadline", () => {
+  it("prefers seoTitle and stays within 110 characters", () => {
+    assert.equal(
+      articleSchemaHeadline({
+        title: "Manchete editorial que passa de cento e dez caracteres e ainda continua com a tese inteira na página",
+        seoTitle: "KaBuM enfiou um vendedor de IA no WhatsApp",
+      }),
+      "KaBuM enfiou um vendedor de IA no WhatsApp",
+    );
+
+    const title =
+      "Um titulo longo demais para o Google Noticias que precisa ser cortado no limite de cento e dez caracteres sem partir a ultima palavra ao meio agora mesmo";
+    const headline = articleSchemaHeadline({ title });
+    assert.ok(titleLength(headline) <= HEADLINE_MAX);
+    assert.equal(headline.includes("The Zero"), false);
+    assert.equal(title.startsWith(headline), true);
+    assert.notEqual(headline, title);
   });
 });
 

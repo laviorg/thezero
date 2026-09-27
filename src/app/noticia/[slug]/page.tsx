@@ -23,9 +23,10 @@ import {
   articleOgImagePath,
   coverAlt,
   newsRobots,
+  toMetaDescription,
 } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
-import { articleHeadline } from "@/lib/titles";
+import { articleHeadline, articleSchemaHeadline } from "@/lib/titles";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -54,7 +55,7 @@ export async function generateMetadata({
   const ogPath = articleOgImagePath(post.slug);
   const base = buildPageMetadata({
     title: post.seoTitle || post.title,
-    description: post.excerpt,
+    description: post.seoDescription || post.excerpt,
     path: post.href,
     type: "article",
     brand: "auto",
@@ -102,7 +103,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const pageUrl = absoluteUrl(post.href);
   const kicker = subcategory?.label ?? category?.label ?? post.kicker ?? "The Zero";
   const kickerHref = subcategory?.href ?? category?.href;
-  const headline = articleHeadline(post);
 
   return (
     <article className="story-page">
@@ -110,8 +110,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <span />
       </div>
       <NewsArticleJsonLd
-        headline={headline}
-        description={post.excerpt}
+        headline={articleSchemaHeadline(post)}
+        description={toMetaDescription(post.seoDescription || post.excerpt)}
         datePublished={post.dateIso}
         dateModified={post.updatedIso}
         url={pageUrl}

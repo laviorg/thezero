@@ -12,7 +12,7 @@ import {
   getActiveSubcategories,
   getPostsBySubcategory,
 } from "@/lib/posts";
-import { HOME_CRUMB_LABEL } from "@/lib/seo";
+import { HOME_CRUMB_LABEL, isIndexableHub } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import { subcategoryPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
@@ -42,6 +42,7 @@ export async function generateMetadata({
 
   const title = subcategoryPageTitle(subcategory);
   const description = `${subcategory.label} no The Zero. ${subcategory.description}`;
+  const postCount = getPostsBySubcategory(category.slug, subcategory.slug).length;
 
   return buildPageMetadata({
     title: subcategory.seoTitle,
@@ -50,6 +51,7 @@ export async function generateMetadata({
     brand: "always",
     imagePath: `${subcategory.href}/opengraph-image`,
     imageAlt: title,
+    noIndex: !isIndexableHub(postCount),
   });
 }
 

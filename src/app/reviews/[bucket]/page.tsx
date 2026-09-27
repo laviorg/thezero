@@ -11,7 +11,7 @@ import {
   getReviewBucket,
   reviewBucketDescription,
 } from "@/lib/review-buckets";
-import { HOME_CRUMB_LABEL } from "@/lib/seo";
+import { HOME_CRUMB_LABEL, isIndexableHub } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import { reviewBucketPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
@@ -51,6 +51,7 @@ export async function generateMetadata({
     brand: "always",
     imagePath: `${bucket.href}/opengraph-image`,
     imageAlt: title,
+    noIndex: !isIndexableHub(posts.length),
   });
 }
 

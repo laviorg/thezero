@@ -8,6 +8,9 @@ export const TITLE_SOFT_MAX = 60;
 /** Never emit a document/OG title longer than this. Truncate at a word boundary. */
 export const TITLE_HARD_MAX = 70;
 
+/** NewsArticle `headline` cap (Google News). The on-page H1 can be longer. */
+export const HEADLINE_MAX = 110;
+
 /** Brand delimiter. Matches kickers and the previous template; Google accepts ·, | or -. */
 export const TITLE_SEPARATOR = " · ";
 
@@ -202,4 +205,18 @@ export function articlePageTitle(post: {
 
 export function articleHeadline(post: { title: string }): string {
   return normalizeTitle(post.title);
+}
+
+/**
+ * JSON-LD NewsArticle headline. Uses `seoTitle` when the newsroom wrote a
+ * short title; otherwise the manchete, cut on a word boundary at 110.
+ * The H1, cards and RSS keep the full `title`.
+ */
+export function articleSchemaHeadline(post: {
+  title: string;
+  seoTitle?: string;
+}): string {
+  const short = normalizeTitle(post.seoTitle?.trim() || post.title);
+  if (titleLength(short) <= HEADLINE_MAX) return short;
+  return fitTitle(short, HEADLINE_MAX);
 }
