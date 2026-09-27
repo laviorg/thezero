@@ -2,9 +2,12 @@ name: check-posts
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, edited]
     paths:
       - "content/posts/**"
       - "public/images/posts/**"
+      - "scripts/check-posts.mjs"
+      - "scripts/check-posts.test.mjs"
 
 permissions:
   contents: read
@@ -27,6 +30,9 @@ jobs:
 
       - name: Instalar dependências
         run: npm ci
+
+      - name: Testes do verificador
+        run: node --test scripts/check-posts.test.mjs
 
       - name: Verificar posts alterados
         shell: bash

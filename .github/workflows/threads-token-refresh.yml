@@ -1,0 +1,34 @@
+name: threads-token-refresh
+
+on:
+  schedule:
+    # Segunda-feira, 12:00 UTC. O token de longa duração do Threads vale 60 dias.
+    - cron: "0 12 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    name: Renovar THREADS_TOKEN
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Dependências
+        run: pip install -r scripts/social/requirements.txt
+
+      - name: Renovar e gravar o secret
+        env:
+          PYTHONUNBUFFERED: "1"
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+          GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
+          REPO: ${{ github.repository }}
+        run: python3 scripts/social/refresh_threads_secret.py

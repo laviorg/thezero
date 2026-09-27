@@ -1,0 +1,67 @@
+name: social-post
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Slug da matéria (content/posts/<slug>.mdx)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: social-post-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  post:
+    name: Instagram e Threads
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Dependências
+        run: pip install -r scripts/social/requirements.txt
+
+      - name: Testes do publicador
+        run: python3 -m unittest discover -s scripts/social -p 'test_*.py'
+
+      - name: Publicar
+        env:
+          PYTHONUNBUFFERED: "1"
+          GITHUB_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.after }}
+          INPUT_SLUG: ${{ github.event.inputs.slug }}
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+        run: python3 scripts/social/run.py
+
+      - name: Guardar a arte
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ig-art-${{ github.run_id }}
+          path: |
+            social-out/*.png
+            social-out/*.jpg
+          if-no-files-found: ignore
