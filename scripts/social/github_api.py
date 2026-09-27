@@ -10,12 +10,15 @@ MARKER = "## SOCIAL POSTED"
 
 
 def _headers(token: str) -> dict[str, str]:
-    return {
-        "Authorization": f"Bearer {token}",
+    headers = {
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
         "User-Agent": "thezero-social-post",
     }
+    if token:
+        # Sem token (dry-run local) a chamada vai anônima; repo é público.
+        headers["Authorization"] = f"Bearer {token}"
+    return headers
 
 
 def _json(response: requests.Response, token: str, secrets: list[str]):
