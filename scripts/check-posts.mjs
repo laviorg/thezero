@@ -5,7 +5,10 @@
  *   node scripts/check-posts.mjs --all
  *   node scripts/check-posts.mjs content/posts/exemplo.mdx
  *   node scripts/check-posts.mjs            # posts alterados neste branch
+ *   node scripts/check-posts.mjs --pr-body-file corpo.md
  *
+ * PR que adiciona matéria precisa de um bloco FACT-CHECK no corpo.
+
  * Frontmatter: gray-matter (o mesmo parser de src/lib/posts.ts).
  * Largura da capa: sharp, se o pacote carregar; senão, o cabeçalho do arquivo.
  */
@@ -639,6 +642,262 @@ function postsFromPaths(inputs) {
   return { posts: [...posts].sort(), errors };
 }
 
+function parseArgs(argv) {
+  let prBodyFile = null;
+  let sawPrBodyFlag = false;
+  const rest = [];
+  for (let i = 0; i < argv.length; i += 1) {
+    if (argv[i] === "--pr-body-file") {
+      sawPrBodyFlag = true;
+      prBodyFile = argv[i + 1] ?? "";
+      i += 1;
+      continue;
+    }
+    rest.push(argv[i]);
+  }
+  return { rest, prBodyFile, sawPrBodyFlag };
+}
+
+function extractSection(text, title) {
+  const normalized = String(text ?? "")
+    .replace(/^\uFEFF/, "")
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n");
+  const lines = normalized.split("\n");
+  const startRe = new RegExp(
+    `^\\s*(?:#{1,6}\\s*)?(?:\\*\\*|__)?${title}(?:\\*\\*|__)?\\b.*$`,
+    "i",
+  );
+  const stopRe =
+    /^[ \t]{0,3}(?:#{1,6}\s*)?(?:\*\*|__)?(?:SOCIAL PACKAGE|FACT-CHECK)\b/i;
+  let start = -1;
+  for (let i = 0; i < lines.length; i += 1) {
+    if (startRe.test(lines[i].replace(/\s+$/, ""))) {
+      start = i;
+      break;
+    }
+  }
+  if (start < 0) return null;
+  const body = [];
+  for (let i = start + 1; i < lines.length; i += 1) {
+    const line = lines[i];
+    if (/^[ \t]{0,3}#{1,2}\s+\S/.test(line)) break;
+    if (stopRe.test(line) && !line.toLowerCase().includes(title.toLowerCase())) {
+      break;
+    }
+    if (/^\s*<!--/.test(line)) break;
+    body.push(line);
+  }
+  return body.join("\n");
+}
+
+function claimLines(section) {
+  const lines = [];
+  for (const raw of section.split("\n")) {
+    const line = raw.trim();
+    if (!line || /^#{1,6}\s+/.test(line) || /^[-*_]{3,}$/.test(line) || /^```/.test(line)) {
+      continue;
+    }
+    const stripped = line.replace(/^[-*+]\s+/, "").replace(/^\d+[.)]\s+/, "").trim();
+    if (stripped) lines.push(stripped);
+  }
+  return lines;
+}
+
+function statusOf(line) {
+  const cleaned = line.trim().replace(/\s*[.。]\s*$/g, "");
+  const parts = cleaned
+    .split("|")
+    .map((part) => part.trim())
+    .filter(Boolean);
+  if (parts.length >= 2) {
+    return parts[parts.length - 1].replace(/\s*[.。]\s*$/g, "").trim();
+  }
+  const tokens = cleaned.split(/\s+/).filter(Boolean);
+  if (tokens.length >= 2 && /^(?:not|não|nao)$/i.test(tokens[tokens.length - 2] ?? "")) {
+    return `${tokens[tokens.length - 2]} ${tokens[tokens.length - 1]}`;
+  }
+  return tokens[tokens.length - 1] ?? "";
+}
+
+function isMarkedOk(line) {
+  return /^ok$/i.test(statusOf(line));
+}
+
+function hasPrimaryUrl(line) {
+  const match = line.match(/https?:\/\/[^\s|<>)\]]+/i);
+  if (!match) return false;
+  let url;
+  try {
+    url = new URL(match[0].replace(/[.,;:!?]+$/g, ""));
+  } catch {
+    return false;
+  }
+  if (url.protocol !== "http:" && url.protocol !== "https:") return false;
+  return url.hostname.includes(".");
+}
+
+function claimBody(line) {
+  const withoutUrl = line.replace(/https?:\/\/\S+/gi, " ");
+  const parts = withoutUrl
+    .split("|")
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .filter((part, index, all) => {
+      if (index === all.length - 1 && /^ok$/i.test(part.replace(/\s*[.。]\s*$/g, ""))) {
+        return false;
+      }
+      return true;
+    });
+  return parts
+    .join(" ")
+    .replace(/^(?:[-*+]\s+)?(?:claim|afirmação|afirmacao)\s*:\s*/i, "")
+    .replace(/\bsource\s*:\s*$/i, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function snippet(line) {
+  const clean = line.replace(/\s+/g, " ").trim();
+  if (clean.length <= 80) return clean;
+  return `${clean.slice(0, 77)}...`;
+}
+
+/**
+ * @returns {string[]} problemas do bloco, sem prefixo de arquivo
+ */
+function factCheckIssues(body) {
+  const section = extractSection(body, "FACT-CHECK");
+  if (section == null) {
+    return ["FACT-CHECK ausente: o corpo do PR não tem um bloco FACT-CHECK."];
+  }
+  const lines = claimLines(section);
+  if (lines.length === 0) {
+    return [
+      "FACT-CHECK vazio: liste cada afirmação (número, data, nome, citação) com a URL da fonte primária e ok.",
+    ];
+  }
+  const issues = [];
+  lines.forEach((line, index) => {
+    const label = `FACT-CHECK linha ${index + 1}`;
+    const preview = snippet(line);
+    if (claimBody(line).length < 2) {
+      issues.push(`${label} sem a afirmação: ${preview}`);
+    }
+    if (!hasPrimaryUrl(line)) {
+      issues.push(`${label} sem URL de fonte primária: ${preview}`);
+    }
+    if (!isMarkedOk(line)) {
+      issues.push(`${label} não está marcada com ok: ${preview}`);
+    }
+  });
+  return issues;
+}
+
+function listAddedArticles() {
+  const isPostPath = (rel) => rel.endsWith(".mdx") || rel.endsWith(".md");
+  if (process.env.GITHUB_EVENT_NAME === "pull_request" && process.env.GITHUB_EVENT_PATH) {
+    try {
+      const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, "utf8"));
+      const base = event.pull_request?.base?.sha;
+      const head = event.pull_request?.head?.sha;
+      if (!base || !head) return null;
+      const lines = gitLines([
+        "diff",
+        "--name-only",
+        "--diff-filter=A",
+        base,
+        head,
+        "--",
+        "content/posts",
+      ]);
+      if (!lines) return null;
+      return lines.filter(isPostPath);
+    } catch {
+      return null;
+    }
+  }
+
+  let base = null;
+  for (const ref of ["origin/main", "main"]) {
+    const lines = gitLines(["merge-base", "HEAD", ref]);
+    if (lines?.[0]) {
+      base = lines[0];
+      break;
+    }
+  }
+  if (!base) return null;
+  const diff = gitLines([
+    "diff",
+    "--name-only",
+    "--diff-filter=A",
+    base,
+    "--",
+    "content/posts",
+  ]);
+  const untracked = gitLines([
+    "ls-files",
+    "--others",
+    "--exclude-standard",
+    "--",
+    "content/posts",
+  ]);
+  if (!diff || !untracked) return null;
+  return [...new Set([...diff, ...untracked])].filter(isPostPath);
+}
+
+function loadFactCheckBody(flags) {
+  if (flags.sawPrBodyFlag) {
+    if (!flags.prBodyFile) {
+      return { error: "a flag --pr-body-file precisa do caminho do arquivo." };
+    }
+    const abs = resolveInput(flags.prBodyFile);
+    if (!fs.existsSync(abs) || !fs.statSync(abs).isFile()) {
+      return { error: `arquivo do corpo do PR não encontrado: ${flags.prBodyFile}.` };
+    }
+    return { body: fs.readFileSync(abs, "utf8") };
+  }
+  if (process.env.GITHUB_EVENT_NAME === "pull_request" && process.env.GITHUB_EVENT_PATH) {
+    try {
+      const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, "utf8"));
+      const body = event.pull_request?.body;
+      return { body: typeof body === "string" ? body : "" };
+    } catch {
+      return { error: "não consegui ler o corpo do PR no evento do GitHub." };
+    }
+  }
+  return { missingContext: true };
+}
+
+function collectFactCheckErrors(flags) {
+  const added = listAddedArticles();
+  if (added === null) {
+    if (flags.sawPrBodyFlag || process.env.GITHUB_EVENT_NAME === "pull_request") {
+      return ["FACT-CHECK: não consegui listar as matérias novas no git."];
+    }
+    return [];
+  }
+  if (added.length === 0) return [];
+
+  const first = added[0];
+  const slug = path.basename(first).replace(/\.mdx?$/, "");
+  const prefix = `${first} (${slug})`;
+  const extra =
+    added.length > 1
+      ? ` Matérias novas: ${added
+          .map((rel) => path.basename(rel).replace(/\.mdx?$/, ""))
+          .join(", ")}.`
+      : "";
+  const loaded = loadFactCheckBody(flags);
+  if (loaded.error) return [`${prefix}: ${loaded.error}${extra}`];
+  if (loaded.missingContext) {
+    return [
+      `${prefix}: FACT-CHECK obrigatório para matéria nova. Grave o corpo do PR e rode: npm run check:posts -- --pr-body-file <arquivo.md>${extra}`,
+    ];
+  }
+  return factCheckIssues(loaded.body).map((issue) => `${prefix}: ${issue}${extra}`);
+}
+
 function printHelp() {
   console.log(`Uso: node scripts/check-posts.mjs [--all] [arquivos...]
 
@@ -654,11 +913,17 @@ Falhas (mensagem em português, exit 1):
   link para thezero.com.br sem www
   frontmatter obrigatório ausente ou inválido (title, excerpt, date, category; subcategory e format quando preenchidos)
   data de publicação inválida ou mais de ${MAX_FUTURE_DAYS} dias no futuro (Brasília)
+  PR que adiciona matéria sem bloco FACT-CHECK, com o bloco vazio, ou com alguma linha sem URL de fonte primária ou sem ok
+
+--pr-body-file <arquivo> lê o corpo do PR. No GitHub Actions o corpo vem do evento pull_request.
+Sem o arquivo, uma branch que adiciona matéria falha e pede o corpo.
 
 Aviso (não falha, exit 0): excerpt/description com mais de ${DESCRIPTION_WARN} caracteres.`);
 }
 
 async function main(argv = process.argv.slice(2)) {
+  const flags = parseArgs(argv);
+  argv = flags.rest;
   if (argv.includes("--help") || argv.includes("-h")) {
     printHelp();
     return 0;
@@ -707,6 +972,7 @@ async function main(argv = process.argv.slice(2)) {
   }
 
   for (const line of warnings) console.log(line);
+  reports.push(...collectFactCheckErrors(flags));
 
   if (reports.length === 0) {
     const warningNote =
@@ -751,6 +1017,7 @@ export {
   apexLinks,
   bodyImages,
   checkPost,
+  factCheckIssues,
   loadTaxonomy,
   main,
   parseImageHeader,

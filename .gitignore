@@ -39,6 +39,13 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# arte gerada pelo workflow social (não entra na main)
+/social-out/
+
+# python
+__pycache__/
+*.py[cod]
+
 # vercel
 .vercel
 

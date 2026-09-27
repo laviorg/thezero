@@ -112,6 +112,8 @@ Prompt é pedido. Contexto é brief.
 
 4. Grava. O `npm run dev` relê a pasta. Não há painel admin.
 
+5. No corpo do PR, inclui `FACT-CHECK` (cada número, data, nome e citação com a fonte primária e `ok`) e `SOCIAL PACKAGE`. O modelo está em [`AGENTS.md`](AGENTS.md). Instagram e Threads, depois do merge, estão em [`docs/social-automation.md`](docs/social-automation.md).
+
 Arquitetura: `content/posts` → `src/lib/posts.ts` (gray-matter) → páginas em `src/app`. Componentes de UI em `src/components/ui` (padrão shadcn). Tokens da marca em `src/app/globals.css`.
 
 ## SEO

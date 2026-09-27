@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start --port 43127",
     "lint": "eslint",
-    "test": "node --experimental-strip-types --test src/lib/*.test.ts",
+    "test": "node --experimental-strip-types --test src/lib/*.test.ts && node --test scripts/check-posts.test.mjs",
+    "test:social": "python3 -m unittest discover -s scripts/social -p 'test_*.py'",
     "covers": "node --experimental-strip-types scripts/generate-review-covers.ts",
     "link-evergreen": "node --experimental-strip-types scripts/link-evergreen.ts",
     "check:posts": "node scripts/check-posts.mjs"
