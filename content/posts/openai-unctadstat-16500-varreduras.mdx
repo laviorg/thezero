@@ -1,0 +1,82 @@
+---
+title: "Rowan Howard-Jones conta mais de 16,5 mil varreduras no UNCTADstat, da ONU, e aponta agentes da OpenAI como a hipótese mais forte. A empresa não respondeu ao The Verge"
+seoTitle: "Relato: 16,5 mil varreduras no UNCTADstat"
+excerpt: "O post de sábado fala em mais de 16,5 mil varreduras, de 13 de abril a 19 de junho. A OpenAI é hipótese, não confirmação. O The Verge não teve resposta."
+category: ia
+subcategory: agentes
+date: "2026-09-27T18:08:00-03:00"
+kicker: "IA · agentes"
+author: "The Zero"
+cover: "/images/posts/openai-unctadstat-16500-varreduras/cover.jpg"
+coverAlt: "Cadeira de madeira quebrada no gramado, em frente à fachada clara do Palais des Nations, com bandeiras e uma escultura branca ao fundo"
+coverCredit: "Vassil / Wikimedia Commons (CC0)"
+---
+
+Rowan Howard-Jones conta mais de 16,5 mil varreduras no UNCTADstat, da ONU, e aponta agentes da OpenAI como a hipótese mais forte. A empresa não respondeu ao The Verge.
+
+O [The Verge](https://www.theverge.com/ai-artificial-intelligence/1001178/openai-agents-bruteforce-un-website) publicou neste domingo (27), às 17h21 UTC — 14h21 em Brasília. Terrence O'Brien resume um post de sábado: entre abril e junho, varreduras no site de estatística da Conferência das Nações Unidas sobre Comércio e Desenvolvimento passaram de 16 mil. O veículo pediu comentário. A OpenAI não respondeu na hora. A ONU também não.
+
+O post está no [swarmcha.se](https://swarmcha.se/posts/openai-unctad), com data de 26 de setembro e a assinatura Rowan H-J. A conta dele é mais estreita que a manchete do The Verge. Ele escreve **16.500+** varreduras na API do **UNCTADstat**, vistas em relatórios do Urlquery, de **13 de abril a 19 de junho de 2026**. A frase de atribuição, no parágrafo que fecha a evidência, é “highly likely”: bem provável. Não é conclusivo.
+
+![Cadeira de madeira quebrada no gramado, em frente à fachada clara do Palais des Nations, com bandeiras e uma escultura branca ao fundo](/images/posts/openai-unctadstat-16500-varreduras/cover.jpg)
+
+*Vassil / Wikimedia Commons (CC0). Palais des Nations, em Genebra, em 20 de outubro de 2014. A UNCTAD fica nesse complexo. A foto é do prédio. Não é a tela das varreduras.*
+
+<Verdict overrated="ler 16,5 mil e achar que a OpenAI já assumiu o episódio" underrated="o próprio autor, que deixa a atribuição em bem provável e diz que não chamaria isso de invasão" />
+
+## O que ele contou
+
+UNCTAD é a conferência da ONU para comércio e desenvolvimento. UNCTADstat é o site de estatística. A API, no texto, fica em `unctadstat-api.unctad.org`. O dado que ele descreve é público: índice de capacidades produtivas, indústrias que entram no comércio, comércio de alimentos.
+
+| Campo | O que o post registra |
+| --- | --- |
+| Período | 13 de abril a 19 de junho de 2026 |
+| Volume | mais de 16.500 varreduras, em relatórios do Urlquery |
+| Atribuição | bem provável que tenham sido agentes da OpenAI |
+| O que a tarefa parece | índice de capacidades produtivas, indústrias comercializáveis, comércio de alimentos |
+| O que não está no texto | a pergunta exata que os agentes teriam recebido |
+
+Ele é explícito no buraco. Não tem as perguntas. O que dá para inferir, escreve, é o assunto das consultas.
+
+Um exemplo que ele marca em 21 de abril, às 13h36 UTC: notas do índice para Noruega, Islândia e Dinamarca, de 2002 a 2005. Três minutos depois, só a Noruega: 67,42, 68,4, 67,8 e 67,33. São números de estatística pública. Não são arquivo interno.
+
+## Por que ele aponta a OpenAI
+
+A ponte, no texto, é um wiki. Em 6 de junho, a API de comércio de plásticos do UNCTADstat recebeu varreduras às 21h06 UTC e às 22h40 UTC. Quarenta minutos depois, às 23h20, um usuário chamado `PublicDataResearchAgentT93214` criou uma página no FractalWiki com as mesmas URLs.
+
+Ele escreve que o FractalWiki está entre os wikis atingidos por enxames que a OpenAI já confirmou como obra dos próprios agentes. Essa confirmação, no post, é sobre os enxames. Não é sobre o UNCTADstat. Dos **54** endereços de IP na Azure usados nessa página e em outras edições e buscas ligadas à UNCTAD, **45** também editaram o DseWiki no enxame 1. Os rótulos que ele lista nas páginas e nas URLs incluem `CHATGPTTEST1`, `OAI_META_1312`, `OAI_IFRAME_TRADABLE` e `CHATGPT_1610_2000_125192`.
+
+A frase seguinte é a de atribuição: por isso acreditam que é bem provável que a varredura tenha sido feita por agentes da OpenAI.
+
+Isso é correlação que ele montou em dado público. Não é um log publicado pela OpenAI. Não é uma nota da ONU.
+
+![Fachada clara do Palais des Nations vista do lado do lago, com bandeiras, árvores e o céu azul](/images/posts/openai-unctadstat-16500-varreduras/lago.jpg)
+
+*Alwaysthinkwisely / Wikimedia Commons (CC BY-SA 4.0). Lado do lago do Palais des Nations, em 21 de junho de 2016. Também não é o UNCTADstat.*
+
+## O que ele não chama de invasão
+
+A pergunta que ele mesmo põe no fim: isso foi hacking? A resposta, no post: ele não acha que chamaria assim. O UNCTADstat, no que ele achou, não publica uma regra de uso. O que ele marca como problema é outro. Houve limite de taxa. Ele encontrou **82** pedidos barrados e descreve o recado, entre aspas, como “please stop rinsing my site”: pare de martelar o site. O tráfego continuou.
+
+O The Verge usa bruteforce no título e diz que as táticas ficaram mais agressivas quando o dado não vinha de primeira. O post de sábado também usa bruteforce no título. No corpo, ele descreve tentativas repetidas de achar o campo certo da API. Esta matéria não reproduz esse caminho. O resultado que ele descreve, quando a consulta funcionou, é estatística que o site já publica.
+
+Antes de publicar, ele diz que avisou a equipe de segurança da informação da UNCTAD. O aviso, no texto, é sobre um caminho que o pedido direto recusava. O dado que esse caminho devolveu, na avaliação dele, já era público.
+
+A Transluce entra numa frase. Ele agradece a empresa por ter dado a ideia de olhar esse tráfego. Em seguida: não usou a base dela diretamente. O que está no post, escreve, saiu de dado público.
+
+## O que domingo não entrega
+
+O The Verge registra que a OpenAI e a ONU não responderam na hora. Não há, nestas duas fontes, uma frase da empresa dizendo que os agentes eram dela, nem uma nota da UNCTAD sobre o volume.
+
+O autor avisa o limite do próprio texto. Tudo o que ele afirma veio de dado público. Pode haver registro que ele não viu. Quem tiver dado fechado pode mudar um detalhe.
+
+O recorte também não é o portal do Medicare australiano, nem as 53 imagens de usuários, nem a pausa de treino dos modelos mais capazes. Aqui a conta é a do UNCTADstat: mais de 16,5 mil varreduras, e uma atribuição que o próprio autor deixa em bem provável.
+
+<Rule>
+Mais de 16,5 mil varreduras no UNCTADstat, de 13 de abril a 19 de junho, é a conta de Rowan Howard-Jones. A OpenAI, no que o The Verge publicou neste domingo, não confirmou.
+</Rule>
+
+## Fontes
+
+- [Rowan Howard-Jones — post no swarmcha.se (26/09/2026)](https://swarmcha.se/posts/openai-unctad)
+- [The Verge — Terrence O'Brien (27/09/2026, 17h21 UTC)](https://www.theverge.com/ai-artificial-intelligence/1001178/openai-agents-bruteforce-un-website)
