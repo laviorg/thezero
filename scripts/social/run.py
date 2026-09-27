@@ -269,6 +269,29 @@ def render_art(root: Path, cover: Path, hook: str, summary: str, slug: str) -> t
     return png, jpg
 
 
+def threads_token_for_run(current: str, secrets: list[str], refresh=None) -> str:
+    """Tenta renovar o THREADS_TOKEN. Se falhar (inclusive token com menos de
+    24 h), avisa sem expor o valor e segue com o token atual."""
+    refresh = refresh or refresh_threads_token
+    if current and current not in secrets:
+        secrets.append(current)
+    try:
+        fresh = refresh(current, secrets)
+    except Exception as exc:  # noqa: BLE001 — renovação nunca derruba a publicação
+        note(
+            f"::warning::não renovei o THREADS_TOKEN ({exc}). Sigo com o token atual.",
+            secrets,
+        )
+        return current
+    if not fresh or not isinstance(fresh, str):
+        note("::warning::renovação do THREADS_TOKEN sem token novo. Sigo com o token atual.", secrets)
+        return current
+    if fresh not in secrets:
+        secrets.append(fresh)
+    note("THREADS_TOKEN renovado para esta execução.", secrets)
+    return fresh
+
+
 def lookup_pr(repo: str, commit: str, token: str, secrets: list[str]) -> dict | None:
     return pr_for_commit(repo, commit, token, secrets)
 
@@ -446,7 +469,11 @@ def main() -> int:
             write_summary(summary_lines([]), secrets)
             return 0
         if dry:
-            tokens = {"github": "", "meta": "", "ig_user": "", "threads": "", "threads_user": ""}
+            # Dry-run só lê o GitHub. GITHUB_TOKEN é opcional (sem ele, chamada anônima).
+            dry_github = os.environ.get("GITHUB_TOKEN", "").strip()
+            if dry_github:
+                secrets.append(dry_github)
+            tokens = {"github": dry_github, "meta": "", "ig_user": "", "threads": "", "threads_user": ""}
             recent = {"ig": [], "threads": []}
             ledger = empty_ledger()
             for item in articles:
@@ -494,10 +521,7 @@ def main() -> int:
             tokens["ig_user"] = require_env("IG_USER_ID", secrets)
             tokens["threads_user"] = require_env("THREADS_USER_ID", secrets)
             current_threads = require_env("THREADS_TOKEN", secrets)
-            tokens["threads"] = refresh_threads_token(current_threads, secrets)
-            if tokens["threads"] not in secrets:
-                secrets.append(tokens["threads"])
-            note("THREADS_TOKEN renovado para esta execução.", secrets)
+            tokens["threads"] = threads_token_for_run(current_threads, secrets)
             try:
                 recent["ig"] = list_recent_ig(tokens["meta"], tokens["ig_user"], secrets)
             except RuntimeError as exc:
