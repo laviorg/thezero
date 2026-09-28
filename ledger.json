@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "posts": {
+    "cnbc-jantar-trump-amodei-domingo": {
+      "article_url": "https://www.thezero.com.br/noticia/cnbc-jantar-trump-amodei-domingo",
+      "ig": "https://www.instagram.com/p/Ddz2fbIjDyK/",
+      "threads": "https://www.threads.com/@hello.the.zero/post/Ddz2hiPlB-q",
+      "image_png": "/workspace/ig-thezero/today-news-extra-0927.png (fallback local)",
+      "pr": 90,
+      "commit": "c93266ee2b4ddb0326d3a854622af751d1e8624a",
+      "posted_by": "fallback local (post_api.py)",
+      "slug": "cnbc-jantar-trump-amodei-domingo",
+      "updated_at": "2026-09-28T00:04:39Z"
+    }
+  }
+}
