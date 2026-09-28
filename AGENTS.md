@@ -14,6 +14,10 @@ O comando confere os posts alterados neste branch (capa, `coverAlt`, alts, links
 
 Só abra o PR se esse comando passar com o mesmo corpo que vai no PR. O workflow `.github/workflows/check-posts.yml` repete a checagem em todo pull request que mexe em `content/posts/**`, `public/images/posts/**` ou no verificador. Editar o corpo do PR dispara a checagem de novo.
 
+### Alt e coverAlt
+
+Antes de escrever `coverAlt` ou o alt de qualquer imagem, abra o arquivo da imagem que vai no PR e descreva só o que aparece nele: pessoas, roupa, cenário, objetos, texto visível. Não descreva a partir do título da página de origem, da legenda do Commons ou de outra foto da mesma série. Se a imagem mudar, reescreva o alt.
+
 ### FACT-CHECK
 
 Abra a fonte primária de cada afirmação antes de marcar `ok`. Fonte primária é o documento original: página da empresa, nota oficial, filing, página da loja, transcrição, paper. Número, data, nome e citação entram cada um na própria linha. Não marque `ok` num dado que você não abriu. Se o original está público, não use como fonte um texto que só republica a notícia.

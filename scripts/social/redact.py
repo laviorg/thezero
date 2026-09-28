@@ -10,7 +10,7 @@ _ASSIGNMENT = re.compile(
     re.IGNORECASE,
 )
 _BEARER = re.compile(r"(bearer\s+)\S+", re.IGNORECASE)
-_AUTH_HEADER = re.compile(r"(AUTHORIZATION:\s*bearer\s+)\S+", re.IGNORECASE)
+_AUTH_HEADER = re.compile(r"(AUTHORIZATION:\s*(?:bearer|basic)\s+)\S+", re.IGNORECASE)
 
 
 def redact(text: str, secrets: list[str] | None = None) -> str:
