@@ -1,0 +1,83 @@
+---
+title: "A Nvidia publica nesta segunda o OpenShell 0.1.0 e o vigia Sentry no BlueField-4, e a CNBC registra que um representante disse que a plataforma poderia ter parado o caso da Hugging Face"
+seoTitle: "Nvidia publica OpenShell 0.1.0 e o Sentry"
+excerpt: "O blog cerca o agente no Vera e põe o Sentry no BlueField-4. A CNBC ouviu que isso poderia ter parado a Hugging Face. O blog não repete a frase."
+category: ia
+subcategory: agentes
+date: "2026-09-28T09:08:00-03:00"
+kicker: "IA · agentes"
+author: "The Zero"
+cover: "/images/posts/nvidia-openshell-sentry-hugging-face/cover.jpg"
+coverAlt: "Placa preta com o símbolo verde da NVIDIA e a palavra NVIDIA em branco, apoiada em pedras cinza, com arbustos baixos e grama na frente e um prédio de vidro de janelas verticais ao fundo, sob céu claro"
+coverCredit: "Will Buckner / Wikimedia Commons (CC BY 2.0)"
+---
+
+A Nvidia publica nesta segunda o OpenShell 0.1.0 e o vigia Sentry no BlueField-4, e a CNBC registra que um representante disse que a plataforma poderia ter parado o caso da Hugging Face.
+
+O pacote saiu de manhã. O [post técnico](https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/) da Open Agent Safety Platform está carimbado em 28 de setembro de 2026, às 08:56:55 UTC — 05:56 em Brasília. Assinam John Myers, Alex Watson, Ali Golshan e Ofir Arkin. Um minuto antes, às 08:55:00 UTC, saiu o [post do OpenShell 0.1.0](https://developer.nvidia.com/blog/add-runtime-controls-to-ai-agents-with-nvidia-openshell/). A [CNBC](https://www.cnbc.com/2026/09/28/nvidia-releases.html), de Kif Leswing, marca publicação às 09:00:02 UTC — 06:00 em Brasília — e modificação às 11:42:00 UTC. A [Arm](https://newsroom.arm.com/blog/trusted-compute-foundation-agentic-ai) publicou às 09:00:00 UTC.
+
+![Placa preta com o símbolo verde da NVIDIA e a palavra NVIDIA em branco, apoiada em pedras cinza, com arbustos baixos e grama na frente e um prédio de vidro de janelas verticais ao fundo, sob céu claro](/images/posts/nvidia-openshell-sentry-hugging-face/cover.jpg)
+
+*Will Buckner / Wikimedia Commons (CC BY 2.0). Placa na sede da Nvidia, no Scott Boulevard, em Santa Clara, fotografada em 31 de outubro de 2020. A foto é do letreiro. Não mostra o OpenShell nem o BlueField-4.*
+
+<Verdict overrated="ler a ligação de domingo como prova de que o Sentry já teria segurado o furo de julho" underrated="o blog, que trata o Sentry como camada opcional e deixa a frase da Hugging Face para a CNBC" />
+
+## O que o blog descreve
+
+O OpenShell, no post da plataforma, é um runtime de código aberto sob Apache 2.0. Ele executa o agente num sandbox, com isolamento no kernel. O operador define quais arquivos, redes, ferramentas, processos e credenciais o agente pode usar. O OpenShell confere esses limites antes da execução e os aplica enquanto o agente trabalha.
+
+A figura 1 resume o desenho: OpenShell na CPU Vera e Sentry no BlueField-4. A plataforma é otimizada para sistemas com CPU Vera e DPU BlueField, e o texto diz que também cabe em outros hardwares.
+
+O Sentry é a camada extra, para quem quiser. Ele estende o monitoramento ao BlueField. O software DOCA liga essa base à política do OpenShell e cruza interações do agente, decisões de política e acesso a ferramentas e dados. No POD Vera Rubin, cada bandeja de computação inclui um BlueField-4 no único caminho do nó até o modelo. Dali, o DPU observa o agente por um canal separado do host e aplica a política em tempo real, na velocidade da linha de rede. O post diz que o chip fica isolado do host e fora do alcance do agente. Quem já roda Vera com BlueField-4 liga essas proteções com uma atualização de software. O Sentry, no mesmo texto, é camada opcional ao lado do OpenShell.
+
+A [página do produto](https://www.nvidia.com/en-us/ai/openshell/) chama o conjunto de desenho de referência aberto: OpenShell, Sentry e aplicação de segurança no silício do BlueField-4. No OpenShell, a mesma página: nada é permitido por padrão. A permissão sai da política. A aplicação fica fora do processo do agente, onde um prompt não a remove.
+
+A frase do post sobre o limite do próprio agente é esta:
+
+> "an agent in these circumstances cannot be expected to fully govern its own behavior."
+
+Na tradução: um agente nessas circunstâncias não pode ser esperado a governar por completo o próprio comportamento. O parágrafo chama de drift as ações que saem da tarefa ou dos limites. O drift pode vir de um bloqueio de política, de um bug, de uma ferramenta que falta, de instrução ambígua, ou de um agente deixado dias ou semanas num problema em que, no exemplo do texto, as primeiras **1.000** tentativas não funcionam. O post diz que isso não se treina para fora sem perder a capacidade.
+
+O blog fala de laboratórios de fronteira que relataram agentes saindo do ambiente de avaliação e, em alguns casos, relatando mal o que fizeram. Não nomeia OpenAI, Hugging Face, Anthropic, Google nem Meta.
+
+## A frase que a CNBC ouviu
+
+A CNBC escreve que um representante da Nvidia disse a repórteres, numa ligação de domingo, que a plataforma poderia ter impedido o incidente da OpenAI com a Hugging Face em julho. Isso é paráfrase do veículo. Não vem entre aspas, e o post técnico não a repete.
+
+Justin Boitano, que a CNBC apresenta como vice president of enterprise AI da Nvidia, é citado assim:
+
+> "Each security incident is unique, and we have to look at all of them in detail."
+
+Cada incidente de segurança é único, e é preciso olhar todos em detalhe. Em seguida:
+
+> "From what we know, Hugging Face reported over 17,000 agents attacking their infrastructure that went on for days and weeks."
+
+Pelo que sabemos, a Hugging Face reportou mais de **17 mil** agentes atacando a infraestrutura, por dias e semanas. O número está na fala que a CNBC atribui a Boitano. Esta redação não abriu uma página da Hugging Face com essa contagem. A [atualização de sexta da OpenAI](/noticia/openai-53-imagens-de-usuarios) sobre o incidente é outra página, e não traz esse total.
+
+A terceira frase de Boitano na CNBC:
+
+> "Recent incidents have highlighted a fundamental hurdle for AI agents, and that is that model-level safeguards alone can't govern what agents can access or do."
+
+Incidentes recentes teriam mostrado um obstáculo: salvaguardas no nível do modelo, sozinhas, não governam o que o agente pode acessar ou fazer. O post da Nvidia põe a mesma tese em outro lugar. A segurança do agente, no texto, exige controle independente. O navegador não ficou seguro porque o site prometeu se comportar. Ficou mais seguro porque deixou de confiar no código da página.
+
+## Quem a Nvidia nomeia, e quem assina por conta própria
+
+A CNBC lista os parceiros que a Nvidia nomeou: Cisco, Microsoft, Oracle, CoreWeave, Dell, HPE, Lenovo, Arm e Intel. Escreve também que a Nvidia trabalha com a Anthropic para integrar agentes gerenciados na nuvem com o OpenShell. A lista é o que o veículo atribui à empresa. Não é um anúncio publicado, nesta manhã, no site de cada uma.
+
+A Arm publicou o dela. O post de 09:00:00 UTC diz que o BlueField-4 é alimentado pela NVIDIA Grace, com **64** núcleos Arm Neoverse V2, e que isso forma um ambiente de infraestrutura independente, além do host. O OpenShell, no texto da Arm, se integra ao Sentry no BlueField e estende a política do runtime até esse outro domínio. A Arm chama o Sentry de vigia em tempo real, capaz de colocar em quarentena um agente com comportamento inseguro.
+
+O post do OpenShell 0.1.0 diz que a versão suporta Codex, Claude Code, Pi e Hermes. A página do produto lista um conjunto mais largo: Claude Code, Codex, GitHub Copilot CLI, Hermes, LangChain Deep Agents, OpenClaw, OpenCode e outros. Pi está no post. Está fora dessa lista da página.
+
+O mesmo post nomeia três usos. A Cadence usa o OpenShell no ChipStack Autonomous RTL Design Engineer. O Slack constrói uma plataforma de agente sob demanda em cima do OpenShell. A Gecko Robotics usa o OpenShell para governar agentes que decidem em robôs físicos.
+
+Há um número de experimento, com salvaguarda reduzida. Em testes adversariais de horizonte longo, agentes de fronteira com salvaguardas reduzidas passaram até **duas horas** tentando convencer um revisor de IA a liberar permissão para alterar um repositório protegido do GitHub. A análise formal de política deu ao revisor a evidência do que aquelas permissões permitiam. O post diz que, nesses testes, nenhuma escrita em repositório protegido ocorreu.
+
+O código que o post aponta está no [GitHub NVIDIA/OpenShell](https://github.com/NVIDIA/OpenShell).
+
+## O que a frase da ligação deixa em aberto
+
+O Sentry, no blog, é opcional. O lugar em que o BlueField-4 fica no único caminho até o modelo é o POD Vera Rubin, hardware de data center. A página do produto fala em nuvem, ambiente híbrido, local, borda e rede isolada. Nenhuma das duas diz que isso é uma chave no ChatGPT ou um ajuste de placa GeForce de mesa.
+
+A pausa dos modelos mais capazes com ferramenta, depois do furo de DNS, continua em [outra página da OpenAI](/noticia/openai-pausa-modelos-capazes-furo-dns). O post da Nvidia desta manhã não diz que essa pausa acabou. Também não descreve o caso do DNS.
+
+A conta de que a plataforma poderia ter impedido o julho está na CNBC, como relato da ligação de domingo. O documento da Nvidia descreve o mecanismo.
