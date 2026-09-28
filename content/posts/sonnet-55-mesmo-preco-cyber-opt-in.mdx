@@ -1,0 +1,106 @@
+---
+title: "A Anthropic publica o Sonnet 5.5 nesta segunda. A tarifa segue US$ 2 e US$ 10, e o desvio de cyber para o Sonnet 5 na API é opt-in"
+seoTitle: "Sonnet 5.5 mantém US$ 2 e o cyber na API é opt-in"
+excerpt: "A lista continua US$ 2 e US$ 10. A Anthropic diz que a tarefa típica sai até 30% mais barata. No app o cyber cai no Sonnet 5; na API, só com o desvio ligado."
+category: ia
+subcategory: modelos
+date: "2026-09-28T16:18:00-03:00"
+kicker: "IA · modelos"
+author: "The Zero"
+cover: "/images/posts/sonnet-55-mesmo-preco-cyber-opt-in/cover.jpg"
+coverAlt: "Dario Amodei, de cabelo curto, barba rala e suéter cinza escuro, em pé num palco escuro, com microfone preto na mão direita e a mão esquerda aberta, diante de uma tela em que se lê TechCrunch e Disrupt"
+coverCredit: "Kimberly White / Getty Images for TechCrunch (CC BY 2.0)"
+---
+
+A Anthropic publica o Sonnet 5.5 nesta segunda. A tarifa segue US$ 2 e US$ 10, e o desvio de cyber para o Sonnet 5 na API é opt-in.
+
+O [anúncio](https://www.anthropic.com/claude-sonnet-5-5) está datado de **28 de setembro de 2026**. Não traz hora. A [ficha](https://platform.claude.com/docs/en/models/sonnet-5-5/overview) marca o lançamento nesse dia. O [system card](https://www.anthropic.com/claude-sonnet-5-5-system-card) também. A [CNBC](https://www.cnbc.com/2026/09/28/anthropic-sonnet-5-5-launch.html) carimba o texto às **2:00 PM EDT** — **15h** em Brasília. A [Reuters](https://www.reuters.com/technology/anthropic-rolls-out-second-claude-55-model-it-builds-toward-ipo-2026-09-28/) publica às **18:02 UTC**, **15h02** em Brasília, e repete a tarifa inalterada.
+
+![Dario Amodei, de cabelo curto, barba rala e suéter cinza escuro, em pé num palco escuro, com microfone preto na mão direita e a mão esquerda aberta, diante de uma tela em que se lê TechCrunch e Disrupt](/images/posts/sonnet-55-mesmo-preco-cyber-opt-in/cover.jpg)
+
+*Kimberly White / Getty Images for TechCrunch (CC BY 2.0). Dario Amodei no TechCrunch Disrupt, no Moscone Center, em 20 de setembro de 2023. A foto é do palco. Não mostra o Sonnet 5.5.*
+
+<Verdict overrated="ler 70,6% ao lado de 66,4% e achar que o Sonnet passou o Opus no mesmo ajuste" underrated="na API o desvio para o Sonnet 5 é opt-in; no aplicativo da Anthropic, o desvio é automático" />
+
+## A lista não mudou
+
+Por milhão de tokens, o [anúncio](https://www.anthropic.com/claude-sonnet-5-5) cobra o mesmo que o Sonnet 5. A tabela ao lado do Opus 5.5:
+
+| | Sonnet 5.5 | Opus 5.5 |
+| --- | --- | --- |
+| Entrada | US$ 2 | US$ 4 |
+| Saída | US$ 10 | US$ 20 |
+| Escrita de cache | US$ 2,50 | US$ 5 |
+| Leitura de cache | US$ 0,20 | US$ 0,20 |
+
+A [ficha](https://platform.claude.com/docs/en/models/sonnet-5-5/overview) separa a escrita de cache: **US$ 2,50** na janela de 5 minutos e **US$ 4** na de 1 hora. A leitura segue em **US$ 0,20**.
+
+A Anthropic escreve que, no teste dela, a tarefa sai até **30%** mais barata que no Sonnet 5 porque o modelo gasta menos token. A geração de saída fica **30% ou mais** rápida que a do Sonnet 5. O desconto percentual não entra na tabela. Entra no uso.
+
+O identificador é `claude-sonnet-5-5`. Na ficha: janela de **1 milhão** de tokens e saída máxima de **128 mil**. No Bedrock o id é `anthropic.claude-sonnet-5-5`. O anúncio lista Amazon Web Services, Google Cloud e Microsoft Azure. A ficha nomeia a Microsoft Foundry, com o mesmo id da API.
+
+No Claude Code e nos aplicativos, o esforço padrão é **Medium**. Na Claude Platform, **High**. Como o Opus 5.5 e o Sonnet 5, o 5.5 está disponível com zero data retention. O Haiku 5.5, no anúncio, entra nas próximas semanas. Quem já paga o [Opus 5.5](/noticia/opus-55-preco-cyber) a US$ 4 e US$ 20 continua nessa faixa. O Sonnet novo repete a lista do Sonnet 5. Entrada, saída e escrita de cache são a metade da linha do Opus. A leitura de cache fica igual, em US$ 0,20.
+
+A tabela é em dólar. No Brasil, a fatura da API, da AWS, do Google Cloud ou da Microsoft chega com câmbio e IOF. A Reuters, às 15h02, registra os mesmos US$ 2 e US$ 10 e a frase de que a tarifa não mudou em relação ao Sonnet 5.
+
+## O 70,6% não é o mesmo ajuste do Opus
+
+No anúncio, o Sonnet 5.5 marca **70,6%** no Terminal-Bench 4.0. O Sonnet 5 fica em **10,3%**. O Opus 5.5 aparece com **66,4%**. A nota de rodapé diz que esse 66,4% é em esforço xhigh e que esse é o placar mais alto do modelo.
+
+O [system card](https://www.anthropic.com/claude-sonnet-5-5-system-card) descreve o 70,6% com outra condição. O Sonnet rodou no Claude Code em modo `--bare`, em esforço **max**, com as salvaguardas ligadas. Pedidos marcados foram respondidos por um modelo de fallback: **1,2%** dos pedidos, em **1,5%** dos trials, e uma tentativa parou em vez de responder. O erro padrão, tratando os trials como independentes, é de **±2,5** pontos no Sonnet e **±2,6** no Opus. O 66,4% do Opus é o de xhigh. Em esforço max, o mesmo card dá **64,8%** ao Opus e diz que isso fica dentro do ruído do xhigh.
+
+O card também escreve que o Sonnet 5.5 não está na fronteira de capacidade e é menos capaz que o Opus 5.5 na maior parte das avaliações que a casa reporta.
+
+No CursorBench, o anúncio mostra **55,5%**. O system card abre o esforço: **55,5%** em max e **39,2%** em medium. Medium é o esforço padrão do Claude Code e dos aplicativos, no anúncio. O 55,5% da coluna é o teto do card.
+
+No GDPval-AA v2.1, o card dá Elo **1.844** ao Sonnet 5.5 em max, dois pontos abaixo dos **1.846** do Opus 5.5 no mesmo esforço. A nota do anúncio diz que a Artificial Analysis rodou um deploy de pré-lançamento com um bug em saídas estruturadas. A Anthropic espera que o efeito, se houver, subestime o placar. O bug, segundo o anúncio, já foi corrigido.
+
+## O cyber cai no Sonnet 5, com uma condição
+
+O system card, na seção 1.5, diz que o bloqueio do classificador de cyber cai no Claude Sonnet 5. A frase sobre onde isso vale:
+
+> "The fallback behavior described above applies to our first-party products and to developers who are opted in to such fallbacks on our API; traffic on our models via other platforms and providers may experience different behavior."
+
+Na tradução: o desvio descrito vale para os produtos da própria Anthropic e para desenvolvedores que ligaram esses fallbacks na API. O tráfego em outras plataformas e provedores pode se comportar de outro jeito. O mesmo parágrafo diz que os bloqueios são transparentes e não trocam a resposta do modelo às escondidas.
+
+Na seção 3.3, o card repete o caminho: na maioria das interfaces, o Sonnet 5.5 cai no Sonnet 5 quando o classificador de cyber bloqueia. Nos aplicativos da casa, isso é automático. Na API, o desenvolvedor precisa optar pelo desvio automático.
+
+O card avisa que a salvaguarda muda em relação ao Sonnet 5 e que o usuário deve esperar mais recusas, inclusive em tarefa benigna de cibersegurança. A política permite achar vulnerabilidade em código-fonte. Bloqueia achar vulnerabilidade em binário compilado. O Cyber Verification Program, para quem precisa de menos trava, recebe o Sonnet 5.5 "in the near future", na frase do card.
+
+Um conjunto estreito de desenvolvimento de modelo de fronteira, como kernel em certos aceleradores de machine learning, também cai no Sonnet 5. O card diz que isso não alcança a maior parte do desenvolvimento tradicional de IA ou de machine learning. Os classificadores de química e biologia, e os de destilação, não têm modelo de reserva: o bloqueio para ali.
+
+A CNBC ouviu Theo Chu, research product manager da Anthropic. A frase:
+
+> "Sonnet is really for the cost-conscious customer where they might not need as much intelligence."
+
+Na tradução: o Sonnet é para o cliente que olha o custo e pode não precisar de tanta inteligência. A frase seguinte:
+
+> "It might be routine tasks that just need execution, but don't need that judgment that Opus can bring."
+
+Na tradução: pode ser tarefa de rotina que só precisa de execução, mas não precisa do julgamento que o Opus traz. As duas frases são da CNBC. Não estão no anúncio.
+
+## O que quebra na troca
+
+A [ficha](https://platform.claude.com/docs/en/models/sonnet-5-5/overview) lista cinco mudanças que quebram código já rodando no Sonnet 5:
+
+- desligar o raciocínio inicial passa a ser o ajuste `between_tools`, e ele funciona em esforço high ou abaixo
+- forçar uma ferramenta devolve erro
+- o bloco de thinking fica amarrado ao modelo e à conversa
+- na API da Anthropic e no Google Cloud, a ferramenta `computer_20251124` deixa de ser aceita
+- a ferramenta advisor rejeita Opus 4.8, Opus 4.7 e Sonnet 5 como advisors
+
+O anúncio diz a mesma troca para quem rodava o Sonnet com thinking desligado: antes de ir ao 5.5, entra o `between_tools`. O [guia de migração](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide) confirma que o preço é o mesmo do Sonnet 5. Há ainda uma mudança que não devolve erro: o texto entre chamadas de ferramenta volta em bloco de thinking. Quem transmitia esse texto como progresso fica em silêncio até ajustar o `display` ou desligar o raciocínio inicial com `between_tools`.
+
+<Rule>
+Na API, pedido de cyber bloqueado só cai no Sonnet 5 se o desvio automático estiver ligado.
+</Rule>
+
+## Fontes
+
+- [Anthropic — Introducing Claude Sonnet 5.5 (28/09/2026)](https://www.anthropic.com/claude-sonnet-5-5)
+- [Anthropic — ficha do Claude Sonnet 5.5, lançado em 28/09/2026](https://platform.claude.com/docs/en/models/sonnet-5-5/overview)
+- [Anthropic — System Card: Claude Sonnet 5.5 (28/09/2026)](https://www.anthropic.com/claude-sonnet-5-5-system-card)
+- [Anthropic — guia de migração para o Claude Sonnet 5.5](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide)
+- [CNBC — Ashley Capoot, lançamento do Sonnet 5.5 (28/09/2026, 2:00 PM EDT)](https://www.cnbc.com/2026/09/28/anthropic-sonnet-5-5-launch.html)
+- [Reuters — segundo modelo da família Claude 5.5 (28/09/2026, 18:02 UTC)](https://www.reuters.com/technology/anthropic-rolls-out-second-claude-55-model-it-builds-toward-ipo-2026-09-28/)
+- [Wikimedia Commons — Dario Amodei no TechCrunch Disrupt, 20/09/2023 (CC BY 2.0)](https://commons.wikimedia.org/wiki/File:Dario_Amodei_at_TechCrunch_Disrupt_2023_03.jpg)
