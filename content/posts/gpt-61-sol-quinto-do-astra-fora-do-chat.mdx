@@ -1,0 +1,106 @@
+---
+title: "A OpenAI publica o GPT-6.1 Sol a um quinto do Astra. Na tabela, entrada e saída seguem US$ 2 e US$ 10, e o chat ainda não recebe"
+seoTitle: "GPT-6.1 Sol segue US$ 2 e US$ 10, fora do chat"
+excerpt: "Entrada e saída padrão seguem US$ 2 e US$ 10, o mesmo do GPT-6 Sol. O cache cai para US$ 0,10. O modelo entra no Work e no Codex, não no chat."
+category: ia
+subcategory: modelos
+date: "2026-09-29T18:25:00-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "The Zero"
+cover: "/images/posts/gpt-61-sol-quinto-do-astra-fora-do-chat/cover.jpg"
+coverAlt: "Sala de exposição com piso marrom-avermelhado polido, teto branco em grade com luzes quadradas e trilhos, e paredes brancas. À esquerda, um quadro abstrato grande com manchas rosa, azul, amarelo e verde. No centro, um quadro menor de moldura escura. À direita, um quadro alto e estreito com traços verticais em azul, branco e preto. Na parede do fundo, letras escuras formam FORT MASON CENTER e, abaixo, FOR ARTS & CULTURE. Uma pessoa de costas, com cabelo curto escuro, jaqueta preta, calça escura e bolsa preta, olha o quadro da direita"
+coverCredit: "Cmichel67 / Wikimedia Commons (CC BY-SA 4.0)"
+---
+
+A OpenAI publica o GPT-6.1 Sol a um quinto do Astra. Na tabela, entrada e saída seguem US$ 2 e US$ 10, e o chat ainda não recebe.
+
+O [post](https://openai.com/index/introducing-gpt-6-1-sol/) está datado de **29 de setembro de 2026**. Não traz hora. O texto apresenta o GPT-6.1 Sol como upgrade do GPT-6 Sol que chega perto da inteligência do GPT-6 Astra em código agêntico, uso de computador e trabalho profissional, a um quinto do preço padrão de entrada e de saída do Astra. A [tabela da API](https://developers.openai.com/api/docs/pricing), aberta nesta terça, cobra **US$ 2** e **US$ 10** por milhão de tokens no contexto curto — os mesmos números da [ficha do GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol). O que cai é o cache: de US$ 0,20 para **US$ 0,10**.
+
+![Sala de exposição com piso marrom-avermelhado polido, teto branco em grade com luzes quadradas e trilhos, e paredes brancas. À esquerda, um quadro abstrato grande com manchas rosa, azul, amarelo e verde. No centro, um quadro menor de moldura escura. À direita, um quadro alto e estreito com traços verticais em azul, branco e preto. Na parede do fundo, letras escuras formam FORT MASON CENTER e, abaixo, FOR ARTS & CULTURE. Uma pessoa de costas, com cabelo curto escuro, jaqueta preta, calça escura e bolsa preta, olha o quadro da direita](/images/posts/gpt-61-sol-quinto-do-astra-fora-do-chat/cover.jpg)
+
+*Cmichel67 / Wikimedia Commons (CC BY-SA 4.0). A descrição do arquivo chama a foto de Fort Mason, em São Francisco, em 2025. A página do DevDay marca o evento de 29 de setembro de 2026 neste centro. A foto é de uma sala de exposição. Não é a keynote e não mostra o modelo.*
+
+<Verdict overrated="ler um quinto do Astra e achar que o chat do Plus já trocou de modelo" underrated="a linha da tabela em que entrada e saída do 6.1 Sol repetem os US$ 2 e US$ 10 do Sol anterior" />
+
+## O quinto é do Astra, não um desconto sobre o Sol
+
+A frase de preço, no post:
+
+> "nearly matches GPT‑6 Astra’s intelligence on agentic coding, computer use, and professional work at one-fifth of Astra’s standard input and output token prices."
+
+Na tradução: chega perto da inteligência do GPT-6 Astra em código agêntico, uso de computador e trabalho profissional, a um quinto dos preços padrão de token de entrada e de saída do Astra.
+
+O cache, na mesma abertura:
+
+> "Cached input costs just $0.10 per million tokens—95% less than standard input pricing and 50% less than GPT‑6 Sol’s cached input pricing"
+
+A entrada em cache custa US$ 0,10 por milhão de tokens: 95% a menos que o preço padrão de entrada e 50% a menos que o cache do GPT-6 Sol.
+
+A conta fecha nas duas fichas. No GPT-6.1 Sol, a entrada padrão é US$ 2. Cinco por cento de 2 é 0,10. No GPT-6 Sol, o cache é US$ 0,20. Metade disso é US$ 0,10.
+
+No contexto curto, por milhão de tokens, a tabela padrão desta terça:
+
+| | Entrada | Cache | Escrita de cache | Saída |
+| --- | --- | --- | --- | --- |
+| gpt-6-astra | US$ 10 | US$ 1 | US$ 12,50 | US$ 50 |
+| gpt-6.1-sol | US$ 2 | US$ 0,10 | US$ 2,50 | US$ 10 |
+
+Entrada e saída do Sol são um quinto das do Astra. O cache do Sol contra o do Astra é outra conta: US$ 0,10 contra US$ 1.
+
+A [ficha do modelo](https://developers.openai.com/api/docs/models/gpt-6.1-sol) avisa o que acontece acima de 272 mil tokens de entrada: o pedido inteiro paga o dobro na entrada e no cache, e 1,5 vez na saída. Na mesma tabela, a coluna de contexto longo do padrão fica em US$ 4 e US$ 15 para o Sol, contra US$ 20 e US$ 75 para o Astra. A proporção de um quinto se mantém. O valor absoluto sobe.
+
+O identificador na API é `gpt-6.1-sol`. A janela é de **1.050.000** tokens. A saída máxima é de **128.000**. O corte de conhecimento na ficha é **30 de abril de 2026**. O GPT-6 Sol, na ficha dele, tem a mesma janela e o mesmo teto de saída, com corte em **20 de abril de 2026**. O 6.1 não aceita esforço de raciocínio `none` nem `minimal`. O Sol anterior aceita `none`.
+
+Batch e Flex, na ficha do 6.1, saem pela metade do padrão. O modo rápido sai pelo dobro. Na tabela Ultrafast aberta nesta terça, a linha do gpt-6-astra no contexto curto está em US$ 60 de entrada e US$ 300 de saída. Esse bloco não lista gpt-6.1-sol.
+
+## Quem recebe hoje
+
+O post:
+
+> "GPT‑6.1 Sol is available starting today to all Plus, Pro, Business, Enterprise, and Edu users in ChatGPT Work and Codex. GPT‑6.1 Sol is not yet available in Chat."
+
+Disponível a partir de hoje para Plus, Pro, Business, Enterprise e Edu, no ChatGPT Work e no Codex. O Chat fica de fora.
+
+O texto não nomeia o Brasil. Também não publica preço em real.
+
+A frase seguinte promete o Ultrafast do GPT-6.1 Sol nos próximos dias, com até **8 vezes** a geração de tokens da velocidade padrão no Codex. O link dessa frase aponta para o [recap do DevDay](https://openai.com/index/devday-2026-recap/). O [DevDay](https://devday.openai.com/) é nesta terça, **29 de setembro de 2026**, no Fort Mason, em São Francisco. A keynote, com Sam Altman, é às **10:00** no horário do Pacífico — **14h** em Brasília.
+
+## O que a empresa mede, e o que ela mesma avisa
+
+Os números de desempenho no post são da OpenAI. A página não traz placar de laboratório independente.
+
+No esforço baixo, a fatia de respostas com erro factual cai de **11,4%** no GPT-6 Sol para **7,7%** no 6.1. A empresa chama isso de redução de cerca de 32%. Nos esforços testados, a taxa fica a até **1,9** ponto percentual do Astra. O próprio post diz que esses prompts são difíceis de propósito e não representam o uso típico. A base são conversas desidentificadas do ChatGPT em que alguém marcou um erro de um modelo anterior.
+
+Num teste em que o agente deveria avisar que a ferramenta de busca quebrou, em vez de chutar, o 6.1 falha em **2,1%** dos casos. O GPT-6 Sol falha em **4,9%**. O Astra, em **1,5%**. O Luna, em **28,7%**. O esforço está no máximo. O post diz que as tarefas foram escolhidas para provocar falha.
+
+No Terminal-Bench Science 0.1, no esforço máximo, a empresa publica um custo médio por tarefa de **US$ 5,47** para o 6.1 Sol, **US$ 23,80** para o Astra e **US$ 23,21** para o Opus 5.5. O placar mais alto entre os modelos testados, na mesma passagem, continua com o Astra, em **68,1%**. A frase da empresa é que o Astra deve ser usado nas tarefas de pesquisa científica mais difíceis.
+
+## A ficha trata o 6.1 Sol com a salvaguarda do Astra
+
+O [adendo](https://deploymentsafety.openai.com/gpt-6-1-sol), publicado em **29 de setembro de 2026**, abre com "Today, we’re introducing GPT-6.1 Sol". A frase de capacidade:
+
+> "GPT-6.1 Sol delivers capabilities comparable to those of our most powerful model, GPT-6 Astra, with an unmatched combination of speed and affordability."
+
+Na tradução: o GPT-6.1 Sol entrega capacidades comparáveis às do modelo mais poderoso da empresa, o GPT-6 Astra, com uma combinação de velocidade e preço que o texto chama de sem igual. "Unmatched" é o adjetivo da ficha.
+
+A classificação, no mesmo parágrafo:
+
+> "Under our Preparedness Framework, we are treating GPT-6.1 Sol as Critical in cybersecurity and High for Biological and Chemical capability. Based on that assessment, GPT-6.1 Sol uses the same safeguards stack as GPT-6 Astra, described in detail in the GPT-6 Astra system card."
+
+No quadro de preparação da empresa, o GPT-6.1 Sol entra como Critical em cibersegurança e High em capacidade biológica e química. Por essa avaliação, usa a mesma pilha de salvaguardas do GPT-6 Astra. O adendo aponta o detalhe para a ficha do Astra. Não publica, nesta página, preço em real nem data em que o chat comum passa a receber o modelo.
+
+## O 6.1 que saiu não é o 6.1 que ficou na mesa
+
+O post do Sol não menciona o GPT-6.1 Astra. O modelo que a empresa segurou antes do evento está na [matéria da manhã](/noticia/openai-segura-gpt-61-astra). O nome que entra hoje no Work e no Codex é Sol. O nome que ficou de fora do lançamento público é Astra.
+
+Quem abre o ChatGPT para conversar, nesta terça, não encontra o 6.1 Sol na frase de disponibilidade. O lugar que o post marca é o Work e o Codex, nos planos Plus, Pro, Business, Enterprise e Edu.
+
+## Fontes
+
+- [OpenAI — Introducing GPT-6.1 Sol (29/09/2026)](https://openai.com/index/introducing-gpt-6-1-sol/)
+- [OpenAI API — Pricing](https://developers.openai.com/api/docs/pricing)
+- [OpenAI API — GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol)
+- [OpenAI API — GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- [OpenAI Deployment Safety Hub — GPT-6.1 Sol (29/09/2026)](https://deploymentsafety.openai.com/gpt-6-1-sol)
+- [OpenAI DevDay 2026](https://devday.openai.com/)
