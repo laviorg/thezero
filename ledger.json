@@ -88,6 +88,16 @@
       "slug": "framework-desktop-192gb-pre-venda",
       "updated_at": "2026-09-29T12:52:24Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd3zXaHFvqy"
+    },
+    "openai-segura-gpt-61-astra": {
+      "article_url": "https://www.thezero.com.br/noticia/openai-segura-gpt-61-astra",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-segura-gpt-61-astra.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-segura-gpt-61-astra.png",
+      "pr": 100,
+      "commit": "cdb1ad6c1093b745cb51991a1ac935b0a91b91e9",
+      "ig": "https://www.instagram.com/p/Dd4BbxYFN3T/",
+      "slug": "openai-segura-gpt-61-astra",
+      "updated_at": "2026-09-29T14:55:17Z"
     }
   }
 }
