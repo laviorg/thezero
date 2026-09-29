@@ -99,6 +99,16 @@
       "slug": "openai-segura-gpt-61-astra",
       "updated_at": "2026-09-29T14:55:36Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd4BdsvHILV"
+    },
+    "openai-dots-pro-sem-custo-extra": {
+      "article_url": "https://www.thezero.com.br/noticia/openai-dots-pro-sem-custo-extra",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-dots-pro-sem-custo-extra.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-dots-pro-sem-custo-extra.png",
+      "pr": 101,
+      "commit": "987a6016b70f85dae28eccb5a7f8ce81e4e5f3d9",
+      "ig": "https://www.instagram.com/p/Dd4Ul6jmBZ0/",
+      "slug": "openai-dots-pro-sem-custo-extra",
+      "updated_at": "2026-09-29T17:42:43Z"
     }
   }
 }
