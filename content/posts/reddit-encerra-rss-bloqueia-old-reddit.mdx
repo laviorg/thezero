@@ -1,0 +1,67 @@
+---
+title: "O Reddit marca o fim dos feeds RSS para 13 de novembro e restringe o Old Reddit a contas ativas nos últimos seis meses"
+seoTitle: "Reddit encerra feeds RSS e restringe Old Reddit a contas ativas"
+excerpt: "O Reddit encerra suporte a feeds RSS em 13 de novembro, fecha a API pública até março de 2027 e barra novos usuários no Old Reddit contra scraping de IA."
+category: aplicativos
+subcategory: servicos-digitais
+date: "2026-09-30T18:08:00-03:00"
+featured: false
+kicker: "Aplicativos · serviços digitais"
+author: "The Zero"
+cover: "/images/posts/reddit-encerra-rss-bloqueia-old-reddit/cover.jpg"
+coverAlt: "Ícone do aplicativo Reddit exibido em tela de smartphone com pixels visíveis, destacando a cabeça branca do mascote Snoo sobre círculo vermelho-alaranjado dentro de quadrado branco de cantos arredondados, distintivo de notificação vermelho com o número 2 no canto superior direito e a palavra Reddit em letras brancas logo abaixo"
+coverCredit: "Brett Jordan / Unsplash"
+---
+
+O Reddit marca o fim dos feeds RSS para 13 de novembro e restringe o Old Reddit a contas ativas nos últimos seis meses.
+
+O anúncio oficial foi divulgado nesta quarta-feira (30 de setembro de 2026) nas comunidades [r/modnews](https://www.reddit.com/r/modnews/) e [r/redditdev](https://www.reddit.com/r/redditdev/), com ampla repercussão em veículos de tecnologia como [TechCrunch](https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/), [The Verge](https://www.theverge.com/tech/1002788/old-reddit-ai-scraping) e [Engadget](https://www.engadget.com/2273661/reddit-imposes-new-restrictions-on-old-reddit/). A plataforma justificou as medidas como uma blindagem necessária contra raspagem em larga escala (*scraping*) e tráfego automatizado de robôs de inteligência artificial.
+
+![Ícone do aplicativo Reddit exibido em tela de smartphone com pixels visíveis, destacando a cabeça branca do mascote Snoo sobre círculo vermelho-alaranjado dentro de quadrado branco de cantos arredondados, distintivo de notificação vermelho com o número 2 no canto superior direito e a palavra Reddit em letras brancas logo abaixo](/images/posts/reddit-encerra-rss-bloqueia-old-reddit/cover.jpg)
+
+*Brett Jordan / Unsplash. Fotografia em close da tela de um celular exibindo o ícone oficial do aplicativo do Reddit com balão de notificação pendente.*
+
+<Verdict overrated="achar que as mudanças atingem apenas desenvolvedores de bots comerciais" underrated="o encerramento definitivo dos feeds RSS abertos, que deixa leitores de notícias e usuários comuns sem qualquer alternativa oficial fora da interface da plataforma" />
+
+## O fim do RSS e a ausência de substituto
+
+A desativação dos feeds RSS (Really Simple Syndication) está agendada para o dia **13 de novembro de 2026**. Até então, qualquer usuário podia assinar atualizações de subreddits, perfis e discussões adicionando a extensão `.rss` ao final das URLs em leitores como Feedly, Inoreader ou NetNewsWire.
+
+Na mensagem enviada aos moderadores, o Reddit afirmou que o formato virou uma "superfície comum para raspagem em larga escala e abusos automatizados". A empresa reconheceu o valor histórico do protocolo aberto, mas admitiu taxativamente a falta de alternativa para quem consome conteúdo fora das ferramentas de moderação:
+
+> "Sabemos que o RSS foi uma parte querida da web aberta por muito tempo, e somos gratos a todos que o usaram para se manter conectados ao Reddit. Se você usa RSS para feeds fora de uma comunidade que modera, não há substituto."
+
+Para equipes de moderação que utilizavam canais RSS para receber alertas de novos tópicos ou denúncias, a companhia recomendou a migração para o aplicativo oficial Discord Relay, integrado à sua plataforma interna Devvit.
+
+| Mudança | Data / Prazo | Impacto |
+| --- | --- | --- |
+| Fim dos feeds RSS | **13 de novembro de 2026** | Encerramento total de feeds `.rss` e `.atom` em todo o site |
+| Bloqueio a novos pedidos da Data API | **31 de outubro de 2026** | Nenhuma nova chave pública de API será emitida |
+| Remoção de apps não registrados | **12 de janeiro de 2027** | Bloqueio de ferramentas que não responderam ao contato |
+| Encerramento da Data API pública | **Março de 2027** | Fechamento definitivo em favor da Developer Platform (Devvit) |
+| Filtro de acesso ao Old Reddit | Próximos meses | Exige login e uso nos últimos 6 meses (moderadores isentos) |
+
+## O cerco ao Old Reddit
+
+Além de extinguir o RSS, o Reddit anunciou que fechará ainda mais o acesso ao **Old Reddit** (`old.reddit.com`), a versão clássica da interface desktop preservada desde os primeiros anos da rede.
+
+Depois de ter tornado o login obrigatório para navegar na interface antiga no meio do ano, a empresa determinou que, nos próximos meses, apenas contas autenticadas que tenham acessado o Old Reddit nos últimos seis meses poderão continuar utilizando o visual tradicional. Contas recém-criadas ou usuários cadastrados que passarem mais de 180 dias sem abrir a interface antiga perderão o acesso em definitivo. Moderadores ativos com login efetuado ficam isentos dessa exigência de uso recente.
+
+Segundo comunicado aos moderadores, o acesso aberto e simplificado do Old Reddit facilitava a extração massiva de dados por bots sem carregar scripts pesados de telemetria ou anúncios da interface moderna.
+
+## Cronograma para desligamento da API pública
+
+O pacote de anúncios estabelece também as datas finais para o ciclo da API pública legada (*Data API*). A transição faz parte do plano da empresa de concentrar toda a automação permitida dentro da **Developer Platform (Devvit)**, um ambiente hospedado pela própria companhia:
+
+1. **31 de outubro de 2026**: A empresa deixará de aceitar novas solicitações de acesso à Data API pública.
+2. **30 de novembro de 2026**: Prazo final para inscrição no programa de migração de US$ 1 milhão, que oferece incentivos financeiros de US$ 1.000 para desenvolvedores adaptarem bots essenciais ao Devvit.
+3. **12 de janeiro de 2027**: O Reddit começará a revogar as chaves de acesso de aplicativos e robôs que não foram registrados ou cujos responsáveis não responderam às notificações.
+4. **Março de 2027**: Encerramento formal e desligamento completo da Data API pública legada.
+
+## O contexto comercial dos dados e o impacto para o usuário
+
+As decisões consolidam uma postura cada vez mais protecionista do Reddit em relação ao acervo produzido por seus usuários. Desde sua oferta pública inicial (IPO) e a explosão de grandes modelos de linguagem (LLMs), a rede social transformou seu banco de conversas em ativo comercial valioso, assinando acordos de licenciamento multimilionários com gigantes de inteligência artificial como Google e OpenAI.
+
+No balanço financeiro referente ao segundo trimestre, o Reddit registrou um salto de 24% em outras receitas (categoria que inclui o licenciamento de dados para treinamento de modelos), somando US$ 43 milhões no período. Ao cortar acessos abertos via RSS, dificultar a visualização da interface leve e fechar a API pública para agentes externos, a empresa busca forçar agregadores, pesquisadores e concorrentes de IA a contratar feeds comerciais pagos.
+
+Para o usuário comum no Brasil e no exterior, o movimento sinaliza mais uma perda sensível na interoperabilidade da internet aberta: quem acompanhava comunidades por leitores de notícias pessoais terá de recorrer à navegação na interface padrão ou aos aplicativos oficiais.
