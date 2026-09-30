@@ -187,6 +187,16 @@
       "slug": "aoc-agon-pro-agp257ft-1000hz",
       "updated_at": "2026-09-30T16:08:12Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd6ukkNlhZC"
+    },
+    "google-deepmind-synthid-bio": {
+      "article_url": "https://www.thezero.com.br/noticia/google-deepmind-synthid-bio",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-deepmind-synthid-bio.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-deepmind-synthid-bio.png",
+      "pr": 109,
+      "commit": "0a8849d879aa7a2484bdf1ca33c083c33d016ade",
+      "ig": "https://www.instagram.com/p/Dd65zs_mLNJ/",
+      "slug": "google-deepmind-synthid-bio",
+      "updated_at": "2026-09-30T17:46:20Z"
     }
   }
 }
