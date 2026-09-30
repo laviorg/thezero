@@ -219,6 +219,16 @@
       "ig": "https://www.instagram.com/p/Dd7GMrVFzSE/",
       "slug": "ftc-investiga-openai-anthropic-seguranca",
       "updated_at": "2026-09-30T19:34:37Z"
+    },
+    "reddit-encerra-rss-bloqueia-old-reddit": {
+      "article_url": "https://www.thezero.com.br/noticia/reddit-encerra-rss-bloqueia-old-reddit",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/reddit-encerra-rss-bloqueia-old-reddit.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/reddit-encerra-rss-bloqueia-old-reddit.png",
+      "pr": 112,
+      "commit": "63aae82e2b9a2dbf5bd331a6b2a475194a2e37e8",
+      "ig": "https://www.instagram.com/p/Dd7UWgtlAiZ/",
+      "slug": "reddit-encerra-rss-bloqueia-old-reddit",
+      "updated_at": "2026-09-30T21:38:15Z"
     }
   }
 }
