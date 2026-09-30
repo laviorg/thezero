@@ -165,6 +165,16 @@
       "slug": "minisforum-ms-s1-max-p495",
       "updated_at": "2026-09-30T12:31:16Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd6VvjUlS-V"
+    },
+    "amazon-fire-tv-stick-4k-vega": {
+      "article_url": "https://www.thezero.com.br/noticia/amazon-fire-tv-stick-4k-vega",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/amazon-fire-tv-stick-4k-vega.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/amazon-fire-tv-stick-4k-vega.png",
+      "pr": 107,
+      "commit": "a51dc3ece171f5ab202d8869150c378270d793bf",
+      "ig": "https://www.instagram.com/p/Dd6kCRDmN7e/",
+      "slug": "amazon-fire-tv-stick-4k-vega",
+      "updated_at": "2026-09-30T14:36:10Z"
     }
   }
 }
