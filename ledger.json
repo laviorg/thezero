@@ -209,6 +209,16 @@
       "slug": "ps5-pro-sorteio-japao-60h",
       "updated_at": "2026-09-30T19:05:38Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd7C3v0mmN_"
+    },
+    "ftc-investiga-openai-anthropic-seguranca": {
+      "article_url": "https://www.thezero.com.br/noticia/ftc-investiga-openai-anthropic-seguranca",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/ftc-investiga-openai-anthropic-seguranca.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/ftc-investiga-openai-anthropic-seguranca.png",
+      "pr": 111,
+      "commit": "21beafca9ce70cf91de5eea25f99bd9eef491e88",
+      "ig": "https://www.instagram.com/p/Dd7GMrVFzSE/",
+      "slug": "ftc-investiga-openai-anthropic-seguranca",
+      "updated_at": "2026-09-30T19:34:37Z"
     }
   }
 }
