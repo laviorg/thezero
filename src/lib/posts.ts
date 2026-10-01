@@ -31,6 +31,7 @@ import {
   getReviewBucket,
   type ReviewBucket,
 } from "@/lib/review-buckets";
+import { postMatchesQuery } from "@/lib/search-match";
 import { site } from "@/lib/site";
 
 export { isEvergreenFormat, isNewsFormat, type PostFormat };
@@ -369,22 +370,6 @@ export function getLatestModifiedDate() {
 }
 
 export function searchPosts(query: string): Post[] {
-  const q = query.trim().toLocaleLowerCase("pt-BR");
-  if (!q) return [];
-
-  return getAllPosts().filter((post) => {
-    const haystack = [
-      post.title,
-      post.seoTitle ?? "",
-      post.seoDescription ?? "",
-      post.excerpt,
-      post.kicker ?? "",
-      post.categoryLabel,
-      post.subcategoryLabel ?? "",
-      post.content,
-    ]
-      .join(" ")
-      .toLocaleLowerCase("pt-BR");
-    return haystack.includes(q);
-  });
+  if (!query.trim()) return [];
+  return getAllPosts().filter((post) => postMatchesQuery(post, query));
 }

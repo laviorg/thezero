@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "next dev --port 43127",
     "build": "next build",
+    "build:cloudflare": "node scripts/build-cloudflare.mjs",
+    "preview:cloudflare": "wrangler pages dev out --port 8788 --ip 127.0.0.1",
     "start": "next start --port 43127",
     "lint": "eslint",
     "test": "node --experimental-strip-types --test src/lib/*.test.ts && node --test scripts/check-posts.test.mjs",
@@ -38,6 +40,7 @@
     "eslint-config-next": "16.3.5",
     "sharp": "^0.35.4",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.145.0"
   }
 }
