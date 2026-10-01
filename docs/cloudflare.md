@@ -54,7 +54,7 @@ Estado conferido em 1º de outubro de 2026:
 
 Não mexa em MX, TXT ou CAA.
 
-O Registro.br não aceita CNAME no apex. A Pages não publica um IP fixo para um registro A. Com os NS no Registro.br, o apex não chega na Cloudflare, então o 308 do `next.config` (e o de `out/_redirects`) não roda para `https://thezero.com.br`.
+O Registro.br não aceita CNAME no apex. A Pages não publica um IP fixo para um registro A. Com os NS no Registro.br, o apex não chega na Cloudflare. O 308 de host continua no `next.config` e só vale na Vercel: o `_redirects` da Pages só aceita origem relativa, então não dá para escrever nele a regra `thezero.com.br` → www.
 
 Apague o A do apex no corte. Se ele continuar apontando para `216.198.79.1`, o apex segue na Vercel e responde 402 enquanto a conta estiver bloqueada. Sem o A, `thezero.com.br` deixa de resolver. O canônico, o sitemap, o RSS e o JSON-LD já usam `https://www.thezero.com.br`.
 

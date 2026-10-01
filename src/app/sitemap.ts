@@ -15,6 +15,8 @@ import { site } from "@/lib/site";
 import { assertUniqueDocumentTitles } from "@/lib/title-audit";
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 const STATIC_PAGE_SOURCES = [
   { path: "/sobre", file: "src/app/sobre/page.tsx" },
   { path: "/contato", file: "src/app/contato/page.tsx" },

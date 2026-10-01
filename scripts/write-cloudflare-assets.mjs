@@ -3,7 +3,7 @@ import path from "node:path";
 import { performance } from "node:perf_hooks";
 import { articleImageUrls } from "../src/lib/article-images.ts";
 import { getAllPosts } from "../src/lib/posts.ts";
-import { APEX_HOST, PATH_REDIRECTS } from "../src/lib/redirects.ts";
+import { PATH_REDIRECTS } from "../src/lib/redirects.ts";
 import {
   buildNewsSitemapXml,
   selectGoogleNewsPosts,
@@ -17,7 +17,9 @@ const FILE_LIMIT = 20_000;
 const BYTE_LIMIT = 25 * 1024 * 1024;
 
 function redirectsFile() {
-  const lines = [`https://${APEX_HOST}/* https://www.${APEX_HOST}/:splat 308`];
+  // Pages only accepts a relative source. The apex host redirect stays in
+  // next.config for Vercel; on Pages it has to be a zone redirect rule.
+  const lines = [];
   for (const rule of PATH_REDIRECTS) {
     lines.push(`${rule.source} ${rule.destination} 308`);
     if (!rule.source.endsWith("/")) {
@@ -47,6 +49,14 @@ function headersFile() {
   Content-Type: application/json; charset=utf-8
   Cache-Control: public, max-age=300
   X-Robots-Tag: noindex
+/icon
+  Content-Type: image/png
+/apple-icon
+  Content-Type: image/png
+/opengraph-image
+  Content-Type: image/png
+/*/opengraph-image
+  Content-Type: image/png
 `;
 }
 
