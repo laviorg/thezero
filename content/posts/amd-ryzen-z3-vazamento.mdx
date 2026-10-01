@@ -1,0 +1,70 @@
+---
+title: "O AMD Ryzen Z3 vaza com 6 núcleos em Zen 6 e iGPU de 12 CUs em RDNA 4m para consoles portáteis em pacote FF6 de 25 mm"
+seoTitle: "AMD Ryzen Z3 vaza com Zen 6 e 12 CUs RDNA 4m"
+excerpt: "O AMD Ryzen Z3 vazou com 6 núcleos Zen 6 e iGPU de 12 CUs RDNA 4m em pacote compacto FF6 de 25 mm, mirando consoles portáteis entre 15 W e 25 W."
+category: computadores
+subcategory: pcs-portateis
+date: "2026-10-01T20:38:00-03:00"
+featured: false
+kicker: "Computadores · PCs portáteis"
+author: "The Zero"
+cover: "/images/posts/amd-ryzen-z3-vazamento/cover.png"
+coverAlt: "Renderização 3D de processador AMD com die retangular preto no centro com as inscrições AMD e RYZEN AI Z3 Extreme, montado sobre substrato de circuito impresso verde com contatos dourados e moldura metálica prateada retangular sobre fundo azul e verde degradê"
+coverCredit: "TweakTown / Reprodução"
+---
+
+O AMD Ryzen Z3 vaza com 6 núcleos em Zen 6 e iGPU de 12 CUs em RDNA 4m para consoles portáteis em pacote FF6 de 25 mm.
+
+Os primeiros detalhes da terceira geração de processadores da AMD para PCs de mão foram divulgados nesta quinta-feira (1º de outubro de 2026) pelo leaker [Gotou_3rd (@Gotou_kai3)](https://videocardz.com/newz/amd-ryzen-z3-next-gen-handheld-series-reportedly-features-42-cpu-cores-and-12-rdna4m-cus). As especificações preliminares apontam que o **AMD Ryzen Z3** será um chip semicustomizado baseado na arquitetura **Medusa Point** (Zen 6), mas com rearranjo pensado especificamente para portáteis: corte no volume de núcleos de CPU tradicionais para abrir área de silício e orçamento de energia a uma unidade gráfica integrada (iGPU) de **12 Compute Units (CUs)** com arquitetura **RDNA 4m**. O componente é projetado para o novo pacote **FF6**, com dimensões de **25 × 25 mm**.
+
+![Renderização 3D de processador AMD com die retangular preto no centro com as inscrições AMD e RYZEN AI Z3 Extreme, montado sobre substrato de circuito impresso verde com contatos dourados e moldura metálica prateada retangular sobre fundo azul e verde degradê](/images/posts/amd-ryzen-z3-vazamento/cover.png)
+
+*TweakTown / Reprodução. Ilustração conceitual do processador AMD com encapsulamento BGA e marcação Ryzen AI Z3 Extreme.*
+
+<Verdict overrated="achar que mais núcleos de CPU em um portátil entregam mais taxa de quadros em 15 W ou 25 W com bateria limitada" underrated="trocar núcleos densos de CPU por 12 CUs em RDNA 4m com aceleração matricial para rodar o FSR 4 direto no silício" />
+
+## A troca de silício: menos núcleos de CPU e foco na GPU
+
+Nas famílias anteriores, como o [Ryzen Z1 Extreme](/noticia/steam-deck-oled-ainda-vale-a-pena-2026) e o Ryzen Z2 Extreme, a AMD adaptava diretamente matrizes de notebooks convencionais (as linhas Phoenix e Strix Point). No Medusa Point voltado a laptops, o projeto padrão conta com 10 núcleos na CPU (quatro Zen 6 de alto desempenho, quatro Zen 6c densos e dois núcleos de baixo consumo energético) combinados a 8 CUs de processamento gráfico.
+
+De acordo com as lâminas vazadas, a AMD alterou a proporção para o Ryzen Z3:
+- **CPU enxuta de 6 núcleos e 12 threads**: o desenho traz **quatro núcleos Zen 6** convencionais e **dois núcleos de baixo consumo**, eliminando os quatro núcleos compactos Zen 6c;
+- **GPU ampliada para 12 CUs**: em vez das 8 CUs do Medusa Point padrão para notebooks, o Z3 sobe para 12 CUs baseadas em **RDNA 4m**;
+- **Alocação de consumo**: a retirada de quatro núcleos de processamento geral libera margem térmica e elétrica dentro do encapsulamento compacto para alimentar a GPU sob cargas pesadas de jogos 3D.
+
+| Recurso | Ryzen Z1 Extreme | Ryzen Z2 Extreme | Ryzen Z3 (vazamento) |
+| --- | --- | --- | --- |
+| Arquitetura da CPU | Zen 4 (Phoenix) | Zen 5 + Zen 5c (Strix Point) | **Zen 6 + LP** (Medusa Point) |
+| Configuração de núcleos | 8 núcleos / 16 threads | 8 núcleos (3 Zen 5 + 5 Zen 5c) | **6 núcleos (4 Zen 6 + 2 LP)** |
+| Arquitetura da GPU | RDNA 3 | RDNA 3.5 | **RDNA 4m** |
+| Unidades gráficas (CUs) | 12 CUs (768 shaders) | 16 CUs (1024 shaders) | **12 CUs (768 shaders)** |
+| Recursos especiais da GPU | Rasterização padrão / FSR 2 | RDNA 3.5 otimizado / FSR 3 | **ALUs matriciais (suporte a FSR 4)** |
+| Encapsulamento | FP7 / FP8 | FP8 | **FF6 (25 × 25 mm)** |
+| Janela de consumo alvo | 9–30 W | 15–35 W | **15 W (Z3) / 25 W (Extreme)** |
+
+## RDNA 4m e o suporte nativo a operações matriciais
+
+A arquitetura gráfica RDNA 4m representa uma evolução da base RDNA 3.5. A denominação não indica um chip RDNA 4 completo de desktop (como o da linha Radeon RX 9000), mas sim a incorporação de **unidades lógicas e aritméticas (ALUs) de matriz** projetadas para aceleração por aprendizado de máquina.
+
+Essa adição garante ao Ryzen Z3 suporte de hardware nativo ao **AMD FidelityFX Super Resolution 4 (FSR 4)**, a versão da tecnologia de reconstrução temporal e geração de quadros da AMD impulsionada por modelos de inteligência artificial — similar ao movimento recente visto no [upscaling por IA no PS5](/noticia/sony-ps5-upscaling-ia-qssr). Com inferência acelerada diretamente no silício gráfico integrado, o portátil consegue reconstruir resoluções como 720p ou 800p para Full HD sem consumir ciclos brutos de shading dos núcleos de renderização.
+
+## Encapsulamento FF6 de 25 mm para portáteis mais finos
+
+Outro ponto destacado no vazamento é o formato físico do processador. O Ryzen Z3 adota o pacote BGA batizado de **FF6**, medindo **25 × 25 mm** (área de 625 mm²).
+
+Em comparação com o formato FP8 utilizado pela AMD no Ryzen Z2 Extreme e nas APUs Strix Point para notebooks, o FF6 reduz a área de montagem na placa-mãe. A redução de pegada na placa de circuito impresso (PCB) permite aos fabricantes de consoles portáteis — como ASUS na linha ROG Ally, Lenovo no Legion Go ou Valve em futuras revisões do ecossistema móvel — aproximar baterias de maior capacidade cúbica dos dissipadores e encurtar o traçado elétrico para memórias LPDDR5X ou LPDDR6 soldadas ao lado do SoC.
+
+O vazamento aponta duas faixas térmicas operacionais de referência: o modelo **Ryzen Z3** com calibração otimizada para **15 W** (visando eficiência e autonomia de bateria) e o **Ryzen Z3 Extreme** configurado para o patamar de **25 W** (com foco em desempenho sustentado sob refrigeração ativa). Ainda não há confirmação se a versão básica de 15 W terá cortes nas 12 CUs da GPU ou se a diferenciação entre as duas variantes ocorrerá exclusivamente por curvas de frequência e limites de potência (cTDP).
+
+A AMD ainda não confirmou cronograma de anúncio ou lançamento para o Ryzen Z3 e a arquitetura Zen 6.
+
+<Rule>
+O vazamento do AMD Ryzen Z3 aponta para 6 núcleos Zen 6 (4 de alto desempenho e 2 de baixo consumo), 12 CUs RDNA 4m com hardware matricial para FSR 4 e pacote compacto FF6 de 25 × 25 mm com perfis de 15 W e 25 W.
+</Rule>
+
+## Fontes primárias e referências
+
+- [VideoCardz — cobertura do vazamento do AMD Ryzen Z3 com 4+2 núcleos e 12 CUs RDNA 4m](https://videocardz.com/newz/amd-ryzen-z3-next-gen-handheld-series-reportedly-features-42-cpu-cores-and-12-rdna4m-cus)
+- [TweakTown — análise das especificações do Ryzen Z3 para consoles portáteis](https://www.tweaktown.com/news/113856/amd-ryzen-z3-for-handhelds-rumored-with-4-plus-2-cpu-cores-and-12-rdna-4m-compute-units/index.html)
+- [TechPowerUp — detalhes da arquitetura Zen 6 e RDNA 4m no pacote FF6 do Ryzen Z3](https://www.techpowerup.com/353307/amd-ryzen-z3-reportedly-packs-6-cpu-cores-and-12-rdna-4m-gpu-cus)
+- [Wccftech — dados do SoC Medusa Point semicustomizado para portáteis](https://wccftech.com/amd-next-gen-handheld-z3-and-z3-extreme-socs-make-an-appearance-online/)
