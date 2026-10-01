@@ -1,0 +1,72 @@
+---
+title: "A Sony leva upscaling por IA ao PS5 padrão com o QSSR em parceria com a AMD"
+seoTitle: "Sony lança QSSR: upscaling por IA chega ao PS5 padrão"
+excerpt: "A Sony anunciou o QSSR, versão do upscaler PSSR adaptada em FP16 para a GPU do PS5 base em parceria com a AMD, estreando em Wolverine e Ghost of Yōtei."
+category: jogos
+subcategory: consoles
+date: "2026-10-01T15:45:00-03:00"
+featured: false
+kicker: "Jogos · Consoles"
+author: "The Zero"
+cover: "/images/posts/sony-ps5-upscaling-ia-qssr/cover.jpg"
+coverAlt: "Console PlayStation 5 modelo base branco e preto com leitor de disco em posição vertical sobre fundo preto liso, acompanhado do controle sem fio DualSense repousado em sua base frontal"
+coverCredit: "Sony Interactive Entertainment / Wikimedia Commons (CC0)"
+---
+
+A Sony leva upscaling por IA ao PS5 padrão com o QSSR em parceria com a AMD.
+
+O anúncio oficial da biblioteca foi publicado nesta quinta-feira (1º de outubro de 2026) por [Daniel Craig](https://blog.playstation.com/2026/10/01/ai-upscaling-is-coming-to-ps5/), engenheiro principal de P&D em gráficos da Sony Interactive Entertainment (SIE). Batizada de **Quick Spectral Super Resolution (QSSR)**, a tecnologia adapta para o processador gráfico do PlayStation 5 original os algoritmos de reconstrução neural introduzidos no [PS5 Pro](/noticia/ps5-pro-sorteio-japao-60h) com o PSSR. A novidade é fruto direto do **Project Amethyst**, iniciativa conjunta de pesquisa em aprendizado de máquina e computação gráfica conduzida entre a Sony e a AMD. Os dois primeiros títulos contemplados com patches de atualização nesta quinta-feira são *Marvel's Wolverine* e *Ghost of Yōtei*.
+
+![Console PlayStation 5 modelo base branco e preto com leitor de disco em posição vertical sobre fundo preto liso, acompanhado do controle sem fio DualSense repousado em sua base frontal](/images/posts/sony-ps5-upscaling-ia-qssr/cover.jpg)
+
+*Sony Interactive Entertainment / Wikimedia Commons (CC0). Console PlayStation 5 padrão com leitor óptico em posição vertical e controle sem fio DualSense em primeiro plano sobre fundo preto.*
+
+<Verdict overrated="esperar reconstrução mágica em 4K nativo na GPU do PS5 base sem penalidade de milissegundos por quadro" underrated="a estabilidade temporal e a nitidez subpixel em 1440p sem depender de hardware acelerador de aprendizado de máquina dedicado" />
+
+## A engenharia por trás do QSSR: FP16 em vez de acelerador dedicado
+
+Quando o PS5 Pro chegou ao mercado, a Sony justificou a exclusividade do PlayStation Spectral Super Resolution (PSSR) na presença de um bloco de silício dedicado a inferência com capacidade de 300 TOPS e suporte nativo a instruções INT8. Como o chip customizado do PS5 base (arquitetura RDNA 2 fabricada em 7 nm) não dispõe desses blocos de aceleração neural nem de unidades de matrizes dedicadas, a indústria considerava improvável a chegada de upscaling com modelos de aprendizado de máquina ao console de 2020.
+
+Para contornar o gargalo físico, os engenheiros da SIE e da AMD reformularam a arquitetura da rede neural:
+- O modelo foi enxugado para diminuir a profundidade das camadas e cortar o custo computacional por pixel;
+- O código de inferência abandonou a dependência de INT8 e passou a operar prioritariamente com **matemática FP16** (meia precisão);
+- O pipeline recorre intensivamente a instruções de *packed math* para preencher as unidades de computação da GPU e amortizar a latência da execução.
+
+O resultado não atinge o mesmo teto de complexidade do PSSR no PS5 Pro, mas supera as soluções heurísticas convencionais que dominavam o console padrão — como TAA clássico, AMD FSR 3 e Epic TSR —, sobretudo em estabilidade temporal e eliminação de cintilações (*subpixel flicker*) em elementos finos como cabos, cabelos e folhagens em movimento.
+
+| Recurso | PSSR (PS5 Pro) | QSSR (PS5 padrão) |
+| --- | --- | --- |
+| Plataforma | PlayStation 5 Pro | PlayStation 5 (base / Slim) |
+| Tipo de processamento | Acelerador neural dedicado (300 TOPS) | Shader cores da GPU via FP16 / packed math |
+| Precisão matemática | INT8 nativo | FP16 prioritário |
+| Resolução de saída preferencial | 4K (2160p) | Quad HD (1440p) / resoluções dinâmicas |
+| Custo de frame-time em 1440p | Abaixo de 1,5 ms | Cerca de 1,5 a 1,8 ms |
+| Custo de frame-time em 2160p | Cerca de 2,0 ms | Cerca de 4,4 ms |
+| Estreia comercial | Resident Evil Requiem / lista seletiva | Marvel's Wolverine e Ghost of Yōtei |
+
+## Wolverine e Ghost of Yōtei: o custo em milissegundos no teste real
+
+Em análise técnica publicada pelo portal [Digital Foundry](https://www.digitalfoundry.net/news/2026/10/hands-on-with-qssr-ai-driven-upscaling-for-the-standard-ps5), o jornalista Richard Leadbetter examinou a biblioteca em funcionamento no hardware original durante seis horas de testes.
+
+Em *Marvel's Wolverine*, o ganho visual na reconstrução de texturas, roupas e detalhes urbanos em Madripoor e Shinjuku foi imediato. No entanto, o custo computacional deixou claras as fronteiras do silício de 2020:
+- **Modo Performance (reconstrução de 864p para 1440p)**: o QSSR adiciona um custo de processamento entre **1,5 ms e 1,8 ms** no frame-time. Com taxas destravadas e VRR em 120 Hz, isso representa uma redução de 8 a 10 fps na taxa bruta em relação ao scaler nativo da Insomniac; contudo, com taxa cravada em 60 Hz e escalonamento dinâmico de resolução (DRS), o sistema compensa a carga reduzindo a resolução interna de entrada e sustentando 60 fps estáveis com imagem perceptivelmente mais nítida.
+- **Modo Fidelidade (saída em 2160p / 4K)**: tentar escalar a imagem para 4K no PS5 base elevou a sobrecarga para **4,4 ms por quadro**, um custo proibitivo para o orçamento térmico e temporal de 30 ou 60 fps.
+
+Já em *Ghost of Yōtei*, o resultado foi ainda mais favorável: no modo de 120 Hz destravado com VRR, o QSSR entregou taxa de quadros praticamente idêntica à implementação existente de FSR 3 da Sucker Punch, mas com expressivo ganho de estabilidade nas folhas e partículas de grama em movimento.
+
+## Facilidade de adoção para desenvolvedores e perspectiva
+
+De acordo com Daniel Craig, a SIE projetou o QSSR como uma substituição quase direta (*drop-in replacement*) para qualquer motor gráfico que já tenha recebido integração prévia do PSSR no PS5 Pro. O trabalho de adaptação por parte dos estúdios se resume a alguns dias de calibração em parâmetros de streaming de texturas e seleção de níveis de detalhe (*mipmaps*).
+
+Com a disponibilização geral do SDK para todos os parceiros licenciados da PlayStation a partir deste 1º de outubro, a Sony abre caminho para que futuras produções de peso — incluindo lançamentos esperados como *Grand Theft Auto VI* — entreguem melhor tratamento de imagem em dezenas de milhões de consoles PS5 já instalados nas salas dos usuários.
+
+<Rule>
+O QSSR leva upscaling neural ao PS5 base usando FP16 e packed math sem exigir o silício de 300 TOPS do PS5 Pro. Em 1440p o custo fica entre 1,5 ms e 1,8 ms por quadro, trocando artefatos temporais e borrão de TAA por reconstrução estável.
+</Rule>
+
+## Fontes primárias e referências
+
+- [PlayStation.Blog — anúncio oficial do QSSR no PS5 por Daniel Craig](https://blog.playstation.com/2026/10/01/ai-upscaling-is-coming-to-ps5/)
+- [Digital Foundry — análise técnica e testes de desempenho do QSSR no hardware padrão](https://www.digitalfoundry.net/news/2026/10/hands-on-with-qssr-ai-driven-upscaling-for-the-standard-ps5)
+- [VideoCardz — cobertura do lançamento do QSSR e especificações para o PlayStation 5](https://videocardz.com/newz/sony-brings-ai-upscaling-to-standard-ps5-with-new-qssr-technology)
+- [PlayStation.Blog — especificações técnicas originais do PlayStation Spectral Super Resolution](https://blog.playstation.com/2024/09/10/welcome-playstation-5-pro-the-most-advanced-innovative-console-to-date/)
