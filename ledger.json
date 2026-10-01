@@ -307,6 +307,16 @@
       "slug": "sony-ps5-upscaling-ia-qssr",
       "updated_at": "2026-10-01T18:58:33Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd9m3K5lJoq"
+    },
+    "google-tpu-orbita-project-suncatcher": {
+      "article_url": "https://www.thezero.com.br/noticia/google-tpu-orbita-project-suncatcher",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-tpu-orbita-project-suncatcher.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-tpu-orbita-project-suncatcher.png",
+      "pr": 122,
+      "commit": "877bb06d0b03d28c99a48a375fa01f7c0173ed78",
+      "ig": "https://www.instagram.com/p/Dd9qELymok0/",
+      "slug": "google-tpu-orbita-project-suncatcher",
+      "updated_at": "2026-10-01T19:26:34Z"
     }
   }
 }
