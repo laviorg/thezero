@@ -274,6 +274,16 @@
       "slug": "gemini-4-argon",
       "updated_at": "2026-10-01T18:18:56Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd9iUpdoxbh"
+    },
+    "hp-omnibook-5-14-oled": {
+      "article_url": "https://www.thezero.com.br/noticia/hp-omnibook-5-14-oled",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/hp-omnibook-5-14-oled.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/hp-omnibook-5-14-oled.png",
+      "pr": 119,
+      "commit": "2e079e06a310e26e1156707ca5403f7ae6080b38",
+      "ig": "https://www.instagram.com/p/Dd9iaR-FAek/",
+      "slug": "hp-omnibook-5-14-oled",
+      "updated_at": "2026-10-01T18:19:37Z"
     }
   }
 }
