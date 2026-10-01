@@ -1,6 +1,8 @@
 # Deploy na Cloudflare Pages
 
-O `npm run build` continua sendo o build da Vercel. A Cloudflare usa outro comando, `npm run build:cloudflare`, que gera um site estático em `out/` e publica na Pages. A Action [`.github/workflows/deploy-cloudflare.yml`](../.github/workflows/deploy-cloudflare.yml) faz isso a cada push na `main`. Sem os secrets `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID`, a Action termina com sucesso e não publica.
+O `npm run build` continua sendo o build da Vercel. A Cloudflare usa outro comando, `npm run build:cloudflare`, que gera um site estático em `out/` e publica na Pages. A Action [`.github/workflows/deploy-cloudflare.yml`](../.github/workflows/deploy-cloudflare.yml) faz isso a cada push na `main` e também por `workflow_dispatch`. Sem os secrets `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID`, a Action termina com sucesso e não publica.
+
+A Action instala o Node 22.22.2. Depois do `next build`, `scripts/build-cloudflare.mjs` ainda roda `node --experimental-strip-types` para gravar `_redirects`, `_headers`, o índice da busca e o manifesto do news sitemap. Essa flag existe desde o Node 22.6.0. Na [run 36876344420](https://github.com/laviorg/thezero/actions/runs/36876344420) o setup usou Node 20.20.2, o `next build` terminou e o processo seguinte saiu com `node: bad option: --experimental-strip-types` e código 9. O Wrangler 4 do deploy também declara `node >= 22`.
 
 Não ligue o repositório em “Connect to Git” no painel da Pages. Esse modo rodaria `npm run build` (o build da Vercel) e publicaria o output errado. O projeto tem de ser **Direct Upload**: a Action envia a pasta `out/`.
 
@@ -37,7 +39,7 @@ O build imprime a contagem de arquivos e o maior arquivo, e falha se passar de 2
    - `CLOUDFLARE_API_TOKEN`
    - `CLOUDFLARE_ACCOUNT_ID`
    - Opcionais, os mesmos da Vercel, se quiser anúncio e GA4 no HTML: `NEXT_PUBLIC_GA_MEASUREMENT_ID` e `NEXT_PUBLIC_ADSENSE_PUB_ID`. Sem eles o site sobe, só não carrega esses scripts.
-5. Faça um push na `main` (ou rode a Action `deploy-cloudflare` no próximo push). O primeiro deploy cria o projeto Direct Upload `thezero-com-br`. A URL de conferência fica `https://thezero-com-br.pages.dev`.
+5. Faça um push na `main` ou dispare a Action `deploy-cloudflare` à mão. O primeiro deploy cria o projeto Direct Upload `thezero-com-br`. A URL de conferência fica `https://thezero-com-br.pages.dev`.
 6. No painel: Workers & Pages → `thezero-com-br` → Custom domains → Set up a custom domain → `www.thezero.com.br`. A Pages mostra o CNAME. Não troque o DNS antes desse passo: um CNAME solto, sem o domínio cadastrado no projeto, responde 522.
 7. Se `thezero-com-br.pages.dev` já existir na conta de outra pessoa, o deploy falha com nome ocupado. Troque `name` em `wrangler.jsonc` e publique de novo. O domínio `www` não depende desse nome.
 
