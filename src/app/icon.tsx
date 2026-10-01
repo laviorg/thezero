@@ -2,6 +2,7 @@ import { OgSplitO } from "@/components/brand/og-mark";
 import { ogPalette } from "@/lib/theme";
 import { ImageResponse } from "next/og";
 
+export const dynamic = "force-static";
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 

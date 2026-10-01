@@ -135,6 +135,8 @@ Arquitetura: `content/posts` → `src/lib/posts.ts` (gray-matter) → páginas e
 5. SSL a Vercel emite sozinha. Confirma `https://www.thezero.com.br/sitemap.xml` e `https://www.thezero.com.br/news-sitemap.xml` (os dois têm de responder 200, sem redirect) e o Rich Results da Google no JSON-LD da home e de uma matéria.
 6. Cada `git push` na branch de produção dispara o deploy. Preview deployments nas outras branches.
 
+A configuração da Vercel continua no repo. O deploy na Cloudflare Pages (plano grátis, DNS do www no Registro.br) está em [`docs/cloudflare.md`](docs/cloudflare.md). O comando é `npm run build:cloudflare`; o `npm run build` segue sendo o build da Vercel.
+
 Loja (quando existir) fica em `https://loja.thezero.com.br`, fora desta app.
 
 ## Marca
