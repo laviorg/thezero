@@ -318,6 +318,16 @@
       "slug": "google-tpu-orbita-project-suncatcher",
       "updated_at": "2026-10-01T19:26:47Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd9qF7yj0An"
+    },
+    "shopify-canvas-sidekick-ia": {
+      "article_url": "https://www.thezero.com.br/noticia/shopify-canvas-sidekick-ia",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/shopify-canvas-sidekick-ia.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/shopify-canvas-sidekick-ia.png",
+      "pr": 123,
+      "commit": "30244a1fc868e84af0ebabd90bb575400417858c",
+      "ig": "https://www.instagram.com/p/Dd94DNiFBrg/",
+      "slug": "shopify-canvas-sidekick-ia",
+      "updated_at": "2026-10-01T21:28:44Z"
     }
   }
 }
