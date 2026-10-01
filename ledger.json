@@ -230,6 +230,16 @@
       "slug": "reddit-encerra-rss-bloqueia-old-reddit",
       "updated_at": "2026-09-30T21:38:31Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd7UXk3INYP"
+    },
+    "minisforum-atomman-g1-pro-rx9060xt": {
+      "article_url": "https://www.thezero.com.br/noticia/minisforum-atomman-g1-pro-rx9060xt",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/minisforum-atomman-g1-pro-rx9060xt.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/minisforum-atomman-g1-pro-rx9060xt.png",
+      "pr": 113,
+      "commit": "fcf0f30a54b157dbfbe04c4cdbae955655ec3537",
+      "ig": "https://www.instagram.com/p/Dd7lAf2D14J/",
+      "slug": "minisforum-atomman-g1-pro-rx9060xt",
+      "updated_at": "2026-10-01T00:03:53Z"
     }
   }
 }
