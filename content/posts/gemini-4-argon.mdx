@@ -1,0 +1,87 @@
+---
+title: "O Google apresenta o Gemini 4 Argon com teto de 1 milhão de tokens de saída e restringe o acesso inicial a defensores cibernéticos"
+seoTitle: "Google lança Gemini 4 Argon com 1 milhão de tokens de saída"
+excerpt: "O Google anunciou o Gemini 4 Argon com saída de 1 milhão de tokens e preço de US$ 2 e US$ 10. O modelo estreia restrito ao programa Fairwind de ciberdefesa."
+category: ia
+subcategory: modelos
+date: "2026-10-01T11:08:00-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "The Zero"
+cover: "/images/posts/gemini-4-argon/cover.webp"
+coverAlt: "Arte digital horizontal com fundo em degradê azul royal e azul escuro, com foco de luz difuso no canto superior direito. À esquerda, destaca-se a estrela de quatro pontas colorida do Google Gemini, seguida pelo texto 'Gemini 4 Argon' em fonte sem serifa branca. À direita, um algarismo 4 estilizado em branco e de tamanho grande ocupa verticalmente o centro do quadro com leve desfoque nas bordas"
+coverCredit: "Google / Divulgação oficial"
+---
+
+O Google apresenta o Gemini 4 Argon com teto de 1 milhão de tokens de saída e restringe o acesso inicial a defensores cibernéticos.
+
+O anúncio oficial foi publicado pelo vice-presidente sênior do Google DeepMind e arquiteto-chefe de inteligência artificial do Google, Koray Kavukcuoglu, no [blog oficial da companhia](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/). O modelo marca a estreia da geração Gemini 4 voltada a tarefas de longo horizonte em engenharia de software, automação corporativa e ciberdefesa. No entanto, quem utiliza a API comercial ou os planos de consumo do Gemini ainda não consegue rodar o novo sistema: a liberação inicial foi limitada a participantes pré-aprovados do programa Fairwind, voltado a governos, operadoras de infraestrutura crítica e parceiros de segurança da informação.
+
+![Arte digital horizontal com fundo em degradê azul royal e azul escuro, com foco de luz difuso no canto superior direito. À esquerda, destaca-se a estrela de quatro pontas colorida do Google Gemini, seguida pelo texto 'Gemini 4 Argon' em fonte sem serifa branca. À direita, um algarismo 4 estilizado em branco e de tamanho grande ocupa verticalmente o centro do quadro com leve desfoque nas bordas](/images/posts/gemini-4-argon/cover.webp)
+
+*Google / Divulgação oficial. Peça promocional de apresentação do Gemini 4 Argon distribuída pela companhia em seus canais de imprensa no anúncio global do modelo.*
+
+<Verdict overrated="achar que o Gemini 4 já está disponível para testar no chat comum ou no Gemini Advanced nesta quinta-feira" underrated="o salto do limite de saída para 1 milhão de tokens em resposta única, permitindo refatorações inteiras de código sem quebra de contexto" />
+
+## Saída de 1 milhão de tokens e tabela de introdução
+
+A principal mudança arquitetural anunciada para o Gemini 4 Argon está na profundidade da resposta gerada em um único fluxo contínuo. Enquanto os modelos anteriores da família Gemini tinham teto de saída de 64 mil tokens, o Argon expande esse limite para **1 milhão de tokens de saída**. 
+
+O objetivo declarado pela divisão de IA é sustentar trajetórias longas de raciocínio autônomo, permitindo que o modelo planeje, escreva e teste sistemas completos de software, analise relatórios contábeis extensos ou execute auditorias de segurança sem truncar a saída.
+
+Na política comercial, a empresa divulgou uma tabela introdutória para a API:
+
+- **Tokens de entrada**: US$ 2,00 por milhão de tokens.
+- **Tokens de saída**: US$ 10,00 por milhão de tokens.
+- **Tokens em cache**: desconto de 95% sobre a tarifa de entrada (equivalente a US$ 0,10 por milhão).
+
+Os valores introdutórios colocam o modelo de ponta no mesmo patamar de preços base do GPT-6.1 Sol da OpenAI e do Claude Sonnet 5.5 da Anthropic. O próprio Google alerta no comunicado, contudo, que essa tarifa é promocional: após o período inicial, o custo tabelado dobrará para **US$ 4,00** na entrada e **US$ 20,00** na saída por milhão de tokens.
+
+| Métrica / Recurso | Especificação anunciada do Gemini 4 Argon |
+| --- | --- |
+| Limite de saída por requisição | **1.000.000 de tokens** (anterior: 64.000 tokens) |
+| Preço de entrada (promocional) | **US$ 2,00** por milhão de tokens |
+| Preço de saída (promocional) | **US$ 10,00** por milhão de tokens |
+| Preço de cache de contexto | 95% de desconto sobre a entrada (**US$ 0,10** por milhão) |
+| Preço regular pós-introdução | **US$ 4,00** (entrada) / **US$ 20,00** (saída) por milhão |
+| Benchmark de engenharia (DeepSWE v1.1) | **77,9%** |
+| Automação corporativa (AutomationBench) | **51,3%** (primeiro lugar geral) |
+| Compreensão de vídeo longo (LVBench) | **91,7%** |
+| Remediação de vulnerabilidades (CWE-bench v1) | **68,0%** (empate na liderança) |
+
+## O foco em defesa cibernética e a versão sem travas
+
+Diferente de lançamentos orientados imediatamente para desenvolvedores de aplicativos de consumo, a prioridade declarada do Google no Argon é a segurança cibernética corporativa. O modelo foi treinado para identificar falhas de programação, validar vetores de ataque e sintetizar correções em código de forma autônoma.
+
+Para os membros credenciados do [programa Fairwind](https://deepmind.google/fairwind-program/) e para as equipes internas de engenharia do Google, a empresa decidiu distribuir o Argon sem os filtros restritivos usuais de cibersegurança (*cyber guardrails*). A justificativa técnica é permitir que analistas e sistemas de defesa automatizados explorem cenários reais de intrusão e gerem testes de conceito (*proof-of-concept*) sem que o modelo recuse a solicitação por engano.
+
+Segundo dados divulgados pelo Google:
+
+- No índice **CWE-bench v1**, que afere a capacidade de corrigir vulnerabilidades de software de forma autônoma, o Argon obteve **68%** de aproveitamento, empatando na liderança do placar com o GPT-6 Astra da OpenAI.
+- No benchmark **DeepSWE v1.1**, voltado para resolução de problemas reais de engenharia em repositórios de código, o sistema registrou índice de **77,9%**.
+- A empresa de segurança em nuvem Wiz já incorporou o modelo à iniciativa Scan for Good, utilizada para escanear softwares hospitalares globais e detectar exposições críticas de dados sensíveis antes de sua exploração maliciosa.
+
+Internamente, o Google afirma que equipes de agentes baseados em Argon já atuaram na telemetria de data centers, liberando mais de 300 TiB de memória RAM em clusters de servidores, além de acelerarem a migração de bibliotecas legadas de C e C++ para Rust, incluindo componentes do decodificador de vídeo de código aberto libgav1 e trechos do kernel Zircon do projeto Fuchsia.
+
+## Quem tem acesso e quando chega ao público amplo
+
+O público em geral e a maior parte das empresas que usam IA hoje não encontram o Gemini 4 Argon disponível em suas contas. O modelo segue as diretrizes do *Frontier Safety Framework* do Google e passa pelo processo voluntário de avaliação do governo dos Estados Unidos para sistemas avançados de inteligência artificial.
+
+Nesta primeira fase, o acesso está restrito a:
+
+1. Equipes de engenharia de infraestrutura, segurança e pesquisa do Google.
+2. Organizações admitidas no programa Fairwind, que exige contas nominais, autenticação multifator resistente a phishing e auditoria de logs.
+
+O Google declarou que o modelo será oferecido futuramente a clientes pagantes da API no Google AI Studio e no Vertex AI, além de assinantes do plano Google AI Ultra, à medida que os testes de alinhamento e a contenção de injeções indiretas de prompt (*indirect prompt injections*) forem validados pelos times de segurança ofensiva. Nenhuma data exata foi confirmada para a liberação ao público brasileiro.
+
+<Rule>
+O Gemini 4 Argon chega primeiro a defensores cibernéticos no programa Fairwind, com saída de 1 milhão de tokens e tabela introdutória de US$ 2 e US$ 10 antes de dobrar de preço.
+</Rule>
+
+## Fontes
+
+- [Google Blog — Gemini 4 Argon: our next era of frontier intelligence (30/09/2026)](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)
+- [Google DeepMind — Fairwind Program](https://deepmind.google/fairwind-program/)
+- [Google MENA Blog — Gemini 4 Argon details (01/10/2026)](https://blog.google/intl/en-mena/company-news/technology/gemini-4-argon-our-next-era-of-frontier-intelligence/)
+- [TechCrunch — Google releases Gemini 4 Argon, called its most powerful model yet (30/09/2026)](https://techcrunch.com/2026/09/30/google-releases-gemini-4-argon-called-its-most-powerful-model-yet/)
+- [SiliconANGLE — Google's new frontier AI model Gemini 4 Argon goes to cybersecurity defenders first (30/09/2026)](https://siliconangle.com/2026/09/30/googles-new-frontier-ai-model-gemini-4-argon-goes-to-cybersecurity-defenders-first/)
