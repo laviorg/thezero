@@ -296,6 +296,16 @@
       "slug": "amazon-kindle-2026-tela-plana-aluminio",
       "updated_at": "2026-10-01T18:20:48Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd9iiijGPEl"
+    },
+    "sony-ps5-upscaling-ia-qssr": {
+      "article_url": "https://www.thezero.com.br/noticia/sony-ps5-upscaling-ia-qssr",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/sony-ps5-upscaling-ia-qssr.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/sony-ps5-upscaling-ia-qssr.png",
+      "pr": 121,
+      "commit": "facf264fc4cac386962129b7ba858db42d00ac8a",
+      "ig": "https://www.instagram.com/p/Dd9m1ZOGGqU/",
+      "slug": "sony-ps5-upscaling-ia-qssr",
+      "updated_at": "2026-10-01T18:58:21Z"
     }
   }
 }
