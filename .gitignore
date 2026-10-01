@@ -19,6 +19,7 @@
 
 # arquivos temporários do build da Cloudflare
 /.cf-tmp/
+/.wrangler/
 
 # production
 /build
