@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -41,7 +42,9 @@ jobs:
         if: steps.cf.outputs.present == 'true'
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # 22.6+ aceita --experimental-strip-types no passo depois do next build.
+          # Wrangler 4 pede Node >= 22. O 20.20.2 recusou a flag (exit 9).
+          node-version: 22.22.2
           cache: npm
 
       - name: Instalar dependências
