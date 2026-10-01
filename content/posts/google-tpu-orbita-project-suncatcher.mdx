@@ -1,0 +1,75 @@
+---
+title: "O Google lança os primeiros chips de IA ao espaço no Project Suncatcher com a SpaceX"
+seoTitle: "Google lança chips TPU ao espaço no Project Suncatcher"
+excerpt: "O Google lançou quatro chips TPU ao espaço no foguete Falcon 9 da SpaceX nesta quinta-feira para testar data centers de IA movidos a energia solar em órbita."
+category: ia
+subcategory: infraestrutura
+date: "2026-10-01T16:08:00-03:00"
+featured: false
+kicker: "IA · Infraestrutura"
+author: "The Zero"
+cover: "/images/posts/google-tpu-orbita-project-suncatcher/cover.jpg"
+coverAlt: "Foguete Falcon 9 branco e preto em ascensão vertical após o lançamento, expelindo labaredas alaranjadas e fumaça branca densa sobre a base costeira, com colina escura em primeiro plano e céu azul ao fundo"
+coverCredit: "Senior Airman Hanah Abercormbie / U.S. Space Force / Wikimedia Commons (Domínio Público)"
+---
+
+O Google lança os primeiros chips de IA ao espaço no Project Suncatcher com a SpaceX.
+
+O lançamento inaugural em órbita do **Project Suncatcher** foi realizado nesta quinta-feira (1º de outubro de 2026) a bordo da missão de compartilhamento de carga Transporter-18 da [SpaceX](https://www.spacex.com/launches/transporter18/), impulsionada por um foguete Falcon 9 a partir do Complexo de Lançamento Espacial 4E (SLC-4E), na Base da Força Espacial de Vandenberg, na Califórnia. O protótipo de satélite, batizado internamente de **MVP** e desenvolvido em parceria técnica com a [Planet Labs](https://www.planet.com/pulse/planet-to-build-and-operate-advanced-space-platform-for-project-suncatcher-moonshot/), carrega quatro aceleradores de aprendizado de máquina **Tensor Processing Units (TPUs)** da gigante de tecnologia. O experimento marca o primeiro teste em ambiente orbital da iniciativa que investiga a viabilidade econômica e física de operar data centers de inteligência artificial alimentados continuamente por radiação solar no espaço.
+
+![Foguete Falcon 9 branco e preto em ascensão vertical após o lançamento, expelindo labaredas alaranjadas e fumaça branca densa sobre a base costeira, com colina escura em primeiro plano e céu azul ao fundo](/images/posts/google-tpu-orbita-project-suncatcher/cover.jpg)
+
+*Senior Airman Hanah Abercormbie / U.S. Space Force / Wikimedia Commons (Domínio Público). Lançamento de foguete Falcon 9 da SpaceX a partir da plataforma SLC-4E na Base Espacial de Vandenberg, na Califórnia.*
+
+<Verdict overrated="achar que data centers orbitais vão substituir data centers terrestres nos próximos três anos" underrated="testar tolerância à radiação e dissipação térmica por radiadores de TPUs em ciclos reais no vácuo espacial" />
+
+## Quatro TPUs v6e Trillium e painel de 1 kW
+
+Revelado inicialmente como uma pesquisa experimental pelo Google em novembro de 2025, o Project Suncatcher tem como tese contornar o gargalo elétrico e territorial dos data centers convencionais na Terra. Em órbita baixa da Terra (LEO), painéis solares captam luz solar praticamente contínua com rendimento até oito vezes superior ao registrado na superfície terrestre, eliminando a dependência de baterias volumosas e amenizando a pressão sobre as redes energéticas urbanas.
+
+O protótipo que decolou nesta quinta-feira tem dimensões aproximadas às de um refrigerador doméstico. Em vez de aguardar a construção de satélites dedicados desenhados do zero — programados para 2027 —, o Google optou por antecipar a validação empírica integrando suas matrizes de silício na plataforma de satélites já madura da Planet Labs.
+
+As especificações do satélite MVP reúnem:
+- **Computação neural**: quatro aceleradores Google TPU (família v6e Trillium), equivalência computacional a uma fatia de nuvem *v6e-4*;
+- **Fornecimento de energia**: conjunto de painéis solares capaz de produzir cerca de **1 quilowatt (kW)** contínuo sob iluminação direta;
+- **Regime de operação**: ciclos de computação e inferência com modelos Gemini programados em janelas de cerca de **15 minutos**, seguidos por intervalos de resfriamento térmico;
+- **Parceria de plataforma**: chassi, barramento e instrumentação de voo fornecidos e operados pela Planet Labs;
+- **Duração da missão**: testes programados para cerca de 1 ano em órbita, com reentrada e desintegração atmosférica projetada para aproximadamente 6 anos.
+
+| Característica | Detalhe operacional (Satélite MVP) |
+| --- | --- |
+| Iniciativa de pesquisa | Project Suncatcher (Alphabet / Google) |
+| Parceira aeroespacial | Planet Labs PBC |
+| Veículo de lançamento | SpaceX Falcon 9 (Missão Transporter-18) |
+| Base de lançamento | Complexo SLC-4E (Vandenberg Space Force Base, Califórnia) |
+| Carga de aceleração | 4× processadores neurais Google Cloud TPU |
+| Modelo de chips testados | Google TPU v6e Trillium |
+| Potência do painel solar | Cerca de 1 kW |
+| Janela típica de disparo de IA | ~15 minutos por ciclo |
+| Vida útil planejada | Cerca de 1 ano em órbita LEO |
+
+## Os desafios físicos: vácuo, calor e radiação ionizante
+
+O maior obstáculo para a computação de alto desempenho fora da atmosfera não é a gravidade, mas a gestão térmica e a radiação cósmica. Na Terra, os servidores de IA dependem de ar-condicionado de precisão ou sistemas industriais de resfriamento líquido que dissipam centenas de quilowatts de calor no ar ou em torres de água. No vácuo do espaço, sem moléculas para conduzir ou conveccionar calor, toda a energia térmica produzida pelos transistores precisa ser expelida exclusivamente por radiação infravermelha por meio de placas radiadoras externas.
+
+Por causa dessa restrição física, o satélite MVP não mantém os quatro chips sob carga máxima constante. O sistema operacional foi configurado para disparar cargas de inferência de IA em rajadas de 15 minutos, permitindo que a carcaça e os radiadores dissipem a carga acumulada antes do ciclo seguinte.
+
+O segundo desafio são os raios cósmicos galácticos e partículas solares de alta energia. Em experimentos preliminares de laboratório antes do voo, os pesquisadores do Google bombardearam o processador Trillium com um feixe de prótons de 67 MeV para mensurar a dose ionizante total e os efeitos de evento único (*Single Event Effects* ou SEEs), que provocam corrupção silenciosa de memória (bit flips) ou travamentos súbitos no silício.
+
+## O roteiro para 2027: constelações ligadas por laser
+
+A missão lançada nesta quinta-feira é apenas a primeira etapa do cronograma. Conforme detalhado em estudo técnico do [Google Research](https://research.google/blog/exploring-a-space-based-scalable-ai-infrastructure-system-design/), a empresa e a Planet Labs planejam lançar em 2027 dois satélites customizados operando em formação conjunta. Essa segunda fase testará conexões ópticas de alta velocidade no espaço livre (*free-space optical links*), permitindo que múltiplos nós em órbita distribuam tarefas paralelas de treinamento e inferência comunicando-se por feixes de laser.
+
+Se a missão do satélite MVP confirmar a integridade das TPUs diante das vibrações mecânicas da decolagem e da radiação espacial, o projeto validará uma nova frente para a infraestrutura global de inteligência artificial nas próximas décadas.
+
+<Rule>
+O Project Suncatcher colocou quatro chips Google TPU em órbita no foguete Falcon 9 da SpaceX nesta quinta-feira (1º de outubro), inaugurando testes com a Planet Labs de inferência de IA movida a painéis solares de 1 kW no vácuo espacial.
+</Rule>
+
+## Fontes primárias e referências
+
+- [SpaceX — página oficial de lançamento da missão Transporter-18](https://www.spacex.com/launches/transporter18/)
+- [Google Research — anúncio e detalhes técnicos do Project Suncatcher](https://blog.google/innovation-and-ai/models-and-research/google-research/google-project-suncatcher-facts/)
+- [Google Research Blog — estudo de arquitetura para infraestrutura escalável de IA no espaço](https://research.google/blog/exploring-a-space-based-scalable-ai-infrastructure-system-design/)
+- [Planet Labs — anúncio da parceria de plataforma espacial com o Google](https://www.planet.com/pulse/planet-to-build-and-operate-advanced-space-platform-for-project-suncatcher-moonshot/)
+- [Reuters — cobertura da missão de teste de chips de IA do Google no espaço](https://www.reuters.com/business/media-telecom/google-plans-first-test-ai-chips-space-under-project-suncatcher-2026-09-24/)
