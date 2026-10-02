@@ -373,6 +373,16 @@
       "slug": "amazon-built-together-data-centers",
       "updated_at": "2026-10-02T14:31:14Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd_tD9jlvrE"
+    },
+    "neurable-one-fone-eeg": {
+      "article_url": "https://www.thezero.com.br/noticia/neurable-one-fone-eeg",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/neurable-one-fone-eeg.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/neurable-one-fone-eeg.png",
+      "pr": 129,
+      "commit": "7898b2675718e0a0ea9f1aa1f148fb13067ca1d2",
+      "ig": "https://www.instagram.com/p/DeAAuNLoGp-/",
+      "slug": "neurable-one-fone-eeg",
+      "updated_at": "2026-10-02T17:23:05Z"
     }
   }
 }
