@@ -329,6 +329,16 @@
       "slug": "shopify-canvas-sidekick-ia",
       "updated_at": "2026-10-01T21:28:58Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd94ErtD64R"
+    },
+    "amd-ryzen-z3-vazamento": {
+      "article_url": "https://www.thezero.com.br/noticia/amd-ryzen-z3-vazamento",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/amd-ryzen-z3-vazamento.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/amd-ryzen-z3-vazamento.png",
+      "pr": 124,
+      "commit": "e88da3cc5b92f96efb2554a0def515153e081a88",
+      "ig": "https://www.instagram.com/p/Dd-JqXJjMqx/",
+      "slug": "amd-ryzen-z3-vazamento",
+      "updated_at": "2026-10-02T00:02:35Z"
     }
   }
 }
