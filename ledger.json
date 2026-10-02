@@ -340,6 +340,16 @@
       "slug": "amd-ryzen-z3-vazamento",
       "updated_at": "2026-10-02T00:02:47Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd-JrfAlDcd"
+    },
+    "ace-combat-8-hoje": {
+      "article_url": "https://www.thezero.com.br/noticia/ace-combat-8-hoje",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/ace-combat-8-hoje.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/ace-combat-8-hoje.png",
+      "pr": 125,
+      "commit": "0d205bde10bea147d77c7f1b91ca440a29c0ad14",
+      "ig": "https://www.instagram.com/p/Dd_QraLDNP0/",
+      "slug": "ace-combat-8-hoje",
+      "updated_at": "2026-10-02T10:23:11Z"
     }
   }
 }
