@@ -406,6 +406,16 @@
       "slug": "chatgpt-provador-virtual-roupas",
       "updated_at": "2026-10-02T19:27:13Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DeAO7xMGBb8"
+    },
+    "samsung-galaxy-buds-on": {
+      "article_url": "https://www.thezero.com.br/noticia/samsung-galaxy-buds-on",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/samsung-galaxy-buds-on.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/samsung-galaxy-buds-on.png",
+      "pr": 133,
+      "commit": "9977976d3420d6c609b77cc5524ce51aaceec219",
+      "ig": "https://www.instagram.com/p/DeAfbMemAga/",
+      "slug": "samsung-galaxy-buds-on",
+      "updated_at": "2026-10-02T21:51:14Z"
     }
   }
 }
