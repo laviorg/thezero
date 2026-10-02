@@ -362,6 +362,16 @@
       "slug": "rtx-spark-superchip-laptops-desktops",
       "updated_at": "2026-10-02T12:32:40Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dd_ff0ulj8f"
+    },
+    "amazon-built-together-data-centers": {
+      "article_url": "https://www.thezero.com.br/noticia/amazon-built-together-data-centers",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/amazon-built-together-data-centers.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/amazon-built-together-data-centers.png",
+      "pr": 127,
+      "commit": "73ba5f8dc8889de10cc0b39c2c6896c081e9793a",
+      "ig": "https://www.instagram.com/p/Dd_tCdzjJaA/",
+      "slug": "amazon-built-together-data-centers",
+      "updated_at": "2026-10-02T14:31:00Z"
     }
   }
 }
