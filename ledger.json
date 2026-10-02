@@ -384,6 +384,16 @@
       "slug": "neurable-one-fone-eeg",
       "updated_at": "2026-10-02T17:23:20Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DeAAwWgnJoV"
+    },
+    "acer-predator-atlas-7": {
+      "article_url": "https://www.thezero.com.br/noticia/acer-predator-atlas-7",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/acer-predator-atlas-7.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/acer-predator-atlas-7.png",
+      "pr": 131,
+      "commit": "3224c34078ca6c4ba5355b2ac02d7cd9a4491bea",
+      "ig": "https://www.instagram.com/p/DeALhPtGLAs/",
+      "slug": "acer-predator-atlas-7",
+      "updated_at": "2026-10-02T18:57:19Z"
     }
   }
 }
