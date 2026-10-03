@@ -472,6 +472,16 @@
       "slug": "apple-restringe-full-disk-access-macos",
       "updated_at": "2026-10-03T17:32:27Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DeCmmjtEbJK"
+    },
+    "intel-core-i9-14900k-degradacao-bios": {
+      "article_url": "https://www.thezero.com.br/noticia/intel-core-i9-14900k-degradacao-bios",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/intel-core-i9-14900k-degradacao-bios.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/intel-core-i9-14900k-degradacao-bios.png",
+      "pr": 141,
+      "commit": "85b03888dfebd217ec1f51da69cb9abe7e9dc5bc",
+      "ig": "https://www.instagram.com/p/DeCvN2elcqN/",
+      "slug": "intel-core-i9-14900k-degradacao-bios",
+      "updated_at": "2026-10-03T18:47:44Z"
     }
   }
 }
