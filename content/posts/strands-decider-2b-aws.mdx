@@ -1,0 +1,82 @@
+---
+title: "AWS lança o Strands Decider 2B, modelo aberto que decide ações de agentes sem gerar texto"
+seoTitle: "AWS lança Strands Decider 2B para decisões rápidas em agentes"
+excerpt: "A AWS lançou o Strands Decider 2B, modelo de IA de 2 bilhões de parâmetros sob licença Apache 2.0 que resolve escolhas em 115 ms sem gerar texto."
+category: ia
+subcategory: modelos
+date: "2026-10-02T22:00:00-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "The Zero"
+cover: "/images/posts/strands-decider-2b-aws/cover.webp"
+coverAlt: "Diagrama esquemático em fundo claro comparando um LLM decodificador tradicional com cabeça de vocabulário descartada ao Strands Decider 2B, composto pelo tronco Qwen3.5-2B-Base, adaptador LoRA r16 e cabeça de ponteiro que calcula probabilidades via softmax para opções numeradas"
+coverCredit: "Strands Labs / AWS / Divulgação"
+---
+
+A AWS lançou o Strands Decider 2B, modelo aberto que decide ações de agentes sem gerar texto.
+
+O Strands Labs, divisão de experimentação em inteligência artificial agêntica da **Amazon Web Services (AWS)**, lançou nesta quinta-feira (1º de outubro de 2026) o **Strands Decider 2B**. Trata-se de um modelo aberto da categoria *decision model* (ou "sistema um"), desenvolvido especificamente para escolher opções pré-definidas em fluxos automatizados de agentes sem passar pela etapa de geração de texto livre. O projeto foi disponibilizado publicamente no [GitHub](https://github.com/strands-labs/strands-decider) e no [Hugging Face](https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v19) sob licença permissiva **Apache 2.0**, com código, pesos, scripts de treino e conjuntos de avaliação liberados para uso local e comercial.
+
+![Diagrama esquemático em fundo claro comparando um LLM decodificador tradicional com cabeça de vocabulário descartada ao Strands Decider 2B, composto pelo tronco Qwen3.5-2B-Base, adaptador LoRA r16 e cabeça de ponteiro que calcula probabilidades via softmax para opções numeradas](/images/posts/strands-decider-2b-aws/cover.webp)
+
+*Strands Labs / AWS / Divulgação. Arquitetura do Strands Decider 2B: o cabeçote tradicional de vocabulário é descartado e substituído por uma cabeça de ponteiro com adaptador LoRA rank-16 acoplada à base Qwen3.5-2B.*
+
+<Verdict overrated="achar que todo passo de um agente de IA precisa ser processado por modelos gigantes de raciocínio como Claude Opus ou GPT" underrated="trocar chamadas lentas de texto por modelos locais de decisão que respondem em uma única passagem com confiança calibrada" />
+
+## O que a ferramenta faz e como opera o ponteiro de pontuação
+
+Em sistemas convencionais de agentes, tarefas rotineiras como roteamento de solicitações, seleção de ferramentas (*tool calling*), validação de argumentos e barreiras de segurança (*guardrails*) dependem de consultas a grandes modelos de linguagem (LLMs). Esse padrão gera dois gargalos frequentes: latência acumulada pela decodificação token a token e custo financeiro por consumo de tokens em APIs de nuvem.
+
+O Strands Decider 2B atua na ponta oposta:
+
+1. **Arquitetura híbrida**: o modelo reaproveita a estrutura interna (*torso*) do modelo aberto **Qwen3.5-2B-Base**, mas remove por completo a cabeça de modelagem de linguagem tradicional (*LM head*), eliminando a capacidade de escrever textos livres;
+2. **Cabeça de ponteiro (*pointer head*)**: no lugar da geração de texto, a equipe adicionou uma cabeça leve de apenas 1 milhão de parâmetros, treinada via adaptador **LoRA (rank-16)**;
+3. **Passagem única (*single forward pass*)**: em vez de um loop de decodificação sequencial, o modelo avalia o estado da conversa e as alternativas fornecidas simultaneamente, pontuando os vetores ocultos de cada opção contra a posição de resposta;
+4. **Respostas tipadas**: o sistema responde a três categorias estritas de perguntas:
+   - `choice`: seleção de uma entre N alternativas (ex.: definir para qual fila direcionar um chamado: suporte, vendas ou financeiro);
+   - `noul`: perguntas binárias de sim ou não (ex.: checar se os argumentos de uma função foram inventados pela IA ou fornecidos pelo usuário);
+   - `score`: atribuição de nível em uma escala ordenada (ex.: avaliar o nível de frustração de um cliente entre calmo, frustrado ou irritado).
+
+Além de apontar a opção vencedora, o modelo calcula uma probabilidade com pontuação de confiança calibrada (medida pelo índice Brier), permitindo que o desenvolvedor estabeleça regras de transbordo para humanos caso a certeza da máquina fique abaixo de uma margem definida.
+
+| Característica | Detalhe operacional (Strands Decider 2B) |
+| --- | --- |
+| Empresa desenvolvedora | Strands Labs (Amazon Web Services / AWS) |
+| Parâmetros totais | Aproximadamente 1,9 a 2 bilhões |
+| Base fundacional | Qwen3.5-2B-Base com adaptador LoRA rank-16 |
+| Cabeçote de pontuação | Pointer head (~1 milhão de parâmetros) |
+| Tipos de consulta | `choice` (múltipla escolha), `noul` (sim/não) e `score` (escala) |
+| Latência mediana | 115 ms (Nvidia RTX 3090) / 153 ms (Apple Silicon M3 Pro) |
+| Licença | Apache 2.0 (código aberto e comercialmente liberado) |
+| Distribuição | Pacote Python no PyPI (`strands-decider`) e pesos no Hugging Face |
+
+## Limites e quando não usar
+
+A especialização em tomada de decisões delimita claramente o que o Strands Decider 2B não faz:
+
+- **Sem geração de texto**: o modelo não escreve respostas conversacionais, não resume documentos, não formula e-mails e não gera código-fonte;
+- **Inapropriado para raciocínio aberto**: problemas abertos de lógica matemática, planejamento complexo de várias etapas ou redação criativa exigem modelos de fronteira;
+- **Dependência de opções fechadas**: todas as decisões dependem de alternativas delimitadas previamente pelo desenvolvedor na consulta.
+
+Em arquiteturas modernas de software, o Decider 2B é posicionado como parte de "agentes híbridos": ele resolve dezenas de microdecisões intermediárias locais em frações de segundo e só repassa para modelos de fronteira os passos que realmente exigem geração textual ou raciocínio profundo.
+
+## Preço e disponibilidade no Brasil
+
+O Strands Decider 2B é 100% gratuito para download e sem cobrança por licença de software. Usuários, desenvolvedores e empresas no Brasil e no mundo podem utilizá-lo sem necessidade de cadastro em nuvem ou cartões de crédito internacionais:
+
+- **Instalação local**: via terminal Python com o comando `pip install strands-decider`;
+- **Execução por linha de comando**: através da ferramenta CLI `strands-decider ask StrandsAgents/strands-decider-2B-hobson-v19` ou modo servidor local com `strands-decider serve`;
+- **Requisitos de hardware**: por ter menos de 2 bilhões de parâmetros, roda localmente em CPUs convencionais de computadores de mesa e notebooks, em chips Apple Silicon (via backend MPS) ou placas de vídeo com suporte a CUDA a partir de 6 GB a 8 GB de VRAM;
+- **Custos**: zero custo de software ou licença comercial (Apache 2.0). Em ambientes corporativos, os únicos custos envolvidos são o poder computacional da máquina local ou o custo de instâncias gerenciadas em nuvem escolhidas pela organização.
+
+<Rule>
+O Strands Decider 2B da AWS troca a geração lenta de texto por uma cabeça de ponteiro de 2 bilhões de parâmetros que resolve triagens e escolhas de ferramentas em 115 ms sob licença aberta Apache 2.0.
+</Rule>
+
+## Fontes
+
+- [Strands Agents Blog — Introducing Strands Decider 2B: a small, open source, decision model](https://strandsagents.com/blog/introducing-strands-decider/)
+- [Hugging Face — Repositório oficial do modelo StrandsAgents/strands-decider-2B-hobson-v19](https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v19)
+- [PyPI — Pacote strands-decider v0.1.0](https://pypi.org/project/strands-decider/)
+- [TechCrunch — Amazon releases its own Jev clone as decision models flood the web](https://techcrunch.com/2026/10/01/amazon-releases-its-own-jev-clone-as-decision-models-flood-the-web/)
+- [VentureBeat — Amazon unveils a free, fast, open source Jev killer: Strands Decider 2B makes decisions in fractions of a second](https://venturebeat.com/technology/amazon-unveils-a-free-fast-open-source-jev-killer-strands-decider-2b-makes-decisions-in-fractions-of-a-second)
