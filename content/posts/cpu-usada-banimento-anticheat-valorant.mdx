@@ -1,0 +1,60 @@
+---
+title: "Comprar CPU usada pode herdar banimento em jogos de PC sem aviso prévio"
+seoTitle: "CPU usada pode herdar banimento de anticheat em PCs"
+excerpt: "Compradores de processadores usados correm o risco de receber banimentos de sistemas antitrapaça como o Vanguard da Riot, sem meio de checagem prévia."
+category: computadores
+subcategory: componentes
+date: "2026-10-03T12:38:00-03:00"
+featured: false
+kicker: "Computadores · componentes"
+author: "The Zero"
+cover: "/images/posts/cpu-usada-banimento-anticheat-valorant/cover.jpg"
+coverAlt: "Monitor em uma mesa escura com iluminação verde exibindo a arte inicial de Valorant, acompanhado de teclado mecânico com iluminação vermelha e fone de ouvido"
+coverCredit: "Tom's Hardware / Divulgação"
+---
+
+O mercado de componentes usados para computador ganhou um novo fator de risco que testes de estresse e inspeções visuais não conseguem identificar. Um jogador na Alemanha comprou um processador **AMD Ryzen 7 5800X3D** de segunda mão e foi impedido de jogar **Valorant** imediatamente ao abrir a aplicação, descobrindo que o chip físico carregava uma punição aplicada pela Riot Games ao dono anterior, segundo relato detalhado pelo [Tom's Hardware](https://www.tomshardware.com/video-games/pc-gaming/buying-used-cpus-can-expose-users-to-existing-bans-from-anti-cheat-engines-some-anti-cheat-engines-enforce-permanent-bans-while-others-have-an-expiration-date).
+
+O caso chamou atenção em comunidades de hardware após o usuário relatar no Reddit que a CPU comprada em 21 de setembro de 2026 estava na lista de bloqueio do sistema Vanguard desde 12 de agosto de 2026. A situação expõe uma brecha para compradores: não existe ferramenta pública para verificar se o identificador de hardware (HWID) de uma peça usada está banido em jogos online antes de fechar o negócio, como apontaram apurações do [TechPowerUp](https://www.techpowerup.com/353353/used-ryzen-7-5800x3d-gets-buyer-locked-out-of-valorant-due-to-previous-owners-cheating) e do [Wccftech](https://wccftech.com/gamer-buys-used-ryzen-7-5800x3d-gets-locked-out-of-valorant-because-previous-owner-cheated/).
+
+![Monitor em uma mesa escura com iluminação verde exibindo a arte inicial de Valorant, acompanhado de teclado mecânico com iluminação vermelha e fone de ouvido](/images/posts/cpu-usada-banimento-anticheat-valorant/cover.jpg)
+
+*Tom's Hardware / Divulgação. Sistemas antitrapaça modernos vinculam punições a identificadores físicos de hardware no PC.*
+
+<Verdict overrated="acreditar que testes de benchmark e garantia visual bastam para avaliar peças usadas" underrated="a urgência de ferramentas oficiais para consulta de restrições em identificadores de peças" />
+
+## Como operam os bloqueios de HWID e a resposta da Riot
+
+Os motores antitrapaça contemporâneos contam com permissões em nível de kernel para recolher impressões digitais de componentes, impedindo que trapaceiros banidos simplesmente criem novas contas para retornar às partidas. Sistemas como o Vanguard exigem tecnologias como Secure Boot e TPM 2.0 para autenticar a máquina, enquanto ferramentas como o Ricochet comunicam servidores da Microsoft para validar a integridade do sistema operacional, aponta o [PCWorld](https://www.pcworld.com/article/3250222/your-used-cpu-might-come-with-someone-elses-valorant-ban.html).
+
+Após o caso ganhar repercussão, o especialista antitrapaça da Riot Games, Phillip Koskinas, esclareceu publicamente em 2 de outubro de 2026 os limites aplicados pelo Vanguard. De acordo com Koskinas, os banimentos de hardware da desenvolvedora têm duração máxima de quatro meses e afetam apenas o jogo específico em que a trapaça ocorreu. O suporte oficial informa o tempo restante da punição mediante solicitação do usuário, e o executivo negou que a detecção de um único componente contamine automaticamente todas as outras peças do computador.
+
+Nem todas as desenvolvedoras, contudo, adotam janelas temporárias ou escopo restrito de punição em seus motores antitrapaça:
+
+| Sistema antitrapaça | Duração típica de bloqueio de hardware | Escopo da punição |
+| --- | --- | --- |
+| Vanguard (Riot Games) | Até 4 meses | Específico por jogo |
+| Easy Anti-Cheat | Variável / Permanente | Todos os títulos integrados |
+| BattlEye | Permanente | Bloqueio global permanente |
+| Ricochet | Não especificada | Validação de integridade via servidores |
+
+## A ausência de histórico verificável no mercado de segunda mão
+
+A prática comum de atualizar PCs comprando peças de gerações passadas, como a plataforma AM4 da AMD, esbarra no sigilo em torno das punições de HWID. Como os métodos exatos de identificação de chips não são revelados pelos estúdios para evitar dribles por criadores de trapaças, o comprador não tem como saber se o número de série da CPU ou dados associados foram marcados.
+
+Embora o suporte ao consumidor consiga informar a expiração de sanções temporárias em alguns serviços, a recusa das distribuidoras em revogar banimentos manuais em componentes transferidos deixa o ônus da compra inteiramente com o consumidor lesado.
+
+## O que isso significa no Brasil
+
+No Brasil, onde o comércio de hardware usado em plataformas como Mercado Livre, OLX e Enjoei movimenta um volume relevante de peças para quem busca fugir dos altos preços de componentes novos, o risco exige cautela redobrada. Processadores populares em upgrades, como linhas Ryzen com 3D V-Cache, costumam circular com frequência entre jogadores competitivos.
+
+Como não há mecanismo de checagem prévia no país nem suporte dedicado das desenvolvedoras para liberar peças de segunda mão, a recomendação é priorizar negociações em plataformas que ofereçam prazos formais de devolução de pelo menos sete dias, permitindo instalar o componente e testar o acesso aos jogos favoritos antes de liberar o pagamento ao vendedor.
+
+<Rule>No mercado de hardware usado, componente sem defeito físico ainda pode ser inutilizado por restrições de software herdadas de terceiros.</Rule>
+
+## Fontes
+
+- [tomshardware.com — Buying used CPUs can expose users to existing bans from anti-cheat engines, and there's no way to check for violations before purchase — some anti-cheat engines enforce permanent bans, while others have an expiration date](https://www.tomshardware.com/video-games/pc-gaming/buying-used-cpus-can-expose-users-to-existing-bans-from-anti-cheat-engines-some-anti-cheat-engines-enforce-permanent-bans-while-others-have-an-expiration-date)
+- [techpowerup.com — Used Ryzen 7 5800X3D Gets Buyer Locked Out of Valorant Due to Previous Owner's Cheating](https://www.techpowerup.com/353353/used-ryzen-7-5800x3d-gets-buyer-locked-out-of-valorant-due-to-previous-owners-cheating)
+- [wccftech.com — Gamer Buys Used Ryzen 7 5800X3D, Gets Locked Out of Valorant Because Previous Owner Cheated](https://wccftech.com/gamer-buys-used-ryzen-7-5800x3d-gets-locked-out-of-valorant-because-previous-owner-cheated/)
+- [pcworld.com — Your used CPU might come with someone else’s Valorant ban](https://www.pcworld.com/article/3250222/your-used-cpu-might-come-with-someone-elses-valorant-ban.html)
