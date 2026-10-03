@@ -1,0 +1,56 @@
+---
+title: "Quarto Intel Core i9-14900K de cliente começa a degradar mesmo com BIOS atualizada e alerta para falha física"
+seoTitle: "Core i9-14900K degrada mesmo após atualização de BIOS"
+excerpt: "Cliente da Intel relata degradação no quarto chip Core i9-14900K consecutivo mesmo usando BIOS atualizada e configurações de fábrica."
+category: computadores
+subcategory: componentes
+date: "2026-10-03T15:38:00-03:00"
+featured: false
+kicker: "Computadores · componentes"
+author: "The Zero"
+cover: "/images/posts/intel-core-i9-14900k-degradacao-bios/cover.jpg"
+coverAlt: "Processador Intel Core i9-14900K instalado no soquete de uma placa-mãe Gigabyte Aorus Master X com componentes e dissipadores escuros"
+coverCredit: "Wccftech / Divulgação"
+---
+
+Um usuário relatou a falha por degradação em seu quarto processador **Intel Core i9-14900K**, mesmo após aplicar as atualizações de BIOS recomendadas pela fabricante e manter as configurações padrão do sistema. O caso, divulgado pelo veículo [Wccftech](https://wccftech.com/intel-core-i9-14900k-degrades-bios-update-fails-to-prevent-hardware-failure/), reacende as preocupações sobre a instabilidade nos chips topo de linha das famílias de 13ª e 14ª geração da marca.
+
+Mesmo utilizando correções de microcódigo lançadas para conter o desgaste excessivo de tensão nos componentes, o chip voltou a apresentar a tradicional tela azul da morte (**BSOD**) com o erro **0xC0000005**. O relato mostra que os patches de firmware podem não ser suficientes para evitar a degradação física definitiva quando o hardware opera sob cargas elevadas.
+
+![Processador Intel Core i9-14900K instalado no soquete de uma placa-mãe Gigabyte Aorus Master X com componentes e dissipadores escuros](/images/posts/intel-core-i9-14900k-degradacao-bios/cover.jpg)
+
+*Wccftech / Divulgação. Processador Intel Core i9-14900K instalado no soquete de uma placa-mãe desktop.*
+
+<Verdict overrated="confiar apenas em atualizações de BIOS para proteger processadores afetados por instabilidade de tensão" underrated="o ajuste manual de tensão e limite de clock para preservar a vida útil de chips topo de linha" />
+
+## Histórico de trocas e sintomas de instabilidade
+
+O relato partiu do usuário u/unvac na rede social Reddit, que já realizou três trocas anteriores do processador **Core i9-14900K** desde o seu lançamento. Para tentar evitar novas falhas no quarto chip, o proprietário manteve a BIOS da placa-mãe totalmente atualizada com o microcódigo mais recente e carregou os perfis padrão fornecidos pela [Intel](https://wccftech.com/intel-core-i9-14900k-degrades-bios-update-fails-to-prevent-hardware-failure/).
+
+O computador em questão conta com uma placa de vídeo **Nvidia GeForce RTX 5090** e **64 GB de memória RAM DDR5-6000 CL28** [Wccftech](https://wccftech.com/intel-core-i9-14900k-degrades-bios-update-fails-to-prevent-hardware-failure/). No entanto, o surgimento do código de erro 0xC0000005 indicou falha na memória e na instrução do sistema, comportamento característico da degradação de silício observada na arquitetura Raptor Lake e Raptor Lake Refresh.
+
+| Componente / Recurso | Configuração relatada |
+| --- | --- |
+| Processador | Intel Core i9-14900K (4ª unidade) |
+| Memória RAM | 64 GB DDR5-6000 CL28 |
+| Placa de vídeo | Nvidia GeForce RTX 5090 |
+| Firmware | BIOS atualizada com configurações padrão da Intel |
+| Erro apresentado | Tela azul de erro 0xC0000005 |
+
+## Ajustes de tensão e limites do microcódigo
+
+As investigações do setor apontam que as atualizações de BIOS visam reduzir a requisição excessiva de tensão enviada ao processador. Contudo, alguns perfis atualizados podem inadvertidamente aumentar as tensões em certas condições de carga ou exigir ajustes finos na linha de carga (ACLL) para manter a estabilidade.
+
+A alternativa encontrada por usuários afetados para contornar travamentos envolve o uso de ferramentas de undervolting, como o aplicativo ThrottleStop. Ao limitar a tensão máxima solicitada pela CPU e reduzir ligeiramente a frequência dos núcleos de alto desempenho (P-cores), é possível frear o processo de degradação, embora isso exija intervenção manual do usuário e abra mão do desempenho máximo de fábrica.
+
+## O que isso significa no Brasil
+
+No mercado brasileiro, os processadores **Intel Core i9-14900K** continuam à venda em varejistas de hardware, acompanhados pela garantia oficial da marca. O consumidor que enfrenta instabilidades frequentes ou erros de tela azul em sistemas com chips de 13ª ou 14ª geração deve recorrer ao suporte da fabricante para solicitar a substituição em garantia (RMA).
+
+Quem já possui ou planeja adquirir o componente deve atualizar a BIOS imediatamente, mas também monitorar as tensões de operação. Se os travamentos persistirem mesmo com os perfis padrão ativados, a recomendação é acionar a garantia antes que a degradação impeça o uso diário do computador.
+
+<Rule>Atualização de firmware corrige comportamento de fábrica, mas não recupera o silício que já sofreu degradação física por excesso de tensão.</Rule>
+
+## Fontes
+
+- [wccftech.com — An Intel Customer’s 4th Core i9-14900K Has Begun To Degrade, With Even A Motherboard BIOS Update Unable To Remedy The Imminent Hardware Failure](https://wccftech.com/intel-core-i9-14900k-degrades-bios-update-fails-to-prevent-hardware-failure/)
