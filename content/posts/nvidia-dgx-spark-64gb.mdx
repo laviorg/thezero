@@ -1,0 +1,54 @@
+---
+title: "Nvidia anuncia DGX Spark de 64 GB com chip GB10 por US$ 4.999 para conter disparada no preço de memórias"
+seoTitle: "Nvidia lança DGX Spark de 64 GB por US$ 4.999"
+excerpt: "A Nvidia anunciou o supercomputador de mesa DGX Spark com 64 GB de memória unificada por US$ 4.999 para conter a disparada de preços da memória LPDDR5X."
+category: computadores
+subcategory: notebooks-e-pcs
+date: "2026-10-02T21:45:00-03:00"
+featured: false
+kicker: "Computadores · desktops"
+author: "The Zero"
+cover: "/images/posts/nvidia-dgx-spark-64gb/cover.jpg"
+coverAlt: "Nove computadores compactos de mesa em formato cúbico e retangular dispostos em perspectiva sobre fundo branco com reflexos. Na fileira superior ao centro há uma unidade dourada com grade frontal texturizada ao lado de outra preta com aletas metálicas douradas. No centro e na base aparecem computadores cinza escuro e pretos com grades frontais de ventilação e logotipos visíveis de fabricantes parceiras como Lenovo ThinkStation, Dell, Acer, HP e MSI"
+coverCredit: "Nvidia / Divulgação oficial"
+---
+
+Nvidia anuncia DGX Spark de 64 GB com chip GB10 por US$ 4.999 para conter disparada no preço de memórias.
+
+A Nvidia confirmou nesta sexta-feira (2 de outubro de 2026), em publicação oficial assinada pelo diretor sênior de marketing de produto Allen Bourgoyne no [blog oficial da Nvidia](https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/) e na página técnica do [DGX Spark](https://www.nvidia.com/en-us/products/workstations/dgx-spark/), a chegada de uma configuração de **64 GB de memória unificada** para seu supercomputador pessoal de mesa. O modelo começará a ser vendido em **23 de outubro de 2026** por parceiros homologados — Acer, Asus, Dell, Gigabyte, HP e MSI — com preço de partida fixado em **US$ 4.999** (cerca de R$ 27.200 em conversão direta de moeda).
+
+![Nove computadores compactos de mesa em formato cúbico e retangular dispostos em perspectiva sobre fundo branco com reflexos. Na fileira superior ao centro há uma unidade dourada com grade frontal texturizada ao lado de outra preta com aletas metálicas douradas. No centro e na base aparecem computadores cinza escuro e pretos com grades frontais de ventilação e logotipos visíveis de fabricantes parceiras como Lenovo ThinkStation, Dell, Acer, HP e MSI](/images/posts/nvidia-dgx-spark-64gb/cover.jpg)
+
+*Nvidia / Divulgação oficial. O ecossistema de computadores compactos de mesa baseados no superchip GB10 Grace Blackwell desenvolvidos por parceiros OEM da fabricante.*
+
+<Verdict overrated="acreditar que 128 GB de memória unificada em estação compacta manteria preço acessível diante da crise de oferta de LPDDR5X" underrated="manter a largura de banda de 273 GB/s e a porta ConnectX-7 de 200 Gbps para dobrar a capacidade agrupando dois aparelhos via cabo QSFP" />
+
+## A resposta à alta de memórias e a divisão do catálogo
+
+O lançamento do modelo de 64 GB reflete o impacto direto da alta de custos na cadeia de suprimentos de semicondutores. Quando o DGX Spark estreou em outubro de 2025 com 128 GB de memória LPDDR5X, a máquina chegou com preço sugerido de US$ 3.999. Contudo, a escassez de módulos de alta densidade forçou reajustes sucessivos: a versão original de 128 GB saltou para US$ 4.699 e viu os preços no varejo e nas montadoras parceiras escalarem para até US$ 6.950 e US$ 8.200.
+
+Para devolver um patamar de entrada aos desenvolvedores independentes, laboratórios e empresas que pretendem rodar agentes de inteligência artificial sem depender de instâncias na nuvem, a Nvidia criou a versão de 64 GB exclusivamente via montadoras terceirizadas.
+
+| Recurso | DGX Spark (64 GB OEM) | DGX Spark (128 GB Founders / OEM) |
+| --- | --- | --- |
+| Superchip | Nvidia GB10 Grace Blackwell | Nvidia GB10 Grace Blackwell |
+| CPU | 20 núcleos Arm (10 Cortex-X925 + 10 Cortex-A725) | 20 núcleos Arm (10 Cortex-X925 + 10 Cortex-A725) |
+| Gráficos e IA | GPU Blackwell com até 1 PFLOP FP4 | GPU Blackwell com até 1 PFLOP FP4 |
+| Memória do sistema | **64 GB LPDDR5X unificada (256-bit)** | **128 GB LPDDR5X unificada (256-bit)** |
+| Largura de banda | 273 GB/s | 273 GB/s |
+| Armazenamento | SSD M.2 NVMe PCIe Gen5 | Até 4 TB SSD M.2 NVMe com criptografia |
+| Rede cabeada | 10 GbE RJ-45 + **ConnectX-7 (200 Gbps QSFP)** | 10 GbE RJ-45 + **ConnectX-7 (200 Gbps QSFP)** |
+| Conexão sem fio | Wi-Fi 7 e Bluetooth 5.4 | Wi-Fi 7 e Bluetooth 5.4 |
+| Dimensões e peso | 150 × 150 × 50,5 mm / cerca de 1,2 kg | 150 × 150 × 50,5 mm / 1,2 kg |
+| Consumo térmico (TDP) | 140 W (fonte externa de 240 W) | 140 W (fonte externa de 240 W) |
+| Preço sugerido | **A partir de US$ 4.999** (disponível em 23/10) | US$ 4.699 (tabela Founders esgotada) / até US$ 6.950 |
+
+## Largura de banda preservada e agrupamento com ConnectX-7
+
+Apesar de cortar a capacidade de armazenamento volátil pela metade, a Nvidia preservou a largura de banda de memória em **273 GB/s**. Isso indica que a placa segue utilizando um barramento de 256 bits com a mesma contagem de canais, alterando apenas a densidade por pastilha de LPDDR5X.
+
+No ecossistema de software, o DGX Spark de 64 GB roda de fábrica o sistema operacional **Nvidia DGX OS**, distribuído com o ambiente CUDA-X AI, suporte nativo aos microserviços Nvidia NIM e integração a runtimes abertos como vLLM, Ollama, LM Studio e PyTorch. De acordo com os testes de engenharia divulgados pela fabricante, o patamar de 64 GB é dimensionado para suportar modelos de pesos abertos de até 100 bilhões de parâmetros (100B) em quantizações otimizadas, ou modelos na faixa de 27 a 35 bilhões de parâmetros (como Qwen 3.8 27B) com folga de contexto para raciocínio contínuo e chamadas de ferramentas (*agentic tool calling*).
+
+Para fluxos de trabalho que eventualmente ultrapassem esse teto, cada unidade mantém o controlador de rede de alta velocidade **Nvidia ConnectX-7 de 200 Gbps**. Utilizando um cabo QSFP direto entre duas máquinas e o utilitário **Nvidia Sync Cluster Assistant**, dois sistemas de 64 GB agrupam seus pools de RAM em uma interface única de 128 GB com o dobro da taxa de transferência de memória. Nos testes da Nvidia com o modelo Qwen 3.8 27B, o arranjo em nó duplo entregou até 1,7× o rendimento de inferência de uma máquina isolada, dispensando scripts manuais de rede no terminal.
+
+O anúncio antecede a conferência conjunta marcada com a Microsoft para 7 de outubro, na qual as duas empresas detalharão a linha de notebooks e mini PCs baseada no chip derivado RTX Spark para o ambiente Windows 11.
