@@ -439,6 +439,16 @@
       "slug": "strands-decider-2b-aws",
       "updated_at": "2026-10-03T00:59:43Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DeA0_QVGJMk"
+    },
+    "falso-site-tse-golpe-pix-dados-reais": {
+      "article_url": "https://www.thezero.com.br/noticia/falso-site-tse-golpe-pix-dados-reais",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/falso-site-tse-golpe-pix-dados-reais.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/falso-site-tse-golpe-pix-dados-reais.png",
+      "pr": 137,
+      "commit": "450f4569bd08c57a7b0bd37a8c166aa760563e8a",
+      "ig": "https://www.instagram.com/p/DeCPvBemB5W/",
+      "slug": "falso-site-tse-golpe-pix-dados-reais",
+      "updated_at": "2026-10-03T14:12:40Z"
     }
   }
 }
