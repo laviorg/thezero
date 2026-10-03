@@ -428,6 +428,16 @@
       "slug": "apple-limita-full-disk-access-macos",
       "updated_at": "2026-10-02T23:58:18Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DeAt9IcjqMz"
+    },
+    "strands-decider-2b-aws": {
+      "article_url": "https://www.thezero.com.br/noticia/strands-decider-2b-aws",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/strands-decider-2b-aws.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/strands-decider-2b-aws.png",
+      "pr": 136,
+      "commit": "892db7ab10352454ea60362ece2c814dea4388ba",
+      "ig": "https://www.instagram.com/p/DeA0-GumMS-/",
+      "slug": "strands-decider-2b-aws",
+      "updated_at": "2026-10-03T00:59:30Z"
     }
   }
 }
