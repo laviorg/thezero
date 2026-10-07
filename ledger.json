@@ -658,6 +658,16 @@
       "slug": "google-synthid-detector-global-ia",
       "updated_at": "2026-10-07T20:02:08Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DeNK5wbkhgV"
+    },
+    "spotify-audiolivros-brasil-12-horas-premium": {
+      "article_url": "https://www.thezero.com.br/noticia/spotify-audiolivros-brasil-12-horas-premium",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/spotify-audiolivros-brasil-12-horas-premium.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/spotify-audiolivros-brasil-12-horas-premium.png",
+      "pr": 158,
+      "commit": "503aba4a2953c51405e8f47bf89bd4393af8c76c",
+      "ig": "https://www.instagram.com/p/DeNf0QNjNJ_/",
+      "slug": "spotify-audiolivros-brasil-12-horas-premium",
+      "updated_at": "2026-10-07T23:04:49Z"
     }
   }
 }
