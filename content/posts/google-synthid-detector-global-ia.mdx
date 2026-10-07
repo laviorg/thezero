@@ -1,0 +1,60 @@
+---
+title: "Google lança detector do SynthID para identificar fotos, vídeos e áudios gerados por IA de várias empresas"
+seoTitle: "Google lança detector global SynthID para mídia gerada por IA"
+excerpt: "O Google liberou o site SynthID Detector para verificar marcas d'água invisíveis em imagens, vídeos e áudios da própria empresa, OpenAI, Nvidia e Kakao."
+category: ia
+subcategory: seguranca
+date: "2026-10-07T16:08:00-03:00"
+featured: false
+kicker: "IA · segurança"
+author: "The Zero"
+cover: "/images/posts/google-synthid-detector-global-ia/cover.jpg"
+coverAlt: "Interface web do SynthID Detector em tela clara exibindo um vídeo de guaxinim à mesa e um painel lateral confirmando a detecção de mídia gerada por IA"
+coverCredit: "Google / Divulgação"
+---
+
+O [Google](https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/) liberou nesta quarta-feira (7) o acesso público global ao portal **SynthID Detector**, ferramenta criada para verificar se imagens, vídeos ou arquivos de áudio foram gerados por inteligência artificial. O serviço funciona em um endereço dedicado (synthid.com) e identifica as marcas d'água invisíveis embutidas diretamente nos dados de mídia criados pelo ecossistema do Google e por parceiros da indústria, incluindo [OpenAI, Nvidia e Kakao](https://www.androidauthority.com/google-synthid-detector-general-availability-3720172/), com suporte à Apple previsto para breve.
+
+A tecnologia [SynthID](https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/), introduzida em 2023 pela divisão Google DeepMind, insere um sinal imperceptível aos olhos e ouvidos humanos nos pixels de imagens e vídeos ou nas formas de onda de áudios. Segundo a empresa, mais de 180 bilhões de imagens e vídeos e o equivalente a 240 mil anos de áudio já receberam essa assinatura digital. Até agora, o detector completo ficava restrito a pesquisadores e jornalistas selecionados, enquanto usuários comuns dependiam de checagens pontuais no aplicativo [Gemini](https://www.thezero.com.br/noticia/google-gemini-limite-modelos-gratis-ai-plus) ou no navegador Chrome, que juntos já processam mais de 1 milhão de consultas diárias.
+
+![Interface web do SynthID Detector em tela clara exibindo um vídeo de guaxinim à mesa e um painel lateral confirmando a detecção de mídia gerada por IA](/images/posts/google-synthid-detector-global-ia/cover.jpg)
+
+*Google / Divulgação. Interface do SynthID Detector confirma a presença de marca d'água invisível em vídeo gerado por inteligência artificial.*
+
+<Verdict overrated="acreditar que a ausência de uma marca digital comprova que um arquivo não foi criado por inteligência artificial" underrated="reunir a detecção de modelos de concorrentes como a OpenAI em uma interface aberta e unificada sem depender de prompts" />
+
+## Como funciona a detecção cruzada e quais formatos são aceitos
+
+A principal mudança na ferramenta está na interoperabilidade. Antes, o detector oficial do Google só lia marcas criadas pelos seus próprios modelos, enquanto a página de verificação da OpenAI só lia conteúdos gerados pelo ChatGPT. Com o lançamento unificado relatado pelo [Android Authority](https://www.androidauthority.com/google-synthid-detector-general-availability-3720172/) e pelo [Ars Technica](https://arstechnica.com/ai/2026/10/google-rolls-out-improved-synthid-ai-content-detector-now-available-globally/), o novo portal reconhece assinaturas geradas por ferramentas de diferentes ecossistemas sem exigir login corporativo ou comandos de texto.
+
+De acordo com apuração do [TechCrunch](https://techcrunch.com/2026/10/07/googles-new-synthid-website-can-identify-ai-generated-media/), a plataforma tem compatibilidade ampla com formatos comuns de arquivo:
+
+| Tipo de mídia | Formatos suportados no portal | Modelos e ferramentas que embutem a marca |
+| --- | --- | --- |
+| Imagens | JPG, JPEG, PNG, BMP, WEBP, AVIF, HEIC, HEIF, TIFF, TIF, GIF | Nano Banana, Gemini, parceiros (OpenAI, Kakao) |
+| Vídeos | MP4, MOV, WEBM | Veo, Vids, ProducerAI, parceiros |
+| Áudios | WAV, MP3, OGG, FLAC, AAC, M4A | Lyria, Flow, parceiros |
+
+No processo de checagem, basta enviar o arquivo bruto para o site. O sistema examina a estrutura digital do arquivo em busca do padrão imperceptível e exibe na tela se a marca d'água foi localizada e a qual empresa pertence a IA responsável.
+
+## Os limites da marca d'água imperceptível
+
+Apesar da ampliação da compatibilidade, a própria empresa e veículos de tecnologia como o [Digital Trends](https://www.digitaltrends.com/computing/googles-synthid-detector-just-launched-globally-to-help-you-spot-ai-generated-media/) destacam que o detector não funciona como um atestado absoluto de veracidade. O SynthID confirma com precisão quando um arquivo traz o identificador registrado, mas não consegue marcar mídias produzidas por modelos abertos ou plataformas que utilizam padrões proprietários diferentes, como os adotados por Microsoft e Meta.
+
+Além disso, um arquivo sem marca d'água não pode ser considerado autêntico apenas pela falta do rótulo: ele pode ter sido criado por geradores sem qualquer tipo de sinalizador ou ter passado por edições pesadas que removeram a assinatura original.
+
+## O que isso significa no Brasil
+
+O portal do SynthID Detector já está disponível para usuários no Brasil e em todo o mundo pelo navegador, embora a interface inicial opere exclusivamente em inglês. Não há cobrança de taxa nem necessidade de assinatura de planos pagos para enviar arquivos e realizar as consultas.
+
+Para o público brasileiro, a ferramenta oferece um caminho prático para checar a autenticidade de arquivos multimídia suspeitos que circulam em aplicativos de mensagens e redes sociais, desde que tenham origem nas plataformas participantes. Como o país enfrenta constantes ondas de desinformação visual e clonagem de voz, a consulta manual direta ajuda a confirmar a origem sintética de conteúdos feitos nas IAs mais populares do mercado.
+
+<Rule>A marca d'água digital comprova a autoria sintética quando está presente, mas a falta do selo nunca serve como atestado de foto ou áudio real.</Rule>
+
+## Fontes
+
+- [blog.google — We're making it easier to identify AI-generated content globally.](https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/)
+- [androidauthority.com — Google’s cross-model AI detection tool is finally available for all](https://www.androidauthority.com/google-synthid-detector-general-availability-3720172/)
+- [arstechnica.com — Google rolls out improved SynthID AI content detector, now available globally](https://arstechnica.com/ai/2026/10/google-rolls-out-improved-synthid-ai-content-detector-now-available-globally/)
+- [techcrunch.com — Google's new SynthID website can identify AI-generated media | TechCrunch](https://techcrunch.com/2026/10/07/googles-new-synthid-website-can-identify-ai-generated-media/)
+- [digitaltrends.com — Google’s SynthID Detector just launched globally to help you spot AI-generated media](https://www.digitaltrends.com/computing/googles-synthid-detector-just-launched-globally-to-help-you-spot-ai-generated-media/)
