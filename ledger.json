@@ -647,6 +647,16 @@
       "slug": "google-gemini-calling-ligacoes-recados",
       "updated_at": "2026-10-07T01:00:19Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DeLIPGHGzjs"
+    },
+    "google-synthid-detector-global-ia": {
+      "article_url": "https://www.thezero.com.br/noticia/google-synthid-detector-global-ia",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-synthid-detector-global-ia.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-synthid-detector-global-ia.png",
+      "pr": 157,
+      "commit": "12c85826ce7a29af358d1acb18060bbcc508a802",
+      "ig": "https://www.instagram.com/p/DeNK4ZuEgaR/",
+      "slug": "google-synthid-detector-global-ia",
+      "updated_at": "2026-10-07T20:01:52Z"
     }
   }
 }
