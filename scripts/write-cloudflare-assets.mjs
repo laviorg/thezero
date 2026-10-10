@@ -30,7 +30,7 @@ function redirectsFile() {
 }
 
 function headersFile() {
-  // Host-specific noindex for *.pages.dev lives in functions/_middleware.ts.
+  // pages.dev noindex: handled outside the repo (Cloudflare redirect to www); a global _middleware would bill every request as a Function.
   // `_headers` cannot match on Host; do not put a site-wide X-Robots-Tag here.
   return `/rss.xml
   Content-Type: application/rss+xml; charset=utf-8
