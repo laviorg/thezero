@@ -1,0 +1,60 @@
+---
+title: "Cloudflare compra a Deno para levar modelo dos Workers a servidores próprios"
+seoTitle: "Cloudflare compra a Deno e integra runtime celld ao Workers"
+excerpt: "A Cloudflare anunciou a compra da Deno para unificar o workerd com o celld e facilitar a execução de Workers e Durable Objects em infraestrutura própria."
+category: tecnologia
+subcategory: infraestrutura
+date: "2026-10-10T14:08:00-03:00"
+featured: false
+kicker: "Tecnologia · infraestrutura"
+author: "nicholas"
+cover: "/images/posts/cloudflare-compra-deno-workers-celld/cover.jpg"
+coverAlt: "Ilustração vetorial em tons de laranja, verde e vermelho com notebook ao centro, plantas, lâmpada de lava e silhueta de dinossauro sobre uma mesa"
+coverCredit: "Cloudflare / Divulgação"
+---
+
+A Cloudflare anunciou a aquisição da **Deno**, startup responsável pelo runtime de JavaScript e TypeScript de mesmo nome, fundada por Bert Belder e Ryan Dahl, o criador original do Node.js. A negociação, detalhada em comunicado oficial conjunto da [Cloudflare](https://blog.cloudflare.com/deno-joins-cloudflare/) e noticiada pelo [TechCrunch](https://techcrunch.com/2026/10/10/cloudflare-acquires-deno-to-improve-its-workers-programming-model/), visa incorporar a equipe e as tecnologias da empresa ao ecossistema dos **Cloudflare Workers**.
+
+Os valores financeiros do negócio não foram divulgados pelas partes envolvidas. Até a venda, a Deno havia captado US$ 26 milhões em investimentos de risco, montante que incluiu uma rodada Series A liderada pela firma de capital de risco Sequoia Capital.
+
+![Ilustração vetorial em tons de laranja, verde e vermelho com notebook ao centro, plantas, lâmpada de lava e silhueta de dinossauro sobre uma mesa](/images/posts/cloudflare-compra-deno-workers-celld/cover.jpg)
+
+*Cloudflare / Divulgação. Ilustração oficial da Cloudflare para o anúncio de integração com a equipe e tecnologias da Deno.*
+
+<Verdict overrated="supor que a compra vá forçar desenvolvedores do Deno a hospedar tudo dentro da nuvem da Cloudflare" underrated="a unificação dos projetos workerd e celld para viabilizar hospedagem distribuída sem dependência de fornecedor único" />
+
+## Unificação entre workerd e celld contra o aprisionamento tecnológico
+
+O principal ponto técnico por trás da aquisição é a convergência de duas ferramentas de código aberto: o motor de execução **workerd**, mantido pela Cloudflare, e o **celld**, projeto apresentado pela Deno em agosto. Criado em Rust, o celld foi desenvolvido como uma implementação independente voltada a rodar aplicações desenhadas para a arquitetura Workers com apenas um binário e armazenamento de objetos como dependência externa.
+
+De acordo com Ryan Dahl no comunicado publicado pela [Cloudflare](https://blog.cloudflare.com/deno-joins-cloudflare/), a transição foca em resolver a complexidade de gerenciar múltiplos serviços de nuvem pública, bancos de dados fragmentados e filas conectadas de forma dispersa. O executivo explicou que o projeto busca transformar o modelo dos Workers em um padrão acessível para a construção de servidores corporativos, permitindo escalabilidade sem a necessidade de desenhar uma infraestrutura separada para cada funcionalidade da aplicação.
+
+Para Kenton Varda, engenheiro principal responsável pelos Cloudflare Workers, a movimentação rebate acusações frequentes da indústria de que a empresa desenhou sua plataforma com travas intencionais para reter clientes. O executivo apontou que oferecer rotas de saída e alternativas de código aberto para executar o código fora da infraestrutura da empresa representa uma decisão de sustentabilidade comercial.
+
+| Empresa / Projeto | Função principal | Tecnologia / Foco |
+| --- | --- | --- |
+| **Cloudflare Workers** | Plataforma de execução em borda | Arquitetura distribuída com isolamento V8 e Durable Objects |
+| **workerd** | Runtime de borda em código aberto | Base aberta dos Cloudflare Workers com suporte a instâncias locais |
+| **Deno** | Runtime moderno de JavaScript e TypeScript | Ambiente de execução focado em segurança padrão e padrões web |
+| **celld** | Runtime distribuído em Rust | Implementação aberta de Workers e Durable Objects sobre object storage |
+
+## Durable Objects e o avanço da computação com estado
+
+Historicamente, a arquitetura de computação em nuvem baseada em microsserviços divide a lógica em camadas sem estado, delegando persistência a bancos de dados centrais pesados. Os Cloudflare Workers operam de maneira distinta ao utilizar os **Durable Objects**, abstração que combina um servidor endereçável individualmente a uma instância própria do SQLite com acesso síncrono e suporte nativo a WebSockets.
+
+Embora o motor workerd já fosse open source, o suporte local a Durable Objects permanecia limitado a instâncias singulares. Com a incorporação do celld e da equipe da Deno, o objetivo é liberar a orquestração distribuída dessas entidades entre várias máquinas controladas pelo próprio desenvolvedor.
+
+Esse arranjo simplifica casos de uso como canais de conversação em tempo real, sistemas de mensageria em fila e rotinas contínuas orientadas por eventos sem exigir contratos de licenciamento proprietários, alinhando a arquitetura às demandas de processamento distribuído observadas no setor.
+
+## O que isso significa no Brasil
+
+A aquisição não altera de imediato os custos de planos vigentes da Cloudflare ou da Deno para programadores e empresas no Brasil. A Cloudflare já possui pontos de presença de rede no território nacional para terminação de tráfego dos Workers, mas a companhia não anunciou alterações tarifárias nem modelos de cobrança em reais atrelados à operação.
+
+Na prática, equipes brasileiras de engenharia de software que evitavam adotar os Workers e os Durable Objects por receio de dependência proprietária de infraestrutura estrangeira ganham a perspectiva de autogerenciar essas pilhas em servidores locais ou nuvens regionais. A fusão das ferramentas facilitará o cumprimento de requisitos corporativos locais de residência de dados sem obrigar a reescrita de código.
+
+<Rule>A melhor garantia contra o aprisionamento em nuvem não é evitar tecnologias proprietárias, mas exigir ferramentas abertas capazes de rodar a mesma lógica em hardware próprio.</Rule>
+
+## Fontes
+
+- [blog.cloudflare.com — Deno is joining Cloudflare](https://blog.cloudflare.com/deno-joins-cloudflare/)
+- [techcrunch.com — Cloudflare acquires Deno to improve its Workers programming model | TechCrunch](https://techcrunch.com/2026/10/10/cloudflare-acquires-deno-to-improve-its-workers-programming-model/)
