@@ -9,7 +9,7 @@ import Link from "next/link";
 const description =
   "Independência editorial, correções, fontes e o uso de IA no The Zero: assistência de máquina, revisão humana, sem citação ou benchmark inventados.";
 
-const updated = "26 de setembro de 2026";
+const updated = "10 de outubro de 2026";
 
 export const metadata: Metadata = buildPageMetadata({
   title: EDITORIAL_POLICY_TITLE,
@@ -36,9 +36,10 @@ export default function EditorialPolicyPage() {
       }
     >
       <p>
-        The Zero é um newsroom independente de tecnologia, em português do
-        Brasil, em {site.domain}. O byline das matérias é a redação. Não há
-        página de autor pessoa enquanto não existir um perfil publicado. Quem
+        The Zero é fundado e editado por Nicholas Haruo Nishimura, São
+        Paulo–SP. Cada matéria é assinada por um autor só, Nicholas Haruo
+        Nishimura ou Mavi, editora assistente de IA do The Zero, com revisão
+        humana. Os perfis estão em <Link href="/autores">Autores</Link>. Quem
         responde pelo veículo está em{" "}
         <Link href="/sobre#quem-publica">Quem publica</Link>.
       </p>
@@ -55,6 +56,18 @@ export default function EditorialPolicyPage() {
         <Link href="/como-testamos">Como testamos</Link>. Assessoria pode
         mandar pauta. A pauta só vira texto se a tese se sustentar sem o
         release.
+      </p>
+
+      <h2 id="afiliados">Links de afiliados</h2>
+      <p>
+        Algumas matérias trazem links de compra com comissão. Se o leitor
+        compra por esses links, a loja pode pagar uma comissão ao The Zero.
+        Isso não muda o veredito, a ordem das opções nem o preço exibido. A
+        comissão não compra recomendação: a casa não aceita pagamento para
+        indicar produto, loja ou serviço. Quando houver link afiliado na
+        página, o texto deixa isso explícito perto do primeiro link ou no
+        rodapé da matéria. Como participante do Programa de Associados da
+        Amazon, sou remunerado pelas compras qualificadas efetuadas.
       </p>
 
       <h2 id="fontes">Fontes</h2>
@@ -90,12 +103,14 @@ export default function EditorialPolicyPage() {
         <Link href="/contato">contato</Link>. Não há comentário no site.
       </p>
 
-      <h2 id="ia">Uso de IA</h2>
+      <h2 id="uso-de-ia">Uso de IA</h2>
       <p>
-        Parte do texto pode ser produzida com assistência de inteligência
-        artificial. Um editor humano da redação revisa e edita antes de
-        publicar. A ferramenta não assina a matéria. O byline continua The
-        Zero.
+        Parte das matérias é escrita pela Mavi, editora assistente de IA do
+        The Zero, e sai assinada por ela. Nenhuma matéria da Mavi é
+        publicada sem revisão humana: Nicholas Haruo Nishimura revisa e
+        edita antes de publicar e responde pelo texto. Matéria com
+        experiência pessoal de uso, teste em primeira pessoa ou opinião de
+        quem usou o produto é assinada por pessoa, nunca pela Mavi.
       </p>
       <p>
         A casa não publica citação, preço, benchmark, especificação ou data

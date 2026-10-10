@@ -115,6 +115,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <ThemeScript />
+        <meta name="lomadee" content="2324685" />
       </head>
       <body className="flex min-h-full flex-col bg-bg font-sans text-fg">
         <ThemeProvider>

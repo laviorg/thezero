@@ -4,6 +4,7 @@ import { categoryList } from "@/lib/categories";
 import {
   getActiveSubcategories,
   getAllPosts,
+  getIndexablePosts,
   getPostsByCategory,
   getPostsByFormat,
   getPostsBySubcategory,
@@ -24,6 +25,7 @@ const STATIC_PAGE_SOURCES = [
   { path: "/termos", file: "src/app/termos/page.tsx" },
   { path: "/como-testamos", file: "src/app/como-testamos/page.tsx" },
   { path: "/politica-editorial", file: "src/app/politica-editorial/page.tsx" },
+  { path: "/autores", file: "src/app/autores/page.tsx" },
 ] as const;
 
 function gitCommitDate(args: string[]): Date | undefined {
@@ -166,7 +168,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
   });
 
-  const postEntries = posts.map((post) => {
+  const postEntries = getIndexablePosts().map((post) => {
     const url = `${site.url}${post.href}`;
     return {
       url,

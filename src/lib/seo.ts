@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { resolveAuthor } from "./authors.ts";
 import { absoluteUrl, site } from "./site.ts";
 
 /** Visible home crumb. JSON-LD must use the same label as the trail on the page. */
@@ -85,8 +86,7 @@ export const websiteId = `${site.url}/#website`;
 
 /**
  * Author node Google can read without resolving `@id` across script tags.
- * The house byline is the organization. A named person only gets a URL when
- * we actually have a profile page — `/sobre` identifies the newsroom, not a guest.
+ * The house byline is the organization. Named authors point to `/autores#<slug>`.
  */
 export function articleAuthorLd(author: string) {
   const name = author.trim();
@@ -96,6 +96,15 @@ export function articleAuthorLd(author: string) {
       "@id": organizationId,
       name: site.name,
       url: site.url,
+    };
+  }
+  const profile = resolveAuthor(name);
+  if (profile) {
+    return {
+      "@type": "Person" as const,
+      name: profile.name,
+      url: absoluteUrl(profile.href),
+      description: profile.role,
     };
   }
   return {

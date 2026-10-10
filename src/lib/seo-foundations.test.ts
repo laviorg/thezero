@@ -73,6 +73,13 @@ describe("articleAuthorLd", () => {
     assert.equal(author.name, "Ada");
     assert.equal("url" in author, false);
   });
+
+  it("points a house author at /autores#<slug>", () => {
+    const author = articleAuthorLd("Mavi");
+    assert.equal(author["@type"], "Person");
+    assert.equal(author.name, "Mavi");
+    assert.equal("url" in author && author.url, `${site.url}/autores#mavi`);
+  });
 });
 
 describe("toMetaDescription", () => {
@@ -221,6 +228,22 @@ describe("news sitemap", () => {
     assert.deepEqual(
       selectRecentPublications(posts, now).map((post) => post.id),
       ["fresh"],
+    );
+  });
+
+  it("drops noindex posts even when they are inside the 48-hour window", () => {
+    const posts = [
+      { dateIso: "2026-09-22T08:00:00-03:00", id: "news", format: "noticia" },
+      {
+        dateIso: "2026-09-22T09:00:00-03:00",
+        id: "hidden",
+        format: "noticia",
+        noindex: true,
+      },
+    ];
+    assert.deepEqual(
+      selectGoogleNewsPosts(posts, now).map((post) => post.id),
+      ["news"],
     );
   });
 

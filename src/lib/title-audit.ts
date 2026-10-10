@@ -14,6 +14,7 @@ import {
   TITLE_HARD_MAX,
   aboutPageTitle,
   articlePageTitle,
+  authorsPageTitle,
   categoryPageTitle,
   contactPageTitle,
   editorialPolicyPageTitle,
@@ -50,6 +51,7 @@ export function collectDocumentTitles(): TitledPath[] {
       title: editorialPolicyPageTitle(),
       indexable: true,
     },
+    { path: "/autores", title: authorsPageTitle(), indexable: true },
     { path: "/busca", title: searchPageTitle(), indexable: false },
     {
       path: "/reviews",
@@ -99,7 +101,7 @@ export function collectDocumentTitles(): TitledPath[] {
     rows.push({
       path: post.href,
       title: articlePageTitle(post),
-      indexable: true,
+      indexable: !post.noindex,
     });
   }
 
