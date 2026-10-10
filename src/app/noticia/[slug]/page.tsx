@@ -3,7 +3,9 @@ import { ArticleDeskLinks } from "@/components/news/article-desk-links";
 import { ArticleHeader } from "@/components/news/article-header";
 import { ArticlePager } from "@/components/news/article-pager";
 import { ArticleRail } from "@/components/news/article-rail";
+import { AuthorBio } from "@/components/news/author-bio";
 import { CoverImage } from "@/components/news/cover-image";
+import { resolveAuthor } from "@/lib/authors";
 import {
   BreadcrumbJsonLd,
   NewsArticleJsonLd,
@@ -22,7 +24,6 @@ import {
   HOME_CRUMB_LABEL,
   articleOgImagePath,
   coverAlt,
-  newsRobots,
   toMetaDescription,
 } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
@@ -53,6 +54,8 @@ export async function generateMetadata({
   const headline = articleHeadline(post);
   const url = absoluteUrl(post.href);
   const ogPath = articleOgImagePath(post.slug);
+  const profile = resolveAuthor(post.authorSlug) ?? resolveAuthor(post.author);
+  const authorUrl = profile ? absoluteUrl(profile.href) : absoluteUrl("/autores");
   const base = buildPageMetadata({
     title: post.seoTitle || post.title,
     description: post.seoDescription || post.excerpt,
@@ -61,11 +64,12 @@ export async function generateMetadata({
     brand: "auto",
     imagePath: ogPath,
     imageAlt: headline,
+    noIndex: Boolean(post.noindex),
   });
 
   return {
     ...base,
-    authors: [{ name: post.author, url: absoluteUrl("/sobre") }],
+    authors: [{ name: post.author, url: authorUrl }],
     category: post.categoryLabel,
     keywords: [
       post.categoryLabel,
@@ -73,14 +77,13 @@ export async function generateMetadata({
       post.kicker,
       "The Zero",
     ].filter((value): value is string => Boolean(value)),
-    robots: newsRobots,
     openGraph: {
       ...base.openGraph,
       type: "article",
       url,
       publishedTime: post.dateIso,
       modifiedTime: post.updatedIso,
-      authors: [absoluteUrl("/sobre")],
+      authors: [authorUrl],
       section: post.categoryLabel,
       tags: [post.categoryLabel, subcategory?.label].filter(
         (value): value is string => Boolean(value),
@@ -103,6 +106,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const pageUrl = absoluteUrl(post.href);
   const kicker = subcategory?.label ?? category?.label ?? post.kicker ?? "The Zero";
   const kickerHref = subcategory?.href ?? category?.href;
+  const profile = resolveAuthor(post.authorSlug) ?? resolveAuthor(post.author);
 
   return (
     <article className="story-page">
@@ -158,6 +162,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               kicker={kicker}
               kickerHref={kickerHref}
               author={post.author}
+              authorHref={profile?.href ?? "/autores"}
               date={post.date}
               dateIso={post.dateIso}
               updated={post.updated}
@@ -196,6 +201,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="story-split">
           <div className="story-main">
             <ArticleBody source={post.content} />
+            <AuthorBio author={post.author} authorSlug={post.authorSlug} />
             {category ? (
               <ArticleDeskLinks
                 category={category}

@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 import { REVIEW_BUCKET_LIST } from "./review-buckets.ts";
 import {
   ABOUT_TITLE,
+  AUTHORS_TITLE,
   CONTACT_TITLE,
   EDITORIAL_POLICY_TITLE,
   HEADLINE_MAX,
@@ -18,6 +19,7 @@ import {
   reviewBucketPageTitle,
   reviewsPageTitle,
   contactPageTitle,
+  authorsPageTitle,
   editorialPolicyPageTitle,
   fitTitle,
   homePageTitle,
@@ -122,16 +124,18 @@ describe("legal page titles", () => {
       new Set([
         HOME_TITLE,
         ABOUT_TITLE,
+        AUTHORS_TITLE,
         PRIVACY_TITLE,
         CONTACT_TITLE,
         TERMS_TITLE,
         HOW_WE_TEST_TITLE,
         EDITORIAL_POLICY_TITLE,
       ]).size,
-      7,
+      8,
     );
     assert.equal(howWeTestPageTitle(), HOW_WE_TEST_TITLE);
     assert.equal(editorialPolicyPageTitle(), EDITORIAL_POLICY_TITLE);
+    assert.equal(authorsPageTitle(), AUTHORS_TITLE);
     assert.ok(titleLength(HOW_WE_TEST_TITLE) <= TITLE_HARD_MAX);
     assert.ok(titleLength(EDITORIAL_POLICY_TITLE) <= TITLE_HARD_MAX);
   });

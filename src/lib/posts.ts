@@ -31,8 +31,10 @@ import {
   getReviewBucket,
   type ReviewBucket,
 } from "@/lib/review-buckets";
+import { getAuthorBySlug } from "@/lib/authors";
 import { postMatchesQuery } from "@/lib/search-match";
 import { site } from "@/lib/site";
+import { countPostWords } from "@/lib/word-count";
 
 export { isEvergreenFormat, isNewsFormat, type PostFormat };
 
@@ -51,6 +53,8 @@ export type PostFrontmatter = {
   date: string;
   updated?: string;
   author?: string;
+  /** Temporary: keep the page live, drop it from the index. */
+  noindex?: boolean;
   /**
    * Legacy frontmatter. Parsed so old files still load.
    * Does not choose the home hero.
@@ -84,17 +88,12 @@ export type Post = PostFrontmatter & {
   subcategoryLabel?: string;
   subcategoryHref?: string;
   author: string;
+  authorSlug?: string;
   dateIso: string;
   updatedIso: string;
 };
 
 const POSTS_DIR = path.join(process.cwd(), "content", "posts");
-
-/** `author` no frontmatter é o slug (nicholas | mavi); a página mostra o nome. */
-const AUTHOR_NAMES: Record<string, string> = {
-  nicholas: "Nicholas Haruo Nishimura",
-  mavi: "Mavi",
-};
 
 function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFrontmatter {
   const title = typeof data.title === "string" ? data.title : "";
@@ -147,6 +146,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     date,
     updated: typeof data.updated === "string" ? data.updated : undefined,
     author: typeof data.author === "string" ? data.author : undefined,
+    noindex: data.noindex === true,
     featured: Boolean(data.featured),
     featuredPriority:
       typeof data.featuredPriority === "number" &&
@@ -178,7 +178,7 @@ function toPost(slug: string, raw: string): Post | null {
     : undefined;
 
   const updated = frontmatter.updated ?? frontmatter.date;
-  const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
+  const wordCount = countPostWords(content);
 
   return {
     ...frontmatter,
@@ -190,9 +190,8 @@ function toPost(slug: string, raw: string): Post | null {
     categoryLabel: category.label,
     subcategoryLabel: subcategory?.label,
     subcategoryHref: subcategory?.href,
-    author: frontmatter.author
-      ? (AUTHOR_NAMES[frontmatter.author] ?? frontmatter.author)
-      : site.defaultAuthor,
+    author: getAuthorBySlug(frontmatter.author)?.name ?? frontmatter.author ?? site.defaultAuthor,
+    authorSlug: getAuthorBySlug(frontmatter.author)?.slug,
     dateIso: toIsoDate(frontmatter.date),
     updatedIso: toIsoDate(updated),
   };
@@ -222,6 +221,10 @@ function readAllPosts(): Post[] {
 
 export function getAllPosts(): Post[] {
   return readAllPosts();
+}
+
+export function getIndexablePosts(): Post[] {
+  return getAllPosts().filter((post) => !post.noindex);
 }
 
 export function getPostBySlug(slug: string): Post | undefined {

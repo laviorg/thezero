@@ -30,6 +30,8 @@ function redirectsFile() {
 }
 
 function headersFile() {
+  // pages.dev noindex: handled outside the repo (Cloudflare redirect to www); a global _middleware would bill every request as a Function.
+  // `_headers` cannot match on Host; do not put a site-wide X-Robots-Tag here.
   return `/rss.xml
   Content-Type: application/rss+xml; charset=utf-8
   Cache-Control: public, max-age=3600
@@ -83,13 +85,15 @@ fs.writeFileSync(
 
 const manifest = {
   publication: site.name,
-  posts: posts.map((post) => ({
-    loc: absoluteUrl(post.href),
-    title: post.title,
-    dateIso: post.dateIso,
-    format: post.format,
-    images: articleImageUrls(post),
-  })),
+  posts: posts
+    .filter((post) => !post.noindex)
+    .map((post) => ({
+      loc: absoluteUrl(post.href),
+      title: post.title,
+      dateIso: post.dateIso,
+      format: post.format,
+      images: articleImageUrls(post),
+    })),
 };
 fs.writeFileSync(
   path.join(outDir, "news-manifest.json"),

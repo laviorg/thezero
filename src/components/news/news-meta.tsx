@@ -1,6 +1,8 @@
+import { resolveAuthor } from "@/lib/authors";
 import { formatShortDate } from "@/lib/format";
 import type { Post } from "@/lib/posts";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export function NewsMeta({
   post,
@@ -11,6 +13,8 @@ export function NewsMeta({
   className?: string;
   showAuthor?: boolean;
 }) {
+  const profile = resolveAuthor(post.authorSlug) ?? resolveAuthor(post.author);
+
   return (
     <p
       className={cn(
@@ -20,9 +24,18 @@ export function NewsMeta({
     >
       {showAuthor ? (
         <>
-          <span className="text-fg/85 normal-case tracking-normal">
-            {post.author}
-          </span>
+          {profile ? (
+            <Link
+              href={profile.href}
+              className="text-fg/85 normal-case tracking-normal hover:text-accent"
+            >
+              {post.author}
+            </Link>
+          ) : (
+            <span className="text-fg/85 normal-case tracking-normal">
+              {post.author}
+            </span>
+          )}
           <span className="mx-1.5 text-hairline" aria-hidden>
             /
           </span>

@@ -94,7 +94,8 @@ export default function AboutPage() {
         <div className="mt-6 space-y-4 text-base leading-7 text-fg/90">
           <p>
             The Zero é um newsroom independente de tecnologia, publicado no
-            Brasil. Não somos assessoria, loja de hype nem agregador. A
+            Brasil. Fundado e editado por Nicholas Haruo Nishimura, São
+            Paulo–SP. Não somos assessoria, loja de hype nem agregador. A
             pauta, o critério e o texto são da casa. Se um fabricante mandou
             o produto, a gente diz. Se não testamos, não fingimos.
           </p>
@@ -129,11 +130,24 @@ export default function AboutPage() {
             </div>
             <div className="sm:col-span-2">
               <dt className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
-                Autor das matérias
+                Responsável editorial
               </dt>
               <dd className="mt-1 text-fg">
-                {site.defaultAuthor}. Não há página de pessoa: o byline é a
-                redação.
+                Nicholas Haruo Nishimura, fundador e editor · São Paulo–SP
+              </dd>
+            </div>
+            <div className="sm:col-span-2">
+              <dt className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
+                Autores das matérias
+              </dt>
+              <dd className="mt-1 text-fg">
+                Nicholas Haruo Nishimura ou Mavi, editora assistente de IA do
+                The Zero, com revisão humana. Cada matéria tem um autor só,
+                indicado no topo. Veja{" "}
+                <Link href="/autores" className="text-accent">
+                  Autores
+                </Link>
+                .
               </dd>
             </div>
             <div className="sm:col-span-2">
@@ -208,6 +222,10 @@ export default function AboutPage() {
         ou a página de{" "}
         <Link href="/contato" className="text-accent">
           contato
+        </Link>
+        . Quem assina:{" "}
+        <Link href="/autores" className="text-accent">
+          Autores
         </Link>
         . Método em{" "}
         <Link href="/como-testamos" className="text-accent">

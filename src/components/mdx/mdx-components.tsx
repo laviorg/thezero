@@ -1,4 +1,8 @@
 import { WatermarkedPhoto } from "@/components/brand/photo-watermark";
+import { CaixaCompra } from "@/components/mdx/caixa-compra";
+import { ErrosComuns } from "@/components/mdx/erros-comuns";
+import { GuiasDoTema } from "@/components/mdx/guias-do-tema";
+import { RespostaCurta } from "@/components/mdx/resposta-curta";
 import { readLocalImageSize } from "@/lib/image-size";
 import { cn } from "@/lib/utils";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
@@ -71,6 +75,10 @@ function MarkdownImage({
 export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   Verdict,
   Rule,
+  CaixaCompra,
+  RespostaCurta,
+  ErrosComuns,
+  GuiasDoTema,
   img: MarkdownImage,
   h2: ({ className, ...props }) => (
     <h2
