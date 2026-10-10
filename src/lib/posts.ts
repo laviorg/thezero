@@ -34,6 +34,7 @@ import {
 import { getAuthorBySlug } from "@/lib/authors";
 import { postMatchesQuery } from "@/lib/search-match";
 import { site } from "@/lib/site";
+import { countPostWords } from "@/lib/word-count";
 
 export { isEvergreenFormat, isNewsFormat, type PostFormat };
 
@@ -177,7 +178,7 @@ function toPost(slug: string, raw: string): Post | null {
     : undefined;
 
   const updated = frontmatter.updated ?? frontmatter.date;
-  const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
+  const wordCount = countPostWords(content);
 
   return {
     ...frontmatter,
