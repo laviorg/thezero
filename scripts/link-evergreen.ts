@@ -548,7 +548,6 @@ const RELATED: Record<string, readonly string[]> = {
     "iphone-18-pro-abertura-variavel-nao-e-megapixel",
   ],
   "ea-sports-fc-27-vale-a-pena": [
-    "ea-sports-fc-27-hoje",
     "game-pass-ultimate-vs-comprar-jogo",
   ],
   "ios-27-quais-iphones-e-como-atualizar": [

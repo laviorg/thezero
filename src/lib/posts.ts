@@ -90,6 +90,12 @@ export type Post = PostFrontmatter & {
 
 const POSTS_DIR = path.join(process.cwd(), "content", "posts");
 
+/** `author` no frontmatter é o slug (nicholas | mavi); a página mostra o nome. */
+const AUTHOR_NAMES: Record<string, string> = {
+  nicholas: "Nicholas Haruo Nishimura",
+  mavi: "Mavi",
+};
+
 function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFrontmatter {
   const title = typeof data.title === "string" ? data.title : "";
   const seoTitleRaw = typeof data.seoTitle === "string" ? data.seoTitle.trim() : "";
@@ -184,7 +190,9 @@ function toPost(slug: string, raw: string): Post | null {
     categoryLabel: category.label,
     subcategoryLabel: subcategory?.label,
     subcategoryHref: subcategory?.href,
-    author: frontmatter.author ?? site.defaultAuthor,
+    author: frontmatter.author
+      ? (AUTHOR_NAMES[frontmatter.author] ?? frontmatter.author)
+      : site.defaultAuthor,
     dateIso: toIsoDate(frontmatter.date),
     updatedIso: toIsoDate(updated),
   };
