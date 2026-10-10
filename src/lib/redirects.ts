@@ -11,6 +11,14 @@ export const PATH_REDIRECTS = [
     source: "/noticia/lancamento-e-trailer-jogo-e-o-patch",
     destination: "/jogos",
   },
+  {
+    source: "/noticia/apple-restringe-full-disk-access-macos",
+    destination: "/noticia/apple-limita-full-disk-access-macos",
+  },
+  {
+    source: "/noticia/ea-sports-fc-27-hoje",
+    destination: "/noticia/ea-sports-fc-27-vale-a-pena",
+  },
   { source: "/sitemap_index.xml", destination: "/sitemap.xml" },
   { source: "/feed", destination: "/rss.xml" },
   { source: "/rss", destination: "/rss.xml" },
