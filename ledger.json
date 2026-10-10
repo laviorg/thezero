@@ -724,6 +724,16 @@
       "slug": "gmktec-lanca-mini-pc-evo-x3-amd-ryzen-ai-max-395",
       "updated_at": "2026-10-10T15:01:50Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DeUW7VXlIQc"
+    },
+    "cloudflare-compra-deno-workers-celld": {
+      "article_url": "https://www.thezero.com.br/noticia/cloudflare-compra-deno-workers-celld",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/cloudflare-compra-deno-workers-celld.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/cloudflare-compra-deno-workers-celld.png",
+      "pr": 167,
+      "commit": "b66106d5548215c790c83f9fe37925c29929dac7",
+      "ig": "https://www.instagram.com/p/DeUmycPjCuN/",
+      "slug": "cloudflare-compra-deno-workers-celld",
+      "updated_at": "2026-10-10T17:20:27Z"
     }
   }
 }
