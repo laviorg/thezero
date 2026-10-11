@@ -31,6 +31,10 @@ export const PATH_REDIRECTS = [
     source: "/noticia/switch-2-hype-vs-frame-rate",
     destination: "/noticia/switch-2-vs-steam-deck-oled-preco-brasil",
   },
+  {
+    source: "/noticia/cursor-nao-e-ia-que-escreve-codigo",
+    destination: "/noticia/contexto-maior-que-prompt",
+  },
   { source: "/sitemap_index.xml", destination: "/sitemap.xml" },
   { source: "/feed", destination: "/rss.xml" },
   { source: "/rss", destination: "/rss.xml" },
