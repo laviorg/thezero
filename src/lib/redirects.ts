@@ -19,6 +19,18 @@ export const PATH_REDIRECTS = [
     source: "/noticia/ea-sports-fc-27-hoje",
     destination: "/noticia/ea-sports-fc-27-vale-a-pena",
   },
+  {
+    source: "/noticia/setup-produtividade-overrated",
+    destination: "/noticia/teclado-mecanico-ate-400-abnt",
+  },
+  {
+    source: "/noticia/teclado-caro-atalhos-baratos",
+    destination: "/noticia/teclado-mecanico-ate-400-abnt",
+  },
+  {
+    source: "/noticia/switch-2-hype-vs-frame-rate",
+    destination: "/noticia/switch-2-vs-steam-deck-oled-preco-brasil",
+  },
   { source: "/sitemap_index.xml", destination: "/sitemap.xml" },
   { source: "/feed", destination: "/rss.xml" },
   { source: "/rss", destination: "/rss.xml" },
