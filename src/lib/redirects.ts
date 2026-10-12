@@ -35,6 +35,14 @@ export const PATH_REDIRECTS = [
     source: "/noticia/cursor-nao-e-ia-que-escreve-codigo",
     destination: "/noticia/contexto-maior-que-prompt",
   },
+  {
+    source: "/noticia/pc-portatil-vs-android-odin-ayaneo",
+    destination: "/noticia/qual-console-portatil-comprar-2026-brasil",
+  },
+  {
+    source: "/noticia/ayn-odin-2-android-vs-pc-portatil",
+    destination: "/noticia/qual-console-portatil-comprar-2026-brasil",
+  },
   { source: "/sitemap_index.xml", destination: "/sitemap.xml" },
   { source: "/feed", destination: "/rss.xml" },
   { source: "/rss", destination: "/rss.xml" },
