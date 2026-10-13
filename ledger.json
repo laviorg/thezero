@@ -901,6 +901,16 @@
       "slug": "google-play-cria-apps-ia-studio-android-sem-conta-dev",
       "updated_at": "2026-10-13T23:21:30Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dec-fhUlm6d"
+    },
+    "google-lanca-gemini-4-argon": {
+      "article_url": "https://www.thezero.com.br/noticia/google-lanca-gemini-4-argon",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-lanca-gemini-4-argon.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-lanca-gemini-4-argon.png",
+      "pr": 193,
+      "commit": "dc81dac9e746800183d9e33f9162d487160f004d",
+      "ig": "https://www.instagram.com/p/DedCT-NmI6u/",
+      "slug": "google-lanca-gemini-4-argon",
+      "updated_at": "2026-10-13T23:54:50Z"
     }
   }
 }
