@@ -86,7 +86,7 @@ export const websiteId = `${site.url}/#website`;
 
 /**
  * Author node Google can read without resolving `@id` across script tags.
- * The house byline is the organization. Named authors point to `/autores#<slug>`.
+ * The house byline is the organization. Named authors point to `/autores/<slug>`.
  */
 export function articleAuthorLd(author: string) {
   const name = author.trim();

@@ -44,7 +44,7 @@ export default function AuthorsPage() {
           />
           <div>
             <h2 className="text-2xl font-semibold tracking-tight">
-              {AUTHORS.nicholas.name}
+              <Link href={AUTHORS.nicholas.href}>{AUTHORS.nicholas.name}</Link>
             </h2>
             <p className="mt-2 text-base leading-7 text-fg/90">
               Fundador e editor do The Zero. São Paulo–SP. Contato:{" "}
@@ -69,7 +69,7 @@ export default function AuthorsPage() {
           />
           <div>
             <h2 className="text-2xl font-semibold tracking-tight">
-              {AUTHORS.mavi.name}
+              <Link href={AUTHORS.mavi.href}>{AUTHORS.mavi.name}</Link>
             </h2>
             <p className="mt-2 text-base leading-7 text-fg/90">
               Editora assistente de IA do The Zero. Toda matéria assinada pela

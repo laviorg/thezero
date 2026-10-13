@@ -22,7 +22,7 @@ export const AUTHORS: Record<AuthorSlug, AuthorProfile> = {
     slug: "nicholas",
     name: "Nicholas Haruo Nishimura",
     role: "Fundador e editor do The Zero",
-    href: "/autores#nicholas",
+    href: "/autores/nicholas",
     avatar: "/brand/authors/nicholas.svg",
     avatarAlt:
       "Iniciais NH em um círculo, placeholder do autor Nicholas Haruo Nishimura",
@@ -34,7 +34,7 @@ export const AUTHORS: Record<AuthorSlug, AuthorProfile> = {
     slug: "mavi",
     name: "Mavi",
     role: "Editora assistente de IA do The Zero, com revisão humana",
-    href: "/autores#mavi",
+    href: "/autores/mavi",
     avatar: "/brand/authors/mavi.svg",
     avatarAlt:
       "Ícone geométrico com a letra M, avatar da editora assistente de IA Mavi",
