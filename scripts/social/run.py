@@ -25,6 +25,7 @@ from github_api import (
     post_comment,
     pr_for_commit,
 )
+from deploy_watch import DeployGuard
 from http_wait import ARTICLE_TIMEOUT_S, IMAGE_TIMEOUT_S, assert_meta_can_fetch, wait_until_ready
 from ledger import empty_ledger, entry_complete, resolve_existing
 from mdx_meta import is_draft_mdx
@@ -376,7 +377,7 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
             outcome["image"] = image_url
             wait_until_ready(image_url, "jpeg", IMAGE_TIMEOUT_S, secrets)
             assert_meta_can_fetch(image_url, secrets)
-            wait_until_ready(url, "article", ARTICLE_TIMEOUT_S, secrets)
+            wait_until_ready(url, "article", ARTICLE_TIMEOUT_S, secrets, on_tick=DeployGuard(repo, tokens["github"], secrets))
 
             fields = {
                 "article_url": url,

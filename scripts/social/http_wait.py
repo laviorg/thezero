@@ -9,9 +9,10 @@ import requests
 
 from redact import redact
 
-ARTICLE_TIMEOUT_S = 15 * 60
+ARTICLE_TIMEOUT_S = 25 * 60  # espera o deploy (Cloudflare) em vez de cair em timeout
 IMAGE_TIMEOUT_S = 3 * 60
 POLL_INTERVAL_S = 20
+MAX_POLL_INTERVAL_S = 60  # backoff: 20, 30, 45, 60, 60 ...
 META_CRAWLER_UA = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
 
 
@@ -31,8 +32,9 @@ def _article(response: requests.Response) -> bool:
     return host == "www.thezero.com.br"
 
 
-def wait_until_ready(url: str, kind: str, timeout_s: int, secrets: list[str]) -> None:
+def wait_until_ready(url: str, kind: str, timeout_s: int, secrets: list[str], on_tick=None) -> None:
     deadline = time.monotonic() + timeout_s
+    interval = POLL_INTERVAL_S
     last = "sem resposta"
     while True:
         try:
@@ -53,7 +55,10 @@ def wait_until_ready(url: str, kind: str, timeout_s: int, secrets: list[str]) ->
         remaining = deadline - time.monotonic()
         if remaining <= 0:
             raise RuntimeError(f"timeout de {timeout_s}s esperando {url}: {last}")
-        time.sleep(min(POLL_INTERVAL_S, remaining))
+        if on_tick is not None:
+            on_tick()
+        time.sleep(min(interval, remaining))
+        interval = min(MAX_POLL_INTERVAL_S, int(interval * 1.5))
 
 
 def assert_meta_can_fetch(url: str, secrets: list[str]) -> None:
