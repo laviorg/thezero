@@ -9,7 +9,7 @@ import requests
 
 from redact import redact
 
-ARTICLE_TIMEOUT_S = 25 * 60  # espera o deploy (Cloudflare) em vez de cair em timeout
+ARTICLE_TIMEOUT_S = 20 * 60  # espera o deploy (Cloudflare) em vez de cair em timeout
 IMAGE_TIMEOUT_S = 3 * 60
 POLL_INTERVAL_S = 20
 MAX_POLL_INTERVAL_S = 60  # backoff: 20, 30, 45, 60, 60 ...
