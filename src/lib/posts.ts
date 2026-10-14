@@ -331,7 +331,7 @@ export function getFeaturedPost(posts = getNewsPosts()): Post | undefined {
 }
 
 export function getRelatedPosts(post: Post, limit = 3): Post[] {
-  const posts = getAllPosts();
+  const posts = getAllPosts().filter((item) => !item.noindex);
   const sameSubcategory = post.subcategory
     ? posts.filter(
         (item) =>

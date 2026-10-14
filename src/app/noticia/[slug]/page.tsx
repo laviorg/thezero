@@ -1,3 +1,4 @@
+import { ReadAlso } from "@/components/news/read-also";
 import { ArticleBody } from "@/components/news/article-body";
 import { ArticleDeskLinks } from "@/components/news/article-desk-links";
 import { ArticleHeader } from "@/components/news/article-header";
@@ -101,7 +102,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const subcategory = post.subcategory
     ? getSubcategory(post.category, post.subcategory)
     : undefined;
-  const related = getRelatedPosts(post, 4);
+  const relatedPool = getRelatedPosts(post, 9);
+  const readAlso = relatedPool.slice(0, 5);
+  const related = relatedPool.slice(5);
   const { newer, older } = getAdjacentPosts(post);
   const pageUrl = absoluteUrl(post.href);
   const kicker = subcategory?.label ?? category?.label ?? post.kicker ?? "The Zero";
@@ -201,6 +204,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="story-split">
           <div className="story-main">
             <ArticleBody source={post.content} />
+            <ReadAlso posts={readAlso} />
             <AuthorBio author={post.author} authorSlug={post.authorSlug} />
             {category ? (
               <ArticleDeskLinks
