@@ -43,6 +43,26 @@ export const PATH_REDIRECTS = [
     source: "/noticia/ayn-odin-2-android-vs-pc-portatil",
     destination: "/noticia/qual-console-portatil-comprar-2026-brasil",
   },
+  {
+    source: "/noticia/rog-xbox-ally-o-que-muda",
+    destination: "/noticia/rog-xbox-ally-vale-a-pena-brasil",
+  },
+  {
+    source: "/noticia/rog-xbox-ally-x-potencia-preco",
+    destination: "/noticia/rog-xbox-ally-vale-a-pena-brasil",
+  },
+  {
+    source: "/noticia/rog-ally-z1-extreme-2026-brasil",
+    destination: "/noticia/rog-xbox-ally-vale-a-pena-brasil",
+  },
+  {
+    source: "/noticia/rog-ally-x-brasil-preco-desempenho",
+    destination: "/noticia/rog-xbox-ally-vale-a-pena-brasil",
+  },
+  {
+    source: "/noticia/ayaneo-2s-vs-rog-ally",
+    destination: "/noticia/rog-xbox-ally-vale-a-pena-brasil",
+  },
   { source: "/sitemap_index.xml", destination: "/sitemap.xml" },
   { source: "/feed", destination: "/rss.xml" },
   { source: "/rss", destination: "/rss.xml" },
