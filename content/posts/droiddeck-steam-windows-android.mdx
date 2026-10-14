@@ -1,0 +1,60 @@
+---
+title: "DroidDeck Executa Steam e Jogos de PC Nativamente no Android"
+seoTitle: "DroidDeck Roda Jogos de Windows Nativos no Android"
+excerpt: "O novo aplicativo DroidDeck roda jogos da Steam e do Windows diretamente em smartphones Android. Cyberpunk 2077 atinge 60 FPS no RedMagic 11 Pro."
+category: computadores
+subcategory: componentes
+date: "2026-10-14T09:08:00-03:00"
+featured: false
+kicker: "Computadores · componentes"
+author: "mavi"
+cover: "/images/posts/droiddeck-steam-windows-android/cover.jpg"
+coverAlt: "Uma pessoa segurando um dispositivo portátil Android com o aplicativo DroidDeck em execução e uma biblioteca de jogos de PC exibida na tela"
+coverCredit: "TweakTown / Divulgação"
+---
+
+O aplicativo de código aberto DroidDeck está transformando celulares Android em verdadeiros computadores portáteis para jogos. Diferente de soluções consolidadas no mercado que dependem de conexão com a internet para transmissão em nuvem ou de um computador local, como é o caso do Steam Link, a nova ferramenta executa jogos de computador com sistema operacional Windows de forma nativa e local no dispositivo móvel.
+
+[Conforme reportado pelo TweakTown](https://www.tweaktown.com/news/114070/droiddeck-runs-steam-games-natively-on-android-and-cyberpunk-2077-is-already-hitting-60-fps/index.html), o DroidDeck é um aplicativo gratuito que não exige acesso root e nem substitui o sistema operacional Android, ao contrário de projetos paralelos como o Armada. A ferramenta simplesmente carrega o cliente Steam do Linux para a arquitetura ARM64, executando diretamente no modo Big Picture. O resultado é uma interface gráfica praticamente idêntica à encontrada no console portátil Steam Deck, da Valve.
+
+![Uma pessoa segurando um dispositivo portátil Android com o aplicativo DroidDeck em execução e uma biblioteca de jogos de PC exibida na tela](/images/posts/droiddeck-steam-windows-android/cover.jpg)
+
+*TweakTown / Divulgação. O aplicativo apresenta uma interface idêntica ao modo Big Picture do cliente Steam.*
+
+<Verdict overrated='Streaming em nuvem' underrated='Emulação local nativa' />
+
+## Como a mágica da compatibilidade acontece
+
+A execução de jogos criados para a arquitetura x86 em processadores ARM baseados em Android requer uma complexa camada de tradução. O DroidDeck resolve esse desafio utilizando o Proton na versão ARM64 da Valve. [Segundo informações do TweakTown](https://www.tweaktown.com/news/114070/droiddeck-runs-steam-games-natively-on-android-and-cyberpunk-2077-is-already-hitting-60-fps/index.html), o aplicativo integra a tecnologia FEX para gerenciar a tradução de instruções x86 para ARM de forma eficiente. O pacote de instalação completo ocupa cerca de 3 GB de armazenamento no celular.
+
+Para que a Steam inicie corretamente, os usuários precisam desativar a restrição de processos filhos do próprio Android. O DroidDeck vai além do básico e oferece um ecossistema completo de ferramentas para ajustes de desempenho, incluindo gerenciamento de drivers de GPU, suporte ao Steam Input e painéis de monitoramento de performance. [De acordo com o TechPowerUp](https://www.techpowerup.com/353688/steam-and-windows-games-now-run-locally-on-android-cyberpunk-2077-hits-60-fps), o aplicativo suporta até mesmo a alternância de drivers gráficos.
+
+Além de rodar os jogos baixados nativamente através da conta da Steam do usuário, o DroidDeck também permite a integração com outras lojas digitais. Os jogadores podem adicionar títulos adquiridos na Epic Games, GOG e Amazon Games como jogos não-Steam e executá-los através da mesma camada de compatibilidade do Proton, ampliando consideravelmente a biblioteca de títulos suportados.
+
+Apesar da inovação, a compatibilidade de hardware ainda é um fator limitante. O sistema exige a versão 9 ou mais recente do Android e tem como foco oficial as GPUs Adreno 730 ou superiores, incluindo toda a família Adreno 8xx. O suporte para chips gráficos Adreno da série 6xx ainda é considerado experimental. Modelos que utilizam GPUs Mali, Xclipse, PowerVR e Adreno 710 não são suportados no momento. Além disso, [o TechPowerUp aponta que](https://www.techpowerup.com/353688/steam-and-windows-games-now-run-locally-on-android-cyberpunk-2077-hits-60-fps) a Valve não oferece suporte oficial ao Steam para Linux em arquitetura Arm, indicando que a experiência ainda pode apresentar falhas. O portal VideoCardz, por exemplo, testou o aplicativo em um portátil Mangmi Pocket Max e não conseguiu iniciar o jogo Raft.
+
+## Desempenho impressionante no RedMagic 11 Pro
+
+Os testes de performance revelaram resultados surpreendentes para um dispositivo de bolso. O youtuber ETA Prime colocou o DroidDeck à prova utilizando o smartphone Nubia RedMagic 11 Pro, um dispositivo de alto desempenho focado no público gamer. O aparelho testado estava equipado com o potente processador Snapdragon 8 Elite Gen 5, acompanhado de 16 GB de memória RAM e um sistema de resfriamento a água, [conforme destaca o TweakTown](https://www.tweaktown.com/news/114070/droiddeck-runs-steam-games-natively-on-android-and-cyberpunk-2077-is-already-hitting-60-fps/index.html).
+
+O título Cyberpunk 2077, conhecido por sua alta demanda gráfica mesmo em computadores de mesa, conseguiu rodar a uma média de 60 quadros por segundo (FPS) na resolução de 720p utilizando configurações gráficas médias. O popular RPG The Elder Scrolls V: Skyrim Special Edition alcançou números semelhantes na mesma resolução de tela. Em jogos mais antigos e otimizados, como o jogo de sobrevivência cooperativo Left 4 Dead 2, o sistema atingiu facilmente o limite configurado de 120 FPS na resolução 720p com configurações gráficas no nível alto.
+
+O desempenho em Ghost of Tsushima também foi notável. O jogo de ação em mundo aberto registrou uma média de 48 FPS em 720p com ajustes médios. No entanto, com a ativação da ferramenta de geração de quadros (FSR Frame Generation), a taxa de quadros subiu para os desejados 60 FPS. Para alcançar esses resultados, o DroidDeck conta com um conjunto robusto de tecnologias de aprimoramento de imagem, suportando não apenas o AMD FSR, mas também o Snapdragon GSR e o upscaling Lossless Scaling.
+
+Apesar dos sucessos, alguns títulos modernos ainda encontram barreiras. Hogwarts Legacy provou ser pesado demais para a atual configuração. O jogo não conseguiu manter uma taxa estável de 30 FPS, mesmo rodando com as configurações visuais reduzidas e com a tecnologia de upscaling FSR ativada.
+
+## O que isso significa no Brasil
+
+Com o dólar cotado a R$ 5,0096 pelo Banco Central em 13/10/2026, [segundo os dados mais recentes do BCB e da Receita Federal](https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes), a importação de smartphones topo de linha capazes de rodar o DroidDeck envolve um cálculo tributário pesado através do programa Remessa Conforme. Dispositivos como o RedMagic 11 Pro ultrapassam com folga a cota de isenção de US$ 50 para compras internacionais. Na prática, além do imposto de importação de 60% com um desconto fixo de US$ 30, o consumidor brasileiro ainda deve adicionar a alíquota de ICMS, que varia entre 17% e 20% dependendo do estado de destino.
+
+Essa carga tributária significa que a aquisição de um hardware robusto com Snapdragon 8 Elite Gen 5 e 16 GB de RAM pode chegar a custar o dobro do valor original do produto em dólares convertidos. Para o público brasileiro, a popularização de aplicativos como o DroidDeck apresenta um cenário agridoce. Por um lado, a ferramenta oferece uma forma incrivelmente econômica de aproveitar uma biblioteca de jogos de PC já existente sem precisar investir em um console portátil dedicado, como um Steam Deck ou ROG Ally, que chegam ao Brasil frequentemente custando milhares de reais a mais que no mercado internacional.
+
+Por outro lado, o bloqueio do desempenho de ponta está na necessidade de chips gráficos como a linha Adreno 8xx ou superiores. Celulares com GPUs Mali ou PowerVR, extremamente comuns no mercado intermediário de dispositivos móveis no Brasil, ficam de fora do ecossistema de suporte da plataforma por não apresentarem compatibilidade com o software. Resta ao consumidor brasileiro aguardar o amadurecimento e a otimização da tecnologia, ou preparar o bolso para as pesadas taxas de importação na tentativa de colocar as mãos em hardwares compatíveis.
+
+<Rule>O futuro dos jogos de PC pode muito bem caber de forma nativa no bolso do seu celular Android.</Rule>
+
+## Fontes
+
+- [tweaktown.com — DroidDeck runs Steam games natively on Android, and Cyberpunk 2077 is already hitting 60 FPS](https://www.tweaktown.com/news/114070/droiddeck-runs-steam-games-natively-on-android-and-cyberpunk-2077-is-already-hitting-60-fps/index.html)
+- [techpowerup.com — Steam and Windows Games Now Run Locally on Android, Cyberpunk 2077 Hits 60 FPS](https://www.techpowerup.com/353688/steam-and-windows-games-now-run-locally-on-android-cyberpunk-2077-hits-60-fps)
+- [bcb.gov.br — Contexto Brasil: PTAX (BCB) e Remessa Conforme](https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes)
