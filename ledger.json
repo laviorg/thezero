@@ -912,6 +912,16 @@
       "slug": "google-lanca-gemini-4-argon",
       "updated_at": "2026-10-13T23:55:04Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DedCVMajzt5"
+    },
+    "funcionario-openai-preso-escuta-sala-reuniao": {
+      "article_url": "https://www.thezero.com.br/noticia/funcionario-openai-preso-escuta-sala-reuniao",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/funcionario-openai-preso-escuta-sala-reuniao.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/funcionario-openai-preso-escuta-sala-reuniao.png",
+      "pr": 196,
+      "commit": "4ba371d32abda226d489471cad8146b68747db9c",
+      "ig": "https://www.instagram.com/p/DedHyCsGrSo/",
+      "slug": "funcionario-openai-preso-escuta-sala-reuniao",
+      "updated_at": "2026-10-14T00:42:36Z"
     }
   }
 }
