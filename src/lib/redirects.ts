@@ -63,6 +63,14 @@ export const PATH_REDIRECTS = [
     source: "/noticia/ayaneo-2s-vs-rog-ally",
     destination: "/noticia/rog-xbox-ally-vale-a-pena-brasil",
   },
+  {
+    source: "/noticia/steam-deck-oled-brasil-preco-doi",
+    destination: "/noticia/steam-deck-oled-ainda-vale-a-pena-2026",
+  },
+  {
+    source: "/noticia/steam-deck-lcd-usado-ainda-vale",
+    destination: "/noticia/steam-deck-oled-ainda-vale-a-pena-2026",
+  },
   { source: "/sitemap_index.xml", destination: "/sitemap.xml" },
   { source: "/feed", destination: "/rss.xml" },
   { source: "/rss", destination: "/rss.xml" },
