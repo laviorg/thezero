@@ -35,10 +35,6 @@ export function generateMetadata(): Metadata {
 export default function TutoriaisPage() {
   const posts = getPostsByFormat("tutorial");
   const groups = groupTutorialPosts(posts);
-  const groupedSlugs = new Set(
-    groups.flatMap((group) => group.posts.map((post) => post.slug)),
-  );
-  const rest = posts.filter((post) => !groupedSlugs.has(post.slug));
   const pageUrl = absoluteUrl("/tutoriais");
 
   return (
@@ -115,21 +111,6 @@ export default function TutoriaisPage() {
               </div>
             </section>
           ))}
-          {rest.length > 0 ? (
-            <section className="mt-10" aria-labelledby="tutoriais-resto">
-              <SectionHeading id="tutoriais-resto" title="Também no arquivo" />
-              <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
-                {rest.map((post) => (
-                  <ArticleCard
-                    key={post.slug}
-                    post={post}
-                    layout="standard"
-                    headingLevel="h3"
-                  />
-                ))}
-              </div>
-            </section>
-          ) : null}
         </>
       )}
     </PageShell>

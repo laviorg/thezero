@@ -115,25 +115,6 @@ export default function ReviewsPage() {
               </div>
             </section>
           ))}
-          {rest.length > 0 ? (
-            <section className="mt-10" aria-labelledby="reviews-resto">
-              <SectionHeading id="reviews-resto" title="Também no arquivo" />
-              <p className="mt-3 max-w-2xl text-sm text-muted">
-                Guias que não cabem numa linha de produto. Continuam neste hub.
-              </p>
-              <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
-                {rest.map((post, index) => (
-                  <ArticleCard
-                    key={post.slug}
-                    post={post}
-                    layout="standard"
-                    headingLevel="h3"
-                    imagePriority={groups.length === 0 && index === 0}
-                  />
-                ))}
-              </div>
-            </section>
-          ) : null}
         </>
       )}
     </PageShell>
