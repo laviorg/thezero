@@ -172,6 +172,16 @@ export function SiteFooter() {
                 X {site.social.xHandle}
               </a>
             </li>
+            <li>
+              <a
+                href={site.social.pinterest}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent"
+              >
+                Pinterest {site.social.pinterestHandle}
+              </a>
+            </li>
           </ul>
         </div>
       </div>
