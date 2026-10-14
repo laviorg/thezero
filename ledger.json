@@ -967,6 +967,16 @@
       "slug": "dlss-5-placas-suportadas-modelo-rapido",
       "updated_at": "2026-10-14T18:13:43Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DefADtnG0y8"
+    },
+    "epic-games-launcher-ia-linux": {
+      "article_url": "https://www.thezero.com.br/noticia/epic-games-launcher-ia-linux",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/epic-games-launcher-ia-linux.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/epic-games-launcher-ia-linux.png",
+      "pr": 204,
+      "commit": "74b8c3a0353738cd382753a678aa5b40d0162ef8",
+      "ig": "https://www.instagram.com/p/DefI6WQDHy0/",
+      "slug": "epic-games-launcher-ia-linux",
+      "updated_at": "2026-10-14T19:31:00Z"
     }
   }
 }
