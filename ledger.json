@@ -934,6 +934,16 @@
       "slug": "droiddeck-steam-windows-android",
       "updated_at": "2026-10-14T13:23:59Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Deee54cEfKi"
+    },
+    "pinball-fx-vr-chega-steam": {
+      "article_url": "https://www.thezero.com.br/noticia/pinball-fx-vr-chega-steam",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/pinball-fx-vr-chega-steam.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/pinball-fx-vr-chega-steam.png",
+      "pr": 201,
+      "commit": "62add08f3082b0533ce0db5296f73d3561fd3e13",
+      "ig": "https://www.instagram.com/p/Deefz9DmMCM/",
+      "slug": "pinball-fx-vr-chega-steam",
+      "updated_at": "2026-10-14T13:31:53Z"
     }
   }
 }
