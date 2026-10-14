@@ -1,5 +1,6 @@
 import { ArticleCard } from "@/components/news/article-card";
 import { Breadcrumbs } from "@/components/news/breadcrumbs";
+import { HubIntro } from "@/components/news/hub-intro";
 import {
   BreadcrumbJsonLd,
   CollectionPageJsonLd,
@@ -143,6 +144,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               : `${posts.length} matérias`}
         </p>
       </header>
+      <HubIntro path={category.href} />
 
       {posts.length === 0 ? (
         <p className="mt-6 max-w-xl text-muted">

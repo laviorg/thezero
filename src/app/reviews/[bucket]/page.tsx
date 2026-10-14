@@ -1,4 +1,5 @@
 import { ArticleCard } from "@/components/news/article-card";
+import { HubIntro } from "@/components/news/hub-intro";
 import {
   BreadcrumbJsonLd,
   CollectionPageJsonLd,
@@ -99,6 +100,7 @@ export default async function ReviewLinePage({ params }: ReviewLinePageProps) {
         lines={lines}
         current={bucket.slug}
       />
+      <HubIntro path={`/reviews/${bucket.slug}`} />
 
       <div className="mt-6 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
         {posts.map((post) => (
