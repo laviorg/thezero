@@ -1,5 +1,5 @@
 /**
- * Inserts a short “Leia também” block on evergreen posts that still lack a
+ * Inserts a short “Guias relacionados” block on evergreen posts that still lack a
  * cross-format link (guia ↔ review ↔ comparativo ↔ vale-a-pena ↔ tutorial ↔ notícia).
  *
  * Targets come from RELATED, an editorial map of slugs that already exist.
@@ -633,12 +633,12 @@ function sentence(lead: string, doc: Doc) {
 function blockFor(docs: Doc[]) {
   const used = new Set<string>();
   const lines = docs.map((doc) => sentence(leadIn(doc.format, used), doc));
-  return `## Leia também\n\n${lines.join("\n\n")}`;
+  return `## Guias relacionados\n\n${lines.join("\n\n")}`;
 }
 
 function choose(post: Doc, bySlug: Map<string, Doc>): Doc[] {
   if (!EVERGREEN.has(post.format)) return [];
-  if (post.content.includes("## Leia também")) return [];
+  if (post.content.includes("## Guias relacionados")) return [];
   const listed = RELATED[post.slug];
   if (!listed) return [];
 
