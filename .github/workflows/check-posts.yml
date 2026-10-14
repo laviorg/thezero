@@ -8,6 +8,8 @@ on:
       - "public/images/posts/**"
       - "scripts/check-posts.mjs"
       - "scripts/check-posts.test.mjs"
+      - "src/**"
+      - ".github/workflows/**"
 
 permissions:
   contents: read
