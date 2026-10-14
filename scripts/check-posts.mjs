@@ -1025,3 +1025,4 @@ export {
   resolvePublicAsset,
   saoPauloYmd,
 };
+// gatilho do check-posts em PRs só de src (sem efeito)

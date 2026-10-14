@@ -40,6 +40,8 @@ export const site = {
     threadsHandle: "@hello.the.zero",
     x: "https://x.com/hello_the_zero",
     xHandle: "@hello_the_zero",
+    pinterest: "https://br.pinterest.com/thezerobr/",
+    pinterestHandle: "@thezerobr",
   },
   storeUrl: "https://loja.thezero.com.br",
   defaultAuthor: "The Zero",

@@ -1,3 +1,4 @@
+import { newsRobots } from "@/lib/seo";
 import { AdSenseScript } from "@/components/ads/adsense-script";
 import { GoogleAnalyticsScript } from "@/components/analytics/ga-script";
 import { CookieBanner } from "@/components/consent/cookie-banner";
@@ -73,13 +74,13 @@ export const metadata: Metadata = {
     title: site.name,
     description: site.description,
   },
-  robots: {
-    index: true,
-    follow: true,
+  robots: newsRobots,
+  other: {
+    "p:domain_verify": "1ce869a72360f9b03b5e8023bb72a9b2",
+    ...(adsensePubId
+      ? { "google-adsense-account": adsenseClientId(adsensePubId) }
+      : {}),
   },
-  ...(adsensePubId
-    ? { other: { "google-adsense-account": adsenseClientId(adsensePubId) } }
-    : {}),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
