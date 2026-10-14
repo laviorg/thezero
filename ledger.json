@@ -923,6 +923,16 @@
       "slug": "funcionario-openai-preso-escuta-sala-reuniao",
       "updated_at": "2026-10-14T00:42:47Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DedHzFgm0sD"
+    },
+    "droiddeck-steam-windows-android": {
+      "article_url": "https://www.thezero.com.br/noticia/droiddeck-steam-windows-android",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/droiddeck-steam-windows-android.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/droiddeck-steam-windows-android.png",
+      "pr": 200,
+      "commit": "de526c5edb7d45f83106cdb984bb8a757129979a",
+      "ig": "https://www.instagram.com/p/Deee4o8jNSQ/",
+      "slug": "droiddeck-steam-windows-android",
+      "updated_at": "2026-10-14T13:23:44Z"
     }
   }
 }
