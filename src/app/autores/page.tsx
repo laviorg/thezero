@@ -5,6 +5,49 @@ import { site } from "@/lib/site";
 import { AUTHORS_TITLE } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { absoluteUrl } from "@/lib/site";
+
+/**
+ * Foto e bio do Nicholas: aguardando o material dele.
+ * Quando chegar, preencha NICHOLAS_PHOTO (ex.: "/brand/authors/nicholas.jpg")
+ * e NICHOLAS_BIO. Até lá o avatar de iniciais segue no lugar.
+ */
+const NICHOLAS_PHOTO: string | null = null;
+const NICHOLAS_BIO: string | null = null;
+
+/**
+ * TODO: trocar pelos perfis pessoais do Nicholas (LinkedIn, Instagram etc.)
+ * quando ele informar. Por ora, só as contas do The Zero linkadas no rodapé.
+ */
+const NICHOLAS_SAME_AS = [
+  site.social.instagram,
+  site.social.threads,
+  site.social.x,
+  site.social.youtube,
+  site.social.pinterest,
+];
+
+function NicholasPersonJsonLd() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": absoluteUrl("/autores#nicholas"),
+    name: AUTHORS.nicholas.name,
+    jobTitle: "Editor",
+    url: absoluteUrl(AUTHORS.nicholas.href),
+    ...(NICHOLAS_PHOTO ? { image: absoluteUrl(NICHOLAS_PHOTO) } : {}),
+    email: `mailto:${site.email}`,
+    address: { "@type": "PostalAddress", addressLocality: "São Paulo", addressRegion: "SP", addressCountry: "BR" },
+    worksFor: { "@type": "NewsMediaOrganization", name: site.name, url: site.url },
+    sameAs: NICHOLAS_SAME_AS,
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
+    />
+  );
+}
 
 const description =
   "Quem assina as matérias do The Zero: Nicholas Haruo Nishimura, fundador e editor. Produção assistida por Mavi, assistente de IA.";
@@ -21,6 +64,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function AuthorsPage() {
   return (
     <PageShell width="narrow">
+      <NicholasPersonJsonLd />
       <p className="eyebrow page-kicker">Redação</p>
       <h1 className="font-display mt-4 text-[clamp(2.4rem,7vw,4.6rem)] font-extrabold leading-[0.98] tracking-tight text-balance">
         Autores
@@ -36,7 +80,7 @@ export default function AuthorsPage() {
         <div className="flex gap-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={AUTHORS.nicholas.avatar}
+            src={NICHOLAS_PHOTO ?? AUTHORS.nicholas.avatar}
             alt={AUTHORS.nicholas.avatarAlt}
             width={88}
             height={88}
@@ -53,6 +97,11 @@ export default function AuthorsPage() {
               </a>
               .
             </p>
+            {NICHOLAS_BIO ? (
+              <p className="author-bio-text mt-3 text-base leading-7 text-fg/90">
+                {NICHOLAS_BIO}
+              </p>
+            ) : null}
           </div>
         </div>
       </section>
