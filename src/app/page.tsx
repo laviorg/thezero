@@ -129,6 +129,18 @@ export default function HomePage() {
         </section>
       )}
 
+      <section aria-label="Ofertas" className="border-b border-border py-5">
+        <p className="text-[0.65rem] tracking-[0.2em] text-muted uppercase">Ofertas</p>
+        <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <Link href="/menor-preco" className="font-medium hover:text-accent">
+            Menor preço do dia: placas de vídeo, SSDs e consoles checados na KaBuM →
+          </Link>
+          <Link href="/black-friday-2026" className="font-medium hover:text-accent">
+            Black Friday 2026: o que vale comprar →
+          </Link>
+        </div>
+      </section>
+
       {latest.length > 0 ? (
         <section className="border-b border-border py-7">
           <SectionHeading

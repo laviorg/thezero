@@ -106,6 +106,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       menuLabel: "Plataforma",
       links: [],
     },
+    {
+      id: "ofertas",
+      href: "/menor-preco",
+      label: "Ofertas",
+      menuLabel: "Compras",
+      links: [
+        { href: "/menor-preco", label: "Menor preço do dia" },
+        { href: "/black-friday-2026", label: "Black Friday 2026" },
+        { href: "/11-11", label: "11.11" },
+        { href: "/prime-day", label: "Prime Day" },
+      ],
+    },
   ];
 
   return (
