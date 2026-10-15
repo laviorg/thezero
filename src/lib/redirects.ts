@@ -5,6 +5,7 @@ export const APEX_HOST = "thezero.com.br";
 export const PATH_REDIRECTS: { source: string; destination: string; status?: 301 | 308 }[] = [
   { source: "/black-friday-2026", destination: "/black-friday", status: 301 },
   { source: "/autores/mavi", destination: "/autores", status: 301 },
+  { source: "/noticia/freakopoly-lancamento-steam-preco-brasil", destination: "/", status: 301 },
   { source: "/hardware", destination: "/computadores" },
   { source: "/gadgets", destination: "/dispositivos" },
   { source: "/apps", destination: "/aplicativos" },
