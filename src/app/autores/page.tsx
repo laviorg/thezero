@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const description =
-  "Quem assina as matérias do The Zero: Nicholas Haruo Nishimura, fundador e editor, e Mavi, editora assistente de IA com revisão humana.";
+  "Quem assina as matérias do The Zero: Nicholas Haruo Nishimura, fundador e editor. Produção assistida por Mavi, assistente de IA.";
 
 export const metadata: Metadata = buildPageMetadata({
   title: AUTHORS_TITLE,
@@ -29,7 +29,7 @@ export default function AuthorsPage() {
         Quem assina as matérias do The Zero.
       </p>
       <p className="mt-4 text-base leading-7 text-fg/90">
-        Cada matéria do The Zero tem um autor só, indicado no topo do texto.
+        Todas as matérias são assinadas por Nicholas Haruo Nishimura, editor. A Mavi, assistente de IA, ajuda na pesquisa e no rascunho; nenhum texto sai sem revisão editorial humana.
       </p>
 
       <section id="nicholas" className="mt-14 scroll-mt-24 border-t border-border pt-10">
@@ -47,7 +47,7 @@ export default function AuthorsPage() {
               <Link href={AUTHORS.nicholas.href}>{AUTHORS.nicholas.name}</Link>
             </h2>
             <p className="mt-2 text-base leading-7 text-fg/90">
-              Fundador e editor do The Zero. São Paulo–SP. Contato:{" "}
+              Fundador e editor do The Zero. Assina e revisa todas as matérias. São Paulo–SP. Contato:{" "}
               <a className="text-accent" href={`mailto:${site.email}`}>
                 {site.email}
               </a>
@@ -72,8 +72,8 @@ export default function AuthorsPage() {
               <Link href={AUTHORS.mavi.href}>{AUTHORS.mavi.name}</Link>
             </h2>
             <p className="mt-2 text-base leading-7 text-fg/90">
-              Editora assistente de IA do The Zero. Toda matéria assinada pela
-              Mavi passa por revisão humana antes de publicar. Contato:{" "}
+              Assistente de IA do The Zero. Ajuda na pesquisa e no rascunho, não
+              assina matérias. Todo texto passa por revisão editorial humana. Contato:{" "}
               <a className="text-accent" href={`mailto:${site.email}`}>
                 {site.email}
               </a>

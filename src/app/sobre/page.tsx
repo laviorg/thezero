@@ -141,9 +141,9 @@ export default function AboutPage() {
                 Autores das matérias
               </dt>
               <dd className="mt-1 text-fg">
-                Nicholas Haruo Nishimura ou Mavi, editora assistente de IA do
-                The Zero, com revisão humana. Cada matéria tem um autor só,
-                indicado no topo. Veja{" "}
+                Todas as matérias são assinadas por Nicholas Haruo Nishimura.
+                A produção é assistida pela Mavi, assistente de IA, com
+                revisão editorial humana. Veja{" "}
                 <Link href="/autores" className="text-accent">
                   Autores
                 </Link>
