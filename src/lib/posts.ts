@@ -158,6 +158,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
       ? (data.changelog as Record<string, unknown>[])
           .map((e) => ({ date: e?.data instanceof Date ? e.data.toISOString() : String(e?.data ?? ""), note: String(e?.nota ?? "").trim() }))
           .filter((e) => e.note && !Number.isNaN(new Date(e.date).getTime()))
+      : undefined,
     promessas: Array.isArray(data.promessas)
       ? (data.promessas as Record<string, unknown>[])
           .map((e) => ({
