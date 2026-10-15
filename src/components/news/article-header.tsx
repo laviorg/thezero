@@ -1,4 +1,4 @@
-import { Breadcrumbs, type Crumb } from "@/components/news/breadcrumbs";
+import type { Crumb } from "@/components/news/breadcrumbs";
 import { formatDate, readingTimeLabel } from "@/lib/format";
 import Link from "next/link";
 
@@ -29,22 +29,20 @@ export function ArticleHeader({
   updated,
   updatedIso,
   readingMinutes,
-  crumbs,
 }: ArticleHeaderProps) {
   return (
     <header className="story-header">
-      {crumbs && crumbs.length > 0 ? (
-        <Breadcrumbs items={crumbs} className="story-crumbs mb-0" />
-      ) : null}
-
       <div className="story-headline">
-        {kickerHref ? (
-          <Link href={kickerHref} className="story-kicker">
-            {kicker}
-          </Link>
-        ) : (
-          <p className="story-kicker">{kicker}</p>
-        )}
+        {/* Trilha visível = só a editoria. A trilha completa fica no JSON-LD. */}
+        <nav aria-label="Trilha">
+          {kickerHref ? (
+            <Link href={kickerHref} className="story-kicker">
+              {kicker}
+            </Link>
+          ) : (
+            <p className="story-kicker">{kicker}</p>
+          )}
+        </nav>
 
         <h1 className="story-title text-balance">{title}</h1>
         <p className="story-dek text-pretty">{excerpt}</p>

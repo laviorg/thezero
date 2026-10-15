@@ -108,8 +108,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const related = relatedPool.slice(5);
   const { newer, older } = getAdjacentPosts(post);
   const pageUrl = absoluteUrl(post.href);
-  const kicker = subcategory?.label ?? category?.label ?? post.kicker ?? "The Zero";
-  const kickerHref = subcategory?.href ?? category?.href;
+  const kicker = category?.label ?? subcategory?.label ?? post.kicker ?? "The Zero";
+  const kickerHref = category?.href ?? subcategory?.href;
   const profile = resolveAuthor(post.authorSlug) ?? resolveAuthor(post.author);
 
   return (
@@ -172,18 +172,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               updated={post.updated}
               updatedIso={post.updatedIso}
               readingMinutes={post.readingMinutes}
-              crumbs={
-                category
-                  ? [
-                      { href: "/", label: HOME_CRUMB_LABEL },
-                      { href: category.href, label: category.label },
-                      ...(subcategory
-                        ? [{ href: subcategory.href, label: subcategory.label }]
-                        : []),
-                      { label: post.title },
-                    ]
-                  : undefined
-              }
             />
             {post.cover ? (
               <CoverImage
