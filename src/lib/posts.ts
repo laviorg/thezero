@@ -33,7 +33,6 @@ import {
 } from "@/lib/review-buckets";
 import { getAuthorBySlug } from "@/lib/authors";
 import { postMatchesQuery } from "@/lib/search-match";
-import { site } from "@/lib/site";
 import { countPostWords } from "@/lib/word-count";
 
 export { isEvergreenFormat, isNewsFormat, type PostFormat };
