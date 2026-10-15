@@ -16,7 +16,8 @@ import { Geist, Geist_Mono, Source_Sans_3, Source_Serif_4 } from "next/font/goog
  *   reading column. latin-ext for pt-BR.
  * - Source Sans 3 (Adobe): UI / META. Kickers, tags, bylines, credits, nav,
  *   footer, chips. Small, clean, high x-height.
- * - Geist Mono: code only.
+ * - Geist Mono: technical labels (section tags, reading time, price/spec
+ *   badges) and code. Preloaded because it now renders above the fold.
  */
 export const fontDisplay = Geist({
   variable: "--font-geist",
@@ -38,7 +39,7 @@ export const fontSans = Source_Sans_3({
 
 export const fontMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   display: "swap",
-  preload: false,
+  preload: true,
 });

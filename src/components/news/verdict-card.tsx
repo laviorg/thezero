@@ -30,7 +30,7 @@ export function VerdictCard({ data }: { data: VerdictCardData }) {
       </div>
       {price ? (
         <p className="mt-2 text-sm text-muted">
-          <strong className="text-fg">{brl.format(price.amount)}</strong> na {price.store} em{" "}
+          <strong className="price-badge text-fg">{brl.format(price.amount)}</strong> na {price.store} em{" "}
           <time dateTime={price.date}>{day.format(new Date(price.date))}</time>
         </p>
       ) : null}
