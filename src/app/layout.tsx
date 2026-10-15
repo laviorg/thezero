@@ -1,3 +1,4 @@
+import { CompareHost } from "@/components/compare/compare-button";
 import { newsRobots } from "@/lib/seo";
 import { AdSenseScript } from "@/components/ads/adsense-script";
 import { GoogleAnalyticsScript } from "@/components/analytics/ga-script";
@@ -170,6 +171,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               {children}
             </main>
             <SiteFooter />
+            <CompareHost />
             <CookieBanner />
             <AdSenseScript />
             <GoogleAnalyticsScript />

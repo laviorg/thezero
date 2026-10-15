@@ -57,6 +57,8 @@ export type PostFrontmatter = {
   noindex?: boolean;
   /** Histórico de mudanças reais: `changelog: [{ data, nota }]` no frontmatter. */
   changelog?: { date: string; note: string }[];
+  /** Promessas de anúncio (só as que estão no texto): status ficha | corte | adiado | papel. */
+  promessas?: { empresa: string; promessa: string; data: string; status: "ficha" | "corte" | "adiado" | "papel" }[];
   /** Card de veredito (reviews e "Vale a pena?"). */
   veredito?: VerdictCardData;
   /**
@@ -156,6 +158,16 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
       ? (data.changelog as Record<string, unknown>[])
           .map((e) => ({ date: e?.data instanceof Date ? e.data.toISOString() : String(e?.data ?? ""), note: String(e?.nota ?? "").trim() }))
           .filter((e) => e.note && !Number.isNaN(new Date(e.date).getTime()))
+      : undefined,
+    promessas: Array.isArray(data.promessas)
+      ? (data.promessas as Record<string, unknown>[])
+          .map((e) => ({
+            empresa: String(e?.empresa ?? "").trim(),
+            promessa: String(e?.promessa ?? "").trim(),
+            data: String(e?.data ?? "").trim(),
+            status: String(e?.status ?? "") as "ficha" | "corte" | "adiado" | "papel",
+          }))
+          .filter((e) => e.empresa && e.promessa && ["ficha", "corte", "adiado", "papel"].includes(e.status))
       : undefined,
     featured: Boolean(data.featured),
     featuredPriority:
