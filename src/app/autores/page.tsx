@@ -5,9 +5,52 @@ import { site } from "@/lib/site";
 import { AUTHORS_TITLE } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { absoluteUrl } from "@/lib/site";
+
+/**
+ * Foto e bio do Nicholas: aguardando o material dele.
+ * Quando chegar, preencha NICHOLAS_PHOTO (ex.: "/brand/authors/nicholas.jpg")
+ * e NICHOLAS_BIO. Até lá o avatar de iniciais segue no lugar.
+ */
+const NICHOLAS_PHOTO: string | null = null;
+const NICHOLAS_BIO: string | null = null;
+
+/**
+ * TODO: trocar pelos perfis pessoais do Nicholas (LinkedIn, Instagram etc.)
+ * quando ele informar. Por ora, só as contas do The Zero linkadas no rodapé.
+ */
+const NICHOLAS_SAME_AS = [
+  site.social.instagram,
+  site.social.threads,
+  site.social.x,
+  site.social.youtube,
+  site.social.pinterest,
+];
+
+function NicholasPersonJsonLd() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": absoluteUrl("/autores#nicholas"),
+    name: AUTHORS.nicholas.name,
+    jobTitle: "Editor",
+    url: absoluteUrl(AUTHORS.nicholas.href),
+    ...(NICHOLAS_PHOTO ? { image: absoluteUrl(NICHOLAS_PHOTO) } : {}),
+    email: `mailto:${site.email}`,
+    address: { "@type": "PostalAddress", addressLocality: "São Paulo", addressRegion: "SP", addressCountry: "BR" },
+    worksFor: { "@type": "NewsMediaOrganization", name: site.name, url: site.url },
+    sameAs: NICHOLAS_SAME_AS,
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
+    />
+  );
+}
 
 const description =
-  "Quem assina as matérias do The Zero: Nicholas Haruo Nishimura, fundador e editor, e Mavi, editora assistente de IA com revisão humana.";
+  "Quem assina as matérias do The Zero: Nicholas Nishimura, fundador e editor.";
 
 export const metadata: Metadata = buildPageMetadata({
   title: AUTHORS_TITLE,
@@ -21,6 +64,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function AuthorsPage() {
   return (
     <PageShell width="narrow">
+      <NicholasPersonJsonLd />
       <p className="eyebrow page-kicker">Redação</p>
       <h1 className="font-display mt-4 text-[clamp(2.4rem,7vw,4.6rem)] font-extrabold leading-[0.98] tracking-tight text-balance">
         Autores
@@ -29,14 +73,14 @@ export default function AuthorsPage() {
         Quem assina as matérias do The Zero.
       </p>
       <p className="mt-4 text-base leading-7 text-fg/90">
-        Cada matéria do The Zero tem um autor só, indicado no topo do texto.
+        Todas as matérias são assinadas por Nicholas Nishimura, fundador e editor, que responde por cada texto.
       </p>
 
       <section id="nicholas" className="mt-14 scroll-mt-24 border-t border-border pt-10">
         <div className="flex gap-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={AUTHORS.nicholas.avatar}
+            src={NICHOLAS_PHOTO ?? AUTHORS.nicholas.avatar}
             alt={AUTHORS.nicholas.avatarAlt}
             width={88}
             height={88}
@@ -47,45 +91,25 @@ export default function AuthorsPage() {
               <Link href={AUTHORS.nicholas.href}>{AUTHORS.nicholas.name}</Link>
             </h2>
             <p className="mt-2 text-base leading-7 text-fg/90">
-              Fundador e editor do The Zero. São Paulo–SP. Contato:{" "}
+              Fundador e editor do The Zero. Assina e revisa todas as matérias. São Paulo–SP. Contato:{" "}
               <a className="text-accent" href={`mailto:${site.email}`}>
                 {site.email}
               </a>
               .
             </p>
+            {NICHOLAS_BIO ? (
+              <p className="author-bio-text mt-3 text-base leading-7 text-fg/90">
+                {NICHOLAS_BIO}
+              </p>
+            ) : null}
           </div>
         </div>
       </section>
 
-      <section id="mavi" className="mt-14 scroll-mt-24 border-t border-border pt-10">
-        <div className="flex gap-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={AUTHORS.mavi.avatar}
-            alt={AUTHORS.mavi.avatarAlt}
-            width={88}
-            height={88}
-            className="size-[5.5rem] shrink-0 rounded-full border border-border bg-surface"
-          />
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight">
-              <Link href={AUTHORS.mavi.href}>{AUTHORS.mavi.name}</Link>
-            </h2>
-            <p className="mt-2 text-base leading-7 text-fg/90">
-              Editora assistente de IA do The Zero. Toda matéria assinada pela
-              Mavi passa por revisão humana antes de publicar. Contato:{" "}
-              <a className="text-accent" href={`mailto:${site.email}`}>
-                {site.email}
-              </a>
-              .
-            </p>
-          </div>
-        </div>
-      </section>
 
       <p className="mt-12 text-base leading-7 text-muted">
-        Como a casa usa IA, checa fonte e corrige erro:{" "}
-        <Link href="/politica-editorial#uso-de-ia" className="text-accent">
+        Como a casa checa fonte e corrige erro:{" "}
+        <Link href="/politica-editorial" className="text-accent">
           política editorial
         </Link>
         .

@@ -43,12 +43,9 @@ export function ThemeToggle({ className }: { className?: string }) {
       className={className}
       onClick={cyclePreference}
       aria-label={`Tema: ${label}${preference === "system" ? ` (${resolved === "dark" ? "escuro" : "claro"})` : ""}. Alternar para ${next}.`}
-      title={`Tema: ${label}. Clique para ${next}.`}
+      title={`Tema ${label}. Próximo: ${next}.`}
     >
-      <ThemeIcon preference={preference} />
-      <span className="sr-only">
-        Tema {label}. Próximo: {next}.
-      </span>
+      <ThemeIcon preference={preference} className="size-4" />
     </Button>
   );
 }

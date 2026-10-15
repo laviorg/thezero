@@ -7,9 +7,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const description =
-  "Independência editorial, correções, fontes e o uso de IA no The Zero: assistência de máquina, revisão humana, sem citação ou benchmark inventados.";
+  "Independência editorial, correções e fontes no The Zero: sem citação ou benchmark inventados.";
 
-const updated = "10 de outubro de 2026";
+const updated = "15 de outubro de 2026";
 
 export const metadata: Metadata = buildPageMetadata({
   title: EDITORIAL_POLICY_TITLE,
@@ -25,7 +25,7 @@ export default function EditorialPolicyPage() {
     <LegalDocument
       kicker="Redação"
       title="A pauta não está à venda. O erro, quando existe, é corrigido no texto."
-      lede="Independência, fonte, correção e o que a casa faz com IA. Sem citação fabricada e sem benchmark que ninguém rodou."
+      lede="Independência, fonte e correção. Sem citação fabricada e sem benchmark que ninguém rodou."
       updated={updated}
       jsonLd={
         <TrustPageJsonLd
@@ -36,10 +36,9 @@ export default function EditorialPolicyPage() {
       }
     >
       <p>
-        The Zero é fundado e editado por Nicholas Haruo Nishimura, São
-        Paulo–SP. Cada matéria é assinada por um autor só, Nicholas Haruo
-        Nishimura ou Mavi, editora assistente de IA do The Zero, com revisão
-        humana. Os perfis estão em <Link href="/autores">Autores</Link>. Quem
+        The Zero é fundado e editado por Nicholas Nishimura, São
+        Paulo–SP. Todas as matérias são assinadas por Nicholas Nishimura, que
+        responde pelo texto. Os perfis estão em <Link href="/autores">Autores</Link>. Quem
         responde pelo veículo está em{" "}
         <Link href="/sobre#quem-publica">Quem publica</Link>.
       </p>
@@ -67,7 +66,18 @@ export default function EditorialPolicyPage() {
         indicar produto, loja ou serviço. Quando houver link afiliado na
         página, o texto deixa isso explícito perto do primeiro link ou no
         rodapé da matéria. Como participante do Programa de Associados da
-        Amazon, sou remunerado pelas compras qualificadas efetuadas.
+        Amazon, o The Zero é remunerado pelas compras qualificadas efetuadas.
+      </p>
+      <p>
+        Reviews e páginas “Vale a pena?” abrem com um card de veredito:
+        Comprar, Esperar ou Pular, três prós, três contras e para quem o
+        produto é. O veredito é decidido antes de qualquer link e não muda
+        por causa de comissão. Quando o card mostra preço, ele vem da
+        consulta registrada na loja, com a data; sem preço conferido, o card
+        sai sem preço. O link de afiliado fica dentro do card, com o aviso
+        “Link de afiliado: podemos ganhar comissão, sem custo pra você e sem
+        influência no veredito”. Hoje os programas são o da KaBuM (via Awin)
+        e o Programa de Associados da Amazon.
       </p>
 
       <h2 id="fontes">Fontes</h2>
@@ -103,23 +113,15 @@ export default function EditorialPolicyPage() {
         <Link href="/contato">contato</Link>. Não há comentário no site.
       </p>
 
-      <h2 id="uso-de-ia">Uso de IA</h2>
-      <p>
-        Parte das matérias é escrita pela Mavi, editora assistente de IA do
-        The Zero, e sai assinada por ela. Nenhuma matéria da Mavi é
-        publicada sem revisão humana: Nicholas Haruo Nishimura revisa e
-        edita antes de publicar e responde pelo texto. Matéria com
-        experiência pessoal de uso, teste em primeira pessoa ou opinião de
-        quem usou o produto é assinada por pessoa, nunca pela Mavi.
-      </p>
+      <h2 id="sem-invencao">Sem dado inventado</h2>
       <p>
         A casa não publica citação, preço, benchmark, especificação ou data
-        inventados por um modelo. Se a conferência não acha a fonte, o dado
-        sai ou entra com ressalva explícita. IA não é desculpa para ficha
-        técnica alucinada nem para aspas que ninguém disse.
+        sem fonte. Se a conferência não acha a fonte, o dado sai ou entra com
+        ressalva explícita. Não há ficha técnica de memória nem aspas que
+        ninguém disse.
       </p>
       <p>
-        Imagem gerada, quando existir, não é apresentada como foto de
+        Ilustração, quando existir, não é apresentada como foto de
         produto. Capa de review com foto de imprensa leva crédito. Capa de
         cartaz da casa é identificada como cartaz.
       </p>

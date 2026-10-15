@@ -3,6 +3,8 @@ import { FooterCookiesLink } from "@/components/consent/footer-cookies-link";
 import { categoryList } from "@/lib/categories";
 import { getNewsPosts } from "@/lib/posts";
 import { site } from "@/lib/site";
+import { NEWSLETTER_ENABLED, NEWSLETTER_NAME } from "@/lib/newsletter";
+import { FooterLatest } from "@/components/layout/footer-latest";
 import Link from "next/link";
 
 export function SiteFooter() {
@@ -58,6 +60,16 @@ export function SiteFooter() {
             <li>
               <Link href="/" className="hover:text-accent">
                 Newsroom
+              </Link>
+            </li>
+            <li>
+              <Link href="/black-friday" className="hover:text-accent">
+                Black Friday 2026
+              </Link>
+            </li>
+            <li>
+              <Link href="/menor-preco" className="hover:text-accent">
+                Menor preço do dia
               </Link>
             </li>
             <li>
@@ -185,28 +197,9 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      {latestPosts.length > 0 ? (
-        <nav
-          aria-label="Últimas matérias"
-          className="shell-frame relative border-t border-border py-6"
-        >
-          <p className="text-[0.65rem] tracking-[0.2em] text-muted uppercase">
-            Últimas
-          </p>
-          <ul className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-4">
-            {latestPosts.map((post) => (
-              <li key={post.slug}>
-                <Link
-                  href={post.href}
-                  className="line-clamp-3 text-sm leading-snug text-fg/90 transition-colors hover:text-accent"
-                >
-                  {post.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      ) : null}
+      <FooterLatest
+        initial={latestPosts.map((post) => ({ title: post.title, href: post.href }))}
+      />
       <div className="border-t border-border">
         <div className="shell-frame flex flex-col gap-3 py-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
@@ -225,6 +218,11 @@ export function SiteFooter() {
             <Link href="/termos" className="hover:text-accent">
               Termos
             </Link>
+            {NEWSLETTER_ENABLED ? (
+              <a href="/newsletter" className="hover:text-accent">
+                Newsletter {NEWSLETTER_NAME}
+              </a>
+            ) : null}
             <FooterCookiesLink />
             <a href={`mailto:${site.email}`} className="hover:text-accent">
               {site.email}

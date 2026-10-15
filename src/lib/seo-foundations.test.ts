@@ -75,10 +75,10 @@ describe("articleAuthorLd", () => {
   });
 
   it("points a house author at /autores/<slug>", () => {
-    const author = articleAuthorLd("Mavi");
+    const author = articleAuthorLd("Nicholas Nishimura");
     assert.equal(author["@type"], "Person");
-    assert.equal(author.name, "Mavi");
-    assert.equal("url" in author && author.url, `${site.url}/autores/mavi`);
+    assert.equal(author.name, "Nicholas Nishimura");
+    assert.equal("url" in author && author.url, `${site.url}/autores/nicholas`);
   });
 });
 

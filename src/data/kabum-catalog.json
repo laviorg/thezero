@@ -1,0 +1,191 @@
+[
+ {
+  "id": "rx-7600",
+  "category": "gpu",
+  "short": "RX 7600 8 GB",
+  "use": "entrada 1080p",
+  "name": "Placa de Vídeo RX 7600 Challenger ASRock AMD Radeon,  8GB GDDR6 - 90-GA41ZZ-00UANF",
+  "kabumId": "459144",
+  "url": "https://www.kabum.com.br/produto/459144/placa-de-video-rx-7600-challenger-asrock-amd-radeon-8gb-gddr6-90-ga41zz-00uanf"
+ },
+ {
+  "id": "rtx-5060",
+  "category": "gpu",
+  "short": "RTX 5060 8 GB",
+  "use": "entrada 1080p com DLSS 4",
+  "name": "Placa de Vídeo MSI RTX 5060 Shadow 2X OC NVIDIA GeForce, 8GB, GDDR7, 128-bit - 912-V537-038",
+  "kabumId": "1000741",
+  "url": "https://www.kabum.com.br/produto/1000741/placa-de-video-msi-rtx-5060-shadow-2x-oc-nvidia-geforce-8gb-gddr7-128-bit-912-v537-038"
+ },
+ {
+  "id": "rtx-5060-ti-16",
+  "category": "gpu",
+  "short": "RTX 5060 Ti 16 GB",
+  "use": "1080p alto / 1440p",
+  "name": "Placa de Vídeo MSI RTX 5060 Ti 16G VENTUS 2X OC PLUS NVIDIA GeForce, 16GB GDDR7, 2617 MHz, FP4 and DLSS 4, Ray Tracing - G506T-16V2CP",
+  "kabumId": "777167",
+  "url": "https://www.kabum.com.br/produto/777167/placa-de-video-msi-rtx-5060-ti-16g-ventus-2x-oc-plus-nvidia-geforce-16gb-gddr7-2617-mhz-fp4-and-dlss-4-ray-tracing-g506t-16v2cp"
+ },
+ {
+  "id": "rx-9060-xt-16",
+  "category": "gpu",
+  "short": "RX 9060 XT 16 GB",
+  "use": "1080p alto / 1440p",
+  "name": "Placa De Vídeo Asrock Amd Radeon Rx 9060 Xt Challenger Oc 16gb Gddr6 128 Bits - 90-ga5qzz-00uanf",
+  "kabumId": "994308",
+  "url": "https://www.kabum.com.br/produto/994308/gpu-asrock-rx-9060-xt-16gb-challenger-oc-gddr6-128-bits-2x-dp-1x-hdmi-90-ga5qzz-00uanf"
+ },
+ {
+  "id": "rtx-5070",
+  "category": "gpu",
+  "short": "RTX 5070 12 GB",
+  "use": "1440p",
+  "name": "Placa de Vídeo Gigabyte RTX 5070 WINDFORCE OC SFF 12G NVIDIA GeForce, 12GB GDDR7, 192bits, DLSS, Ray Tracing - 9VN5070WO-00-G10",
+  "kabumId": "714574",
+  "url": "https://www.kabum.com.br/produto/714574/placa-de-video-gigabyte-rtx-5070-windforce-oc-sff-12g-nvidia-geforce-12gb-gddr7-192bits-dlss-ray-tracing-9vn5070wo-00-g10"
+ },
+ {
+  "id": "rx-9070-xt",
+  "category": "gpu",
+  "short": "RX 9070 XT 16 GB",
+  "use": "1440p alto / 4K",
+  "name": "Placa de Vídeo ASRock Radeon RX 9070 XT Challenger, AMD, 16GB - 90-GA61ZZ-00UANF",
+  "kabumId": "921271",
+  "url": "https://www.kabum.com.br/produto/921271/placa-de-video-asrock-radeon-rx-9070-xt-challenger-amd-16gb-90-ga61zz-00uanf"
+ },
+ {
+  "id": "rtx-5070-ti",
+  "category": "gpu",
+  "short": "RTX 5070 Ti 16 GB",
+  "use": "1440p alto / 4K",
+  "name": "Placa de Video Palit GeForce RTX 5070 Ti 16GB GamingPro-S GDDR7 256bits - NE7507T019T2-GB2031U",
+  "kabumId": "988703",
+  "url": "https://www.kabum.com.br/produto/988703/placa-de-video-palit-geforce-rtx-5070-ti-16gb-gamingpro-s-gddr7-256bits-ne7507t019t2-gb2031u"
+ },
+ {
+  "id": "a400-480",
+  "category": "ssd",
+  "short": "SSD SATA 480 GB",
+  "use": "upgrade de PC/notebook antigo",
+  "name": "SSD Kingston A400, 480GB, 2.5\", SATA III, Leitura: 500 MB/s, Gravação: 450 MB/s, Preto - SA400S37/480G",
+  "kabumId": "85198",
+  "url": "https://www.kabum.com.br/produto/85198/ssd-kingston-a400-480gb-sata-iii-2-5-leitura-500mb-s-gravacao-450mb-s-preto-sa400s37-480g"
+ },
+ {
+  "id": "nv3-500",
+  "category": "ssd",
+  "short": "NVMe 500 GB",
+  "use": "sistema",
+  "name": "SSD Kingston NV3, 500GB, M.2 2280, PCIe 4.0 x4, NVMe, Leitura: 5000 MB/s, Gravação: 3000 MB/s, Azul - SNV3S/500G",
+  "kabumId": "621161",
+  "url": "https://www.kabum.com.br/produto/621161/ssd-kingston-nv3-500-gb-m-2-2280-pcie-4-0-x4-nvme-leitura-5000-mb-s-gravacao-3000-mb-s-azul-snv3s-500g"
+ },
+ {
+  "id": "nv3-1tb",
+  "category": "ssd",
+  "short": "NVMe 1 TB",
+  "use": "jogos",
+  "name": "SSD Kingston NV3, 1TB, M.2 2280, PCIe 4.0 x4, NVMe, Leitura: 6000 MB/s, Gravação: 4000 MB/s, Azul - SNV3S/1000G",
+  "kabumId": "621162",
+  "url": "https://www.kabum.com.br/produto/621162/ssd-kingston-nv3-1-tb-m-2-2280-pcie-4-0-x4-nvme-leitura-6000-mb-s-gravacao-4000-mb-s-azul-snv3s-1000g"
+ },
+ {
+  "id": "990pro-1tb",
+  "category": "ssd",
+  "short": "NVMe 1 TB topo",
+  "use": "PS5 / workstation",
+  "name": "SSD Samsung 990 Pro 1TB, Nvme M.2 2280, Mz-v9p1t0b/am.",
+  "kabumId": "464267",
+  "url": "https://www.kabum.com.br/produto/464267/ssd-samsung-990-pro-1tb-nvme-m-2-2280-mz-v9p1t0b-am-"
+ },
+ {
+  "id": "990pro-2tb",
+  "category": "ssd",
+  "short": "NVMe 2 TB topo",
+  "use": "PS5 / biblioteca grande",
+  "name": "SSD Samsung 990 Pro 2TB, M.2 Nvme PCie 4.0, Leitura 7450MBps, Gravação 6900MBps - Mz-V9p2t0bw",
+  "kabumId": "576204",
+  "url": "https://www.kabum.com.br/produto/576204/ssd-samsung-990-pro-2tb-m-2-nvme-pcie-4-0-leitura-7450mbps-gravacao-6900mbps-mz-v9p2t0bw"
+ },
+ {
+  "id": "ps5-digital",
+  "category": "console",
+  "short": "PS5 Slim Digital",
+  "use": "sem leitor",
+  "name": "Console Sony PlayStation 5 Edição Digital Slim, SSD 825GB, Controle DualSense, Astro's Playroom, Branco - CFI 2114B",
+  "kabumId": "1050570",
+  "url": "https://www.kabum.com.br/produto/1050570/console-sony-playstation-5-edicao-digital-slim-ssd-825gb-controle-dualsense-astro-s-playroom-branco-cfi-2114b"
+ },
+ {
+  "id": "ps5-disco",
+  "category": "console",
+  "short": "PS5 Slim com leitor",
+  "use": "mídia física",
+  "name": "Console Playstation 5 Slim Sony 1TB Mídia Física Cfi-2114a",
+  "kabumId": "953110",
+  "url": "https://www.kabum.com.br/produto/953110/console-playstation-5-slim-sony-1tb-midia-fisica-cfi-2114a"
+ },
+ {
+  "id": "ps5-pro",
+  "category": "console",
+  "short": "PS5 Pro",
+  "use": "TV 4K",
+  "name": "Console PlayStation 5 Pro Sony, SSD 2TB, Com Controle Sem Fio DualSense, Branco - 1000046552",
+  "kabumId": "636960",
+  "url": "https://www.kabum.com.br/produto/636960/console-playstation-5-pro-sony-ssd-2tb-com-controle-sem-fio-dualsense-branco-1000046552"
+ },
+ {
+  "id": "switch-2",
+  "category": "console",
+  "short": "Nintendo Switch 2",
+  "use": "híbrido",
+  "name": "Console Nintendo Switch 2, 256GB, Preto, Azul e Vermelho",
+  "kabumId": "777177",
+  "url": "https://www.kabum.com.br/produto/777177/console-nintendo-switch-2-256gb-preto-azul-e-vermelho"
+ },
+ {
+  "id": "xbox-series-x",
+  "category": "console",
+  "short": "Xbox Series X",
+  "use": "Game Pass",
+  "name": "Console Xbox Series X, Microsoft, 1Tb, Controle Sem Fio - Preto",
+  "kabumId": "209239",
+  "url": "https://www.kabum.com.br/produto/209239/console-xbox-series-x-microsoft-1tb-controle-sem-fio-preto"
+ },
+ {
+  "id": "steam-deck-oled",
+  "category": "console",
+  "short": "Steam Deck OLED 512 GB",
+  "use": "PC portátil",
+  "name": "Console Portátil Valve Steam Deck Oled 512 Gb",
+  "kabumId": "577296",
+  "url": "https://www.kabum.com.br/produto/577296/console-portatil-valve-steam-deck-oled-512-gb"
+ },
+ {
+  "id": "nitro-v15-4050",
+  "category": "notebook",
+  "short": "Acer Nitro V15 RTX 4050",
+  "use": "gamer de entrada",
+  "name": "Notebook Gamer Acer Nitro V15, AMD Ryzen 7 7735HS, 8GB RAM, SSD 512GB, RTX 4050, Tela 15.6\" Full HD IPS 165Hz, Linux - ANV15-41-R6J0",
+  "kabumId": "1048035",
+  "url": "https://www.kabum.com.br/produto/1048035/notebook-gamer-acer-nitro-v15-anv15-41-r6j0-amd-ryzen-7-7735hs-8gb-ram-512gb-ssd-rtx-4050-linux-15-6-"
+ },
+ {
+  "id": "nitro-v15-4060",
+  "category": "notebook",
+  "short": "Acer Nitro V15 RTX 4060",
+  "use": "gamer intermediário",
+  "name": "Notebook Gamer Acer Nitro V15, Intel Core i7-13620H 13ª Geração, 16GB RAM, SSD 512GB, RTX 4060, Tela 15.6\" Full HD 165Hz, Linux - ANV15-52-790M",
+  "kabumId": "912258",
+  "url": "https://www.kabum.com.br/produto/912258/notebook-gamer-acer-nitro-v15-intel-core-i7-13620h-13-geracao-16gb-ram-ssd-512gb-rtx-4060-tela-15-6-full-hd-165hz-linux-anv15-52-790m"
+ },
+ {
+  "id": "tuf-f16",
+  "category": "notebook",
+  "short": "ASUS TUF F16 RTX 4050",
+  "use": "tela 16\"",
+  "name": "Notebook ASUS TUF Gaming F16 Intel Core 5 210H, RTX 4050, 8GB, 512GB  SSD, KeepOS,16.0\" FHD, Mecha Gray - FX607VU-RL054",
+  "kabumId": "1009200",
+  "url": "https://www.kabum.com.br/produto/1009200/notebook-asus-tuf-gaming-f16-intel-core-5-210h-rtx-4050-8gb-512gb-ssd-keepos-16-0-fhd-mecha-gray-fx607vu-rl054"
+ }
+]

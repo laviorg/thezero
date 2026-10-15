@@ -28,18 +28,7 @@ export function AuthorBio({
           </p>
           <p className="mt-0.5 text-sm text-muted">{profile.role}</p>
           <p className="mt-3 text-[0.95rem] leading-6 text-fg/90">
-            {profile.slug === "mavi" ? (
-              <>
-                Mavi, editora assistente de IA do The Zero. Texto revisado por
-                Nicholas Haruo Nishimura.{" "}
-                <Link href="/politica-editorial#uso-de-ia" className="text-accent">
-                  Como usamos IA
-                </Link>
-                .
-              </>
-            ) : (
-              profile.shortBio
-            )}
+            {profile.shortBio}
           </p>
           <p className="mt-3">
             <Link href={profile.href} className="text-sm text-accent">

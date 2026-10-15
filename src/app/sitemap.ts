@@ -11,6 +11,7 @@ import {
   groupReviewPosts,
   latestUpdatedDate,
 } from "@/lib/posts";
+import { fichas } from "@/lib/fichas";
 import { isIndexableHub } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { assertUniqueDocumentTitles } from "@/lib/title-audit";
@@ -23,11 +24,24 @@ const STATIC_PAGE_SOURCES = [
   { path: "/contato", file: "src/app/contato/page.tsx" },
   { path: "/privacidade", file: "src/app/privacidade/page.tsx" },
   { path: "/termos", file: "src/app/termos/page.tsx" },
+  { path: "/newsletter", file: "src/app/newsletter/page.tsx" },
   { path: "/como-testamos", file: "src/app/como-testamos/page.tsx" },
   { path: "/politica-editorial", file: "src/app/politica-editorial/page.tsx" },
   { path: "/autores", file: "src/app/autores/page.tsx" },
   { path: "/autores/nicholas", file: "src/app/autores/[slug]/page.tsx" },
-  { path: "/autores/mavi", file: "src/app/autores/[slug]/page.tsx" },
+  { path: "/black-friday", file: "src/lib/deals.ts" },
+  { path: "/prime-day", file: "src/lib/deals.ts" },
+  { path: "/11-11", file: "src/lib/deals.ts" },
+  { path: "/menor-preco", file: "src/data/prices.json" },
+  { path: "/ferramentas", file: "src/app/ferramentas/page.tsx" },
+  { path: "/ferramentas/meu-pc-roda", file: "src/data/game-requirements.json" },
+  { path: "/ferramentas/calculadora-de-fonte", file: "src/data/psu-components.json" },
+  { path: "/ferramentas/montar-pc", file: "src/data/pc-builds.json" },
+  { path: "/ferramentas/imposto-portateis", file: "src/data/import-tax.json" },
+  { path: "/ferramentas/bateria-portateis", file: "src/data/handhelds.json" },
+  { path: "/ferramentas/custo-api-ia", file: "src/data/ai-api-prices.json" },
+  { path: "/glossario", file: "src/data/glossary.json" },
+  { path: "/promessas", file: "src/app/promessas/page.tsx" },
 ] as const;
 
 function gitCommitDate(args: string[]): Date | undefined {
@@ -73,7 +87,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...(contentFreshness ? { lastModified: contentFreshness } : {}),
       alternates: languageAlternates(site.url),
     },
-    ...STATIC_PAGE_SOURCES.map((page) => {
+    ...[
+      ...STATIC_PAGE_SOURCES,
+      ...fichas.map((f) => ({ path: `/ficha/${f.slug}`, file: "src/data/fichas.json" })),
+    ].map((page) => {
       const url = `${site.url}${page.path}`;
       return {
         url,

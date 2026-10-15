@@ -40,12 +40,16 @@ export default async function ArticleOpenGraphImage({
   const { slug } = await params;
   const post = getPostBySlug(slug);
 
-  const kicker =
-    post?.kicker ??
-    post?.subcategoryLabel ??
-    post?.categoryLabel ??
-    "The Zero";
   const title = post?.title ?? site.name;
+  /** Barra técnica: editoria em mono + dado principal do frontmatter (veredito). */
+  const VERDICT: Record<string, string> = { comprar: "COMPRAR", esperar: "ESPERAR", pular: "PULAR" };
+  const bar = [
+    (post?.subcategoryLabel ?? post?.categoryLabel ?? "The Zero").toUpperCase(),
+    post?.veredito ? `VEREDITO: ${VERDICT[post.veredito.decisao] ?? post.veredito.decisao.toUpperCase()}` : null,
+    post ? `${post.readingMinutes} MIN` : null,
+  ].filter(Boolean).join("  ·  ");
+  const mono = await readFile(path.join(process.cwd(), "src/assets/fonts/JetBrainsMono-Bold.ttf"));
+  const sans = await readFile(path.join(process.cwd(), "node_modules/next/dist/compiled/@vercel/og/Geist-Regular.ttf"));
   const cover = await ogCoverSrc(post?.cover);
 
   return new ImageResponse(
@@ -59,6 +63,7 @@ export default async function ArticleOpenGraphImage({
           justifyContent: "space-between",
           background: ogPalette.bg,
           color: ogPalette.fg,
+          fontFamily: "Geist",
           padding: "72px",
           position: "relative",
         }}
@@ -104,13 +109,16 @@ export default async function ArticleOpenGraphImage({
           <div
             style={{
               display: "flex",
+              fontFamily: "JetBrains Mono",
               color: ogPalette.accent,
-              fontSize: 22,
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
+              background: "rgba(12,18,32,0.82)",
+              border: `2px solid ${ogPalette.accent}`,
+              padding: "10px 18px",
+              fontSize: 24,
+              letterSpacing: "0.06em",
             }}
           >
-            {kicker}
+            {bar}
           </div>
           {!cover ? <OgWordmark width={168} /> : null}
         </div>
@@ -141,6 +149,6 @@ export default async function ArticleOpenGraphImage({
         <OgWatermarkBadge handle={site.social.instagramHandle} />
       </div>
     ),
-    { ...size },
+    { ...size, fonts: [{ name: "Geist", data: sans, weight: 400, style: "normal" }, { name: "JetBrains Mono", data: mono, weight: 700, style: "normal" }] },
   );
 }

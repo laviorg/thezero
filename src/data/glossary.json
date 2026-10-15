@@ -1,0 +1,602 @@
+[
+ {
+  "id": "1-low",
+  "term": "1% low",
+  "definition": "Média dos piores quadros de um teste, que mostra as travadas que a média de FPS esconde. Duas placas com a mesma média podem ter 1% low bem diferentes.",
+  "guide": "rx-7600-vs-rtx-4060-brasil"
+ },
+ {
+  "id": "80-plus",
+  "term": "80 Plus",
+  "definition": "Selo de eficiência para fontes de PC: quanto mais alto o nível (Bronze, Gold, Platinum), menos energia vira calor na conversão da tomada para o PC. Não mede qualidade dos componentes nem estabilidade. Uma fonte Bronze boa vale mais que uma Gold genérica.",
+  "guide": "fonte-650w-80-plus-o-que-nao-economizar"
+ },
+ {
+  "id": "aio",
+  "term": "AIO",
+  "definition": "Sigla de all-in-one, o water cooler fechado que já vem com bomba, radiador e líquido selados. Não precisa de manutenção como um custom, mas a bomba tem vida útil. Ocupa espaço no gabinete para o radiador.",
+  "guide": "cooler-torre-ou-water-cooler-aio"
+ },
+ {
+  "id": "air-cooler",
+  "term": "Air cooler",
+  "definition": "Cooler de processador com dissipador de metal e ventoinha, sem líquido. Os modelos de torre resolvem a maioria dos processadores de consumo com menos pontos de falha que um water cooler.",
+  "guide": "cooler-torre-ou-water-cooler-aio"
+ },
+ {
+  "id": "airflow",
+  "term": "Airflow",
+  "definition": "Fluxo de ar dentro do gabinete, da entrada à saída. Frente com tela e ventoinhas puxando ar frio rendem mais que vidro fechado bonito.",
+  "guide": "gabinete-fluxo-de-ar-ate-400"
+ },
+ {
+  "id": "am4",
+  "term": "AM4",
+  "definition": "Soquete da AMD usado pelos Ryzen das séries 1000 a 5000, com memória DDR4. Ainda é a plataforma mais barata para montar um PC no Brasil, mas não recebe processadores novos.",
+  "guide": "ddr4-vs-ddr5-ainda-vale-montar"
+ },
+ {
+  "id": "am5",
+  "term": "AM5",
+  "definition": "Soquete atual da AMD, estreado com os Ryzen 7000, que usa só memória DDR5. A AMD prometeu suporte longo, o que facilita trocar só o processador anos depois.",
+  "guide": "placa-mae-b650-barata-upgrade-ryzen"
+ },
+ {
+  "id": "anti-cheat",
+  "term": "Anti-cheat",
+  "definition": "Programa que roda junto com o jogo online para detectar trapaça. Os mais rígidos funcionam no nível do kernel do sistema e podem bloquear hardware ou contas suspeitas. Por isso alguns jogos não rodam no Linux nem no Steam Deck.",
+  "guide": "cpu-usada-banimento-anticheat-valorant"
+ },
+ {
+  "id": "apu",
+  "term": "APU",
+  "definition": "Processador com gráfico integrado forte, como os Ryzen com Radeon. Roda jogos leves sem placa de vídeo e equipa portáteis como Steam Deck e ROG Ally.",
+  "guide": "amd-confirma-fsr-4-em-apus-2026"
+ },
+ {
+  "id": "armazenamento-interno",
+  "term": "Armazenamento interno",
+  "definition": "Espaço para apps, fotos e sistema no celular. Sem cartão de memória, 128 GB enche rápido para quem grava vídeo.",
+  "guide": "armazenamento-128-ou-256-gb-celular"
+ },
+ {
+  "id": "bateria-mah-e-wh",
+  "term": "Bateria (mAh e Wh)",
+  "definition": "mAh indica carga, mas só compara baterias de mesma tensão. Wh é a energia total e é o número que vale para comparar notebook, power bank e portátil. Companhias aéreas usam Wh como limite.",
+  "guide": "power-bank-pc-portatil-wattagem"
+ },
+ {
+  "id": "benchmark",
+  "term": "Benchmark",
+  "definition": "Teste padronizado que mede desempenho de um componente ou aparelho. Resultados só se comparam quando o teste, a resolução e as configurações são iguais. Nota sintética não substitui teste no jogo que você joga.",
+  "guide": "rx-7600-vs-rtx-4060-brasil"
+ },
+ {
+  "id": "bios-uefi",
+  "term": "BIOS / UEFI",
+  "definition": "Firmware da placa-mãe que inicializa o hardware antes do sistema. Atualizar pode ser necessário para aceitar processadores novos ou corrigir falhas, como aconteceu com os Intel de 13ª e 14ª geração.",
+  "guide": "intel-core-i9-14900k-degradacao-bios"
+ },
+ {
+  "id": "bottleneck-gargalo",
+  "term": "Bottleneck (gargalo)",
+  "definition": "Quando um componente limita o desempenho do resto, como um processador fraco segurando uma placa de vídeo forte. Todo PC tem algum gargalo; o que importa é se ele aparece no seu uso real.",
+  "guide": "ryzen-5-7600-vs-core-i5-custo-brasil"
+ },
+ {
+  "id": "cache-cpu",
+  "term": "Cache (CPU)",
+  "definition": "Memória muito rápida dentro do processador. Mais cache, como no 3D V-Cache da AMD, ajuda bastante em jogos que buscam muitos dados pequenos repetidamente.",
+  "guide": "ryzen-5-7600-vs-core-i5-custo-brasil"
+ },
+ {
+  "id": "cancelamento-de-ruido-anc",
+  "term": "Cancelamento de ruído (ANC)",
+  "definition": "Microfones captam o som ambiente e o fone gera uma onda oposta para anulá-lo. Funciona melhor em ruído constante, como avião e ônibus, do que em vozes.",
+  "guide": "fone-cancelamento-ruido-ate-800"
+ },
+ {
+  "id": "carregamento-sem-fio",
+  "term": "Carregamento sem fio",
+  "definition": "Carga por indução, sem cabo. É mais lento e esquenta mais que o cabo, e calor desgasta a bateria.",
+  "guide": "carregamento-sem-fio-calor-e-bateria"
+ },
+ {
+  "id": "chipset",
+  "term": "Chipset",
+  "definition": "Conjunto de controladores da placa-mãe que define quantas portas, linhas PCIe e recursos ela oferece. Na AMD, B650 e X670 usam o mesmo soquete, mas mudam conexões e preço.",
+  "guide": "placa-mae-b650-barata-upgrade-ryzen"
+ },
+ {
+  "id": "clock-frequencia",
+  "term": "Clock (frequência)",
+  "definition": "Quantos ciclos por segundo um processador executa, em GHz. Só compara chips da mesma geração; arquitetura pesa tanto quanto.",
+  "guide": "ryzen-5-7600-vs-core-i5-custo-brasil"
+ },
+ {
+  "id": "cloud-nuvem",
+  "term": "Cloud (nuvem)",
+  "definition": "Armazenamento em servidores de terceiros, como Drive, OneDrive e iCloud. Planos grátis dão pouco espaço e o acesso depende de internet.",
+  "guide": "nuvem-gratis-drive-onedrive-icloud"
+ },
+ {
+  "id": "codec-de-audio-bluetooth",
+  "term": "Codec de áudio Bluetooth",
+  "definition": "Formato de compressão usado entre o celular e o fone. SBC é o básico, AAC funciona melhor no iPhone, e LDAC ou aptX dependem do aparelho suportar dos dois lados.",
+  "guide": "fone-tws-ate-300-audio-e-microfone"
+ },
+ {
+  "id": "conector-12vhpwr",
+  "term": "Conector 12VHPWR",
+  "definition": "Conector de 16 pinos das placas de vídeo NVIDIA topo de linha. Precisa estar totalmente encaixado; mal encaixado pode derreter.",
+  "guide": "rtx-5090-mod-conector-8-pinos"
+ },
+ {
+  "id": "contexto-ia",
+  "term": "Contexto (IA)",
+  "definition": "Quantidade de texto que um modelo de IA consegue considerar de uma vez, medida em tokens. Contexto grande ajuda a ler documentos longos, mas não garante que o modelo use tudo bem.",
+  "guide": "contexto-maior-que-prompt"
+ },
+ {
+  "id": "core-nucleo",
+  "term": "Core (núcleo)",
+  "definition": "Unidade de processamento dentro da CPU. Jogos atuais aproveitam bem de 6 a 8 núcleos; edição de vídeo e renderização escalam com mais.",
+  "guide": "ryzen-5-7600-vs-core-i5-custo-brasil"
+ },
+ {
+  "id": "cpu",
+  "term": "CPU",
+  "definition": "Processador central do computador, que executa o sistema e a lógica dos programas. Em jogos, define a taxa de quadros máxima possível antes da placa de vídeo.",
+  "guide": "ryzen-5-7600-vs-core-i5-custo-brasil"
+ },
+ {
+  "id": "ddr4",
+  "term": "DDR4",
+  "definition": "Geração de memória RAM anterior, ainda barata e comum em PCs AM4 e Intel até a 14ª geração. Não é compatível fisicamente com slots DDR5.",
+  "guide": "ddr4-vs-ddr5-ainda-vale-montar"
+ },
+ {
+  "id": "ddr5",
+  "term": "DDR5",
+  "definition": "Geração atual de memória RAM, com frequências maiores. É obrigatória no AM5 e nas plataformas Intel mais novas. Custa mais que DDR4 por gigabyte.",
+  "guide": "ddr4-vs-ddr5-ainda-vale-montar"
+ },
+ {
+  "id": "dlss",
+  "term": "DLSS",
+  "definition": "Tecnologia da NVIDIA que renderiza o jogo em resolução menor e usa IA para reconstruir a imagem. Exige placas RTX. A geração de quadros aumenta o FPS exibido, mas não reduz a latência.",
+  "guide": "dlss-5-placas-suportadas-modelo-rapido"
+ },
+ {
+  "id": "dock-usb-c",
+  "term": "Dock USB-C",
+  "definition": "Acessório que transforma uma porta USB-C em várias: vídeo, rede, USB e carregamento. A capacidade depende do que a porta do notebook suporta.",
+  "guide": "dock-usb-c-notebook-o-que-nao-economizar"
+ },
+ {
+  "id": "dual-channel",
+  "term": "Dual channel",
+  "definition": "Uso de dois pentes de memória para dobrar a largura de banda. Em jogos e vídeo integrado faz diferença visível; dois pentes de 8 GB rendem mais que um de 16 GB.",
+  "guide": "ram-16-ou-32-gb-2026"
+ },
+ {
+  "id": "dual-sim",
+  "term": "Dual SIM",
+  "definition": "Celular que aceita duas linhas ao mesmo tempo. Pode ser com dois chips físicos ou um chip e um eSIM.",
+  "guide": "celular-dual-sim-esim-brasil"
+ },
+ {
+  "id": "dualsense",
+  "term": "DualSense",
+  "definition": "Controle do PS5, com gatilhos adaptáveis que mudam a resistência e vibração háptica detalhada. Funciona no PC, mas os recursos especiais dependem do jogo.",
+  "guide": "dualsense-vs-xbox-vs-8bitdo-no-pc"
+ },
+ {
+  "id": "edicao-digital",
+  "term": "Edição digital",
+  "definition": "Console sem leitor de disco, só com jogos da loja online. Mais barato na compra, mas sem jogo usado ou revenda de mídia.",
+  "guide": "ps5-slim-vale-a-pena-2026-brasil"
+ },
+ {
+  "id": "emulacao",
+  "term": "Emulação",
+  "definition": "Rodar jogos de um console em outro aparelho por software que imita o hardware original. Consoles antigos rodam fácil; os mais novos exigem processador forte. Baixar ROM de jogo que você não tem é pirataria.",
+  "guide": "emular-no-steam-deck-expectativa-real"
+ },
+ {
+  "id": "esim",
+  "term": "eSIM",
+  "definition": "Chip de operadora digital, gravado no aparelho. Permite trocar de linha sem chip físico; no Brasil, o suporte varia por operadora e plano.",
+  "guide": "celular-dual-sim-esim-brasil"
+ },
+ {
+  "id": "extensao-de-navegador",
+  "term": "Extensão de navegador",
+  "definition": "Complemento que acrescenta funções ao Chrome ou Edge. Muitas pedem permissão para ler tudo o que você vê; instale só o necessário.",
+  "guide": "extensoes-chrome-edge-sequestram-ias"
+ },
+ {
+  "id": "fibra-optica",
+  "term": "Fibra óptica",
+  "definition": "Internet por cabo de fibra até a casa. Mais estável e com latência menor que cabo coaxial ou rádio.",
+  "guide": "fibra-500-mb-vs-1-gb"
+ },
+ {
+  "id": "fonte-modular",
+  "term": "Fonte modular",
+  "definition": "Fonte em que os cabos são destacáveis, então você só conecta os que usa. Facilita a organização, mas não muda a qualidade elétrica.",
+  "guide": "fonte-650w-80-plus-o-que-nao-economizar"
+ },
+ {
+  "id": "fps",
+  "term": "FPS",
+  "definition": "Quadros por segundo exibidos pelo jogo. 60 FPS é a referência de fluidez; acima disso só aparece de verdade com monitor de taxa de atualização alta.",
+  "guide": "monitor-144hz-full-hd-vs-1440p"
+ },
+ {
+  "id": "frame-time",
+  "term": "Frame time",
+  "definition": "Tempo entre um quadro e o próximo. Média de FPS alta com frame time irregular ainda parece travada; por isso os testes mostram o 1% low.",
+  "guide": "rx-7600-vs-rtx-4060-brasil"
+ },
+ {
+  "id": "fsr",
+  "term": "FSR",
+  "definition": "Upscaling da AMD que funciona em placas de várias marcas. As versões novas usam IA e exigem hardware recente. A qualidade varia por jogo.",
+  "guide": "amd-confirma-fsr-4-em-apus-2026"
+ },
+ {
+  "id": "game-pass",
+  "term": "Game Pass",
+  "definition": "Assinatura da Microsoft com catálogo rotativo de jogos para Xbox e PC. Compensa para quem joga muitos títulos diferentes; jogos saem do catálogo.",
+  "guide": "game-pass-ultimate-vs-comprar-jogo"
+ },
+ {
+  "id": "garantia-estendida",
+  "term": "Garantia estendida",
+  "definition": "Seguro vendido à parte, que cobre defeitos após a garantia do fabricante. Leia o que está excluído antes de pagar; muitas vezes custa caro para o risco real.",
+  "guide": "garantia-estendida-quando-recusar"
+ },
+ {
+  "id": "gargalo-de-wi-fi",
+  "term": "Gargalo de Wi-Fi",
+  "definition": "Quando o plano de internet é mais rápido que a rede sem fio da casa. Plano de 1 Gb num roteador antigo não chega ao celular.",
+  "guide": "roteador-wifi-6-barato-modem-operadora"
+ },
+ {
+  "id": "gddr",
+  "term": "GDDR",
+  "definition": "Memória da placa de vídeo (VRAM), em gerações como GDDR6 e GDDR7. Quantidade e largura do barramento importam tanto quanto a geração.",
+  "guide": "amd-aumenta-precos-memoria-gddr6-placas-video"
+ },
+ {
+  "id": "gerenciador-de-senhas",
+  "term": "Gerenciador de senhas",
+  "definition": "App que guarda e cria senhas fortes, com uma senha mestra. Evita repetir senha entre sites.",
+  "guide": "gerenciador-de-senhas-gratis-vs-pago"
+ },
+ {
+  "id": "gpu",
+  "term": "GPU",
+  "definition": "Processador gráfico, a placa de vídeo. Define a qualidade gráfica e a resolução que você consegue jogar.",
+  "guide": "rtx-4060-vs-5060-brasil"
+ },
+ {
+  "id": "grafico-integrado",
+  "term": "Gráfico integrado",
+  "definition": "GPU dentro do processador, sem placa separada. Resolve vídeo e escritório; para jogos pesados, falta força.",
+  "guide": "mini-pc-quando-substitui-o-desktop"
+ },
+ {
+  "id": "hd-disco-rigido",
+  "term": "HD (disco rígido)",
+  "definition": "Armazenamento com disco giratório. Barato por terabyte, mas lento e sensível a quedas; serve para backup.",
+  "guide": "hd-externo-vs-ssd-portatil"
+ },
+ {
+  "id": "historico-de-localizacao",
+  "term": "Histórico de localização",
+  "definition": "Registro dos lugares por onde o celular passou, salvo pela conta Google ou Apple. Pode ser desligado ou apagado nas configurações.",
+  "guide": "desligar-historico-localizacao-google-android"
+ },
+ {
+  "id": "hz-taxa-de-atualizacao",
+  "term": "Hz (taxa de atualização)",
+  "definition": "Quantas vezes por segundo a tela redesenha a imagem. 144 Hz deixa movimento mais nítido, desde que o PC entregue FPS parecido.",
+  "guide": "monitor-144hz-full-hd-vs-1440p"
+ },
+ {
+  "id": "input-lag",
+  "term": "Input lag",
+  "definition": "Atraso entre apertar o botão e ver o efeito na tela. Modo jogo na TV reduz o processamento e o atraso.",
+  "guide": "monitor-144hz-full-hd-vs-1440p"
+ },
+ {
+  "id": "ip67-ip68",
+  "term": "IP67 / IP68",
+  "definition": "Classificação de resistência a poeira e água. Testada em água doce parada; não cobre mergulho no mar e a garantia geralmente não cobre dano por líquido.",
+  "guide": "capinha-e-pelicula-o-que-protege"
+ },
+ {
+  "id": "ips",
+  "term": "IPS",
+  "definition": "Tipo de painel LCD com boas cores e ângulos de visão. Contraste menor que VA e OLED, preto tende a cinza no escuro.",
+  "guide": "monitor-144hz-full-hd-vs-1440p"
+ },
+ {
+  "id": "key-de-jogo",
+  "term": "Key de jogo",
+  "definition": "Código de ativação vendido fora da loja oficial. Sites de revenda podem vender keys de origem duvidosa, que a publicadora pode revogar depois.",
+  "guide": "key-de-jogo-barata-risco-de-conta"
+ },
+ {
+  "id": "latencia",
+  "term": "Latência",
+  "definition": "Atraso entre uma ação e o resultado. Em jogos online é o ping; em fones Bluetooth é o atraso do som; em monitor é o input lag.",
+  "guide": "fibra-500-mb-vs-1-gb"
+ },
+ {
+  "id": "linha-de-upgrade",
+  "term": "Linha de upgrade",
+  "definition": "Caminho para trocar peças sem trocar o PC inteiro. Plataformas com soquete novo dão mais margem.",
+  "guide": "placa-mae-b650-barata-upgrade-ryzen"
+ },
+ {
+  "id": "llm",
+  "term": "LLM",
+  "definition": "Modelo de linguagem grande, o tipo de IA por trás de ChatGPT, Gemini e Claude. Gera texto prevendo palavras e pode errar com confiança.",
+  "guide": "chatgpt-vs-gemini-no-celular"
+ },
+ {
+  "id": "m-2",
+  "term": "M.2",
+  "definition": "Formato físico de cartão para SSD e Wi-Fi. Um slot M.2 pode aceitar SATA, NVMe ou os dois; confira o manual da placa.",
+  "guide": "ssd-nvme-1tb-brasil-o-que-olhar"
+ },
+ {
+  "id": "microfone-usb",
+  "term": "Microfone USB",
+  "definition": "Microfone com placa de som embutida, ligado direto no PC. Melhora voz em chamadas sem precisar de interface.",
+  "guide": "microfone-usb-sem-estudio"
+ },
+ {
+  "id": "mini-pc",
+  "term": "Mini PC",
+  "definition": "Computador compacto, muitas vezes com gráfico integrado. Substitui desktop de escritório; para jogos pesados ainda perde para uma placa dedicada.",
+  "guide": "mini-pc-quando-substitui-o-desktop"
+ },
+ {
+  "id": "modelo-de-ia-mini",
+  "term": "Modelo de IA \"mini\"",
+  "definition": "Versão menor e mais barata de um modelo de IA. Responde mais rápido, mas erra mais em tarefas complexas.",
+  "guide": "modelo-menor-ou-pro"
+ },
+ {
+  "id": "monitor-ultrawide",
+  "term": "Monitor ultrawide",
+  "definition": "Monitor 21:9 ou mais largo. Ótimo para planilhas e edição de vídeo, mas nem todo jogo suporta a proporção.",
+  "guide": "monitor-ultrawide-produtividade"
+ },
+ {
+  "id": "notebook-2-em-1",
+  "term": "Notebook 2 em 1",
+  "definition": "Notebook que vira tablet, dobrando ou destacando a tela. Útil com caneta; costuma pagar mais pelo mesmo desempenho.",
+  "guide": "notebook-2-em-1-vale-a-pena"
+ },
+ {
+  "id": "nvme",
+  "term": "NVMe",
+  "definition": "Protocolo de SSD que usa linhas PCIe, bem mais rápido que SATA. A diferença aparece em cópias grandes; no carregamento de jogo é menor.",
+  "guide": "ssd-nvme-1tb-brasil-o-que-olhar"
+ },
+ {
+  "id": "oled",
+  "term": "OLED",
+  "definition": "Tela em que cada pixel emite luz própria, com preto absoluto. Pode sofrer marca permanente com imagem estática por muito tempo.",
+  "guide": "modo-escuro-oled-cansaco-de-tela"
+ },
+ {
+  "id": "overclock",
+  "term": "Overclock",
+  "definition": "Rodar um componente acima da frequência de fábrica. Ganha desempenho, aumenta calor e consumo, e pode afetar a garantia.",
+  "guide": "pasta-termica-quando-trocar"
+ },
+ {
+  "id": "pasta-termica",
+  "term": "Pasta térmica",
+  "definition": "Composto entre o processador e o cooler que preenche falhas microscópicas. Seca com os anos; trocar ajuda quando a temperatura sobe sem motivo.",
+  "guide": "pasta-termica-quando-trocar"
+ },
+ {
+  "id": "pcie",
+  "term": "PCIe",
+  "definition": "Barramento que liga placa de vídeo e SSD à placa-mãe. Cada geração dobra a banda por linha; para jogos, PCIe 4.0 ainda basta.",
+  "guide": "pcie-4-vs-5-ssd-vale-a-diferenca"
+ },
+ {
+  "id": "playstation-plus",
+  "term": "PlayStation Plus",
+  "definition": "Assinatura da Sony. O Essential libera jogo online; Extra e Deluxe somam catálogo de jogos.",
+  "guide": "ps-plus-extra-quem-joga-pouco"
+ },
+ {
+  "id": "power-bank",
+  "term": "Power bank",
+  "definition": "Bateria externa. Para notebook e portátil, a potência de saída em watts e o padrão USB-C PD importam mais que a capacidade.",
+  "guide": "power-bank-pc-portatil-wattagem"
+ },
+ {
+  "id": "pre-venda",
+  "term": "Pré-venda",
+  "definition": "Compra antes do lançamento. Raramente garante preço melhor; o jogo costuma ter desconto semanas depois.",
+  "guide": "pre-venda-de-jogo-desconto-depois"
+ },
+ {
+  "id": "prompt",
+  "term": "Prompt",
+  "definition": "Instrução dada a uma IA. Bons prompts dão contexto, formato e limite; não coloque dados sensíveis.",
+  "guide": "o-que-nao-colar-no-chat-de-ia"
+ },
+ {
+  "id": "ram",
+  "term": "RAM",
+  "definition": "Memória de trabalho do computador ou celular. Faltar RAM causa travadas; sobrar não acelera nada.",
+  "guide": "ram-16-ou-32-gb-2026"
+ },
+ {
+  "id": "ram-soldada",
+  "term": "RAM soldada",
+  "definition": "Memória presa na placa do notebook, sem como aumentar depois. Escolha a quantidade certa na compra.",
+  "guide": "ram-soldada-notebook-arrependimento"
+ },
+ {
+  "id": "ray-tracing",
+  "term": "Ray tracing",
+  "definition": "Técnica que simula o caminho da luz para reflexos e sombras mais realistas. Custa muito desempenho e normalmente vem com upscaling.",
+  "guide": "rtx-4060-vs-5060-brasil"
+ },
+ {
+  "id": "resolucao",
+  "term": "Resolução",
+  "definition": "Número de pixels da imagem: 1080p, 1440p, 4K. Resolução maior exige mais da placa de vídeo.",
+  "guide": "monitor-144hz-full-hd-vs-1440p"
+ },
+ {
+  "id": "retrocompatibilidade",
+  "term": "Retrocompatibilidade",
+  "definition": "Capacidade de um console rodar jogos da geração anterior. O PS5 roda a maioria dos jogos de PS4.",
+  "guide": "ps4-ainda-vale-2026-catalogo"
+ },
+ {
+  "id": "roteador-wi-fi-6",
+  "term": "Roteador Wi-Fi 6",
+  "definition": "Roteador com o padrão 802.11ax, mais eficiente com muitos aparelhos. O alcance depende de posição e paredes.",
+  "guide": "roteador-wifi-6-barato-modem-operadora"
+ },
+ {
+  "id": "sata",
+  "term": "SATA",
+  "definition": "Interface antiga de SSD e HD, limitada a cerca de 550 MB/s. Ainda serve para armazenamento extra.",
+  "guide": "ssd-nvme-1tb-brasil-o-que-olhar"
+ },
+ {
+  "id": "seminovo",
+  "term": "Seminovo",
+  "definition": "Aparelho usado revendido, às vezes revisado. Verifique bateria, bloqueio de conta e procedência.",
+  "guide": "iphone-seminovo-brasil-o-que-checar"
+ },
+ {
+  "id": "soquete",
+  "term": "Soquete",
+  "definition": "Encaixe do processador na placa-mãe. Processador e placa precisam usar o mesmo.",
+  "guide": "placa-mae-b650-barata-upgrade-ryzen"
+ },
+ {
+  "id": "soundbar",
+  "term": "Soundbar",
+  "definition": "Caixa de som comprida para TV, que melhora diálogos. Modelos baratos não substituem um home theater.",
+  "guide": "soundbar-barata-vs-caixa-bluetooth"
+ },
+ {
+  "id": "ssd",
+  "term": "SSD",
+  "definition": "Armazenamento sem partes móveis, muito mais rápido que HD. É a melhoria que mais muda um PC antigo.",
+  "guide": "ssd-nvme-1tb-brasil-o-que-olhar"
+ },
+ {
+  "id": "ssd-portatil",
+  "term": "SSD portátil",
+  "definition": "SSD em caixa com USB. Bem mais rápido e resistente que HD externo, mas custa mais por terabyte.",
+  "guide": "hd-externo-vs-ssd-portatil"
+ },
+ {
+  "id": "steam-deck",
+  "term": "Steam Deck",
+  "definition": "Portátil da Valve que roda jogos da Steam com SteamOS, baseado em Linux. Jogos com anti-cheat incompatível não rodam.",
+  "guide": "rog-xbox-ally-vs-steam-deck-oled"
+ },
+ {
+  "id": "taxa-de-amostragem-sensor",
+  "term": "Taxa de amostragem (sensor)",
+  "definition": "Quantas vezes por segundo um mouse ou relógio lê o sensor. Em mouse, o polling rate; em relógio, frequência do batimento.",
+  "guide": "mouse-gamer-leve-alem-do-marketing"
+ },
+ {
+  "id": "tdp",
+  "term": "TDP",
+  "definition": "Valor de referência do calor que o cooler precisa dissipar. Não é o consumo máximo; processadores ultrapassam o TDP em carga.",
+  "guide": "fonte-rtx-4060-e-4070-quantos-watts"
+ },
+ {
+  "id": "thermal-throttling",
+  "term": "Thermal throttling",
+  "definition": "Quando o componente reduz a velocidade para não superaquecer. Sinal de cooler fraco ou fluxo de ar ruim.",
+  "guide": "gabinete-fluxo-de-ar-ate-400"
+ },
+ {
+  "id": "token",
+  "term": "Token",
+  "definition": "Pedaço de texto que o modelo de IA processa, uma parte de palavra. Preço e limites de IA são medidos em tokens.",
+  "guide": "contexto-maior-que-prompt"
+ },
+ {
+  "id": "touchpad-haptico",
+  "term": "Touchpad háptico",
+  "definition": "Touchpad sem clique físico, que simula o clique com vibração. Comum em notebooks topo de linha.",
+  "guide": "macbook-air-m3-vs-notebook-windows-8-mil"
+ },
+ {
+  "id": "tws",
+  "term": "TWS",
+  "definition": "True Wireless Stereo, fones sem fio entre os dois lados. A qualidade do microfone costuma ser o ponto fraco.",
+  "guide": "fone-tws-ate-300-audio-e-microfone"
+ },
+ {
+  "id": "upscaling",
+  "term": "Upscaling",
+  "definition": "Renderizar em resolução menor e aumentar com algoritmo. DLSS, FSR e XeSS são exemplos.",
+  "guide": "dlss-5-placas-suportadas-modelo-rapido"
+ },
+ {
+  "id": "usb-c-pd",
+  "term": "USB-C PD",
+  "definition": "Padrão de carregamento rápido pelo USB-C que negocia tensão e potência. O carregador e o cabo precisam suportar a mesma potência.",
+  "guide": "carregador-usb-c-rapido-sem-fritar-bateria"
+ },
+ {
+  "id": "va",
+  "term": "VA",
+  "definition": "Painel LCD com contraste alto. Bom em ambiente escuro, mas pode ter rastro em cenas rápidas.",
+  "guide": "monitor-144hz-full-hd-vs-1440p"
+ },
+ {
+  "id": "vram",
+  "term": "VRAM",
+  "definition": "Memória própria da placa de vídeo. Pouca VRAM causa travadas e texturas borradas; 8 GB já limitam alguns jogos em 1440p.",
+  "guide": "rtx-4060-vs-5060-brasil"
+ },
+ {
+  "id": "vrm",
+  "term": "VRM",
+  "definition": "Circuito da placa-mãe que alimenta o processador. VRM fraco esquenta e limita processadores de muitos núcleos.",
+  "guide": "placa-mae-b650-barata-upgrade-ryzen"
+ },
+ {
+  "id": "water-cooler",
+  "term": "Water cooler",
+  "definition": "Resfriamento que usa líquido para levar o calor até um radiador. Vale mais por estética e espaço do que por temperatura em CPUs medianas.",
+  "guide": "cooler-torre-ou-water-cooler-aio"
+ },
+ {
+  "id": "wattagem-da-fonte",
+  "term": "Wattagem da fonte",
+  "definition": "Potência máxima contínua que a fonte entrega. Folga de 30% a 40% sobre o consumo do PC mantém a fonte eficiente e silenciosa.",
+  "guide": "fonte-rtx-4060-e-4070-quantos-watts"
+ },
+ {
+  "id": "xmp-expo",
+  "term": "XMP / EXPO",
+  "definition": "Perfis gravados na memória RAM para rodar na velocidade anunciada. Sem ativar na BIOS, o pente roda mais devagar.",
+  "guide": "ddr4-vs-ddr5-ainda-vale-montar"
+ }
+]

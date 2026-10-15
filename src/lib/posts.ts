@@ -32,8 +32,8 @@ import {
   type ReviewBucket,
 } from "@/lib/review-buckets";
 import { getAuthorBySlug } from "@/lib/authors";
+import { parseVerdictCard, type VerdictCardData } from "@/lib/verdict-card";
 import { postMatchesQuery } from "@/lib/search-match";
-import { site } from "@/lib/site";
 import { countPostWords } from "@/lib/word-count";
 
 export { isEvergreenFormat, isNewsFormat, type PostFormat };
@@ -55,6 +55,12 @@ export type PostFrontmatter = {
   author?: string;
   /** Temporary: keep the page live, drop it from the index. */
   noindex?: boolean;
+  /** Histórico de mudanças reais: `changelog: [{ data, nota }]` no frontmatter. */
+  changelog?: { date: string; note: string }[];
+  /** Promessas de anúncio (só as que estão no texto): status ficha | corte | adiado | papel. */
+  promessas?: { empresa: string; promessa: string; data: string; status: "ficha" | "corte" | "adiado" | "papel" }[];
+  /** Card de veredito (reviews e "Vale a pena?"). */
+  veredito?: VerdictCardData;
   /**
    * Legacy frontmatter. Parsed so old files still load.
    * Does not choose the home hero.
@@ -147,6 +153,22 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     updated: typeof data.updated === "string" ? data.updated : undefined,
     author: typeof data.author === "string" ? data.author : undefined,
     noindex: data.noindex === true,
+    veredito: parseVerdictCard(data.veredito),
+    changelog: Array.isArray(data.changelog)
+      ? (data.changelog as Record<string, unknown>[])
+          .map((e) => ({ date: e?.data instanceof Date ? e.data.toISOString() : String(e?.data ?? ""), note: String(e?.nota ?? "").trim() }))
+          .filter((e) => e.note && !Number.isNaN(new Date(e.date).getTime()))
+      : undefined,
+    promessas: Array.isArray(data.promessas)
+      ? (data.promessas as Record<string, unknown>[])
+          .map((e) => ({
+            empresa: String(e?.empresa ?? "").trim(),
+            promessa: String(e?.promessa ?? "").trim(),
+            data: String(e?.data ?? "").trim(),
+            status: String(e?.status ?? "") as "ficha" | "corte" | "adiado" | "papel",
+          }))
+          .filter((e) => e.empresa && e.promessa && ["ficha", "corte", "adiado", "papel"].includes(e.status))
+      : undefined,
     featured: Boolean(data.featured),
     featuredPriority:
       typeof data.featuredPriority === "number" &&
@@ -177,7 +199,11 @@ function toPost(slug: string, raw: string): Post | null {
     ? getSubcategory(frontmatter.category, frontmatter.subcategory)
     : undefined;
 
-  const updated = frontmatter.updated ?? frontmatter.date;
+  /** dateModified: a entrada real mais recente do changelog, se houver. */
+  const lastChange = frontmatter.changelog?.length
+    ? frontmatter.changelog.map((e) => e.date).sort().at(-1)
+    : undefined;
+  const updated = lastChange ?? frontmatter.updated ?? frontmatter.date;
   const wordCount = countPostWords(content);
 
   return {
@@ -190,8 +216,9 @@ function toPost(slug: string, raw: string): Post | null {
     categoryLabel: category.label,
     subcategoryLabel: subcategory?.label,
     subcategoryHref: subcategory?.href,
-    author: getAuthorBySlug(frontmatter.author)?.name ?? frontmatter.author ?? site.defaultAuthor,
-    authorSlug: getAuthorBySlug(frontmatter.author)?.slug,
+    // Todas as matérias saem assinadas por Nicholas Nishimura.
+    author: getAuthorBySlug("nicholas")!.name,
+    authorSlug: "nicholas",
     dateIso: toIsoDate(frontmatter.date),
     updatedIso: toIsoDate(updated),
   };
@@ -356,7 +383,19 @@ export function getRelatedPosts(post: Post, limit = 3): Post[] {
 }
 
 export function getAdjacentPosts(post: Post) {
-  const posts = getAllPosts();
+  /** Same desk first: subcategory, falling back to the parent category. */
+  const all = getAllPosts();
+  const sameSub = post.subcategory
+    ? all.filter(
+        (item) =>
+          item.category === post.category &&
+          item.subcategory === post.subcategory,
+      )
+    : [];
+  const posts =
+    sameSub.length > 1
+      ? sameSub
+      : all.filter((item) => item.category === post.category);
   const index = posts.findIndex((item) => item.slug === post.slug);
   if (index < 0) return { newer: undefined, older: undefined };
   return {

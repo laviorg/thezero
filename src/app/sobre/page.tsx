@@ -94,7 +94,7 @@ export default function AboutPage() {
         <div className="mt-6 space-y-4 text-base leading-7 text-fg/90">
           <p>
             The Zero é um newsroom independente de tecnologia, publicado no
-            Brasil. Fundado e editado por Nicholas Haruo Nishimura, São
+            Brasil. Fundado e editado por Nicholas Nishimura, São
             Paulo–SP. Não somos assessoria, loja de hype nem agregador. A
             pauta, o critério e o texto são da casa. Se um fabricante mandou
             o produto, a gente diz. Se não testamos, não fingimos.
@@ -133,7 +133,7 @@ export default function AboutPage() {
                 Responsável editorial
               </dt>
               <dd className="mt-1 text-fg">
-                Nicholas Haruo Nishimura, fundador e editor · São Paulo–SP
+                Nicholas Nishimura, fundador e editor · São Paulo–SP
               </dd>
             </div>
             <div className="sm:col-span-2">
@@ -141,9 +141,7 @@ export default function AboutPage() {
                 Autores das matérias
               </dt>
               <dd className="mt-1 text-fg">
-                Nicholas Haruo Nishimura ou Mavi, editora assistente de IA do
-                The Zero, com revisão humana. Cada matéria tem um autor só,
-                indicado no topo. Veja{" "}
+                Todas as matérias são assinadas por Nicholas Nishimura. Veja{" "}
                 <Link href="/autores" className="text-accent">
                   Autores
                 </Link>
@@ -178,7 +176,7 @@ export default function AboutPage() {
             <Link href="/como-testamos" className="text-accent">
               Como testamos
             </Link>
-            . Independência, correção, fonte e o uso de IA estão na{" "}
+            . Independência, correção e fonte estão na{" "}
             <Link href="/politica-editorial" className="text-accent">
               política editorial
             </Link>
