@@ -989,6 +989,16 @@
       "slug": "whatsapp-chamadas-video-sem-conta",
       "updated_at": "2026-10-14T22:24:52Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DefczUVD8u3"
+    },
+    "freakopoly-lancamento-steam-preco-brasil": {
+      "article_url": "https://www.thezero.com.br/noticia/freakopoly-lancamento-steam-preco-brasil",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/freakopoly-lancamento-steam-preco-brasil.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/freakopoly-lancamento-steam-preco-brasil.png",
+      "pr": 222,
+      "commit": "db54c0c4fa2b3259c1e9d04fbe1def8f6a97f290",
+      "ig": "https://www.instagram.com/p/Deg6ps4mNmB/",
+      "slug": "freakopoly-lancamento-steam-preco-brasil",
+      "updated_at": "2026-10-15T12:04:53Z"
     }
   }
 }
