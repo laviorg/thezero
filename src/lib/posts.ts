@@ -32,6 +32,7 @@ import {
   type ReviewBucket,
 } from "@/lib/review-buckets";
 import { getAuthorBySlug } from "@/lib/authors";
+import { parseVerdictCard, type VerdictCardData } from "@/lib/verdict-card";
 import { postMatchesQuery } from "@/lib/search-match";
 import { countPostWords } from "@/lib/word-count";
 
@@ -54,6 +55,8 @@ export type PostFrontmatter = {
   author?: string;
   /** Temporary: keep the page live, drop it from the index. */
   noindex?: boolean;
+  /** Card de veredito (reviews e "Vale a pena?"). */
+  veredito?: VerdictCardData;
   /**
    * Legacy frontmatter. Parsed so old files still load.
    * Does not choose the home hero.
@@ -146,6 +149,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     updated: typeof data.updated === "string" ? data.updated : undefined,
     author: typeof data.author === "string" ? data.author : undefined,
     noindex: data.noindex === true,
+    veredito: parseVerdictCard(data.veredito),
     featured: Boolean(data.featured),
     featuredPriority:
       typeof data.featuredPriority === "number" &&

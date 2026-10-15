@@ -69,6 +69,17 @@ export default function EditorialPolicyPage() {
         rodapé da matéria. Como participante do Programa de Associados da
         Amazon, o The Zero é remunerado pelas compras qualificadas efetuadas.
       </p>
+      <p>
+        Reviews e páginas “Vale a pena?” abrem com um card de veredito:
+        Comprar, Esperar ou Pular, três prós, três contras e para quem o
+        produto é. O veredito é decidido antes de qualquer link e não muda
+        por causa de comissão. Quando o card mostra preço, ele vem da
+        consulta registrada na loja, com a data; sem preço conferido, o card
+        sai sem preço. O link de afiliado fica dentro do card, com o aviso
+        “Link de afiliado: podemos ganhar comissão, sem custo pra você e sem
+        influência no veredito”. Hoje os programas são o da KaBuM (via Awin)
+        e o Programa de Associados da Amazon.
+      </p>
 
       <h2 id="fontes">Fontes</h2>
       <p>

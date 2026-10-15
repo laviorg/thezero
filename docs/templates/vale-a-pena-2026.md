@@ -25,3 +25,23 @@ Guia evergreen sobre um produto **já lançado**, para o leitor brasileiro. Atua
 - Todo número tem fonte (blog oficial, página do fabricante, loja na data).
 - Nada de especificação ou preço inventado.
 - Adicione o slug em `/workspace/ig-thezero/series_queue.txt` para o vídeo das 19:23 em dia fraco de notícia.
+
+## Card de veredito (frontmatter)
+
+Reviews e páginas "Vale a pena?" levam o bloco abaixo no frontmatter. O card aparece no topo da matéria.
+`precoId` é o id do item em `src/data/prices.json` (o preço e a data vêm de lá; sem id ou sem preço, o card sai sem preço). Nunca escreva preço à mão aqui.
+
+```yaml
+veredito:
+  decisao: comprar   # comprar | esperar | pular
+  precoId: ps5-disco # opcional
+  praQuem: "Para quem é, em uma frase."
+  pros:
+    - "Pró 1"
+    - "Pró 2"
+    - "Pró 3"
+  contras:
+    - "Contra 1"
+    - "Contra 2"
+    - "Contra 3"
+```
