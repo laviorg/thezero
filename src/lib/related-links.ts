@@ -16,7 +16,7 @@ export const RELATED_RULES: Rule[] = [
 
 export function relatedLinks(post: PostLike, extra: Rule[] = []) {
   const text = `${post.title}\n${post.content}`;
-  return [...RELATED_RULES, ...extra]
+  return [...extra, ...RELATED_RULES]
     .filter((r) => r.href !== post.href && r.test(post, text))
     .slice(0, 3)
     .map(({ href, label }) => ({ href, label }));
