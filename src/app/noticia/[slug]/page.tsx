@@ -201,17 +201,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="story-split">
           <div className="story-main">
             <ReadingMode />
-            {post.format === "review" || post.format === "vale-a-pena" || post.updatedIso !== post.dateIso ? (
-              <Changelog
-                entries={
-                  post.changelog?.length
-                    ? [{ date: post.dateIso, note: "Publicada" }, ...post.changelog]
-                    : [
-                        { date: post.dateIso, note: "Publicada" },
-                        ...(post.updatedIso !== post.dateIso ? [{ date: post.updatedIso, note: "Atualizada" }] : []),
-                      ]
-                }
-              />
+            {post.changelog?.length ? (
+              <Changelog entries={[{ date: post.dateIso, note: "Publicada" }, ...post.changelog]} />
             ) : null}
             {post.veredito ? <VerdictCard data={post.veredito} /> : null}
             <ArticleBody

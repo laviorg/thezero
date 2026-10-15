@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import revisions from "@/data/revisions.json";
 import matter from "gray-matter";
 import {
   CATEGORY_SLUGS,
@@ -199,9 +200,14 @@ function toPost(slug: string, raw: string): Post | null {
     ? getSubcategory(frontmatter.category, frontmatter.subcategory)
     : undefined;
 
-  /** dateModified: a entrada real mais recente do changelog, se houver. */
-  const lastChange = frontmatter.changelog?.length
-    ? frontmatter.changelog.map((e) => e.date).sort().at(-1)
+  /** Revisões reais: frontmatter `changelog` + histórico git (scripts/build-revisions.mjs). */
+  const gitRevisions = (revisions as Record<string, { date: string; note: string }[]>)[slug] ?? [];
+  frontmatter.changelog = [...(frontmatter.changelog ?? []), ...gitRevisions.map(({ date, note }) => ({ date, note }))]
+    .filter((e) => new Date(e.date).getTime() > new Date(toIsoDate(frontmatter.date)).getTime())
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  /** dateModified: a revisão real mais recente, se houver. */
+  const lastChange = frontmatter.changelog.length
+    ? frontmatter.changelog.at(-1)!.date
     : undefined;
   const updated = lastChange ?? frontmatter.updated ?? frontmatter.date;
   const wordCount = countPostWords(content);
