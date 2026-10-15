@@ -3,7 +3,7 @@ import { dealEvent } from "@/lib/deals";
 import { buildPageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 
-const event = dealEvent("black-friday-2026");
+const event = dealEvent("black-friday");
 
 export const metadata: Metadata = buildPageMetadata({
   title: event.documentTitle,

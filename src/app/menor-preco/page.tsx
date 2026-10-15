@@ -24,9 +24,9 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 const sections = [
-  { category: "gpu" as const, heading: "Placas de vídeo", guide: { href: "/black-friday-2026#gpu", label: "como escolher placa de vídeo" } },
-  { category: "ssd" as const, heading: "SSDs", guide: { href: "/black-friday-2026#ssd", label: "como escolher SSD" } },
-  { category: "console" as const, heading: "Consoles", guide: { href: "/black-friday-2026#console", label: "como escolher console" } },
+  { category: "gpu" as const, heading: "Placas de vídeo", guide: { href: "/black-friday#gpu", label: "como escolher placa de vídeo" } },
+  { category: "ssd" as const, heading: "SSDs", guide: { href: "/black-friday#ssd", label: "como escolher SSD" } },
+  { category: "console" as const, heading: "Consoles", guide: { href: "/black-friday#console", label: "como escolher console" } },
 ];
 
 export default function LowestPricePage() {
@@ -137,7 +137,7 @@ export default function LowestPricePage() {
           </li>
         </ul>
         <p>
-          Datas de compra: <Link href="/black-friday-2026">Black Friday 2026</Link> ·{" "}
+          Datas de compra: <Link href="/black-friday">Black Friday 2026</Link> ·{" "}
           <Link href="/11-11">11.11</Link> · <Link href="/prime-day">Prime Day</Link>
         </p>
       </div>

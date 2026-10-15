@@ -1,7 +1,9 @@
 /** Path redirects shared by the Vercel app and the Cloudflare Pages `_redirects` file. */
 export const APEX_HOST = "thezero.com.br";
 
-export const PATH_REDIRECTS = [
+/** `status` defaults to 308; set 301 where a classic permanent redirect is wanted. */
+export const PATH_REDIRECTS: { source: string; destination: string; status?: 301 | 308 }[] = [
+  { source: "/black-friday", destination: "/black-friday" },
   { source: "/hardware", destination: "/computadores" },
   { source: "/gadgets", destination: "/dispositivos" },
   { source: "/apps", destination: "/aplicativos" },

@@ -113,7 +113,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       menuLabel: "Compras",
       links: [
         { href: "/menor-preco", label: "Menor preço do dia" },
-        { href: "/black-friday-2026", label: "Black Friday 2026" },
+        { href: "/black-friday", label: "Black Friday 2026" },
         { href: "/11-11", label: "11.11" },
         { href: "/prime-day", label: "Prime Day" },
         { href: "/ferramentas/meu-pc-roda", label: "Meu PC roda?" },
