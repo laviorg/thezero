@@ -44,7 +44,8 @@ export function EventGuide({ event }: { event: DealEvent }) {
       <p className="lede mt-4">{event.lede}</p>
       <p className="mt-3 text-sm text-muted">
         Atualizado em <time dateTime={event.updatedIso}>{event.updatedLabel}</time>. Sem preço nesta página:
-        preço muda todo dia e você confere o valor atual na loja.
+        preço muda todo dia. Os valores checados, com data e hora, ficam no{" "}
+        <Link className="underline" href="/menor-preco">rastreador de menor preço do dia</Link>.
       </p>
       <Image
         src={event.cover}

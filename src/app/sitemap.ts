@@ -31,6 +31,7 @@ const STATIC_PAGE_SOURCES = [
   { path: "/black-friday-2026", file: "src/lib/deals.ts" },
   { path: "/prime-day", file: "src/lib/deals.ts" },
   { path: "/11-11", file: "src/lib/deals.ts" },
+  { path: "/menor-preco", file: "src/data/prices.json" },
 ] as const;
 
 function gitCommitDate(args: string[]): Date | undefined {
