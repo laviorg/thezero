@@ -1,5 +1,6 @@
 import { NewsletterBox } from "@/components/newsletter/newsletter-box";
 import { LONG_GUIDE_MIN_WORDS, injectNewsletterAfterThirdParagraph } from "@/lib/newsletter";
+import { VerdictCard } from "@/components/news/verdict-card";
 import Link from "next/link";
 import { ReadAlso } from "@/components/news/read-also";
 import { ArticleBody } from "@/components/news/article-body";
@@ -194,6 +195,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <PageShell width="article" className="story-body-shell">
         <div className="story-split">
           <div className="story-main">
+            {post.veredito ? <VerdictCard data={post.veredito} /> : null}
             <ArticleBody
               source={
                 post.format === "guia" && post.wordCount >= LONG_GUIDE_MIN_WORDS
