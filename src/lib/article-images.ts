@@ -5,6 +5,13 @@ import {
   coverAlt,
 } from "./seo.ts";
 import { absoluteUrl } from "./site.ts";
+import { derivedImagePath, type CoverRatio } from "./derived-image.ts";
+
+const RATIO_SIZES: Record<CoverRatio, [number, number]> = {
+  "16x9": [1200, 675],
+  "4x3": [1200, 900],
+  "1x1": [1200, 1200],
+};
 
 export const OG_IMAGE_WIDTH = 1200;
 export const OG_IMAGE_HEIGHT = 630;
@@ -20,7 +27,8 @@ export type ArticleImage = {
  * Images for NewsArticle and the sitemap.
  * The cover is the photo on the page. The generated card is a second,
  * always-on-domain file Google can fetch when the cover host blocks crawlers.
- * We do not invent 16:9 / 4:3 / 1:1 derivatives that are not files.
+ * Local covers also list the 16:9, 4:3 and 1:1 WebP crops that
+ * scripts/derive-covers.mjs writes before every build (real files).
  */
 export function articleImages(post: {
   slug: string;
@@ -37,6 +45,14 @@ export function articleImages(post: {
       ...(size ? { width: size.width, height: size.height } : {}),
       caption: coverAlt(post.title, post.coverAlt),
     });
+  }
+
+  const caption = coverAlt(post.title, post.coverAlt);
+  for (const ratio of ["16x9", "4x3", "1x1"] as const) {
+    const derived = derivedImagePath(post.cover, ratio);
+    if (!derived) break;
+    const [width, height] = RATIO_SIZES[ratio];
+    images.push({ url: absoluteUrl(derived), width, height, caption });
   }
 
   const card = absoluteUrl(articleOgImagePath(post.slug));
