@@ -36,6 +36,7 @@ const STATIC_PAGE_SOURCES = [
   { path: "/ferramentas/meu-pc-roda", file: "src/data/game-requirements.json" },
   { path: "/ferramentas/calculadora-de-fonte", file: "src/data/psu-components.json" },
   { path: "/ferramentas/montar-pc", file: "src/data/pc-builds.json" },
+  { path: "/glossario", file: "src/data/glossary.json" },
 ] as const;
 
 function gitCommitDate(args: string[]): Date | undefined {

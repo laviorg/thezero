@@ -119,6 +119,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         { href: "/ferramentas/meu-pc-roda", label: "Meu PC roda?" },
         { href: "/ferramentas/calculadora-de-fonte", label: "Calculadora de fonte" },
         { href: "/ferramentas/montar-pc", label: "Montar PC" },
+        { href: "/glossario", label: "Glossário" },
       ],
     },
   ];
