@@ -84,8 +84,19 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const activeSubs = getActiveSubcategories();
+  // Menu de topo: 5 itens. Subcategorias ficam dentro de cada seção.
   const sections = [
-    ...categoryMenus(getActiveSubcategories()),
+    {
+      id: "noticias",
+      href: "/",
+      label: "Notícias",
+      menuLabel: "Editorias",
+      links: categoryMenus(activeSubs).map((category) => ({
+        href: category.href,
+        label: category.label,
+      })),
+    },
     {
       id: "reviews",
       href: "/reviews",
@@ -100,11 +111,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       ],
     },
     {
-      id: "tutoriais",
+      id: "guias",
       href: "/tutoriais",
-      label: "Tutoriais",
-      menuLabel: "Plataforma",
-      links: [],
+      label: "Guias",
+      menuLabel: "Guias",
+      links: [
+        { href: "/tutoriais", label: "Tutoriais" },
+        { href: "/vale-a-pena", label: "Vale a pena?" },
+        { href: "/glossario", label: "Glossário" },
+        { href: "/como-testamos", label: "Como testamos" },
+      ],
     },
     {
       id: "ofertas",
@@ -116,10 +132,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         { href: "/black-friday", label: "Black Friday 2026" },
         { href: "/11-11", label: "11.11" },
         { href: "/prime-day", label: "Prime Day" },
+      ],
+    },
+    {
+      id: "ferramentas",
+      href: "/ferramentas",
+      label: "Ferramentas",
+      menuLabel: "Calculadoras",
+      links: [
         { href: "/ferramentas/meu-pc-roda", label: "Meu PC roda?" },
         { href: "/ferramentas/calculadora-de-fonte", label: "Calculadora de fonte" },
         { href: "/ferramentas/montar-pc", label: "Montar PC" },
-        { href: "/glossario", label: "Glossário" },
       ],
     },
   ];
