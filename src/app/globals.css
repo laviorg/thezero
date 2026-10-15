@@ -1365,3 +1365,12 @@ body.has-cookie-banner {
   font-size: 0.88rem;
   color: var(--tz-muted);
 }
+
+/* ↗ só em link externo (sai do thezero.com.br). Link interno não leva seta. */
+.article-body a[href^="http"]:not([href*="thezero.com.br"])::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 0.15em;
+  font-size: 0.78em;
+  text-decoration: none;
+}

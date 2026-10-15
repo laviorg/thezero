@@ -101,9 +101,6 @@ export function ArticleCard({
               )}
             >
               {post.title}
-              <span className="card-arrow" aria-hidden>
-                ↗
-              </span>
             </Heading>
             <p className="mt-1 hidden text-[0.9rem] leading-5 text-muted text-pretty line-clamp-2 @min-[30rem]:block">
               {post.excerpt}
@@ -144,9 +141,6 @@ export function ArticleCard({
           )}
         >
           {post.title}
-          <span className="card-arrow" aria-hidden>
-            ↗
-          </span>
         </Heading>
         <p
           className={cn(
