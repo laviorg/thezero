@@ -28,6 +28,9 @@ const STATIC_PAGE_SOURCES = [
   { path: "/autores", file: "src/app/autores/page.tsx" },
   { path: "/autores/nicholas", file: "src/app/autores/[slug]/page.tsx" },
   { path: "/autores/mavi", file: "src/app/autores/[slug]/page.tsx" },
+  { path: "/black-friday-2026", file: "src/lib/deals.ts" },
+  { path: "/prime-day", file: "src/lib/deals.ts" },
+  { path: "/11-11", file: "src/lib/deals.ts" },
 ] as const;
 
 function gitCommitDate(args: string[]): Date | undefined {
