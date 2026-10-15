@@ -65,6 +65,7 @@ function run(command, args, env) {
 let exitCode = 1;
 try {
   applyPatches();
+  await run("node", ["scripts/fetch-fx.mjs"], {});
   exitCode = await run("node", ["scripts/derive-covers.mjs"], {});
   if (exitCode !== 0) throw new Error("derive-covers falhou");
   exitCode = await run("npx", ["next", "build"], { CF_STATIC_EXPORT: "1" });

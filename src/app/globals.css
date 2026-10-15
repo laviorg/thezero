@@ -1416,3 +1416,8 @@ samp {
 .chip-link {
   letter-spacing: 0.06em;
 }
+
+/* Modo "Só os números": esconde parágrafos narrativos, mantém listas, tabelas e blocos. */
+[data-so-numeros] .article-body > p.article-p {
+  display: none;
+}

@@ -8,6 +8,7 @@ import { ArticleDeskLinks } from "@/components/news/article-desk-links";
 import { ArticleHeader } from "@/components/news/article-header";
 import { RelatedTools } from "@/components/news/related-tools";
 import { relatedLinks } from "@/lib/related-links";
+import { ReadingMode } from "@/components/news/reading-mode";
 import { ArticlePager } from "@/components/news/article-pager";
 import { ArticleRail } from "@/components/news/article-rail";
 import { AuthorBio } from "@/components/news/author-bio";
@@ -197,6 +198,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <PageShell width="article" className="story-body-shell">
         <div className="story-split">
           <div className="story-main">
+            <ReadingMode />
             {post.veredito ? <VerdictCard data={post.veredito} /> : null}
             <ArticleBody
               source={
