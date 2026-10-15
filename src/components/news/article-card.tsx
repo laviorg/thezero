@@ -12,7 +12,9 @@ export type ArticleCardLayout =
   | "standard"
   | "rail"
   | "stream"
-  | "compact";
+  | "compact"
+  /** Text-only row: kicker, title and reading time. No cover, no summary. */
+  | "dense";
 
 type ArticleCardProps = {
   post: Post;
@@ -36,6 +38,7 @@ const coverSizes: Record<ArticleCardLayout, string> = {
   rail: "(min-width: 1280px) 18rem, (min-width: 640px) 45vw, 100vw",
   stream: "(min-width: 640px) 8rem, 6rem",
   compact: "(min-width: 640px) 8rem, 6rem",
+  dense: "6rem",
 };
 
 function Kicker({ children }: { children: string }) {
@@ -53,7 +56,8 @@ export function ArticleCard({
   const variant = layout ?? priority ?? "standard";
   const isLead = variant === "lead";
   const isStream = variant === "stream";
-  const isCompact = variant === "compact";
+  const isDense = variant === "dense";
+  const isCompact = variant === "compact" || isDense;
   const isRow = isStream || isCompact;
 
   const Heading = headingLevel ?? (isLead ? "h1" : isCompact ? "h3" : "h2");
@@ -102,10 +106,18 @@ export function ArticleCard({
             >
               {post.title}
             </Heading>
-            <p className="mt-1 hidden text-[0.9rem] leading-5 text-muted text-pretty line-clamp-2 @min-[30rem]:block">
-              {post.excerpt}
-            </p>
-            <NewsMeta post={post} className="mt-1.5" />
+            {isDense ? (
+              <p className="mt-1 font-mono text-[0.68rem] tabular-nums text-muted">
+                {post.readingMinutes} min de leitura
+              </p>
+            ) : (
+              <>
+                <p className="mt-1 hidden text-[0.9rem] leading-5 text-muted text-pretty line-clamp-2 @min-[30rem]:block">
+                  {post.excerpt}
+                </p>
+                <NewsMeta post={post} className="mt-1.5" />
+              </>
+            )}
           </div>
         </Link>
       </article>
