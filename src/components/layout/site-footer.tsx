@@ -3,6 +3,7 @@ import { FooterCookiesLink } from "@/components/consent/footer-cookies-link";
 import { categoryList } from "@/lib/categories";
 import { getNewsPosts } from "@/lib/posts";
 import { site } from "@/lib/site";
+import { NEWSLETTER_ENABLED, NEWSLETTER_NAME } from "@/lib/newsletter";
 import { FooterLatest } from "@/components/layout/footer-latest";
 import Link from "next/link";
 
@@ -217,6 +218,11 @@ export function SiteFooter() {
             <Link href="/termos" className="hover:text-accent">
               Termos
             </Link>
+            {NEWSLETTER_ENABLED ? (
+              <a href="/newsletter" className="hover:text-accent">
+                Newsletter {NEWSLETTER_NAME}
+              </a>
+            ) : null}
             <FooterCookiesLink />
             <a href={`mailto:${site.email}`} className="hover:text-accent">
               {site.email}

@@ -1,3 +1,4 @@
+import { NewsletterBox } from "@/components/newsletter/newsletter-box";
 import { WatermarkedPhoto } from "@/components/brand/photo-watermark";
 import { CaixaCompra } from "@/components/mdx/caixa-compra";
 import { ErrosComuns } from "@/components/mdx/erros-comuns";
@@ -79,6 +80,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   RespostaCurta,
   ErrosComuns,
   GuiasDoTema,
+  Newsletter: NewsletterBox,
   img: MarkdownImage,
   h2: ({ className, ...props }) => (
     <h2
