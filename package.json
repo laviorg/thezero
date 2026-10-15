@@ -5,7 +5,7 @@
   "description": "The Zero — newsroom de tech do Brasil (thezero.com.br)",
   "scripts": {
     "dev": "next dev --port 43127",
-    "prebuild": "node scripts/derive-covers.mjs",
+    "prebuild": "node scripts/fetch-fx.mjs && node scripts/derive-covers.mjs",
     "build": "next build",
     "build:cloudflare": "node scripts/build-cloudflare.mjs",
     "preview:cloudflare": "wrangler pages dev out --port 8788 --ip 127.0.0.1",

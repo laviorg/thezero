@@ -8,6 +8,7 @@ import {
   RegraDoTheZero,
   TabelaPreco,
 } from "@/components/mdx/blocks";
+import { Price } from "@/components/mdx/price";
 import { CaixaCompra } from "@/components/mdx/caixa-compra";
 import { ErrosComuns } from "@/components/mdx/erros-comuns";
 import { GuiasDoTema } from "@/components/mdx/guias-do-tema";
@@ -56,6 +57,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   TabelaPreco,
   ContaDaRedacao,
   Fontes,
+  Price,
   Rule,
   CaixaCompra,
   RespostaCurta,

@@ -1,0 +1,11 @@
+{
+  "usdBrl": 5.0521,
+  "date": "2026-10-15",
+  "label": "PTAX de venda do Banco Central",
+  "source": "https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes",
+  "iof": {
+    "cartao": 0.035,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/D12499.htm",
+    "label": "Decreto nº 12.499/2025, art. 15-B, VII"
+  }
+}
