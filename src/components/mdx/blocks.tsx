@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { CopyFooter, CopyImageButton } from "@/components/mdx/copy-image";
 import { Children, type ReactNode } from "react";
 
 /** Overrated/Underrated: 2 colunas (1 no celular), borda de 1px, fundo sutil. */
@@ -10,7 +11,9 @@ export function OverratedUnderrated({
   underrated: ReactNode;
 }) {
   return (
-    <div className="my-10 grid min-w-0 gap-3 sm:grid-cols-2">
+    <div data-copiavel className="relative my-10 min-w-0 pt-8">
+      <CopyImageButton name="overrated-underrated" />
+      <div className="grid min-w-0 gap-3 sm:grid-cols-2">
       <div className="min-w-0 rounded-md border border-border bg-surface px-5 py-5">
         <p className="font-mono text-[0.72rem] font-semibold tracking-[0.12em] text-amber-600 dark:text-amber-400">
           OVERRATED ↑
@@ -27,6 +30,8 @@ export function OverratedUnderrated({
           {underrated}
         </p>
       </div>
+      </div>
+      <CopyFooter />
     </div>
   );
 }
@@ -34,13 +39,15 @@ export function OverratedUnderrated({
 /** Regra do The Zero: borda esquerda de 4px, fundo de contraste, etiqueta mono. */
 export function RegraDoTheZero({ children }: { children: ReactNode }) {
   return (
-    <aside className="article-rule my-10 min-w-0 max-w-full border-l-4 border-accent bg-surface-raised px-5 py-5">
+    <aside data-copiavel className="article-rule relative my-10 min-w-0 max-w-full border-l-4 border-accent bg-surface-raised px-5 py-5">
+      <CopyImageButton name="regra" />
       <p className="font-mono text-[0.72rem] font-semibold tracking-[0.12em] text-accent">
         REGRA DO THE ZERO
       </p>
       <div className="font-display mt-2.5 text-[1.15rem] leading-snug font-bold text-fg">
         {children}
       </div>
+      <CopyFooter />
     </aside>
   );
 }
@@ -65,10 +72,11 @@ export function ContaDaRedacao({
   children?: ReactNode;
 }) {
   return (
-    <figure className="my-8 min-w-0 overflow-x-auto rounded-md border border-border bg-[#0f141c] px-5 py-4 font-mono text-[0.9rem] text-[#d6e2f0] tabular-nums">
+    <figure data-copiavel className="relative my-8 min-w-0 overflow-x-auto rounded-md border border-border bg-[#0f141c] px-5 py-4 font-mono text-[0.9rem] text-[#d6e2f0] tabular-nums">
       <figcaption className="text-[0.68rem] tracking-[0.12em] text-[#8aa0b8]">
         CONTA DA REDAÇÃO
       </figcaption>
+      <CopyImageButton name="conta" />
       <p className="mt-2 whitespace-pre-wrap">
         <span aria-hidden className="text-[#8aa0b8]">$ </span>
         {formula}
@@ -77,6 +85,7 @@ export function ContaDaRedacao({
       {children ? (
         <div className="mt-2 text-[0.8rem] text-[#8aa0b8] [&_p]:m-0">{children}</div>
       ) : null}
+      <CopyFooter />
     </figure>
   );
 }

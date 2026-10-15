@@ -1421,3 +1421,8 @@ samp {
 [data-so-numeros] .article-body > p.article-p {
   display: none;
 }
+
+/* [Copiar imagem]: o rodapé só aparece durante a captura. */
+[data-capturando] .copy-footer {
+  display: block;
+}
