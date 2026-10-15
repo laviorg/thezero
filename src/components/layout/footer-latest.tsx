@@ -31,12 +31,12 @@ export function FooterLatest({ initial }: { initial: LatestPost[] }) {
       <p className="text-[0.65rem] tracking-[0.2em] text-muted uppercase">
         Últimas
       </p>
-      <ul className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-3 grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
         {posts.map((post) => (
-          <li key={post.href}>
+          <li key={post.href} className="border-b border-border/60 pb-3">
             <Link
               href={post.href}
-              className="line-clamp-3 text-sm leading-snug text-fg/90 transition-colors hover:text-accent"
+              className="line-clamp-2 text-sm leading-snug text-fg/90 transition-colors hover:text-accent"
             >
               {post.title}
             </Link>

@@ -687,17 +687,25 @@ input {
 }
 
 .cover-credit {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
   max-width: 100%;
   margin-top: 0.55rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--tz-border) 70%, transparent);
   overflow-wrap: break-word;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   line-height: 1.45;
   color: var(--tz-muted);
 }
 
+.cover-credit-sep {
+  color: var(--tz-muted);
+}
+
 .cover-credit-label {
-  margin-right: 0.35rem;
   font-family: var(--font-source-sans), ui-sans-serif, sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
@@ -882,9 +890,12 @@ input {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
-  margin-top: 3.25rem;
-  padding-top: 1.75rem;
+  margin-top: 2.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--tz-border);
   border-top: 4px solid var(--tz-accent);
+  border-radius: 0.5rem;
+  background: var(--tz-surface, transparent);
 }
 
 @media (min-width: 640px) {
