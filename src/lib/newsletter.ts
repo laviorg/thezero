@@ -6,7 +6,10 @@
  * formulário do Kit (ex.: https://app.kit.com/forms/<ID>/subscriptions) e rode o build.
  */
 export const NEWSLETTER_NAME = "Zero Hora Tech";
-export const KIT_FORM_ACTION = process.env.NEXT_PUBLIC_KIT_FORM_ACTION?.trim() || "";
+/** Formulário 10050984 do Kit (formulário próprio do site, sem template do Kit). Env sobrescreve. */
+export const KIT_FORM_ACTION_DEFAULT = "https://app.kit.com/forms/10050984/subscriptions";
+export const KIT_FORM_ACTION =
+  process.env.NEXT_PUBLIC_KIT_FORM_ACTION?.trim() || KIT_FORM_ACTION_DEFAULT;
 export const NEWSLETTER_ENABLED = KIT_FORM_ACTION.length > 0;
 
 /** Guia longo: recebe uma segunda caixa depois do 3º parágrafo. */

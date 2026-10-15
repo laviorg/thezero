@@ -23,6 +23,7 @@ const STATIC_PAGE_SOURCES = [
   { path: "/contato", file: "src/app/contato/page.tsx" },
   { path: "/privacidade", file: "src/app/privacidade/page.tsx" },
   { path: "/termos", file: "src/app/termos/page.tsx" },
+  { path: "/newsletter", file: "src/app/newsletter/page.tsx" },
   { path: "/como-testamos", file: "src/app/como-testamos/page.tsx" },
   { path: "/politica-editorial", file: "src/app/politica-editorial/page.tsx" },
   { path: "/autores", file: "src/app/autores/page.tsx" },
