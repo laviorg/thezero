@@ -25,7 +25,7 @@ export function CategoryRail({
         eyebrow={category.kicker}
         title={category.label}
         href={category.href}
-        actionLabel={`Ver ${category.label}`}
+        actionLabel={`Ver tudo em ${category.label} →`}
       />
 
       {shown.length === 0 ? (
@@ -51,9 +51,9 @@ export function CategoryRail({
 
       <Link
         href={category.href}
-        className="mt-5 inline-block text-[0.78rem] font-medium tracking-[0.12em] text-accent uppercase sm:hidden"
+        className="mt-5 flex w-full items-center justify-center rounded-md border border-border py-2.5 text-[0.78rem] font-medium tracking-[0.12em] text-accent uppercase transition-colors hover:bg-surface-raised sm:hidden"
       >
-        Ver {category.label}
+        Ver tudo em {category.label} →
       </Link>
     </section>
   );

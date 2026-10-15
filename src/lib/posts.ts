@@ -360,7 +360,19 @@ export function getRelatedPosts(post: Post, limit = 3): Post[] {
 }
 
 export function getAdjacentPosts(post: Post) {
-  const posts = getAllPosts();
+  /** Same desk first: subcategory, falling back to the parent category. */
+  const all = getAllPosts();
+  const sameSub = post.subcategory
+    ? all.filter(
+        (item) =>
+          item.category === post.category &&
+          item.subcategory === post.subcategory,
+      )
+    : [];
+  const posts =
+    sameSub.length > 1
+      ? sameSub
+      : all.filter((item) => item.category === post.category);
   const index = posts.findIndex((item) => item.slug === post.slug);
   if (index < 0) return { newer: undefined, older: undefined };
   return {

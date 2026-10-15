@@ -90,6 +90,9 @@ export function CoverImage({
           )}
         >
           <span className="cover-credit-label">Foto</span>
+          <span className="cover-credit-sep" aria-hidden>
+            ·
+          </span>
           <span className="cover-credit-text">{credit}</span>
         </figcaption>
       ) : null}
