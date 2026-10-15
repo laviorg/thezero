@@ -4,6 +4,7 @@ import Link from "next/link";
 type SectionHeadingProps = {
   title: string;
   eyebrow?: string;
+  subtitle?: string;
   href?: string;
   actionLabel?: string;
   as?: "h1" | "h2" | "h3";
@@ -16,6 +17,7 @@ type SectionHeadingProps = {
 export function SectionHeading({
   title,
   eyebrow,
+  subtitle,
   href,
   actionLabel = "Ver tudo",
   as: Title = "h2",
@@ -45,6 +47,7 @@ export function SectionHeading({
         >
           {title}
         </Title>
+        {subtitle ? <p className="mt-1 text-sm text-muted text-pretty">{subtitle}</p> : null}
       </div>
       {href ? (
         <Link
