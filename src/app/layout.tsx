@@ -116,6 +116,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         { href: "/black-friday-2026", label: "Black Friday 2026" },
         { href: "/11-11", label: "11.11" },
         { href: "/prime-day", label: "Prime Day" },
+        { href: "/ferramentas/meu-pc-roda", label: "Meu PC roda?" },
+        { href: "/ferramentas/calculadora-de-fonte", label: "Calculadora de fonte" },
+        { href: "/ferramentas/montar-pc", label: "Montar PC" },
       ],
     },
   ];

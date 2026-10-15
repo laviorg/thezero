@@ -1,0 +1,302 @@
+{
+ "source": "Requisitos oficiais nas páginas da Steam, consultados em 14/10/2026",
+ "games": [
+  {
+   "id": "cyberpunk-2077",
+   "name": "Cyberpunk 2077",
+   "steamAppId": 1091500,
+   "source": "https://store.steampowered.com/app/1091500/",
+   "note": "Requisitos da Steam; mínimo sem predefinição declarada.",
+   "levels": {
+    "min": {
+     "cpu": "Intel Core i7-6700",
+     "cpuScore": 8032,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-6700+%40+3.40GHz&id=2598",
+     "gpu": "GeForce GTX 1060",
+     "gpuScore": 10017,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1060&id=3548",
+     "ramGB": 12
+    },
+    "rec": {
+     "cpu": "Intel Core i7-12700",
+     "cpuScore": 29749,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-12700&id=4669",
+     "gpu": "GeForce RTX 2060 SUPER",
+     "gpuScore": 16455,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+2060+SUPER&id=4117",
+     "ramGB": 16
+    }
+   }
+  },
+  {
+   "id": "elden-ring",
+   "name": "Elden Ring",
+   "steamAppId": 1245620,
+   "source": "https://store.steampowered.com/app/1245620/",
+   "note": "",
+   "levels": {
+    "min": {
+     "cpu": "Intel Core i5-8400",
+     "cpuScore": 9234,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-8400+%40+2.80GHz&id=3097",
+     "gpu": "GeForce GTX 1060 3GB",
+     "gpuScore": 9857,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1060+3GB&id=3566",
+     "ramGB": 12
+    },
+    "rec": {
+     "cpu": "Intel Core i7-8700K",
+     "cpuScore": 13554,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-8700K+%40+3.70GHz&id=3098",
+     "gpu": "GeForce GTX 1070",
+     "gpuScore": 13510,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1070&id=3521",
+     "ramGB": 16
+    }
+   }
+  },
+  {
+   "id": "baldurs-gate-3",
+   "name": "Baldur's Gate 3",
+   "steamAppId": 1086940,
+   "source": "https://store.steampowered.com/app/1086940/",
+   "note": "SSD obrigatório.",
+   "levels": {
+    "min": {
+     "cpu": "Intel Core i5-4690",
+     "cpuScore": 5596,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-4690+%40+3.50GHz&id=2236",
+     "gpu": "GeForce GTX 970",
+     "gpuScore": 9636,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+970&id=2954",
+     "ramGB": 8
+    },
+    "rec": {
+     "cpu": "Intel Core i7-8700K",
+     "cpuScore": 13554,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-8700K+%40+3.70GHz&id=3098",
+     "gpu": "GeForce RTX 2060 SUPER",
+     "gpuScore": 16455,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+2060+SUPER&id=4117",
+     "ramGB": 16
+    }
+   }
+  },
+  {
+   "id": "gta-v-enhanced",
+   "name": "GTA V Enhanced",
+   "steamAppId": 3240220,
+   "source": "https://store.steampowered.com/app/3240220/",
+   "note": "SSD obrigatório.",
+   "levels": {
+    "min": {
+     "cpu": "Intel Core i7-4770",
+     "cpuScore": 7067,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-4770+%40+3.40GHz&id=1907",
+     "gpu": "GeForce GTX 1630",
+     "gpuScore": 4973,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1630&id=4571",
+     "ramGB": 8
+    },
+    "rec": {
+     "cpu": "Intel Core i5-9600K",
+     "cpuScore": 10653,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-9600K+%40+3.70GHz&id=3337",
+     "gpu": "GeForce RTX 3060 8GB",
+     "gpuScore": 15206,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+3060+8GB&id=4966",
+     "ramGB": 16
+    }
+   }
+  },
+  {
+   "id": "black-myth-wukong",
+   "name": "Black Myth: Wukong",
+   "steamAppId": 2358720,
+   "source": "https://store.steampowered.com/app/2358720/",
+   "note": "",
+   "levels": {
+    "min": {
+     "cpu": "Intel Core i5-8400",
+     "cpuScore": 9234,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-8400+%40+2.80GHz&id=3097",
+     "gpu": "GeForce GTX 1060",
+     "gpuScore": 10017,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1060&id=3548",
+     "ramGB": 16
+    },
+    "rec": {
+     "cpu": "Intel Core i7-9700",
+     "cpuScore": 13172,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-9700+%40+3.00GHz&id=3477",
+     "gpu": "GeForce RTX 2060",
+     "gpuScore": 14073,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+2060&id=4037",
+     "ramGB": 16
+    }
+   }
+  },
+  {
+   "id": "marvel-rivals",
+   "name": "Marvel Rivals",
+   "steamAppId": 2767030,
+   "source": "https://store.steampowered.com/app/2767030/",
+   "note": "",
+   "levels": {
+    "min": {
+     "cpu": "Intel Core i5-6600K",
+     "cpuScore": 6311,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-6600K+%40+3.50GHz&id=2570",
+     "gpu": "GeForce GTX 1060",
+     "gpuScore": 10017,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1060&id=3548",
+     "ramGB": 16
+    },
+    "rec": {
+     "cpu": "Intel Core i5-10400",
+     "cpuScore": 11961,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-10400+%40+2.90GHz&id=3737",
+     "gpu": "GeForce RTX 2060",
+     "gpuScore": 14073,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+2060&id=4037",
+     "ramGB": 16
+    }
+   }
+  },
+  {
+   "id": "monster-hunter-wilds",
+   "name": "Monster Hunter Wilds",
+   "steamAppId": 2246340,
+   "source": "https://store.steampowered.com/app/2246340/",
+   "note": "",
+   "levels": {
+    "min": {
+     "cpu": "Intel Core i5-10400",
+     "cpuScore": 11961,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-10400+%40+2.90GHz&id=3737",
+     "gpu": "GeForce GTX 1660",
+     "gpuScore": 11609,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1660&id=4062",
+     "ramGB": 16
+    },
+    "rec": {
+     "cpu": "Intel Core i5-10400",
+     "cpuScore": 11961,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-10400+%40+2.90GHz&id=3737",
+     "gpu": "GeForce RTX 2060 SUPER",
+     "gpuScore": 16455,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+2060+SUPER&id=4117",
+     "ramGB": 16
+    }
+   }
+  },
+  {
+   "id": "hogwarts-legacy",
+   "name": "Hogwarts Legacy",
+   "steamAppId": 990080,
+   "source": "https://store.steampowered.com/app/990080/",
+   "note": "Mínimo = 720p/30 fps baixo; recomendado = 1080p/60 fps alto (nota oficial).",
+   "levels": {
+    "min": {
+     "cpu": "Intel Core i5-6600",
+     "cpuScore": 6071,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-6600+%40+3.30GHz&id=2594",
+     "gpu": "GeForce GTX 960",
+     "gpuScore": 6149,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+960&id=3114",
+     "ramGB": 16
+    },
+    "rec": {
+     "cpu": "Intel Core i7-8700",
+     "cpuScore": 12734,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-8700+%40+3.20GHz&id=3099",
+     "gpu": "GeForce GTX 1080 Ti",
+     "gpuScore": 18597,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1080+Ti&id=3699",
+     "ramGB": 16
+    }
+   }
+  },
+  {
+   "id": "red-dead-redemption-2",
+   "name": "Red Dead Redemption 2",
+   "steamAppId": 1174180,
+   "source": "https://store.steampowered.com/app/1174180/",
+   "note": "",
+   "levels": {
+    "min": {
+     "cpu": "Intel Core i5-2500K",
+     "cpuScore": 4146,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-2500K+%40+3.30GHz&id=804",
+     "gpu": "GeForce GTX 770",
+     "gpuScore": 5965,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+770&id=2531",
+     "ramGB": 8
+    },
+    "rec": {
+     "cpu": "Intel Core i7-4770K",
+     "cpuScore": 7149,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-4770K+%40+3.50GHz&id=1919",
+     "gpu": "GeForce GTX 1060",
+     "gpuScore": 10017,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1060&id=3548",
+     "ramGB": 12
+    }
+   }
+  },
+  {
+   "id": "forza-horizon-5",
+   "name": "Forza Horizon 5",
+   "steamAppId": 1551360,
+   "source": "https://store.steampowered.com/app/1551360/",
+   "note": "",
+   "levels": {
+    "min": {
+     "cpu": "Intel Core i5-4460",
+     "cpuScore": 4929,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-4460+%40+3.20GHz&id=2230",
+     "gpu": "GeForce GTX 970",
+     "gpuScore": 9636,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+970&id=2954",
+     "ramGB": 8
+    },
+    "rec": {
+     "cpu": "Intel Core i5-8400",
+     "cpuScore": 9234,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-8400+%40+2.80GHz&id=3097",
+     "gpu": "GeForce GTX 1070",
+     "gpuScore": 13510,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1070&id=3521",
+     "ramGB": 16
+    }
+   }
+  },
+  {
+   "id": "ea-sports-fc-26",
+   "name": "EA SPORTS FC 26",
+   "steamAppId": 3405690,
+   "source": "https://store.steampowered.com/app/3405690/",
+   "note": "",
+   "levels": {
+    "min": {
+     "cpu": "Intel Core i5-6600K",
+     "cpuScore": 6311,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-6600K+%40+3.50GHz&id=2570",
+     "gpu": "GeForce GTX 1050 Ti",
+     "gpuScore": 6368,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1050+Ti&id=3595",
+     "ramGB": 8
+    },
+    "rec": {
+     "cpu": "Intel Core i7-6700",
+     "cpuScore": 8032,
+     "cpuSource": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-6700+%40+3.40GHz&id=2598",
+     "gpu": "GeForce GTX 1660",
+     "gpuScore": 11609,
+     "gpuSource": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1660&id=4062",
+     "ramGB": 12
+    }
+   }
+  }
+ ]
+}
