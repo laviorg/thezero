@@ -1,3 +1,5 @@
+import { NewsletterBox } from "@/components/newsletter/newsletter-box";
+import { LONG_GUIDE_MIN_WORDS, injectNewsletterAfterThirdParagraph } from "@/lib/newsletter";
 import Link from "next/link";
 import { ReadAlso } from "@/components/news/read-also";
 import { ArticleBody } from "@/components/news/article-body";
@@ -192,7 +194,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <PageShell width="article" className="story-body-shell">
         <div className="story-split">
           <div className="story-main">
-            <ArticleBody source={post.content} />
+            <ArticleBody
+              source={
+                post.format === "guia" && post.wordCount >= LONG_GUIDE_MIN_WORDS
+                  ? injectNewsletterAfterThirdParagraph(post.content)
+                  : post.content
+              }
+            />
+            <NewsletterBox placement="fim" />
             <p className="production-note mt-10 border-t border-border pt-6 text-sm leading-6 text-muted">
               Produção assistida por Mavi, assistente de IA, com revisão
               editorial humana.{" "}
