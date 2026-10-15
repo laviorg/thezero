@@ -1,0 +1,67 @@
+---
+title: "Troca de metal líquido por grafeno eleva desempenho do Intel Core Ultra 9 em 35% e reduz calor em notebook"
+seoTitle: "Grafeno eleva Intel Core Ultra 9 em 35% em notebook"
+excerpt: "Notebook com Intel Core Ultra 9 285H sofria estrangulamento térmico a 105 °C, mas troca de metal líquido por folha de grafeno sustentou 85 W e saltou 35%."
+category: computadores
+subcategory: notebooks-e-pcs
+date: "2026-10-15T11:08:00-03:00"
+featured: false
+kicker: "Computadores · notebooks e PCs"
+author: "nicholas"
+cover: "/images/posts/intel-core-ultra-9-substituicao-grafeno-desempenho/cover.jpg"
+coverAlt: "Placa-mãe de notebook aberta exibindo os circuitos internos e um recorte ampliado com uma folha retangular de grafeno cinza instalada sobre a matriz do processador"
+coverCredit: "Wccftech / u/kiodrag / Divulgação"
+---
+
+O superaquecimento de processadores de alto desempenho em chassis compactos de laptops ganhou uma solução incomum e eficiente fora dos manuais de fábrica. Um usuário identificado como u/kiodrag no Reddit conseguiu eliminar o estrangulamento térmico severo de um notebook equipado com o processador **Intel Core Ultra 9 285H** ao substituir a interface térmica padrão de metal líquido por uma folha de grafeno recortada manualmente, conforme reportado pelo [Wccftech](https://wccftech.com/user-replaces-liquid-metal-on-cpu-with-graphene-sheet/). A alteração reduziu as temperaturas e aumentou o desempenho contínuo da máquina em quase 35% em testes pesados de estresse.
+
+Antes da modificação, o chip da Intel atingia picos de **105 °C** mesmo quando operava em um consumo modesto de **35 W**, ativando o estrangulamento térmico protetivo (*thermal throttling*) de forma precoce. Após a aplicação do material condutivo à base de carbono combinado a massas térmicas auxiliares, o processador passou a operar a até **85 W** contínuos sem ultrapassar a marca de **100 °C**, provando que o contato físico deficiente ou a aplicação irregular do metal de fábrica estrangulava o potencial do silício.
+
+![Placa-mãe de notebook aberta exibindo os circuitos internos e um recorte ampliado com uma folha retangular de grafeno cinza instalada sobre a matriz do processador](/images/posts/intel-core-ultra-9-substituicao-grafeno-desempenho/cover.jpg)
+
+*Wccftech / u/kiodrag / Divulgação. Placa do notebook aberta após a aplicação do pad de grafeno de 25 por 25 milímetros sobre o chip Intel Core Ultra 9.*
+
+<Verdict overrated="acreditar que o metal líquido de fábrica sempre garante o melhor contato térmico em qualquer projeto" underrated="o uso de folhas sólidas de grafeno para eliminar o risco de vazamento elétrico em placas compactas" />
+
+## O problema do estrangulamento térmico a 105 °C
+
+No relato original compartilhado pela comunidade e apurado pela [imprensa técnica](https://wccftech.com/user-replaces-liquid-metal-on-cpu-with-graphene-sheet/), o usuário relatou que o computador portátil com o **Intel Core Ultra 9 285H** vinha de fábrica com composto térmico de metal líquido. Apesar da elevada capacidade teórica desse material para transferir calor entre a matriz de silício e o dissipador de cobre, a implementação apresentava falhas práticas de condução. Sob cargas de trabalho elevadas, o processador alcançava **105 °C** rapidamente, forçando o sistema a cortar drasticamente as frequências de clock para evitar a queima do componente.
+
+Nesse cenário de degradação térmica, o notebook conseguia atingir apenas **3.431 pontos** no teste comparativo de renderização **Cinebench 2026**. O consumo ficava limitado a 35 W devido à barreira térmica, muito abaixo do teto de projeto esperado para tarefas pesadas de computação móvel.
+
+Além da perda direta de velocidade, o metal líquido impõe riscos estruturais em dispositivos móveis. Por ser eletricamente condutivo e manter estado líquido em temperatura operacional, o material pode vazar pelas bordas da vedação caso haja torção no chassi, choque mecânico durante o transporte ou escorrimento por aplicação excessiva, o que causa curto-circuito fatal nos componentes vizinhos da placa-mãe.
+
+## Como a folha de grafeno estabilizou o consumo em 85 W
+
+Para resolver a instabilidade, o usuário removeu todo o resíduo do metal líquido antigo e os compostos originais da placa. No lugar, cortou uma folha sólida de grafeno no tamanho exato de **25 x 25 mm**, dimensão suficiente para cobrir totalmente a matriz de silício do Core Ultra 9. Para as fases de alimentação e componentes secundários ao redor do soquete, utilizou massa térmica da Thermal Grizzly, recompondo o contato em toda a área de dissipação.
+
+A folha de grafeno atua como condutor térmico de alta eficiência, mas apresenta a vantagem de ser uma estrutura sólida que não escorre, eliminando o perigo de danos elétricos caso entre em contato com trilhas adjacentes. Ao remontar o sistema e refazer as medições, o processador registrou uma queda média de aproximadamente **10 °C** nas temperaturas de operação.
+
+| Parâmetro de teste | Metal líquido de fábrica | Folha de grafeno (25 x 25 mm) | Diferença prática |
+| --- | --- | --- | --- |
+| Temperatura de pico | 105 °C | Abaixo de 100 °C | Redução média de 10 °C |
+| Consumo contínuo sob carga | 35 W (com estrangulamento) | 85 W (sem estrangulamento) | Mais que o dobro da potência sustentada |
+| Pontuação Cinebench 2026 | 3.431 pontos | 4.634 pontos | Ganho de quase 35% no rendimento |
+
+Com o sistema de refrigeração conseguindo puxar o calor da matriz de forma contínua, o processador conseguiu sustentar **85 W** contínuos sem bater no limite de temperatura. Isso permitiu que a pontuação no **Cinebench 2026** saltasse para **4.634 pontos**, um salto de quase 35% em relação ao estado original do notebook, demonstrando como a interface térmica pode ser o principal gargalo de uma arquitetura móvel.
+
+A busca por alternativas de resfriamento mais seguras e duráveis em máquinas de alto desempenho também é comum em computadores de mesa, como mostra nossa análise comparando [cooler torre ou water cooler AIO](https://www.thezero.com.br/noticia/cooler-torre-ou-water-cooler-aio), onde a manutenção preventiva e o contato uniforme entre o bloco e a CPU definem a longevidade do hardware.
+
+A cobertura do notebookcheck.net sobre o ecossistema móvel de alta performance detalha o comportamento térmico em diferentes projetos: [Nvidia RTX Spark Analysis - Finally an answer to Apple's M5 Pro & M5 Max?](https://www.notebookcheck.net/Nvidia-RTX-Spark-Analysis-Finally-an-answer-to-Apple-s-M5-Pro-M5-Max.1422820.0.html).
+
+## O que isso significa no Brasil
+
+Componentes de interface térmica à base de carbono e acessórios para manutenção podem ser importados individualmente por consumidores brasileiros dentro das faixas acessíveis de compras internacionais. De acordo com os dados oficiais do [Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes), a cotação da taxa PTAX fechou em **R$ 5,0441** por dólar em 14 de outubro de 2026. Sob as regras do programa Remessa Conforme da Receita Federal, remessas internacionais destinadas a pessoas físicas com valor de até **US$ 50** contam com **0% de imposto de importação** federal, incidindo apenas o Imposto sobre Circulação de Mercadorias e Serviços (**ICMS**) com alíquotas estaduais entre **17% e 20%**.
+
+Como referência de valores em itens correlatos cotados em moeda estrangeira no varejo internacional [notebookcheck.net](https://www.notebookcheck.net/Asus-Googlebook-14-Laptop-Review-An-ExpertBook-Ultra-with-a-Glowbar.1423934.0.html), um acessório listado por **US$ 27,99** resulta em aproximadamente **R$ 141,18** na conversão direta pela PTAX oficial do Banco Central. Aplicando a isenção federal de compras abaixo de cinquenta dólares e o cálculo padrão de ICMS estadual por dentro entre 17% e 20%, o consumidor tem uma base de custo aduaneiro sem surpresas fiscais, embora fretes e taxas postais possam variar.
+
+A Intel e as fabricantes de computadores não fornecem suporte técnico nem kits de grafeno de reposição oficial no Brasil para esse tipo de procedimento em seus laptops. Além disso, abrir a estrutura de dissipação do equipamento e remover o metal líquido de fábrica viola a garantia contratual da máquina, tornando essa alternativa viável apenas para usuários experientes que estejam dispostos a assumir o risco da manutenção por conta própria.
+
+<Rule>A melhor interface térmica não é a que tem a maior condutividade no papel, mas a que mantém contato uniforme sem ameaçar a placa de curto-circuito.</Rule>
+
+## Fontes
+
+- [wccftech.com — Intel Core Ultra 9 285H Laptop Was Throttling At 105°C, But A Graphene Sheet Swap Boosted Performance By 35%](https://wccftech.com/user-replaces-liquid-metal-on-cpu-with-graphene-sheet/)
+- [notebookcheck.net — Nvidia RTX Spark Analysis - Finally an answer to Apple's M5 Pro & M5 Max?](https://www.notebookcheck.net/Nvidia-RTX-Spark-Analysis-Finally-an-answer-to-Apple-s-M5-Pro-M5-Max.1422820.0.html)
+- [bcb.gov.br — Contexto Brasil: PTAX (BCB) e Remessa Conforme](https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes)
+- [notebookcheck.net — Asus Googlebook 14 Laptop Review - An ExpertBook Ultra with a Glowbar](https://www.notebookcheck.net/Asus-Googlebook-14-Laptop-Review-An-ExpertBook-Ultra-with-a-Glowbar.1423934.0.html)
