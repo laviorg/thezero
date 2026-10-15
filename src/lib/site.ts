@@ -28,8 +28,9 @@ export const site = {
   locale: "pt_BR",
   language: "pt-BR",
   description:
-    "The Zero é o newsroom de tech do Brasil: o que funciona de verdade em IA, computadores, dispositivos, apps e jogos. Sem hype de lançamento.",
-  bio: "Demos, opinião, setup. O que funciona de verdade — e o que não.",
+    "The Zero é o newsroom de tech do Brasil. Ruído zero, dado bruto: IA, computadores, dispositivos, apps e jogos com teste, número e fonte.",
+  slogan: "Ruído zero, dado bruto",
+  bio: "Ruído zero, dado bruto.",
   email: "hello@thezero.com.br",
   social: {
     instagram: "https://www.instagram.com/hello.the.zero/",
@@ -53,4 +54,3 @@ export function absoluteUrl(path = "/") {
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-// deploy-trigger: slogan removed

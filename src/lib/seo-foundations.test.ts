@@ -135,12 +135,12 @@ describe("buildPageMetadata", () => {
       path: "/ia",
       brand: "always",
       imagePath: "/ia/opengraph-image",
-      imageAlt: "IA: ferramentas, modelos e limites · The Zero",
+      imageAlt: "IA: ferramentas, modelos e limites | The Zero",
     });
     const images = meta.twitter?.images;
     assert.ok(Array.isArray(images));
     const first = images[0];
-    assert.equal(typeof first === "object" && first && "alt" in first ? first.alt : "", "IA: ferramentas, modelos e limites · The Zero");
+    assert.equal(typeof first === "object" && first && "alt" in first ? first.alt : "", "IA: ferramentas, modelos e limites | The Zero");
   });
 
   it("emits an absolute www canonical for article paths", () => {
@@ -171,7 +171,7 @@ describe("buildPageMetadata", () => {
       brand: "always",
     });
     assert.equal(meta.title, "Ferramentas de IA");
-    assert.equal(meta.openGraph?.title, "Ferramentas de IA · The Zero");
+    assert.equal(meta.openGraph?.title, "Ferramentas de IA | The Zero");
   });
 
   it("drops the suffix when the composed title would pass 60", () => {

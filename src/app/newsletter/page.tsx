@@ -5,7 +5,7 @@ import { NEWSLETTER_ENABLED, NEWSLETTER_NAME } from "@/lib/newsletter";
 import type { Metadata } from "next";
 
 const title = `Newsletter ${NEWSLETTER_NAME}`;
-const description = "Assine a Zero Hora Tech: o que importa em tecnologia no Brasil, direto no seu e-mail.";
+const description = "Assine a Zero Hora Tech, do The Zero. Ruído zero, dado bruto: o que importa em tecnologia no Brasil, direto no seu e-mail.";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
