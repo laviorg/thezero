@@ -2,6 +2,7 @@ import { BatteryCalculator } from "@/components/tools/battery-calculator";
 import { ToolPage, type ToolMeta } from "@/components/tools/tool-page";
 import { buildPageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 const meta: ToolMeta = {
   path: "/ferramentas/bateria-portateis",
@@ -24,6 +25,8 @@ export default function Page() {
   return (
     <ToolPage meta={meta}>
       <BatteryCalculator />
+      <h2>Compare os portáteis</h2>
+      <p>Tela, chip, bateria e preço lado a lado estão em <Link href="/guias/consoles-portateis">consoles portáteis: a tabela</Link>.</p>
     </ToolPage>
   );
 }

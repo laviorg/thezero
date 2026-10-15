@@ -12,6 +12,8 @@ import { absoluteUrl, site } from "@/lib/site";
 import { VALE_A_PENA_HUB_CORE, valeAPenaPageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ValeFilters } from "@/components/news/vale-filters";
+import { verdictPrice } from "@/lib/verdict-card";
 
 const DESCRIPTION =
   "Comprar, esperar ou ficar na geração anterior. Veredito curto, preço em real com data e o que a ficha sustenta — sem nota de 0 a 10.";
@@ -83,15 +85,30 @@ export default function ValeAPenaPage() {
         .
       </p>
 
+      {posts.length > 1 ? (
+        <ValeFilters categories={[...new Set(posts.map((p) => p.categoryLabel))].sort()} />
+      ) : null}
+
       {posts.length === 0 ? (
         <p className="mt-8 max-w-xl text-muted">
           Ainda não há decisão nesta série.
         </p>
       ) : (
         <div className="mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
-          {posts.map((post) => (
-            <ArticleCard key={post.slug} post={post} layout="standard" />
-          ))}
+          {posts.map((post) => {
+            const price = verdictPrice(post.veredito?.precoId);
+            return (
+              <div
+                key={post.slug}
+                data-vale=""
+                data-cat={post.categoryLabel}
+                data-verdict={post.veredito?.decisao ?? ""}
+                data-price={price ? String(price.amount) : undefined}
+              >
+                <ArticleCard post={post} layout="standard" />
+              </div>
+            );
+          })}
         </div>
       )}
     </PageShell>
