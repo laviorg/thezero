@@ -61,7 +61,7 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link href="/black-friday-2026" className="hover:text-accent">
+              <Link href="/black-friday" className="hover:text-accent">
                 Black Friday 2026
               </Link>
             </li>

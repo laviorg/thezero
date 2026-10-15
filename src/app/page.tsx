@@ -135,7 +135,7 @@ export default function HomePage() {
           <Link href="/menor-preco" className="font-medium hover:text-accent">
             Menor preço do dia: placas de vídeo, SSDs e consoles checados na KaBuM →
           </Link>
-          <Link href="/black-friday-2026" className="font-medium hover:text-accent">
+          <Link href="/black-friday" className="font-medium hover:text-accent">
             Black Friday 2026: o que vale comprar →
           </Link>
         </div>

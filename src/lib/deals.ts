@@ -180,8 +180,8 @@ function shortBlocks(
 
 export const dealEvents: DealEvent[] = [
   {
-    slug: "black-friday-2026",
-    path: "/black-friday-2026",
+    slug: "black-friday",
+    path: "/black-friday",
     title: "Black Friday 2026: o que vale comprar em placa de vídeo, SSD, console e notebook",
     documentTitle: "Black Friday 2026: o que vale comprar em hardware e games",
     kicker: "Guia de compra",
@@ -189,7 +189,7 @@ export const dealEvents: DealEvent[] = [
       "Critério antes de desconto. O que olhar em placa de vídeo, SSD, console e notebook, como saber se a oferta é real e quais modelos conferir na Black Friday 2026.",
     description:
       "Guia da Black Friday 2026 no Brasil: como escolher placa de vídeo, SSD, console e notebook, como checar se o desconto é real e quais modelos acompanhar.",
-    cover: "/images/pages/black-friday-2026.png",
+    cover: "/images/pages/black-friday.png",
     coverAlt: "Arte com o texto Black Friday 2026 e a marca The Zero sobre fundo escuro",
     updatedIso: "2026-10-14T20:00:00-03:00",
     updatedLabel: "14 de outubro de 2026",

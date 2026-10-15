@@ -21,9 +21,9 @@ function redirectsFile() {
   // next.config for Vercel; on Pages it has to be a zone redirect rule.
   const lines = [];
   for (const rule of PATH_REDIRECTS) {
-    lines.push(`${rule.source} ${rule.destination} 308`);
+    lines.push(`${rule.source} ${rule.destination} ${rule.status ?? 308}`);
     if (!rule.source.endsWith("/")) {
-      lines.push(`${rule.source}/ ${rule.destination} 308`);
+      lines.push(`${rule.source}/ ${rule.destination} ${rule.status ?? 308}`);
     }
   }
   return `${lines.join("\n")}\n`;
