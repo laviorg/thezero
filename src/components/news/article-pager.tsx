@@ -14,7 +14,7 @@ export function ArticlePager({
     <nav aria-label="Matérias vizinhas" className="story-pager">
       {older ? (
         <Link href={older.href} className="story-pager-link">
-          <p className="story-pager-label">Mais antiga</p>
+          <p className="story-pager-label">Anterior na editoria</p>
           <p className="story-pager-title">
             <span aria-hidden>← </span>
             {older.title}
@@ -25,7 +25,7 @@ export function ArticlePager({
       )}
       {newer ? (
         <Link href={newer.href} className="story-pager-link story-pager-link-next">
-          <p className="story-pager-label">Mais recente</p>
+          <p className="story-pager-label">Próxima na editoria</p>
           <p className="story-pager-title">
             {newer.title}
             <span aria-hidden> →</span>

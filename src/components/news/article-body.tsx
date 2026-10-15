@@ -1,6 +1,7 @@
 import { mdxComponents } from "@/components/mdx/mdx-components";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
+import { remarkFontes } from "@/lib/remark-fontes";
 
 export async function ArticleBody({ source }: { source: string }) {
   return (
@@ -10,7 +11,7 @@ export async function ArticleBody({ source }: { source: string }) {
         components={mdxComponents}
         options={{
           mdxOptions: {
-            remarkPlugins: [remarkGfm],
+            remarkPlugins: [remarkGfm, remarkFontes],
           },
         }}
       />

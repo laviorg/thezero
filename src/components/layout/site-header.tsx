@@ -2,6 +2,7 @@
 
 import { Wordmark } from "@/components/brand/logo";
 import { SearchForm } from "@/components/search/search-form";
+import { PaletteTrigger } from "@/components/search/palette-trigger";
 import { ThemeSwitcher, ThemeToggle } from "@/components/theme/theme-toggle";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +16,7 @@ import {
 } from "@/components/ui/sheet";
 import type { NavMenuSection } from "@/lib/site-nav";
 import { cn } from "@/lib/utils";
-import { ChevronDown, Menu, Search } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -32,6 +33,15 @@ function navClass(active: boolean) {
 }
 
 function sectionActive(pathname: string, section: NavMenuSection) {
+  if (section.id === "noticias") {
+    return (
+      pathname === "/" ||
+      pathname.startsWith("/noticia/") ||
+      section.links.some(
+        (link) => pathname === link.href || pathname.startsWith(`${link.href}/`),
+      )
+    );
+  }
   if (
     section.id === "reviews" &&
     (pathname === "/vale-a-pena" || pathname.startsWith("/vale-a-pena/"))
@@ -42,6 +52,7 @@ function sectionActive(pathname: string, section: NavMenuSection) {
 }
 
 function submenuAriaLabel(section: NavMenuSection) {
+  if (section.id === "noticias") return "Editorias";
   return section.id === "reviews"
     ? "Por produto"
     : `Assuntos em ${section.label}`;
@@ -286,16 +297,7 @@ export function SiteHeader({
 
         <div className="site-header-actions flex items-center gap-1">
           <ThemeToggle className="max-lg:hidden" />
-          <Button
-            variant="ghost"
-            size="icon"
-            asChild
-            className="max-lg:hidden"
-          >
-            <Link href="/busca" aria-label="Buscar matérias">
-              <Search />
-            </Link>
-          </Button>
+          <PaletteTrigger />
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -320,11 +322,6 @@ export function SiteHeader({
                 <SearchForm inputId="menu-q" compact autoFocus={false} />
               </div>
               <nav className="mt-10 flex flex-col gap-5" aria-label="Menu">
-                <SheetClose asChild>
-                  <Link href="/" className={navClass(pathname === "/")}>
-                    Newsroom
-                  </Link>
-                </SheetClose>
                 {sections.map((section) => (
                   <MobileNavSection
                     key={section.id}

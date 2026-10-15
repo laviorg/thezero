@@ -423,6 +423,40 @@ function requiredFrontmatterIssues(data, taxonomy) {
   return issues;
 }
 
+
+/** Palavras comuns sem acento → forma acentuada (derivado do dicionário pt_BR do LibreOffice + corpus). */
+let ACCENT_MAP;
+function accentMap() {
+  if (!ACCENT_MAP) {
+    ACCENT_MAP = JSON.parse(
+      fs.readFileSync(path.join(ROOT, "scripts", "data", "pt-br-acentos.json"), "utf8"),
+    );
+  }
+  return ACCENT_MAP;
+}
+
+/**
+ * Procura palavra comum sem acento em título e descrição. Palavra com maiúscula
+ * no meio da frase é tratada como nome próprio e ignorada. Slug fica de fora.
+ */
+export function findMissingAccents(text) {
+  if (typeof text !== "string") return [];
+  const map = accentMap();
+  const found = [];
+  const re = /[A-Za-zÀ-ÿ]+/g;
+  let match;
+  let index = 0;
+  while ((match = re.exec(text))) {
+    const word = match[0];
+    const first = index === 0 || /[.!?:]\s*$/.test(text.slice(0, match.index));
+    index += 1;
+    if (!first && word[0] !== word[0].toLowerCase()) continue;
+    const fix = map[word.toLowerCase()];
+    if (fix) found.push(`${word} → ${fix}`);
+  }
+  return found;
+}
+
 async function checkPost(filePath, ctx) {
   const rel = path.relative(ROOT, filePath);
   const slug = path.basename(filePath).replace(/\.mdx?$/, "");
@@ -525,6 +559,13 @@ async function checkPost(filePath, ctx) {
     issues.push(
       "data de publicação inválida: o campo date precisa ser texto ISO entre aspas (YYYY-MM-DD ou YYYY-MM-DDTHH:mm:ss-03:00).",
     );
+  }
+
+  for (const field of ["title", "seoTitle", "excerpt", "description"]) {
+    const missing = findMissingAccents(data[field]);
+    if (missing.length > 0) {
+      issues.push(`acentuação: ${field} tem palavra sem acento (${missing.join(", ")}).`);
+    }
   }
 
   const errors = issues.map((issue) => `${rel} (${slug}): ${issue}`);
@@ -1025,3 +1066,4 @@ export {
   resolvePublicAsset,
   saoPauloYmd,
 };
+// gatilho do check-posts em PRs só de src (sem efeito)

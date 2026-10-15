@@ -3,6 +3,7 @@ import {
   type PhotoWatermarkSize,
 } from "@/components/brand/photo-watermark";
 import { cn } from "@/lib/utils";
+import { derivedImagePath } from "@/lib/derived-image";
 import Image from "next/image";
 
 type CoverImageProps = {
@@ -37,6 +38,8 @@ export function CoverImage({
   hero = false,
 }: CoverImageProps) {
   const framed = crop || hero;
+  /** WebP gerado no build; capas remotas seguem como vieram. */
+  const webp = derivedImagePath(src) ?? src;
   const badge = watermarkSize ?? (crop && !hero ? "compact" : "default");
 
   return (
@@ -58,7 +61,7 @@ export function CoverImage({
       >
         {framed ? (
           <Image
-            src={src}
+            src={webp}
             alt={alt}
             fill
             priority={priority}
@@ -71,7 +74,7 @@ export function CoverImage({
           />
         ) : (
           <Image
-            src={src}
+            src={webp}
             alt={alt}
             width={1960}
             height={1400}
@@ -90,6 +93,9 @@ export function CoverImage({
           )}
         >
           <span className="cover-credit-label">Foto</span>
+          <span className="cover-credit-sep" aria-hidden>
+            ·
+          </span>
           <span className="cover-credit-text">{credit}</span>
         </figcaption>
       ) : null}

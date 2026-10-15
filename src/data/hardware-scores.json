@@ -1,0 +1,377 @@
+{
+ "source": "PassMark Software (videocardbenchmark.net / cpubenchmark.net), consultado em 14/10/2026",
+ "gpus": [
+  {
+   "name": "GeForce GTX 960",
+   "score": 6149,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+960&id=3114"
+  },
+  {
+   "name": "GeForce GTX 970",
+   "score": 9636,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+970&id=2954"
+  },
+  {
+   "name": "GeForce GTX 1050 Ti",
+   "score": 6368,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1050+Ti&id=3595"
+  },
+  {
+   "name": "GeForce GTX 1060 3GB",
+   "score": 9857,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1060+3GB&id=3566"
+  },
+  {
+   "name": "GeForce GTX 1060",
+   "score": 10017,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1060&id=3548"
+  },
+  {
+   "name": "GeForce GTX 1070",
+   "score": 13510,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1070&id=3521"
+  },
+  {
+   "name": "GeForce GTX 1080",
+   "score": 15607,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1080&id=3502"
+  },
+  {
+   "name": "GeForce GTX 1080 Ti",
+   "score": 18597,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1080+Ti&id=3699"
+  },
+  {
+   "name": "GeForce GTX 1650",
+   "score": 7868,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1650&id=4078"
+  },
+  {
+   "name": "GeForce GTX 1660",
+   "score": 11609,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1660&id=4062"
+  },
+  {
+   "name": "GeForce GTX 1660 SUPER",
+   "score": 12656,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+GTX+1660+SUPER&id=4159"
+  },
+  {
+   "name": "GeForce RTX 2060",
+   "score": 14073,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+2060&id=4037"
+  },
+  {
+   "name": "GeForce RTX 2060 SUPER",
+   "score": 16455,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+2060+SUPER&id=4117"
+  },
+  {
+   "name": "GeForce RTX 3050 8GB",
+   "score": 12461,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+3050+8GB&id=4495"
+  },
+  {
+   "name": "GeForce RTX 3060",
+   "score": 16890,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+3060&id=6498"
+  },
+  {
+   "name": "GeForce RTX 3060 Ti",
+   "score": 20213,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+3060+Ti&id=4318"
+  },
+  {
+   "name": "GeForce RTX 3070",
+   "score": 22065,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+3070&id=4283"
+  },
+  {
+   "name": "GeForce RTX 3080",
+   "score": 24974,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+3080&id=4282"
+  },
+  {
+   "name": "GeForce RTX 4060",
+   "score": 19482,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+4060&id=4850"
+  },
+  {
+   "name": "GeForce RTX 4060 Ti",
+   "score": 22593,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+4060+Ti&id=4827"
+  },
+  {
+   "name": "GeForce RTX 4070",
+   "score": 26852,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+4070&id=4795"
+  },
+  {
+   "name": "GeForce RTX 4070 SUPER",
+   "score": 29943,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+4070+SUPER&id=4973"
+  },
+  {
+   "name": "GeForce RTX 5060",
+   "score": 20612,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+5060&id=5602"
+  },
+  {
+   "name": "GeForce RTX 5060 Ti 16GB",
+   "score": 22621,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+5060+Ti+16GB&id=6160"
+  },
+  {
+   "name": "GeForce RTX 5070",
+   "score": 28667,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+5070&id=5940"
+  },
+  {
+   "name": "GeForce RTX 5070 Ti",
+   "score": 32323,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=GeForce+RTX+5070+Ti&id=5878"
+  },
+  {
+   "name": "Radeon RX 570X",
+   "score": 1923,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+RX+570X&id=4179"
+  },
+  {
+   "name": "Radeon RX 580",
+   "score": 8782,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+RX+580&id=3736"
+  },
+  {
+   "name": "Radeon RX 5500 XT",
+   "score": 9045,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+RX+5500+XT&id=4174"
+  },
+  {
+   "name": "Radeon RX 5700 XT",
+   "score": 16025,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+RX+5700+XT&id=4111"
+  },
+  {
+   "name": "Radeon RX 6600",
+   "score": 15039,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+RX+6600&id=4465"
+  },
+  {
+   "name": "Radeon RX 6650 XT",
+   "score": 17103,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+RX+6650+XT&id=4541"
+  },
+  {
+   "name": "Radeon RX 6700 XT",
+   "score": 19715,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+RX+6700+XT&id=4369"
+  },
+  {
+   "name": "Radeon RX 7600",
+   "score": 16439,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+RX+7600&id=4832"
+  },
+  {
+   "name": "Radeon RX 7800 XT",
+   "score": 24471,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+RX+7800+XT&id=4917"
+  },
+  {
+   "name": "Radeon RX 9060 XT 16GB",
+   "score": 20120,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+RX+9060+XT+16GB&id=5957"
+  },
+  {
+   "name": "Radeon RX 9070 XT",
+   "score": 26925,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+RX+9070+XT&id=5956"
+  },
+  {
+   "name": "Intel Iris Xe",
+   "score": 2587,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Iris+Xe&id=4265"
+  },
+  {
+   "name": "Radeon 780M",
+   "score": 6728,
+   "source": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+780M&id=4818"
+  }
+ ],
+ "cpus": [
+  {
+   "name": "Intel Core i5-2500K",
+   "score": 4146,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-2500K+%40+3.30GHz&id=804"
+  },
+  {
+   "name": "Intel Core i5-4460",
+   "score": 4929,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-4460+%40+3.20GHz&id=2230"
+  },
+  {
+   "name": "Intel Core i5-4590",
+   "score": 5380,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-4590+%40+3.30GHz&id=2234"
+  },
+  {
+   "name": "Intel Core i7-4770K",
+   "score": 7149,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-4770K+%40+3.50GHz&id=1919"
+  },
+  {
+   "name": "Intel Core i7-4790",
+   "score": 7257,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-4790+%40+3.60GHz&id=2226"
+  },
+  {
+   "name": "Intel Core i5-6500",
+   "score": 5599,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-6500+%40+3.20GHz&id=2599"
+  },
+  {
+   "name": "Intel Core i5-6600K",
+   "score": 6311,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-6600K+%40+3.50GHz&id=2570"
+  },
+  {
+   "name": "Intel Core i7-6700",
+   "score": 8032,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-6700+%40+3.40GHz&id=2598"
+  },
+  {
+   "name": "Intel Core i5-7400",
+   "score": 5481,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-7400+%40+3.00GHz&id=2929"
+  },
+  {
+   "name": "Intel Core i7-7700",
+   "score": 8639,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-7700+%40+3.60GHz&id=2905"
+  },
+  {
+   "name": "Intel Core i5-8400",
+   "score": 9234,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-8400+%40+2.80GHz&id=3097"
+  },
+  {
+   "name": "Intel Core i7-8700",
+   "score": 12734,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-8700+%40+3.20GHz&id=3099"
+  },
+  {
+   "name": "Intel Core i5-9400F",
+   "score": 9464,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-9400F+%40+2.90GHz&id=3397"
+  },
+  {
+   "name": "Intel Core i7-9700K",
+   "score": 14397,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-9700K+%40+3.60GHz&id=3335"
+  },
+  {
+   "name": "Intel Core i3-10100F",
+   "score": 8701,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i3-10100F+%40+3.60GHz&id=3863"
+  },
+  {
+   "name": "Intel Core i5-10400F",
+   "score": 12092,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-10400F+%40+2.90GHz&id=3767"
+  },
+  {
+   "name": "Intel Core i5-11400F",
+   "score": 16867,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-11400F+%40+2.60GHz&id=4226"
+  },
+  {
+   "name": "Intel Core i5-12400F",
+   "score": 19535,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-12400F&id=4681"
+  },
+  {
+   "name": "Intel Core i5-13400F",
+   "score": 24869,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-13400F&id=5166"
+  },
+  {
+   "name": "Intel Core i5-14400F",
+   "score": 25407,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-14400F&id=5837"
+  },
+  {
+   "name": "Intel Core i7-12700K",
+   "score": 34234,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-12700K&id=4609"
+  },
+  {
+   "name": "AMD FX-8350",
+   "score": 6095,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+FX-8350+Eight-Core&id=1780"
+  },
+  {
+   "name": "AMD Ryzen 3 3200G",
+   "score": 6970,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+3+3200G&id=3497"
+  },
+  {
+   "name": "AMD Ryzen 5 1600",
+   "score": 12242,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+1600&id=2984"
+  },
+  {
+   "name": "AMD Ryzen 5 2600",
+   "score": 13120,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+2600&id=3243"
+  },
+  {
+   "name": "AMD Ryzen 5 3600",
+   "score": 17648,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+3600&id=3481"
+  },
+  {
+   "name": "AMD Ryzen 7 3700X",
+   "score": 22378,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+7+3700X&id=3485"
+  },
+  {
+   "name": "AMD Ryzen 5 5500",
+   "score": 19251,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+5500&id=4807"
+  },
+  {
+   "name": "AMD Ryzen 5 5600",
+   "score": 21487,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+5600&id=4811"
+  },
+  {
+   "name": "AMD Ryzen 5 5600G",
+   "score": 19620,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+5600G&id=4325"
+  },
+  {
+   "name": "AMD Ryzen 7 5700X3D",
+   "score": 26308,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+7+5700X3D&id=5884"
+  },
+  {
+   "name": "AMD Ryzen 5 7600",
+   "score": 26960,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+7600&id=5172"
+  },
+  {
+   "name": "AMD Ryzen 7 7800X3D",
+   "score": 34279,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+7+7800X3D&id=5299"
+  },
+  {
+   "name": "AMD Ryzen 5 9600X",
+   "score": 30036,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+9600X&id=6199"
+  },
+  {
+   "name": "AMD Ryzen 7 9800X3D",
+   "score": 39913,
+   "source": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+7+9800X3D&id=6344"
+  }
+ ]
+}

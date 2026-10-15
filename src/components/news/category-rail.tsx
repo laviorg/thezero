@@ -25,7 +25,7 @@ export function CategoryRail({
         eyebrow={category.kicker}
         title={category.label}
         href={category.href}
-        actionLabel={`Ver ${category.label}`}
+        actionLabel={`Ver tudo em ${category.label} →`}
       />
 
       {shown.length === 0 ? (
@@ -37,23 +37,28 @@ export function CategoryRail({
           <ArticleCard post={shown[0]} layout="stream" headingLevel="h3" />
         </div>
       ) : (
-        <div className="mt-5 grid gap-x-6 gap-y-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {shown.map((post) => (
-            <ArticleCard
-              key={post.slug}
-              post={post}
-              layout="rail"
-              headingLevel="h3"
-            />
-          ))}
+        <div className="mt-5 grid gap-x-8 gap-y-6 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <ArticleCard post={shown[0]} layout="standard" headingLevel="h3" />
+          </div>
+          <div className="border-t border-border pt-4 lg:col-span-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-7">
+            {shown.slice(1).map((post) => (
+              <ArticleCard
+                key={post.slug}
+                post={post}
+                layout="dense"
+                headingLevel="h3"
+              />
+            ))}
+          </div>
         </div>
       )}
 
       <Link
         href={category.href}
-        className="mt-5 inline-block text-[0.78rem] font-medium tracking-[0.12em] text-accent uppercase sm:hidden"
+        className="mt-5 flex w-full items-center justify-center rounded-md border border-border py-2.5 text-[0.78rem] font-medium tracking-[0.12em] text-accent uppercase transition-colors hover:bg-surface-raised sm:hidden"
       >
-        Ver {category.label}
+        Ver tudo em {category.label} →
       </Link>
     </section>
   );

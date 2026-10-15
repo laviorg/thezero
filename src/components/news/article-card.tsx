@@ -1,3 +1,5 @@
+import handhelds from "@/data/handhelds.json";
+import { CompareButton } from "@/components/compare/compare-button";
 import { SplitOMark } from "@/components/brand/logo";
 import { CoverImage } from "@/components/news/cover-image";
 import { NewsMeta } from "@/components/news/news-meta";
@@ -12,7 +14,9 @@ export type ArticleCardLayout =
   | "standard"
   | "rail"
   | "stream"
-  | "compact";
+  | "compact"
+  /** Text-only row: kicker, title and reading time. No cover, no summary. */
+  | "dense";
 
 type ArticleCardProps = {
   post: Post;
@@ -36,11 +40,14 @@ const coverSizes: Record<ArticleCardLayout, string> = {
   rail: "(min-width: 1280px) 18rem, (min-width: 640px) 45vw, 100vw",
   stream: "(min-width: 640px) 8rem, 6rem",
   compact: "(min-width: 640px) 8rem, 6rem",
+  dense: "6rem",
 };
 
 function Kicker({ children }: { children: string }) {
   return <p className="eyebrow page-kicker">{children}</p>;
 }
+
+const COMPARABLE = new Set(handhelds.items.map((i) => i.article));
 
 export function ArticleCard({
   post,
@@ -53,12 +60,14 @@ export function ArticleCard({
   const variant = layout ?? priority ?? "standard";
   const isLead = variant === "lead";
   const isStream = variant === "stream";
-  const isCompact = variant === "compact";
+  const isDense = variant === "dense";
+  const isCompact = variant === "compact" || isDense;
   const isRow = isStream || isCompact;
 
   const Heading = headingLevel ?? (isLead ? "h1" : isCompact ? "h3" : "h2");
   const kicker = post.kicker ?? post.categoryLabel;
   const imageAlt = coverAlt(post.title, post.coverAlt);
+  const comparable = COMPARABLE.has(post.href);
 
   const linkTitle =
     "font-display font-bold tracking-tight text-fg text-pretty transition-colors duration-200 group-hover:text-accent group-focus-visible:text-accent";
@@ -101,14 +110,19 @@ export function ArticleCard({
               )}
             >
               {post.title}
-              <span className="card-arrow" aria-hidden>
-                ↗
-              </span>
             </Heading>
-            <p className="mt-1 hidden text-[0.9rem] leading-5 text-muted text-pretty line-clamp-2 @min-[30rem]:block">
-              {post.excerpt}
-            </p>
-            <NewsMeta post={post} className="mt-1.5" />
+            {isDense ? (
+              <p className="mt-1 font-mono text-[0.68rem] tabular-nums text-muted">
+                {post.readingMinutes} min de leitura
+              </p>
+            ) : (
+              <>
+                <p className="mt-1 hidden text-[0.9rem] leading-5 text-muted text-pretty line-clamp-2 @min-[30rem]:block">
+                  {post.excerpt}
+                </p>
+                <NewsMeta post={post} className="mt-1.5" />
+              </>
+            )}
           </div>
         </Link>
       </article>
@@ -144,9 +158,6 @@ export function ArticleCard({
           )}
         >
           {post.title}
-          <span className="card-arrow" aria-hidden>
-            ↗
-          </span>
         </Heading>
         <p
           className={cn(
@@ -164,6 +175,7 @@ export function ArticleCard({
           className={cn(isLead ? "mt-3" : "mt-auto pt-2.5")}
         />
       </Link>
+      {comparable ? <CompareButton id={post.href} /> : null}
     </article>
   );
 }

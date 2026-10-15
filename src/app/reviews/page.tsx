@@ -116,8 +116,8 @@ export default function ReviewsPage() {
             </section>
           ))}
           {rest.length > 0 ? (
-            <section className="mt-10" aria-labelledby="reviews-resto">
-              <SectionHeading id="reviews-resto" title="Também no arquivo" />
+            <section className="mt-10" aria-labelledby="reviews-outros">
+              <SectionHeading id="reviews-outros" title="Outros guias" />
               <p className="mt-3 max-w-2xl text-sm text-muted">
                 Guias que não cabem numa linha de produto. Continuam neste hub.
               </p>

@@ -1,45 +1,28 @@
+import { YouTube } from "@/components/mdx/youtube-embed";
+import { NewsletterBox } from "@/components/newsletter/newsletter-box";
 import { WatermarkedPhoto } from "@/components/brand/photo-watermark";
+import {
+  ContaDaRedacao,
+  Fontes,
+  OverratedUnderrated,
+  RegraDoTheZero,
+  TabelaPreco,
+} from "@/components/mdx/blocks";
+import { Price } from "@/components/mdx/price";
+import { FichaLink } from "@/components/mdx/ficha-link";
+import { CaixaCompra } from "@/components/mdx/caixa-compra";
+import { ErrosComuns } from "@/components/mdx/erros-comuns";
+import { GuiasDoTema } from "@/components/mdx/guias-do-tema";
+import { RespostaCurta } from "@/components/mdx/resposta-curta";
 import { readLocalImageSize } from "@/lib/image-size";
 import { cn } from "@/lib/utils";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import Image from "next/image";
-import { Children, isValidElement, type ComponentPropsWithoutRef, type ReactNode } from "react";
+import { Children, isValidElement, type ComponentPropsWithoutRef } from "react";
 
-export function Verdict({
-  overrated,
-  underrated,
-}: {
-  overrated: string;
-  underrated: string;
-}) {
-  return (
-    <div className="my-10 grid min-w-0 gap-3 sm:grid-cols-2">
-      <div className="min-w-0 border border-alert/50 bg-surface px-5 py-5">
-        <p className="eyebrow text-alert">Overrated</p>
-        <p className="font-display mt-2.5 text-[1.15rem] leading-snug font-bold text-fg">
-          {overrated}
-        </p>
-      </div>
-      <div className="min-w-0 border-t-[3px] border-t-accent border border-accent/40 bg-accent-soft px-5 py-5">
-        <p className="eyebrow page-kicker">Underrated</p>
-        <p className="font-display mt-2.5 text-[1.15rem] leading-snug font-bold text-fg">
-          {underrated}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-export function Rule({ children }: { children: ReactNode }) {
-  return (
-    <aside className="article-rule my-10 min-w-0 max-w-full border-l-[5px] border-accent bg-accent-soft px-5 py-5">
-      <p className="eyebrow page-kicker">Regra do The Zero</p>
-      <div className="font-display mt-2.5 text-[1.2rem] leading-snug font-bold text-fg">
-        {children}
-      </div>
-    </aside>
-  );
-}
+/** Legado: `<Verdict>` e `<Rule>` das matérias antigas usam os novos blocos. */
+export const Verdict = OverratedUnderrated;
+export const Rule = RegraDoTheZero;
 
 function MarkdownImage({
   src,
@@ -70,7 +53,20 @@ function MarkdownImage({
 
 export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   Verdict,
+  OverratedUnderrated,
+  RegraDoTheZero,
+  TabelaPreco,
+  ContaDaRedacao,
+  Fontes,
+  Price,
+  Ficha: FichaLink,
   Rule,
+  CaixaCompra,
+  RespostaCurta,
+  ErrosComuns,
+  GuiasDoTema,
+  YouTube,
+  Newsletter: NewsletterBox,
   img: MarkdownImage,
   h2: ({ className, ...props }) => (
     <h2

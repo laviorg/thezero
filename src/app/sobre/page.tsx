@@ -94,7 +94,8 @@ export default function AboutPage() {
         <div className="mt-6 space-y-4 text-base leading-7 text-fg/90">
           <p>
             The Zero é um newsroom independente de tecnologia, publicado no
-            Brasil. Não somos assessoria, loja de hype nem agregador. A
+            Brasil. Fundado e editado por Nicholas Nishimura, São
+            Paulo–SP. Não somos assessoria, loja de hype nem agregador. A
             pauta, o critério e o texto são da casa. Se um fabricante mandou
             o produto, a gente diz. Se não testamos, não fingimos.
           </p>
@@ -129,11 +130,22 @@ export default function AboutPage() {
             </div>
             <div className="sm:col-span-2">
               <dt className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
-                Autor das matérias
+                Responsável editorial
               </dt>
               <dd className="mt-1 text-fg">
-                {site.defaultAuthor}. Não há página de pessoa: o byline é a
-                redação.
+                Nicholas Nishimura, fundador e editor · São Paulo–SP
+              </dd>
+            </div>
+            <div className="sm:col-span-2">
+              <dt className="text-[0.65rem] tracking-[0.16em] text-muted uppercase">
+                Autores das matérias
+              </dt>
+              <dd className="mt-1 text-fg">
+                Todas as matérias são assinadas por Nicholas Nishimura. Veja{" "}
+                <Link href="/autores" className="text-accent">
+                  Autores
+                </Link>
+                .
               </dd>
             </div>
             <div className="sm:col-span-2">
@@ -164,7 +176,7 @@ export default function AboutPage() {
             <Link href="/como-testamos" className="text-accent">
               Como testamos
             </Link>
-            . Independência, correção, fonte e o uso de IA estão na{" "}
+            . Independência, correção e fonte estão na{" "}
             <Link href="/politica-editorial" className="text-accent">
               política editorial
             </Link>
@@ -208,6 +220,10 @@ export default function AboutPage() {
         ou a página de{" "}
         <Link href="/contato" className="text-accent">
           contato
+        </Link>
+        . Quem assina:{" "}
+        <Link href="/autores" className="text-accent">
+          Autores
         </Link>
         . Método em{" "}
         <Link href="/como-testamos" className="text-accent">

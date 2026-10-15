@@ -1,0 +1,140 @@
+{
+ "checkedAt": "2026-10-14",
+ "builds": [
+  {
+   "id": "entrada",
+   "label": "Entrada",
+   "target": "1080p em jogos atuais com ajustes médios a altos",
+   "platform": "AM4 + DDR4 (plataforma mais barata, sem upgrade de CPU pela frente)",
+   "parts": [
+    {
+     "role": "Processador",
+     "qty": 1,
+     "name": "Processador AMD Ryzen 5 5500, 3.6GHz (4.2GHz Max Turbo), Cache 19MB, 6 Núcleos, 12 Threads, AM4, Sem Vídeo Integrado - 100-100000457BOX",
+     "url": "https://www.kabum.com.br/produto/320799/processador-amd-ryzen-5-5500-3-6ghz-4-2ghz-max-turbo-cache-19mb-6-nucleos-12-threads-am4-sem-video-integrado-100-100000457box"
+    },
+    {
+     "role": "Placa-mãe",
+     "qty": 1,
+     "name": "Placa-Mãe MSI B550M-A PRO, AMD, AM4, Micro-ATX, DDR4 - B550MAPRO",
+     "url": "https://www.kabum.com.br/produto/941257/placa-mae-msi-b550m-a-pro-amd-am4-micro-atx-ddr4-b550mapro"
+    },
+    {
+     "role": "Memória",
+     "qty": 2,
+     "name": "Memoria RAM Kingston Fury  Beast, 16GB, 3200MT/s, DDR4, CL16, DIMM,  Preto - KF432C16BB/16",
+     "url": "https://www.kabum.com.br/produto/1029658/memoria-ram-kingston-fury-beast-16gb-3200mt-s-ddr4-cl16-dimm-preto-kf432c16bb-16"
+    },
+    {
+     "role": "Placa de vídeo",
+     "qty": 1,
+     "name": "Placa de Vídeo RX 7600 Challenger ASRock AMD Radeon,  8GB GDDR6 - 90-GA41ZZ-00UANF",
+     "url": "https://www.kabum.com.br/produto/459144/placa-de-video-rx-7600-challenger-asrock-amd-radeon-8gb-gddr6-90-ga41zz-00uanf"
+    },
+    {
+     "role": "SSD",
+     "qty": 1,
+     "name": "SSD Kingston NV3, 1TB, M.2 2280, PCIe 4.0 x4, NVMe, Leitura: 6000 MB/s, Gravação: 4000 MB/s, Azul - SNV3S/1000G",
+     "url": "https://www.kabum.com.br/produto/621162/ssd-kingston-nv3-1-tb-m-2-2280-pcie-4-0-x4-nvme-leitura-6000-mb-s-gravacao-4000-mb-s-azul-snv3s-1000g"
+    },
+    {
+     "role": "Fonte",
+     "qty": 1,
+     "name": "Fonte MSI MAG A650BN, 650W, 80 Plus Bronze, PFC Ativo, Com Cabo, Preto - 306-7ZP2B22-CE0",
+     "url": "https://www.kabum.com.br/produto/369658/fonte-msi-mag-a650bn-650w-80-plus-bronze-pfc-ativo-com-cabo-preto-306-7zp2b22-ce0"
+    }
+   ],
+   "note": "RX 7600: a AMD recomenda fonte de 550 W ou mais; a de 650 W dá folga."
+  },
+  {
+   "id": "intermediario",
+   "label": "Intermediário",
+   "target": "1080p alto e 1440p com upscaling",
+   "platform": "AM5 + DDR5 (dá pra trocar o processador depois)",
+   "parts": [
+    {
+     "role": "Processador",
+     "qty": 1,
+     "name": "Processador AMD Ryzen 5 7600, 3.8GHz (5.1GHz Max Turbo), Cache 38MB, 6 Núcleos, 12 Threads, AM5, Com Vídeo Integrado - 100-100001015BOX",
+     "url": "https://www.kabum.com.br/produto/405799/processador-amd-ryzen-5-7600-3-8ghz-5-1ghz-max-turbo-cache-38mb-6-nucleos-12-threads-am5-com-video-integrado-100-100001015box"
+    },
+    {
+     "role": "Placa-mãe",
+     "qty": 1,
+     "name": "Placa Mãe MSI Pro B650M-P, AMD AM5, M-ATX, DDR5 - PRO B650M-P",
+     "url": "https://www.kabum.com.br/produto/524346/placa-mae-msi-pro-b650m-p-amd-am5-m-atx-ddr5-pro-b650m-p"
+    },
+    {
+     "role": "Memória",
+     "qty": 2,
+     "name": "Memória RAM Kingston Fury Beast, 16GB, 5600MHz, DDR5, CL40, para Intel XMP, Preto - KF556C40BB-16",
+     "url": "https://www.kabum.com.br/produto/285967/memoria-ram-kingston-fury-beast-16gb-5600mhz-ddr5-cl40-para-intel-xmp-preto-kf556c40bb-16"
+    },
+    {
+     "role": "Placa de vídeo",
+     "qty": 1,
+     "name": "Placa de Vídeo MSI RTX 5060 Ti 16G VENTUS 2X OC PLUS NVIDIA GeForce, 16GB GDDR7, 2617 MHz, FP4 and DLSS 4, Ray Tracing - G506T-16V2CP",
+     "url": "https://www.kabum.com.br/produto/777167/placa-de-video-msi-rtx-5060-ti-16g-ventus-2x-oc-plus-nvidia-geforce-16gb-gddr7-2617-mhz-fp4-and-dlss-4-ray-tracing-g506t-16v2cp"
+    },
+    {
+     "role": "SSD",
+     "qty": 1,
+     "name": "SSD Kingston NV3, 1TB, M.2 2280, PCIe 4.0 x4, NVMe, Leitura: 6000 MB/s, Gravação: 4000 MB/s, Azul - SNV3S/1000G",
+     "url": "https://www.kabum.com.br/produto/621162/ssd-kingston-nv3-1-tb-m-2-2280-pcie-4-0-x4-nvme-leitura-6000-mb-s-gravacao-4000-mb-s-azul-snv3s-1000g"
+    },
+    {
+     "role": "Fonte",
+     "qty": 1,
+     "name": "Fonte Corsair CX Series CX650, 650W, 80 Plus Bronze, Com Cabo, Preto - CP-9020278-BR",
+     "url": "https://www.kabum.com.br/produto/516056/fonte-corsair-cx-series-cx650-650w-80-plus-bronze-com-cabo-preto-cp-9020278-br"
+    }
+   ],
+   "note": "RTX 5060 Ti: a NVIDIA pede 600 W de sistema (página oficial); a fonte de 650 W cobre."
+  },
+  {
+   "id": "avancado",
+   "label": "Avançado",
+   "target": "1440p alto e 4K com upscaling",
+   "platform": "AM5 + DDR5 com processador X3D (cache extra, bom pra jogo)",
+   "parts": [
+    {
+     "role": "Processador",
+     "qty": 1,
+     "name": "Processador AMD Ryzen 7 7800X3D, 4.2GHz (5.0GHz Max Turbo), Cache 104MB, 8 Núcleos, 16 Threads, AM5, Com Vídeo Integrado - 100-100000910WOF",
+     "url": "https://www.kabum.com.br/produto/426262/processador-amd-ryzen-7-7800x3d-4-2ghz-5-0ghz-max-turbo-cache-104mb-8-nucleos-16-threads-am5-com-video-integrado-100-100000910wof"
+    },
+    {
+     "role": "Placa-mãe",
+     "qty": 1,
+     "name": "Placa-Mãe ASUS TUF Gaming B650M-E, WIFI, AMD AM5, B650, DDR5, Preto - 90MB1FV0-M0EAY0",
+     "url": "https://www.kabum.com.br/produto/523145/placa-mae-asus-tuf-gaming-b650m-e-wifi-amd-am5-b650-ddr5-preto-90mb1fv0-m0eay0"
+    },
+    {
+     "role": "Memória",
+     "qty": 2,
+     "name": "Memória RAM Kingston Fury Beast, 16GB, 5600MHz, DDR5, CL40, para Intel XMP, Preto - KF556C40BB-16",
+     "url": "https://www.kabum.com.br/produto/285967/memoria-ram-kingston-fury-beast-16gb-5600mhz-ddr5-cl40-para-intel-xmp-preto-kf556c40bb-16"
+    },
+    {
+     "role": "Placa de vídeo",
+     "qty": 1,
+     "name": "Placa de Vídeo ASRock Radeon RX 9070 XT Challenger, AMD, 16GB - 90-GA61ZZ-00UANF",
+     "url": "https://www.kabum.com.br/produto/921271/placa-de-video-asrock-radeon-rx-9070-xt-challenger-amd-16gb-90-ga61zz-00uanf"
+    },
+    {
+     "role": "SSD",
+     "qty": 1,
+     "name": "SSD Samsung 990 Pro 2TB, M.2 Nvme PCie 4.0, Leitura 7450MBps, Gravação 6900MBps - Mz-V9p2t0bw",
+     "url": "https://www.kabum.com.br/produto/576204/ssd-samsung-990-pro-2tb-m-2-nvme-pcie-4-0-leitura-7450mbps-gravacao-6900mbps-mz-v9p2t0bw"
+    },
+    {
+     "role": "Fonte",
+     "qty": 1,
+     "name": "Fonte Gigabyte UD850GM, 850W, 80 PLUS Gold, Modular, PFC Ativo, Preto - 28200-UD850G-1ARR",
+     "url": "https://www.kabum.com.br/produto/907601/fonte-gigabyte-ud850gm-850w-80-plus-gold-modular-pfc-ativo-preto-28200-ud850g-1arr"
+    }
+   ],
+   "note": "RX 9070 XT: a AMD recomenda fonte mínima de 750 W; a de 850 W dá margem."
+  }
+ ]
+}

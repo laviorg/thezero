@@ -1,9 +1,21 @@
+import { NewsletterBox } from "@/components/newsletter/newsletter-box";
+import { LONG_GUIDE_MIN_WORDS, injectNewsletterAfterThirdParagraph } from "@/lib/newsletter";
+import { VerdictCard } from "@/components/news/verdict-card";
+import Link from "next/link";
+import { ReadAlso } from "@/components/news/read-also";
 import { ArticleBody } from "@/components/news/article-body";
 import { ArticleDeskLinks } from "@/components/news/article-desk-links";
 import { ArticleHeader } from "@/components/news/article-header";
+import { RelatedTools } from "@/components/news/related-tools";
+import { fichas } from "@/lib/fichas";
+import { relatedLinks } from "@/lib/related-links";
+import { ReadingMode } from "@/components/news/reading-mode";
+import { Changelog } from "@/components/news/changelog";
 import { ArticlePager } from "@/components/news/article-pager";
 import { ArticleRail } from "@/components/news/article-rail";
+import { AuthorBio } from "@/components/news/author-bio";
 import { CoverImage } from "@/components/news/cover-image";
+import { resolveAuthor } from "@/lib/authors";
 import {
   BreadcrumbJsonLd,
   NewsArticleJsonLd,
@@ -22,7 +34,6 @@ import {
   HOME_CRUMB_LABEL,
   articleOgImagePath,
   coverAlt,
-  newsRobots,
   toMetaDescription,
 } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
@@ -53,6 +64,8 @@ export async function generateMetadata({
   const headline = articleHeadline(post);
   const url = absoluteUrl(post.href);
   const ogPath = articleOgImagePath(post.slug);
+  const profile = resolveAuthor(post.authorSlug) ?? resolveAuthor(post.author);
+  const authorUrl = profile ? absoluteUrl(profile.href) : absoluteUrl("/autores");
   const base = buildPageMetadata({
     title: post.seoTitle || post.title,
     description: post.seoDescription || post.excerpt,
@@ -61,11 +74,12 @@ export async function generateMetadata({
     brand: "auto",
     imagePath: ogPath,
     imageAlt: headline,
+    noIndex: Boolean(post.noindex),
   });
 
   return {
     ...base,
-    authors: [{ name: post.author, url: absoluteUrl("/sobre") }],
+    authors: [{ name: post.author, url: authorUrl }],
     category: post.categoryLabel,
     keywords: [
       post.categoryLabel,
@@ -73,14 +87,13 @@ export async function generateMetadata({
       post.kicker,
       "The Zero",
     ].filter((value): value is string => Boolean(value)),
-    robots: newsRobots,
     openGraph: {
       ...base.openGraph,
       type: "article",
       url,
       publishedTime: post.dateIso,
       modifiedTime: post.updatedIso,
-      authors: [absoluteUrl("/sobre")],
+      authors: [authorUrl],
       section: post.categoryLabel,
       tags: [post.categoryLabel, subcategory?.label].filter(
         (value): value is string => Boolean(value),
@@ -98,11 +111,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const subcategory = post.subcategory
     ? getSubcategory(post.category, post.subcategory)
     : undefined;
-  const related = getRelatedPosts(post, 4);
+  const relatedPool = getRelatedPosts(post, 9);
+  const readAlso = relatedPool.slice(0, 5);
+  const related = relatedPool.slice(5);
   const { newer, older } = getAdjacentPosts(post);
   const pageUrl = absoluteUrl(post.href);
-  const kicker = subcategory?.label ?? category?.label ?? post.kicker ?? "The Zero";
-  const kickerHref = subcategory?.href ?? category?.href;
+  const kicker = category?.label ?? subcategory?.label ?? post.kicker ?? "The Zero";
+  const kickerHref = category?.href ?? subcategory?.href;
+  const profile = resolveAuthor(post.authorSlug) ?? resolveAuthor(post.author);
 
   return (
     <article className="story-page">
@@ -158,23 +174,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               kicker={kicker}
               kickerHref={kickerHref}
               author={post.author}
+              authorHref={profile?.href ?? "/autores"}
               date={post.date}
               dateIso={post.dateIso}
               updated={post.updated}
               updatedIso={post.updatedIso}
               readingMinutes={post.readingMinutes}
-              crumbs={
-                category
-                  ? [
-                      { href: "/", label: HOME_CRUMB_LABEL },
-                      { href: category.href, label: category.label },
-                      ...(subcategory
-                        ? [{ href: subcategory.href, label: subcategory.label }]
-                        : []),
-                      { label: post.title },
-                    ]
-                  : undefined
-              }
             />
             {post.cover ? (
               <CoverImage
@@ -195,7 +200,40 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <PageShell width="article" className="story-body-shell">
         <div className="story-split">
           <div className="story-main">
-            <ArticleBody source={post.content} />
+            <ReadingMode />
+            {post.format === "review" || post.format === "vale-a-pena" || post.updatedIso !== post.dateIso ? (
+              <Changelog
+                entries={
+                  post.changelog?.length
+                    ? [{ date: post.dateIso, note: "Publicada" }, ...post.changelog]
+                    : [
+                        { date: post.dateIso, note: "Publicada" },
+                        ...(post.updatedIso !== post.dateIso ? [{ date: post.updatedIso, note: "Atualizada" }] : []),
+                      ]
+                }
+              />
+            ) : null}
+            {post.veredito ? <VerdictCard data={post.veredito} /> : null}
+            <ArticleBody
+              source={
+                post.format === "guia" && post.wordCount >= LONG_GUIDE_MIN_WORDS
+                  ? injectNewsletterAfterThirdParagraph(post.content)
+                  : post.content
+              }
+            />
+            <RelatedTools
+              links={relatedLinks(
+                post,
+                fichas.map((f) => ({
+                  href: `/ficha/${f.slug}`,
+                  label: `Ficha do ${f.name}`,
+                  test: (p) => p.href === f.review || f.match.some((n) => p.title.includes(n)),
+                })),
+              )}
+            />
+            <NewsletterBox placement="fim" />
+            <ReadAlso posts={readAlso} />
+            <AuthorBio author={post.author} authorSlug={post.authorSlug} />
             {category ? (
               <ArticleDeskLinks
                 category={category}

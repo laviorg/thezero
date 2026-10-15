@@ -1,0 +1,146 @@
+{
+  "updated": "2026-10-15",
+  "note": "Só dados publicados nas matérias do The Zero (cada uma com as próprias fontes). Campo vazio = a matéria não traz o dado.",
+  "items": [
+    {
+      "name": "Steam Deck OLED",
+      "sistema": "SteamOS",
+      "chip": "AMD Zen 2 + RDNA 2",
+      "tela": "7,4\" OLED, 1280×800, 90 Hz",
+      "wh": 50,
+      "preco": "",
+      "veredito": "",
+      "article": "/noticia/steam-deck-oled-vs-zeenix-pro"
+    },
+    {
+      "name": "ROG Ally (Z1 Extreme)",
+      "sistema": "Windows 11",
+      "chip": "AMD Ryzen Z1 Extreme",
+      "tela": "7\", 1920×1080, 120 Hz",
+      "wh": 40,
+      "preco": "",
+      "veredito": "",
+      "article": "/noticia/legion-go-vs-rog-ally"
+    },
+    {
+      "name": "ROG Xbox Ally",
+      "sistema": "Windows 11",
+      "chip": "AMD Ryzen Z2 A",
+      "tela": "7\", 1920×1080, 120 Hz VRR, IPS",
+      "wh": 60,
+      "preco": "R$ 4.949,10 à vista na loja oficial (26/09/2026)",
+      "veredito": "",
+      "article": "/noticia/rog-xbox-ally-vale-a-pena-brasil"
+    },
+    {
+      "name": "ROG Xbox Ally X",
+      "sistema": "Windows 11",
+      "chip": "AMD Ryzen AI Z2 Extreme",
+      "tela": "7\", 1920×1080, 120 Hz VRR, IPS",
+      "wh": 80,
+      "preco": "R$ 8.999,10 à vista na loja oficial (26/09/2026)",
+      "veredito": "",
+      "article": "/noticia/rog-xbox-ally-vale-a-pena-brasil"
+    },
+    {
+      "name": "Lenovo Legion Go",
+      "sistema": "Windows 11",
+      "chip": "AMD Ryzen Z1 Extreme",
+      "tela": "8,8\", 2560×1600, 144 Hz",
+      "wh": 49.2,
+      "preco": "",
+      "veredito": "",
+      "article": "/noticia/legion-go-vs-rog-ally"
+    },
+    {
+      "name": "Lenovo Legion Go S (SteamOS)",
+      "sistema": "SteamOS",
+      "chip": "AMD Ryzen Z2 Go",
+      "tela": "8\", 1920×1200, 48–120 Hz VRR",
+      "wh": 55.5,
+      "preco": "",
+      "veredito": "Comprar",
+      "article": "/noticia/legion-go-s-steamos"
+    },
+    {
+      "name": "Lenovo Legion Go 2",
+      "sistema": "",
+      "chip": "AMD Ryzen Z2 Extreme",
+      "tela": "8,8\" OLED, 1920×1200, 144 Hz",
+      "wh": 74,
+      "preco": "",
+      "veredito": "",
+      "article": "/noticia/lenovo-legion-go-2-preco-ryzen-z2-extreme"
+    },
+    {
+      "name": "MSI Claw 8 AI+",
+      "sistema": "Windows 11",
+      "chip": "Intel Core Ultra 7 258V",
+      "tela": "8\", 1920×1200, 120 Hz",
+      "wh": 80,
+      "preco": "",
+      "veredito": "Comprar",
+      "article": "/noticia/msi-claw-8-ai-bateria-jogos"
+    },
+    {
+      "name": "Ayaneo 2S",
+      "sistema": "Windows 11",
+      "chip": "AMD Ryzen 7 7840U",
+      "tela": "7\", 1920×1200, 60 Hz",
+      "wh": 50.25,
+      "preco": "",
+      "veredito": "Pular",
+      "article": "/noticia/ayaneo-2s-desempenho-tela-brasil"
+    },
+    {
+      "name": "Ayaneo Kun",
+      "sistema": "Windows 11",
+      "chip": "AMD Ryzen 7 7840U",
+      "tela": "8,4\", 2560×1600",
+      "wh": 75,
+      "preco": "",
+      "veredito": "Comprar",
+      "article": "/noticia/ayaneo-kun-tela-peso-preco"
+    },
+    {
+      "name": "Ayaneo Slide",
+      "sistema": "Windows 11",
+      "chip": "AMD Ryzen 7 7840U",
+      "tela": "6\", 1920×1080",
+      "wh": 46.2,
+      "preco": "",
+      "veredito": "Esperar",
+      "article": "/noticia/ayaneo-slide-teclado-faz-sentido"
+    },
+    {
+      "name": "GPD Win 4",
+      "sistema": "Windows 11",
+      "chip": "AMD Ryzen 7 8840U ou Ryzen AI 9 HX 370",
+      "tela": "6\", 1920×1080",
+      "wh": 45.62,
+      "preco": "",
+      "veredito": "Comprar",
+      "article": "/noticia/gpd-win-4-teclado-para-quem"
+    },
+    {
+      "name": "Zeenix Pro (TecToy)",
+      "sistema": "Windows 11",
+      "chip": "AMD Ryzen 7 6800U",
+      "tela": "6\" IPS, 1920×1080, 60 Hz",
+      "wh": 46.2,
+      "preco": "R$ 4.999 de lista (28/08/2026)",
+      "veredito": "",
+      "article": "/noticia/steam-deck-oled-vs-zeenix-pro"
+    },
+    {
+      "name": "Nintendo Switch 2",
+      "sistema": "Nintendo",
+      "chip": "",
+      "tela": "LCD",
+      "wh": null,
+      "preco": "R$ 4.599,90 sugerido (set/2026)",
+      "veredito": "",
+      "article": "/noticia/switch-2-vs-steam-deck-oled-preco-brasil"
+    }
+  ]
+}

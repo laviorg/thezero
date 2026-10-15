@@ -127,6 +127,29 @@ def _permalink(url: str, token: str, secrets: list[str]) -> str:
     raise RuntimeError(f"publicação sem permalink: {last_error}")
 
 
+PUBLISH_RETRY_WAITS_S = (10, 20, 30, 45, 60)
+
+
+def _media_not_ready(err: str) -> bool:
+    """9007 / 'Media ID is not available': o container ainda não está publicável (transitório na Meta)."""
+    low = err.lower()
+    return "9007" in low or "media id is not available" in low or "not ready" in low
+
+
+def _publish_with_retry(url: str, token: str, secrets: list[str], data: dict, waits=None, sleep=time.sleep):
+    waits = PUBLISH_RETRY_WAITS_S if waits is None else waits
+    attempt = 0
+    while True:
+        try:
+            return _request("POST", url, token, secrets, data=data)
+        except RuntimeError as exc:
+            if attempt >= len(waits) or not _media_not_ready(str(exc)):
+                raise
+            print(f"media_publish ainda indisponível ({exc}); nova tentativa em {waits[attempt]}s", flush=True)
+            sleep(waits[attempt])
+            attempt += 1
+
+
 def post_instagram(token: str, user_id: str, image_url: str, caption: str, secrets: list[str]) -> str:
     container = _request(
         "POST",
@@ -145,12 +168,11 @@ def post_instagram(token: str, user_id: str, image_url: str, caption: str, secre
         "status_code",
         {"FINISHED", "PUBLISHED"},
     )
-    published = _request(
-        "POST",
+    published = _publish_with_retry(
         f"{GRAPH}/{user_id}/media_publish",
         token,
         secrets,
-        data={"creation_id": container_id, "access_token": token},
+        {"creation_id": container_id, "access_token": token},
     )
     media_id = published.get("id")
     if not media_id:

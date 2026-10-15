@@ -1,3 +1,5 @@
+import { CompareHost } from "@/components/compare/compare-button";
+import { newsRobots } from "@/lib/seo";
 import { AdSenseScript } from "@/components/ads/adsense-script";
 import { GoogleAnalyticsScript } from "@/components/analytics/ga-script";
 import { CookieBanner } from "@/components/consent/cookie-banner";
@@ -73,18 +75,29 @@ export const metadata: Metadata = {
     title: site.name,
     description: site.description,
   },
-  robots: {
-    index: true,
-    follow: true,
+  robots: newsRobots,
+  other: {
+    "p:domain_verify": "1ce869a72360f9b03b5e8023bb72a9b2",
+    ...(adsensePubId
+      ? { "google-adsense-account": adsenseClientId(adsensePubId) }
+      : {}),
   },
-  ...(adsensePubId
-    ? { other: { "google-adsense-account": adsenseClientId(adsensePubId) } }
-    : {}),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const activeSubs = getActiveSubcategories();
+  // Menu de topo: 5 itens. Subcategorias ficam dentro de cada seção.
   const sections = [
-    ...categoryMenus(getActiveSubcategories()),
+    {
+      id: "noticias",
+      href: "/",
+      label: "Notícias",
+      menuLabel: "Editorias",
+      links: categoryMenus(activeSubs).map((category) => ({
+        href: category.href,
+        label: category.label,
+      })),
+    },
     {
       id: "reviews",
       href: "/reviews",
@@ -99,11 +112,39 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       ],
     },
     {
-      id: "tutoriais",
+      id: "guias",
       href: "/tutoriais",
-      label: "Tutoriais",
-      menuLabel: "Plataforma",
-      links: [],
+      label: "Guias",
+      menuLabel: "Guias",
+      links: [
+        { href: "/tutoriais", label: "Tutoriais" },
+        { href: "/vale-a-pena", label: "Vale a pena?" },
+        { href: "/glossario", label: "Glossário" },
+        { href: "/como-testamos", label: "Como testamos" },
+      ],
+    },
+    {
+      id: "ofertas",
+      href: "/menor-preco",
+      label: "Ofertas",
+      menuLabel: "Compras",
+      links: [
+        { href: "/menor-preco", label: "Menor preço do dia" },
+        { href: "/black-friday", label: "Black Friday 2026" },
+        { href: "/11-11", label: "11.11" },
+        { href: "/prime-day", label: "Prime Day" },
+      ],
+    },
+    {
+      id: "ferramentas",
+      href: "/ferramentas",
+      label: "Ferramentas",
+      menuLabel: "Calculadoras",
+      links: [
+        { href: "/ferramentas/meu-pc-roda", label: "Meu PC roda?" },
+        { href: "/ferramentas/calculadora-de-fonte", label: "Calculadora de fonte" },
+        { href: "/ferramentas/montar-pc", label: "Montar PC" },
+      ],
     },
   ];
 
@@ -115,6 +156,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <ThemeScript />
+        <meta name="lomadee" content="2324685" />
       </head>
       <body className="flex min-h-full flex-col bg-bg font-sans text-fg">
         <ThemeProvider>
@@ -129,6 +171,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               {children}
             </main>
             <SiteFooter />
+            <CompareHost />
             <CookieBanner />
             <AdSenseScript />
             <GoogleAnalyticsScript />

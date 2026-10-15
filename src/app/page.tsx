@@ -56,8 +56,8 @@ export default function HomePage() {
    * next to a cover so container-query cards fill the banner height.
    */
   const useRail = Boolean(featured?.cover) && rest.length > 0;
-  const rail = useRail ? rest.slice(0, 4) : [];
-  const latest = useRail ? rest.slice(4, 10) : rest.slice(0, 6);
+  const rail = useRail ? rest.slice(0, 6) : [];
+  const latest = useRail ? rest.slice(6, 12) : rest.slice(0, 6);
   const listed = featured ? [featured, ...rest.slice(0, 8)] : rest.slice(0, 9);
   const categoryRails = categoryList
     .map((category) => ({
@@ -65,15 +65,6 @@ export default function HomePage() {
       posts: getPostsByCategory(category.slug).filter(isNewsFormat),
     }))
     .filter(({ posts: categoryPosts }) => categoryPosts.length > 0);
-  const shownOnHome = new Set<string>([
-    ...(featured ? [featured.slug] : []),
-    ...rail.map((post) => post.slug),
-    ...latest.map((post) => post.slug),
-    ...categoryRails.flatMap(({ posts: categoryPosts }) =>
-      categoryPosts.slice(0, 4).map((post) => post.slug),
-    ),
-  ]);
-  const alsoInArchive = posts.filter((post) => !shownOnHome.has(post.slug));
 
   return (
     <PageShell>
@@ -107,7 +98,7 @@ export default function HomePage() {
                   <ArticleCard
                     key={post.slug}
                     post={post}
-                    layout="stream"
+                    layout="dense"
                     headingLevel="h2"
                   />
                 ))}
@@ -137,6 +128,18 @@ export default function HomePage() {
           </p>
         </section>
       )}
+
+      <section aria-label="Ofertas" className="border-b border-border py-5">
+        <p className="text-[0.65rem] tracking-[0.2em] text-muted uppercase">Ofertas</p>
+        <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <Link href="/menor-preco" className="font-medium hover:text-accent">
+            Menor preço do dia: placas de vídeo, SSDs e consoles checados na KaBuM →
+          </Link>
+          <Link href="/black-friday" className="font-medium hover:text-accent">
+            Black Friday 2026: o que vale comprar →
+          </Link>
+        </div>
+      </section>
 
       {latest.length > 0 ? (
         <section className="border-b border-border py-7">
@@ -179,26 +182,6 @@ export default function HomePage() {
         />
       ))}
 
-      {alsoInArchive.length > 0 ? (
-        <nav
-          aria-label="Mais matérias no arquivo"
-          className="border-t border-border py-7"
-        >
-          <SectionHeading title="Também no arquivo" as="h2" />
-          <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2">
-            {alsoInArchive.map((post) => (
-              <li key={post.slug}>
-                <Link
-                  href={post.href}
-                  className="text-sm leading-snug text-fg/90 transition-colors hover:text-accent"
-                >
-                  {post.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      ) : null}
     </PageShell>
   );
 }

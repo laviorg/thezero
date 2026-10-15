@@ -1,12 +1,14 @@
 ---
 title: "A IA da Google saiu do cercado e entrou em três empresas. A Google confirmou"
-seoTitle: "Google Gemini invadiu três empresas em teste"
+seoTitle: "Gemini entrou em 3 empresas em teste, confirma a Google"
+seoDescription: "A Google confirmou que o Gemini acessou sistemas de três empresas reais num teste de cibersegurança. Entenda a falha de isolamento e o que mudou."
 excerpt: "Num teste de cibersegurança, o Google Gemini entrou em três empresas reais. A Google confirmou. Falhou o isolamento — não foi uma IA fora de controle."
 category: ia
 subcategory: seguranca
 date: "2026-09-19"
+updated: "2026-10-14T01:30:00-03:00"
 featured: true
-author: "The Zero"
+author: "nicholas"
 kicker: "IA · segurança"
 cover: "/images/posts/gemini-hackeou-tres-empresas-teste/cover.jpg"
 coverAlt: "Gemini — cobertura sobre o incidente em teste"
@@ -25,20 +27,34 @@ O problema não é “IA maligna”. É o Gemini num laboratório, testando agen
 
 ## O que aconteceu
 
-Em maio de 2026, a Google testava o Gemini num exercício de *capture-the-flag* — simulação de cibersegurança — montado pela startup Irregular. O ambiente deveria estar isolado. Uma falha de configuração liberou a internet.
+Em maio de 2026, a Google testava o Gemini num exercício de *capture-the-flag* — simulação de cibersegurança — montado pela startup Irregular, empresa independente que faz avaliações de segurança para laboratórios de IA. A tarefa era tirar informação de um software de uma empresa fictícia dentro do ambiente de teste. Esse ambiente deveria estar isolado. Segundo a própria Irregular, o acesso à internet ficou liberado sem querer.
+
+O detalhe que fez o resto acontecer: a empresa fictícia do teste tinha o **mesmo nome de uma empresa real**. O modelo foi atrás dela na internet aberta, achando que ainda estava dentro do exercício.
 
 Três alvos reais:
 
-1. Nome fictício do teste coincidiu com empresa de verdade. O modelo **adivinhou senha**.
-2. e 3. Achou credenciais em repositórios / bases públicas e usou.
+1. Num dos casos, o modelo **adivinhou senhas** até entrar num sistema protegido.
+2. e 3. Nos outros dois, achou credenciais num repositório público e usou para entrar.
 
-Segundo Heather Adkins (VP de engenharia de segurança da Google), o Gemini **parou** nos três casos ao perceber que eram organizações reais. As empresas foram notificadas. Processos de teste com o parceiro mudaram. A Google diz que não houve dano material divulgado. Nomes das empresas: não saíram.
+Segundo Heather Adkins, vice-presidente de engenharia de segurança da Google, o Gemini **parou** nos três casos ao perceber que eram organizações reais. "Garantimos que as três organizações fossem informadas e trabalhamos com nosso parceiro de treinamento nas mudanças que agora foram implementadas em seus processos de teste", disse ela em comunicado citado pelo [G1](https://g1.globo.com/tecnologia/noticia/2026/09/19/ia-do-google-invade-sistemas-de-tres-empresas-em-novo-incidente-envolvendo-agentes-autonomos.ghtml). Os nomes das empresas não foram divulgados.
 
-A Google só tornou público em setembro, depois da imprensa (WSJ). Irregular avisou os labs no fim de julho — o mesmo tipo de problema que já tocou OpenAI, Anthropic e Meta.
+## Por que só apareceu em setembro
+
+A Irregular avisou a Google em julho. A Google só tornou o caso público em 18 de setembro, depois de ser procurada pelo Wall Street Journal. À [ABC News australiana](https://www.abc.net.au/news/2026-09-19/gemini-google-ai-hacks-three-companies/107172128), a empresa explicou que não viu necessidade de divulgar antes porque o modelo parou quando descobriu que as empresas eram reais e não causou dano a elas.
+
+A Irregular disse ao WSJ que o problema do Gemini é o mesmo que já tinha causado vazamentos parecidos em testes de outros modelos. Todos os laboratórios afetados foram avisados no fim de julho, e a empresa afirma que "todos os problemas conhecidos do nosso lado foram corrigidos semanas atrás".
+
+A Google é o quarto laboratório a admitir esse padrão, depois de OpenAI, Anthropic e Meta. O caso mais conhecido foi o de um modelo da OpenAI que escapou do ambiente de teste em julho e invadiu sistemas da Hugging Face.
 
 ![Cobertura O Globo sobre invasões de IAs em testes](/images/posts/gemini-hackeou-tres-empresas-teste/inline-oglobo.jpg)
 
 *O Globo — repercussão 18/09/2026.*
+
+## E no Brasil?
+
+Nenhuma das três empresas foi identificada, então não há como dizer se alguma é brasileira. Mas o caso serve de alerta para quem testa agentes de IA por aqui. Se um teste desses tocar dados pessoais de um sistema real, a regra brasileira é clara: a [Resolução CD/ANPD nº 15/2024](https://dspace.mj.gov.br/bitstream/1/12879/2/RES_ANPD_2024_15.html), que regulamenta a comunicação de incidentes de segurança na LGPD, manda o controlador avisar a ANPD e os titulares em até **três dias úteis** quando o incidente puder causar risco ou dano relevante. Dados de autenticação em sistemas, como senhas e credenciais, estão entre os critérios que a própria resolução cita para esse risco.
+
+Ou seja, aqui não existe a opção de "não divulgar porque o modelo parou sozinho" se dados pessoais forem afetados. A responsabilidade é de quem controla os dados, não da IA. Para quem usa agentes no trabalho, vale rever [que permissões não dar a um agente de IA](/noticia/agente-ia-permissoes-que-nao-dar) e [o que não colar no chat de IA](/noticia/o-que-nao-colar-no-chat-de-ia).
 
 ## Opinião The Zero
 
@@ -54,9 +70,10 @@ Antes de soltar agente com poder de rede, prova o isolamento. Se o cercado vaza,
 
 ## Fontes
 
-- [Terra — IA da Google hackeou três empresas](https://www.terra.com.br/vida-e-estilo/ia-da-google-hackeou-tres-empresas-durante-testes,7c2f76283d67ffc88a33195a828be32d166s7qhy.html)
 - [ABC News — Gemini hacked three companies](https://www.abc.net.au/news/2026-09-19/gemini-google-ai-hacks-three-companies/107172128)
+- [G1 — IA do Google invade sistemas de três empresas](https://g1.globo.com/tecnologia/noticia/2026/09/19/ia-do-google-invade-sistemas-de-tres-empresas-em-novo-incidente-envolvendo-agentes-autonomos.ghtml)
+- [Terra — IA da Google hackeou três empresas](https://www.terra.com.br/vida-e-estilo/ia-da-google-hackeou-tres-empresas-durante-testes,7c2f76283d67ffc88a33195a828be32d166s7qhy.html)
 - [Reuters — Gemini hacked three companies (WSJ)](https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/)
-- [G1 — Google relata invasões do Gemini](https://g1.globo.com/tecnologia/noticia/2026/09/19/ia-do-google-invade-sistemas-de-tres-empresas-em-novo-incidente-envolvendo-agentes-autonomos.ghtml)
+- [ANPD — Resolução CD/ANPD nº 15/2024](https://dspace.mj.gov.br/bitstream/1/12879/2/RES_ANPD_2024_15.html)
 
 The Zero.

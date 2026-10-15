@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
             ...PATH_REDIRECTS.map((rule) => ({
               source: rule.source,
               destination: rule.destination,
-              permanent: true,
+              ...(rule.status ? { statusCode: rule.status } : { permanent: true }),
             })),
           ];
         },

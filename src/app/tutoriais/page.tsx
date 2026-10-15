@@ -116,8 +116,8 @@ export default function TutoriaisPage() {
             </section>
           ))}
           {rest.length > 0 ? (
-            <section className="mt-10" aria-labelledby="tutoriais-resto">
-              <SectionHeading id="tutoriais-resto" title="Também no arquivo" />
+            <section className="mt-10" aria-labelledby="tutoriais-outros">
+              <SectionHeading id="tutoriais-outros" title="Outros guias" />
               <div className="mt-5 grid gap-x-6 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
                 {rest.map((post) => (
                   <ArticleCard

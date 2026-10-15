@@ -1,6 +1,7 @@
 import { PageShell } from "@/components/layout/page-shell";
 import { ArticleCard } from "@/components/news/article-card";
 import { Breadcrumbs } from "@/components/news/breadcrumbs";
+import { HubIntro } from "@/components/news/hub-intro";
 import {
   BreadcrumbJsonLd,
   CollectionPageJsonLd,
@@ -109,6 +110,7 @@ export default async function SubcategoryPage({
           {posts.length === 1 ? "1 matéria" : `${posts.length} matérias`}
         </p>
       </header>
+      <HubIntro path={subcategory.href} />
 
       <div className="mt-6 max-w-4xl">
         <ArticleCard post={featured} layout="lead" headingLevel="h2" />

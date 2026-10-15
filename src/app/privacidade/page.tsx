@@ -100,6 +100,14 @@ export default function PrivacyPage() {
           publicar o código. Quando estiver, vale esta mesma política — e o
           mesmo aceite do aviso de cookies.
         </li>
+        <li>
+          <strong>Links de afiliado.</strong> Algumas matérias levam a lojas
+          (Amazon e outras) por links com comissão. Se você clica e compra,
+          a loja pode registrar o clique (cookie ou identificador próprio)
+          para creditar a comissão ao The Zero. Isso acontece no site da
+          loja, não num cadastro nosso. O aviso e as regras estão na{" "}
+          <Link href="/politica-editorial#afiliados">política editorial</Link>.
+        </li>
       </ul>
 
       <h2>2. Bases legais (LGPD)</h2>

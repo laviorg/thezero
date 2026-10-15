@@ -13,7 +13,7 @@ export function ReviewRail({ posts }: { posts: Post[] }) {
 
   return (
     <section
-      className="border-t border-border py-7 [content-visibility:auto] [contain-intrinsic-size:auto_22rem] lg:py-8"
+      className="my-8 rounded-lg border border-border border-t-4 border-t-accent bg-surface-raised px-4 py-6 [content-visibility:auto] [contain-intrinsic-size:auto_26rem] sm:px-6 lg:py-8 [background-image:repeating-linear-gradient(90deg,transparent_0_23px,color-mix(in_srgb,var(--tz-border)_35%,transparent)_23px_24px)]"
       aria-labelledby="secao-reviews"
     >
       <SectionHeading

@@ -23,6 +23,7 @@ export const CONTACT_TITLE = "Fale com a redação do The Zero";
 export const TERMS_TITLE = "Termos de uso do The Zero";
 export const HOW_WE_TEST_TITLE = "Como o The Zero testa — preço, fonte e limite";
 export const EDITORIAL_POLICY_TITLE = "Política editorial do The Zero";
+export const AUTHORS_TITLE = "Autores do The Zero";
 export const SEARCH_HUB_CORE = "Busca no newsroom";
 export const REVIEWS_HUB_CORE = "Reviews: hardware, celular e jogos";
 export const VALE_A_PENA_HUB_CORE = "Vale a pena? comprar, esperar ou pular";
@@ -149,6 +150,10 @@ export function howWeTestPageTitle(): string {
 
 export function editorialPolicyPageTitle(): string {
   return composePageTitle(EDITORIAL_POLICY_TITLE, "never");
+}
+
+export function authorsPageTitle(): string {
+  return composePageTitle(AUTHORS_TITLE, "never");
 }
 
 export function notFoundPageTitle(): string {

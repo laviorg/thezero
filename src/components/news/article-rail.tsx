@@ -26,9 +26,13 @@ export function ArticleRail({ posts }: ArticleRailProps) {
                   <span className="story-rail-item-kicker">{kicker}</span>
                   <span className="story-rail-item-title">{post.title}</span>
                   <span className="story-rail-item-meta">
+                    {post.author}
+                    <span aria-hidden> · </span>
+                    {post.subcategoryLabel ?? post.categoryLabel}
+                    <span aria-hidden> · </span>
                     <time dateTime={post.dateIso}>{formatShortDate(post.date)}</time>
                     <span aria-hidden> · </span>
-                    {post.readingMinutes} min
+                    <span className="reading-time">{post.readingMinutes} min</span>
                   </span>
                 </span>
                 {post.cover ? (
