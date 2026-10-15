@@ -1,0 +1,246 @@
+{
+  "updated": "2026-10-15",
+  "note": "Cada campo traz a fonte (matéria do The Zero que cita a ficha oficial). Campo null = sem fonte; o site mostra —.",
+  "items": [
+    {
+      "slug": "legion-go-s",
+      "name": "Lenovo Legion Go S",
+      "type": "Product",
+      "category": "Console portátil",
+      "match": [
+        "Lenovo Legion Go S"
+      ],
+      "fields": {
+        "chip": {
+          "value": "AMD Ryzen Z2 Go",
+          "source": "/noticia/legion-go-s-steamos"
+        },
+        "tela": {
+          "value": "8\", 1920×1200, 48–120 Hz VRR",
+          "source": "/noticia/legion-go-s-steamos"
+        },
+        "bateria": {
+          "value": "55,5 Wh",
+          "source": "/noticia/legion-go-s-steamos"
+        },
+        "sistema": {
+          "value": "SteamOS",
+          "source": "/noticia/legion-go-s-steamos"
+        },
+        "precoMedio": {
+          "value": null,
+          "source": null
+        },
+        "situacaoBrasil": {
+          "value": null,
+          "source": null
+        }
+      },
+      "veredito": {
+        "value": "Comprar",
+        "source": "/noticia/legion-go-s-steamos"
+      },
+      "review": "/noticia/legion-go-s-steamos"
+    },
+    {
+      "slug": "msi-claw-8-ai-plus",
+      "name": "MSI Claw 8 AI+",
+      "type": "Product",
+      "category": "Console portátil",
+      "match": [
+        "MSI Claw 8 AI+"
+      ],
+      "fields": {
+        "chip": {
+          "value": "Intel Core Ultra 7 258V",
+          "source": "/noticia/msi-claw-8-ai-bateria-jogos"
+        },
+        "tela": {
+          "value": "8\", 1920×1200, 120 Hz",
+          "source": "/noticia/msi-claw-8-ai-bateria-jogos"
+        },
+        "bateria": {
+          "value": "80 Wh",
+          "source": "/noticia/msi-claw-8-ai-bateria-jogos"
+        },
+        "sistema": {
+          "value": "Windows 11",
+          "source": "/noticia/msi-claw-8-ai-bateria-jogos"
+        },
+        "precoMedio": {
+          "value": null,
+          "source": null
+        },
+        "situacaoBrasil": {
+          "value": null,
+          "source": null
+        }
+      },
+      "veredito": {
+        "value": "Comprar",
+        "source": "/noticia/msi-claw-8-ai-bateria-jogos"
+      },
+      "review": "/noticia/msi-claw-8-ai-bateria-jogos"
+    },
+    {
+      "slug": "ayaneo-kun",
+      "name": "Ayaneo Kun",
+      "type": "Product",
+      "category": "Console portátil",
+      "match": [
+        "Ayaneo Kun"
+      ],
+      "fields": {
+        "chip": {
+          "value": "AMD Ryzen 7 7840U",
+          "source": "/noticia/ayaneo-kun-tela-peso-preco"
+        },
+        "tela": {
+          "value": "8,4\", 2560×1600",
+          "source": "/noticia/ayaneo-kun-tela-peso-preco"
+        },
+        "bateria": {
+          "value": "75 Wh",
+          "source": "/noticia/ayaneo-kun-tela-peso-preco"
+        },
+        "sistema": {
+          "value": "Windows 11",
+          "source": "/noticia/ayaneo-kun-tela-peso-preco"
+        },
+        "precoMedio": {
+          "value": null,
+          "source": null
+        },
+        "situacaoBrasil": {
+          "value": null,
+          "source": null
+        }
+      },
+      "veredito": {
+        "value": "Comprar",
+        "source": "/noticia/ayaneo-kun-tela-peso-preco"
+      },
+      "review": "/noticia/ayaneo-kun-tela-peso-preco"
+    },
+    {
+      "slug": "ayaneo-2s",
+      "name": "Ayaneo 2S",
+      "type": "Product",
+      "category": "Console portátil",
+      "match": [
+        "Ayaneo 2S"
+      ],
+      "fields": {
+        "chip": {
+          "value": "AMD Ryzen 7 7840U",
+          "source": "/noticia/ayaneo-2s-desempenho-tela-brasil"
+        },
+        "tela": {
+          "value": "7\", 1920×1200, 60 Hz",
+          "source": "/noticia/ayaneo-2s-desempenho-tela-brasil"
+        },
+        "bateria": {
+          "value": "50,25 Wh",
+          "source": "/noticia/ayaneo-2s-desempenho-tela-brasil"
+        },
+        "sistema": {
+          "value": "Windows 11",
+          "source": "/noticia/ayaneo-2s-desempenho-tela-brasil"
+        },
+        "precoMedio": {
+          "value": null,
+          "source": null
+        },
+        "situacaoBrasil": {
+          "value": null,
+          "source": null
+        }
+      },
+      "veredito": {
+        "value": "Pular",
+        "source": "/noticia/ayaneo-2s-desempenho-tela-brasil"
+      },
+      "review": "/noticia/ayaneo-2s-desempenho-tela-brasil"
+    },
+    {
+      "slug": "ayaneo-slide",
+      "name": "Ayaneo Slide",
+      "type": "Product",
+      "category": "Console portátil",
+      "match": [
+        "Ayaneo Slide"
+      ],
+      "fields": {
+        "chip": {
+          "value": "AMD Ryzen 7 7840U",
+          "source": "/noticia/ayaneo-slide-teclado-faz-sentido"
+        },
+        "tela": {
+          "value": "6\", 1920×1080",
+          "source": "/noticia/ayaneo-slide-teclado-faz-sentido"
+        },
+        "bateria": {
+          "value": "46,2 Wh",
+          "source": "/noticia/ayaneo-slide-teclado-faz-sentido"
+        },
+        "sistema": {
+          "value": "Windows 11",
+          "source": "/noticia/ayaneo-slide-teclado-faz-sentido"
+        },
+        "precoMedio": {
+          "value": null,
+          "source": null
+        },
+        "situacaoBrasil": {
+          "value": null,
+          "source": null
+        }
+      },
+      "veredito": {
+        "value": "Esperar",
+        "source": "/noticia/ayaneo-slide-teclado-faz-sentido"
+      },
+      "review": "/noticia/ayaneo-slide-teclado-faz-sentido"
+    },
+    {
+      "slug": "gpd-win-4",
+      "name": "GPD Win 4",
+      "type": "Product",
+      "category": "Console portátil",
+      "match": [
+        "GPD Win 4"
+      ],
+      "fields": {
+        "chip": {
+          "value": "AMD Ryzen 7 8840U ou Ryzen AI 9 HX 370",
+          "source": "/noticia/gpd-win-4-teclado-para-quem"
+        },
+        "tela": {
+          "value": "6\", 1920×1080",
+          "source": "/noticia/gpd-win-4-teclado-para-quem"
+        },
+        "bateria": {
+          "value": "45,62 Wh",
+          "source": "/noticia/gpd-win-4-teclado-para-quem"
+        },
+        "sistema": {
+          "value": "Windows 11",
+          "source": "/noticia/gpd-win-4-teclado-para-quem"
+        },
+        "precoMedio": {
+          "value": null,
+          "source": null
+        },
+        "situacaoBrasil": {
+          "value": null,
+          "source": null
+        }
+      },
+      "veredito": {
+        "value": "Comprar",
+        "source": "/noticia/gpd-win-4-teclado-para-quem"
+      },
+      "review": "/noticia/gpd-win-4-teclado-para-quem"
+    }
+  ]
+}

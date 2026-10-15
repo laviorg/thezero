@@ -7,8 +7,10 @@ import { ArticleBody } from "@/components/news/article-body";
 import { ArticleDeskLinks } from "@/components/news/article-desk-links";
 import { ArticleHeader } from "@/components/news/article-header";
 import { RelatedTools } from "@/components/news/related-tools";
+import { fichas } from "@/lib/fichas";
 import { relatedLinks } from "@/lib/related-links";
 import { ReadingMode } from "@/components/news/reading-mode";
+import { Changelog } from "@/components/news/changelog";
 import { ArticlePager } from "@/components/news/article-pager";
 import { ArticleRail } from "@/components/news/article-rail";
 import { AuthorBio } from "@/components/news/author-bio";
@@ -199,6 +201,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="story-split">
           <div className="story-main">
             <ReadingMode />
+            {post.format === "review" || post.format === "vale-a-pena" || post.updatedIso !== post.dateIso ? (
+              <Changelog
+                entries={
+                  post.changelog?.length
+                    ? [{ date: post.dateIso, note: "Publicada" }, ...post.changelog]
+                    : [
+                        { date: post.dateIso, note: "Publicada" },
+                        ...(post.updatedIso !== post.dateIso ? [{ date: post.updatedIso, note: "Atualizada" }] : []),
+                      ]
+                }
+              />
+            ) : null}
             {post.veredito ? <VerdictCard data={post.veredito} /> : null}
             <ArticleBody
               source={
@@ -207,7 +221,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   : post.content
               }
             />
-            <RelatedTools links={relatedLinks(post)} />
+            <RelatedTools
+              links={relatedLinks(
+                post,
+                fichas.map((f) => ({
+                  href: `/ficha/${f.slug}`,
+                  label: `Ficha do ${f.name}`,
+                  test: (p) => p.href === f.review || f.match.some((n) => p.title.includes(n)),
+                })),
+              )}
+            />
             <NewsletterBox placement="fim" />
             <ReadAlso posts={readAlso} />
             <AuthorBio author={post.author} authorSlug={post.authorSlug} />

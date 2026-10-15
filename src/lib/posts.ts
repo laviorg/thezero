@@ -55,6 +55,8 @@ export type PostFrontmatter = {
   author?: string;
   /** Temporary: keep the page live, drop it from the index. */
   noindex?: boolean;
+  /** Histórico de mudanças reais: `changelog: [{ data, nota }]` no frontmatter. */
+  changelog?: { date: string; note: string }[];
   /** Card de veredito (reviews e "Vale a pena?"). */
   veredito?: VerdictCardData;
   /**
@@ -150,6 +152,11 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     author: typeof data.author === "string" ? data.author : undefined,
     noindex: data.noindex === true,
     veredito: parseVerdictCard(data.veredito),
+    changelog: Array.isArray(data.changelog)
+      ? (data.changelog as Record<string, unknown>[])
+          .map((e) => ({ date: e?.data instanceof Date ? e.data.toISOString() : String(e?.data ?? ""), note: String(e?.nota ?? "").trim() }))
+          .filter((e) => e.note && !Number.isNaN(new Date(e.date).getTime()))
+      : undefined,
     featured: Boolean(data.featured),
     featuredPriority:
       typeof data.featuredPriority === "number" &&
@@ -180,7 +187,11 @@ function toPost(slug: string, raw: string): Post | null {
     ? getSubcategory(frontmatter.category, frontmatter.subcategory)
     : undefined;
 
-  const updated = frontmatter.updated ?? frontmatter.date;
+  /** dateModified: a entrada real mais recente do changelog, se houver. */
+  const lastChange = frontmatter.changelog?.length
+    ? frontmatter.changelog.map((e) => e.date).sort().at(-1)
+    : undefined;
+  const updated = lastChange ?? frontmatter.updated ?? frontmatter.date;
   const wordCount = countPostWords(content);
 
   return {

@@ -11,6 +11,7 @@ import {
   groupReviewPosts,
   latestUpdatedDate,
 } from "@/lib/posts";
+import { fichas } from "@/lib/fichas";
 import { isIndexableHub } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { assertUniqueDocumentTitles } from "@/lib/title-audit";
@@ -85,7 +86,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...(contentFreshness ? { lastModified: contentFreshness } : {}),
       alternates: languageAlternates(site.url),
     },
-    ...STATIC_PAGE_SOURCES.map((page) => {
+    ...[
+      ...STATIC_PAGE_SOURCES,
+      ...fichas.map((f) => ({ path: `/ficha/${f.slug}`, file: "src/data/fichas.json" })),
+    ].map((page) => {
       const url = `${site.url}${page.path}`;
       return {
         url,
