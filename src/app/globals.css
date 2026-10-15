@@ -216,10 +216,10 @@ input {
 }
 
 .eyebrow {
-  font-family: var(--font-source-sans), ui-sans-serif, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -1384,4 +1384,35 @@ body.has-cookie-banner {
   margin-left: 0.15em;
   font-size: 0.78em;
   text-decoration: none;
+}
+
+/* Tipografia técnica (PR B): números tabulares em todo lugar e mono em
+   tags de editoria, tempo de leitura, selos de preço/specs e código. */
+body {
+  font-variant-numeric: tabular-nums;
+}
+
+table,
+time,
+.news-meta,
+.price,
+[data-price] {
+  font-variant-numeric: tabular-nums;
+}
+
+.font-tech,
+.news-meta-tech,
+.reading-time,
+.price-badge,
+.spec-badge,
+.chip-link,
+code,
+kbd,
+samp {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.chip-link {
+  letter-spacing: 0.06em;
 }

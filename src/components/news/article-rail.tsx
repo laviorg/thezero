@@ -32,7 +32,7 @@ export function ArticleRail({ posts }: ArticleRailProps) {
                     <span aria-hidden> · </span>
                     <time dateTime={post.dateIso}>{formatShortDate(post.date)}</time>
                     <span aria-hidden> · </span>
-                    {post.readingMinutes} min
+                    <span className="reading-time">{post.readingMinutes} min</span>
                   </span>
                 </span>
                 {post.cover ? (

@@ -31,7 +31,15 @@ export function NewsMeta({
               ·
             </span>
           ) : null}
-          {index === 2 ? <time dateTime={post.dateIso}>{part}</time> : part}
+          {index === 2 ? (
+            <time dateTime={post.dateIso}>{part}</time>
+          ) : index === parts.length - 1 ? (
+            <span className="reading-time">{part}</span>
+          ) : index === 1 ? (
+            <span className="font-tech uppercase tracking-[0.06em]">{part}</span>
+          ) : (
+            part
+          )}
         </span>
       ))}
     </p>
