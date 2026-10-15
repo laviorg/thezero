@@ -6,6 +6,8 @@ import { ReadAlso } from "@/components/news/read-also";
 import { ArticleBody } from "@/components/news/article-body";
 import { ArticleDeskLinks } from "@/components/news/article-desk-links";
 import { ArticleHeader } from "@/components/news/article-header";
+import { RelatedTools } from "@/components/news/related-tools";
+import { relatedLinks } from "@/lib/related-links";
 import { ArticlePager } from "@/components/news/article-pager";
 import { ArticleRail } from "@/components/news/article-rail";
 import { AuthorBio } from "@/components/news/author-bio";
@@ -203,6 +205,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   : post.content
               }
             />
+            <RelatedTools links={relatedLinks(post)} />
             <NewsletterBox placement="fim" />
             <ReadAlso posts={readAlso} />
             <AuthorBio author={post.author} authorSlug={post.authorSlug} />

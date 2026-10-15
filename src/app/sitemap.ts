@@ -36,6 +36,9 @@ const STATIC_PAGE_SOURCES = [
   { path: "/ferramentas/meu-pc-roda", file: "src/data/game-requirements.json" },
   { path: "/ferramentas/calculadora-de-fonte", file: "src/data/psu-components.json" },
   { path: "/ferramentas/montar-pc", file: "src/data/pc-builds.json" },
+  { path: "/ferramentas/imposto-portateis", file: "src/data/import-tax.json" },
+  { path: "/ferramentas/bateria-portateis", file: "src/data/handhelds.json" },
+  { path: "/ferramentas/custo-api-ia", file: "src/data/ai-api-prices.json" },
   { path: "/glossario", file: "src/data/glossary.json" },
 ] as const;
 
