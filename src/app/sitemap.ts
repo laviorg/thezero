@@ -32,6 +32,10 @@ const STATIC_PAGE_SOURCES = [
   { path: "/prime-day", file: "src/lib/deals.ts" },
   { path: "/11-11", file: "src/lib/deals.ts" },
   { path: "/menor-preco", file: "src/data/prices.json" },
+  { path: "/ferramentas", file: "src/app/ferramentas/page.tsx" },
+  { path: "/ferramentas/meu-pc-roda", file: "src/data/game-requirements.json" },
+  { path: "/ferramentas/calculadora-de-fonte", file: "src/data/psu-components.json" },
+  { path: "/ferramentas/montar-pc", file: "src/data/pc-builds.json" },
 ] as const;
 
 function gitCommitDate(args: string[]): Date | undefined {

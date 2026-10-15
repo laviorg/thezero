@@ -1,0 +1,25 @@
+{
+ "checkedAt": "2026-10-14",
+ "gpus": [
+  {"name": "GeForce RTX 4060", "watts": 115, "systemW": 550, "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4060-4060ti/"},
+  {"name": "GeForce RTX 4060 Ti 8 GB", "watts": 160, "systemW": 550, "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4060-4060ti/"},
+  {"name": "GeForce RTX 4070", "watts": 200, "systemW": 650, "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070-family/"},
+  {"name": "GeForce RTX 4070 SUPER", "watts": 220, "systemW": 650, "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070-family/"},
+  {"name": "GeForce RTX 4070 Ti", "watts": 285, "systemW": 700, "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070-family/"},
+  {"name": "GeForce RTX 5060", "watts": 145, "systemW": 550, "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5060-family/"},
+  {"name": "GeForce RTX 5060 Ti", "watts": 180, "systemW": 600, "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5060-family/"},
+  {"name": "GeForce RTX 5070", "watts": 250, "systemW": 650, "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5070-family/"},
+  {"name": "GeForce RTX 5070 Ti", "watts": 300, "systemW": 750, "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5070-family/"},
+  {"name": "GeForce RTX 5080", "watts": 360, "systemW": 850, "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5080/"},
+  {"name": "Radeon RX 7600", "watts": 165, "systemW": 550, "source": "https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7600.html"},
+  {"name": "Radeon RX 7800 XT", "watts": 263, "systemW": 700, "source": "https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7800-xt.html"},
+  {"name": "Radeon RX 9060 XT", "watts": 160, "systemW": 450, "source": "https://www.amd.com/en/products/graphics/desktops/radeon/9000-series/amd-radeon-rx-9060xt.html"},
+  {"name": "Radeon RX 9070 XT", "watts": 304, "systemW": 750, "source": "https://www.amd.com/en/products/graphics/desktops/radeon/9000-series/amd-radeon-rx-9070xt.html"}
+ ],
+ "cpus": [
+  {"name": "AMD Ryzen 5 7600", "watts": 65, "source": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html"},
+  {"name": "AMD Ryzen 5 9600X", "watts": 65, "source": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-5-9600x.html"},
+  {"name": "AMD Ryzen 7 7800X3D", "watts": 120, "source": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7800x3d.html"},
+  {"name": "AMD Ryzen 7 9800X3D", "watts": 120, "source": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9800x3d.html"}
+ ]
+}
