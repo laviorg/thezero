@@ -1,3 +1,4 @@
+import { YouTube } from "@/components/mdx/youtube-embed";
 import { NewsletterBox } from "@/components/newsletter/newsletter-box";
 import { WatermarkedPhoto } from "@/components/brand/photo-watermark";
 import { CaixaCompra } from "@/components/mdx/caixa-compra";
@@ -80,6 +81,7 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   RespostaCurta,
   ErrosComuns,
   GuiasDoTema,
+  YouTube,
   Newsletter: NewsletterBox,
   img: MarkdownImage,
   h2: ({ className, ...props }) => (
