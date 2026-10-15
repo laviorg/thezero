@@ -1352,3 +1352,16 @@ body.has-cookie-banner {
 .read-also-link:hover .read-also-item-title {
   text-decoration: underline;
 }
+
+.legal-prose h3 {
+  margin-top: 1.4em;
+  margin-bottom: 0.4em;
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--tz-fg);
+}
+
+.legal-prose .affiliate-note {
+  font-size: 0.88rem;
+  color: var(--tz-muted);
+}
