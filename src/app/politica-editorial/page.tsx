@@ -9,7 +9,7 @@ import Link from "next/link";
 const description =
   "Independência editorial, correções, fontes e o uso de IA no The Zero: assistência de máquina, revisão humana, sem citação ou benchmark inventados.";
 
-const updated = "10 de outubro de 2026";
+const updated = "15 de outubro de 2026";
 
 export const metadata: Metadata = buildPageMetadata({
   title: EDITORIAL_POLICY_TITLE,
@@ -37,9 +37,9 @@ export default function EditorialPolicyPage() {
     >
       <p>
         The Zero é fundado e editado por Nicholas Haruo Nishimura, São
-        Paulo–SP. Cada matéria é assinada por um autor só, Nicholas Haruo
-        Nishimura ou Mavi, editora assistente de IA do The Zero, com revisão
-        humana. Os perfis estão em <Link href="/autores">Autores</Link>. Quem
+        Paulo–SP. Todas as matérias são assinadas por Nicholas Haruo Nishimura, que
+        responde pelo texto. A produção é assistida pela Mavi, assistente de
+        IA do The Zero, com revisão editorial humana. Os perfis estão em <Link href="/autores">Autores</Link>. Quem
         responde pelo veículo está em{" "}
         <Link href="/sobre#quem-publica">Quem publica</Link>.
       </p>
@@ -67,7 +67,7 @@ export default function EditorialPolicyPage() {
         indicar produto, loja ou serviço. Quando houver link afiliado na
         página, o texto deixa isso explícito perto do primeiro link ou no
         rodapé da matéria. Como participante do Programa de Associados da
-        Amazon, sou remunerado pelas compras qualificadas efetuadas.
+        Amazon, o The Zero é remunerado pelas compras qualificadas efetuadas.
       </p>
 
       <h2 id="fontes">Fontes</h2>
@@ -105,12 +105,14 @@ export default function EditorialPolicyPage() {
 
       <h2 id="uso-de-ia">Uso de IA</h2>
       <p>
-        Parte das matérias é escrita pela Mavi, editora assistente de IA do
-        The Zero, e sai assinada por ela. Nenhuma matéria da Mavi é
-        publicada sem revisão humana: Nicholas Haruo Nishimura revisa e
-        edita antes de publicar e responde pelo texto. Matéria com
-        experiência pessoal de uso, teste em primeira pessoa ou opinião de
-        quem usou o produto é assinada por pessoa, nunca pela Mavi.
+        A produção das matérias é assistida pela Mavi, assistente de IA do
+        The Zero: ela ajuda a levantar fontes, organizar fichas técnicas e
+        rascunhar o texto. A Mavi não assina matérias. Toda matéria sai
+        assinada por Nicholas Haruo Nishimura, que revisa, edita e responde
+        pelo texto antes de publicar. O fim de cada matéria traz a nota
+        “Produção assistida por Mavi, assistente de IA, com revisão editorial
+        humana.” A IA não testa produto nem relata uso pessoal: teste ou
+        experiência em primeira pessoa só entra quando feito por pessoa.
       </p>
       <p>
         A casa não publica citação, preço, benchmark, especificação ou data

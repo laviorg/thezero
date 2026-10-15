@@ -190,8 +190,9 @@ function toPost(slug: string, raw: string): Post | null {
     categoryLabel: category.label,
     subcategoryLabel: subcategory?.label,
     subcategoryHref: subcategory?.href,
-    author: getAuthorBySlug(frontmatter.author)?.name ?? frontmatter.author ?? site.defaultAuthor,
-    authorSlug: getAuthorBySlug(frontmatter.author)?.slug,
+    // Todas as matérias saem assinadas pelo editor (Nicholas); a Mavi aparece na nota de produção.
+    author: getAuthorBySlug("nicholas")!.name,
+    authorSlug: "nicholas",
     dateIso: toIsoDate(frontmatter.date),
     updatedIso: toIsoDate(updated),
   };
