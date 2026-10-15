@@ -1,4 +1,4 @@
-export const AUTHOR_SLUGS = ["nicholas", "mavi"] as const;
+export const AUTHOR_SLUGS = ["nicholas"] as const;
 
 export type AuthorSlug = (typeof AUTHOR_SLUGS)[number];
 
@@ -20,27 +20,15 @@ export type AuthorProfile = {
 export const AUTHORS: Record<AuthorSlug, AuthorProfile> = {
   nicholas: {
     slug: "nicholas",
-    name: "Nicholas Haruo Nishimura",
+    name: "Nicholas Nishimura",
     role: "Fundador e editor do The Zero",
     href: "/autores/nicholas",
     avatar: "/brand/authors/nicholas.svg",
     avatarAlt:
-      "Iniciais NH em um círculo, placeholder do autor Nicholas Haruo Nishimura",
+      "Iniciais NH em um círculo, placeholder do autor Nicholas Nishimura",
     shortBio:
-      "Nicholas Haruo Nishimura, fundador e editor do The Zero. Ver perfil",
-    bio: "Nicholas Haruo Nishimura é fundador e editor do The Zero, em São Paulo–SP. Assina todas as matérias do site e faz a revisão editorial de cada texto antes de publicar. Contato: hello@thezero.com.br.",
-  },
-  mavi: {
-    slug: "mavi",
-    name: "Mavi",
-    role: "Assistente de IA do The Zero",
-    href: "/autores/mavi",
-    avatar: "/brand/authors/mavi.svg",
-    avatarAlt:
-      "Ícone geométrico com a letra M, avatar da editora assistente de IA Mavi",
-    shortBio:
-      "Mavi, assistente de IA do The Zero. Ajuda na pesquisa e no rascunho; o texto passa por revisão editorial humana.",
-    bio: "Mavi é a assistente de IA do The Zero. Ajuda a pesquisar fontes oficiais, organizar fichas técnicas e preços com loja e data e rascunhar textos. Não testa produtos nem relata uso pessoal e não assina matérias: todas saem assinadas por Nicholas Haruo Nishimura, que revisa e edita cada texto antes de publicar. Erros: hello@thezero.com.br.",
+      "Nicholas Nishimura, fundador e editor do The Zero. Ver perfil",
+    bio: "Nicholas Nishimura é fundador e editor do The Zero, em São Paulo–SP. Assina todas as matérias do site e faz a revisão editorial de cada texto antes de publicar. Contato: hello@thezero.com.br.",
   },
 };
 

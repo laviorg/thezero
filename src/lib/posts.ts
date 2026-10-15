@@ -193,7 +193,7 @@ function toPost(slug: string, raw: string): Post | null {
     categoryLabel: category.label,
     subcategoryLabel: subcategory?.label,
     subcategoryHref: subcategory?.href,
-    // Todas as matérias saem assinadas pelo editor (Nicholas); a Mavi aparece na nota de produção.
+    // Todas as matérias saem assinadas por Nicholas Nishimura.
     author: getAuthorBySlug("nicholas")!.name,
     authorSlug: "nicholas",
     dateIso: toIsoDate(frontmatter.date),

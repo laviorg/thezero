@@ -204,13 +204,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               }
             />
             <NewsletterBox placement="fim" />
-            <p className="production-note mt-10 border-t border-border pt-6 text-sm leading-6 text-muted">
-              Produção assistida por Mavi, assistente de IA, com revisão
-              editorial humana.{" "}
-              <Link href="/politica-editorial#uso-de-ia" className="text-accent">
-                Como usamos IA
-              </Link>
-            </p>
             <ReadAlso posts={readAlso} />
             <AuthorBio author={post.author} authorSlug={post.authorSlug} />
             {category ? (

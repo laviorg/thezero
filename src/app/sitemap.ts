@@ -28,7 +28,6 @@ const STATIC_PAGE_SOURCES = [
   { path: "/politica-editorial", file: "src/app/politica-editorial/page.tsx" },
   { path: "/autores", file: "src/app/autores/page.tsx" },
   { path: "/autores/nicholas", file: "src/app/autores/[slug]/page.tsx" },
-  { path: "/autores/mavi", file: "src/app/autores/[slug]/page.tsx" },
   { path: "/black-friday", file: "src/lib/deals.ts" },
   { path: "/prime-day", file: "src/lib/deals.ts" },
   { path: "/11-11", file: "src/lib/deals.ts" },
