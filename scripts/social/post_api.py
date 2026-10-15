@@ -111,14 +111,21 @@ def _poll_status(url: str, token: str, secrets: list[str], field: str, done: set
 
 def _permalink(url: str, token: str, secrets: list[str]) -> str:
     last_error = "permalink vazio"
-    for _ in range(5):
-        data = _request(
-            "GET",
-            url,
-            token,
-            secrets,
-            params={"fields": "permalink", "access_token": token},
-        )
+    for _ in range(8):
+        try:
+            data = _request(
+                "GET",
+                url,
+                token,
+                secrets,
+                params={"fields": "permalink", "access_token": token},
+            )
+        except RuntimeError as exc:  # mídia recém-publicada ainda não visível (code 24 / 9007): espera e repete
+            if not _media_not_ready(str(exc)):
+                raise
+            last_error = str(exc)
+            time.sleep(5)
+            continue
         permalink = str(data.get("permalink") or "").strip()
         if permalink:
             return permalink
@@ -133,7 +140,9 @@ PUBLISH_RETRY_WAITS_S = (10, 20, 30, 45, 60)
 def _media_not_ready(err: str) -> bool:
     """9007 / 'Media ID is not available': o container ainda não está publicável (transitório na Meta)."""
     low = err.lower()
-    return "9007" in low or "media id is not available" in low or "not ready" in low
+    return ("9007" in low or "media id is not available" in low or "not ready" in low
+            # Threads: container recém-criado ainda não propagado -> "The requested resource does not exist (code 24)"
+            or "(code 24)" in low or "requested resource does not exist" in low)
 
 
 def _publish_with_retry(url: str, token: str, secrets: list[str], data: dict, waits=None, sleep=time.sleep):
@@ -203,12 +212,11 @@ def post_threads(token: str, user_id: str, image_url: str, text: str, secrets: l
         "status",
         {"FINISHED", "PUBLISHED"},
     )
-    published = _request(
-        "POST",
+    published = _publish_with_retry(
         f"{THREADS}/{user_id}/threads_publish",
         token,
         secrets,
-        data={"creation_id": container_id, "access_token": token},
+        {"creation_id": container_id, "access_token": token},
     )
     media_id = published.get("id")
     if not media_id:
