@@ -1,5 +1,19 @@
-import prices from "@/data/prices.json";
-import { kabumAffiliateUrl } from "@/lib/affiliate";
+import fs from "node:fs";
+import path from "node:path";
+
+// Lido por fs (não import de JSON): o build da Cloudflare carrega posts.ts em Node puro.
+function readPrices(): { items: Record<string, PriceItem> } {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(process.cwd(), "src", "data", "prices.json"), "utf8"));
+  } catch {
+    return { items: {} };
+  }
+}
+
+// Mesmo deeplink de src/lib/affiliate.ts (Awin KaBuM).
+function kabumAffiliateUrl(productUrl: string) {
+  return `https://www.awin1.com/cread.php?awinmid=17729&awinaffid=3116936&ued=${encodeURIComponent(productUrl)}`;
+}
 
 export const VERDICT_DECISIONS = ["comprar", "esperar", "pular"] as const;
 export type VerdictDecision = (typeof VERDICT_DECISIONS)[number];
@@ -61,7 +75,7 @@ export type VerdictPrice = { amount: number; date: string; store: string; href?:
  */
 export function verdictPrice(precoId?: string): VerdictPrice | undefined {
   if (!precoId) return undefined;
-  const items = (prices as { items: Record<string, PriceItem> }).items;
+  const items = readPrices().items;
   const item = items[precoId];
   if (!item || typeof item.price !== "number" || !item.checkedAt || item.error) return undefined;
   const isKabum = item.url?.includes("kabum.com.br") ?? false;
