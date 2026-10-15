@@ -66,6 +66,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/menor-preco" className="hover:text-accent">
+                Menor preço do dia
+              </Link>
+            </li>
+            <li>
               <Link href="/sobre" className="hover:text-accent">
                 Sobre
               </Link>
