@@ -50,7 +50,7 @@ function NicholasPersonJsonLd() {
 }
 
 const description =
-  "Quem assina as matérias do The Zero: Nicholas Haruo Nishimura, fundador e editor. Produção assistida por Mavi, assistente de IA.";
+  "Quem assina as matérias do The Zero: Nicholas Nishimura, fundador e editor.";
 
 export const metadata: Metadata = buildPageMetadata({
   title: AUTHORS_TITLE,
@@ -73,7 +73,7 @@ export default function AuthorsPage() {
         Quem assina as matérias do The Zero.
       </p>
       <p className="mt-4 text-base leading-7 text-fg/90">
-        Todas as matérias são assinadas por Nicholas Haruo Nishimura, editor. A Mavi, assistente de IA, ajuda na pesquisa e no rascunho; nenhum texto sai sem revisão editorial humana.
+        Todas as matérias são assinadas por Nicholas Nishimura, fundador e editor, que responde por cada texto.
       </p>
 
       <section id="nicholas" className="mt-14 scroll-mt-24 border-t border-border pt-10">
@@ -106,35 +106,10 @@ export default function AuthorsPage() {
         </div>
       </section>
 
-      <section id="mavi" className="mt-14 scroll-mt-24 border-t border-border pt-10">
-        <div className="flex gap-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={AUTHORS.mavi.avatar}
-            alt={AUTHORS.mavi.avatarAlt}
-            width={88}
-            height={88}
-            className="size-[5.5rem] shrink-0 rounded-full border border-border bg-surface"
-          />
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight">
-              <Link href={AUTHORS.mavi.href}>{AUTHORS.mavi.name}</Link>
-            </h2>
-            <p className="mt-2 text-base leading-7 text-fg/90">
-              Assistente de IA do The Zero. Ajuda na pesquisa e no rascunho, não
-              assina matérias. Todo texto passa por revisão editorial humana. Contato:{" "}
-              <a className="text-accent" href={`mailto:${site.email}`}>
-                {site.email}
-              </a>
-              .
-            </p>
-          </div>
-        </div>
-      </section>
 
       <p className="mt-12 text-base leading-7 text-muted">
-        Como a casa usa IA, checa fonte e corrige erro:{" "}
-        <Link href="/politica-editorial#uso-de-ia" className="text-accent">
+        Como a casa checa fonte e corrige erro:{" "}
+        <Link href="/politica-editorial" className="text-accent">
           política editorial
         </Link>
         .

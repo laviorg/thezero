@@ -4,6 +4,7 @@ export const APEX_HOST = "thezero.com.br";
 /** `status` defaults to 308; set 301 where a classic permanent redirect is wanted. */
 export const PATH_REDIRECTS: { source: string; destination: string; status?: 301 | 308 }[] = [
   { source: "/black-friday-2026", destination: "/black-friday", status: 301 },
+  { source: "/autores/mavi", destination: "/autores", status: 301 },
   { source: "/hardware", destination: "/computadores" },
   { source: "/gadgets", destination: "/dispositivos" },
   { source: "/apps", destination: "/aplicativos" },

@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const description =
-  "Independência editorial, correções, fontes e o uso de IA no The Zero: assistência de máquina, revisão humana, sem citação ou benchmark inventados.";
+  "Independência editorial, correções e fontes no The Zero: sem citação ou benchmark inventados.";
 
 const updated = "15 de outubro de 2026";
 
@@ -25,7 +25,7 @@ export default function EditorialPolicyPage() {
     <LegalDocument
       kicker="Redação"
       title="A pauta não está à venda. O erro, quando existe, é corrigido no texto."
-      lede="Independência, fonte, correção e o que a casa faz com IA. Sem citação fabricada e sem benchmark que ninguém rodou."
+      lede="Independência, fonte e correção. Sem citação fabricada e sem benchmark que ninguém rodou."
       updated={updated}
       jsonLd={
         <TrustPageJsonLd
@@ -36,10 +36,9 @@ export default function EditorialPolicyPage() {
       }
     >
       <p>
-        The Zero é fundado e editado por Nicholas Haruo Nishimura, São
-        Paulo–SP. Todas as matérias são assinadas por Nicholas Haruo Nishimura, que
-        responde pelo texto. A produção é assistida pela Mavi, assistente de
-        IA do The Zero, com revisão editorial humana. Os perfis estão em <Link href="/autores">Autores</Link>. Quem
+        The Zero é fundado e editado por Nicholas Nishimura, São
+        Paulo–SP. Todas as matérias são assinadas por Nicholas Nishimura, que
+        responde pelo texto. Os perfis estão em <Link href="/autores">Autores</Link>. Quem
         responde pelo veículo está em{" "}
         <Link href="/sobre#quem-publica">Quem publica</Link>.
       </p>
@@ -114,25 +113,15 @@ export default function EditorialPolicyPage() {
         <Link href="/contato">contato</Link>. Não há comentário no site.
       </p>
 
-      <h2 id="uso-de-ia">Uso de IA</h2>
-      <p>
-        A produção das matérias é assistida pela Mavi, assistente de IA do
-        The Zero: ela ajuda a levantar fontes, organizar fichas técnicas e
-        rascunhar o texto. A Mavi não assina matérias. Toda matéria sai
-        assinada por Nicholas Haruo Nishimura, que revisa, edita e responde
-        pelo texto antes de publicar. O fim de cada matéria traz a nota
-        “Produção assistida por Mavi, assistente de IA, com revisão editorial
-        humana.” A IA não testa produto nem relata uso pessoal: teste ou
-        experiência em primeira pessoa só entra quando feito por pessoa.
-      </p>
+      <h2 id="sem-invencao">Sem dado inventado</h2>
       <p>
         A casa não publica citação, preço, benchmark, especificação ou data
-        inventados por um modelo. Se a conferência não acha a fonte, o dado
-        sai ou entra com ressalva explícita. IA não é desculpa para ficha
-        técnica alucinada nem para aspas que ninguém disse.
+        sem fonte. Se a conferência não acha a fonte, o dado sai ou entra com
+        ressalva explícita. Não há ficha técnica de memória nem aspas que
+        ninguém disse.
       </p>
       <p>
-        Imagem gerada, quando existir, não é apresentada como foto de
+        Ilustração, quando existir, não é apresentada como foto de
         produto. Capa de review com foto de imprensa leva crédito. Capa de
         cartaz da casa é identificada como cartaz.
       </p>
