@@ -3,6 +3,7 @@ import { ToolPage, type ToolMeta } from "@/components/tools/tool-page";
 import data from "@/data/ai-api-prices.json";
 import { buildPageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 const meta: ToolMeta = {
   path: "/ferramentas/custo-api-ia",
@@ -26,6 +27,8 @@ export default function Page() {
   return (
     <ToolPage meta={meta}>
       <AiCostCalculator />
+      <h2>Preços usados</h2>
+      <p>Tabela completa por modelo em <Link href="/guias/modelos-ia-precos">preços dos modelos de IA</Link>.</p>
     </ToolPage>
   );
 }
