@@ -37,15 +37,20 @@ export function CategoryRail({
           <ArticleCard post={shown[0]} layout="stream" headingLevel="h3" />
         </div>
       ) : (
-        <div className="mt-5 grid gap-x-6 gap-y-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {shown.map((post) => (
-            <ArticleCard
-              key={post.slug}
-              post={post}
-              layout="rail"
-              headingLevel="h3"
-            />
-          ))}
+        <div className="mt-5 grid gap-x-8 gap-y-6 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <ArticleCard post={shown[0]} layout="standard" headingLevel="h3" />
+          </div>
+          <div className="border-t border-border pt-4 lg:col-span-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-7">
+            {shown.slice(1).map((post) => (
+              <ArticleCard
+                key={post.slug}
+                post={post}
+                layout="dense"
+                headingLevel="h3"
+              />
+            ))}
+          </div>
         </div>
       )}
 

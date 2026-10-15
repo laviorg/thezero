@@ -56,8 +56,8 @@ export default function HomePage() {
    * next to a cover so container-query cards fill the banner height.
    */
   const useRail = Boolean(featured?.cover) && rest.length > 0;
-  const rail = useRail ? rest.slice(0, 4) : [];
-  const latest = useRail ? rest.slice(4, 10) : rest.slice(0, 6);
+  const rail = useRail ? rest.slice(0, 6) : [];
+  const latest = useRail ? rest.slice(6, 12) : rest.slice(0, 6);
   const listed = featured ? [featured, ...rest.slice(0, 8)] : rest.slice(0, 9);
   const categoryRails = categoryList
     .map((category) => ({
@@ -98,7 +98,7 @@ export default function HomePage() {
                   <ArticleCard
                     key={post.slug}
                     post={post}
-                    layout="stream"
+                    layout="dense"
                     headingLevel="h2"
                   />
                 ))}
