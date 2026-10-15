@@ -41,6 +41,7 @@ const STATIC_PAGE_SOURCES = [
   { path: "/ferramentas/bateria-portateis", file: "src/data/handhelds.json" },
   { path: "/ferramentas/custo-api-ia", file: "src/data/ai-api-prices.json" },
   { path: "/glossario", file: "src/data/glossary.json" },
+  { path: "/promessas", file: "src/app/promessas/page.tsx" },
 ] as const;
 
 function gitCommitDate(args: string[]): Date | undefined {
