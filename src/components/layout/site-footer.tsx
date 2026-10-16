@@ -13,6 +13,7 @@ export function SiteFooter() {
   return (
     <footer className="relative mt-auto overflow-hidden border-t border-border bg-bg">
       <SplitOMark
+        mono
         className="pointer-events-none absolute -top-16 -right-16 size-72 text-fg/[0.045]"
         aria-hidden
       />

@@ -22,8 +22,11 @@ import type { ReactElement } from "react";
 import matter from "gray-matter";
 import sharp from "sharp";
 import {
-  MARK_PATH,
+  BRAND_ACCENT,
+  MARK_ACCENT_PATHS,
+  MARK_PATHS,
   MARK_VIEWBOX,
+  WORDMARK_ACCENT_PATHS,
   WORDMARK_PATHS,
   WORDMARK_VIEWBOX,
 } from "../src/components/brand/wordmark-paths.ts";
@@ -234,6 +237,9 @@ function wordmark(width: number, color: string) {
     ...WORDMARK_PATHS.map((d) =>
       React.createElement("path", { key: d, d, fill: color }),
     ),
+    ...WORDMARK_ACCENT_PATHS.map((d) =>
+      React.createElement("path", { key: d, d, fill: BRAND_ACCENT }),
+    ),
   );
 }
 
@@ -241,7 +247,12 @@ function splitMark(size: number, color: string) {
   return React.createElement(
     "svg",
     { width: size, height: size, viewBox: MARK_VIEWBOX },
-    React.createElement("path", { d: MARK_PATH, fill: color }),
+    ...MARK_PATHS.map((d) =>
+      React.createElement("path", { key: d, d, fill: color }),
+    ),
+    ...MARK_ACCENT_PATHS.map((d) =>
+      React.createElement("path", { key: d, d, fill: BRAND_ACCENT }),
+    ),
   );
 }
 

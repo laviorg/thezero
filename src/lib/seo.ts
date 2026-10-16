@@ -83,7 +83,7 @@ export function isIndexableHub(postCount: number): boolean {
   return postCount >= MIN_INDEXABLE_HUB_POSTS;
 }
 
-export const publisherLogoUrl = `${site.url}/apple-icon`;
+export const publisherLogoUrl = `${site.url}/icons/icon-512.png`;
 export const organizationId = `${site.url}/#organization`;
 export const websiteId = `${site.url}/#website`;
 
