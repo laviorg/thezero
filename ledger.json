@@ -1186,6 +1186,16 @@
       "ig": "https://www.instagram.com/p/DeklfrzDIUW/",
       "slug": "redmi-k100-bateria-recorde-bose",
       "updated_at": "2026-10-16T22:16:55Z"
+    },
+    "whatsapp-agendar-mensagens-beta-android": {
+      "article_url": "https://www.thezero.com.br/noticia/whatsapp-agendar-mensagens-beta-android",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/whatsapp-agendar-mensagens-beta-android.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/whatsapp-agendar-mensagens-beta-android.png",
+      "pr": 286,
+      "commit": "e96196352e344223552dcbc1006cad98e8b3a156",
+      "ig": "https://www.instagram.com/p/DekmNtpl6My/",
+      "slug": "whatsapp-agendar-mensagens-beta-android",
+      "updated_at": "2026-10-16T22:23:17Z"
     }
   }
 }
