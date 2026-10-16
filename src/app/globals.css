@@ -1417,11 +1417,6 @@ samp {
   letter-spacing: 0.06em;
 }
 
-/* Modo "Só os números": esconde parágrafos narrativos, mantém listas, tabelas e blocos. */
-html[data-so-numeros="on"] .article-body > p.article-p {
-  display: none;
-}
-
 /* [Copiar imagem]: o rodapé só aparece durante a captura. */
 [data-capturando] .copy-footer {
   display: block;
