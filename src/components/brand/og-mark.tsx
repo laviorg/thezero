@@ -6,12 +6,10 @@ import {
   ICON_VIEWBOX,
   MARK_ACCENT_PATHS,
   MARK_PATHS,
-  WORDMARK_ACCENT_PATHS,
-  WORDMARK_PATHS,
-  WORDMARK_SYMBOL_TRANSFORM,
-  LOCKUP_BG_PATH,
   WORDMARK_VIEWBOX,
+  wordmarkElements,
 } from "@/components/brand/wordmark-paths";
+import { createElement, type ReactNode } from "react";
 import { ogPalette } from "@/lib/theme";
 
 const [, , viewW, viewH] = WORDMARK_VIEWBOX.split(" ").map(Number);
@@ -35,21 +33,7 @@ export function OgWordmark({
       height={height}
       viewBox={WORDMARK_VIEWBOX}
     >
-      <g transform={WORDMARK_SYMBOL_TRANSFORM}>
-        <path d={LOCKUP_BG_PATH} fill={BRAND_ICON_BG} />
-        {MARK_PATHS.map((d) => (
-          <path key={d} d={d} fill={BRAND_ICON_FG} />
-        ))}
-        {MARK_ACCENT_PATHS.map((d) => (
-          <path key={d} d={d} fill={BRAND_ACCENT} />
-        ))}
-      </g>
-      {WORDMARK_PATHS.map((d) => (
-        <path key={d} d={d} fill={color} />
-      ))}
-      {WORDMARK_ACCENT_PATHS.map((d) => (
-        <path key={d} d={d} fill={BRAND_ACCENT} />
-      ))}
+      {wordmarkElements(createElement as never, { color }) as ReactNode[]}
     </svg>
   );
 }

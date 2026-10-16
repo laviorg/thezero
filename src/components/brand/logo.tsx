@@ -1,18 +1,14 @@
 import {
   BRAND_ACCENT,
-  BRAND_ICON_BG,
-  BRAND_ICON_FG,
-  WORDMARK_SYMBOL_TRANSFORM,
-  LOCKUP_BG_PATH,
   MARK_ACCENT_PATHS,
   MARK_PATHS,
   MARK_VIEWBOX,
-  WORDMARK_ACCENT_PATHS,
-  WORDMARK_PATHS,
   WORDMARK_VIEWBOX,
+  wordmarkElements,
 } from "@/components/brand/wordmark-paths";
+import { createElement } from "react";
 import { cn } from "@/lib/utils";
-import type { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 type BrandSvgProps = ComponentPropsWithoutRef<"svg"> & {
   title?: string;
@@ -37,33 +33,7 @@ export function Wordmark({
       {...props}
     >
       {hidden ? null : <title>{title}</title>}
-      <g transform={WORDMARK_SYMBOL_TRANSFORM}>
-        <path d={LOCKUP_BG_PATH} fill={BRAND_ICON_BG} />
-        {MARK_PATHS.map((d) => (
-          <path key={d} d={d} fill={BRAND_ICON_FG} />
-        ))}
-        {MARK_ACCENT_PATHS.map((d) => (
-          <path key={d} d={d} fill={BRAND_ACCENT} />
-        ))}
-        {/* Borda sutil só no escuro (fundo do símbolo ≈ fundo do site). 1px, interna. */}
-        <rect
-          x={-1.5}
-          y={-4}
-          width={72}
-          height={72}
-          rx={14.6}
-          fill="none"
-          strokeWidth={1}
-          vectorEffect="non-scaling-stroke"
-          className="stroke-transparent dark:stroke-white/15"
-        />
-      </g>
-      {WORDMARK_PATHS.map((d) => (
-        <path key={d} d={d} fill="currentColor" />
-      ))}
-      {WORDMARK_ACCENT_PATHS.map((d) => (
-        <path key={d} d={d} fill={mono ? "currentColor" : BRAND_ACCENT} />
-      ))}
+      {wordmarkElements(createElement as never, { mono }) as ReactNode[]}
     </svg>
   );
 }
