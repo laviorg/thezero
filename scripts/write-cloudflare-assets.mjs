@@ -51,8 +51,8 @@ function headersFile() {
   Content-Type: application/json; charset=utf-8
   Cache-Control: public, max-age=300
   X-Robots-Tag: noindex
-/icon
-  Content-Type: image/png
+/manifest.webmanifest
+  Content-Type: application/manifest+json; charset=utf-8
 /apple-icon
   Content-Type: image/png
 /opengraph-image

@@ -1,3 +1,4 @@
+import { Wordmark } from "@/components/brand/logo";
 import { KIT_FORM_ACTION, NEWSLETTER_ENABLED, NEWSLETTER_NAME } from "@/lib/newsletter";
 
 /**
@@ -13,6 +14,7 @@ export function NewsletterBox({ placement = "fim" }: { placement?: string }) {
       className="newsletter-box not-prose my-10 border border-border border-t-2 border-t-accent bg-surface p-5"
       aria-label={`Newsletter ${NEWSLETTER_NAME}`}
     >
+      <Wordmark aria-hidden className="mb-3 h-6 w-auto text-fg" />
       <p className="eyebrow page-kicker">Newsletter</p>
       <p className="font-display mt-1.5 text-xl font-bold tracking-tight">{NEWSLETTER_NAME}</p>
       <p className="mt-1.5 text-sm leading-6 text-muted">

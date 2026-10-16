@@ -1,6 +1,9 @@
 import {
-  MARK_PATH,
+  BRAND_ACCENT,
+  MARK_ACCENT_PATHS,
+  MARK_PATHS,
   MARK_VIEWBOX,
+  WORDMARK_ACCENT_PATHS,
   WORDMARK_PATHS,
   WORDMARK_VIEWBOX,
 } from "@/components/brand/wordmark-paths";
@@ -9,11 +12,14 @@ import type { ComponentPropsWithoutRef } from "react";
 
 type BrandSvgProps = ComponentPropsWithoutRef<"svg"> & {
   title?: string;
+  /** Pinta o ponto/underscore azul com currentColor (marcas d'água monocromáticas). */
+  mono?: boolean;
 };
 
 export function Wordmark({
   className,
   title = "The Zero",
+  mono = false,
   ...props
 }: BrandSvgProps) {
   const hidden = props["aria-hidden"] === true;
@@ -28,15 +34,20 @@ export function Wordmark({
     >
       {hidden ? null : <title>{title}</title>}
       {WORDMARK_PATHS.map((d) => (
-        <path key={d} d={d} />
+        <path key={d} d={d} fill="currentColor" />
+      ))}
+      {WORDMARK_ACCENT_PATHS.map((d) => (
+        <path key={d} d={d} fill={mono ? "currentColor" : BRAND_ACCENT} />
       ))}
     </svg>
   );
 }
 
+/** Símbolo (zero cápsula com corte + ponto). Nome mantido por compatibilidade. */
 export function SplitOMark({
   className,
   title = "The Zero",
+  mono = false,
   ...props
 }: BrandSvgProps) {
   const hidden = props["aria-hidden"] === true;
@@ -50,7 +61,12 @@ export function SplitOMark({
       {...props}
     >
       {hidden ? null : <title>{title}</title>}
-      <path d={MARK_PATH} />
+      {MARK_PATHS.map((d) => (
+        <path key={d} d={d} fill="currentColor" />
+      ))}
+      {MARK_ACCENT_PATHS.map((d) => (
+        <path key={d} d={d} fill={mono ? "currentColor" : BRAND_ACCENT} />
+      ))}
     </svg>
   );
 }

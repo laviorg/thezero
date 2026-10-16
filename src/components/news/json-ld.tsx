@@ -29,8 +29,8 @@ const publisher = {
   logo: {
     "@type": "ImageObject" as const,
     url: publisherLogoUrl,
-    width: 180,
-    height: 180,
+    width: 512,
+    height: 512,
   },
 };
 

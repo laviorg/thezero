@@ -98,7 +98,7 @@ export function ArticleCard({
               aria-hidden
               className="hidden aspect-video w-[5.25rem] shrink-0 items-center justify-center rounded-md border border-border bg-surface @min-[17rem]:flex @min-[26rem]:w-[7.5rem]"
             >
-              <SplitOMark className="size-4 text-fg/20" />
+              <SplitOMark mono className="size-4 text-fg/20" />
             </div>
           )}
           <div className="min-w-0 flex-1">
