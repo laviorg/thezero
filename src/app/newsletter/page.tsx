@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title,
     description,
     path: "/newsletter",
-    brand: "never",
+    brand: "always",
     imagePath: "/opengraph-image",
     imageAlt: title,
   }),
