@@ -263,7 +263,7 @@ export function SiteHeader({
           className="site-header-brand flex items-center text-fg outline-none"
           aria-label="The Zero — newsroom"
         >
-          <Wordmark className="h-5 w-auto sm:h-6" />
+          <Wordmark className="h-6 w-auto sm:h-[29px]" />
         </Link>
 
         <nav aria-label="Navegação" className="hidden items-center gap-3 xl:gap-4 lg:flex">
@@ -312,7 +312,7 @@ export function SiteHeader({
             <SheetContent>
               <SheetHeader>
                 <SheetTitle className="sr-only">The Zero</SheetTitle>
-                <Wordmark className="h-5 w-auto text-fg" />
+                <Wordmark className="h-6 w-auto text-fg" />
                 <SheetDescription className="sr-only">
                   Menu de navegação, busca e aparência
                 </SheetDescription>
