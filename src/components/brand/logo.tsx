@@ -1,5 +1,9 @@
 import {
   BRAND_ACCENT,
+  BRAND_ICON_BG,
+  BRAND_ICON_FG,
+  ICON_BG_PATH,
+  WORDMARK_SYMBOL_TRANSFORM,
   MARK_ACCENT_PATHS,
   MARK_PATHS,
   MARK_VIEWBOX,
@@ -33,6 +37,15 @@ export function Wordmark({
       {...props}
     >
       {hidden ? null : <title>{title}</title>}
+      <g transform={WORDMARK_SYMBOL_TRANSFORM}>
+        <path d={ICON_BG_PATH} fill={BRAND_ICON_BG} />
+        {MARK_PATHS.map((d) => (
+          <path key={d} d={d} fill={BRAND_ICON_FG} />
+        ))}
+        {MARK_ACCENT_PATHS.map((d) => (
+          <path key={d} d={d} fill={BRAND_ACCENT} />
+        ))}
+      </g>
       {WORDMARK_PATHS.map((d) => (
         <path key={d} d={d} fill="currentColor" />
       ))}

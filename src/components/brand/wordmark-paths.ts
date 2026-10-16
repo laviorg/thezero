@@ -1,16 +1,17 @@
-// Logo The Zero (2026-10): cápsula do zero com corte diagonal + ponto azul,
-// texto THE_ZERO em Geist Mono convertido em path (não depende de fonte).
+// Logo The Zero (2026-10). Wordmark = símbolo quadrado + texto THE_ZERO,
+// texto em Geist Mono convertido em path (não depende de fonte).
 // Gerado a partir de escrita.svg / simbolo.svg. Paths "main" usam currentColor.
 
 export const BRAND_ACCENT = "#2563EB";
 export const BRAND_ICON_BG = "#09090B";
 export const BRAND_ICON_FG = "#FAFAFA";
 
-export const WORDMARK_VIEWBOX = "0 0 140 40";
+export const WORDMARK_VIEWBOX = "24.8 10.8 113.5 18.8";
+
+/** Símbolo quadrado (simbolo.svg) à esquerda do texto: ~1,15x a altura das maiúsculas, centrado, gap 0,4x. */
+export const WORDMARK_SYMBOL_TRANSFORM = "translate(25.3 11.3) scale(0.2625)";
 
 export const WORDMARK_PATHS = [
-  "M17.0 2.25H17.0A14.75 14.75 0 0 1 31.75 17.0V23.0A14.75 14.75 0 0 1 17.0 37.75H17.0A14.75 14.75 0 0 1 2.25 23.0V17.0A14.75 14.75 0 0 1 17.0 2.25ZM17.0 5.75A11.25 11.25 0 0 0 5.75 17.0V23.0A11.25 11.25 0 0 0 17.0 34.25H17.0A11.25 11.25 0 0 0 28.25 23.0V17.0A11.25 11.25 0 0 0 17.0 5.75Z",
-  "M9.23 32.11L27.11 9.77L24.77 7.89L6.89 30.23Z",
   "M52.58 27V15.37H48.8V12.8H59.2V15.37H55.42V27Z",
   "M60.16 27V12.8H63V18.58H67.4V12.8H70.24V27H67.4V21.14H63V27Z",
   "M72.08 27V12.8H80.96V15.37H74.93V18.63H80.72V21.13H74.93V24.43H81.12V27Z",
@@ -21,7 +22,6 @@ export const WORDMARK_PATHS = [
 ] as const;
 
 export const WORDMARK_ACCENT_PATHS = [
-  "M31.8 8A3.2 3.2 0 1 0 38.2 8A3.2 3.2 0 1 0 31.8 8Z",
   "M83.2 28.56V27H92V28.56Z",
 ] as const;
 
