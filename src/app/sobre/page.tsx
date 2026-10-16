@@ -23,7 +23,7 @@ export default function AboutPage() {
   return (
     <PageShell width="narrow">
       <AboutPageJsonLd description={aboutDescription} />
-      <Wordmark className="mb-10 h-10 w-auto text-fg sm:h-12" />
+      <Wordmark className="mb-10 h-14 w-auto text-fg sm:h-16" />
       <p className="eyebrow page-kicker">Sobre</p>
       <h1 className="font-display mt-4 text-[clamp(2.4rem,7vw,4.6rem)] font-extrabold leading-[0.98] tracking-tight text-balance">
         Se não dá pra testar, medir ou discordar em 40 segundos, não entra.

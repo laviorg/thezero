@@ -2,8 +2,8 @@ import {
   BRAND_ACCENT,
   BRAND_ICON_BG,
   BRAND_ICON_FG,
-  ICON_BG_PATH,
   WORDMARK_SYMBOL_TRANSFORM,
+  LOCKUP_BG_PATH,
   MARK_ACCENT_PATHS,
   MARK_PATHS,
   MARK_VIEWBOX,
@@ -38,7 +38,7 @@ export function Wordmark({
     >
       {hidden ? null : <title>{title}</title>}
       <g transform={WORDMARK_SYMBOL_TRANSFORM}>
-        <path d={ICON_BG_PATH} fill={BRAND_ICON_BG} />
+        <path d={LOCKUP_BG_PATH} fill={BRAND_ICON_BG} />
         {MARK_PATHS.map((d) => (
           <path key={d} d={d} fill={BRAND_ICON_FG} />
         ))}
@@ -47,11 +47,11 @@ export function Wordmark({
         ))}
         {/* Borda sutil só no escuro (fundo do símbolo ≈ fundo do site). 1px, interna. */}
         <rect
-          x={2}
-          y={2}
-          width={60}
-          height={60}
-          rx={12}
+          x={-1.5}
+          y={-4}
+          width={72}
+          height={72}
+          rx={14.6}
           fill="none"
           strokeWidth={1}
           vectorEffect="non-scaling-stroke"

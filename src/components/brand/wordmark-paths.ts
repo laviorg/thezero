@@ -6,10 +6,14 @@ export const BRAND_ACCENT = "#2563EB";
 export const BRAND_ICON_BG = "#09090B";
 export const BRAND_ICON_FG = "#FAFAFA";
 
-export const WORDMARK_VIEWBOX = "24.8 10.8 113.5 18.8";
+export const WORDMARK_VIEWBOX = "16.24 6.87 122.06 25.66";
 
-/** Símbolo quadrado (simbolo.svg) à esquerda do texto: ~1,15x a altura das maiúsculas, centrado, gap 0,4x. */
-export const WORDMARK_SYMBOL_TRANSFORM = "translate(25.3 11.3) scale(0.2625)";
+/** Símbolo do lockup: zero com a mesma altura das maiúsculas; quadrado ~1,7x; gap ~0,3x; centrado no texto. */
+export const WORDMARK_SYMBOL_TRANSFORM = "translate(17.88 9.32) scale(0.3244)";
+
+/** Quadrado arredondado do lockup (mais folga que o ícone 64x64), em unidades do símbolo. */
+export const LOCKUP_BG_PATH =
+  "M13.1 -6H55.9A16.6 16.6 0 0 1 72.5 10.6V53.4A16.6 16.6 0 0 1 55.9 70H13.1A16.6 16.6 0 0 1 -3.5 53.4V10.6A16.6 16.6 0 0 1 13.1 -6Z";
 
 export const WORDMARK_PATHS = [
   "M52.58 27V15.37H48.8V12.8H59.2V15.37H55.42V27Z",

@@ -29,8 +29,8 @@ import {
   WORDMARK_ACCENT_PATHS,
   WORDMARK_PATHS,
   WORDMARK_SYMBOL_TRANSFORM,
+  LOCKUP_BG_PATH,
   WORDMARK_VIEWBOX,
-  ICON_BG_PATH,
   BRAND_ICON_BG,
   BRAND_ICON_FG,
 } from "../src/components/brand/wordmark-paths.ts";
@@ -241,7 +241,7 @@ function wordmark(width: number, color: string) {
     React.createElement(
       "g",
       { key: "sym", transform: WORDMARK_SYMBOL_TRANSFORM },
-      React.createElement("path", { d: ICON_BG_PATH, fill: BRAND_ICON_BG }),
+      React.createElement("path", { d: LOCKUP_BG_PATH, fill: BRAND_ICON_BG }),
       ...MARK_PATHS.map((d) =>
         React.createElement("path", { key: d, d, fill: BRAND_ICON_FG }),
       ),
