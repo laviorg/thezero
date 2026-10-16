@@ -34,7 +34,7 @@ import {
 
 describe("composePageTitle", () => {
   it("appends brand on short hub cores", () => {
-    assert.equal(composePageTitle("Ferramentas de IA", "always"), "Ferramentas de IA · The Zero");
+    assert.equal(composePageTitle("Ferramentas de IA", "always"), "Ferramentas de IA | The Zero");
   });
 
   it("does not double the brand", () => {
@@ -52,7 +52,7 @@ describe("composePageTitle", () => {
 
   it("keeps brand when the composed title still fits the soft max", () => {
     const composed = composePageTitle("AMD encarece GPU de IA em 10%. Ryzen escapou", "auto");
-    assert.equal(composed, "AMD encarece GPU de IA em 10%. Ryzen escapou · The Zero");
+    assert.equal(composed, "AMD encarece GPU de IA em 10%. Ryzen escapou | The Zero");
     assert.ok(titleLength(composed) <= TITLE_SOFT_MAX);
   });
 });
@@ -87,7 +87,7 @@ describe("articlePageTitle", () => {
         title: "Manchete editorial longa demais para caber na SERP com a marca no fim",
         seoTitle: "KaBuM enfiou um vendedor de IA no WhatsApp",
       }),
-      "KaBuM enfiou um vendedor de IA no WhatsApp · The Zero",
+      "KaBuM enfiou um vendedor de IA no WhatsApp | The Zero",
     );
   });
 });
@@ -145,7 +145,7 @@ describe("reviewsPageTitle", () => {
   it("names the subjects, not the format, and keeps the brand", () => {
     assert.equal(
       reviewsPageTitle(),
-      "Reviews: hardware, celular e jogos · The Zero",
+      "Reviews: hardware, celular e jogos | The Zero",
     );
     assert.ok(titleLength(reviewsPageTitle()) <= TITLE_SOFT_MAX);
   });
@@ -159,7 +159,7 @@ describe("reviewsPageTitle", () => {
     for (const title of titles) {
       assert.ok(titleLength(title) <= TITLE_HARD_MAX, title);
       assert.match(title, /^Reviews: /u);
-      assert.match(title, / · The Zero$/u);
+      assert.match(title, / | The Zero$/u);
     }
   });
 });
@@ -168,8 +168,8 @@ describe("format hub titles", () => {
   it("keeps Vale a pena and Tutoriais distinct, branded, and under the hard max", () => {
     const vale = valeAPenaPageTitle();
     const tutorials = tutorialsPageTitle();
-    assert.equal(vale, "Vale a pena? comprar, esperar ou pular · The Zero");
-    assert.equal(tutorials, "Tutoriais: iPhone, Android e jogos · The Zero");
+    assert.equal(vale, "Vale a pena? comprar, esperar ou pular | The Zero");
+    assert.equal(tutorials, "Tutoriais: iPhone, Android e jogos | The Zero");
     assert.ok(titleLength(vale) <= TITLE_HARD_MAX);
     assert.ok(titleLength(tutorials) <= TITLE_HARD_MAX);
     assert.notEqual(vale, tutorials);
@@ -179,7 +179,7 @@ describe("format hub titles", () => {
 
 describe("searchPageTitle", () => {
   it("keeps the empty hub stable and caps a long query", () => {
-    assert.equal(searchPageTitle(), "Busca no newsroom · The Zero");
+    assert.equal(searchPageTitle(), "Busca no newsroom | The Zero");
     const long = searchPageTitle("a".repeat(120));
     assert.ok(titleLength(long) <= TITLE_HARD_MAX);
     assert.match(long, /^Busca: /u);

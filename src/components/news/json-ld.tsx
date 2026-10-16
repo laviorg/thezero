@@ -44,6 +44,7 @@ export function OrganizationJsonLd() {
         name: site.name,
         url: site.url,
         logo: publisher.logo,
+        slogan: site.slogan,
         description: site.description,
         email: site.email,
         sameAs: [
@@ -85,6 +86,7 @@ export function WebsiteJsonLd() {
         "@id": websiteId,
         name: site.name,
         url: site.url,
+        slogan: site.slogan,
         description: site.description,
         inLanguage: site.language,
         publisher: { "@id": organizationId },

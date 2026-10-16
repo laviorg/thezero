@@ -12,11 +12,11 @@ export const TITLE_HARD_MAX = 70;
 export const HEADLINE_MAX = 110;
 
 /** Brand delimiter. Matches kickers and the previous template; Google accepts ·, | or -. */
-export const TITLE_SEPARATOR = " · ";
+export const TITLE_SEPARATOR = " | ";
 
 export const BRAND_NAME = site.name;
 
-export const HOME_TITLE = "The Zero — o que funciona de verdade em tech";
+export const HOME_TITLE = "The Zero — Ruído zero, dado bruto";
 export const ABOUT_TITLE = "Sobre o The Zero — newsroom de tech sem hype";
 export const PRIVACY_TITLE = "Privacidade no The Zero — dados, cookies e LGPD";
 export const CONTACT_TITLE = "Fale com a redação do The Zero";
@@ -91,7 +91,7 @@ export function fitTitle(value: string, max: number): string {
 /**
  * Build the final `<title>` / OG / Twitter string.
  *
- * - `always`: append ` · The Zero` (hubs, utility pages). Core is fitted so
+ * - `always`: append ` | The Zero` (hubs, utility pages). Core is fitted so
  *   the brand still fits inside the hard max.
  * - `auto`: append brand only when the composed string stays within the
  *   soft max. Long article titles keep the claim and drop the suffix —

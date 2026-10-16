@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const aboutDescription =
-  "The Zero é o canal de tech que mostra o que funciona de verdade — demo na tela, opinião sem filtro, zero hype de lançamento.";
+  "The Zero é o newsroom de tech do Brasil. Ruído zero, dado bruto: teste, número e fonte em IA, computadores, dispositivos, apps e jogos.";
 
 export const metadata: Metadata = buildPageMetadata({
   title: ABOUT_TITLE,
@@ -164,7 +164,7 @@ export default function AboutPage() {
             </div>
           </dl>
           <p>
-            Existimos para mostrar o que funciona de verdade — IA,
+            Ruído zero, dado bruto: existimos para testar e medir IA,
             computadores, dispositivos, apps e jogos — em português do
             Brasil, com opinião e número. Sem unboxing emocional. Sem
             página feita só para anúncio.

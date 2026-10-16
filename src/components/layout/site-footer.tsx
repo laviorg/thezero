@@ -26,7 +26,7 @@ export function SiteFooter() {
             <Wordmark className="h-8 w-auto" />
           </Link>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-            {site.bio} Newsroom em pt-BR. Se não dá pra testar, medir ou
+            {site.bio} Newsroom de tech em pt-BR. Se não dá pra testar, medir ou
             discordar, não entra.
           </p>
           <p className="mt-4 text-[0.7rem] tracking-[0.14em] text-muted/80 uppercase">

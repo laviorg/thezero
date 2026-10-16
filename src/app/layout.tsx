@@ -1,3 +1,4 @@
+import { HOME_TITLE } from "@/lib/titles";
 import { CompareHost } from "@/components/compare/compare-button";
 import { newsRobots } from "@/lib/seo";
 import { AdSenseScript } from "@/components/ads/adsense-script";
@@ -31,8 +32,8 @@ const adsensePubId = getAdsensePubId();
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: site.name,
-    template: `%s · ${site.name}`,
+    default: HOME_TITLE,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,
@@ -67,12 +68,12 @@ export const metadata: Metadata = {
     locale: site.locale,
     url: site.url,
     siteName: site.name,
-    title: site.name,
+    title: HOME_TITLE,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: site.name,
+    title: HOME_TITLE,
     description: site.description,
   },
   robots: newsRobots,
