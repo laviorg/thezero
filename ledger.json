@@ -1165,6 +1165,16 @@
       "slug": "agente-openai-rouba-ethereum-teste-deploy",
       "updated_at": "2026-10-16T20:29:16Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DekZKgtiarc"
+    },
+    "tse-aprova-regras-whatsapp-campanhas": {
+      "article_url": "https://www.thezero.com.br/noticia/tse-aprova-regras-whatsapp-campanhas",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/tse-aprova-regras-whatsapp-campanhas.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/tse-aprova-regras-whatsapp-campanhas.png",
+      "pr": 284,
+      "commit": "1e2fcf136a5e8708ca6f0836ebdf773d56171b3b",
+      "ig": "https://www.instagram.com/p/Dekh-PcFwfZ/",
+      "slug": "tse-aprova-regras-whatsapp-campanhas",
+      "updated_at": "2026-10-16T21:46:11Z"
     }
   }
 }
