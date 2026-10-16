@@ -28,7 +28,11 @@ import {
   MARK_VIEWBOX,
   WORDMARK_ACCENT_PATHS,
   WORDMARK_PATHS,
+  WORDMARK_SYMBOL_TRANSFORM,
   WORDMARK_VIEWBOX,
+  ICON_BG_PATH,
+  BRAND_ICON_BG,
+  BRAND_ICON_FG,
 } from "../src/components/brand/wordmark-paths.ts";
 import { getCategory, getSubcategory } from "../src/lib/categories.ts";
 import { ogPalette } from "../src/lib/theme.ts";
@@ -234,6 +238,17 @@ function wordmark(width: number, color: string) {
       height,
       viewBox: WORDMARK_VIEWBOX,
     },
+    React.createElement(
+      "g",
+      { key: "sym", transform: WORDMARK_SYMBOL_TRANSFORM },
+      React.createElement("path", { d: ICON_BG_PATH, fill: BRAND_ICON_BG }),
+      ...MARK_PATHS.map((d) =>
+        React.createElement("path", { key: d, d, fill: BRAND_ICON_FG }),
+      ),
+      ...MARK_ACCENT_PATHS.map((d) =>
+        React.createElement("path", { key: d, d, fill: BRAND_ACCENT }),
+      ),
+    ),
     ...WORDMARK_PATHS.map((d) =>
       React.createElement("path", { key: d, d, fill: color }),
     ),
@@ -251,7 +266,7 @@ function splitMark(size: number, color: string) {
       React.createElement("path", { key: d, d, fill: color }),
     ),
     ...MARK_ACCENT_PATHS.map((d) =>
-      React.createElement("path", { key: d, d, fill: BRAND_ACCENT }),
+      React.createElement("path", { key: d, d, fill: color }),
     ),
   );
 }

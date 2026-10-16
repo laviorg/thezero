@@ -8,6 +8,7 @@ import {
   MARK_PATHS,
   WORDMARK_ACCENT_PATHS,
   WORDMARK_PATHS,
+  WORDMARK_SYMBOL_TRANSFORM,
   WORDMARK_VIEWBOX,
 } from "@/components/brand/wordmark-paths";
 import { ogPalette } from "@/lib/theme";
@@ -33,6 +34,15 @@ export function OgWordmark({
       height={height}
       viewBox={WORDMARK_VIEWBOX}
     >
+      <g transform={WORDMARK_SYMBOL_TRANSFORM}>
+        <path d={ICON_BG_PATH} fill={BRAND_ICON_BG} />
+        {MARK_PATHS.map((d) => (
+          <path key={d} d={d} fill={BRAND_ICON_FG} />
+        ))}
+        {MARK_ACCENT_PATHS.map((d) => (
+          <path key={d} d={d} fill={BRAND_ACCENT} />
+        ))}
+      </g>
       {WORDMARK_PATHS.map((d) => (
         <path key={d} d={d} fill={color} />
       ))}

@@ -28,7 +28,7 @@ export function PhotoWatermark({
       <Wordmark
         className={cn(
           "w-auto fill-current text-[#F4F4F5]",
-          micro ? "h-2.5" : compact ? "h-3.5" : "h-4 sm:h-[1.15rem]",
+          micro ? "h-1.5" : compact ? "h-2" : "h-2.5 sm:h-3",
         )}
       />
       <span
