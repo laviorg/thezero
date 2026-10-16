@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import revisions from "@/data/revisions.json";
 import matter from "gray-matter";
 import {
   CATEGORY_SLUGS,
@@ -36,6 +35,20 @@ import { getAuthorBySlug } from "@/lib/authors";
 import { parseVerdictCard, type VerdictCardData } from "@/lib/verdict-card";
 import { postMatchesQuery } from "@/lib/search-match";
 import { countPostWords } from "@/lib/word-count";
+
+// JSON lido com fs (o build do Cloudflare roda com --experimental-strip-types e não importa .json; ver #237)
+let _revisions: unknown;
+function loadRevisions(): unknown {
+  if (_revisions === undefined) {
+    try {
+      _revisions = JSON.parse(fs.readFileSync(path.join(process.cwd(), "src", "data", "revisions.json"), "utf8"));
+    } catch {
+      _revisions = {};
+    }
+  }
+  return _revisions;
+}
+
 
 export { isEvergreenFormat, isNewsFormat, type PostFormat };
 
@@ -201,7 +214,7 @@ function toPost(slug: string, raw: string): Post | null {
     : undefined;
 
   /** Revisões reais: frontmatter `changelog` + histórico git (scripts/build-revisions.mjs). */
-  const gitRevisions = (revisions as Record<string, { date: string; note: string }[]>)[slug] ?? [];
+  const gitRevisions = (loadRevisions() as Record<string, { date: string; note: string }[]>)[slug] ?? [];
   frontmatter.changelog = [...(frontmatter.changelog ?? []), ...gitRevisions.map(({ date, note }) => ({ date, note }))]
     .filter((e) => new Date(e.date).getTime() > new Date(toIsoDate(frontmatter.date)).getTime())
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
