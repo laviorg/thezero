@@ -1418,7 +1418,7 @@ samp {
 }
 
 /* Modo "Só os números": esconde parágrafos narrativos, mantém listas, tabelas e blocos. */
-[data-so-numeros] .article-body > p.article-p {
+html[data-so-numeros="on"] .article-body > p.article-p {
   display: none;
 }
 
