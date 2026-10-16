@@ -9,7 +9,7 @@ import { ArticleHeader } from "@/components/news/article-header";
 import { RelatedTools } from "@/components/news/related-tools";
 import { fichas } from "@/lib/fichas";
 import { relatedLinks } from "@/lib/related-links";
-import { ReadingMode } from "@/components/news/reading-mode";
+import { LegacyReadingCleanup } from "@/components/news/legacy-cleanup";
 import { Changelog } from "@/components/news/changelog";
 import { ArticlePager } from "@/components/news/article-pager";
 import { ArticleRail } from "@/components/news/article-rail";
@@ -200,7 +200,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <PageShell width="article" className="story-body-shell">
         <div className="story-split">
           <div className="story-main">
-            <ReadingMode />
+            <LegacyReadingCleanup />
             {post.changelog?.length ? (
               <Changelog entries={[{ date: post.dateIso, note: "Publicada" }, ...post.changelog]} />
             ) : null}
