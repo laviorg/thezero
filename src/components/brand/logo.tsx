@@ -45,6 +45,18 @@ export function Wordmark({
         {MARK_ACCENT_PATHS.map((d) => (
           <path key={d} d={d} fill={BRAND_ACCENT} />
         ))}
+        {/* Borda sutil só no escuro (fundo do símbolo ≈ fundo do site). 1px, interna. */}
+        <rect
+          x={2}
+          y={2}
+          width={60}
+          height={60}
+          rx={12}
+          fill="none"
+          strokeWidth={1}
+          vectorEffect="non-scaling-stroke"
+          className="stroke-transparent dark:stroke-white/15"
+        />
       </g>
       {WORDMARK_PATHS.map((d) => (
         <path key={d} d={d} fill="currentColor" />
