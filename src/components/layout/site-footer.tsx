@@ -24,7 +24,7 @@ export function SiteFooter() {
             className="inline-flex text-fg transition-colors hover:text-accent"
             aria-label="The Zero"
           >
-            <Wordmark className="h-8 w-auto" />
+            <Wordmark className="h-6 w-auto" />
           </Link>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
             {site.bio} Newsroom de tech em pt-BR. Se não dá pra testar, medir ou

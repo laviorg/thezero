@@ -22,17 +22,11 @@ import type { ReactElement } from "react";
 import matter from "gray-matter";
 import sharp from "sharp";
 import {
-  BRAND_ACCENT,
   MARK_ACCENT_PATHS,
   MARK_PATHS,
   MARK_VIEWBOX,
-  WORDMARK_ACCENT_PATHS,
-  WORDMARK_PATHS,
-  WORDMARK_SYMBOL_TRANSFORM,
-  LOCKUP_BG_PATH,
   WORDMARK_VIEWBOX,
-  BRAND_ICON_BG,
-  BRAND_ICON_FG,
+  wordmarkElements,
 } from "../src/components/brand/wordmark-paths.ts";
 import { getCategory, getSubcategory } from "../src/lib/categories.ts";
 import { ogPalette } from "../src/lib/theme.ts";
@@ -238,23 +232,7 @@ function wordmark(width: number, color: string) {
       height,
       viewBox: WORDMARK_VIEWBOX,
     },
-    React.createElement(
-      "g",
-      { key: "sym", transform: WORDMARK_SYMBOL_TRANSFORM },
-      React.createElement("path", { d: LOCKUP_BG_PATH, fill: BRAND_ICON_BG }),
-      ...MARK_PATHS.map((d) =>
-        React.createElement("path", { key: d, d, fill: BRAND_ICON_FG }),
-      ),
-      ...MARK_ACCENT_PATHS.map((d) =>
-        React.createElement("path", { key: d, d, fill: BRAND_ACCENT }),
-      ),
-    ),
-    ...WORDMARK_PATHS.map((d) =>
-      React.createElement("path", { key: d, d, fill: color }),
-    ),
-    ...WORDMARK_ACCENT_PATHS.map((d) =>
-      React.createElement("path", { key: d, d, fill: BRAND_ACCENT }),
-    ),
+    ...(wordmarkElements(React.createElement as never, { color }) as ReactElement[]),
   );
 }
 
