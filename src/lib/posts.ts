@@ -1,6 +1,17 @@
 import fs from "node:fs";
 import path from "node:path";
-import revisions from "@/data/revisions.json";
+/** Lido do disco (não via import) para os scripts node com alias-hooks continuarem resolvendo. */
+let revisionsCache: Record<string, { date: string; note: string }[]> | undefined;
+function readRevisions() {
+  if (!revisionsCache) {
+    try {
+      revisionsCache = JSON.parse(fs.readFileSync(path.join(process.cwd(), "src/data/revisions.json"), "utf8"));
+    } catch {
+      revisionsCache = {};
+    }
+  }
+  return revisionsCache!;
+}
 import matter from "gray-matter";
 import {
   CATEGORY_SLUGS,
@@ -201,7 +212,7 @@ function toPost(slug: string, raw: string): Post | null {
     : undefined;
 
   /** Revisões reais: frontmatter `changelog` + histórico git (scripts/build-revisions.mjs). */
-  const gitRevisions = (revisions as Record<string, { date: string; note: string }[]>)[slug] ?? [];
+  const gitRevisions = readRevisions()[slug] ?? [];
   frontmatter.changelog = [...(frontmatter.changelog ?? []), ...gitRevisions.map(({ date, note }) => ({ date, note }))]
     .filter((e) => new Date(e.date).getTime() > new Date(toIsoDate(frontmatter.date)).getTime())
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
