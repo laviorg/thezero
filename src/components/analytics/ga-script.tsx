@@ -6,14 +6,14 @@ import Script from "next/script";
 
 /**
  * Loads gtag / GA4 only when a real measurement ID is configured and the
- * reader accepted advertising/analytics cookies. Same gate as AdSense.
- * "Só o necessário" does not load Analytics.
+ * reader accepted analytics cookies ("Aceitar tudo" ou "Só estatísticas").
+ * A escolha de publicidade é separada e fica com o AdSense.
  */
 export function GoogleAnalyticsScript() {
   const measurementId = getGaMeasurementId();
-  const { advertisingAllowed } = useConsent();
+  const { analyticsAllowed } = useConsent();
 
-  if (!measurementId || !advertisingAllowed) return null;
+  if (!measurementId || !analyticsAllowed) return null;
 
   return (
     <>

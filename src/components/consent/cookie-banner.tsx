@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 
 export function CookieBanner() {
-  const { showBanner, acceptAdvertising, rejectAdvertising } = useConsent();
+  const { showBanner, acceptAll, acceptAnalyticsOnly, rejectAll } = useConsent();
 
   useEffect(() => {
     document.body.classList.toggle("has-cookie-banner", showBanner);
@@ -28,9 +28,10 @@ export function CookieBanner() {
             Cookies
           </p>
           <p id="cookie-banner-copy" className="mt-1.5 text-sm leading-relaxed text-fg/90">
-            Usamos cookies de medição e publicidade (Google AdSense) apenas
-            com o seu consentimento. Você pode mudar a escolha a qualquer
-            momento.{" "}
+            Usamos cookies de estatística (Google Analytics) e de
+            publicidade (Google AdSense) apenas com o seu consentimento,
+            e dá para escolher cada um separado. Você pode mudar a escolha
+            a qualquer momento.{" "}
             <Link href="/privacidade" className="text-accent underline-offset-4 hover:underline">
               Política de Privacidade
             </Link>
@@ -38,14 +39,22 @@ export function CookieBanner() {
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <Button type="button" size="sm" onClick={acceptAdvertising}>
-            Aceitar publicidade
+          <Button type="button" size="sm" onClick={acceptAll}>
+            Aceitar tudo
           </Button>
           <Button
             type="button"
             size="sm"
             variant="outline"
-            onClick={rejectAdvertising}
+            onClick={acceptAnalyticsOnly}
+          >
+            Só estatísticas
+          </Button>
+          <Button
+            type="button"
+            size="sm"
+            variant="outline"
+            onClick={rejectAll}
           >
             Só o necessário
           </Button>

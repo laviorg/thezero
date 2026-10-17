@@ -62,3 +62,7 @@ NEXT_PUBLIC_ADSENSE_PUB_ID=pub-xxxxxxxxxxxxxxxx
 ## Depois de aprovado (código)
 
 Quando o ID estiver na Vercel, o `ads.txt` e o meta passam a declarar o Google. O script `adsbygoogle.js` só carrega se o leitor aceitou publicidade. Placement de unidade (in-article, sidebar) fica para um PR seguinte — não misturar com esta prontidão.
+
+## CSP e anúncios
+
+O `_headers` gerado no build da Cloudflare leva uma CSP. O Google só dá suporte a **strict CSP com nonce** para o AdSense ([documentação](https://support.google.com/adsense/answer/16283098)) porque os domínios do adsbygoogle mudam com o tempo; nonce por request não existe em hosting estático. Por isso o `script-src`/`frame-src`/`connect-src` da CSP são amplos (`https:`) de propósito — apertar para uma lista fixa de domínios quebra anúncio sem aviso.

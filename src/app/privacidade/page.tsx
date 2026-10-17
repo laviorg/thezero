@@ -87,18 +87,18 @@ export default function PrivacyPage() {
           <strong>Estatística (só com aceite).</strong> O Google Analytics 4
           mede audiência agregada: páginas vistas, referrer, tipo de
           dispositivo, idioma e sinais semelhantes. Só carrega o script do
-          Google (gtag) se você aceitar no aviso de cookies. Recusar (“Só
-          o necessário”) não dispara o script. Sem cadastro nosso: a
-          medição fica no Google, não num perfil que a gente monta.
+          Google (gtag) com “Aceitar tudo” ou “Só estatísticas” no aviso de
+          cookies. “Só o necessário” não dispara o script. Sem cadastro
+          nosso: a medição fica no Google, não num perfil que a gente monta.
         </li>
         <li>
           <strong>Publicidade (só com aceite, e só quando o AdSense estiver
           ligado).</strong> O Google AdSense e parceiros certificados podem
           usar cookies, identificadores, endereço IP e sinais semelhantes para
-          servir, medir e, se você permitir, personalizar anúncios. Isso{" "}
-          <strong>não está no ar</strong> até a conta ser aprovada e o site
-          publicar o código. Quando estiver, vale esta mesma política — e o
-          mesmo aceite do aviso de cookies.
+          servir, medir e, se você permitir, personalizar anúncios. A
+          escolha de publicidade é separada da de estatística: “Só
+          estatísticas” no aviso de cookies não liga anúncio nenhum, e “Só
+          o necessário” não liga nem anúncio nem medição.
         </li>
         <li>
           <strong>Links de afiliado.</strong> Algumas matérias levam a lojas
