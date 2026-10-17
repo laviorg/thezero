@@ -20,8 +20,10 @@ type ConsentContextValue = {
   consent: StoredConsent | null;
   showBanner: boolean;
   advertisingAllowed: boolean;
-  acceptAdvertising: () => void;
-  rejectAdvertising: () => void;
+  analyticsAllowed: boolean;
+  acceptAll: () => void;
+  acceptAnalyticsOnly: () => void;
+  rejectAll: () => void;
   openPreferences: () => void;
 };
 
@@ -57,8 +59,8 @@ function subscribeConsent(listener: () => void) {
   };
 }
 
-function persistConsent(advertising: boolean) {
-  const raw = serializeConsent(advertising);
+function persistConsent(advertising: boolean, analytics: boolean) {
+  const raw = serializeConsent(advertising, analytics);
   localStorage.setItem(CONSENT_STORAGE_KEY, raw);
   cachedRaw = raw;
   cachedValue = parseStoredConsent(raw);
@@ -79,13 +81,18 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   );
   const [forceBanner, setForceBanner] = useState(false);
 
-  const acceptAdvertising = useCallback(() => {
-    persistConsent(true);
+  const acceptAll = useCallback(() => {
+    persistConsent(true, true);
     setForceBanner(false);
   }, []);
 
-  const rejectAdvertising = useCallback(() => {
-    persistConsent(false);
+  const acceptAnalyticsOnly = useCallback(() => {
+    persistConsent(false, true);
+    setForceBanner(false);
+  }, []);
+
+  const rejectAll = useCallback(() => {
+    persistConsent(false, false);
     setForceBanner(false);
   }, []);
 
@@ -98,16 +105,19 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
       consent,
       showBanner: isClient && (forceBanner || consent === null),
       advertisingAllowed: consent?.advertising === true,
-      acceptAdvertising,
-      rejectAdvertising,
+      analyticsAllowed: consent?.analytics === true,
+      acceptAll,
+      acceptAnalyticsOnly,
+      rejectAll,
       openPreferences,
     }),
     [
       consent,
       isClient,
       forceBanner,
-      acceptAdvertising,
-      rejectAdvertising,
+      acceptAll,
+      acceptAnalyticsOnly,
+      rejectAll,
       openPreferences,
     ],
   );

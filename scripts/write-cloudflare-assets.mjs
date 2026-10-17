@@ -32,7 +32,30 @@ function redirectsFile() {
 function headersFile() {
   // pages.dev noindex: handled outside the repo (Cloudflare redirect to www); a global _middleware would bill every request as a Function.
   // `_headers` cannot match on Host; do not put a site-wide X-Robots-Tag here.
-  return `/rss.xml
+  //
+  // Cache: os assets do Next em /_next/static/* têm hash no nome, então valem
+  // um ano imutável. O HTML continua no default (revalida a cada deploy).
+  //
+  // CSP: o Google só dá suporte a strict CSP com nonce para AdSense
+  // (https://support.google.com/adsense/answer/16283098) — os domínios do
+  // adsbygoogle mudam com o tempo e uma allowlist fixa quebra anúncio sem
+  // aviso. Nonce por request não existe em hosting estático, então script-src
+  // fica amplo de propósito ('unsafe-inline' para o bootstrap inline do Next,
+  // https: para os domínios rotativos de anúncio e medição). A proteção útil
+  // fica em object-src, base-uri, form-action, frame-ancestors e upgrade de
+  // mixed content.
+  const securityHeaders = `/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https:; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://app.kit.com; frame-ancestors 'self'; upgrade-insecure-requests
+`;
+
+  return `${securityHeaders}
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+/rss.xml
   Content-Type: application/rss+xml; charset=utf-8
   Cache-Control: public, max-age=3600
 /ads.txt

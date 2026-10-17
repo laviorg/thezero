@@ -6,6 +6,7 @@ import {
   adsenseClientId,
   buildAdsTxt,
   normalizeAdsensePubId,
+  normalizeAdsenseSlotId,
 } from "./adsense.ts";
 import { site } from "./site.ts";
 
@@ -52,5 +53,21 @@ describe("buildAdsTxt", () => {
     assert.equal(site.email, "hello@thezero.com.br");
     assert.doesNotMatch(body, /^#/m);
     assert.doesNotMatch(body, /OWNERDOMAIN/);
+  });
+});
+
+describe("normalizeAdsenseSlotId", () => {
+  it("accepts numeric slot IDs", () => {
+    assert.equal(normalizeAdsenseSlotId("1234567890"), "1234567890");
+    assert.equal(normalizeAdsenseSlotId("  9876543210  "), "9876543210");
+  });
+
+  it("rejects empty, short, or non-numeric values", () => {
+    assert.equal(normalizeAdsenseSlotId(""), null);
+    assert.equal(normalizeAdsenseSlotId("   "), null);
+    assert.equal(normalizeAdsenseSlotId(undefined), null);
+    assert.equal(normalizeAdsenseSlotId("123"), null);
+    assert.equal(normalizeAdsenseSlotId("12345678901a"), null);
+    assert.equal(normalizeAdsenseSlotId("slot-1234567890"), null);
   });
 });

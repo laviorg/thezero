@@ -39,3 +39,32 @@ export function buildAdsTxt(): string {
     "",
   ].join("\n");
 }
+
+const SLOT_ID_RE = /^\d{6,20}$/;
+
+/**
+ * AdSense ad-unit slot IDs are numeric strings created in the AdSense UI.
+ * Returns null for empty or malformed values — never invents a slot.
+ */
+export function normalizeAdsenseSlotId(
+  raw: string | undefined | null,
+): string | null {
+  if (!raw) return null;
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  return SLOT_ID_RE.test(trimmed) ? trimmed : null;
+}
+
+/** Slot da unidade "in-article" (fluid), criada na UI do AdSense. */
+export function getAdsenseSlotInArticle(
+  raw = process.env.NEXT_PUBLIC_ADSENSE_SLOT_IN_ARTICLE,
+): string | null {
+  return normalizeAdsenseSlotId(raw);
+}
+
+/** Slot da unidade display da home, criada na UI do AdSense. */
+export function getAdsenseSlotHome(
+  raw = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME,
+): string | null {
+  return normalizeAdsenseSlotId(raw);
+}

@@ -4,6 +4,7 @@ import { VerdictCard } from "@/components/news/verdict-card";
 import Link from "next/link";
 import { ReadAlso } from "@/components/news/read-also";
 import { ArticleBody } from "@/components/news/article-body";
+import { AD_IN_ARTICLE_MIN_WORDS, injectInArticleAdAfterNthParagraph } from "@/lib/article-ads";
 import { ArticleDeskLinks } from "@/components/news/article-desk-links";
 import { ArticleHeader } from "@/components/news/article-header";
 import { RelatedTools } from "@/components/news/related-tools";
@@ -206,11 +207,22 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             ) : null}
             {post.veredito ? <VerdictCard data={post.veredito} /> : null}
             <ArticleBody
-              source={
-                post.format === "guia" && post.wordCount >= LONG_GUIDE_MIN_WORDS
+              source={(() => {
+                const isLongGuide =
+                  post.format === "guia" &&
+                  post.wordCount >= LONG_GUIDE_MIN_WORDS;
+                const withNewsletter = isLongGuide
                   ? injectNewsletterAfterThirdParagraph(post.content)
-                  : post.content
-              }
+                  : post.content;
+                // Matéria curta demais não recebe anúncio no meio do texto.
+                if (post.wordCount < AD_IN_ARTICLE_MIN_WORDS) return withNewsletter;
+                // Guia longo já tem a newsletter após o 3º parágrafo: o
+                // anúncio vai para depois do 7º para não empilhar caixas.
+                return injectInArticleAdAfterNthParagraph(
+                  withNewsletter,
+                  isLongGuide ? 7 : 3,
+                );
+              })()}
             />
             <RelatedTools
               links={relatedLinks(

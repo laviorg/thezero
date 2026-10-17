@@ -1,7 +1,7 @@
 # AdSense — prontidão do site e o que falta na UI do Google
 
 O The Zero está preparado para a **revisão de site** do Google AdSense.
-Não há unidade de anúncio no ar. O `/ads.txt` declara o publisher `pub-3679376723096233`. O script só carrega com `NEXT_PUBLIC_ADSENSE_PUB_ID` e o aceite de cookies.
+O `/ads.txt` declara o publisher `pub-3679376723096233`. O script e as unidades só carregam com `NEXT_PUBLIC_ADSENSE_PUB_ID`, o aceite de publicidade no aviso de cookies e os slots criados na UI do AdSense (envs abaixo). Sem slot configurado, nenhuma caixa de anúncio aparece no ar.
 
 Conta prevista (passo manual, fora deste repo): `nicholasharuo@gmail.com`.
 O site público usa `hello@thezero.com.br` (`site.email`).
@@ -22,7 +22,14 @@ O site público usa `hello@thezero.com.br` (`site.email`).
 | Crawlers de anúncio liberados; 404; nav; HTTPS (Vercel); sem cloaking | `robots.ts`, `not-found`, header/footer |
 | Sitemap e titles únicos das páginas novas | `sitemap.ts`, `title-audit.ts` |
 
-Unidades visuais de anúncio **não** foram colocadas nas matérias de propósito: caixa vazia “Publicidade” antes da aprovação parece site feito para ad, e a revisão costuma rejeitar isso.
+As unidades visuais ficam escondidas até existir slot real: o componente (`src/components/ads/ad-unit.tsx`) só renderiza com publisher ID + slot + aceite de publicidade. Caixa vazia “Publicidade” antes da aprovação parece site feito para ad, e a revisão costuma rejeitar isso — por isso o slot nunca é inventado no código.
+
+Placements atuais:
+
+| Placement | Onde | Formato | Env do slot |
+| --- | --- | --- | --- |
+| `in-article` | Matérias com 600+ palavras, após o 3º parágrafo (guias longos: após o 7º, para não empilhar com a newsletter) | fluid / in-article | `NEXT_PUBLIC_ADSENSE_SLOT_IN_ARTICLE` |
+| `home` | Home, entre “Últimas” e as editorias | display responsivo | `NEXT_PUBLIC_ADSENSE_SLOT_HOME` |
 
 ## O que Nicholas faz na UI do AdSense
 
@@ -38,7 +45,7 @@ Unidades visuais de anúncio **não** foram colocadas nas matérias de propósit
 7. **Pedir a revisão** do site. Leva alguns dias; às vezes 2–4 semanas. Status no card Sites da home do AdSense.
 8. **Não clicar** nos próprios anúncios, nem pedir clique, nem colocar seta em cima de unidade — *AdSense Program policies*.
 9. Depois do status **Ready**:
-   - ligar Auto ads no painel **ou** criar unidades e colá-las no layout (aí sim um PR de *placement*);
+   - criar as duas unidades no painel (Anúncios → Por unidade de anúncio): uma **In-article** e uma **Display** responsiva. Copiar o `data-ad-slot` (só dígitos) de cada uma para os secrets `NEXT_PUBLIC_ADSENSE_SLOT_IN_ARTICLE` e `NEXT_PUBLIC_ADSENSE_SLOT_HOME` no GitHub e redesployar (workflow `deploy-cloudflare`). Alternativa: ligar **Auto ads** no painel — aí os slots manuais ficam opcionais;
    - em Privacidade e mensagens, configurar CMP se houver tráfego no EEE / UK (o banner da casa cobre o aviso LGPD no Brasil; não substitui o CMP europeu do Google);
    - para pedidos LGPD, o Google restringe a [provedores de tecnologia de anúncio certificados](https://support.google.com/adsense/answer/9931967).
 10. Dados de pagamento, PIN e identidade: só no AdSense. Não vão neste repositório.
@@ -61,4 +68,8 @@ NEXT_PUBLIC_ADSENSE_PUB_ID=pub-xxxxxxxxxxxxxxxx
 
 ## Depois de aprovado (código)
 
-Quando o ID estiver na Vercel, o `ads.txt` e o meta passam a declarar o Google. O script `adsbygoogle.js` só carrega se o leitor aceitou publicidade. Placement de unidade (in-article, sidebar) fica para um PR seguinte — não misturar com esta prontidão.
+Quando o ID estiver setado, o `ads.txt` e o meta declaram o Google. O script `adsbygoogle.js` e as unidades só carregam se o leitor aceitou publicidade no aviso de cookies (escolha separada da de estatística). Sem os secrets de slot, as unidades não renderizam — Auto ads no painel continua funcionando como caminho alternativo.
+
+## CSP e anúncios
+
+O `_headers` gerado no build da Cloudflare leva uma CSP. O Google só dá suporte a **strict CSP com nonce** para o AdSense ([documentação](https://support.google.com/adsense/answer/16283098)) porque os domínios do adsbygoogle mudam com o tempo; nonce por request não existe em hosting estático. Por isso o `script-src`/`frame-src`/`connect-src` da CSP são amplos (`https:`) de propósito — apertar para uma lista fixa de domínios quebra anúncio sem aviso.
