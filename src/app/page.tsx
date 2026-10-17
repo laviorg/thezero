@@ -3,7 +3,6 @@ import { CategoryRail } from "@/components/news/category-rail";
 import { ItemListJsonLd } from "@/components/news/json-ld";
 import { ReviewRail } from "@/components/news/review-rail";
 import { SectionHeading } from "@/components/news/section-heading";
-import { AdUnit } from "@/components/ads/ad-unit";
 import { PageShell } from "@/components/layout/page-shell";
 import { categoryList } from "@/lib/categories";
 import { formatToday } from "@/lib/format";
@@ -161,8 +160,6 @@ export default function HomePage() {
           </div>
         </section>
       ) : null}
-
-      <AdUnit placement="home" />
 
       <nav
         aria-label="Ir para editorias"

@@ -1,5 +1,4 @@
 import { YouTube } from "@/components/mdx/youtube-embed";
-import { AdUnit } from "@/components/ads/ad-unit";
 import { NewsletterBox } from "@/components/newsletter/newsletter-box";
 import { WatermarkedPhoto } from "@/components/brand/photo-watermark";
 import {
@@ -68,7 +67,6 @@ export const mdxComponents: NonNullable<MDXRemoteProps["components"]> = {
   GuiasDoTema,
   YouTube,
   Newsletter: NewsletterBox,
-  AdInArticle: () => <AdUnit placement="in-article" />,
   img: MarkdownImage,
   h2: ({ className, ...props }) => (
     <h2
