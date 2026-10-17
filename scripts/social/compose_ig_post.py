@@ -17,6 +17,17 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
+
+def resolve_cover_source(cover_path):
+    """Capa travada (cover_locked): usa o original sem marca `cover.src.*` ao lado,
+    se existir, para a marca entrar por cima dele. Ver docs/cover-lock.md."""
+    p = Path(cover_path)
+    for ext in (".webp", ".jpg", ".jpeg", ".png"):
+        src = p.with_name(p.stem + ".src" + ext)
+        if src.exists():
+            return src
+    return p
+
 DIR = Path(__file__).resolve().parent
 ASSETS = DIR / "assets"
 FONT_DIR = ASSETS / "fonts"
@@ -88,7 +99,7 @@ def compose(
     safe_bottom = max(150, int(height * 0.14))
     safe_top = max(80, int(height * 0.08))
 
-    base = _cover_fit(Image.open(cover_path), width, height)
+    base = _cover_fit(Image.open(resolve_cover_source(cover_path)), width, height)
     base = ImageEnhance.Brightness(base).enhance(0.90)
 
     overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))

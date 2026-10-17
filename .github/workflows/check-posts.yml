@@ -2,7 +2,7 @@ name: check-posts
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, edited]
+    types: [opened, synchronize, reopened, edited, labeled, unlabeled]
     paths:
       - "content/posts/**"
       - "public/images/posts/**"
@@ -48,3 +48,9 @@ jobs:
             exit 0
           fi
           node scripts/check-posts.mjs "${files[@]}"
+
+      - name: Capas travadas (cover_locked)
+        shell: bash
+        env:
+          ALLOW_COVER_CHANGE: ${{ contains(github.event.pull_request.labels.*.name, 'allow-cover-change') && '1' || '0' }}
+        run: node scripts/check-cover-locks.mjs "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"
