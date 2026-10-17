@@ -1,7 +1,6 @@
 import { NewsletterBox } from "@/components/newsletter/newsletter-box";
 import { LONG_GUIDE_MIN_WORDS, injectNewsletterAfterThirdParagraph } from "@/lib/newsletter";
 import { VerdictCard } from "@/components/news/verdict-card";
-import Link from "next/link";
 import { ReadAlso } from "@/components/news/read-also";
 import { ArticleBody } from "@/components/news/article-body";
 import { ArticleDeskLinks } from "@/components/news/article-desk-links";

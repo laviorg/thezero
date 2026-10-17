@@ -323,12 +323,18 @@ describe("articleImages", () => {
       cover: "/images/posts/gemini-hackeou-tres-empresas-teste/cover.jpg",
       coverAlt: "Gemini — cobertura sobre o incidente em teste",
     });
-    assert.equal(images.length, 2);
+    assert.equal(images.length, 5);
     assert.match(images[0]?.url ?? "", /gemini-hackeou-tres-empresas-teste\/cover\.jpg$/);
     assert.equal(images[0]?.caption, "Gemini — cobertura sobre o incidente em teste");
     assert.ok((images[0]?.width ?? 0) > 0);
-    assert.match(images[1]?.url ?? "", /\/noticia\/gemini-hackeou-tres-empresas-teste\/opengraph-image$/);
-    assert.equal(images[1]?.width, 1200);
-    assert.equal(images[1]?.height, 630);
+    assert.match(images[1]?.url ?? "", /cover\.16x9\.webp$/);
+    assert.deepEqual([images[1]?.width, images[1]?.height], [1200, 675]);
+    assert.match(images[2]?.url ?? "", /cover\.4x3\.webp$/);
+    assert.deepEqual([images[2]?.width, images[2]?.height], [1200, 900]);
+    assert.match(images[3]?.url ?? "", /cover\.1x1\.webp$/);
+    assert.deepEqual([images[3]?.width, images[3]?.height], [1200, 1200]);
+    assert.match(images[4]?.url ?? "", /\/noticia\/gemini-hackeou-tres-empresas-teste\/opengraph-image$/);
+    assert.equal(images[4]?.width, 1200);
+    assert.equal(images[4]?.height, 630);
   });
 });

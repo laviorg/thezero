@@ -220,9 +220,9 @@ export function SiteFooter() {
               Termos
             </Link>
             {NEWSLETTER_ENABLED ? (
-              <a href="/newsletter" className="hover:text-accent">
+              <Link href="/newsletter" className="hover:text-accent">
                 Newsletter {NEWSLETTER_NAME}
-              </a>
+              </Link>
             ) : null}
             <FooterCookiesLink />
             <a href={`mailto:${site.email}`} className="hover:text-accent">
