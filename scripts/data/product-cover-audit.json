@@ -14,12 +14,5 @@
     "steam-vs-epic-vs-xbox-pc-preco": "Compara lojas digitais, não produtos físicos.",
     "teclado-mecanico-ate-400-abnt": "Guia de categoria; 'switch' é o tipo de tecla, não o console."
   },
-  "noOfficialPhoto": {
-    "apple-watch-se-vs-galaxy-watch-fitness": "A imagem oficial do Apple Watch SE acessível é uma colagem com ícones de app; as páginas e o newsroom da Samsung não entregaram foto do Galaxy Watch com 1200 px.",
-    "dualsense-vs-xbox-vs-8bitdo-no-pc": "Sem foto oficial com 1200 px do controle Xbox (a Xbox.com só serve 200 px) nem do 8BitDo (a loja oficial só tem 800 px). Só o DualSense não representa o texto, cujo veredito é o controle Xbox.",
-    "fire-tv-stick-vs-chromecast-na-tv": "A Amazon Press e a Google Store não serviram imagem baixável; o Chromecast foi descontinuado e saiu da loja.",
-    "rtx-3050-vs-4050-notebook": "GPU de notebook não tem produto físico próprio; a NVIDIA não publica foto de placa.",
-    "rtx-4060-vs-5060-brasil": "A NVIDIA não fez placa de referência da RTX 4060, e a imagem oficial da família 5060 mostra um PC, não a placa.",
-    "ryzen-5-7600-vs-core-i5-custo-brasil": "amd.com recusou a conexão (erro HTTP/2) e 'Core i5' é uma linha, não um chip; sem foto oficial verificável dos dois."
-  }
+  "noOfficialPhoto": {}
 }
