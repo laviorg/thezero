@@ -10,15 +10,17 @@
  *    no frontmatter, ou o .mdx apagado/renomeado.
  *
  * Autorização (qualquer uma):
- *  - env ALLOW_COVER_CHANGE=1 (o workflow liga quando o PR tem o rótulo
- *    `allow-cover-change`);
+ *  - rótulo `allow-cover-change` no PR (lido do evento do GitHub Actions)
+ *    ou env ALLOW_COVER_CHANGE=1;
  *  - um commit do intervalo com o trailer `Allow-Cover-Change: <slug>` ou
  *    `Allow-Cover-Change: all`.
  *
  *   node scripts/check-cover-locks.mjs <base> <head>
+ * O check-posts.mjs chama isto em todo PR que mexe em posts/imagens.
  * Ver docs/cover-lock.md.
  */
 import { execFileSync } from "node:child_process";
+import fs from "node:fs";
 import matter from "gray-matter";
 
 const FIELDS = ["cover", "coverCredit", "cover_locked", "cover_source"];
@@ -46,7 +48,7 @@ export function allowedSlugs(messages) {
   return out;
 }
 
-export function main(base, head, env = process.env) {
+export function coverLockProblems(base, head, env = process.env) {
   const changed = git("diff", "--name-status", "--no-renames", base, head, "--", "content/posts", "public/images/posts")
     .split("\n")
     .filter(Boolean)
@@ -87,15 +89,39 @@ export function main(base, head, env = process.env) {
     }
     problems.push(`${slug}: ${what.join("; ")}`);
   }
+  return problems;
+}
+
+export const COVER_LOCK_HINT =
+  "Para liberar: rótulo `allow-cover-change` no PR (depois rode o job de novo ou edite o corpo do PR) ou trailer `Allow-Cover-Change: <slug>` num commit. Ver docs/cover-lock.md.";
+
+/** Base/head e rótulos do PR quando roda no GitHub Actions; senão merge-base com origin/main. */
+export function coverLockRange(env = process.env) {
+  if (env.GITHUB_EVENT_PATH && fs.existsSync(env.GITHUB_EVENT_PATH)) {
+    const event = JSON.parse(fs.readFileSync(env.GITHUB_EVENT_PATH, "utf8"));
+    const pr = event.pull_request;
+    if (pr?.base?.sha && pr?.head?.sha) {
+      const labels = (pr.labels ?? []).map((l) => l.name);
+      return { base: pr.base.sha, head: pr.head.sha, allowAll: labels.includes("allow-cover-change") };
+    }
+  }
+  try {
+    const base = git("merge-base", "origin/main", "HEAD").trim();
+    return { base, head: "HEAD", allowAll: false };
+  } catch {
+    return null;
+  }
+}
+
+export function main(base, head, env = process.env) {
+  const problems = coverLockProblems(base, head, env);
   if (problems.length) {
     console.error("Capa travada (cover_locked) alterada sem autorização:");
     for (const p of problems) console.error(`  - ${p}`);
-    console.error(
-      "Para liberar: rótulo `allow-cover-change` no PR ou trailer `Allow-Cover-Change: <slug>` num commit. Ver docs/cover-lock.md.",
-    );
+    console.error(COVER_LOCK_HINT);
     return 1;
   }
-  console.log(`check-cover-locks: ok (${touched.size} post(s) com capa no diff).`);
+  console.log("check-cover-locks: ok.");
   return 0;
 }
 

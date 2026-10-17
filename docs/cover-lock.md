@@ -24,11 +24,11 @@ Ao lado da capa fica o original sem marca: `public/images/posts/<slug>/cover.src
 
 ## Checagem no CI
 
-O job `check-posts` roda `scripts/check-cover-locks.mjs`. Ele falha se o PR altera ou apaga um arquivo `public/images/posts/<slug>/cover*` (inclusive o `.src`), ou muda `cover`, `coverCredit`, `cover_locked` ou `cover_source`, num post que está travado na `main`.
+O `check-posts.mjs` (job `check-posts` no CI e `npm run check:posts` local) chama `scripts/check-cover-locks.mjs`. Ele falha se o PR altera ou apaga um arquivo `public/images/posts/<slug>/cover*` (inclusive o `.src`), ou muda `cover`, `coverCredit`, `cover_locked` ou `cover_source`, num post que está travado na `main`.
 
 Para liberar uma troca intencional, use uma das opções:
 
-- coloque o rótulo `allow-cover-change` no PR (a checagem roda de novo quando o rótulo entra);
+- coloque o rótulo `allow-cover-change` no PR e rode o job de novo (ou edite o corpo do PR, que dispara a checagem);
 - ou adicione a um commit do PR o trailer `Allow-Cover-Change: <slug>` (ou `Allow-Cover-Change: all`).
 
 ## Por que existe
