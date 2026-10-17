@@ -85,6 +85,8 @@ export type PostFrontmatter = {
   cover?: string;
   coverAlt?: string;
   coverCredit?: string;
+  /** `cover_source: real`: foto de produto, mostrada inteira na página (sem recorte quadrado). */
+  coverReal?: boolean;
   /**
    * Orthogonal to editoria. Omitted frontmatter stays `noticia`.
    * Evergreen formats stay off the news stream. `review` | `guia` |
@@ -192,6 +194,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     cover: cover || undefined,
     coverAlt: coverAlt || undefined,
     coverCredit: coverCredit || undefined,
+    coverReal: data.cover_source === "real" || undefined,
     format,
     platform,
   };

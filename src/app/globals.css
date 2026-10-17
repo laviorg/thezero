@@ -447,6 +447,11 @@ input {
   background: transparent;
 }
 
+/* Foto real (cover_source: real): moldura 16:9, então a faixa do palco cobre metade dela. */
+.story-cover--real {
+  --story-cover-overlap: 28.125%;
+}
+
 .story-crumbs {
   margin-bottom: 1rem;
 }
