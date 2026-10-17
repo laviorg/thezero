@@ -19,7 +19,9 @@ function* walk(dir) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
     if (e.isDirectory()) yield* walk(p);
-    else if (/\.(jpe?g|png|webp)$/i.test(e.name)) yield p;
+    // `cover.src.*` é o original sem marca guardado ao lado da capa travada:
+    // não vira derivado público. Ver docs/cover-lock.md.
+    else if (/\.(jpe?g|png|webp)$/i.test(e.name) && !/\.src\.[^.]+$/i.test(e.name)) yield p;
   }
 }
 

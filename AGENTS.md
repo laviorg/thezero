@@ -12,6 +12,8 @@ npm run check:posts -- --pr-body-file corpo-do-pr.md
 
 O comando confere os posts alterados neste branch (capa, `coverAlt`, alts, links para `www.thezero.com.br`, frontmatter e data) e, quando a branch adiciona matéria, o bloco `FACT-CHECK`. Para varrer o arquivo inteiro: `npm run check:posts -- --all`.
 
+Capa com `cover_locked: true` não pode ser alterada sem o rótulo `allow-cover-change` ou o trailer `Allow-Cover-Change: <slug>`. Ver [`docs/cover-lock.md`](docs/cover-lock.md).
+
 Só abra o PR se esse comando passar com o mesmo corpo que vai no PR. O workflow `.github/workflows/check-posts.yml` repete a checagem em todo pull request que mexe em `content/posts/**`, `public/images/posts/**` ou no verificador. Editar o corpo do PR dispara a checagem de novo.
 
 ### Alt e coverAlt

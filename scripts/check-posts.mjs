@@ -18,6 +18,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
+import { COVER_LOCK_HINT, coverLockProblems, coverLockRange } from "./check-cover-locks.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_DIR = path.join(ROOT, "content", "posts");
@@ -962,6 +963,24 @@ Sem o arquivo, uma branch que adiciona matéria falha e pede o corpo.
 Aviso (não falha, exit 0): excerpt/description com mais de ${DESCRIPTION_WARN} caracteres.`);
 }
 
+function collectCoverLockErrors() {
+  if (process.env.SKIP_COVER_LOCK === "1") return [];
+  const range = coverLockRange();
+  if (!range) return [];
+  const env = range.allowAll ? { ...process.env, ALLOW_COVER_CHANGE: "1" } : process.env;
+  let problems;
+  try {
+    problems = coverLockProblems(range.base, range.head, env);
+  } catch {
+    return [];
+  }
+  if (problems.length === 0) return [];
+  return [
+    ...problems.map((p) => `capa travada (cover_locked) alterada sem autorização: ${p}`),
+    COVER_LOCK_HINT,
+  ];
+}
+
 async function main(argv = process.argv.slice(2)) {
   const flags = parseArgs(argv);
   argv = flags.rest;
@@ -1014,6 +1033,7 @@ async function main(argv = process.argv.slice(2)) {
 
   for (const line of warnings) console.log(line);
   reports.push(...collectFactCheckErrors(flags));
+  reports.push(...collectCoverLockErrors());
 
   if (reports.length === 0) {
     const warningNote =
