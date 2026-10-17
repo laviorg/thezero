@@ -1,0 +1,56 @@
+---
+title: "NVIDIA lança Nemotron 3.5: IA aberta que pesquisa na web e escreve código sem sair do PC"
+seoTitle: "Nemotron 3.5: IA da NVIDIA que roda local, sem nuvem"
+seoDescription: "A NVIDIA lançou a família Nemotron 3.5: o Bolt 74B cabe em 24 GB de memória e roda agentes de IA no próprio PC, sem mandar dados para a nuvem."
+excerpt: "O Nemotron 3.5 Bolt cabe em 24 GB de memória e roda no próprio PC: pesquisa na web, escreve e depura código sem mandar nada para a nuvem."
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-10-17T17:00:00-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "nicholas"
+cover: "/images/posts/nvidia-nemotron-3-5-ia-local-pc/cover.jpg"
+coverAlt: "Ilustração da NVIDIA para a família Nemotron 3.5 de modelos abertos de IA, com um robô sobre um chip"
+coverCredit: "NVIDIA"
+---
+
+NVIDIA lança Nemotron 3.5: IA aberta que pesquisa na web e escreve código sem sair do PC.
+
+A NVIDIA lançou nesta semana a família **Nemotron 3.5** de modelos abertos de IA. O destaque para quem usa computador pessoal é o **Bolt 74B-A9B**: um modelo de 74 bilhões de parâmetros que, graças à arquitetura de mistura de especialistas e à quantização de 2 bits, cabe em **24 GB de memória** e roda localmente. Com ele, dá para delegar pesquisa na web, escrita e depuração de código a agentes no próprio PC, sem mandar os dados para a nuvem, segundo a [NVIDIA](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/).
+
+![Ilustração da NVIDIA para a família Nemotron 3.5 de modelos abertos de IA, com um robô sobre um chip](/images/posts/nvidia-nemotron-3-5-ia-local-pc/cover.jpg)
+
+*NVIDIA*
+
+<Verdict overrated="5x mais rápido: número medido no benchmark da própria NVIDIA" underrated="Pesos, dados de treino e receitas abertos de verdade" />
+
+## Três tamanhos, um recorte
+
+A família vem em três modelos. O **Bolt 74B-A9B 24GB** já está disponível e roda com llama.cpp, vLLM, Ollama, Unsloth e LM Studio. Dos 74 bilhões de parâmetros, só 9 bilhões ficam ativos por vez, o que segura o consumo de memória. A NVIDIA o coloca como o melhor equilíbrio entre inteligência e velocidade por gigabyte: primeiro lugar entre os abertos da categoria no PinchBench e segundo no BrowseComp, sempre nas medições da própria empresa.
+
+O carro-chefe é o **Super VL**, multimodal, com 120 bilhões de parâmetros, voltado a agentes especializados que trabalham sem parar: leitura de documentos, tabelas, PDFs e páginas web, com uso de ferramentas. Segundo a NVIDIA, ele entrega precisão comparável ao maior modelo de raciocínio da companhia com cerca de um quinto dos parâmetros, e é o modelo agêntico aberto mais rápido da categoria, com throughput cinco vezes maior que o concorrente mais próximo. Perplexity, CrowdStrike, Atlassian e Salesforce já integram o modelo, segundo o [VGTimes](https://pt.vgtimes.com/tech-and-hardware/171405-nvidia-lana-uma-ia-que-no-precisa-da-nuvem-ela-pesquisa-na-web-e-escreve-cdigo-direto-no-pc.html).
+
+O terceiro é o **Bolt E4B**, com só 4 GB, pensado para assistentes de voz locais e dispositivos de borda com GeForce RTX e Jetson. Chega em 23 de outubro. Diferente da prática comum do setor, a NVIDIA abriu não só os pesos, mas também os conjuntos de dados e as receitas de treinamento dos três.
+
+## O empurrão nos laptops de IA local
+
+A linha desembarca junto com os laptops **RTX Spark**, que chegaram ao mercado em 16 de outubro, segundo o VGTimes — as versões de entrada de modelos como Surface Laptop Ultra e ASUS ProArt P14 vêm com exatamente 24 GB de memória, a medida do Bolt 74B. A plataforma combina o chip GB10 com até 128 GB de memória unificada e, nas contas da NVIDIA, entrega agentes de código 4,6 vezes mais rápidos que um Intel Panther Lake 12Xe, além de ajuste fino 2,7 vezes mais veloz. A parceria com a Microsoft levou ao Windows on Arm o primeiro build de PyTorch com CUDA e compatibilidade com mais de 97% dos 15 mil pacotes Python mais usados, segundo o [blog de desenvolvedores da NVIDIA](https://developer.nvidia.com/blog/code-test-and-deploy-on-one-machine-with-nvidia-rtx-spark/).
+
+## O que isso significa no Brasil
+
+A parte prática já vale hoje: quem tem uma placa GeForce RTX com 24 GB ou mais de memória, como as RTX 3090 e 4090, já pode baixar o Bolt 74B de graça no Hugging Face e rodar pelo Ollama ou LM Studio, sem assinatura e sem enviar dados para fora. Para placas mais modestas, o Bolt E4B de 4 GB, que sai dia 23, é o caminho de entrada.
+
+Os laptops RTX Spark ainda não têm preço nem data no Brasil. Enquanto isso, o que a NVIDIA entrega de concreto por aqui é o software: modelos abertos que rodam no hardware que já existe. Se a ideia é cortar mensalidade de IA, o guia [IA grátis que ainda serve para trabalhar em 2026](https://www.thezero.com.br/noticia/ia-gratis-para-trabalho-2026) mostra o que já dá para usar sem pagar nada.
+
+<Rule>
+Nemotron 3.5 Bolt roda agentes de IA localmente em 24 GB de memória, de graça e sem nuvem. O modelo de 4 GB para placas comuns sai em 23 de outubro.
+</Rule>
+
+## Fontes
+
+- [NVIDIA Blog — Open From Data Center to Desktop: NVIDIA Expands Nemotron Family (15/10/2026)](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/)
+- [VGTimes — NVIDIA lança uma IA que não precisa da nuvem (17/10/2026)](https://pt.vgtimes.com/tech-and-hardware/171405-nvidia-lana-uma-ia-que-no-precisa-da-nuvem-ela-pesquisa-na-web-e-escreve-cdigo-direto-no-pc.html)
+- [NVIDIA Technical Blog — Code, Test, and Deploy on One Machine with NVIDIA RTX Spark (16/10/2026)](https://developer.nvidia.com/blog/code-test-and-deploy-on-one-machine-with-nvidia-rtx-spark/)
+
+The Zero.
