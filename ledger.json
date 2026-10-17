@@ -1253,6 +1253,16 @@
       "slug": "oppo-find-x10-estreia-global-21-outubro",
       "updated_at": "2026-10-17T15:11:34Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DemZmotFFXG"
+    },
+    "intel-core-ultra-4000-nova-lake-notebooks": {
+      "article_url": "https://www.thezero.com.br/noticia/intel-core-ultra-4000-nova-lake-notebooks",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/intel-core-ultra-4000-nova-lake-notebooks.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/intel-core-ultra-4000-nova-lake-notebooks.png",
+      "pr": 304,
+      "commit": "87ad311f0b9ac8abc0893caece67bc5995d91380",
+      "ig": "https://www.instagram.com/p/DemcXnbAW0f/",
+      "slug": "intel-core-ultra-4000-nova-lake-notebooks",
+      "updated_at": "2026-10-17T15:35:45Z"
     }
   }
 }
