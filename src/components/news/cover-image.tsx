@@ -22,6 +22,8 @@ type CoverImageProps = {
   flush?: boolean;
   /** Square hero crop. Desktop: inset on the split stage. Mobile: inset, straddling the stage/paper seam. */
   hero?: boolean;
+  /** Hero sem recorte: foto inteira em 16:9, fundo desfocado da própria foto atrás. */
+  contain?: boolean;
 };
 
 export function CoverImage({
@@ -36,6 +38,7 @@ export function CoverImage({
   zoom = false,
   flush = false,
   hero = false,
+  contain = false,
 }: CoverImageProps) {
   const framed = crop || hero;
   /** WebP gerado no build; capas remotas seguem como vieram. */
@@ -53,13 +56,34 @@ export function CoverImage({
       <WatermarkedPhoto
         size={badge}
         className={cn(
-          hero && "aspect-square rounded-none",
+          hero && !contain && "aspect-square rounded-none",
+          hero && contain && "aspect-video rounded-none",
           crop && !hero && "aspect-video",
           flush && "rounded-none",
           flush && !hero && "sm:rounded-md",
         )}
       >
-        {framed ? (
+        {framed && contain ? (
+          <>
+            <Image
+              src={webp}
+              alt=""
+              aria-hidden
+              fill
+              priority={priority}
+              className="scale-110 object-cover opacity-60 blur-2xl"
+              sizes="64px"
+            />
+            <Image
+              src={webp}
+              alt={alt}
+              fill
+              priority={priority}
+              className="object-contain"
+              sizes={sizes}
+            />
+          </>
+        ) : framed ? (
           <Image
             src={webp}
             alt={alt}

@@ -188,9 +188,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 credit={post.coverCredit}
                 priority
                 hero
+                contain={post.coverReal}
                 watermarkSize="default"
                 sizes="(min-width: 960px) 38vw, calc(100vw - 2rem)"
-                className="story-cover"
+                className={post.coverReal ? "story-cover story-cover--real" : "story-cover"}
               />
             ) : null}
           </div>
