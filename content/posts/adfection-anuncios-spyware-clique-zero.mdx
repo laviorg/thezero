@@ -1,0 +1,54 @@
+---
+title: "AdFection: anúncios comuns viraram canal de spyware de clique zero, revela Citizen Lab"
+seoTitle: "AdFection: spyware entregue por anúncios, sem clique"
+seoDescription: "Citizen Lab mostra como anúncios comuns entregavam spyware da Candiru a celulares sem nenhum clique da vítima. Google já bloqueou a operadora."
+excerpt: "Citizen Lab demonstra pela 1ª vez infecção por spyware via anúncios direcionados, sem clique. Google já bloqueou a operadora."
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-10-18T10:05:00-03:00"
+featured: false
+kicker: "Aplicativos · segurança digital"
+author: "nicholas"
+cover: "/images/posts/adfection-anuncios-spyware-clique-zero/cover.jpg"
+coverAlt: "Diagrama do Citizen Lab mostrando a ponte entre o ecossistema de anúncios online e o setor de spyware mercenário"
+coverCredit: "Citizen Lab"
+---
+
+AdFection: anúncios comuns viraram canal de spyware de clique zero, revela Citizen Lab.
+
+Uma investigação do **Citizen Lab**, laboratório da Universidade de Toronto, revelou um ataque capaz de infectar celulares pela simples exibição de um anúncio — sem clique, sem link suspeito, sem download. Batizada de **AdFection**, a tática usa o sistema de leilões de anúncios digitais para perfilar milhões de pessoas e entregar spyware mercenário a alvos escolhidos. É a primeira demonstração técnica de infecção em circulação por esse canal, segundo o [relatório](https://citizenlab.ca/research/exposing-adfection-executive-summary/), publicado na quinta (15).
+
+![Diagrama do Citizen Lab mostrando a ponte entre o ecossistema de anúncios online e o setor de spyware mercenário](/images/posts/adfection-anuncios-spyware-clique-zero/cover.jpg)
+
+*Citizen Lab*
+
+<Verdict overrated="Não clicar em nada estranho: contra clique zero, não basta" underrated="Google, IAB Europe e Beeswax já cortaram o acesso da operadora" />
+
+## A ponte entre anúncios e espionagem
+
+No centro do esquema está a **Discover-Tech**, empresa de publicidade sediada em Israel que opera a plataforma **Controlium** — descrita pelo Citizen Lab como balcão único para empresas de spyware infectarem alvos via anúncios. O relatório não encontrou evidência de que a empresa tenha atividade publicitária legítima. Entre os clientes da Controlium está a **Candiru**, desenvolvedora israelense na lista de entidades do Departamento de Comércio dos EUA por spyware usado contra "autoridades governamentais, jornalistas, empresários, ativistas, acadêmicos e funcionários de embaixadas", e hoje ligada à americana Integrity Labs. A plataforma também se conecta à Bindecy, especializada em exploits de clique zero, e à Intelos.
+
+O mecanismo: quando um anúncio da Discover-Tech é exibido, o identificador de publicidade e o IP do usuário vão para os servidores da empresa. Se o alvo for selecionado, o aparelho recebe um JavaScript malicioso que o navegador ou o app executa — e a infecção acontece. Os pesquisadores confirmaram, com alta confiança, que aparelhos da rede de notícias **Al Jazeera** foram alvo e infectados com o spyware da Candiru; o Estadão apurou que ao menos 45 dispositivos ligados à emissora foram atingidos entre 2024 e 2025.
+
+## Perfis à venda no leilão
+
+O vetor é o leilão em tempo real (RTB): a cada anúncio exibido, centenas de bilhões de lances diários carregam dados sobre os dispositivos. "A plataforma permite que atores maliciosos perfilem e tirem o anonimato com precisão milhões de indivíduos, identifiquem seus dispositivos e os atinjam com uma forma de invasão de clique zero, na qual os aparelhos podem ser automaticamente infectados no momento em que um anúncio é exibido", escreveram os pesquisadores, segundo o [Estadão](https://www.estadao.com.br/tecmundo/ciberseguranca/anuncios-na-internet-viram-brecha-para-invasao-automatica-de-celulares/). As ferramentas da Discover-Tech foram detectadas em milhares de apps e sites entre março e junho — inclusive em redes ligadas à Otan e à ONU.
+
+A reação veio rápido: o Google informou ao Citizen Lab que "encerrou o acesso da Discover-Tech às suas plataformas de leilão de anúncios, impedindo-a de dar lances ou exibir anúncios em todo o ecossistema" e ativou "proteções de Navegação Segura para alertar usuários que possam encontrar domínios controlados por esse grupo". IAB Europe e a plataforma Beeswax também suspenderam o acesso. Discover-Tech e Candiru não se pronunciaram.
+
+## O que isso significa no Brasil
+
+Contra clique zero, o cuidado clássico de "não clicar em link estranho" não resolve: a infecção acontece na exibição do anúncio. A defesa que sobra para o usuário comum é a rotina chata — sistema e apps sempre atualizados, já que exploits vivem de brechas corrigidas nos patches mais recentes. O relatório pressiona é a indústria: "a menos que a indústria de anúncios enfrente seriamente a distribuição de sistemas espiões por meio de anúncios direcionados, essa infraestrutura continuará sendo explorada", escrevem Bill Marczak e os pesquisadores. Para entender por que a atualização do celular é a barreira mais eficaz, o guia [como ler um patch day](https://www.thezero.com.br/noticia/como-ler-um-patch-day) explica o que cada pacote corrige.
+
+<Rule>
+Citizen Lab demonstrou spyware de clique zero entregue por anúncios direcionados (AdFection), com aparelhos da Al Jazeera infectados. Google, IAB Europe e Beeswax já bloquearam a operadora. Defesa do usuário: atualizações em dia.
+</Rule>
+
+## Fontes
+
+- [Citizen Lab — Exposing AdFection: Executive Summary (15/10/2026)](https://citizenlab.ca/research/exposing-adfection-executive-summary/)
+- [Estadão — Anúncios na internet viram brecha para 'invasão automática' de celulares (17/10/2026)](https://www.estadao.com.br/tecmundo/ciberseguranca/anuncios-na-internet-viram-brecha-para-invasao-automatica-de-celulares/)
+- [SpaceMoney — AdFection usa anúncios para instalar spyware em celulares (17/10/2026)](https://www.spacemoney.com.br/tecnologia/adfection-anuncios-spyware-celulares/)
+
+The Zero.
