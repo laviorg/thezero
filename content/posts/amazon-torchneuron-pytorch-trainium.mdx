@@ -1,0 +1,47 @@
+---
+title: "Amazon abre os chips Trainium para todo desenvolvedor PyTorch, sem reescrever código"
+seoTitle: "TorchNeuron roda PyTorch nos chips Trainium da AWS"
+excerpt: "TorchNeuron executa código PyTorch nos chips de IA da Amazon com uma única mudança de configuração. Será aberto nesta terça (20), sob licença Apache 2.0."
+category: ia
+subcategory: infraestrutura
+date: "2026-10-19T15:08:02-03:00"
+kicker: "IA · infraestrutura"
+author: "nicholas"
+cover: "/images/posts/amazon-torchneuron-pytorch-trainium/cover.jpg"
+coverAlt: "Logotipo da Amazon Web Services sobre fundo branco"
+coverCredit: "AWS / Wikimedia Commons"
+---
+
+A Amazon anunciou nesta segunda (19) o **TorchNeuron**, ferramenta que permite rodar código escrito em PyTorch diretamente nos chips de inteligência artificial Trainium da AWS, sem reescrever programas. Segundo a [Reuters](https://www.uol.com.br/tilt/noticias/reuters/2026/10/19/amazon-diz-que-chips-proprios-de-ia-serao-compativeis-com-pytorch.htm), a novidade exige apenas uma mudança de configuração. A [página oficial da Amazon](https://www.aboutamazon.com/news/innovation-at-amazon/torchneuron-pytorch-aws-trainium-chips-ai) confirma que o software será liberado como código aberto, sob licença Apache 2.0, durante a PyTorch Conference North America, nesta terça-feira (20).
+
+![Logotipo da AWS](/images/posts/amazon-torchneuron-pytorch-trainium/cover.jpg)
+
+*AWS / Wikimedia Commons. O TorchNeuron conecta o PyTorch aos chips Trainium2 e Trainium3.*
+
+## O que o TorchNeuron faz
+
+O PyTorch, biblioteca de código aberto apoiada pela Meta, é usado pela maioria dos programadores de IA — a Amazon fala em 85% dos pesquisadores e desenvolvedores da área. Até agora, levar esse código para um chip fora do ecossistema da NVIDIA exigia reescrever e revalidar meses de trabalho. A NVIDIA construiu essa vantagem por mais de uma década com o CUDA, camada de software que faz o PyTorch rodar bem em suas GPUs.
+
+O TorchNeuron usa o mecanismo nativo do PyTorch para registrar novos hardwares. Na prática, as ferramentas de teste, depuração e escala que o desenvolvedor já usa continuam funcionando. Numa demonstração lado a lado, engenheiros da Amazon rodaram o mesmo script de treinamento num chip convencional e num Trainium: a única diferença era a configuração que aponta o chip, e o modelo aprendeu no mesmo ritmo.
+
+"O objetivo tem sido atender aos clientes onde eles estão", disse à Reuters Colin Brace, vice-presidente de software da Annapurna Labs, unidade de chips da Amazon. Segundo ele, mais de 30 clientes iniciais — de robótica, modelos de mundo e IA de voz — já usam o software, e a migração para os chips da Amazon pode render economia significativa de custos.
+
+## Quem já está usando
+
+A Amazon cita a Cartesia, de IA de voz em tempo real, que rodou seu pipeline de inferência padrão no Trainium com mudanças mínimas, e o Lieber Institute for Brain Development, que usa modelos biológicos e químicos na descoberta de medicamentos. Startups e empresas de vídeo, carros autônomos, finanças e LLMs também estão entre os primeiros usuários.
+
+O ecossistema em volta já se moveu: o Hugging Face habilitou suporte nativo ao Trainium em suas ferramentas, e o TorchNeuron se integra ao TorchTitan, o framework de treinamento distribuído do PyTorch. A Amazon também contribuiu código para o vLLM, ferramenta aberta de aceleração de inferência, e abriu seu conjunto de kernels de desempenho. A empresa diz testar o TorchNeuron contra centenas de milhares de modelos de IA a cada build.
+
+## A briga pelo desenvolvedor
+
+O movimento pressiona o ponto mais forte da NVIDIA: não o chip, mas o software. O Google, que também tem chips de IA próprios, trabalha na mesma direção, com ferramentas melhores de PyTorch para atrair desenvolvedores. A Amazon vai além do próprio hardware: diz estar contribuindo mudanças para o próprio PyTorch, removendo código que amarra o framework a chips específicos — o que beneficiaria qualquer fabricante.
+
+O mercado aprovou a notícia: as ações da Amazon subiram cerca de 5% nas negociações da manhã desta segunda, com o Morgan Stanley classificando o papel como "top pick", segundo a Reuters.
+
+## O que isso significa no Brasil
+
+Para startups e equipes de IA brasileiras, a barreira sempre foi dupla: o preço das GPUs e o custo de engenharia para sair delas. Uma alternativa de hardware que roda o código atual sem reescrita, disponível sob demanda na nuvem e com software gratuito e aberto, tende a baratear experimentos que hoje nem saem do papel. A promessa de treinar e rodar inferência no mesmo chip também ajuda quem não pode deixar hardware parado. E para as empresas que começam a colocar agentes de IA em produção, vale conferir o guia [agentes de IA: as permissões que você não deve dar](https://www.thezero.com.br/noticia/agente-ia-permissoes-que-nao-dar).
+
+<Rule>
+A Amazon anunciou o TorchNeuron, que roda código PyTorch nos chips Trainium da AWS com uma única mudança de configuração, sem reescrita. O software será aberto sob licença Apache 2.0 nesta terça (20), na PyTorch Conference, e já é usado por mais de 30 clientes iniciais. As ações da Amazon subiram cerca de 5% nesta segunda.
+</Rule>
