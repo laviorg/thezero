@@ -1286,6 +1286,16 @@
       "slug": "eua-vetam-deepseek-governo",
       "updated_at": "2026-10-20T11:19:32Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dettbkxm26s"
+    },
+    "netflix-globo-acordo-licenciamento": {
+      "article_url": "https://www.thezero.com.br/noticia/netflix-globo-acordo-licenciamento",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/netflix-globo-acordo-licenciamento.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/netflix-globo-acordo-licenciamento.png",
+      "pr": 321,
+      "commit": "b72d7fa98b346ebfe9cb985e00a14930c871dd1e",
+      "ig": "https://www.instagram.com/p/Det63JxjSe_/",
+      "slug": "netflix-globo-acordo-licenciamento",
+      "updated_at": "2026-10-20T13:16:50Z"
     }
   }
 }
