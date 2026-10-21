@@ -1,0 +1,44 @@
+---
+title: "Chrome passa a analisar o que você copia para barrar golpe do comando falso"
+seoTitle: "Chrome analisa área de transferência contra golpe ClickFix"
+seoDescription: "Chrome ganhou proteção que analisa comandos copiados de páginas suspeitas e os envia ao Google para bloquear o golpe ClickFix. Recurso exige Proteção Reforçada."
+excerpt: "Nova proteção do Chrome analisa comandos copiados de páginas suspeitas e alerta antes de você colar no terminal. Recurso combate o golpe ClickFix."
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-10-21T15:07:58-03:00"
+featured: false
+kicker: "Aplicativos · segurança digital"
+author: "nicholas"
+cover: "/images/posts/chrome-le-area-transferencia-clickfix/cover.jpg"
+coverAlt: "Logotipo do Google Chrome, navegador da Google"
+coverCredit: "Google/Divulgação"
+---
+
+Chrome passa a analisar o que você copia para barrar golpe do comando falso.
+
+O **Google Chrome** ganhou uma proteção que analisa **comandos copiados pelo usuário** e, em situações suspeitas, envia o conteúdo aos servidores da empresa para verificação. O objetivo é bloquear o golpe **ClickFix**, em que criminosos induzem a vítima a colar comandos maliciosos no próprio terminal. A novidade foi anunciada nesta terça (20) no [blog de segurança do Google](https://blog.google/security/our-latest-defenses-against-evolving-web-scams/) e já está disponível para quem usa a **Proteção Reforçada** do navegador.
+
+## Como é o golpe — e a defesa
+
+No ClickFix, uma página exibe um aviso falso — "seu navegador precisa de atualização", "corrija este problema de segurança" — e orienta a vítima a copiar um comando e executá-lo no **PowerShell** ou **Prompt de Comando** do Windows. O truque: o texto copiado pode ser diferente do que aparece na tela, e ao executá-lo o usuário instala o malware com as próprias mãos.
+
+Com a nova proteção, o Chrome detecta quando você pode ter sido induzido a copiar um comando perigoso e encaminha o conteúdo ao serviço de **Navegação Segura** do Google; se o perigo for confirmado, um alerta aparece antes da execução, como explica o [Canaltech](https://canaltech.com.br/apps/google-comeca-a-ler-o-que-usuario-copia-no-chrome-entenda-o-motivo/). O Google diz que informações capazes de identificar o usuário são removidas antes do envio — e que a análise **não lê tudo** o que é copiado, só em situações específicas.
+
+## Gemini também entra na vigilância
+
+O anúncio inclui outras mudanças. A detecção de **golpes de falso suporte técnico**, antes feita por um modelo de IA no próprio dispositivo, passa a usar um modelo Gemini mais potente nos servidores do Google — capaz de identificar também falsos antivírus e páginas que simulam atualizações de navegador. Segundo a empresa, o texto de uma página só é enviado para análise quando há indícios fortes de fraude, com processamento temporário, sem armazenamento nem uso em treinamento de IA.
+
+Os alertas também mudam: sites suspeitos, mas ainda não confirmados como maliciosos, passam a ter uma **janela de aviso intermediária** (dá para voltar ou marcar como seguro), enquanto páginas perigosas mantêm o tradicional alerta vermelho de tela cheia.
+
+## Como ativar
+
+Tudo isso funciona no modo **Proteção Reforçada**: no computador, vá em Configurações > Privacidade e segurança > Segurança > Proteção reforçada. A opção compartilha mais dados de navegação com o Google do que a Proteção Padrão — o trade-off é verificação mais agressiva contra sites, downloads e extensões maliciosas.
+
+## O que isso significa no Brasil
+
+Golpes de "falso suporte" e comandos colados no terminal têm aparecido com frequência em campanhas que miram usuários brasileiros, quase sempre disfarçados de atualização urgente ou de "correção" de problema. A regra prática continua valendo para qualquer proteção: desconfie de página que pede para você copiar e executar comandos — nenhum site legítimo precisa disso. Para reforçar a defesa do PC além do navegador, o guia [antivírus no Windows em 2026: precisa pagar?](https://www.thezero.com.br/noticia/antivirus-windows-2026-precisa-pagar) mostra o que a proteção nativa já cobre.
+
+<Rule>
+O Google Chrome passou a analisar comandos copiados de páginas suspeitas (com envio à Navegação Segura) para bloquear o golpe ClickFix, além de ampliar o uso do Gemini na detecção de fraudes e criar um alerta intermediário para sites suspeitos. Recursos exigem a Proteção Reforçada.
+</Rule>
