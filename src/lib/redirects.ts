@@ -1,4 +1,4 @@
-/** Path redirects shared by the Vercel app and the Cloudflare Pages `_redirects` file. */
+/** Path redirects shared by the Next server build and the Cloudflare Pages `_redirects` file. */
 export const APEX_HOST = "thezero.com.br";
 
 /** `status` defaults to 308; set 301 where a classic permanent redirect is wanted. */

@@ -9,8 +9,8 @@ Measurement ID de produção: **`G-3H0Z0NNQ1J`**. Não invente outro `G-`.
 ## Variável de ambiente
 
 ```bash
-# Vercel → Production. Omitir em Preview para não misturar tráfego de preview
-# na propriedade ao vivo.
+# Secret do GitHub usado pela Action de deploy (Cloudflare Pages).
+# Omitir em builds locais para não misturar tráfego na propriedade ao vivo.
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-3H0Z0NNQ1J
 ```
 
@@ -27,9 +27,9 @@ Sem esse valor o site não injeta `gtag.js`. O ID não vai hardcoded no source �
 
 Pageviews em navegação client-side: o GA4 Enhanced Measurement (histórico do browser) cobre as trocas de rota do App Router. Confirme no Admin da propriedade que “Page changes based on browser history events” está ligado (padrão).
 
-## O que Nicholas faz na Vercel
+## O que Nicholas faz no GitHub
 
-1. Projeto The Zero → Settings → Environment Variables.
+1. Repositório The Zero → Settings → Secrets and variables → Actions.
 2. Criar `NEXT_PUBLIC_GA_MEASUREMENT_ID` = `G-3H0Z0NNQ1J`.
 3. Scope: **Production**. Não marcar Preview / Development, a menos que queira ver hits de preview na propriedade live.
 4. Redeploy de Production.

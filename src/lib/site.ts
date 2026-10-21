@@ -1,5 +1,5 @@
 /**
- * Public host. Vercel already 308s the apex to www; canonicals, sitemaps and
+ * Public host. The apex already 308s to www; canonicals, sitemaps and
  * JSON-LD have to use the URL that returns 200 or Google treats the homepage
  * as an alternate and refuses the news sitemap when it only redirects.
  */
