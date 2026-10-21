@@ -51,7 +51,7 @@ export default function PrivacyPage() {
       <ul>
         <li>
           <strong>Dados técnicos de acesso.</strong> Ao abrir uma página, a
-          hospedagem (hoje, Vercel) registra no curso normal da web: endereço
+          hospedagem (hoje, Cloudflare) registra no curso normal da web: endereço
           IP, data/hora, URL, referrer, user-agent e código de status. Serve
           para entregar a página, diagnosticar falha e conter abuso — não para
           a gente montar um perfil publicitário próprio.
@@ -209,7 +209,7 @@ export default function PrivacyPage() {
       <h2>4. Com quem compartilhamos</h2>
       <ul>
         <li>
-          <strong>Vercel</strong> — hospedagem e entrega do site.
+          <strong>Cloudflare</strong> — hospedagem e entrega do site.
         </li>
         <li>
           <strong>Google</strong> — Analytics 4 (medição de audiência, só com
@@ -286,7 +286,7 @@ export default function PrivacyPage() {
 
       <h2>9. Segurança</h2>
       <p>
-        O domínio usa HTTPS (certificado da Vercel). Acesso ao repositório e
+        O domínio usa HTTPS (certificado da Cloudflare). Acesso ao repositório e
         ao painel de deploy fica restrito a quem publica o site. Nenhum
         sistema é infalível; se houver incidente relevante, comunicamos
         conforme a LGPD.

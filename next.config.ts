@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   transpilePackages: ["next-mdx-remote"],
   ...(cloudflareExport ? { output: "export" as const } : {}),
   // Static export does not apply next.config redirects. The Cloudflare build
-  // writes the same rules to out/_redirects. The Vercel build keeps them here.
+  // writes the same rules to out/_redirects. The server build keeps them here.
   ...(!cloudflareExport
     ? {
         async redirects() {
@@ -41,7 +41,6 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "www.estadao.com.br", pathname: "/**" },
       { protocol: "https", hostname: "imagens.estadao.com.br", pathname: "/**" },
       { protocol: "https", hostname: "statics.estadao.com.br", pathname: "/**" },
-      { protocol: "https", hostname: "thezero-blue.vercel.app", pathname: "/**" },
       { protocol: "https", hostname: "thezero.com.br", pathname: "/**" },
       { protocol: "https", hostname: "www.thezero.com.br", pathname: "/**" },
       { protocol: "https", hostname: "i.guim.co.uk", pathname: "/**" },

@@ -29,7 +29,7 @@ Unidades visuais de anúncio **não** foram colocadas nas matérias de propósit
 1. Entrar em [adsense.google.com](https://www.google.com/adsense/) com `nicholasharuo@gmail.com` (criar a conta se ainda não existir). País: Brasil. Fuso e moeda conforme o painel.
 2. Adicionar o site **`https://www.thezero.com.br`** (Sites → Adicionar site). É o host que responde 200. O apex redireciona. HTTPS, sem path.
 3. Copiar o **publisher ID** (`pub-` + 16 dígitos) em Conta → Informações da conta. Não usar o prefixo de produto (`ca-`) no `ads.txt`; o código aceita os dois e normaliza.
-4. No projeto Vercel do The Zero, criar a env **`NEXT_PUBLIC_ADSENSE_PUB_ID=pub-3679376723096233`** (Production; Preview se quiser testar). Redeploy. Sem esse valor o script de anúncio não carrega. O `/ads.txt` já declara `google.com, pub-3679376723096233, DIRECT, f08c47fec0942fa0` e `CONTACT=mailto:hello@thezero.com.br`.
+4. No repositório do The Zero no GitHub, criar o secret **`NEXT_PUBLIC_ADSENSE_PUB_ID=pub-3679376723096233`** (Settings → Secrets and variables → Actions) e disparar o deploy (push na `main` ou `workflow_dispatch` da Action deploy-cloudflare). Sem esse valor o script de anúncio não carrega. O `/ads.txt` já declara `google.com, pub-3679376723096233, DIRECT, f08c47fec0942fa0` e `CONTACT=mailto:hello@thezero.com.br`.
 5. Conferir no ar:
    - `https://www.thezero.com.br/ads.txt` tem a linha  
      `google.com, pub-SEU_ID, DIRECT, f08c47fec0942fa0`
@@ -46,7 +46,7 @@ Unidades visuais de anúncio **não** foram colocadas nas matérias de propósit
 ## Variável de ambiente
 
 ```bash
-# .env.local ou Vercel — só depois da aprovação. Nunca invente o ID.
+# .env.local ou secret do GitHub — só depois da aprovação. Nunca invente o ID.
 NEXT_PUBLIC_ADSENSE_PUB_ID=pub-xxxxxxxxxxxxxxxx
 ```
 

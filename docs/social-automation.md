@@ -35,7 +35,7 @@ A opção usada é a branch **`social-assets`**, com URL pública:
 
 Por que esta, e não gerar a imagem no build do site:
 
-- Hook e summary estão no corpo do PR, não no MDX. O build da Vercel não tem esses campos, a menos que a `main` ganhe outro commit — e esse commit reabriria o workflow.
+- Hook e summary estão no corpo do PR, não no MDX. O build do site não tem esses campos, a menos que a `main` ganhe outro commit — e esse commit reabriria o workflow.
 - A URL fica pronta assim que o job empurra a branch, sem esperar o deploy da matéria. O job ainda espera a matéria em si, porque a legenda aponta para ela.
 - O workflow só escuta a `main` e `workflow_dispatch`. Push em `social-assets` não o dispara. Push feito com `GITHUB_TOKEN` também não abre workflow novo.
 - O repositório é público, então a Meta baixa o arquivo sem autenticação.
