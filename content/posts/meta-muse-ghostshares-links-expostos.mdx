@@ -1,0 +1,42 @@
+---
+title: "Meta pausa compartilhamento do Muse após falha expor milhares de conversas na web"
+seoTitle: "Falha GhostShares expôs conversas do Muse, IA da Meta"
+seoDescription: "Pesquisadores acharam 6.800 links de conversas do Muse em DNS público, com dados financeiros e pessoais. Meta pausou o compartilhamento do agente de IA."
+excerpt: "Falha batizada de GhostShares colocava o título das conversas do Muse no subdomínio, registrando links em DNS público. Meta pausou o compartilhamento do agente."
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-10-21T08:09:06-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "nicholas"
+cover: "/images/posts/meta-muse-ghostshares-links-expostos/cover.jpg"
+coverAlt: "Imagem oficial de divulgação do Muse, agente de inteligência artificial da Meta"
+coverCredit: "Meta / Divulgação"
+---
+
+Meta pausa compartilhamento do Muse após falha expor milhares de conversas na web.
+
+A **Meta** interrompeu temporariamente o compartilhamento de conversas do **Muse**, seu novo agente de inteligência artificial, depois que pesquisadores descobriram uma falha que deixava milhares de links de conversas encontráveis na web — com dados pessoais e comerciais sigilosos. A empresa confirmou a suspensão do recurso para investigar e corrigir o problema.
+
+## O que a falha expôs
+
+A vulnerabilidade foi encontrada por pesquisadores da empresa de segurança **Claroc**, que localizaram **6.800 links** do Muse com uma única consulta a serviços comerciais de DNS passivo, segundo o [Canaltech](https://canaltech.com.br/inteligencia-artificial/brecha-na-ia-da-meta-expoe-milhares-de-conversas-e-dados-sigilosos-dos-usuarios/). Numa amostra, apareceram documentos financeiros internos enviados a CEOs, pedidos de empréstimo de pequenos empresários, relatórios imobiliários com endereços e valores de hipotecas, alertas de fraude bancária com números parciais de contas e calendários de férias de funcionários.
+
+O erro estava na construção dos links: o Muse colocava o **título da conversa no subdomínio** (algo como home-sale-budget-9f21c8a3.cf.metaaiusercontent.com). Ao abrir o endereço, a consulta de DNS ficava registrada em bancos de dados públicos, pesquisáveis por qualquer pessoa — mesmo quem nunca recebeu o link. A Claroc batizou a falha de **GhostShares**. O CTO da empresa, Asaf Aprozper, diz ter reportado o problema ao programa de bug bounty da Meta em **8 de outubro** e só obteve resposta quando a imprensa procurou a companhia.
+
+A descoberta foi reportada em paralelo pelo blog da [Claroc](https://blog.claroc.io/ghostshares-muse-passive-dns/) e pela [Ars Technica](https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/).
+
+## Segundo problema em semanas
+
+O episódio contraria a declaração de **Mark Zuckerberg** no mês anterior, de que o Muse foi construído desde o início com foco em privacidade e segurança. E não é o primeiro incidente: cerca de três semanas após o lançamento, o pesquisador Patrick Wardle encontrou uma **vulnerabilidade zero-day** que permitiria a outro aplicativo no mesmo dispositivo assumir o controle da conta do agente, via ataque do tipo ClickFix. Na época, a Meta minimizou a gravidade.
+
+O Muse chegou ao topo dos downloads da App Store justamente por executar tarefas autônomas — preencher formulários, agendar compromissos, fazer compras —, o que exige acesso amplo a contas pessoais e torna a proteção dos dados ainda mais sensível.
+
+## O que isso significa no Brasil
+
+O Muse ainda é um fenômeno recente, mas o alerta vale para qualquer assistente de IA com acesso a contas pessoais: se você compartilha conversas por link, trate cada link como público até prova em contrário — e evite colocar dados bancários, documentos e senhas em chats com agentes, mesmo quando a empresa promete privacidade "desde o início". Para reduzir a exposição no dia a dia, o guia [gerenciador de senhas grátis ou pago: o que muda](https://www.thezero.com.br/noticia/gerenciador-de-senhas-gratis-vs-pago) mostra o caminho seguro.
+
+<Rule>
+A Meta suspendeu o compartilhamento de conversas do agente de IA Muse após pesquisadores da Claroc encontrarem 6.800 links via DNS passivo (falha "GhostShares"), com dados financeiros e pessoais expostos. A empresa investiga e corrigirá a geração dos links.
+</Rule>
