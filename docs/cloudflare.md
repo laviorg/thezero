@@ -51,14 +51,14 @@ Estado conferido em 1º de outubro de 2026:
 
 | Nome | Tipo | Valor hoje | Trocar para |
 | --- | --- | --- | --- |
-| `www` | CNAME | `e89fb4d2f4258769.vercel-dns-017.com` | `thezero-com-br.pages.dev` |
-| apex (nome vazio) | A | `216.198.79.1` (Vercel) | apagar |
+| `www` | CNAME | `e89fb4d2f4258769.vercel-dns-017.com` (hospedagem anterior) | `thezero-com-br.pages.dev` |
+| apex (nome vazio) | A | `216.198.79.1` (hospedagem anterior) | apagar |
 
 Não mexa em MX, TXT ou CAA.
 
-O Registro.br não aceita CNAME no apex. A Pages não publica um IP fixo para um registro A. Com os NS no Registro.br, o apex não chega na Cloudflare. O 308 de host continua no `next.config` e só vale na Vercel: o `_redirects` da Pages só aceita origem relativa, então não dá para escrever nele a regra `thezero.com.br` → www.
+O Registro.br não aceita CNAME no apex. A Pages não publica um IP fixo para um registro A. Com os NS no Registro.br, o apex não chega na Cloudflare. O 308 de host continua no `next.config` e só vale num build de servidor: o `_redirects` da Pages só aceita origem relativa, então não dá para escrever nele a regra `thezero.com.br` → www.
 
-Apague o A do apex no corte. Se ele continuar apontando para `216.198.79.1`, o apex segue na Vercel e responde 402 enquanto a conta estiver bloqueada. Sem o A, `thezero.com.br` deixa de resolver. O canônico, o sitemap, o RSS e o JSON-LD já usam `https://www.thezero.com.br`.
+Apague o A do apex no corte. Se ele continuar apontando para `216.198.79.1`, o apex segue na hospedagem anterior e pode responder erro. Sem o A, `thezero.com.br` deixa de resolver. O canônico, o sitemap, o RSS e o JSON-LD já usam `https://www.thezero.com.br`.
 
 Para voltar a ter redirect do apex para www, a zona precisa estar na Cloudflare (aí os NS do Registro.br passam a ser os que a Cloudflare mostrar ao adicionar o site). No DNS da Cloudflare:
 

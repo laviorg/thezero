@@ -19,7 +19,7 @@ O site público usa `hello@thezero.com.br` (`site.email`).
 | Aviso leve de cookies (necessários vs publicidade / estatística); recusa não esconde o newsroom. O mesmo aceite libera Analytics quando `NEXT_PUBLIC_GA_MEASUREMENT_ID` está setado — [`docs/ANALYTICS.md`](./ANALYTICS.md) | banner + “Cookies” no rodapé |
 | `ads.txt` na raiz, com o vendedor Google e o contato | `/ads.txt` |
 | Meta `google-adsense-account` e script oficial **só** se existir publisher ID válido **e** o leitor aceitar publicidade | `NEXT_PUBLIC_ADSENSE_PUB_ID` |
-| Crawlers de anúncio liberados; 404; nav; HTTPS (Vercel); sem cloaking | `robots.ts`, `not-found`, header/footer |
+| Crawlers de anúncio liberados; 404; nav; HTTPS (Cloudflare); sem cloaking | `robots.ts`, `not-found`, header/footer |
 | Sitemap e titles únicos das páginas novas | `sitemap.ts`, `title-audit.ts` |
 
 Unidades visuais de anúncio **não** foram colocadas nas matérias de propósito: caixa vazia “Publicidade” antes da aprovação parece site feito para ad, e a revisão costuma rejeitar isso.
@@ -61,4 +61,4 @@ NEXT_PUBLIC_ADSENSE_PUB_ID=pub-xxxxxxxxxxxxxxxx
 
 ## Depois de aprovado (código)
 
-Quando o ID estiver na Vercel, o `ads.txt` e o meta passam a declarar o Google. O script `adsbygoogle.js` só carrega se o leitor aceitou publicidade. Placement de unidade (in-article, sidebar) fica para um PR seguinte — não misturar com esta prontidão.
+Quando o ID estiver nos secrets do GitHub, o `ads.txt` e o meta passam a declarar o Google. O script `adsbygoogle.js` só carrega se o leitor aceitou publicidade. Placement de unidade (in-article, sidebar) fica para um PR seguinte — não misturar com esta prontidão.
