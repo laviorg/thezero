@@ -1418,6 +1418,16 @@
       "slug": "meta-muse-ghostshares-links-expostos",
       "updated_at": "2026-10-22T20:49:41Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dez4RPfgcfn"
+    },
+    "chatgpt-policia-rs-menino-frances": {
+      "article_url": "https://www.thezero.com.br/noticia/chatgpt-policia-rs-menino-frances",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/chatgpt-policia-rs-menino-frances.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/chatgpt-policia-rs-menino-frances.png",
+      "pr": 327,
+      "commit": "7d1d3ed4182c5fc9f88b8a44e2911059b407270c",
+      "ig": "https://www.instagram.com/p/Dez4X_UF8zZ/",
+      "slug": "chatgpt-policia-rs-menino-frances",
+      "updated_at": "2026-10-22T20:50:33Z"
     }
   }
 }
