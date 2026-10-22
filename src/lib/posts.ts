@@ -377,29 +377,48 @@ export function getFeaturedPost(posts = getNewsPosts()): Post | undefined {
   return selectMostRecentPublication(posts.filter(isNewsFormat));
 }
 
-export function getRelatedPosts(post: Post, limit = 3): Post[] {
-  const posts = getAllPosts().filter((item) => !item.noindex);
-  const sameSubcategory = post.subcategory
-    ? posts.filter(
-        (item) =>
-          item.slug !== post.slug &&
-          item.category === post.category &&
-          item.subcategory === post.subcategory,
-      )
-    : [];
-  const sameCategory = posts.filter(
-    (item) =>
-      item.slug !== post.slug &&
-      item.category === post.category &&
-      (!post.subcategory || item.subcategory !== post.subcategory),
-  );
-  const relevant = [...sameSubcategory, ...sameCategory];
-  if (relevant.length >= limit) return relevant.slice(0, limit);
+const RELATED_STOPWORDS = new Set([
+  "brasil", "preco", "vale", "pena", "hoje", "2026", "2025", "como", "quais",
+  "para", "com", "sem", "que", "nao", "ainda", "novo", "nova", "chega",
+]);
 
-  const extras = posts.filter(
-    (item) => item.slug !== post.slug && item.category !== post.category,
+function slugTokens(slug: string): Set<string> {
+  return new Set(
+    slug.split("-").filter((t) => t.length >= 3 && !RELATED_STOPWORDS.has(t)),
   );
-  return [...relevant, ...extras].slice(0, limit);
+}
+
+/**
+ * Related reading for an article. Topic overlap (shared slug terms) first,
+ * then same subcategory, then same category. Inside each tier, articles
+ * closest in publication date win, older and newer alike, so links spread
+ * across the archive instead of always pointing at the newest posts.
+ */
+export function getRelatedPosts(post: Post, limit = 3): Post[] {
+  const posts = getAllPosts().filter(
+    (item) => !item.noindex && item.slug !== post.slug,
+  );
+  const tokens = slugTokens(post.slug);
+  const time = Date.parse(post.dateIso) || 0;
+  const score = (item: Post) => {
+    let overlap = 0;
+    for (const t of slugTokens(item.slug)) if (tokens.has(t)) overlap += 1;
+    let value = Math.min(overlap, 3) * 10;
+    if (item.category === post.category) {
+      value += 5;
+      if (post.subcategory && item.subcategory === post.subcategory) value += 10;
+    }
+    return value;
+  };
+  return posts
+    .map((item) => ({
+      item,
+      score: score(item),
+      distance: Math.abs((Date.parse(item.dateIso) || 0) - time),
+    }))
+    .sort((a, b) => b.score - a.score || a.distance - b.distance)
+    .slice(0, limit)
+    .map((entry) => entry.item);
 }
 
 export function getAdjacentPosts(post: Post) {
