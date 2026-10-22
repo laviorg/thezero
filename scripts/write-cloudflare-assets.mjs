@@ -59,6 +59,8 @@ function headersFile() {
   Content-Type: image/png
 /*/opengraph-image
   Content-Type: image/png
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
 `;
 }
 
