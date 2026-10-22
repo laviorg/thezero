@@ -12,7 +12,7 @@ export const HUB_INTROS: Record<string, HubIntro> = {
       "Nos reviews desta seção, a pergunta é sempre a mesma: para quem esse aparelho faz sentido aqui, com o preço em reais e o suporte que existem de verdade. Olhamos tela, bateria em jogo, desempenho em títulos reais, emulação, Windows contra SteamOS e o que muda quando a garantia é de outro país. Não há nota inventada nem teste que não foi feito: quando um número vem do fabricante ou de outro veículo, a matéria diz de onde ele veio.",
       "Se você está começando a pesquisa, os guias abaixo comparam os principais modelos e explicam como importar sem surpresa na alfândega.",
     ],
-    guides: ["qual-console-portatil-comprar-2026-brasil", "importar-ayaneo-ou-ayn-brasil", "rog-xbox-ally-vale-a-pena-brasil", "windows-no-handheld-vs-steamos"],
+    guides: ["qual-console-portatil-comprar-2026-brasil", "importar-ayaneo-ou-ayn-brasil", "rog-xbox-ally-vale-a-pena-brasil", "windows-no-handheld-vs-steamos", "steam-deck-oled-ainda-vale-a-pena-2026", "switch-2-vs-steam-deck-oled-preco-brasil"],
   },
   "/computadores/pcs-portateis": {
     paragraphs: [
@@ -57,7 +57,7 @@ export const HUB_INTROS: Record<string, HubIntro> = {
       "Também olhamos lançamentos menores e independentes que fazem sucesso na Steam e nos consoles, porque muitos deles chegam com preço regional baixo e tradução feita pela comunidade. Quando há demo, acesso antecipado ou edição mais cara com dias de vantagem, explicamos o que cada versão entrega.",
       "Antes de comprar na pré-venda ou pagar o preço cheio, vale ler os guias abaixo sobre lojas, assinaturas e descontos.",
     ],
-    guides: ["pre-venda-de-jogo-desconto-depois", "steam-vs-epic-vs-xbox-pc-preco", "game-pass-ultimate-vs-comprar-jogo", "key-de-jogo-barata-risco-de-conta"],
+    guides: ["pre-venda-de-jogo-desconto-depois", "steam-vs-epic-vs-xbox-pc-preco", "game-pass-ultimate-vs-comprar-jogo", "key-de-jogo-barata-risco-de-conta", "ps5-slim-vale-a-pena-2026-brasil", "ea-sports-fc-27-vale-a-pena"],
   },
   "/tecnologia": {
     paragraphs: [
@@ -84,7 +84,7 @@ export const HUB_INTROS: Record<string, HubIntro> = {
       "Também cobrimos o espaço de trabalho, com monitor, teclado, mouse, cadeira e dock, porque o conforto e a produtividade dependem tanto deles quanto do processador. E acompanhamos os PCs portáteis, categoria que cresceu rápido e ainda depende de importação, com o custo total no Brasil sempre na conta.",
       "Para começar, os guias abaixo cobrem notebook gamer, PC montado e as escolhas mais comuns de upgrade.",
     ],
-    guides: ["notebook-gamer-ate-7-mil-brasil", "pc-gamer-ate-4-mil-2026", "qual-console-portatil-comprar-2026-brasil", "ssd-nvme-1tb-brasil-o-que-olhar"],
+    guides: ["notebook-gamer-ate-7-mil-brasil", "pc-gamer-ate-4-mil-2026", "qual-console-portatil-comprar-2026-brasil", "ssd-nvme-1tb-brasil-o-que-olhar", "importar-ayaneo-ou-ayn-brasil", "adrenalin-26-9-2-seis-jogos-recuo-rx-5000"],
   },
   "/dispositivos": {
     paragraphs: [
