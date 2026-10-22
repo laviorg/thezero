@@ -1352,6 +1352,16 @@
       "slug": "xbox-testa-horas-de-nuvem-sem-game-pass",
       "updated_at": "2026-10-22T20:21:20Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dez1Bq-CSi3"
+    },
+    "node-js-corrige-falha-brotli-execucao-remota": {
+      "article_url": "https://www.thezero.com.br/noticia/node-js-corrige-falha-brotli-execucao-remota",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/node-js-corrige-falha-brotli-execucao-remota.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/node-js-corrige-falha-brotli-execucao-remota.png",
+      "pr": 339,
+      "commit": "3e51272fc8a42cc6cf74fa81ea03f27252b9780e",
+      "ig": "https://www.instagram.com/p/Dez1J-hF0UD/",
+      "slug": "node-js-corrige-falha-brotli-execucao-remota",
+      "updated_at": "2026-10-22T20:22:28Z"
     }
   }
 }
