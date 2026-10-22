@@ -1363,6 +1363,16 @@
       "slug": "node-js-corrige-falha-brotli-execucao-remota",
       "updated_at": "2026-10-22T20:22:44Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dez1LwTgfZ5"
+    },
+    "openai-gpt-6-chega-google-cloud-model-garden": {
+      "article_url": "https://www.thezero.com.br/noticia/openai-gpt-6-chega-google-cloud-model-garden",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-gpt-6-chega-google-cloud-model-garden.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-gpt-6-chega-google-cloud-model-garden.png",
+      "pr": 338,
+      "commit": "0d5de74e826c019132da893d66e9207b977122f2",
+      "ig": "https://www.instagram.com/p/Dez1Sv5CZea/",
+      "slug": "openai-gpt-6-chega-google-cloud-model-garden",
+      "updated_at": "2026-10-22T20:23:39Z"
     }
   }
 }
