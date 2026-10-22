@@ -1,0 +1,38 @@
+---
+title: "Node.js corrige falha no Brotli que permite execução remota de código; atualize"
+seoTitle: "Node.js corrige falha de execução remota no Brotli"
+seoDescription: "Node.js 22.23.4, 24.22.1 e 26.12.1 corrigem 10 falhas, entre elas CVE-2026-111497, no decodificador Brotli, de severidade alta. Veja quem precisa atualizar."
+excerpt: 'Versões 22.23.4, 24.22.1 e 26.12.1 do Node.js corrigem 10 vulnerabilidades. A mais grave está no Brotli e permite executar código remoto.'
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-10-22T15:07:07-03:00"
+featured: false
+kicker: "Segurança · Node.js"
+author: "nicholas"
+cover: "/images/posts/node-js-corrige-falha-brotli-execucao-remota/cover.jpg"
+coverAlt: "Técnico agachado diante de um rack de servidores aberto, com laptop no chão e cabos de rede à mostra, em um data center"
+coverCredit: "Derrick Coetzee / Wikimedia Commons (CC0)"
+---
+
+O projeto **Node.js** publicou na quarta (21) versões de segurança para as linhas 26.x, 24.x e 22.x, com correção para **10 vulnerabilidades**. As versões corrigidas são **v26.12.1**, **v24.22.1** e **v22.23.4**, segundo o [aviso oficial do projeto](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases). A mais séria é a **CVE-2026-111497**, uma falha no decodificador **Brotli** que permite execução remota de código.
+
+## A falha do Brotli
+
+O Brotli é um formato de compressão usado, entre outros lugares, em respostas de sites com `Content-Encoding: br`. O Node.js embute um decodificador Brotli, usado pelo módulo `zlib` e na leitura automática de respostas HTTP nesse formato. De acordo com a [OX Security](https://www.ox.security/blog/node-js-brotli-decoder-out-of-bounds-write-rce-cve-2026-111497/), um dado Brotli malformado faz o decodificador escrever além do fim de um buffer (a área de memória reservada para ele). Isso pode vazar memória ou executar código com os privilégios do processo.
+
+O risco existe quando o programa descomprime Brotli vindo de fonte não confiável, como respostas HTTP buscadas na internet ou arquivos enviados por usuários. A OX Security observa que um firewall de aplicação web não barra o problema. O Node.js classifica a falha como de **severidade alta** e a atribui à dupla Khai Tran e Sylvie Mayer, do OpenAI Codex Security.
+
+## O que mais foi corrigido
+
+O aviso lista quatro falhas de severidade alta, três médias e três baixas. Entre as altas estão duas que contornam a verificação de nome de host em certificados TLS, uma delas (CVE-2026-105483) só nas linhas 26.x e 24.x, e um erro em `dns.resolve`, que corta nomes com caractere nulo. As atualizações também trazem versões novas de c-ares, Undici e OpenSSL (nas linhas 24.x e 22.x), de SQLite (na 22.x) e o pacote de certificados confiáveis, atualizado após o comprometimento de uma autoridade certificadora intermediária da eMudhra.
+
+Versões fora de suporte também são afetadas e não recebem correção. O projeto lembra que linhas encerradas ficam vulneráveis a cada novo aviso de segurança.
+
+## O que isso significa no Brasil
+
+Quem desenvolve ou mantém um servidor, uma API ou uma função na nuvem com Node.js deve conferir a versão com `node -v` e subir para a **22.23.4, a 24.22.1 ou a 26.12.1**. A ação é simples: instale a versão corrigida da sua linha, reinicie os processos e confirme de novo com `node -v`. Quem usa uma linha antiga, como a 20.x ou a 23.x, precisa migrar para uma linha com suporte, já que não há correção para elas. Baixe só pelo [site oficial](https://nodejs.org), e desconfie de scripts de "correção" ou de exploits copiados de repositórios e redes sociais. Se você está começando a programar e instalou o Node.js junto com o editor, o guia [VS Code ou Cursor para quem está começando a programar](https://www.thezero.com.br/noticia/vs-code-vs-cursor-para-quem-comeca) ajuda a montar o ambiente do jeito certo.
+
+<Rule>
+O Node.js lançou as versões 22.23.4, 24.22.1 e 26.12.1, que corrigem 10 vulnerabilidades. A mais grave, CVE-2026-111497, está no decodificador Brotli e permite execução remota de código ao descomprimir dados maliciosos. Quem usa Node.js em servidores ou APIs deve atualizar; linhas fora de suporte não têm correção.
+</Rule>
