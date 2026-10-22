@@ -1451,6 +1451,16 @@
       "slug": "chrome-le-area-transferencia-clickfix",
       "updated_at": "2026-10-22T20:52:55Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dez4okAH1BI"
+    },
+    "stripe-treasury-agentes-ia": {
+      "article_url": "https://www.thezero.com.br/noticia/stripe-treasury-agentes-ia",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/stripe-treasury-agentes-ia.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/stripe-treasury-agentes-ia.png",
+      "pr": 331,
+      "commit": "c6353862ff1714ae04209822aa0d109822012b65",
+      "ig": "https://www.instagram.com/p/Dez4vYFGGyf/",
+      "slug": "stripe-treasury-agentes-ia",
+      "updated_at": "2026-10-22T20:53:48Z"
     }
   }
 }
