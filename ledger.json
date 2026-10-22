@@ -1429,6 +1429,16 @@
       "slug": "chatgpt-policia-rs-menino-frances",
       "updated_at": "2026-10-22T20:50:49Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dez4ZbjCRhB"
+    },
+    "spotify-remove-musicas-ia-spam": {
+      "article_url": "https://www.thezero.com.br/noticia/spotify-remove-musicas-ia-spam",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/spotify-remove-musicas-ia-spam.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/spotify-remove-musicas-ia-spam.png",
+      "pr": 328,
+      "commit": "88b22af2be172cdee710e1286a725227fa0e6760",
+      "ig": "https://www.instagram.com/p/Dez4gD7jPiL/",
+      "slug": "spotify-remove-musicas-ia-spam",
+      "updated_at": "2026-10-22T20:51:35Z"
     }
   }
 }
