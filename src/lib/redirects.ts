@@ -6,6 +6,8 @@ export const PATH_REDIRECTS: { source: string; destination: string; status?: 301
   { source: "/black-friday-2026", destination: "/black-friday", status: 301 },
   { source: "/autores/mavi", destination: "/autores", status: 301 },
   { source: "/noticia/freakopoly-lancamento-steam-preco-brasil", destination: "/", status: 301 },
+  { source: "/noticia", destination: "/", status: 301 },
+  { source: "/thezero", destination: "/", status: 301 },
   { source: "/hardware", destination: "/computadores" },
   { source: "/gadgets", destination: "/dispositivos" },
   { source: "/apps", destination: "/aplicativos" },
