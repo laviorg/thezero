@@ -1462,6 +1462,16 @@
       "slug": "stripe-treasury-agentes-ia",
       "updated_at": "2026-10-22T20:54:08Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dez4xQHkjGr"
+    },
+    "gemini-google-maps-carplay": {
+      "article_url": "https://www.thezero.com.br/noticia/gemini-google-maps-carplay",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-google-maps-carplay.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-google-maps-carplay.png",
+      "pr": 332,
+      "commit": "e51c657a5bd001152f930e9f30fb719463b218fe",
+      "ig": "https://www.instagram.com/p/Dez44rWjDl1/",
+      "slug": "gemini-google-maps-carplay",
+      "updated_at": "2026-10-22T20:55:01Z"
     }
   }
 }
