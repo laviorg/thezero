@@ -1407,6 +1407,16 @@
       "slug": "claude-duet-agente-anthropic",
       "updated_at": "2026-10-22T20:28:17Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dez10hTGnkz"
+    },
+    "meta-muse-ghostshares-links-expostos": {
+      "article_url": "https://www.thezero.com.br/noticia/meta-muse-ghostshares-links-expostos",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/meta-muse-ghostshares-links-expostos.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/meta-muse-ghostshares-links-expostos.png",
+      "pr": 326,
+      "commit": "8971845b095c161316578d0273ba03e42aab5c2b",
+      "ig": "https://www.instagram.com/p/Dez4P3_k--1/",
+      "slug": "meta-muse-ghostshares-links-expostos",
+      "updated_at": "2026-10-22T20:49:25Z"
     }
   }
 }
