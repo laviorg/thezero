@@ -1484,6 +1484,16 @@
       "slug": "vivo-y600-bateria-10000-mah-recorde-guinness",
       "updated_at": "2026-10-23T11:19:17Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/De1byhWldjU"
+    },
+    "openai-decisions-api-gpt-6-luna-decisoes-rapidas": {
+      "article_url": "https://www.thezero.com.br/noticia/openai-decisions-api-gpt-6-luna-decisoes-rapidas",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-decisions-api-gpt-6-luna-decisoes-rapidas.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-decisions-api-gpt-6-luna-decisoes-rapidas.png",
+      "pr": 345,
+      "commit": "ebf2d5b5bc4c15108236d82ed4cf212ee45b4fa9",
+      "ig": "https://www.instagram.com/p/De13L5uF5xe/",
+      "slug": "openai-decisions-api-gpt-6-luna-decisoes-rapidas",
+      "updated_at": "2026-10-23T15:18:38Z"
     }
   }
 }
