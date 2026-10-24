@@ -1583,6 +1583,16 @@
       "slug": "canva-craft-modelo-proprio-imagens-2k",
       "updated_at": "2026-10-24T20:19:03Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/De4-WpVGvss"
+    },
+    "torchtpu-codigo-aberto-pytorch-roda-nativo-tpu-google": {
+      "article_url": "https://www.thezero.com.br/noticia/torchtpu-codigo-aberto-pytorch-roda-nativo-tpu-google",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/torchtpu-codigo-aberto-pytorch-roda-nativo-tpu-google.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/torchtpu-codigo-aberto-pytorch-roda-nativo-tpu-google.png",
+      "pr": 354,
+      "commit": "a7801abeb8bc51799401e3a23398cd26041a6653",
+      "ig": "https://www.instagram.com/p/De5MPD5l1LE/",
+      "slug": "torchtpu-codigo-aberto-pytorch-roda-nativo-tpu-google",
+      "updated_at": "2026-10-24T22:20:15Z"
     }
   }
 }
