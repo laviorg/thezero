@@ -1,0 +1,42 @@
+---
+title: "Qualcomm lança Adreno Neural Fusion, o DLSS dos celulares Android, com super resolução e geração de quadros"
+seoTitle: "Adreno Neural Fusion: DLSS para jogos Android"
+seoDescription: "SDK Adreno Neural Fusion traz super resolução e geração de quadros por IA a jogos Android com Vulkan, começando pelo Snapdragon 8 Elite Gen 6. Grátis no GitHub."
+excerpt: 'SDK gratuito traz upscaling e geração de quadros por IA para jogos Android com Vulkan. Começa pelo Snapdragon 8 Elite Gen 6, com Unreal 5 e Unity 6.6.'
+category: jogos
+subcategory: industria
+format: noticia
+date: "2026-10-24T15:08:20-03:00"
+featured: false
+kicker: "Jogos · mobile"
+author: "nicholas"
+cover: "/images/posts/adreno-neural-fusion-sdk-super-resolucao-geracao-quadros/cover.jpg"
+coverAlt: "Ilustração oficial da Qualcomm com as camadas de um chip Snapdragon: Oryon CPU, Adreno GPU em destaque dourado e Hexagon NPU"
+coverCredit: "Qualcomm (divulgação)"
+---
+
+A **Qualcomm** liberou o **Adreno Neural Fusion (ANF)**, um kit de desenvolvimento que leva **super resolução** e **geração de quadros** por inteligência artificial aos jogos para Android. É a resposta da empresa ao DLSS da Nvidia e ao FSR da AMD, agora no celular. Segundo o [VideoCardz](https://videocardz.com/newz/qualcomm-releases-adreno-neural-fusion-sdk-with-ai-upscaling-and-2x-frame-generation-for-snapdragon-gpus), o SDK já está disponível aos desenvolvedores no repositório público da Qualcomm no GitHub e começa pelo **Snapdragon 8 Elite Gen 6** e plataformas mais novas.
+
+## Como funciona
+
+A super resolução temporal reconstrói a imagem em resolução cheia a partir de quadros renderizados em meia resolução, combinando dados de vários quadros com informações de profundidade, vetores de movimento e tremido de câmera. É o mesmo princípio do DLSS e do FSR: a placa trabalha menos por quadro e o algoritmo preenche a diferença. A geração de quadros cria um quadro intermediário entre dois renderizados, dobrando a taxa exibida na tela. As duas técnicas podem trabalhar juntas: o jogo renderiza em metade da resolução e ainda gera metade dos quadros apresentados. Para um celular, a conta é ainda mais interessante que num PC, porque cada watt economizado vira minuto a mais de bateria e grau a menos na carcaça.
+
+Há limites assumidos pela própria Qualcomm. Os quadros gerados não aceleram a simulação interna do jogo, e a combinação adiciona latência de entrada equivalente a um quadro renderizado, o que pesa em títulos que dependem de resposta imediata.
+
+## Hardware dedicado para não gastar bateria
+
+Nas GPUs Adreno compatíveis, o processamento de IA roda em **núcleos de matriz dedicados**. A **Adreno High Performance Memory (HPM)** mantém os dados intermediários dentro do chip, sem acessos repetidos à memória do sistema, o que reduz a demanda por banda e o consumo de energia durante o jogo, segundo o [Adrenaline](https://www.adrenaline.com.br/ia/qualcomm-lanca-tecnologia-para-aumentar-fps-com-ia-em-gpus-snapdragon/). Em hardware sem núcleos de matriz na GPU, o framework pode recorrer à NPU, desde que haja compatibilidade.
+
+## Para os desenvolvedores
+
+O SDK atende aplicativos Android ARM64 que usam **Vulkan**, com recursos de integração para **Unreal Engine 5** e **Unity 6.6** ou superior, além de amostras nativas e ferramentas de depuração. O plugin do Unity publicado até agora cobre só a super resolução; o SDK nativo inclui as duas técnicas. A Qualcomm diz que pretende levar o suporte a mais plataformas Snapdragon, mas não deu cronograma.
+
+A diferença em relação às soluções de PC está no hardware. Em vez de depender só dos núcleos de matriz da GPU, o ANF também pode dividir o trabalho com a NPU do Snapdragon, o que abre caminho para a tecnologia chegar a chips sem esses núcleos dedicados.
+
+## O que isso significa no Brasil
+
+Celular gamer é nicho, mas Snapdragon topo de linha está na maioria dos flagships Android vendidos no país, e o ANF chega de graça para os estúdios. Quando os jogos começarem a sair com a tecnologia, a promessa é mais fluidez sem drenar a bateria, justamente o ponto em que o celular costuma perder para o PC e para o console portátil. Vale lembrar que o ganho depende de cada jogo implementar o SDK, então a novidade de hoje é para desenvolvedores; o benefício ao jogador vem nos próximos lançamentos. Enquanto os primeiros títulos não chegam, quem joga no PC pode apertar a eficiência do hardware atual com o guia [Undervolt de GPU: menos calor sem perder fps](https://www.thezero.com.br/noticia/undervolt-de-gpu).
+
+<Rule>
+A Qualcomm liberou o SDK Adreno Neural Fusion, com super resolução e geração de quadros por IA para jogos Android com Vulkan, começando pelo Snapdragon 8 Elite Gen 6. O kit é gratuito no GitHub, com integração para Unreal 5 e Unity 6.6. A geração de quadros não acelera a simulação e adiciona latência de um quadro, segundo a própria empresa.
+</Rule>
