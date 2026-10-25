@@ -1,0 +1,36 @@
+---
+title: "Block, de Jack Dorsey, mostra o Dessa: modelo de voz local treinado só com fala humana"
+seoTitle: "Dessa: modelo de voz da Block roda local e foi treinado só com fala"
+seoDescription: "A Block, de Jack Dorsey, apresentou o Dessa: modelo de voz full-duplex treinado só com fala humana, que roda local num MacBook Pro M4 Max. Acesso público ainda não liberado."
+excerpt: 'Modelo de voz full-duplex da Block conversa e ouve ao mesmo tempo, ri, pausa e suspira. Foi treinado só com fala humana e roda local num MacBook Pro M4 Max.'
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-10-25T10:35:00-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "nicholas"
+cover: "/images/posts/block-dessa-modelo-voz-local-treinado-so-fala/cover.jpg"
+coverAlt: "Jack Dorsey, cofundador da Block, falando em palco de conferência de tecnologia"
+coverCredit: "JD Lasica / Flickr (CC BY 2.0)"
+---
+
+A Block, empresa de Jack Dorsey, apresentou nesta semana o **Dessa**, um modelo de voz que foge do padrão atual de assistentes de IA: em vez de transformar fala em texto, processar e devolver áudio, ele foi treinado do zero **somente com conversas humanas** — sem texto, sem modelos pré-treinados no meio do caminho. O resultado, segundo a empresa, é o primeiro modelo com o qual se pode ter uma conversa realista ao vivo treinado apenas a partir de fala.
+
+O Dessa é **full-duplex**: ouve e fala ao mesmo tempo, como uma pessoa. Aprendeu com conversas reais, então sabe quando interromper, quando fazer sons de acompanhamento ("aham", "entendi") e reproduz emoção, sarcasmo, risada e suspiro de frustração. A inferência roda mais rápido que o tempo real, sem pausa estranha. E tudo funciona **localmente num MacBook Pro M4 Max** ou superior. O treinamento, diz a Block, coube num único rack de GPUs NVIDIA — uma escala doméstica perto dos clusters gigantescos que as grandes de IA costumam usar.
+
+## Por que a empresa acha o modelo atual ruim
+
+No texto de apresentação, a Block ataca a arquitetura dominante: "a IA de voz atual transforma sua voz em texto e joga fora uma quantidade incrível de informação que o texto sozinho não carrega. As IAs mais poderosas do mundo não conseguem ouvir como você se sente". Modelos como ElevenLabs v4 ou Fish Audio Drama 3 usam marcações para indicar emoção na fala; a Block afirma que, no Dessa, a emoção é nativa, aprendida da própria conversa.
+
+A comparação inevitável é com o GPT-Live da OpenAI, lançado neste ano e também full-duplex. A diferença de abordagem: em geral, modelos de voz são acoplados a um LLM que fornece o "conhecimento"; no Dessa, o conhecimento vem dos próprios dados de conversa, o que a empresa apresenta como uma categoria nova para pesquisa. As perguntas que ela mesma lista são diretas: com que eficiência um modelo assim aprende idioma e fatos comparado a texto? Com que rapidez aprende um idioma novo? Que tipo de aprendizado em contexto consegue fazer só ouvindo? São questões abertas que a Block quer ver a comunidade científica explorar.
+
+## Sem acesso público, por enquanto com chamada a pesquisadores
+
+O modelo **não está aberto ao público**. A Block publicou exemplos de conversas — em um deles, o agente diz estar cansado do trabalho e soa cansado; em outro, joga um jogo de adivinhação com uma pessoa da equipe — e fez uma **chamada a pesquisadores de segurança** para testar o Dessa. O cuidado tem razão clara: uma voz que convence como humana pode ser usada para enganar quem está do outro lado da linha, e testar esses limites antes da abertura é parte do trabalho de segurança.
+
+O interesse comercial é direto. A Block é dona do Square, que já usa IA de voz para receber pedidos. Um modelo próprio, que roda no dispositivo, reduz custo por interação e abre espaço para mais experiências de voz nos produtos da empresa.
+
+## O que isso significa no Brasil
+
+Para o mercado brasileiro, o Dessa aponta duas frentes. A primeira é prática: modelo de voz que roda local muda a conta de quem quer automatizar atendimento sem pagar API por minuto e sem mandar áudio de cliente para a nuvem — tema sensível depois da LGPD. A segunda é de defesa: quanto mais natural a voz sintética, mais vale o ceticismo com ligações e áudios inesperados, mesmo de "conhecidos". Vale revisar o que não compartilhar em conversas com IA no nosso guia sobre [senha, documento e dado de cliente que não devem ir para o chat](https://www.thezero.com.br/noticia/o-que-nao-colar-no-chat-de-ia).
