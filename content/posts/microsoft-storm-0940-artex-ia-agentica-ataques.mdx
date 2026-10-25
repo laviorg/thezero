@@ -1,0 +1,36 @@
+---
+title: "Microsoft: hackers ligados à China usaram agentes de IA em ataque à cadeia da ConnectWise"
+seoTitle: "Storm-0940 usou IA agêntica ARTEX em ataque à ConnectWise, diz Microsoft"
+seoDescription: "Microsoft detalha campanha do grupo Storm-0940, ligado à China, que usou o framework de IA agêntica ARTEX para tentar login em mais de 2.250 tenants após ataque à ConnectWise."
+excerpt: 'Grupo Storm-0940 usou o framework open source ARTEX para tentar login em mais de 2.250 tenants. Em vários casos, acesso privilegiado em menos de 3 horas.'
+category: ia
+subcategory: seguranca
+format: noticia
+date: "2026-10-25T12:10:00-03:00"
+featured: false
+kicker: "IA · segurança"
+author: "nicholas"
+cover: "/images/posts/microsoft-storm-0940-artex-ia-agentica-ataques/cover.jpg"
+coverAlt: "Prédio 92 da sede da Microsoft em Redmond, com o logotipo da empresa em primeiro plano e céu azul"
+coverCredit: "Coolcaesar / Wikimedia Commons (CC BY-SA 4.0)"
+---
+
+A Microsoft publicou um alerta detalhado sobre uma campanha em que o grupo **Storm-0940**, que a empresa classifica como alinhado ao Estado chinês, usou um framework de IA agêntica chamado **ARTEX** para automatizar ataques contra centenas de organizações no mundo. A operação está ligada ao comprometimento da cadeia de suprimentos da **ConnectWise**, revelado em 16 de outubro, e marcou um salto de escala: depois do acesso inicial, o ator tentou login em **mais de 2.250 tenants** de clientes.
+
+O Storm-0940 atua desde 2021 com foco em roubo de dados, historicamente por pulverização de senhas e exploração de aplicações expostas na internet. A novidade, a partir de setembro de 2026, foi acoplar o ARTEX ao fluxo. O framework é open source, escrito em Go com interface Next.js, aceita qualquer modelo de IA e conduz um teste de invasão quase sem intervenção humana: do reconhecimento à exfiltração, os agentes acumulam ativos e vulnerabilidades num grafo. A interface e os relatórios saem em inglês por padrão, mas o framework pode ser alternado para coreano, mandarim, espanhol ou japonês. A Microsoft já observou atores de várias regiões usando a ferramenta, e reportes públicos de outubro a associam a vazamentos de dados pessoais em instituições financeiras da Coreia do Sul.
+
+## Velocidade de máquina
+
+Os números mostram por que a Microsoft trata o caso como marco. Em várias organizações, o tempo entre a primeira tentativa e o **acesso privilegiado à nuvem foi menor que 3 horas**. O grupo abusava de aplicações OAuth já autorizadas pelo próprio cliente para entrar no Microsoft 365 sem login interativo e, em seguida, fazia reconhecimento via Microsoft Graph, trocava credenciais de aplicações e tentava elevar privilégios.
+
+Uma campanha paralela, entre 10 e 14 de outubro, mostra a mesma escala do outro lado: a infraestrutura do ator disparou pulverização de senhas contra 327 contas em oito organizações, gerando **mais de 151 mil falhas de login**, com pico de 2.900 tentativas por minuto em 11 de outubro. Quase 98% das tentativas caíram em bloqueio de conta e nenhuma autenticação foi concluída com sucesso. A Microsoft ressalva que a atividade não veio de comprometimento de seus próprios sistemas e que a presença de login do ator não significa, por si, dados acessados ou exfiltrados.
+
+Os setores visados vão de aeroespacial e defesa a energia, finanças, governo, semicondutores, tecnologia e organizações sem fins lucrativos. Agentes não dormem, não têm fim de semana e testam vários caminhos de invasão ao mesmo tempo — na leitura da Microsoft, é isso que permite escala exponencial com a mesma equipe.
+
+## O que a empresa recomenda
+
+A ConnectWise, cuja brecha envolveu o acesso não autorizado associado ao produto Cloud Backup, publicou o primeiro aviso em 16 de outubro e depois ampliou as divulgações e o guia de contenção. Foi nessa esteira que o Storm-0940 acelerou varredura, reconhecimento, pulverização de senhas e abuso de aplicações OAuth nas vítimas em cadeia. O alerta da Microsoft traz detecções prontas no Defender XDR e três frentes de ação: revisar logins de service principals, investigar mudanças inesperadas em credenciais ou privilégios de aplicações e seguir as orientações de contenção publicadas pela ConnectWise, preservando evidências para investigação. A embaixada da China negou envolvimento, segundo reportagens sobre o caso.
+
+## O que isso significa no Brasil
+
+Empresas brasileiras que rodam Microsoft 365 entram no mesmo mapa de alvos, porque o ataque não depende de país: depende de aplicação OAuth autorizada demais e senha reutilizada. A lição prática é conhecida e segue subaproveitada — autenticação em duas etapas em todas as contas, revisão periódica dos aplicativos com acesso ao tenant e senha única por serviço. Sobre o cuidado com permissões dadas a agentes e integrações, vale reler o nosso guia de [permissões que você não deve marcar para agentes de IA](https://www.thezero.com.br/noticia/agente-ia-permissoes-que-nao-dar).
