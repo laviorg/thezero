@@ -1,0 +1,42 @@
+---
+title: "Kimi K3.1 Pro chega com 1 milhão de tokens de contexto e pesos abertos a caminho"
+seoTitle: "Kimi K3.1 Pro: contexto de 1M de tokens e pesos abertos em 4/11"
+seoDescription: "Moonshot AI lançou o Kimi K3.1 Pro: 2,8 trilhões de parâmetros, contexto de 1 milhão de tokens e versão Highspeed até 3x mais rápida. Pesos abertos chegam em 4 de novembro."
+excerpt: 'Modelo da Moonshot AI tem 2,8 trilhões de parâmetros, contexto de 1 milhão de tokens e pesos abertos até 4 de novembro. Já roda no app e na API.'
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-10-25T08:15:00-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "nicholas"
+cover: "/images/posts/kimi-k3-1-pro-pesos-abertos-1-milhao-tokens/cover.jpg"
+coverAlt: "Arte oficial de divulgação do Kimi K3.1, com o logotipo do modelo sobre montanhas entre nuvens"
+coverCredit: "Moonshot AI / Kimi (divulgação)"
+---
+
+A Moonshot AI apresentou em 23 de outubro o **Kimi K3.1 Pro**, primeiro modelo da nova série K3.1 e o mais capaz da família de pesos abertos da empresa chinesa. São 2,8 trilhões de parâmetros no total, com 104 bilhões ativos por vez numa arquitetura de mistura de especialistas, e janela de contexto de **1 milhão de tokens**. O modelo já está disponível no kimi.ai, nos aplicativos, no Kimi Work, no Kimi Code e na API, e os pesos completos serão publicados até 4 de novembro.
+
+Junto veio o **K3.1 Pro Highspeed**, variante que entrega de duas a três vezes a velocidade do modelo principal, pensada para interações mais responsivas. Quem usa Kimi Enterprise precisa pedir a liberação ao administrador: o acesso corporativo vem desligado por padrão.
+
+## Números que a Moonshot quer ver testados
+
+O K3.1 Pro é uma versão pós-treinada do Kimi K3, com reforço de aprendizado aplicado em larga escala em centenas de domínios. Nos benchmarks citados pela empresa, ele encosta nos modelos proprietários mais fortes do momento:
+
+- **Terminal-Bench 4.0** (agentes de código em terminal): 65,7%, à frente do GPT-6 Astra (58,2%) e logo atrás do Claude Opus 5.5 (66,4%).
+- **BenchCAD** (reconstrução 3D com ferramentas): 92,7%, perto dos 96,2% do Opus 5.5.
+- **OfficeQA Pro v2** (análise fiscal de documentos financeiros reais): 64,4, melhor marca do teste.
+
+Outro ponto de atenção da empresa foi a confiabilidade em finanças, área sensível a erro factual. A Moonshot também destaca a queda de alucinação: no seu bench interno mais duro, a taxa de afirmações incorretas caiu de 23,4% no K3 para 8,3% no K3.1 Pro. Vale a ressalva de sempre: todos esses números saíram da própria empresa. A VentureBeat ouviu a Artificial Analysis, empresa independente de testes, que projeta o K3.1 Pro como o novo líder entre os modelos de pesos abertos quando os pesos forem publicados, em 4 de novembro.
+
+## O porém: segurança dosada na versão aberta
+
+A parte mais incomum do anúncio está na seção de cibersegurança. A Moonshot conta que removeu deliberadamente dados relacionados a vulnerabilidades do treinamento do modelo aberto, para que a versão pública fique abaixo da fronteira ofensiva que o mesmo pipeline conseguiria produzir. No benchmark interno de exploração de falhas, o checkpoint sem essa limpeza resolve 90,5% das tarefas; o K3.1 Pro final, 81%. A justificativa da empresa é liberar capacidade boa para defesa — auditoria de código legado, por exemplo — sem empurrar a fronteira de ataque para qualquer um.
+
+## Código, 3D e finanças no mesmo pacote
+
+Na prática, o modelo mira três frentes de trabalho. Em código, cobre de correções pontuais a projetos completos em Unity, Unreal e Godot, com geração de cenas Three.js e assets 3D. Em modelagem, escreve e executa scripts de Blender e CAD para criar peças paramétricas — e o recurso 3D Make, já no kimi.ai, permite pré-visualizar, baixar para impressão 3D ou exportar como vídeo. Em finanças, promete fluxos completos de análise, com ganhos de 7 a 11 pontos sobre o K3 nos testes internos de modelagem e pesquisa.
+
+## O que isso significa no Brasil
+
+Para quem trabalha com IA no Brasil, a chegada do K3.1 Pro reforça uma tendência: os modelos abertos chineses seguem pressionando o custo da API e a régua de qualidade do que roda por conta própria. O contexto de 1 milhão de tokens muda o tipo de tarefa possível — dá para jogar um repositório inteiro, um contrato longo ou meses de planilhas numa única conversa, em vez de fatiar o material. Aproveitar bem essa janela gigante tem técnica, como mostra o nosso guia sobre [por que contexto vale mais que prompt e como estruturar o seu](https://www.thezero.com.br/noticia/contexto-maior-que-prompt).
