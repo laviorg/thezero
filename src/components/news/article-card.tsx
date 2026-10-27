@@ -15,7 +15,10 @@ export type ArticleCardLayout =
   | "rail"
   | "stream"
   | "compact"
-  /** Text-only row: kicker, title and reading time. No cover, no summary. */
+  /**
+   * Narrow edition rail: cover thumb + kicker + title + reading time.
+   * No excerpt — keeps six items readable beside the lead.
+   */
   | "dense";
 
 type ArticleCardProps = {
@@ -72,6 +75,56 @@ export function ArticleCard({
   const linkTitle =
     "font-display font-bold tracking-tight text-fg text-pretty transition-colors duration-200 group-hover:text-accent group-focus-visible:text-accent";
 
+  if (isDense) {
+    return (
+      <article
+        data-layout={variant}
+        className={cn(
+          "article-card group border-b border-border py-3 first:pt-0 last:border-b-0 last:pb-0",
+          className,
+        )}
+      >
+        <Link
+          href={post.href}
+          className="flex items-start gap-3 outline-none"
+        >
+          {post.cover ? (
+            <CoverImage
+              src={post.cover}
+              alt={imageAlt}
+              crop
+              zoom
+              watermarkSize="micro"
+              sizes={coverSizes.dense}
+              className="edition-rail-thumb w-[4.85rem] shrink-0 sm:w-[5.35rem]"
+            />
+          ) : (
+            <div
+              aria-hidden
+              className="flex aspect-video w-[4.85rem] shrink-0 items-center justify-center rounded-md border border-border/80 bg-surface sm:w-[5.35rem]"
+            >
+              <SplitOMark mono className="size-3.5 text-fg/18" />
+            </div>
+          )}
+          <div className="min-w-0 flex-1 self-center">
+            <Kicker>{kicker}</Kicker>
+            <Heading
+              className={cn(
+                linkTitle,
+                "mt-1 text-[0.94rem] leading-snug line-clamp-3 sm:text-[0.98rem]",
+              )}
+            >
+              {post.title}
+            </Heading>
+            <p className="mt-1 font-mono text-[0.68rem] tabular-nums text-muted">
+              {post.readingMinutes} min de leitura
+            </p>
+          </div>
+        </Link>
+      </article>
+    );
+  }
+
   if (isRow) {
     return (
       <article
@@ -111,18 +164,10 @@ export function ArticleCard({
             >
               {post.title}
             </Heading>
-            {isDense ? (
-              <p className="mt-1 font-mono text-[0.68rem] tabular-nums text-muted">
-                {post.readingMinutes} min de leitura
-              </p>
-            ) : (
-              <>
-                <p className="mt-1 hidden text-[0.9rem] leading-5 text-muted text-pretty line-clamp-2 @min-[30rem]:block">
-                  {post.excerpt}
-                </p>
-                <NewsMeta post={post} className="mt-1.5" />
-              </>
-            )}
+            <p className="mt-1 hidden text-[0.9rem] leading-5 text-muted text-pretty line-clamp-2 @min-[30rem]:block">
+              {post.excerpt}
+            </p>
+            <NewsMeta post={post} className="mt-1.5" />
           </div>
         </Link>
       </article>
