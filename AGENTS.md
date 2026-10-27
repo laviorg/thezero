@@ -60,3 +60,8 @@ Limites das APIs: `caption_ig` até 2200 caracteres, `threads_x` até 500. Os do
 Campos de várias linhas usam `|` e ficam indentados, como no exemplo. Não coloque token, senha ou secret no corpo do PR.
 
 A publicação automática está em [`docs/social-automation.md`](docs/social-automation.md).
+
+### CaixaCompra (afiliado)
+
+Notícia com intenção de compra (hardware, preço, estoque, produto à venda no BR) **deve** levar 1–2 `<CaixaCompra>` + disclosure antes do 1º link afiliado. Máximo 2 em notícia diária; produto editorialmente ligado; Amazon `?tag=thezero04-20`; KaBuM só Awin; sem preço inventado; posição típica após “O que isso significa no Brasil”. Detalhe e snippet: [`docs/caixa-compra.md`](docs/caixa-compra.md). Componente `src/components/mdx/caixa-compra.tsx`, helpers `src/lib/affiliate.ts`.
+
