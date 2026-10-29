@@ -1,0 +1,62 @@
+---
+title: "Nvidia lança Nemotron 3.5 Transcribe com português, mas só para áudio gravado"
+seoTitle: "Nemotron 3.5 Transcribe tem português e áudio gravado"
+seoDescription: "Modelo da Nvidia transcreve 40 idiomas, identifica falantes e aceita instruções. Português do Brasil está na lista, mas conversas ao vivo ficam de fora."
+excerpt: 'Nemotron 3.5 Transcribe aceita instruções e português do Brasil, com gravações de até uma hora e oito falantes. Não processa conversas ao vivo.'
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-10-29T19:07:21-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "nicholas"
+cover: "/images/posts/nvidia-nemotron-transcribe-audio-gravado-portugues/cover.jpg"
+coverAlt: "Foto ilustrativa de um microfone prateado inclinado em suporte metálico, com fundo de estúdio desfocado em tons de vermelho e preto"
+coverCredit: "Will Fisher / Wikimedia Commons (CC BY-SA 2.0). Foto ilustrativa, recortada"
+---
+
+A Nvidia [lançou na quarta-feira (28)](https://huggingface.co/blog/nvidia/nemotron-transcribe-granary) o **Nemotron 3.5 Transcribe**, modelo de pesos abertos que transcreve gravações e aceita instruções sobre como entregar o texto. Ele trabalha com 40 idiomas, inclui português do Brasil e identifica quem falou. O limite mais importante vem antes dos testes de desempenho: foi feito para áudio gravado, não para conversas ao vivo.
+
+![Foto ilustrativa de um microfone prateado inclinado em suporte metálico, com fundo de estúdio desfocado em tons de vermelho e preto](/images/posts/nvidia-nemotron-transcribe-audio-gravado-portugues/cover.jpg)
+*Foto ilustrativa: [Will Fisher / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Neumann_U87_Condenser_Microphone_-_Studio_A%2C_In_Your_Ear_Studios.jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0), recortada. Não mostra equipamento da Nvidia.*
+
+<Verdict overrated="Confundir suporte a 40 idiomas com todas as funções disponíveis em cada um" underrated="Escolher o formato da transcrição antes de processar a gravação" />
+
+## Uma gravação, mais de um resultado
+
+Uma reunião pode exigir a fala literal, um texto sem hesitações ou a separação por participante. Em vez de fixar uma convenção durante o treinamento, o Transcribe recebe uma instrução em linguagem natural para cada pedido, explica a [página técnica da Nvidia](https://research.nvidia.com/labs/nemotron/NVIDIA-Nemotron-3.5-Transcribe/).
+
+O mesmo modelo reúne transcrição, identificação de falantes, tradução e perguntas sobre o áudio. A empresa informa suporte a gravações de até uma hora e até oito participantes. Também há marcação de tempo por palavra quando solicitada, útil para localizar um trecho no arquivo original.
+
+Para nomes ou termos incomuns, é possível fornecer uma lista de palavras esperadas. Isso não dispensa conferência: a própria Nvidia recomenda comparar nomes, mudanças de falante e respostas com a gravação. Uma transcrição legível ainda pode errar justamente o termo mais importante de uma entrevista ou atendimento.
+
+## Português não significa todas as tarefas
+
+O anúncio distingue três coberturas: transcrição em 40 idiomas, tradução de 31 para inglês ou no sentido inverso e atribuição de falantes em 13. Não são listas intercambiáveis.
+
+Na [ficha oficial](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B), português de Portugal e do Brasil aparece com suporte a transcrição, tradução de e para inglês, múltiplos falantes e alternância de idiomas. Já compreensão de áudio, raciocínio e seguimento de instruções faladas foram avaliados apenas em inglês. A documentação avisa que essas funções podem não funcionar de forma confiável em outras línguas.
+
+Para uma equipe brasileira, isso separa dois projetos distintos: transcrever uma reunião em português é uma capacidade listada; depender de respostas complexas sobre essa reunião exige validação própria. Não basta transportar um resultado em inglês para outro idioma.
+
+## Pesos abertos, infraestrutura por conta do projeto
+
+O modelo combina componentes de reconhecimento de fala e identificação de participantes com uma arquitetura de linguagem de mistura de especialistas. A Nvidia informa cerca de 4,3 bilhões de parâmetros ativos. Os materiais são distribuídos sob a licença OpenMDW-1.1, com ferramentas de adaptação no NeMo Speech.
+
+O anúncio oferece execução própria e aponta serviços hospedados como alternativa. Pesos disponíveis para baixar não tornam a infraestrutura gratuita: o projeto ainda precisa escolher onde processar e armazenar o áudio. O [TechCrunch](https://techcrunch.com/2026/10/28/voice-ai-in-vogue-nvidia-releases-new-open-transcription-model/) destaca aplicações em reuniões e transcrição médica, mas reforça que o produto não atende transmissões ao vivo.
+
+A Nvidia também publicou o **Granary v2**, conjunto de dados e processo de preparação para adaptar o reconhecimento a vocabulário e domínios específicos. Os manifestos públicos cobrem 48 idiomas. Esse número descreve os dados, não a quantidade de línguas atendidas pelo Transcribe, e os áudios de origem seguem suas próprias licenças.
+
+## O que isso significa no Brasil
+
+Português do Brasil consta explicitamente na ficha do modelo, inclusive para transcrição com múltiplos falantes. Isso cria uma opção para equipes que querem avaliar gravações em infraestrutura própria, sem transformar o lançamento em promessa de precisão para qualquer sotaque ou ambiente.
+
+Antes de trocar uma ferramenta existente, o teste útil é uma amostra real de reuniões, entrevistas ou atendimentos, com conferência de nomes e falantes. Para dimensionar a escolha sem pagar por capacidade desnecessária, veja o guia [Modelo menor ou Pro: quando o barato resolve](https://www.thezero.com.br/noticia/modelo-menor-ou-pro).
+
+<Rule>O suporte a português está documentado; a precisão no seu áudio precisa ser medida.</Rule>
+
+## Fontes
+
+- [Nvidia — Nemotron 3.5 Transcribe e Granary v2](https://huggingface.co/blog/nvidia/nemotron-transcribe-granary)
+- [Nvidia Research — Arquitetura e recursos](https://research.nvidia.com/labs/nemotron/NVIDIA-Nemotron-3.5-Transcribe/)
+- [Hugging Face — Ficha oficial e idiomas](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B)
+- [TechCrunch — Lançamento e limites](https://techcrunch.com/2026/10/28/voice-ai-in-vogue-nvidia-releases-new-open-transcription-model/)
