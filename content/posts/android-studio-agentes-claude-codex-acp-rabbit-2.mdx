@@ -1,0 +1,50 @@
+---
+title: "Android Studio passa a rodar Claude, Codex e mais de 40 agentes de código"
+seoTitle: "Android Studio roda Claude, Codex e 40 agentes de IA"
+seoDescription: "O Android Studio Rabbit 2 saiu estável com Bring Your Own Agent: Claude Agent, Codex, Junie e Antigravity rodam no IDE, com acesso a emulador, build e Logcat."
+excerpt: 'O Google liberou o Bring Your Own Agent no Android Studio Rabbit 2: mais de 40 agentes de código, como Claude e Codex, usam emulador, build e Logcat.'
+category: aplicativos
+subcategory: desenvolvimento
+format: noticia
+date: "2026-10-29T08:06:36-03:00"
+featured: false
+kicker: "Aplicativos · desenvolvimento"
+author: "nicholas"
+cover: "/images/posts/android-studio-agentes-claude-codex-acp-rabbit-2/cover.jpg"
+coverAlt: "Janela do Android Studio com código Kotlin, pré-visualização de app e painel de assistente de IA, em captura de versão anterior usada como ilustração"
+coverCredit: "Google LLC / Wikimedia Commons (Apache 2.0). Captura ilustrativa de versão anterior do Android Studio"
+---
+
+O Google tornou estável, nesta quarta-feira (28), o recurso **Bring Your Own Agent** (BYOA, algo como "traga o seu próprio agente") no **Android Studio Rabbit 2**. Na prática, o IDE oficial do Android deixa de depender só do Gemini: quem programa pode escolher entre mais de 40 agentes de código, entre eles Claude Agent, da Anthropic, e Codex, da OpenAI. A novidade foi anunciada no Android Developer Summit.
+
+## O que muda no Android Studio
+
+Segundo o blog oficial de desenvolvedores do Android, a lista inclui Claude Agent, Codex, Junie e o Antigravity, do próprio Google. O recurso aceita agentes compatíveis com o **Agent Client Protocol** (ACP), um protocolo aberto, segundo o Google.
+
+O ponto central é o acesso. De acordo com o Google, os agentes de terceiros usam as mesmas ferramentas do Android Studio: o Android Emulator, os sistemas de build e o Logcat. Também podem usar as "skills" do Android, pacotes de instruções para tarefas longas, como migrar telas em XML para Jetpack Compose ou atualizar para o Android Gradle Plugin 9.
+
+Para começar, o desenvolvedor abre a janela do agente, escolhe o agente desejado, autentica e envia o primeiro pedido. O mesmo caminho existe em Settings > Tools > AI > Agents. O Google diz que a escolha vale para quem precisa de um custo específico ou de um provedor que siga um contrato corporativo.
+
+## Outras novidades da versão
+
+O Rabbit 2 traz mais itens, segundo a mesma publicação:
+
+- **Change Review:** como o agente escreve e refatora código mais rápido, o gargalo passa a ser a revisão. O recurso aponta correções recomendadas e monta um passeio guiado que agrupa as mudanças por tema, em vez de listar arquivos em ordem alfabética.
+- **Gerenciador de skills:** permite descobrir, instalar e controlar as skills do Android e do Firebase que o agente pode usar.
+- **LeakCanary com o agente:** a ferramenta de vazamento de memória passa a explicar a causa e sugerir mudanças de código dentro do Profiler.
+- **Emuladores de Android XR:** os emuladores para óculos de XR, de áudio e de display ficaram estáveis, com ambientes personalizáveis a partir de fotos 360 graus.
+- **Gemini Enterprise:** disponível desde o Rabbit 1, com controles de privacidade e registro de auditoria para equipes.
+
+## Além do IDE: o Android CLI
+
+O Google também levou a mesma abertura ao terminal. De acordo com o The New Stack, o **Android CLI** ganhou plugins oficiais para Claude Code e Codex, que cobrem criação de projeto, gerenciamento de emulador, inspeção de interface e a documentação do Android. A publicação descreve que os agentes passam a investigar bugs, testar mudanças e verificar as próprias correções, com acesso a dispositivos, profilers e relatórios de falhas em produção.
+
+O vice-presidente de produto do Android, Matthew McCullough, enfatizou no anúncio o objetivo de dar liberdade para escolher modelos e agentes, segundo o The New Stack.
+
+## O que ainda não está claro
+
+O blog do Google não informa preços nem regras de cobrança dos agentes: cada um segue as condições de quem o fornece, sem detalhes nas fontes consultadas. Também não há, nas fontes consultadas, dados de desempenho comparando os agentes dentro do IDE. A compatibilidade de cada um depende de suportar o ACP.
+
+## O que isso significa no Brasil
+
+A atualização é uma versão de software e chega a quem baixar o Android Studio estável, sem recorte regional nas fontes. O custo real para o desenvolvedor brasileiro vem do agente escolhido, cobrado normalmente em dólar. Antes de contratar um plano mais caro, vale comparar o que um modelo menor já resolve na rotina do código, como mostra o guia [Modelo menor ou Pro: quando o barato resolve](https://www.thezero.com.br/noticia/modelo-menor-ou-pro).
