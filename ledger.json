@@ -1660,6 +1660,16 @@
       "slug": "android-sms-of-death-correcao-distribuicao",
       "updated_at": "2026-10-30T15:00:40Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfH2sbDkQnV"
+    },
+    "samsung-foundry-2nm-clientes-nuvem": {
+      "article_url": "https://www.thezero.com.br/noticia/samsung-foundry-2nm-clientes-nuvem",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/samsung-foundry-2nm-clientes-nuvem.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/samsung-foundry-2nm-clientes-nuvem.png",
+      "pr": 403,
+      "commit": "005566ed2a4a88acef14fadbf10d8cffe2a8447e",
+      "ig": "https://www.instagram.com/p/DfH9vRKF-FZ/",
+      "slug": "samsung-foundry-2nm-clientes-nuvem",
+      "updated_at": "2026-10-30T16:02:11Z"
     }
   }
 }
