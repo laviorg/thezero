@@ -1627,6 +1627,16 @@
       "slug": "mistral-large-4-pesos-abertos-licenca",
       "updated_at": "2026-10-30T12:00:13Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfHiCp4oLrK"
+    },
+    "chrome-156-corrige-falha-critica-mediastream": {
+      "article_url": "https://www.thezero.com.br/noticia/chrome-156-corrige-falha-critica-mediastream",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/chrome-156-corrige-falha-critica-mediastream.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/chrome-156-corrige-falha-critica-mediastream.png",
+      "pr": 400,
+      "commit": "d90ea22e22c72170fb91d7a7960aa90ff6dba98c",
+      "ig": "https://www.instagram.com/p/DfHpDw1Et4-/",
+      "slug": "chrome-156-corrige-falha-critica-mediastream",
+      "updated_at": "2026-10-30T13:01:35Z"
     }
   }
 }
