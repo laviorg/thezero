@@ -1605,6 +1605,16 @@
       "slug": "binance-incidente-saques-impacto-bilhoes",
       "updated_at": "2026-10-30T11:05:10Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfHbvKuEcNF"
+    },
+    "nvidia-nemotron-transcribe-audio-gravado-portugues": {
+      "article_url": "https://www.thezero.com.br/noticia/nvidia-nemotron-transcribe-audio-gravado-portugues",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/nvidia-nemotron-transcribe-audio-gravado-portugues.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/nvidia-nemotron-transcribe-audio-gravado-portugues.png",
+      "pr": 389,
+      "commit": "8d4e92add13977a5c4ef23fae9fa58feb2b56c89",
+      "ig": "https://www.instagram.com/p/DfHcIjPnXvd/",
+      "slug": "nvidia-nemotron-transcribe-audio-gravado-portugues",
+      "updated_at": "2026-10-30T11:08:34Z"
     }
   }
 }
