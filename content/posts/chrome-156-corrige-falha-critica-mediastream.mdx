@@ -1,0 +1,67 @@
+---
+title: "Chrome 156 corrige mais 21 falhas, uma crítica; instalar o pacote anterior não basta"
+seoTitle: "Chrome 156 corrige 21 falhas e pede nova atualização"
+excerpt: "Google libera novo pacote de segurança para Windows, Mac, Linux e Android. A correção crítica é no MediaStream; distribuição ocorre por etapas."
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-10-30T09:35:42-03:00"
+featured: false
+kicker: "Aplicativos · segurança digital"
+author: "nicholas"
+cover: "/images/posts/chrome-156-corrige-falha-critica-mediastream/cover.jpg"
+coverAlt: "Símbolo circular do Chrome em vermelho, verde, amarelo e azul sobre fundo branco"
+coverCredit: "Source: Google / Divulgação; logotipo oficial da biblioteca de imprensa"
+---
+
+O Google [liberou em 29 de outubro uma nova atualização do Chrome 156](https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02107719452.html) com **21 correções de segurança**, incluindo uma falha classificada como crítica no MediaStream. É um pacote diferente daquele lançado dois dias antes. Quem atualizou o navegador no começo da semana precisa conferir a versão novamente.
+
+A distribuição para Windows, Mac e Linux ocorre ao longo de dias ou semanas. No [Android, o Chrome 156.0.8078.79](https://chromereleases.googleblog.com/2026/10/chrome-for-android-update_090381616.html) chegará pelo Google Play nos próximos dias, segundo o anúncio. Para o leitor brasileiro, a ação é verificar o atualizador oficial, não procurar um instalador enviado em mensagem.
+
+![Símbolo circular do Chrome em vermelho, verde, amarelo e azul sobre fundo branco](/images/posts/chrome-156-corrige-falha-critica-mediastream/cover.jpg)
+*Source: Google / Divulgação. Logotipo oficial da biblioteca de imprensa, não imagem de um ataque.*
+
+<Verdict overrated="Dar a atualização por encerrada porque o Chrome foi atualizado nesta semana" underrated="Conferir o número da versão e reiniciar o navegador para aplicar a correção" />
+
+## Qual versão recebe as correções
+
+No computador, o comunicado identifica **156.0.8078.79/.80 para Windows e Mac** e **156.0.8078.79 para Linux**. Tanto o canal Stable quanto o Extended Stable estão incluídos. Não basta ler apenas Chrome 156: o final do número distingue o pacote novo de builds anteriores.
+
+A nota lista uma vulnerabilidade crítica, 19 de severidade alta e uma média. Essa distribuição vem da contagem dos itens publicados pelo Google. A [cobertura do PiunikaWeb](https://piunikaweb.com/2026/10/30/google-chrome-156-security-update-critical-flaw/) também diferencia o pacote novo da atualização anterior, com 52 correções.
+
+As versões de Android contêm as mesmas correções de segurança das versões correspondentes de desktop, salvo indicação contrária, informa a nota móvel. Isso não autoriza estender os números de versão a iPhone, iPad ou ChromeOS: cada plataforma tem seu próprio fluxo de atualização.
+
+## O que o Google revelou sobre a falha crítica
+
+O item de maior severidade é **CVE-2026-76024**, descrito como corrupção de memória no MediaStream. O Google atribui o relato a Xinyang Ge, em 21 de outubro. O comunicado não apresenta uma demonstração pública do ataque nem diz que essa vulnerabilidade já foi explorada contra usuários.
+
+Há também problemas de uso de memória após liberação, validação inadequada de entrada e outras falhas em componentes como FileSystem, Autofill, CacheStorage, Skia e V8. A lista ajuda a entender por que o pacote é uma atualização de segurança, não apenas uma troca de número sem efeito.
+
+O Google avisa que detalhes e links de bugs podem continuar restritos até que a maioria das pessoas esteja protegida. A regra também pode valer quando a falha está em uma biblioteca usada por outros projetos ainda sem correção. Restrição de detalhes não é, sozinha, evidência de ataque em andamento.
+
+A distinção importa: classificar um problema como crítico justifica priorizar a atualização, mas não permite afirmar que todos os computadores já foram invadidos. Esta matéria não testou a exploração e não reproduz instruções de ataque.
+
+## Como aplicar, sem confundir download com proteção
+
+A [ajuda oficial do Chrome em português](https://support.google.com/chrome/answer/95414?hl=pt-BR) orienta abrir o menu de três pontos, entrar em **Ajuda > Sobre o Google Chrome** e selecionar **Reiniciar** quando a opção estiver disponível. A página verifica atualizações e mostra o número completo da versão.
+
+O navegador normalmente atualiza em segundo plano quando é fechado e reaberto. Quem deixa a mesma sessão aberta por muito tempo pode ter uma atualização pendente. A correção só é aplicada na próxima reinicialização do Chrome, conforme a documentação.
+
+O Google informa que guias e janelas comuns são reabertas, mas janelas anônimas não. Antes de reiniciar, conclua o que depende dessa sessão. No Linux, a orientação oficial é usar o gerenciador de pacotes. No Chromebook, atualize o sistema operacional, sem presumir que o número de desktop vale para o aparelho.
+
+## O que isso significa no Brasil
+
+Usuários brasileiros podem conferir a atualização pelo próprio Chrome, seguindo a documentação oficial em português. O anúncio é por sistema operacional, sem etapa brasileira separada; a distribuição gradual significa que nem todo dispositivo receberá o pacote no mesmo instante.
+
+Não há motivo, nesta notícia, para comprar hardware ou instalar um programa de segurança oferecido por um pop-up. O dado verificável é o pacote publicado pelo Google, com versões determinadas e caminho oficial para aplicação. Se o computador pertence à empresa, a equipe de TI pode controlar esse processo.
+
+Atualizar o navegador é uma camada de proteção, não promessa de imunidade contra todo golpe ou arquivo malicioso. Para separar essa tarefa da decisão de contratar outro software, leia o guia [Antivírus no Windows: precisa pagar em 2026?](https://www.thezero.com.br/noticia/antivirus-windows-2026-precisa-pagar).
+
+<Rule>Confirme a versão completa e reinicie: ter baixado uma correção não é o mesmo que estar usando o navegador corrigido.</Rule>
+
+## Fontes
+
+- [Google — Atualização Stable para desktop de 29 de outubro](https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02107719452.html)
+- [Google — Chrome para Android de 29 de outubro](https://chromereleases.googleblog.com/2026/10/chrome-for-android-update_090381616.html)
+- [Google — Como atualizar o Chrome](https://support.google.com/chrome/answer/95414?hl=pt-BR)
+- [PiunikaWeb — Nova rodada de 21 correções](https://piunikaweb.com/2026/10/30/google-chrome-156-security-update-critical-flaw/)
