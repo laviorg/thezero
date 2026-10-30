@@ -1638,6 +1638,16 @@
       "slug": "chrome-156-corrige-falha-critica-mediastream",
       "updated_at": "2026-10-30T13:01:48Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfHpFhkkaDq"
+    },
+    "toyota-waymo-bz4x-testes-japao-2027": {
+      "article_url": "https://www.thezero.com.br/noticia/toyota-waymo-bz4x-testes-japao-2027",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/toyota-waymo-bz4x-testes-japao-2027.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/toyota-waymo-bz4x-testes-japao-2027.png",
+      "pr": 401,
+      "commit": "a67bb776ccebb0a25bf738ec84bc6b9d2adf5135",
+      "ig": "https://www.instagram.com/p/DfHvr3OlxE_/",
+      "slug": "toyota-waymo-bz4x-testes-japao-2027",
+      "updated_at": "2026-10-30T13:59:27Z"
     }
   }
 }
