@@ -1,0 +1,64 @@
+---
+title: "IA explora correções ainda não distribuídas do Firefox em teste; Mozilla muda estratégia de defesa"
+seoTitle: "Firefox: IA explora intervalo antes da atualização em teste"
+excerpt: "Estudo da Epoch comprometeu seis versões em ambiente controlado. Firefox 159 corrigiu uma falha usada, mas pesquisa não declara o navegador imune."
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-10-30T19:36:50-03:00"
+featured: false
+kicker: "Aplicativos · segurança digital"
+author: "nicholas"
+cover: "/images/posts/firefox-ia-correcoes-janela-vulnerabilidade/cover.jpg"
+coverAlt: "Ambiente interno com balcão laranja, geladeiras, banquetas, sofás laranja e cinza, mesas, pessoas ao fundo e grandes janelas"
+coverCredit: "Mozilla in Europe / Wikimedia Commons / CC BY 2.0; escritório em Londres em 2012, foto recortada e ilustrativa"
+---
+
+Um modelo de IA de pesos abertos conseguiu transformar correções de segurança já públicas, mas ainda não distribuídas aos usuários, em ataques contra **seis versões do Firefox**. O resultado vem de um [estudo da Epoch AI publicado em 29 de outubro](https://epoch.ai/publications/open-weight-models-patch-gap), realizado em ambiente controlado, não de uma confirmação de invasões contra usuários brasileiros.
+
+A pesquisa usou o GLM 5.3 para explorar o chamado *patch gap*, o intervalo entre uma correção ficar visível no código e chegar ao navegador instalado. Em [resposta publicada na mesma data](https://blog.mozilla.org/en/firefox/privacy-security/defending-patch-gap/), a Mozilla apresentou medidas para reduzir esse risco e anunciou uma mudança na organização das correções entre camadas de proteção.
+
+![Ambiente interno com balcão laranja, geladeiras, banquetas, sofás laranja e cinza, mesas, pessoas ao fundo e grandes janelas](/images/posts/firefox-ia-correcoes-janela-vulnerabilidade/cover.jpg)
+*Escritório da Mozilla em Londres, em foto de 2012. Imagem ilustrativa, não do experimento. [Mozilla in Europe / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:London_Mozilla_Workspace.jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Foto recortada.*
+
+<Verdict overrated="tratar uma correção publicada como proteção já instalada no computador" underrated="reduzir o tempo entre descobrir uma falha, distribuir a atualização e reiniciar o navegador" />
+
+## O que o experimento demonstrou
+
+Segundo a Epoch, o modelo criou páginas que, quando abertas nas versões testadas, liam um arquivo local e transmitiam seu conteúdo sem outra interação do usuário. Foram avaliados os seis lançamentos entre 17 de setembro e 26 de outubro de 2026, usando apenas informações disponíveis na data de cada versão.
+
+Os pesquisadores não deram acesso à internet ao modelo. Forneceram diretamente os materiais públicos necessários, dentro de uma infraestrutura isolada, para evitar efeitos sobre terceiros. O trabalho mostra uma capacidade em um teste preparado; não mede quantas pessoas foram atacadas no mundo real.
+
+Depois de montado o ambiente, o custo marginal para comprometer outra versão foi de cerca de US$ 1.000 em uso de APIs. Esse número não é o custo total da pesquisa: a Epoch diz ter gasto mais de US$ 100 mil nos testes com Firefox, incluindo a preparação. A tentativa mais rápida levou 12 horas, dentro de um limite de 48 horas por tentativa.
+
+## A correção do Firefox 159 tem um limite importante
+
+Os ataques dependiam também de uma vulnerabilidade ainda não publicada, redescoberta pelo modelo durante os testes. A Epoch relata ter informado a Mozilla, que corrigiu essa falha no Firefox 159.0, lançado em 27 de outubro. O [boletim de segurança dessa versão](https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/) lista correções de alto impacto, incluindo escape de sandbox.
+
+Isso não permite dizer que a pesquisa comprovou a segurança da versão 159.0. **A Epoch afirma que ainda não confirmou se ataques semelhantes conseguem funcionar depois da correção.** Sua expectativa é que explorar o navegador tenha ficado mais difícil, não impossível.
+
+O estudo tampouco demonstrou execução arbitrária de código nos lançamentos recentes testados: o resultado relatado foi leitura e envio de arquivos. A equipe tentou uma exploração equivalente no Chrome sem conseguir até a publicação, mas ressalva que esse insucesso não prova imunidade do outro navegador.
+
+## Por que uma defesa pode revelar o ataque
+
+Uma mudança no código pode indicar onde estava o defeito, mesmo sem descrevê-lo como vulnerabilidade. A correção ajuda quem atualiza, mas também pode orientar quem procura uma maneira de atingir instalações que continuam com a versão anterior. A IA reduz o trabalho necessário para fazer essa comparação.
+
+A Mozilla diz que já passou a distribuir versões semanalmente, voltou a manter testes de regressão de segurança confidenciais até a entrega da correção e está analisando novos commits para identificar problemas antes de chegarem às versões públicas.
+
+A mudança adicional proposta é separar no tempo correções de diferentes camadas de defesa. Em um ataque que depende de combinar falhas, a intenção é impedir que todos os ingredientes fiquem simultaneamente disponíveis nesse intervalo. A empresa avisa que coordenar essa alteração entre equipes pode levar tempo; não anunciou que a estratégia inteira já está concluída.
+
+## O que isso significa no Brasil
+
+O Firefox 159.0 é a versão que os pesquisadores identificam como contendo a correção da falha não publicada usada no teste. A recomendação prática para quem usa o navegador no Brasil é manter as atualizações em dia, sem confundir um aviso de download com uma atualização já aplicada.
+
+O relatório não apresenta um recorte brasileiro nem demonstra uma campanha de invasão no país. Também não sustenta que trocar de navegador elimina o problema: a janela entre correção pública e distribuição é uma questão de software, não uma característica exclusiva do Firefox.
+
+Atualização e proteção do sistema cumprem papéis diferentes. Nosso [guia sobre antivírus no Windows e quando faz sentido pagar](https://www.thezero.com.br/noticia/antivirus-windows-2026-precisa-pagar) ajuda a separar essas camadas, sem substituir a correção do próprio navegador.
+
+<Rule>Correção no código não protege a versão antiga: a defesa precisa chegar ao navegador que está em uso.</Rule>
+
+## Fontes
+
+- [Epoch AI: estudo sobre modelos abertos e o patch gap](https://epoch.ai/publications/open-weight-models-patch-gap)
+- [Mozilla: medidas contra ataques na janela de atualização](https://blog.mozilla.org/en/firefox/privacy-security/defending-patch-gap/)
+- [Mozilla: vulnerabilidades corrigidas no Firefox 159](https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/)
