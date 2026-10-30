@@ -1,0 +1,68 @@
+---
+title: "Falha em SMS pode derrubar chamadas no Android; correção existe, mas chegada varia por aparelho"
+seoTitle: "SMS pode derrubar chamadas no Android; correção varia"
+excerpt: "Pesquisador divulgou falha sem interação que afeta a telefonia. Código do Android já tem correção; cronograma de cada fabricante precisa ser conferido."
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-10-30T11:38:49-03:00"
+featured: false
+kicker: "Aplicativos · segurança digital"
+author: "nicholas"
+cover: "/images/posts/android-sms-of-death-correcao-distribuicao/cover.jpg"
+coverAlt: "Mão segurando celular preto com tela branca acesa diante de uma parede cinza"
+coverCredit: "Santeri Viinamäki / Wikimedia Commons / CC BY-SA 4.0; foto ilustrativa de 2016, recortada"
+---
+
+Um [relato de segurança divulgado em 29 de outubro](https://smsofdeath.com/), apelidado de SMS of Death, descreve uma falha no Android em que uma mensagem especialmente preparada derruba o processo de telefonia sem interação da vítima. Segundo o pesquisador, isso pode interromper chamadas em andamento, inclusive de emergência, e provocar falhas repetidas no aparelho.
+
+Há uma [correção registrada no código do Android](https://android.googlesource.com/platform/frameworks/opt/telephony/+/735d9672603fa206c4b43cb668c1aa273db70b97). Isso, porém, não confirma que cada celular vendido no Brasil já a recebeu. O ponto prático é conferir as atualizações disponíveis e o suporte do fabricante, sem tratar a existência do patch como prova de proteção de toda a base instalada.
+
+![Mão segurando celular preto com tela branca acesa diante de uma parede cinza](/images/posts/android-sms-of-death-correcao-distribuicao/cover.jpg)
+*Foto ilustrativa de 2016, não aparelho demonstrando a falha. [Santeri Viinamäki / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hand_holding_smartphone_with_blank_white_screen.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Recorte da imagem original; esta adaptação mantém a mesma licença.*
+
+<Verdict overrated="Confundir correção no código com atualização já instalada em todos os celulares" underrated="Conferir patch, fabricante e reinicialização pelo atualizador oficial do aparelho" />
+
+## Não é preciso abrir um link
+
+A análise de Mark B, como o autor se identifica no site técnico, envolve o processamento de mensagens WAP Push pelo sistema de telefonia. O relato afirma que a mensagem não aparece na caixa de entrada e que o problema ocorre sem toque, abertura de aplicativo ou instalação pela vítima.
+
+O impacto descrito é de **negação de serviço**: o processo responsável pela telefonia cai e precisa reiniciar. O pesquisador também relata repetição da falha quando a mensagem permanece pendente de processamento. Isso é diferente de demonstrar roubo de fotos, acesso ao banco ou controle remoto completo do aparelho.
+
+O autor diz ter reproduzido o problema em aparelhos Pixel e Samsung. A [cobertura do Android Authority, publicada em 30 de outubro](https://www.androidauthority.com/android-sms-of-death-google-fix-3729929/), registra os testes relatados e a incerteza sobre a entrega da correção. O The Zero não executou a demonstração nem testou celulares próprios.
+
+## O que a correção permite confirmar
+
+O registro no repositório do Android tem data de autoria de **15 de junho de 2026** e data de integração daquela cópia em **5 de agosto**. A descrição declara a correção de uma negação de serviço remota no processamento de WAP Push.
+
+Em termos gerais, a mudança trata erros durante a leitura da mensagem e remove o registro problemático da fila, para impedir ciclos persistentes de falha. Não é uma correção que o usuário deva aplicar copiando comandos ou instalando uma demonstração de ataque.
+
+A existência dessas datas também impede uma conclusão apressada: o relato público de outubro não significa que os desenvolvedores só começaram a trabalhar no problema agora. Ao mesmo tempo, código corrigido e aparelho atualizado continuam sendo fatos diferentes.
+
+## Por que há datas diferentes nas notícias
+
+O pesquisador afirma que a correção foi distribuída em atualizações de outubro para Android 14 a 17. O Android Authority contrapõe a informação do GrapheneOS sobre patches antecipados e associação ao boletim de novembro, e diz ter pedido esclarecimentos ao Google.
+
+Nas [notas oficiais do GrapheneOS](https://grapheneos.org/releases#2026072900), a versão de prévia de segurança **2026072901** já lista **CVE-2026-58882** entre as correções críticas adicionais. É evidência sobre aquele canal e sistema, não garantia para uma instalação padrão de outra marca.
+
+Por isso, esta notícia não declara que qualquer telefone com atualização de outubro esteja protegido. Também não converte a previsão de boletim futuro numa confirmação de distribuição universal. Versão do Android, data do patch e entrega pelo fabricante precisam ser distinguidas.
+
+## O que isso significa no Brasil
+
+O usuário brasileiro pode conferir a versão e o status de segurança em **Configurações > Sobre o dispositivo > Versão do Android**, seguindo a [ajuda oficial em português](https://support.google.com/android/answer/7680439?hl=pt-BR). O caminho de busca por atualização indicado pelo Google é **Configurações > Sistema > Atualizações de software**, com possíveis diferenças na interface de cada marca.
+
+A documentação diz que os cronogramas variam por dispositivo, fabricante e operadora. Para confirmar a inclusão desta correção num modelo específico, procure as notas e o suporte oficial da marca. Não há, nas fontes consultadas, uma lista validada de todos os aparelhos brasileiros corrigidos.
+
+Não instale aplicativos que prometem testar ou corrigir a falha recebidos por mensagem. Esta matéria não recomenda restauração de fábrica ou comandos que apaguem dados: recuperação técnica é outro procedimento e pode ser destrutiva. Se o aparelho perde a telefonia repetidamente, procure o suporte, sem assumir que todo defeito de chamada seja este ataque.
+
+O suporte de software também pesa na vida útil do celular. O guia [Celular barato bom para WhatsApp e banco](https://www.thezero.com.br/noticia/celular-barato-whatsapp-e-banco) explica por que atualizações de segurança precisam entrar nessa avaliação.
+
+<Rule>O patch existe no código; confirmar a proteção exige saber qual atualização chegou ao seu aparelho.</Rule>
+
+## Fontes
+
+- [Mark B — Relato técnico SMS of Death](https://smsofdeath.com/)
+- [Android — Registro da correção no código](https://android.googlesource.com/platform/frameworks/opt/telephony/+/735d9672603fa206c4b43cb668c1aa273db70b97)
+- [GrapheneOS — Notas de versões e prévias de segurança](https://grapheneos.org/releases#2026072900)
+- [Android Authority — Falha e cronograma em apuração](https://www.androidauthority.com/android-sms-of-death-google-fix-3729929/)
+- [Google — Conferir e atualizar o Android](https://support.google.com/android/answer/7680439?hl=pt-BR)
