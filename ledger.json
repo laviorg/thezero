@@ -1671,6 +1671,16 @@
       "slug": "samsung-foundry-2nm-clientes-nuvem",
       "updated_at": "2026-10-30T16:02:25Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfH9wZwkeuU"
+    },
+    "hubble-nasa-consulta-manutencao-orbita": {
+      "article_url": "https://www.thezero.com.br/noticia/hubble-nasa-consulta-manutencao-orbita",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/hubble-nasa-consulta-manutencao-orbita.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/hubble-nasa-consulta-manutencao-orbita.png",
+      "pr": 404,
+      "commit": "b0f65db78634d7be11fc7fd79ba69d86540203cd",
+      "ig": "https://www.instagram.com/p/DfIE3NKoLFY/",
+      "slug": "hubble-nasa-consulta-manutencao-orbita",
+      "updated_at": "2026-10-30T17:04:29Z"
     }
   }
 }
