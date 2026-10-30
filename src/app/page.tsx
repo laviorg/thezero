@@ -1,6 +1,6 @@
 import { ArticleCard } from "@/components/news/article-card";
 import { CategoryRail } from "@/components/news/category-rail";
-import { ItemListJsonLd } from "@/components/news/json-ld";
+import { HomePageJsonLd, ItemListJsonLd } from "@/components/news/json-ld";
 import { ReviewRail } from "@/components/news/review-rail";
 import { SectionHeading } from "@/components/news/section-heading";
 import { PageShell } from "@/components/layout/page-shell";
@@ -68,6 +68,7 @@ export default function HomePage() {
 
   return (
     <PageShell>
+      <HomePageJsonLd />
       <ItemListJsonLd
         name={`Últimas no ${site.name}`}
         items={listed.map((post) => ({
@@ -77,8 +78,10 @@ export default function HomePage() {
       />
       <div className="newsroom-masthead flex flex-wrap items-end justify-between gap-3 border-b border-border pb-4">
         <div>
-          <p className="eyebrow page-kicker">Newsroom</p>
-          <p className="mt-1 text-sm text-muted">Brasil</p>
+          <p className="eyebrow page-kicker">Newsroom · Brasil</p>
+          <h1 className="mt-1 text-xl font-extrabold tracking-tight text-balance sm:text-2xl">
+            {HOME_TITLE}
+          </h1>
         </div>
         <time className="text-[0.7rem] tracking-wide text-muted uppercase">
           {formatToday()}
@@ -89,7 +92,7 @@ export default function HomePage() {
         useRail ? (
           <section className="newsroom-lead mt-6 grid gap-7 border-b border-border pb-8 lg:grid-cols-12 lg:gap-8 xl:gap-10">
             <div className="lg:col-span-8">
-              <ArticleCard post={featured} layout="lead" headingLevel="h1" />
+              <ArticleCard post={featured} layout="lead" headingLevel="h2" />
             </div>
             <div className="flex flex-col border-t border-border pt-5 lg:col-span-4 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-7">
               <p className="eyebrow mb-2 text-muted">Também nesta edição</p>
@@ -114,14 +117,14 @@ export default function HomePage() {
           </section>
         ) : (
           <section className="mt-6 max-w-4xl border-b border-border pb-8">
-            <ArticleCard post={featured} layout="lead" headingLevel="h1" />
+            <ArticleCard post={featured} layout="lead" headingLevel="h2" />
           </section>
         )
       ) : (
         <section className="max-w-2xl py-8 sm:py-10">
-          <h1 className="page-title font-extrabold text-balance">
+          <h2 className="page-title font-extrabold text-balance">
             O newsroom ainda está vazio.
-          </h1>
+          </h2>
           <p className="lede mt-4">
             Coloca o primeiro MDX em{" "}
             <code className="text-accent">content/posts</code>.

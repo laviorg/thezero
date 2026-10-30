@@ -5,8 +5,8 @@ import {
   publisherLogoUrl,
   websiteId,
 } from "@/lib/seo";
-import { site } from "@/lib/site";
-import { ABOUT_TITLE, CONTACT_TITLE } from "@/lib/titles";
+import { absoluteUrl, site } from "@/lib/site";
+import { ABOUT_TITLE, CONTACT_TITLE, HOME_TITLE } from "@/lib/titles";
 
 function jsonLdHtml(data: unknown) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
@@ -336,6 +336,27 @@ export function BreadcrumbJsonLd({
           name: item.name,
           item: item.url,
         })),
+      }}
+    />
+  );
+}
+
+/** Home as the brand entity's page: WebPage about the newsroom at `/`. */
+export function HomePageJsonLd() {
+  const url = absoluteUrl("/");
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: HOME_TITLE,
+        description: site.description,
+        inLanguage: site.language,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": organizationId },
+        publisher: { "@id": organizationId },
       }}
     />
   );
