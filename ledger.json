@@ -1594,6 +1594,16 @@
       "slug": "torchtpu-codigo-aberto-pytorch-roda-nativo-tpu-google",
       "updated_at": "2026-10-24T22:20:31Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/De5MQKWmeiy"
+    },
+    "binance-incidente-saques-impacto-bilhoes": {
+      "article_url": "https://www.thezero.com.br/noticia/binance-incidente-saques-impacto-bilhoes",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/binance-incidente-saques-impacto-bilhoes.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/binance-incidente-saques-impacto-bilhoes.png",
+      "pr": 398,
+      "commit": "1bcd530f8e17bfd93fe485b2f255ca797b124f61",
+      "ig": "https://www.instagram.com/p/DfHbuIEFyiK/",
+      "slug": "binance-incidente-saques-impacto-bilhoes",
+      "updated_at": "2026-10-30T11:04:56Z"
     }
   }
 }
