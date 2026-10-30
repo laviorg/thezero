@@ -1704,6 +1704,16 @@
       "slug": "apple-alertas-spyware-99-paises",
       "updated_at": "2026-10-30T19:01:12Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfISN0TIOAy"
+    },
+    "openai-google-robots-treinamento-ia": {
+      "article_url": "https://www.thezero.com.br/noticia/openai-google-robots-treinamento-ia",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-google-robots-treinamento-ia.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-google-robots-treinamento-ia.png",
+      "pr": 407,
+      "commit": "24a9c8b76c9b875dd304469c1a5c76da8da5a8d7",
+      "ig": "https://www.instagram.com/p/DfIZlELm2cX/",
+      "slug": "openai-google-robots-treinamento-ia",
+      "updated_at": "2026-10-30T20:05:32Z"
     }
   }
 }
