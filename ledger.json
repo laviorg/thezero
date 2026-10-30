@@ -1726,6 +1726,16 @@
       "slug": "anatel-infraestrutura-critica-consulta-publica",
       "updated_at": "2026-10-30T21:07:32Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfIgq2vGDSR"
+    },
+    "intel-receita-datacenter-pcs-trimestre": {
+      "article_url": "https://www.thezero.com.br/noticia/intel-receita-datacenter-pcs-trimestre",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/intel-receita-datacenter-pcs-trimestre.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/intel-receita-datacenter-pcs-trimestre.png",
+      "pr": 409,
+      "commit": "b5dc9b2a3a8cbaf62bcb5a9a5d8ce999a2e3ee2f",
+      "ig": "https://www.instagram.com/p/DfImknjjDqj/",
+      "slug": "intel-receita-datacenter-pcs-trimestre",
+      "updated_at": "2026-10-30T21:59:02Z"
     }
   }
 }
