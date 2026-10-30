@@ -1715,6 +1715,16 @@
       "slug": "openai-google-robots-treinamento-ia",
       "updated_at": "2026-10-30T20:05:45Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfIZmp8lCqD"
+    },
+    "anatel-infraestrutura-critica-consulta-publica": {
+      "article_url": "https://www.thezero.com.br/noticia/anatel-infraestrutura-critica-consulta-publica",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/anatel-infraestrutura-critica-consulta-publica.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/anatel-infraestrutura-critica-consulta-publica.png",
+      "pr": 408,
+      "commit": "6033f495bfb26a48c522966c4255aae63e2314b7",
+      "ig": "https://www.instagram.com/p/DfIgptCF94t/",
+      "slug": "anatel-infraestrutura-critica-consulta-publica",
+      "updated_at": "2026-10-30T21:07:16Z"
     }
   }
 }
