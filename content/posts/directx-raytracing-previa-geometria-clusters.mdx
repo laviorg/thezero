@@ -1,0 +1,61 @@
+---
+title: "Microsoft amplia ray tracing no DirectX, mas ganhos de demonstração não valem para todo jogo"
+seoTitle: "DirectX amplia ray tracing; ganhos ainda são de demonstração"
+seoDescription: "Prévia do DirectX usa clusters e atualização parcial de cenas para reduzir trabalho da GPU. Suporte depende de drivers e adoção pelos desenvolvedores."
+excerpt: 'Microsoft lança prévia de ray tracing com geometria em clusters. Ganhos grandes vêm de demonstração específica, não de jogos já instalados.'
+category: computadores
+subcategory: componentes
+format: noticia
+date: "2026-10-30T01:35:24-03:00"
+featured: false
+kicker: "Computadores · componentes"
+author: "nicholas"
+cover: "/images/posts/directx-raytracing-previa-geometria-clusters/cover.jpg"
+coverAlt: "Imagem renderizada de um vale com floresta, paredão rochoso e curso de água, em demonstração gráfica de ray tracing"
+coverCredit: "Nvidia / Divulgação via Microsoft. Cena renderizada de demonstração, não fotografia"
+---
+
+A Microsoft [publicou uma prévia de atualização do DirectX Raytracing](https://devblogs.microsoft.com/directx/clas-ptlas-preview/) que procura diminuir o custo de manter cenas detalhadas e em movimento. O anúncio acompanha o Agility SDK 1.722 Preview, apresentado em 28 de outubro. Para quem joga no PC, a ressalva importa mais que o número chamativo de desempenho: os recursos precisam de implementação nos jogos e drivers compatíveis, não são uma aceleração automática da biblioteca instalada.
+
+![Imagem renderizada de um vale com floresta, paredão rochoso e curso de água, em demonstração gráfica de ray tracing](/images/posts/directx-raytracing-previa-geometria-clusters/cover.jpg)
+*Nvidia / Divulgação via Microsoft. Cena renderizada do exemplo dx12_forest_ray_tracing, não fotografia.*
+
+<Verdict overrated="Ler um ganho extremo de demonstração como promessa de mais FPS em todos os jogos" underrated="Atualizar só partes alteradas de uma cena, em vez de refazer trabalho inteiro" />
+
+## Onde o ray tracing gasta trabalho
+
+Antes de calcular reflexos e sombras, o motor precisa organizar a geometria para descobrir onde os raios encontram objetos. Segundo a Microsoft, animações, carregamento de cenário e mudanças frequentes podem tornar essa preparação cara em ambientes grandes e detalhados.
+
+A novidade chamada **Clustered Geometry** divide a construção em pequenos grupos reutilizáveis de triângulos. A intenção é evitar reconstruir toda a estrutura de um objeto quando isso não é necessário. Com preparação mais eficiente, pode ficar viável usar no ray tracing a mesma geometria detalhada exibida na imagem, em vez de uma versão simplificada.
+
+O segundo recurso, **Partitioned TLAS**, atua no conjunto da cena. Ele concentra as atualizações nas regiões que mudaram e preserva os dados das demais. Os dois recursos podem ser usados juntos ou separadamente. A atualização também permite que a GPU forneça dados para construir essas estruturas, reduzindo a necessidade de descrever tudo novamente no processador.
+
+## O teste impressiona, mas não é uma promessa
+
+Na demonstração publicada pela Microsoft, uma configuração com Radeon RX 9070 passou de **1,2 para 79 quadros por segundo** ao trocar a reconstrução tradicional por geometria em clusters. O consumo total de memória das estruturas de aceleração caiu de **7.519 para 774 MiB**. São dados da própria empresa, em uma cena e configuração específicas.
+
+O mesmo teste teve aumento na memória temporária usada durante a construção. A Microsoft adverte explicitamente que jogos não devem ser tratados como beneficiários daquele mesmo salto: o resultado varia com carga, configuração e GPU.
+
+O [Wccftech](https://wccftech.com/microsoft-unveils-biggest-directx-raytracing-upgrade-since-2018-bringing-more-efficient-ray-tracing-to-nvidia-amd-intel-gpus/) também destaca essa distinção. A tecnologia pode reduzir trabalho em cenários complexos, mas não há base para aplicar o multiplicador da demonstração a um jogo comercial ou a uma placa diferente.
+
+## Quais placas estão na lista
+
+A documentação da prévia lista todas as GPUs RTX, Radeon RX 9000, Intel Arc série B e gráficos de determinados Core Ultra, incluindo as famílias 200V e Series 3. Isso é suporte anunciado para esta implementação, não confirmação de que qualquer placa com ray tracing já está habilitada.
+
+A Microsoft diz que os recursos não exigem capacidades fundamentalmente novas além do ray tracing existente. Ainda assim, cada fabricante precisa implementar e validar drivers. Para algumas GPUs antigas, a disponibilidade continua indefinida. Desenvolvedores também precisam combinar os componentes corretos do SDK de prévia e habilitar o modo de desenvolvedor do Windows.
+
+Separadamente, o [Agility SDK 1.620](https://devblogs.microsoft.com/directx/agilitysdk-1-620-retail-and-1-722-preview/) chega como versão estável, com ferramentas de diagnóstico e melhorias na entrega de shaders. Não se deve confundir esses recursos já liberados com as mudanças de ray tracing que seguem em prévia.
+
+## O que isso significa no Brasil
+
+Quem já tem uma placa da lista pode acompanhar a evolução sem assumir que precisa comprar outra GPU agora. O anúncio é de ferramentas para desenvolvedores, sem benefício automático prometido para jogos existentes. O próximo sinal útil será a adoção em títulos e drivers, seguida de testes comparáveis no mesmo hardware.
+
+Para uma compra, capacidade e compatibilidade atuais continuam sendo dados mais seguros que uma demonstração isolada. O guia [Antes de comprar placa de vídeo na Black Friday de 2026](https://www.thezero.com.br/noticia/antes-de-comprar-placa-de-video-black-friday-2026) ajuda a separar necessidade de upgrade e promessa técnica.
+
+<Rule>Uma demonstração mostra o potencial da técnica, não o desempenho garantido do seu próximo jogo.</Rule>
+
+## Fontes
+
+- [Microsoft — Prévia de Clustered Geometry e Partitioned TLAS](https://devblogs.microsoft.com/directx/clas-ptlas-preview/)
+- [Microsoft — Agility SDK 1.620 e 1.722 Preview](https://devblogs.microsoft.com/directx/agilitysdk-1-620-retail-and-1-722-preview/)
+- [Wccftech — Atualização do DirectX Raytracing](https://wccftech.com/microsoft-unveils-biggest-directx-raytracing-upgrade-since-2018-bringing-more-efficient-ray-tracing-to-nvidia-amd-intel-gpus/)
