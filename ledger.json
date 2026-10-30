@@ -1737,6 +1737,16 @@
       "slug": "intel-receita-datacenter-pcs-trimestre",
       "updated_at": "2026-10-30T21:59:17Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfImmIWj8O8"
+    },
+    "firefox-ia-correcoes-janela-vulnerabilidade": {
+      "article_url": "https://www.thezero.com.br/noticia/firefox-ia-correcoes-janela-vulnerabilidade",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/firefox-ia-correcoes-janela-vulnerabilidade.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/firefox-ia-correcoes-janela-vulnerabilidade.png",
+      "pr": 410,
+      "commit": "54440289ee1a3b04787a03ca4a5c9125e29cb941",
+      "ig": "https://www.instagram.com/p/DfIt67IAVHa/",
+      "slug": "firefox-ia-correcoes-janela-vulnerabilidade",
+      "updated_at": "2026-10-30T23:03:17Z"
     }
   }
 }
