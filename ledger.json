@@ -1649,6 +1649,16 @@
       "slug": "toyota-waymo-bz4x-testes-japao-2027",
       "updated_at": "2026-10-30T13:59:43Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfHvteIkVms"
+    },
+    "android-sms-of-death-correcao-distribuicao": {
+      "article_url": "https://www.thezero.com.br/noticia/android-sms-of-death-correcao-distribuicao",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/android-sms-of-death-correcao-distribuicao.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/android-sms-of-death-correcao-distribuicao.png",
+      "pr": 402,
+      "commit": "89fab9cb86727f4d2ee72c82ef683b9c9b65365b",
+      "ig": "https://www.instagram.com/p/DfH2rZxF2DW/",
+      "slug": "android-sms-of-death-correcao-distribuicao",
+      "updated_at": "2026-10-30T15:00:29Z"
     }
   }
 }
