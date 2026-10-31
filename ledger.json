@@ -1979,6 +1979,16 @@
       "slug": "aura-autopilot-testes-jogos-benchmark",
       "updated_at": "2026-10-31T20:06:27Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfK-ebMGQN4"
+    },
+    "sculpt-os-2610-microkernel-proprio": {
+      "article_url": "https://www.thezero.com.br/noticia/sculpt-os-2610-microkernel-proprio",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/sculpt-os-2610-microkernel-proprio.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/sculpt-os-2610-microkernel-proprio.png",
+      "pr": 432,
+      "commit": "f8a8c709a0590514e4fbf94bf0f9f47f08a96ef0",
+      "ig": "https://www.instagram.com/p/DfLFPZhlya9/",
+      "slug": "sculpt-os-2610-microkernel-proprio",
+      "updated_at": "2026-10-31T21:05:29Z"
     }
   }
 }
