@@ -1891,6 +1891,16 @@
       "slug": "qubit-leitura-milimetrica-fidelidade",
       "updated_at": "2026-10-31T12:02:27Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfKHF79kaYH"
+    },
+    "apple-intelligence-china-qwen-testes": {
+      "article_url": "https://www.thezero.com.br/noticia/apple-intelligence-china-qwen-testes",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/apple-intelligence-china-qwen-testes.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/apple-intelligence-china-qwen-testes.png",
+      "pr": 424,
+      "commit": "3f0d284421638ad61001e13e6fdc70db2422e089",
+      "ig": "https://www.instagram.com/p/DfKObUCoFws/",
+      "slug": "apple-intelligence-china-qwen-testes",
+      "updated_at": "2026-10-31T13:06:34Z"
     }
   }
 }
