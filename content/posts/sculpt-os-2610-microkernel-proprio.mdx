@@ -1,0 +1,66 @@
+---
+title: "Sculpt OS 26.10 adota microkernel próprio; compatibilidade ainda exige escolher o hardware"
+seoTitle: "Sculpt OS 26.10: microkernel próprio e limites de hardware"
+excerpt: "Sistema do projeto Genode troca a base padrão, abandona XML e traz VirtualBox 7. Documentação ainda pede atenção ao PC e ao Secure Boot."
+category: aplicativos
+subcategory: sistemas-operacionais
+format: noticia
+date: "2026-10-31T17:36:16-03:00"
+featured: false
+kicker: "Aplicativos · sistemas operacionais"
+author: "nicholas"
+cover: "/images/posts/sculpt-os-2610-microkernel-proprio/cover.jpg"
+coverAlt: "Foto ilustrativa de notebook preto ThinkPad aberto sobre mesa de madeira, com tela escura, teclado com botão vermelho e radiador branco ao fundo; não mostra o Sculpt OS"
+coverCredit: "Robert Kloosterhuis / Wikimedia Commons / CC BY 2.0; ThinkPad X220 fotografado em 2011, imagem ilustrativa, redimensionada, com fundo ampliado e desfocado, não mostra o Sculpt OS"
+---
+
+O **Sculpt OS 26.10**, lançado em **30 de outubro**, passou a usar o microkernel próprio do projeto **Genode** como base padrão. A atualização também conclui a troca do formato de configuração XML por HID, incorpora VirtualBox 7 e permite executar o ambiente de desenvolvimento Goa diretamente no sistema, sem virtualização. O [anúncio oficial](https://genode.org/news/sculpt-os-release-26.10) apresenta essas mudanças como avanços de arquitetura, não como uma distribuição Linux nova.
+
+O salto não elimina a etapa mais importante para quem pretende experimentar: conferir a máquina. A [documentação da versão](https://genode.org/documentation/articles/sculpt-26-10) descreve um conjunto específico de componentes de PC compatíveis e informa que a imagem de inicialização não tem assinatura para Secure Boot. É uma novidade para quem acompanha sistemas alternativos, não uma recomendação automática de substituir o computador de trabalho.
+
+![Foto ilustrativa de notebook preto ThinkPad aberto sobre mesa de madeira, com tela escura, teclado com botão vermelho e radiador branco ao fundo; não mostra o Sculpt OS](/images/posts/sculpt-os-2610-microkernel-proprio/cover.jpg)
+*ThinkPad X220 fotografado em 2011, imagem ilustrativa, não mostra o Sculpt OS. [Robert Kloosterhuis / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ThinkPad_X220.jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Foto redimensionada, com fundo ampliado e desfocado.*
+
+<Verdict overrated="tratar um novo microkernel como garantia de compatibilidade com qualquer PC" underrated="ler os requisitos e experimentar sem substituir o sistema principal" />
+
+## Uma base própria, não mais um Linux
+
+O Sculpt é um sistema de desktop baseado em componentes do Genode. Sua interface administrativa permite visualizar as relações entre componentes, conectar serviços e controlar recursos. Microkernel, drivers isolados e máquinas virtuais fazem parte dessa organização, descrita na [página de download](https://genode.org/download/sculpt).
+
+A diferença da versão 26.10 é deixar de depender, por padrão, de um microkernel de terceiros. Segundo a equipe, a base própria foi projetada para as necessidades do Genode e do Sculpt, incluindo escalonamento de CPU e gerenciamento da memória do kernel. Essas são justificativas técnicas do projeto, não resultados de um teste de desempenho feito pelo The Zero.
+
+Isso também ajuda a interpretar outra linha do anúncio: os componentes de drivers baseados em Linux avançaram da versão 6.12 para a 6.18. Aproveitar código de drivers não transforma o sistema inteiro em uma distribuição Linux. O kernel que sustenta a edição padrão agora é o do próprio Genode.
+
+## O que muda no uso e na manutenção
+
+A migração de XML para **HID**, o formato de configuração do Genode, chegou ao fim. A versão anterior aceitava os dois; a nova remove a compatibilidade antiga. Quem mantém configurações próprias precisa levar essa mudança em conta, em vez de presumir que todo arquivo antigo continuará funcionando.
+
+O **VirtualBox 7** substitui a versão 6 nos componentes de virtualização. A proposta é melhorar a convivência com sistemas convidados recentes. O documento continua exigindo virtualização assistida por hardware para esse uso, portanto não basta copiar uma imagem e esperar que qualquer máquina virtual funcione.
+
+Outra alteração está no driver controlador de USB, que pode ser iniciado, removido e reiniciado como componente separado. A equipe relaciona isso à recuperação de falhas e a futuras possibilidades de gerenciamento de energia e atualização de drivers. Não é uma promessa de imunidade a erros ou de que todo periférico USB passará a ser suportado.
+
+Há ainda ponteiro ajustável, melhorias com webcams e teclado britânico. A [OSnews](https://www.osnews.com/story/146275/sculpt-os-26-10-releases/) destaca que as mudanças principais estão na estrutura do sistema. A [Phoronix](https://www.phoronix.com/news/Sculpt-OS-26.10) também confirma a adoção do microkernel próprio e do VirtualBox 7.
+
+## Desenvolver no próprio sistema ainda é um começo
+
+O Goa SDK agora pode rodar diretamente no Sculpt, sem depender de uma máquina virtual. O anúncio cita ferramentas como GCC, Binutils, Git, Curl, Make e CMake. A própria equipe descreve esse ambiente como jovem e ainda pouco testado pelo tempo.
+
+O valor está em reduzir a distância entre usar o sistema e desenvolver software para ele. Não há, nas fontes consultadas, benchmark que autorize afirmar que esse caminho é mais rápido que um ambiente Linux ou Windows. Também não se trata de compatibilidade automática com todos os programas dessas plataformas.
+
+## O que isso significa no Brasil
+
+A imagem pública do Sculpt OS 26.10 para PC está disponível para download, acompanhada da documentação. Há também variantes para PinePhone, descrita como experimental, e para a versão i.MX8 do notebook MNT Reform. O material não apresenta uma edição brasileira nem amplia a compatibilidade para qualquer aparelho vendido no país.
+
+Para PC, o manual aponta hardware Intel com gráficos Intel, rede E1000 ou Intel sem fio e armazenamento AHCI/NVMe, além de citar notebooks Lenovo X e T entre os mais testados. Também informa que a imagem não é assinada para Secure Boot. Não vale alterar essa proteção no computador principal apenas para seguir a novidade.
+
+Se a necessidade é melhorar uma máquina de uso diário, e não estudar outra arquitetura, o guia de [ajustes para Windows 11 em PC fraco](https://www.thezero.com.br/noticia/windows-11-pc-fraco-o-que-desligar) oferece um ponto de partida menos radical. No Sculpt, a decisão começa pela lista de hardware, não pelo tamanho da novidade.
+
+<Rule>Kernel novo não dispensa conferir o computador em que ele vai rodar.</Rule>
+
+## Fontes
+
+- [genode.org — Anúncio do Sculpt OS 26.10](https://genode.org/news/sculpt-os-release-26.10)
+- [genode.org — Download do Sculpt OS](https://genode.org/download/sculpt)
+- [genode.org — Documentação do Sculpt OS 26.10](https://genode.org/documentation/articles/sculpt-26-10)
+- [osnews.com — Sculpt OS 26.10 releases](https://www.osnews.com/story/146275/sculpt-os-26-10-releases/)
+- [phoronix.com — Sculpt OS 26.10 e o microkernel próprio](https://www.phoronix.com/news/Sculpt-OS-26.10)
