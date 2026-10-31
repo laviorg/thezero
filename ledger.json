@@ -1847,6 +1847,16 @@
       "slug": "gemini-slides-edicao-lote-ingles",
       "updated_at": "2026-10-31T08:04:43Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfJr4i4lo4p"
+    },
+    "windows-search-acoes-teste-android": {
+      "article_url": "https://www.thezero.com.br/noticia/windows-search-acoes-teste-android",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/windows-search-acoes-teste-android.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/windows-search-acoes-teste-android.png",
+      "pr": 420,
+      "commit": "a38a34a497f6d24011d6f9bcec320d1fea650267",
+      "ig": "https://www.instagram.com/p/DfJyevLDo0y/",
+      "slug": "windows-search-acoes-teste-android",
+      "updated_at": "2026-10-31T09:02:18Z"
     }
   }
 }
