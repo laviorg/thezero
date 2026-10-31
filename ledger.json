@@ -2001,6 +2001,16 @@
       "slug": "sentinel-6b-servico-nivel-mar",
       "updated_at": "2026-10-31T22:07:59Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfLMYc2iTWr"
+    },
+    "planassist-teste-licenciamento-humano": {
+      "article_url": "https://www.thezero.com.br/noticia/planassist-teste-licenciamento-humano",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/planassist-teste-licenciamento-humano.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/planassist-teste-licenciamento-humano.png",
+      "pr": 434,
+      "commit": "30128869a2af93347f5c0902a6bb6f2e888435ac",
+      "ig": "https://www.instagram.com/p/DfLS6AIEWPO/",
+      "slug": "planassist-teste-licenciamento-humano",
+      "updated_at": "2026-10-31T23:04:54Z"
     }
   }
 }
