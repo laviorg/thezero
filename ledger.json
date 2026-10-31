@@ -1803,6 +1803,16 @@
       "slug": "applebees-senha-aplicativo-dados-expostos",
       "updated_at": "2026-10-31T04:04:28Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfJQY2Ujuup"
+    },
+    "nothing-os-5-android-17-lotes": {
+      "article_url": "https://www.thezero.com.br/noticia/nothing-os-5-android-17-lotes",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/nothing-os-5-android-17-lotes.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/nothing-os-5-android-17-lotes.png",
+      "pr": 416,
+      "commit": "78f753d0da33c279c453a2086353d0e48e528ffc",
+      "ig": "https://www.instagram.com/p/DfJXX3_F0bV/",
+      "slug": "nothing-os-5-android-17-lotes",
+      "updated_at": "2026-10-31T05:05:28Z"
     }
   }
 }
