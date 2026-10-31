@@ -1759,6 +1759,16 @@
       "slug": "tracers-reconexao-magnetica-primeiros-resultados",
       "updated_at": "2026-10-31T00:01:19Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfI0j7NjzXD"
+    },
+    "elevenlabs-sfx-v3-acesso-limitado": {
+      "article_url": "https://www.thezero.com.br/noticia/elevenlabs-sfx-v3-acesso-limitado",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/elevenlabs-sfx-v3-acesso-limitado.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/elevenlabs-sfx-v3-acesso-limitado.png",
+      "pr": 412,
+      "commit": "c06259af8777cc82899261807120a852ec4bc822",
+      "ig": "https://www.instagram.com/p/DfI7i6eFNBY/",
+      "slug": "elevenlabs-sfx-v3-acesso-limitado",
+      "updated_at": "2026-10-31T01:02:17Z"
     }
   }
 }
