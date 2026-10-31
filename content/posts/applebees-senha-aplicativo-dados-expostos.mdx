@@ -1,0 +1,64 @@
+---
+title: "Applebee's corrige senha de banco de dados exposta no app; número de clientes afetados é desconhecido"
+seoTitle: "Applebee's corrige senha exposta no app Android"
+excerpt: "TechCrunch verificou credencial no aplicativo e acesso a uma conta de teste. Empresa diz não ter encontrado evidência de acesso não autorizado."
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-10-31T00:36:03-03:00"
+featured: false
+kicker: "Aplicativos · segurança digital"
+author: "nicholas"
+cover: "/images/posts/applebees-senha-aplicativo-dados-expostos/cover.jpg"
+coverAlt: "Parte superior de fachada marrom com letreiro Applebee's e símbolo de maçã vermelha, telhado inclinado e parte de toldo vermelho à esquerda"
+coverCredit: "Tdorante10 / Wikimedia Commons / CC BY-SA 4.0; restaurante em Queens em 2022, foto ilustrativa recortada"
+---
+
+A rede **Applebee's** corrigiu uma falha que deixava uma senha de acesso ao banco de dados de clientes dentro de seu aplicativo Android, segundo [apuração original da TechCrunch publicada em 30 de outubro](https://techcrunch.com/2026/10/30/applebees-exposed-customers-personal-data-after-leaving-database-password-in-app/). O veículo afirma ter verificado a credencial no código e confirmado o acesso usando uma conta criada com dados fictícios. O número de pessoas cujas informações ficaram acessíveis não foi divulgado.
+
+A Dine Brands, controladora da rede, disse à publicação que investigou o problema e não havia encontrado evidência de acesso não autorizado. Isso é uma declaração sobre o estado da investigação, não uma comprovação de que ninguém acessou a base. A reportagem diz que a empresa não respondeu se possui registros de servidor capazes de esclarecer acessos anteriores. Não há, nessa apuração, confirmação de clientes brasileiros afetados.
+
+![Parte superior de fachada marrom com letreiro Applebee's e símbolo de maçã vermelha, telhado inclinado e parte de toldo vermelho à esquerda](/images/posts/applebees-senha-aplicativo-dados-expostos/cover.jpg)
+*Restaurante em Queens, Nova York, em 2022, imagem ilustrativa, não registro do incidente. [Tdorante10 / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fresh_Meadows_Place_td_(2022-09-13)_04_-_Applebee%27s.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Foto recortada; adaptação sob a mesma licença.*
+
+<Verdict overrated="confundir ausência de evidência divulgada com prova de que não houve acesso" underrated="tirar credenciais privilegiadas do aplicativo distribuído ao público" />
+
+## O que o veículo verificou
+
+A descoberta é atribuída a Robert Wiggins, pesquisador da What Security. Segundo a TechCrunch, ele encontrou a credencial no aplicativo Android com auxílio de ferramentas de IA e identificou que ela permitia consultar o banco de clientes.
+
+A publicação relata duas verificações próprias: examinou o aplicativo para confirmar a presença da senha e criou uma conta com informações fictícias. Wiggins conseguiu recuperar esses dados na base, demonstrando o acesso sem precisar usar o cadastro real de outro cliente para essa prova.
+
+A possibilidade de alterar registros, além de lê-los, é uma afirmação do pesquisador reproduzida pelo veículo. Não fizemos testes no aplicativo nem acessamos a base. A reportagem foi publicada apenas depois de a correção ser confirmada, segundo a própria TechCrunch.
+
+## Quais informações estavam acessíveis
+
+O relato lista nomes, endereços de e-mail e seu estado de verificação, datas de nascimento, telefones e códigos postais. Também menciona condição de veterano, número de acessos, data de criação da conta e endereço IP do login mais recente.
+
+Isso descreve os campos encontrados, não estabelece quantas pessoas tiveram seus dados copiados por terceiros. A TechCrunch informa que o pesquisador não contou todos os registros porque isso exigiria acessar desnecessariamente informações de clientes.
+
+A investigação também não esclareceu há quanto tempo a credencial estava no aplicativo. Portanto, não há base para transformar o tamanho do programa de fidelidade em quantidade confirmada de vítimas desse caso. A existência de uma vulnerabilidade e a dimensão de sua exploração são perguntas diferentes.
+
+## Por que uma senha dentro do app é um problema
+
+A [classificação CWE-798 da MITRE](https://cwe.mitre.org/data/definitions/798.html) descreve a inclusão de credenciais fixas no código como uma fraqueza de segurança. Uma das variantes ocorre quando um programa distribuído ao usuário guarda a senha usada para se conectar a outro sistema.
+
+A credencial não se torna privada apenas porque está dentro de um aplicativo compilado. A MITRE destaca o risco de extração em sistemas do lado do cliente e recomenda proteger as credenciais e limitar os privilégios concedidos no serviço de destino.
+
+A [OWASP também trata de chaves de API embutidas em pacotes de aplicativos](https://mas.owasp.org/MASWE/MASVS-AUTH/MASWE-0005/), que podem ser extraídas por engenharia reversa. Chave de API e senha de banco não são necessariamente a mesma coisa; o ponto comum é entregar ao público um segredo que dá acesso a um serviço remoto.
+
+## O que isso significa no Brasil
+
+O caso publicado não identifica contas brasileiras atingidas, nem permite concluir que qualquer cadastro local da marca pertença à mesma base. O alcance geográfico permanece sem esclarecimento nessas fontes.
+
+Para desenvolvedores, a lição verificável é arquitetural: um aplicativo distribuído não deve carregar uma credencial compartilhada que permita consultar dados de outros usuários. Trocar a senha pessoal de um cliente não corrige, por si só, uma senha de serviço embutida pelo fornecedor.
+
+Para o leitor, manter senhas diferentes entre serviços continua sendo uma questão separada dessa correção empresarial. Nosso [guia de gerenciador de senhas grátis ou pago](https://www.thezero.com.br/noticia/gerenciador-de-senhas-gratis-vs-pago) explica essa organização sem prometer que ela elimina uma falha no banco do fornecedor.
+
+<Rule>A falha foi corrigida; o total de pessoas expostas e a existência de acessos anteriores continuam sem resposta pública.</Rule>
+
+## Fontes
+
+- [TechCrunch: apuração e verificação da falha no Applebee's](https://techcrunch.com/2026/10/30/applebees-exposed-customers-personal-data-after-leaving-database-password-in-app/)
+- [MITRE CWE-798: uso de credenciais fixas no código](https://cwe.mitre.org/data/definitions/798.html)
+- [OWASP MASWE-0005: chaves de API dentro de aplicativos](https://mas.owasp.org/MASWE/MASVS-AUTH/MASWE-0005/)
