@@ -1990,6 +1990,16 @@
       "slug": "sculpt-os-2610-microkernel-proprio",
       "updated_at": "2026-10-31T21:05:40Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfLFQjulJr-"
+    },
+    "sentinel-6b-servico-nivel-mar": {
+      "article_url": "https://www.thezero.com.br/noticia/sentinel-6b-servico-nivel-mar",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/sentinel-6b-servico-nivel-mar.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/sentinel-6b-servico-nivel-mar.png",
+      "pr": 433,
+      "commit": "8a2d1ec0397d3f90fadc084dd37742742a980014",
+      "ig": "https://www.instagram.com/p/DfLMW34GqSU/",
+      "slug": "sentinel-6b-servico-nivel-mar",
+      "updated_at": "2026-10-31T22:07:43Z"
     }
   }
 }
