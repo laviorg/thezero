@@ -1,0 +1,68 @@
+---
+title: "Edge promete abrir até 33% mais rápido no Windows, mas só quando já está em execução"
+seoTitle: "Edge abre até 33% mais rápido se já estiver em execução"
+excerpt: "Microsoft reduz um processo intermediário ao abrir o Edge de novo. Ganhos divulgados não medem a primeira abertura nem a velocidade das páginas."
+category: aplicativos
+subcategory: sistemas-operacionais
+format: noticia
+date: "2026-10-30T23:35:00-03:00"
+featured: false
+kicker: "Aplicativos · sistemas operacionais"
+author: "nicholas"
+cover: "/images/posts/edge-abertura-acelerada-processo-ativo/cover.jpg"
+coverAlt: "Entrada de prédio com letreiro Microsoft entre arbustos, árvores à esquerda, placa preta com número 92 e poste branco e vermelho à direita"
+coverCredit: "Lectrician1 / Wikimedia Commons / CC BY-SA 4.0; centro de visitantes da Microsoft em 2022, foto ilustrativa recortada"
+---
+
+A Microsoft anunciou uma mudança para abrir o **Edge** mais depressa no Windows: o sistema passa a avisar diretamente um processo do navegador que já está rodando, sem criar um intermediário para encontrá-lo. No [anúncio de 29 de outubro](https://blogs.windows.com/msedgedev/2026/10/29/edge-is-faster-on-windows-with-accelerated-app-launches/), a empresa fala em ganho de 15% na abertura para a maioria dos usuários e de até 33% sob multitarefa intensa. A ressalva está na própria nota: a comparação vale **quando o Edge já está em execução**.
+
+Isso não é uma promessa de que páginas carregarão 33% mais rápido nem de que o primeiro início após ligar o computador terá o mesmo ganho. Para quem usa Windows no Brasil, a condição prática é reunir navegador compatível, atualização do sistema e uma instância ativa do Edge, inclusive em segundo plano.
+
+![Entrada de prédio com letreiro Microsoft entre arbustos, árvores à esquerda, placa preta com número 92 e poste branco e vermelho à direita](/images/posts/edge-abertura-acelerada-processo-ativo/cover.jpg)
+*Centro de visitantes da Microsoft em 2022, foto ilustrativa, não uma tela do recurso. [Lectrician1 / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Microsoft_sign_at_the_Microsoft_Visitor_Center_Building_92.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Imagem recortada; adaptação sob a mesma licença.*
+
+<Verdict overrated="transformar até 33% na reabertura em navegador inteiro 33% mais rápido" underrated="remover trabalho intermediário quando a instância que precisa responder já está aberta" />
+
+## O atalho está entre o clique e o processo
+
+No caminho anterior, clicar num link ou no ícone do Edge fazia o Windows iniciar outro processo. Ele verificava se já havia uma instância do navegador e, quando a encontrava, encaminhava a solicitação. Esse trabalho acontecia antes de o pedido chegar ao programa que continuava ativo.
+
+Com a abertura acelerada, o Edge registra sua instância no Windows. Na solicitação seguinte, o sistema pode usar esse registro para notificar diretamente o processo existente. A mudança reduz uma etapa do caminho, em vez de tornar o motor que desenha as páginas mais rápido por definição.
+
+A Microsoft cita o menu Iniciar, a barra de tarefas e links compatíveis cujo destino padrão é o Edge. Isso não significa que qualquer arquivo, qualquer atalho ou qualquer aplicativo passe a usar o mesmo mecanismo automaticamente.
+
+## Quais versões entram
+
+Segundo a empresa, o suporte começa no **Edge 150 ou posterior**, combinado ao **Windows 11 25H2, 26H1 ou 26H2** com a atualização não relacionada à segurança de outubro de 2026, identificada como **KB5127936**, ou posterior.
+
+São requisitos em conjunto. Ter uma versão nova do navegador, isoladamente, não substitui a atualização do Windows. Da mesma forma, instalar o pacote do sistema não transforma todos os navegadores e programas em aplicativos compatíveis.
+
+A [Windows Report](https://windowsreport.com/edge-is-now-up-to-33-faster-on-windows-11-thanks-to-accelerated-app-launches-microsoft-confirms/) reforça que o ganho se aplica às aberturas seguintes, quando o Edge permanece ativo em segundo plano. Os percentuais são divulgados pela Microsoft. Não fizemos um teste independente e o anúncio não informa quanto tempo, em milissegundos, cada configuração economiza.
+
+## Startup Boost não é a novidade inteira
+
+A Microsoft explica que o Edge pode já estar rodando porque uma janela está aberta ou por recursos como o Startup Boost. Nesse cenário, a abertura acelerada encurta o encaminhamento de uma nova solicitação até o processo existente.
+
+O [suporte oficial](https://support.microsoft.com/en-us/microsoft-edge/update-to-the-new-microsoft-edge-182d0668-e3f0-49da-b8bb-db5675245dc2) descreve o Startup Boost como a manutenção de processos centrais em segundo plano para ajudar na abertura. Portanto, manter componentes ativos e reduzir o caminho para encontrá-los são partes distintas da explicação, não dois nomes para a mesma novidade.
+
+## Outros programas precisam implementar
+
+Na [documentação para desenvolvedores](https://learn.microsoft.com/windows/apps/develop/launch/accelerated-launch), o recurso é voltado a aberturas com uma instância já existente. A Microsoft avisa que ele não cobre todos os tipos de abertura, aplicativos de origem ou versões do Windows. O programa ainda precisa manter seu próprio tratamento de instância única.
+
+A empresa também diz estar contribuindo com o trabalho para o Chromium, base do Edge, para que outros navegadores possam aproveitá-lo no futuro. Não há, nesse anúncio, confirmação de que Chrome, Brave ou Vivaldi já receberam a mudança. Abrir PDFs com esse mecanismo é outra possibilidade em desenvolvimento, não uma entrega concluída descrita no texto.
+
+## O que isso significa no Brasil
+
+No PC brasileiro, a checagem relevante é a combinação de versões e atualização, não uma liberação regional anunciada. A Microsoft não lista uma restrição específica ao Brasil nessa publicação, mas também não promete o mesmo percentual em toda máquina.
+
+A otimização de abertura não substitui manutenção de segurança do sistema. Essa é uma decisão separada do tempo que o navegador leva para aparecer, discutida no nosso [guia sobre antivírus no Windows em 2026](https://www.thezero.com.br/noticia/antivirus-windows-2026-precisa-pagar).
+
+<Rule>O Edge pode responder mais rápido ao novo clique; os números valem para uma instância que já estava rodando.</Rule>
+
+## Fontes
+
+- [Microsoft: abertura acelerada do Edge no Windows](https://blogs.windows.com/msedgedev/2026/10/29/edge-is-faster-on-windows-with-accelerated-app-launches/)
+- [Microsoft Learn: registro para aberturas aceleradas](https://learn.microsoft.com/windows/apps/develop/launch/accelerated-launch)
+- [Microsoft Support: processos em segundo plano e Startup Boost](https://support.microsoft.com/en-us/microsoft-edge/update-to-the-new-microsoft-edge-182d0668-e3f0-49da-b8bb-db5675245dc2)
+- [Windows Report: ganho condicionado ao navegador ativo](https://windowsreport.com/edge-is-now-up-to-33-faster-on-windows-11-thanks-to-accelerated-app-launches-microsoft-confirms/)
+- [Windows Central: suporte e expansão futura a outros navegadores](https://www.windowscentral.com/microsoft/windows-11/microsoft-found-a-way-to-make-edge-open-faster-on-windows-11-and-its-sharing-the-tech-with-other-browsers)
