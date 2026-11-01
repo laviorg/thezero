@@ -1,0 +1,65 @@
+---
+title: "Northflank amplia rotação de segredos após incidente; clientes relatam uso de chaves de IA"
+seoTitle: "Northflank pede rotação de segredos após incidente"
+excerpt: "Plataforma liberou rotação para mais bancos e serviços neste sábado. Trocar variáveis não basta: credenciais antigas precisam ser revogadas no emissor."
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-10-31T21:35:17-03:00"
+featured: false
+kicker: "Aplicativos · segurança digital"
+author: "nicholas"
+cover: "/images/posts/northflank-incidente-rotacao-segredos-cobrancas/cover.jpg"
+coverAlt: "Foto ilustrativa de fileira de racks pretos com servidores e cabos à esquerda, gabinete fechado à direita e piso quadriculado, com fundo ampliado e desfocado"
+coverCredit: "Carl Lender / Wikimedia Commons / CC BY 2.0; foto ilustrativa de 2015, redimensionada com fundo ampliado e desfocado, não mostra infraestrutura da Northflank"
+---
+
+A **Northflank**, plataforma de hospedagem de aplicações, ampliou em **31 de outubro** os recursos para trocar credenciais após um incidente de segurança. O [registro oficial](https://status.northflank.com/cmvv0rn5a092f14rutwccodpp) passou a listar rotação para **Minio e RabbitMQ**, além de MySQL, Redis, PostgreSQL e MongoDB. A orientação permanece: clientes devem presumir comprometimento das variáveis de ambiente e trocar todos os segredos armazenados no serviço.
+
+A empresa já havia informado **relatos de uso não autorizado de chaves de APIs de IA fornecidas por clientes**. Para equipes brasileiras que hospedam aplicações ali, a providência indicada não é apenas editar uma variável: a Northflank pede **revogar a credencial no provedor que a emitiu**, gerar outra e atualizar os serviços dependentes. Também recomenda revisar consumo e cobrança nos fornecedores de IA.
+
+![Foto ilustrativa de fileira de racks pretos com servidores e cabos à esquerda, gabinete fechado à direita e piso quadriculado, com fundo ampliado e desfocado](/images/posts/northflank-incidente-rotacao-segredos-cobrancas/cover.jpg)
+*Foto ilustrativa de servidores, de 2015; não mostra instalações da Northflank. [Carl Lender / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Datacenter_Server_Racks_(22370909788)%2Ejpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Redimensionada com fundo ampliado e desfocado.*
+
+<Verdict overrated="tratar a troca de uma variável como prova de que a chave antiga deixou de funcionar" underrated="revogar no emissor, atualizar os serviços e conferir o histórico de uso e cobrança" />
+
+## O que mudou no atendimento ao incidente
+
+A página oficial registra que o alerta da Wiz chegou em **30 de outubro**, seguido de correções de políticas de rede e pedidos de apoio à investigação. Ainda naquele dia, a empresa passou a recomendar que todos os usuários presumissem que as variáveis de ambiente haviam sido descriptografadas.
+
+Em **31 de outubro**, a Northflank habilitou registros de auditoria para todos os clientes, inclusive contas gratuitas. Depois, anunciou rotação para MySQL e Redis e, mais tarde, para Minio e RabbitMQ. Essas atualizações são ferramentas de resposta ao incidente. Não equivalem a uma declaração de que o problema foi encerrado.
+
+O aviso inclui segredos em **workloads**, grupos de segredos e segredos globais. A empresa também recomenda desabilitar acesso público a serviços adicionais quando estiver ativado. A abrangência da recomendação é preventiva: não significa que exista confirmação pública de abuso de cada credencial de cada cliente.
+
+## Uma chave nova não invalida sozinha a antiga
+
+A [documentação de rotação de credenciais dos serviços adicionais](https://northflank.com/docs/v1/api/project/addons/rotate-addon-secrets) traz um detalhe importante: iniciar a troca cria novas credenciais com as mesmas permissões, mas **as antigas continuam válidas até a finalização**.
+
+A [documentação de finalização](https://northflank.com/docs/v1/api/project/addons/finalise-addon-secret-rotation) explica que essa etapa remove as credenciais antigas. O comportamento varia por serviço: no MySQL, a finalização voltada ao usuário desconecta sessões dos usuários afetados; a finalização completa reinicia o serviço. O Redis conclui a troca automaticamente e não usa esse mesmo endpoint.
+
+Isso exige planejamento do responsável pela aplicação. Criar um segredo novo, atualizar consumidores e confirmar que o antigo foi invalidado são verificações diferentes. Um painel que mostra a senha nova não comprova, isoladamente, que ninguém mais consegue usar a anterior.
+
+## O que está confirmado, e o que continua aberto
+
+A [BleepingComputer](https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/) relata que a Northflank ainda não informou publicamente a causa inicial, o total de clientes atingidos ou se houve abuso de outras credenciais além das chaves de IA citadas. O registro oficial mantém a investigação em andamento.
+
+A **Wiz** incluiu a Northflank em seu [relatório sobre ataques a plataformas de desenvolvimento](https://www.wiz.io/blog/black-october-for-ai-developer-platforms). A análise descreve interesse em credenciais de acesso a modelos e uso indevido que pode gerar cobranças para o titular. Isso não autoriza atribuir todos os incidentes do mês ao mesmo grupo, nem transferir uma estimativa de perdas de outros casos para a Northflank.
+
+Há respostas diferentes entre clientes. A [Stategraph e a Terrateam](https://stategraph.com/blog/northflank-security-incident-2026-10-30) dizem que trocaram todos os segredos e não encontraram indícios de acesso indevido em seus próprios registros. É uma declaração sobre esses serviços, não uma conclusão que possa ser estendida aos demais usuários da plataforma.
+
+## O que isso significa no Brasil
+
+Os **registros de auditoria foram liberados também para contas gratuitas**, sem recorte regional anunciado. Para uma equipe brasileira com aplicações na Northflank, isso oferece uma fonte para investigar atividade suspeita, junto dos históricos de uso e faturamento dos provedores cujas chaves estavam armazenadas ali.
+
+A sequência recomendada pela empresa é revogar no emissor, gerar substitutas, atualizar segredos e aplicações e revisar cobranças. Registre também quais serviços dependem de cada credencial antes de concluir a resposta. O [guia do The Zero sobre gerenciadores de senhas](https://www.thezero.com.br/noticia/gerenciador-de-senhas-gratis-vs-pago) ajuda a organizar acesso humano; ele não substitui a rotação dos tokens e segredos usados pelas aplicações.
+
+<Rule>Credencial substituída não é credencial revogada até que o acesso antigo deixe de valer.</Rule>
+
+## Fontes
+
+- [status.northflank.com - Registro oficial do incidente](https://status.northflank.com/cmvv0rn5a092f14rutwccodpp)
+- [northflank.com - Iniciar rotação de segredos](https://northflank.com/docs/v1/api/project/addons/rotate-addon-secrets)
+- [northflank.com - Finalizar rotação de segredos](https://northflank.com/docs/v1/api/project/addons/finalise-addon-secret-rotation)
+- [bleepingcomputer.com - Relatos de uso indevido de chaves de IA](https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/)
+- [wiz.io - Ataques a plataformas de desenvolvimento em outubro](https://www.wiz.io/blog/black-october-for-ai-developer-platforms)
+- [stategraph.com - Resposta de Stategraph e Terrateam](https://stategraph.com/blog/northflank-security-incident-2026-10-30)
