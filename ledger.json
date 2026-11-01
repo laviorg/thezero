@@ -2089,6 +2089,16 @@
       "slug": "wine-1121-opengl-jogos-correcao",
       "updated_at": "2026-11-01T06:08:07Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfMDVfSFkYb"
+    },
+    "almalinux-kernel-ipv4-correcao-testing": {
+      "article_url": "https://www.thezero.com.br/noticia/almalinux-kernel-ipv4-correcao-testing",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/almalinux-kernel-ipv4-correcao-testing.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/almalinux-kernel-ipv4-correcao-testing.png",
+      "pr": 442,
+      "commit": "e8edb2bae25bce9fc69774e54d5b27b89194e760",
+      "ig": "https://www.instagram.com/p/DfMJQRNl53E/",
+      "slug": "almalinux-kernel-ipv4-correcao-testing",
+      "updated_at": "2026-11-01T06:59:48Z"
     }
   }
 }
