@@ -2100,6 +2100,16 @@
       "slug": "almalinux-kernel-ipv4-correcao-testing",
       "updated_at": "2026-11-01T07:00:00Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfMJRh8HDKs"
+    },
+    "nasa-chapea-simulacao-marte-378-dias": {
+      "article_url": "https://www.thezero.com.br/noticia/nasa-chapea-simulacao-marte-378-dias",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/nasa-chapea-simulacao-marte-378-dias.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/nasa-chapea-simulacao-marte-378-dias.png",
+      "pr": 443,
+      "commit": "a8231be7fa9d07c770b7742c4f93f6c0017787ad",
+      "ig": "https://www.instagram.com/p/DfMQ0Gxl6wt/",
+      "slug": "nasa-chapea-simulacao-marte-378-dias",
+      "updated_at": "2026-11-01T08:05:53Z"
     }
   }
 }
