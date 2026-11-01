@@ -2166,6 +2166,16 @@
       "slug": "deepseek-superagent-prototipo-codigo-aberto",
       "updated_at": "2026-11-01T13:05:22Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfMzFPmEZi2"
+    },
+    "ivanti-connect-secure-cisa-falhas-exploradas": {
+      "article_url": "https://www.thezero.com.br/noticia/ivanti-connect-secure-cisa-falhas-exploradas",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/ivanti-connect-secure-cisa-falhas-exploradas.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/ivanti-connect-secure-cisa-falhas-exploradas.png",
+      "pr": 449,
+      "commit": "0eccd10fcb5cbb30c600beec49a8b3800f045158",
+      "ig": "https://www.instagram.com/p/DfM62OaGHaB/",
+      "slug": "ivanti-connect-secure-cisa-falhas-exploradas",
+      "updated_at": "2026-11-01T14:13:09Z"
     }
   }
 }
