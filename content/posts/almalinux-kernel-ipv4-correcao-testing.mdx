@@ -1,0 +1,67 @@
+---
+title: "AlmaLinux antecipa correção de falha crítica no TCP, mas kernels ainda estão em teste"
+seoTitle: "AlmaLinux testa correção crítica no kernel IPv4"
+excerpt: "Projeto publica kernels corrigidos para AlmaLinux 8, 9 e 10. MPTCP desativado reduz o cenário do exploit demonstrado, mas não elimina a falha em IPv4."
+category: tecnologia
+subcategory: infraestrutura
+format: noticia
+date: "2026-11-01T03:34:57-03:00"
+featured: false
+kicker: "Tecnologia · infraestrutura"
+author: "nicholas"
+cover: "/images/posts/almalinux-kernel-ipv4-correcao-testing/cover.jpg"
+coverAlt: "Fileiras de racks pretos com equipamentos e cabos numa sala de piso elevado claro, teto com painéis e um armário fechado ao fundo"
+coverCredit: "Carl Lender / Wikimedia Commons / CC BY 2.0; foto ilustrativa de 2015, redimensionada com margens desfocadas, não mostra sistemas afetados"
+---
+
+O AlmaLinux colocou em seu repositório de testes kernels com correção para a **CVE-2026-98432**, falha crítica no tratamento de conexões TCP sobre IPv4. O [comunicado de 30 de outubro](https://almalinux.org/blog/2026-10-30-cve-2026-98432/) informa que as versões 8, 9 e 10 da distribuição são afetadas e pede ajuda para validar os pacotes antes da entrega aos repositórios de produção. Na consulta feita para esta matéria, a página ainda apresentava os kernels como disponíveis em **testing**.
+
+O fato novo é a decisão de antecipar os pacotes corrigidos, não a descoberta da vulnerabilidade: o [aviso da equipe de CVEs do kernel](https://lists.openwall.net/linux-cve-announce/2026/10/15/1) foi publicado em 15 de outubro. Para administradores brasileiros, a diferença importa porque uma correção disponível para teste exige uma decisão de implantação distinta de uma atualização já validada no canal de produção.
+
+![Fileiras de racks pretos com equipamentos e cabos numa sala de piso elevado claro, teto com painéis e um armário fechado ao fundo](/images/posts/almalinux-kernel-ipv4-correcao-testing/cover.jpg)
+*[Carl Lender / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Datacenter_Server_Racks_(22370909788)%2Ejpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Foto ilustrativa de racks em 2015, não de sistemas afetados pela falha. Redimensionamento e margens desfocadas.*
+
+<Verdict overrated="Tratar MPTCP desligado como prova de que o servidor não precisa de correção" underrated="Conferir o kernel realmente carregado depois do reinício" />
+
+## A falha vem antes da aplicação
+
+Segundo o AlmaLinux, o problema é um uso de memória após sua liberação no código que prepara conexões TCP recebidas. O cenário envolve opções IPv4 guardadas durante o início da conexão e acessadas por outro processador enquanto a memória pode ser liberada. O código fica no kernel, antes de a aplicação receber aquela conexão.
+
+O projeto atribui à equipe de CVEs do Linux uma nota CVSS **9,8**, com vetor de ataque pela rede e sem exigir privilégios ou interação do usuário. Isso não significa que todo servidor já tenha sido atacado. O [relato da Heise de 30 de outubro](https://www.heise.de/en/news/Another-critical-Linux-TCP-IP-bug-uncovered-updates-underway-11506347.html) descreve a correção em andamento nas distribuições, sem estabelecer uma campanha de exploração observada.
+
+Há ainda uma fronteira técnica importante: o aviso do kernel diz que IPv6 não é afetado pelo primeiro problema descrito, mas registra uma questão semelhante na migração de conexões com opções CALIPSO, a ser tratada separadamente. Resumir tudo como imunidade irrestrita de IPv6 apagaria essa ressalva.
+
+## MPTCP desligado não encerra a análise
+
+O comunicado do AlmaLinux afirma que a demonstração de exploração relatada pela Anthropic permite executar comandos como root em servidores com um serviço escutando por Multipath TCP, ou MPTCP. A distribuição vem com MPTCP desativado, o que retira esse cenário específico por padrão.
+
+A própria nota impede a conclusão confortável: o defeito está no código IPv4 TCP comum. Portanto, um sistema sem MPTCP ainda precisa da correção. O AlmaLinux orienta tratar como expostos os sistemas que aceitam conexões TCP IPv4 de redes não confiáveis.
+
+O projeto oferece medidas temporárias para reduzir o risco, incluindo filtragem de pacotes TCP com opções IPv4. Mas lista limitações: a regra proposta não sobrevive ao reinício, tráfego entre contêineres no mesmo host pode escapar e redes que dependem de rótulos CIPSO exigem outro cuidado. Não é uma receita universal nem substituto para atualizar o kernel.
+
+## Quais pacotes entraram em teste
+
+O boletim lista os seguintes kernels corrigidos, ou versões posteriores, para cada ramo:
+
+- AlmaLinux 8: `4.18.0-553.180.2.el8_10`.
+- AlmaLinux 9: `5.14.0-687.61.2.el9_8`.
+- AlmaLinux 10: `6.12.0-211.69.2.el10_2`.
+
+A equipe informa que adaptou a correção do Linux para esses ramos antes de haver um kernel RHEL corrigido no momento da publicação da nota. Essa é uma descrição datada do comunicado, não uma afirmação de que nenhum fornecedor possa ter mudado de estado desde então.
+
+O passo operacional também não termina no download: a nota manda reiniciar e conferir a versão em execução com `uname -r`, ou os pacotes com `rpm -q kernel`. Apenas instalar um arquivo novo não comprova que o sistema já deixou de executar o kernel anterior.
+
+## O que isso significa no Brasil
+
+Administradores no Brasil podem consultar os mesmos pacotes de teste para os ramos 8, 9 e 10 indicados no boletim; não há nele um calendário brasileiro separado. A prioridade é identificar máquinas expostas, conferir a orientação da sua distribuição e planejar atualização e reinício com validação do serviço.
+
+Em produção, o próprio AlmaLinux recomenda não deixar o repositório de testes habilitado depois da operação. Isso reforça que testar uma correção crítica não é liberar indiscriminadamente todo pacote experimental. Para quem acompanha atualizações pelo noticiário de jogos, o [guia de como ler um Patch Day](https://www.thezero.com.br/noticia/como-ler-um-patch-day) ajuda a separar anúncio e nota de correção. Ele não é um procedimento para atualizar servidores: aqui, a referência técnica é o boletim da distribuição.
+
+<Rule>MPTCP desligado reduz um cenário; o kernel IPv4 vulnerável continua pedindo correção.</Rule>
+
+## Fontes
+
+- [AlmaLinux - Kernels corrigidos disponíveis em teste](https://almalinux.org/blog/2026-10-30-cve-2026-98432/)
+- [Linux CVE Announce - Aviso original e limites do problema](https://lists.openwall.net/linux-cve-announce/2026/10/15/1)
+- [Ubuntu - Registro técnico da CVE-2026-98432](https://ubuntu.com/security/CVE-2026-98432)
+- [Heise - Correções em andamento para falha TCP/IP](https://www.heise.de/en/news/Another-critical-Linux-TCP-IP-bug-uncovered-updates-underway-11506347.html)
