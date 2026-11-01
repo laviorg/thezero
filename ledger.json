@@ -2067,6 +2067,16 @@
       "slug": "claude-ultra-limite-semanal-conta-verificada",
       "updated_at": "2026-11-01T04:01:42Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfL03gmkdm_"
+    },
+    "linux-mint-hibernacao-superlight-previa": {
+      "article_url": "https://www.thezero.com.br/noticia/linux-mint-hibernacao-superlight-previa",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/linux-mint-hibernacao-superlight-previa.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/linux-mint-hibernacao-superlight-previa.png",
+      "pr": 440,
+      "commit": "2961d934b301914abb6cb1178e417a77aa25860c",
+      "ig": "https://www.instagram.com/p/DfL8FacF1Xx/",
+      "slug": "linux-mint-hibernacao-superlight-previa",
+      "updated_at": "2026-11-01T05:04:51Z"
     }
   }
 }
