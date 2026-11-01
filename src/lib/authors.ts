@@ -15,6 +15,8 @@ export type AuthorProfile = {
   avatarAlt: string;
   shortBio: string;
   bio: string;
+  longBio: string[];
+  beats: string[];
 };
 
 export const AUTHORS: Record<AuthorSlug, AuthorProfile> = {
@@ -29,6 +31,12 @@ export const AUTHORS: Record<AuthorSlug, AuthorProfile> = {
     shortBio:
       "Nicholas Nishimura, fundador e editor do The Zero. Ver perfil",
     bio: "Nicholas Nishimura é fundador e editor do The Zero, em São Paulo–SP. Assina todas as matérias do site e faz a revisão editorial de cada texto antes de publicar. Contato: hello@thezero.com.br.",
+    longBio: [
+      "Nicholas Nishimura fundou o The Zero em São Paulo–SP para responder a pergunta que vem antes de qualquer compra de tecnologia no Brasil: vale o preço daqui, com imposto, garantia e loja brasileira na conta?",
+      "Como editor, Nicholas escolhe as pautas, define o ângulo de cada texto, confere números, datas e citações na fonte primária e assina o que vai ao ar. Nenhuma matéria é publicada sem essa revisão. Quando há erro, a correção entra no próprio texto, com a data de atualização no topo.",
+      "A cobertura gira em torno de hardware de PC (placas de vídeo, SSD, processadores), celulares, consoles e portáteis de jogo, e aplicativos do dia a dia. Reviews, comparativos e guias seguem o método descrito em Como testamos; notícias seguem a Política editorial.",
+    ],
+    beats: ["Placas de vídeo e hardware de PC", "Celulares e preço no Brasil", "Consoles e portáteis de jogo", "Aplicativos e segurança digital"],
   },
 };
 

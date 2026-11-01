@@ -4,6 +4,12 @@ export const APEX_HOST = "thezero.com.br";
 /** `status` defaults to 308; set 301 where a classic permanent redirect is wanted. */
 export const PATH_REDIRECTS: { source: string; destination: string; status?: 301 | 308 }[] = [
   { source: "/black-friday-2026", destination: "/black-friday", status: 301 },
+  { source: "/noticia/iphone-18-pro-brasil-hoje-preco", destination: "/noticia/iphone-18-pro-vale-a-pena-brasil", status: 301 },
+  { source: "/noticia/iphone-18-pro-abertura-variavel-nao-e-megapixel", destination: "/noticia/iphone-18-pro-vale-a-pena-brasil", status: 301 },
+  { source: "/noticia/meta-muse-mac-agente-no-computador", destination: "/noticia/meta-anuncia-modelos-muse-wonder-full", status: 301 },
+  { source: "/autor/nicholas-nishimura", destination: "/autores/nicholas", status: 301 },
+  { source: "/autor/nicholas", destination: "/autores/nicholas", status: 301 },
+  { source: "/autor", destination: "/autores", status: 301 },
   { source: "/autores/mavi", destination: "/autores", status: 301 },
   { source: "/noticia/freakopoly-lancamento-steam-preco-brasil", destination: "/", status: 301 },
   { source: "/noticia", destination: "/", status: 301 },
