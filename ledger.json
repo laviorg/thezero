@@ -2144,6 +2144,16 @@
       "slug": "crimson-desert-20403-hotfix-plataformas",
       "updated_at": "2026-11-01T11:06:14Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfMlcr0kVNO"
+    },
+    "particledb-jepsen-falhas-versoes-testadas": {
+      "article_url": "https://www.thezero.com.br/noticia/particledb-jepsen-falhas-versoes-testadas",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/particledb-jepsen-falhas-versoes-testadas.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/particledb-jepsen-falhas-versoes-testadas.png",
+      "pr": 447,
+      "commit": "0afe10daa5405ae67661e59c054b8dd09e1998f5",
+      "ig": "https://www.instagram.com/p/DfMsKY4F6kP/",
+      "slug": "particledb-jepsen-falhas-versoes-testadas",
+      "updated_at": "2026-11-01T12:04:48Z"
     }
   }
 }
