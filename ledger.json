@@ -2155,6 +2155,16 @@
       "slug": "particledb-jepsen-falhas-versoes-testadas",
       "updated_at": "2026-11-01T12:05:00Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfMsLcuFJZB"
+    },
+    "deepseek-superagent-prototipo-codigo-aberto": {
+      "article_url": "https://www.thezero.com.br/noticia/deepseek-superagent-prototipo-codigo-aberto",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/deepseek-superagent-prototipo-codigo-aberto.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/deepseek-superagent-prototipo-codigo-aberto.png",
+      "pr": 448,
+      "commit": "38785e7276688eb76389e3ff97bd9dabcabcb6bf",
+      "ig": "https://www.instagram.com/p/DfMzDpekZK_/",
+      "slug": "deepseek-superagent-prototipo-codigo-aberto",
+      "updated_at": "2026-11-01T13:05:08Z"
     }
   }
 }
