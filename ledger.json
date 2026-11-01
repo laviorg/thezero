@@ -2045,6 +2045,16 @@
       "slug": "seti-agentes-observatorio-sinal-nao-vida",
       "updated_at": "2026-11-01T02:05:02Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfLng_hjWNO"
+    },
+    "apache-mina-3-falha-sem-correcao": {
+      "article_url": "https://www.thezero.com.br/noticia/apache-mina-3-falha-sem-correcao",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/apache-mina-3-falha-sem-correcao.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/apache-mina-3-falha-sem-correcao.png",
+      "pr": 438,
+      "commit": "89ee29b4c2e0aabfb3389aa82ef5b63fac56bc94",
+      "ig": "https://www.instagram.com/p/DfLuhzcFNWx/",
+      "slug": "apache-mina-3-falha-sem-correcao",
+      "updated_at": "2026-11-01T03:06:17Z"
     }
   }
 }
