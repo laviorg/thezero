@@ -1,0 +1,63 @@
+---
+title: "Jepsen encontra 96 problemas no ParticleDB testado, mas não avaliou versões novas"
+seoTitle: "ParticleDB: Jepsen relata falhas e limita escopo dos testes"
+excerpt: "Relatório de 31 de outubro registra perda de dados em versões testadas. Orkes diz ter corrigido os problemas; builds posteriores não foram avaliados."
+category: aplicativos
+subcategory: desenvolvimento
+format: noticia
+date: "2026-11-01T08:35:55-03:00"
+featured: false
+kicker: "Aplicativos · desenvolvimento"
+author: "nicholas"
+cover: "/images/posts/particledb-jepsen-falhas-versoes-testadas/cover.jpg"
+coverAlt: "Fileiras de racks pretos com equipamentos e cabos numa sala de piso elevado e teto com painéis de iluminação"
+coverCredit: "Carl Lender / Wikimedia Commons, CC BY 2.0; foto de arquivo de 2015, ilustrativa, redimensionada com margens desfocadas; não mostra infraestrutura da Orkes"
+---
+
+A Jepsen publicou em **31 de outubro** uma [avaliação do ParticleDB](https://jepsen.io/analyses/particledb-1.1.4) com **96 problemas encontrados ao longo das versões 1.1.4 a 1.1.18.11.rc-22**, incluindo perda de gravações já confirmadas. O número não equivale a 96 falhas ainda abertas: ao final do trabalho, todas menos dez pareciam resolvidas. A Orkes, responsável pelo banco, afirma ter corrigido as restantes na versão **1.1.19-rc.13**, que a Jepsen não avaliou.
+
+Para equipes brasileiras que consideram o produto para aplicações e agentes, o contraste importa mais que a contagem. Há evidência de defeitos nas versões testadas, uma declaração de correção da fabricante e uma linha posterior ainda fora desse teste independente. A pesquisa foi financiada pela própria Orkes, conforme o relatório.
+
+![Fileiras de racks pretos com equipamentos e cabos numa sala de piso elevado e teto com painéis de iluminação](/images/posts/particledb-jepsen-falhas-versoes-testadas/cover.jpg)
+*[Carl Lender / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Datacenter_Server_Racks_(22370909788).jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Foto de arquivo de 2015, ilustrativa; redimensionada com margens desfocadas. Não mostra infraestrutura da Orkes.*
+
+<Verdict overrated="transformar 96 problemas históricos em uma lista de 96 falhas atuais" underrated="conferir a versão testada, a garantia prometida e a validação da correção" />
+
+## O que foi efetivamente testado
+
+O ParticleDB reúne SQL, armazenamento chave-valor, busca vetorial e análise de dados. A [página atual do produto](https://particledb.ai) apresenta essas funções como contexto e estado para agentes, com código executado perto dos dados. O estudo, porém, não validou todo esse conjunto.
+
+A Jepsen trabalhou com instâncias de **um único nó**, em contêineres e máquinas virtuais. As compilações fornecidas não incluíam replicação, portanto o relatório não demonstra o comportamento de um cluster replicado. Busca vetorial e outras interfaces também ficaram fora da avaliação.
+
+A maioria dos problemas surgiu sem simular uma pane. Apenas três exigiram injeção de falhas. Entre os exemplos documentados estavam consultas que retornavam linhas para condições falsas, restrições de dados ignoradas e registros que não podiam ser apagados. Vários desses casos foram corrigidos durante a colaboração; são evidência do processo testado, não diagnóstico automático da versão disponível agora.
+
+## Por que gravação confirmada é o ponto sensível
+
+No encerramento dos testes, a **1.1.18.11.rc-22** ainda perdia dados em operação normal no modo padrão `occ`. O modo `serializable` reduzia a gravidade dos problemas, mas não eliminava todas as anomalias observadas, inclusive em testes que encerravam o processo.
+
+O risco descrito não é apenas uma mensagem de erro que permita repetir a operação. Uma gravação aceita e depois perdida quebra a expectativa de que a confirmação encerrou aquela etapa. Por isso, a recomendação da Jepsen é interromper novas implantações do ParticleDB e migrar para outros bancos, além de conferir ou reconstruir o estado a partir de fontes mais confiáveis quando existirem.
+
+Essa é a recomendação do laboratório. O The Zero não executou os testes nem verificou por conta própria as correções posteriores. A [cobertura do The Terminal](https://theterminal.space/software/particledb-jepsen-96-issues-halt-deployment) também distingue os resultados observados da alegação da Orkes.
+
+## A versão atual não é a última versão avaliada
+
+Na consulta desta manhã, a [página oficial de releases](https://particledb.ai/installation/releases/) apontava a **1.1.19-rc.16, lançada em 30 de outubro**, como atual. O próprio documento a classifica como release candidate e descreve as versões examinadas pela Jepsen como prévias sem suporte.
+
+Há uma discordância histórica importante: a Jepsen diz que essa condição experimental não estava clara na documentação durante o trabalho. A [documentação atual de modos](https://particledb.ai/operations/modes/) reconhece os testes independentes nas compilações antigas e afirma que remover um nome de configuração não altera os resultados relativos à versão que o aceitava.
+
+A atualização também exige planejamento. Segundo o histórico oficial, a rc.14 mudou o formato de metadados e não abre diretórios escritos por versões anteriores; a orientação é exportar e carregar os dados num diretório novo. Não basta substituir o executável e presumir compatibilidade.
+
+## O que isso significa no Brasil
+
+**Quem mantém uma instalação deve identificar a versão do servidor antes de aplicar conclusões ou planejar uma migração.** O relatório trata do comportamento do software, sem um recorte brasileiro de clientes afetados. Não estabelece que toda instalação em produção perdeu dados.
+
+Para uma equipe que avalia o produto, anúncio de correção não substitui repetir testes sobre a versão e a carga de trabalho escolhidas. Para quem já o usa, preservar uma fonte independente de conferência é mais útil que tratar uma cópia no mesmo sistema como garantia. O [guia do The Zero sobre nuvem e cópia única](https://www.thezero.com.br/noticia/nuvem-gratis-drive-onedrive-icloud) explica esse limite no armazenamento cotidiano, embora não seja um procedimento de recuperação de banco de dados.
+
+<Rule>Falha demonstrada vale para a versão testada; correção anunciada ainda precisa de validação.</Rule>
+
+## Fontes
+
+- [Jepsen - Análise do ParticleDB 1.1.4 a 1.1.18.11.rc-22](https://jepsen.io/analyses/particledb-1.1.4)
+- [ParticleDB - Releases e compatibilidade](https://particledb.ai/installation/releases/)
+- [ParticleDB - Modos de concorrência, isolamento e durabilidade](https://particledb.ai/operations/modes/)
+- [The Terminal - Cobertura dos resultados e da resposta da Orkes](https://theterminal.space/software/particledb-jepsen-96-issues-halt-deployment)
