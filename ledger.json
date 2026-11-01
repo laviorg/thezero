@@ -2078,6 +2078,16 @@
       "slug": "linux-mint-hibernacao-superlight-previa",
       "updated_at": "2026-11-01T05:05:05Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfL8HpVjTNs"
+    },
+    "wine-1121-opengl-jogos-correcao": {
+      "article_url": "https://www.thezero.com.br/noticia/wine-1121-opengl-jogos-correcao",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/wine-1121-opengl-jogos-correcao.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/wine-1121-opengl-jogos-correcao.png",
+      "pr": 441,
+      "commit": "68017d92860d56ca684823ad99a6d62561b91cab",
+      "ig": "https://www.instagram.com/p/DfMDUZaj8qb/",
+      "slug": "wine-1121-opengl-jogos-correcao",
+      "updated_at": "2026-11-01T06:07:55Z"
     }
   }
 }
