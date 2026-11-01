@@ -63,5 +63,5 @@ A publicação automática está em [`docs/social-automation.md`](docs/social-au
 
 ### CaixaCompra (afiliado)
 
-Notícia com intenção de compra (hardware, preço, estoque, produto à venda no BR) **deve** levar 1–2 `<CaixaCompra>` + disclosure antes do 1º link afiliado. Máximo 2 em notícia diária; produto editorialmente ligado; Amazon `?tag=thezero04-20`; KaBuM só Awin; sem preço inventado; posição típica após “O que isso significa no Brasil”. Detalhe e snippet: [`docs/caixa-compra.md`](docs/caixa-compra.md). Componente `src/components/mdx/caixa-compra.tsx`, helpers `src/lib/affiliate.ts`.
+**Notícia nunca leva `<CaixaCompra>`** (desde 01/11/2026, P0 AdSense). CaixaCompra só em guia, review, comparativo, vale-a-pena, /black-friday, /prime-day, /11-11 e /menor-preco; máximo editorialmente ligado; Amazon `?tag=thezero04-20`; KaBuM só Awin; sem preço inventado. Notícia com intenção de compra linka o guia do assunto. Detalhe: [`docs/caixa-compra.md`](docs/caixa-compra.md). Limpeza de acervo: [`docs/acervo-limpeza-2026-11.md`](docs/acervo-limpeza-2026-11.md).
 

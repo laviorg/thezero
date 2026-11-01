@@ -37,7 +37,7 @@ const RELATED: Record<string, readonly string[]> = {
   ],
   "agente-ia-permissoes-que-nao-dar": [
     "o-que-nao-colar-no-chat-de-ia",
-    "meta-muse-mac-agente-no-computador",
+    "meta-anuncia-modelos-muse-wonder-full",
   ],
   "airpods-vs-galaxy-buds-ecossistema-misto": [
     "fone-cancelamento-ruido-ate-800",
@@ -172,12 +172,12 @@ const RELATED: Record<string, readonly string[]> = {
     "notebook-2-em-1-vale-a-pena",
   ],
   "iphone-eua-vs-loja-br-conta-total": [
-    "iphone-18-pro-brasil-hoje-preco",
+    "iphone-18-pro-vale-a-pena-brasil",
     "pixel-no-brasil-quando-importar",
   ],
   "iphone-seminovo-brasil-o-que-checar": [
     "trocar-bateria-iphone-brasil-preco-risco",
-    "iphone-18-pro-brasil-hoje-preco",
+    "iphone-18-pro-vale-a-pena-brasil",
   ],
   "key-de-jogo-barata-risco-de-conta": [
     "steam-vs-epic-vs-xbox-pc-preco",
@@ -369,11 +369,11 @@ const RELATED: Record<string, readonly string[]> = {
   ],
   "troca-de-tela-original-vs-paralela": [
     "trocar-bateria-iphone-brasil-preco-risco",
-    "iphone-18-pro-brasil-hoje-preco",
+    "iphone-18-pro-vale-a-pena-brasil",
   ],
   "trocar-bateria-iphone-brasil-preco-risco": [
     "troca-de-tela-original-vs-paralela",
-    "iphone-18-pro-brasil-hoje-preco",
+    "iphone-18-pro-vale-a-pena-brasil",
   ],
   "tv-55-4k-ate-2500-o-que-nao-cair": [
     "soundbar-barata-vs-caixa-bluetooth",
@@ -544,14 +544,14 @@ const RELATED: Record<string, readonly string[]> = {
     "steam-deck-lcd-usado-ainda-vale",
   ],
   "iphone-18-pro-vale-a-pena-brasil": [
-    "iphone-18-pro-brasil-hoje-preco",
-    "iphone-18-pro-abertura-variavel-nao-e-megapixel",
+    "iphone-18-pro-vale-a-pena-brasil",
+    "iphone-18-pro-vale-a-pena-brasil",
   ],
   "ea-sports-fc-27-vale-a-pena": [
     "game-pass-ultimate-vs-comprar-jogo",
   ],
   "ios-27-quais-iphones-e-como-atualizar": [
-    "iphone-18-pro-brasil-hoje-preco",
+    "iphone-18-pro-vale-a-pena-brasil",
     "iphone-seminovo-brasil-o-que-checar",
   ],
   "one-ui-9-quais-galaxy-e-como-atualizar": [
