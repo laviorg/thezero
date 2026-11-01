@@ -1,0 +1,63 @@
+---
+title: "CISA inclui duas falhas do Ivanti Connect Secure no KEV; corrigir não dispensa investigar"
+seoTitle: "Ivanti Connect Secure: duas falhas entram no KEV da CISA"
+excerpt: "CVE-2026-111357 e CVE-2026-118527 têm exploração confirmada. Catálogo pede triagem forense para a primeira; prazos obrigatórios são para agências dos EUA."
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-11-01T10:35:45-03:00"
+featured: false
+kicker: "Aplicativos · segurança digital"
+author: "nicholas"
+cover: "/images/posts/ivanti-connect-secure-cisa-falhas-exploradas/cover.jpg"
+coverAlt: "Fileiras de racks pretos com equipamentos e cabos numa sala de piso elevado e teto com painéis de iluminação"
+coverCredit: "Carl Lender / Wikimedia Commons, CC BY 2.0; foto de arquivo de 2015, ilustrativa, redimensionada com margens desfocadas; não mostra equipamentos Ivanti nem um ataque"
+---
+
+A CISA, agência de segurança cibernética dos Estados Unidos, incluiu em **30 de outubro** duas vulnerabilidades do **Ivanti Connect Secure** em seu catálogo de falhas exploradas, o KEV. O [aviso oficial](https://www.cisa.gov/news-events/alerts/2026/10/30/cisa-adds-two-known-exploited-vulnerabilities-catalog) cita **CVE-2026-111357 e CVE-2026-118527** e afirma que a inclusão se baseia em evidência de exploração ativa. Não é apenas uma possibilidade descrita em laboratório.
+
+O detalhe operacional é que aplicar uma correção e verificar comprometimento são tarefas diferentes. Na [entrada da CVE-2026-111357](https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-111357), a CISA marca triagem forense como necessária conforme sua diretiva. Para uma empresa brasileira com esse equipamento de VPN, o sinal útil é priorizar a revisão da exposição, sem tratar o prazo federal americano como uma regra brasileira.
+
+![Fileiras de racks pretos com equipamentos e cabos numa sala de piso elevado e teto com painéis de iluminação](/images/posts/ivanti-connect-secure-cisa-falhas-exploradas/cover.jpg)
+*[Carl Lender / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Datacenter_Server_Racks_(22370909788).jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Foto de arquivo de 2015, ilustrativa; redimensionada com margens desfocadas. Não mostra equipamentos Ivanti nem um ataque.*
+
+<Verdict overrated="tratar a instalação do patch como prova de que ninguém entrou antes" underrated="separar correção, exposição do equipamento e investigação de comprometimento" />
+
+## Duas entradas, uma cadeia de exploração
+
+A descrição da CISA para a **CVE-2026-111357** aponta ausência de autenticação numa função crítica, com possibilidade de elevação de privilégios por um atacante local autenticado. A [CVE-2026-118527](https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-118527) envolve identificadores previsíveis e permite que um atacante remoto autenticado envie conteúdo para um local conhecido no disco.
+
+Esses pré-requisitos não devem ser apagados da explicação de cada falha. O risco de entrada sem login aparece na **combinação** com a CVE-2026-104935, também citada nas duas entradas. A [investigação original da Volexity](https://www.volexity.com/blog/2026/10/13/a-series-of-unauthenticated-events-chained-exploitation-of-ivanti-connect-secure-zero-days/) descreve uma cadeia que reuniu desvio de autenticação, execução remota de código e elevação de privilégios para chegar a execução com privilégios de root sem autenticação prévia.
+
+A investigação foi publicada em 13 de outubro. Uma atualização no topo informa que a Ivanti publicou em **29 de outubro** um patch para a vulnerabilidade de elevação de privilégios, identificada como CVE-2026-111357. Isso evita repetir como atual o trecho antigo do mesmo texto que ainda fala de uma correção futura.
+
+## O que a investigação encontrou
+
+A Volexity relata reconhecimento do ambiente, roubo de credenciais e extração de dados após o comprometimento. Também explica que a ferramenta de verificação de integridade da Ivanti pode não detectar essa atividade, porque a cadeia observada alterava código em memória sem modificar a biblioteca correspondente no disco.
+
+O ponto não é descartar a ferramenta, mas entender seu limite naquele caso. A recomendação da empresa de investigação é aplicar os patches publicados e, diante de suspeita de comprometimento, fazer análise forense de rede e memória. Uma checagem sem alertas não deve ser apresentada como certificado de que a intrusão não ocorreu.
+
+A [cobertura do The Hacker News de 31 de outubro](https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html) reúne as novas inclusões e as correções. Para o requisito de triagem e o alcance das obrigações, esta matéria usa o catálogo e a diretiva atuais da CISA.
+
+## Os prazos não são iguais
+
+As entradas do KEV registram **2 de novembro de 2026** para a CVE-2026-111357 e **13 de novembro de 2026** para a CVE-2026-118527. Na consulta, a primeira estava marcada com triagem forense obrigatória; a segunda, não. Em ambas, o uso conhecido em campanhas de ransomware aparece como **desconhecido**, não como confirmado.
+
+O comunicado remete à [BOD 26-04](https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk), que organiza a prioridade por fatores como exposição pública e impacto da exploração. A obrigação se aplica às agências civis do Executivo federal americano. A CISA incentiva outras organizações a priorizar as falhas do catálogo, mas isso não cria o mesmo prazo legal para todas as empresas.
+
+## O que isso significa no Brasil
+
+**Equipes que administram Connect Secure precisam conferir a versão instalada e o caminho de atualização compatível com seu equipamento.** A [documentação de migração da Ivanti](https://docs.ivanti.com/ps/help/en_us/ics/25_1_1_3/rn/upgrade-and-migration) distingue trajetos por versão e plataforma; não é prudente presumir que qualquer salto seja suportado.
+
+A prioridade é combinar atualização com avaliação dos sinais de acesso indevido. O [guia do The Zero sobre gerenciadores de senhas](https://www.thezero.com.br/noticia/gerenciador-de-senhas-gratis-vs-pago) cobre a proteção cotidiana de credenciais, mas não substitui investigação ou recuperação de um equipamento comprometido. O alerta não fornece uma contagem de vítimas brasileiras, portanto não permite estimar quantas empresas do país foram atingidas.
+
+<Rule>O patch fecha a falha; só a investigação pode esclarecer o que aconteceu antes dele.</Rule>
+
+## Fontes
+
+- [CISA - Inclusão das duas vulnerabilidades em 30 de outubro](https://www.cisa.gov/news-events/alerts/2026/10/30/cisa-adds-two-known-exploited-vulnerabilities-catalog)
+- [CISA - Entrada da CVE-2026-111357](https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-111357)
+- [CISA - Entrada da CVE-2026-118527](https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-118527)
+- [Volexity - Investigação e atualização sobre o patch](https://www.volexity.com/blog/2026/10/13/a-series-of-unauthenticated-events-chained-exploitation-of-ivanti-connect-secure-zero-days/)
+- [Ivanti - Caminhos de atualização e migração](https://docs.ivanti.com/ps/help/en_us/ics/25_1_1_3/rn/upgrade-and-migration)
+- [The Hacker News - Cobertura das inclusões no KEV](https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html)
