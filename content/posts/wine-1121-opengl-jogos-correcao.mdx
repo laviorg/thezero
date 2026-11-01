@@ -1,0 +1,61 @@
+---
+title: "Wine 11.21 melhora OpenGL no WoW64 e corrige jogos antigos, mas não promete ganho geral de FPS"
+seoTitle: "Wine 11.21 melhora OpenGL e corrige áudio em jogos antigos"
+excerpt: "Versão de desenvolvimento traz melhoria no WoW64, biblioteca inicial de captura de voz e 20 correções. Não há benchmark nem atualização automática do Proton."
+category: aplicativos
+subcategory: sistemas-operacionais
+date: "2026-11-01T02:35:55-03:00"
+featured: false
+kicker: "Aplicativos · sistemas operacionais"
+author: "nicholas"
+cover: "/images/posts/wine-1121-opengl-jogos-correcao/cover.jpg"
+coverAlt: "Console portátil preto conectado por cabos a uma tela com janelas de texto, ao lado de teclado compacto cinza com teclas laranja, mouse e caneca sobre mesa de madeira"
+coverCredit: "Daisuke Murase / Wikimedia Commons / CC BY-SA 2.0. Foto ilustrativa de 2023; redimensionada com margens desfocadas, adaptação sob a mesma licença, não mostra o Wine 11.21"
+---
+
+O Wine publicou em 30 de outubro a versão de desenvolvimento **11.21**, com uma melhoria de OpenGL no modo WoW64 e correções para jogos como *Tron 2.0*, *No One Lives Forever 2* e *Skyrim*. O [anúncio oficial de Alexandre Julliard](https://list.winehq.org/hyperkitty/list/wine-announce@list.winehq.org/thread/OC4SSVKF5C7WBNWNDX4AZZD3PQ4RC4CN/) lista 20 problemas corrigidos, além de uma implementação inicial da biblioteca Voice Capture DSP e melhorias no suporte a contas de usuário.
+
+Para quem roda programas de Windows no Linux, é uma atualização de compatibilidade, não uma promessa de acelerar toda a biblioteca de jogos. O [resumo do WineHQ](https://www.winehq.org/news/2026103001) destaca desempenho no WoW64 com uma extensão específica de OpenGL, mas não publica porcentagem de ganho. A cobertura da [GamingOnLinux em 31 de outubro](https://www.gamingonlinux.com/2026/10/wine-11-21-released-with-improved-wow64-opengl-performance/) também condiciona o benefício ao caminho gráfico e ao suporte do driver.
+
+![Console portátil preto conectado por cabos a uma tela com janelas de texto, ao lado de teclado compacto cinza com teclas laranja, mouse e caneca sobre mesa de madeira](/images/posts/wine-1121-opengl-jogos-correcao/cover.jpg)
+*[Daisuke Murase / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:4K_Linux_desktop_on_Steam_Deck.jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Foto ilustrativa de um desktop Linux com Steam Deck em março de 2023, não do Wine 11.21. Redimensionamento e margens desfocadas; adaptação distribuída sob a mesma licença.*
+
+<Verdict overrated="Tratar melhoria em um caminho de OpenGL como aumento de FPS em todo jogo" underrated="Corrigir música, teclado e travamentos de títulos que alguém ainda joga" />
+
+## O ganho gráfico tem endereço
+
+A mudança usa a extensão `MESA_map_buffer_client_pointer`. O registro de alterações descreve a implementação de mapeamento de buffers do WoW64 nesse caminho de OpenGL. É uma intervenção localizada, ligada à execução de código de 32 bits nesse ambiente, não uma mudança que o anúncio estenda a todos os aplicativos gráficos.
+
+A [Phoronix](https://www.phoronix.com/news/Wine-11.21-Released) aponta justamente esse recorte: OpenGL de 32 bits no WoW64. O nome da extensão importa porque evita transformar um ajuste técnico em conselho genérico para qualquer máquina. Um jogo que usa outro caminho gráfico não passa a receber o mesmo benefício apenas por ter sido feito para Windows.
+
+Também não há no anúncio uma tabela de FPS, lista de placas testadas ou comparação entre drivers. A conclusão responsável é que existe uma melhoria declarada pelo projeto, com alcance técnico específico. Quanto ela muda um jogo particular continua dependendo de teste naquela combinação de software e hardware. O The Zero não mediu esse desempenho.
+
+## Música e teclado entram nas correções
+
+A lista oficial inclui a ausência de música em *Tron 2.0*, durante a partida e no menu, e em *No One Lives Forever 2*. No segundo caso, o registro associa o problema à rejeição de determinados cabeçalhos de áudio. São falhas pontuais que afetam a experiência, mesmo sem mudar o número de quadros por segundo.
+
+Em *World of Tanks*, a correção trata de teclas que não eram registradas no chat, entre elas Enter e Delete. *Skyrim*, de 2011, aparece por um travamento relacionado a entrada de comandos, enquanto *Skyrim SE* tem outro problema de travamento listado. Isso não equivale a certificar todas as versões, modificações e configurações desses jogos.
+
+As mudanças também alcançam programas fora dos games. O anúncio cita uma falha na verificação de assinaturas que impedia o FL Studio 26.1.5 de iniciar e uma chamada não implementada associada a um travamento do Cinebench 2026. A biblioteca Voice Capture DSP, por sua vez, é descrita como versão inicial: não há promessa de suporte completo a qualquer recurso de voz.
+
+## Wine novo não é Proton novo
+
+O [repositório oficial do Proton](https://github.com/ValveSoftware/Proton) o define como uma ferramenta de compatibilidade para Steam Play baseada em Wine e componentes adicionais. Esse vínculo não torna os dois nomes intercambiáveis nem transforma um lançamento do Wine em anúncio da Valve.
+
+Por isso, não se deve ler a versão 11.21 como uma atualização automaticamente instalada em todo Steam Deck ou em todo jogo executado pela Steam. O fato confirmado aqui é o lançamento de desenvolvimento do Wine. A versão escolhida para um jogo e o pacote disponível na distribuição são verificações separadas.
+
+## O que isso significa no Brasil
+
+O anúncio oferece código-fonte e remete a pacotes binários por distribuição, sem uma janela de lançamento separada para o Brasil. Para quem joga no Linux no país, a decisão prática é conferir qual ferramenta o jogo usa antes de trocar uma instalação que já funciona.
+
+Uma correção para um título antigo pode justificar um teste controlado; o rótulo novo, sozinho, não. Quem compara portáteis também deve separar compatibilidade de software e características da máquina, como explica o [guia de ROG Xbox Ally versus Steam Deck OLED](https://www.thezero.com.br/noticia/rog-xbox-ally-vs-steam-deck-oled).
+
+<Rule>Wine 11.21 corrige caminhos e jogos específicos; compatibilidade não se resume a uma promessa de FPS.</Rule>
+
+## Fontes
+
+- [Wine-Announce - Anúncio completo da versão 11.21](https://list.winehq.org/hyperkitty/list/wine-announce@list.winehq.org/thread/OC4SSVKF5C7WBNWNDX4AZZD3PQ4RC4CN/)
+- [WineHQ - Resumo oficial do lançamento](https://www.winehq.org/news/2026103001)
+- [GamingOnLinux - WoW64, OpenGL e correções](https://www.gamingonlinux.com/2026/10/wine-11-21-released-with-improved-wow64-opengl-performance/)
+- [Phoronix - Melhoria de OpenGL no Wine 11.21](https://www.phoronix.com/news/Wine-11.21-Released)
+- [ValveSoftware - Repositório oficial do Proton](https://github.com/ValveSoftware/Proton)
