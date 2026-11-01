@@ -65,6 +65,10 @@ const G = {
     href: "/noticia/antes-de-comprar-placa-de-video-black-friday-2026",
     label: "Antes de comprar placa de vídeo na Black Friday 2026",
   },
+  antesBfSsd: {
+    href: "/noticia/antes-de-comprar-ssd-black-friday-2026",
+    label: "Antes de comprar SSD na Black Friday 2026",
+  },
 } satisfies Record<string, GuideLink>;
 
 const BF_CATEGORIES: CategoryBlock[] = [
@@ -116,7 +120,7 @@ const BF_CATEGORIES: CategoryBlock[] = [
       { id: "990pro-1tb", why: "Topo de linha PCIe 4.0; faz sentido em PS5 ou pra quem move arquivos grandes." },
       { id: "990pro-2tb", why: "Mesma linha em 2 TB, pra biblioteca grande de jogos." },
     ],
-    guides: [G.ssd1tb, G.pcie, G.ssdPs5, G.hdVsSsd],
+    guides: [G.antesBfSsd, G.ssd1tb, G.pcie, G.ssdPs5, G.hdVsSsd],
   },
   {
     category: "console",
