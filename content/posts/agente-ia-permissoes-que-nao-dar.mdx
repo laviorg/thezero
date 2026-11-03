@@ -38,6 +38,18 @@ O caso do [agente da OpenAI no portal do Medicare](/noticia/openai-agente-entrou
 
 Revogue o que você marcou no teste. Permissão de aplicativo no sistema operacional continua valendo depois que você desinstala a empolgação e esquece o toggle.
 
+## No Brasil
+
+O risco aqui tem cara local: o navegador do brasileiro costuma ter internet banking, Pix, gov.br e e-mail abertos ao mesmo tempo. A conta gov.br concentra Receita, INSS, carteira de trabalho e assinatura digital. Um agente com acesso ao navegador logado não precisa da sua senha para chegar nisso. Precisa só da aba aberta.
+
+Por isso a sessão do banco e a do gov.br saem antes de qualquer teste. Se o agente vai trabalhar com documento de cliente, entram as mesmas obrigações da LGPD de qualquer outro tratamento de dado pessoal: quem decidiu dar o acesso responde por ele.
+
+## Nossa leitura
+
+O mercado vende agente como funcionário que faz tudo sozinho. O desenho seguro é o oposto: um estagiário com crachá de uma sala só. A lista de riscos que a OWASP mantém para aplicações com modelos de linguagem põe no topo exatamente o que este guia descreve — instrução escondida num conteúdo que o agente lê e permissão demais para agir. Não é teoria de laboratório. É o modo de falha conhecido.
+
+Se o produto só entrega valor com acesso total, isso diz mais sobre o produto do que sobre a sua paranoia. Agente bom funciona dentro de uma pasta e pede confirmação. Os que não funcionam assim ainda não estão prontos para o computador onde mora a sua vida financeira.
+
 ## Veredito
 
 Pasta única, confirmação em cada comando, navegador sem sessão sensível, zero senha e zero pagamento. “Sempre permitir” fica desmarcado. Se o agente só é útil com o disco inteiro e o e-mail, ele não é útil o bastante.
@@ -45,6 +57,8 @@ Pasta única, confirmação em cada comando, navegador sem sessão sensível, ze
 <Rule>
 Permissão de agente é a chave da sessão. A chave mínima abre uma pasta, não a vida.
 </Rule>
+
+Fontes: [OWASP, Top 10 para aplicações com LLM](https://genai.owasp.org/llm-top-10/) · [ANPD, Autoridade Nacional de Proteção de Dados](https://www.gov.br/anpd/pt-br) · [CERT.br, Cartilha de Segurança](https://cartilha.cert.br/)
 
 Mais em [Agentes](/ia/agentes) e no arquivo de [Reviews](/reviews).
 
