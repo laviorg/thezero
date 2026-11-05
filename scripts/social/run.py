@@ -423,11 +423,13 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
         outcome["status"] = "posted"
         outcome["detail"] = note_text
         if number and "comentário publicado" not in note_text and "já estava" not in note_text:
-            outcome["status"] = "failed"
-            outcome["detail"] = note_text or "não consegui comentar no PR."
+            # O post já saiu no Instagram/Threads; o comentário no PR é só
+            # informativo e não deve pintar o workflow de vermelho (falso negativo).
+            note(f"::warning::comentário SOCIAL POSTED não confirmado no PR #{number} ({slug}).", secrets)
+            outcome["detail"] = (note_text or "não consegui comentar no PR.") + " [aviso: publicação concluída]"
         if not number:
-            outcome["detail"] = "publicado, mas não achei o PR para comentar."
-            outcome["status"] = "failed"
+            note(f"::warning::PR não localizado para comentar o SOCIAL POSTED ({slug}).", secrets)
+            outcome["detail"] = "publicado, mas não achei o PR para comentar [aviso]."
         return outcome
     except Exception as exc:  # noqa: BLE001
         outcome["status"] = "failed"
