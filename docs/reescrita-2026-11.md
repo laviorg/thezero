@@ -12,7 +12,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 6 | 45 | monitor-ultrawide-produtividade | guia | 511 | 0 | 1 | 1 | 3 | 1200 | pendente |
 | 7 | 46 | capcut-vs-premiere-rush-reels-shorts | guia | 591 | 0 | 2 | 1 | 1 | 1200 | rascunho individual; build completo pendente; 05/11 |
 | 8 | 46 | modo-escuro-oled-cansaco-de-tela | guia | 634 | 0 | 0 | 1 | 2 | 1200 | pendente |
-| 9 | 46 | ram-soldada-notebook-arrependimento | guia | 553 | 0 | 1 | 1 | 5 | 1200 | pendente |
+| 9 | 46 | ram-soldada-notebook-arrependimento | guia | 1002 | 7 | 1 | 1 | 1 | 1800 | rascunho (fontes e modelos BR verificados; build completo pendente; 05/11) |
 | 10 | 46 | tapete-de-mouse-grande-vs-pequeno | guia | 552 | 0 | 1 | 1 | 2 | 1200 | pendente |
 | 11 | 47 | acessorios-steam-deck-dock-case-sd | guia | 813 | 0 | 0 | 1 | 1 | 1200 | pendente |
 | 12 | 47 | intel-core-i9-14900k-degradacao-bios | noticia | 583 | 1 | 2 | 1 | 0 | 1920 | pendente |
