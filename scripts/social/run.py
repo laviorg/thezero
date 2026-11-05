@@ -334,6 +334,13 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
         if package is None:
             outcome["detail"] = "sem SOCIAL PACKAGE."
             outcome["status"] = "failed" if manual else "skipped"
+            if not manual:
+                pr_ref = f"PR #{number}" if number else "PR não localizado"
+                note(
+                    f"::warning::Matéria '{slug}' pulada ({pr_ref}): corpo do PR sem "
+                    f"bloco SOCIAL PACKAGE. Nada foi publicado no Instagram/Threads.",
+                    secrets,
+                )
             return outcome
         errors = validate_package(package, slug)
         if errors:
@@ -452,6 +459,8 @@ def summary_lines(outcomes: list[dict]) -> list[str]:
             lines.append(f"- image: {item['image']}")
         if item.get("detail"):
             lines.append(f"- detalhe: {item['detail']}")
+        if item.get("status") == "skipped" and "SOCIAL PACKAGE" in (item.get("detail") or ""):
+            lines.append("- alerta: matéria pulada — o PR não tinha o bloco SOCIAL PACKAGE.")
         lines.append("")
     return lines
 
