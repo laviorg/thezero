@@ -4,8 +4,8 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 
 | # | score | slug | formato | palavras | fontes | BR | análise | links int. | capa px | status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | 44 | vs-code-vs-cursor-para-quem-comeca | guia | 500 | 0 | 1 | 1 | 2 | 1200 | rascunho (build completo pendente; 03/11) |
-| 2 | 44 | webcam-full-hd-para-call | guia | 483 | 0 | 1 | 1 | 2 | 1200 | pendente |
+| 1 | 44 | vs-code-vs-cursor-para-quem-comeca | guia | 500 | 0 | 1 | 1 | 2 | 1200 | reescrito; PR #458 mesclado em 03/11 |
+| 2 | 44 | webcam-full-hd-para-call | guia | 966 | 6 | 1 | 1 | 1 | 1800 | rascunho 04/11; build completo obrigatório antes do merge |
 | 3 | 44 | whatsapp-business-vs-app-pessoal | guia | 558 | 0 | 0 | 1 | 2 | 1200 | pendente |
 | 4 | 45 | como-ler-um-patch-day | guia | 605 | 0 | 0 | 1 | 2 | 1200 | pendente |
 | 5 | 45 | gpd-win-mini-7-ryzen | review | 509 | 0 | 1 | 1 | 2 | 1200 | pendente |
