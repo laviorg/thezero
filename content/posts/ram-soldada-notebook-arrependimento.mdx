@@ -1,53 +1,75 @@
 ---
-title: "RAM soldada no notebook: o arrependimento começa no checkout"
-seoTitle: "RAM soldada no notebook: o erro é no checkout"
-excerpt: "Se a memória não tem slot, o que você compra é o teto da máquina. Em 2026, 16 GB é o chão para uso comum. 8 GB soldado não ganha pente depois."
+title: "RAM soldada no notebook: confira o limite antes de comprar"
+seoTitle: "RAM soldada no notebook: como conferir o upgrade"
+excerpt: "Memória soldada pode coexistir com slot. Confira o modelo exato, a capacidade máxima e o custo total antes de contar com um upgrade futuro."
 category: computadores
 subcategory: notebooks-e-pcs
 format: guia
 date: "2026-08-20T15:05:00-03:00"
-kicker: "Notebook · sem slot"
+kicker: "Notebook · memória"
 author: "nicholas"
-cover: "/covers/reviews/ram-soldada-notebook-arrependimento.webp"
-coverAlt: "Cartaz editorial do The Zero em azul-marinho, com a marca da casa e faixa verde de Notebooks e PCs, para o guia sobre RAM soldada no notebook."
+cover: "/images/posts/ram-soldada-notebook-arrependimento/cover.jpg"
+coverAlt: "Dois módulos SO-DIMM em compartimento aberto de um ThinkPad T60; foto de arquivo de memória removível, não dos notebooks citados."
+coverCredit: "Kreuzschnabel/Wikimedia Commons, CC BY-SA 3.0. Foto de 2013; composição com margens sob a mesma licença, sem endosso."
 ---
 
-RAM soldada não se aumenta depois. O arrependimento é na hora do pagamento, quando a loja oferece 8 GB por menos e o slot não existe. Em 2026, para navegador, aula e trabalho, 16 GB é o mínimo que ainda cabe. 32 GB é o que edição e várias abas pesadas pedem. Oito gigabytes soldados são o preço baixo que você paga duas vezes: agora e na troca da máquina.
+RAM soldada é uma limitação de expansão, não uma sentença de que o notebook seja ruim. O problema aparece quando a compra depende de colocar mais memória depois e o modelo não permite isso. Antes de pagar, confirme a configuração exata: parte da RAM pode estar soldada e ainda existir um slot disponível.
 
-Soldada quer dizer LPDDR na placa, sem SO-DIMM para encaixar. Não é “difícil de abrir”. É impossível sem trocar a placa-mãe.
+O nome da linha não resolve. Dois aparelhos parecidos podem ter capacidades e projetos diferentes. Para o comprador brasileiro, código completo do produto, ficha do fabricante e manual são mais úteis que a promessa de um vendedor de marketplace ou a frase genérica “expansível até”.
 
-<Verdict overrated="notebook fino de 8 GB porque a parcela cabe" underrated="pagar o degrau de 16 GB enquanto a tela de configuração ainda deixa" />
+<Verdict overrated="comprar contando com um upgrade que ninguém documentou" underrated="confirmar modelo, slots e capacidade máxima antes do pagamento" />
 
-## Como saber antes do Pix
+## Soldada e removível podem coexistir
 
-A ficha tem de dizer “memória expansível” ou mostrar o slot. “Até 16 GB” às vezes significa que a versão de 16 GB existe na linha, não que a sua aceita pente. Foto da tampa aberta no manual, ou o site do fabricante com a palavra slot, resolve. Vendedor dizendo “depois a gente põe mais” sem mostrar o slot está vendendo outro notebook.
+Memória soldada fica fixada à placa. Ela não recebe um pente adicional como um encaixe SO-DIMM. Isso não impede que o fabricante coloque, no mesmo notebook, uma parcela soldada e outra removível. A pergunta correta é quanto existe de cada tipo e qual expansão o projeto suporta.
 
-Ultrabook fino e boa parte dos modelos com Apple Silicon, e o Mac mini recente com [SSD soldado](/noticia/mac-mini-m6-ssd-soldado), seguem a mesma lógica: capacidade é decisão de checkout. Framework e alguns corporativos ainda trazem slot. ThinkPad e Latitude de verdade, nem sempre a versão de varejo. Confira o modelo exato, não a família.
+Um exemplo brasileiro documentado é o [IdeaPad 1 15IAU7, código 82VY0010BR](https://psref.lenovo.com/Detail/IdeaPad_1_15IAU7?M=82VY0010BR). A ficha da Lenovo informa 8 GB DDR4-3200 soldados, um slot DDR4 SO-DIMM e oferta de até 16 GB, combinando 8 GB soldados com 8 GB em módulo. Portanto, ler apenas “8 GB soldados” e concluir “não aceita expansão” daria a resposta errada.
 
-16 GB contra 32 GB muda o que a máquina aguenta ao mesmo tempo. O critério está no guia de [16 ou 32 GB](/noticia/ram-16-ou-32-gb-2026). Se a memória é soldada, esse guia vira obrigatório antes da compra, não um upgrade de ano que vem.
+Já o [Yoga Slim 7 14IMH9, código 83GM0003BR](https://psref.lenovo.com/Detail/Yoga_Slim_7_14IMH9?M=83GM0003BR), aparece com 16 GB LPDDR5X soldados, sem slots e sem possibilidade de upgrade de memória. São exemplos de arquitetura, não indicação de estoque ou recomendação de compra: ambas as fichas estão identificadas como modelos retirados da linha.
 
-Memória “virtual” e memória unificada de marketing não criam pente. São outros nomes para o mesmo teto, ou para disco fazendo o papel de RAM — lento.
+## LPDDR não é prova suficiente
 
-## O que ainda dá para trocar
+A sigla descreve a tecnologia da memória, mas não encerra a análise de como ela foi instalada. A Micron documenta [módulos LPCAMM2 com chips LPDDR5X](https://www.micron.com/about/press/news/crucial-lpcamm2-powers-ai-ready-laptops-with-breakthrough-8533mts-speeds) que podem ser substituídos em notebooks compatíveis. Eles não transformam um aparelho com chips soldados em uma máquina expansível.
 
-SSD, em muita máquina, continua removível quando a RAM não é. Se for o caso, compre RAM bastante e SSD modesto, e troque o disco depois com [o que olhar num NVMe](/noticia/ssd-nvme-1tb-brasil-o-que-olhar). Se os dois forem soldados, a configuração de fábrica é a configuração da vida útil. Aí o desconto de 8 GB e 256 GB é desconto de máquina curta.
+O [guia de reparo do ThinkPad P1 Gen 7 no iFixit](https://www.ifixit.com/Guide/Lenovo+ThinkPad+P1+Gen+7+LPCAMM2+Memory+Replacement/172267), produzido em colaboração com o fabricante, mostra justamente a troca de LPCAMM2 com LPDDR5X. Não é necessário decorar cada padrão. É necessário parar de usar “LPDDR significa sempre sem upgrade” como regra de compra.
 
-Garantia: abrir para “ver se tem slot” em ultrabook colado pode marcar a tampa. A informação tem de vir da ficha e do manual, não de uma espátula na loja. Oficina que promete soldar pente novo em placa de consumo está fora da garantia e dentro do risco de não ligar. Não é upgrade. É aposta.
+Também não suponha que DDR4 ou DDR5 sejam necessariamente removíveis. O exemplo do IdeaPad tem DDR4 soldada e um encaixe separado. A descrição dos slots e o manual do modelo resolvem melhor a dúvida que a sigla isolada.
 
-Compare com um notebook um degrau mais simples e com slot, se você sabe que vai precisar de mais memória na faculdade. Um [ultrabook de entrada](/noticia/ultrabook-faculdade-bateria-tela-teclado) com 16 GB soldados e honestos ganha de um 8 GB “expansível” que ninguém vai expandir. Perde de um 16 GB com slot livre se o preço for o mesmo e você guarda arquivo e aba como profissão.
+## Como conferir sem abrir a tampa
 
-## Veredito
+A [orientação da Lenovo](https://pcsupport.lenovo.com/ec/en/products/laptops-and-netbooks/thinkpad-yoga-series-laptops/thinkpad-yoga/20cd/20cd00chus/solutions/ht504725) indica consultar a ficha PSREF, a matriz de compatibilidade e os manuais. Procure os campos de memória instalada, slots e limite suportado. A capacidade máxima de uma família não deve ser aplicada automaticamente a qualquer versão dela.
 
-Se não há slot, compre 16 GB no mínimo, 32 GB se o uso é vídeo, código ou dezenas de abas. Não leve 8 GB soldados porque a diferença parece pequena no parcelamento. Essa diferença não tem conserto na assistência.
+Antes de fechar o pedido, guarde o anúncio e confira:
 
-<Rule>
-Memória soldada é teto. O teto se escolhe na nota fiscal, não na oficina.
-</Rule>
+- O código completo do produto, não apenas “IdeaPad”, “Yoga” ou o nome do processador.
+- Quanto está soldado e quantos encaixes existem, incluindo os já ocupados.
+- Qual capacidade e padrão de módulo o fabricante documenta para aquela configuração.
+- Se o upgrade será feito por você ou por assistência, com custo de serviço e condições de garantia esclarecidos por escrito.
 
-## Guias relacionados
+Não abra um notebook novo só para descobrir uma informação que deveria estar no manual. Tampouco aceite uma regra universal de que abrir a tampa sempre mantém ou sempre elimina a garantia. Confirme as condições aplicáveis e evite intervenções que possam danificar o equipamento.
 
-Para comparar lado a lado, [MacBook Air M3 vs notebook Windows até R$ 8 mil](/noticia/macbook-air-m3-vs-notebook-windows-8-mil).
+## Quantidade depende do trabalho
 
-Mais em [Notebooks e PCs](/computadores/notebooks-e-pcs) e no arquivo de [Reviews](/reviews).
+Nossa recomendação de compra é priorizar 16 GB para quem alterna navegador, documentos e reunião e quer margem para crescer. Isso é uma escolha editorial de folga, não uma prova de que todo uso exige 16 GB nem um requisito universal de sistema. Uma tarefa simples pode caber em menos; uma carga específica pode exigir muito mais.
 
-The Zero.
+Antes de pagar pelo degrau de 32 GB, confira as exigências dos programas que você usa e como eles funcionam juntos. Edição, projetos grandes e máquinas virtuais não têm uma demanda única. O [guia de 16 ou 32 GB](/noticia/ram-16-ou-32-gb-2026) ajuda a organizar essa decisão sem tratar a quantidade de abas como medida exata de consumo.
+
+SSD e RAM também são contas diferentes. No Yoga citado, a ficha lista um encaixe M.2 para armazenamento mesmo com RAM não expansível. Aumentar o espaço do SSD não aumenta a memória física disponível aos programas.
+
+A [Microsoft explica](https://learn.microsoft.com/pt-br/troubleshoot/windows-client/performance/introduction-to-the-page-file) que o arquivo de paginação usa armazenamento para ampliar a memória confirmada que o sistema pode suportar. Isso não instala RAM nem cria um slot. Não compre pouca memória contando com “RAM virtual” como se fosse o mesmo componente.
+
+## No Brasil, confira ao receber
+
+Compare o custo total em reais: aparelho, módulo compatível e serviço, quando necessário. Sem cotar esses itens para o modelo exato, não dá para afirmar que comprar menos RAM e ampliar depois seja sempre mais barato. Parcelamento menor hoje pode esconder um gasto futuro que ainda nem foi verificado.
+
+Se a compra foi pela internet e você percebeu a limitação ao receber, não deixe a conferência para semanas depois. O [Procon de Santa Catarina](https://www.procon.sc.gov.br/procon-sc-explica-direito-de-arrependimento-vale-por-7-dias-para-compras-online/) orienta que o direito de arrependimento permite desistir em sete dias do recebimento, com devolução integral dos valores pagos, inclusive frete. A regra não é uma troca automática por preferência em loja física. Registre a solicitação e guarde os comprovantes.
+
+## O que isso significa
+
+Nossa leitura: soldar RAM transfere parte da decisão de capacidade para a compra inicial. Pode ser uma troca aceitável se o conjunto atende ao uso e ao orçamento. O erro é pagar por uma possibilidade de expansão que o produto não oferece.
+
+Entre um modelo com mais memória de fábrica e outro com slot, compare capacidade disponível agora, limite documentado e custo para chegar onde você precisa. Um encaixe ocupado não é necessariamente um encaixe livre, e a promessa de expandir só vale quando existe um caminho compatível e financeiramente viável.
+
+Fontes: [Lenovo IdeaPad](https://psref.lenovo.com/Detail/IdeaPad_1_15IAU7?M=82VY0010BR), [Lenovo Yoga](https://psref.lenovo.com/Detail/Yoga_Slim_7_14IMH9?M=83GM0003BR), [Micron](https://www.micron.com/about/press/news/crucial-lpcamm2-powers-ai-ready-laptops-with-breakthrough-8533mts-speeds), [iFixit](https://www.ifixit.com/Guide/Lenovo+ThinkPad+P1+Gen+7+LPCAMM2+Memory+Replacement/172267), [Microsoft](https://learn.microsoft.com/pt-br/troubleshoot/windows-client/performance/introduction-to-the-page-file) e [Procon SC](https://www.procon.sc.gov.br/procon-sc-explica-direito-de-arrependimento-vale-por-7-dias-para-compras-online/). [Foto de arquivo](https://commons.wikimedia.org/wiki/File:SO_DIMM_inserted_in_a_Thinkpad_T60.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+
+Mais em [Notebooks e PCs](/computadores/notebooks-e-pcs) e em [Guias](/guias).
