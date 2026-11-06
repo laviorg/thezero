@@ -17,7 +17,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 11 | 47 | acessorios-steam-deck-dock-case-sd | guia | 1181 | 7 | 1 | 1 | 1 | 1800 | reescrito; PR #473 mesclado em 06/11 |
 | 12 | 47 | intel-core-i9-14900k-degradacao-bios | noticia | 1049 | 6 | 1 | 1 | 1 | 1800 | reescrito; PR #474 mesclado em 06/11 |
 | 13 | 47 | legion-go-vs-rog-ally | comparativo | 575 | 0 | 1 | 1 | 2 | 1200 | pendente |
-| 14 | 47 | neurable-one-fone-eeg | noticia | 769 | 0 | 2 | 1 | 0 | 1200 | pendente |
+| 14 | 47 | neurable-one-fone-eeg | noticia | 769 | 0 | 2 | 1 | 0 | 1200 | reescrito: 1017 palavras, fontes primárias e foto oficial verificadas |
 | 15 | 47 | nvme-adaptador-usb-velocidade-real | guia | 570 | 0 | 1 | 1 | 2 | 1200 | pendente |
 | 16 | 47 | soundbar-barata-vs-caixa-bluetooth | guia | 563 | 0 | 1 | 1 | 3 | 1200 | pendente |
 | 17 | 48 | dock-usb-c-notebook-o-que-nao-economizar | guia | 603 | 0 | 1 | 1 | 2 | 1200 | pendente |
