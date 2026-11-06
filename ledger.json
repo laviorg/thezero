@@ -2265,6 +2265,16 @@
       "slug": "vivo-cpf-seguro-monitoramento",
       "updated_at": "2026-11-06T18:17:59Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfaO1YVGrtq"
+    },
+    "govbr-email-recuperacao-duas-etapas": {
+      "article_url": "https://www.thezero.com.br/noticia/govbr-email-recuperacao-duas-etapas",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/govbr-email-recuperacao-duas-etapas.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/govbr-email-recuperacao-duas-etapas.png",
+      "pr": 482,
+      "commit": "e203f92598bc8bd541bb0b909da93a8843715d39",
+      "ig": "https://www.instagram.com/p/DfagsCOjemt/",
+      "slug": "govbr-email-recuperacao-duas-etapas",
+      "updated_at": "2026-11-06T20:53:56Z"
     }
   }
 }
