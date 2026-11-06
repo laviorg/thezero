@@ -89,9 +89,9 @@ def refresh_threads_token(token: str, secrets: list[str] | None = None) -> str:
     return fresh
 
 
-def _poll_status(url: str, token: str, secrets: list[str], field: str, done: set[str]) -> None:
+def _poll_status(url: str, token: str, secrets: list[str], field: str, done: set[str], attempts: int = 30) -> None:
     last = ""
-    for _ in range(30):
+    for _ in range(attempts):
         data = _request(
             "GET",
             url,
@@ -180,6 +180,43 @@ def post_instagram(token: str, user_id: str, image_url: str, caption: str, secre
     return _permalink(f"{GRAPH}/{media_id}", token, secrets)
 
 
+def post_instagram_reel(token: str, user_id: str, video_url: str, caption: str, secrets: list[str]) -> str:
+    """Publica um Reels: container com media_type=REELS e video_url público."""
+    container = _request(
+        "POST",
+        f"{GRAPH}/{user_id}/media",
+        token,
+        secrets,
+        data={
+            "media_type": "REELS",
+            "video_url": video_url,
+            "caption": caption,
+            "access_token": token,
+        },
+    )
+    container_id = container.get("id")
+    if not container_id:
+        raise RuntimeError(f"container do Reels falhou: {_error_text(container, secrets)}")
+    _poll_status(
+        f"{GRAPH}/{container_id}",
+        token,
+        secrets,
+        "status_code",
+        {"FINISHED", "PUBLISHED"},
+        attempts=100,  # vídeo processa mais devagar que imagem
+    )
+    published = _publish_with_retry(
+        f"{GRAPH}/{user_id}/media_publish",
+        token,
+        secrets,
+        {"creation_id": container_id, "access_token": token},
+    )
+    media_id = published.get("id")
+    if not media_id:
+        raise RuntimeError(f"publish do Reels falhou: {_error_text(published, secrets)}")
+    return _permalink(f"{GRAPH}/{media_id}", token, secrets)
+
+
 def post_threads(token: str, user_id: str, image_url: str, text: str, secrets: list[str]) -> str:
     container = _request(
         "POST",
@@ -223,7 +260,7 @@ def list_recent_ig(token: str, user_id: str, secrets: list[str], limit: int = 50
         token,
         secrets,
         params={
-            "fields": "permalink,timestamp,caption",
+            "fields": "permalink,timestamp,caption,media_type",
             "limit": str(limit),
             "access_token": token,
         },
