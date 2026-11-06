@@ -2243,6 +2243,16 @@
       "slug": "roku-nova-tela-inicial-brasil",
       "updated_at": "2026-11-05T22:34:20Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfYHX8bnw4j"
+    },
+    "anatel-roaming-rodovias-prazos": {
+      "article_url": "https://www.thezero.com.br/noticia/anatel-roaming-rodovias-prazos",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/anatel-roaming-rodovias-prazos.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/anatel-roaming-rodovias-prazos.png",
+      "pr": 475,
+      "commit": "3076039a950c0b98e289c8b0d477a1fb115fa19e",
+      "ig": "https://www.instagram.com/p/DfZcrAYjjWF/",
+      "slug": "anatel-roaming-rodovias-prazos",
+      "updated_at": "2026-11-06T10:59:37Z"
     }
   }
 }
