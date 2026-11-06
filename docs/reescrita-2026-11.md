@@ -15,7 +15,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 9 | 46 | ram-soldada-notebook-arrependimento | guia | 1002 | 7 | 1 | 1 | 1 | 1800 | rascunho (fontes e modelos BR verificados; build completo pendente; 05/11) |
 | 10 | 46 | tapete-de-mouse-grande-vs-pequeno | guia | 953 | 6 | 1 | 1 | 1 | 1800 | rascunho individual; build completo pendente; 05/11 |
 | 11 | 47 | acessorios-steam-deck-dock-case-sd | guia | 813 | 0 | 0 | 1 | 1 | 1200 | pendente |
-| 12 | 47 | intel-core-i9-14900k-degradacao-bios | noticia | 583 | 1 | 2 | 1 | 0 | 1920 | pendente |
+| 12 | 47 | intel-core-i9-14900k-degradacao-bios | noticia | 884 | 6 | 1 | 1 | 1 | 1800 | rascunho individual; build completo pendente; 06/11 |
 | 13 | 47 | legion-go-vs-rog-ally | comparativo | 575 | 0 | 1 | 1 | 2 | 1200 | pendente |
 | 14 | 47 | neurable-one-fone-eeg | noticia | 769 | 0 | 2 | 1 | 0 | 1200 | pendente |
 | 15 | 47 | nvme-adaptador-usb-velocidade-real | guia | 570 | 0 | 1 | 1 | 2 | 1200 | pendente |
