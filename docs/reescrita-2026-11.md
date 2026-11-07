@@ -21,7 +21,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 15 | 47 | nvme-adaptador-usb-velocidade-real | guia | 994 | 6 | 1 | 1 | 1 | 1800 | reescrito; PR #477 mesclado em 06/11 |
 | 16 | 47 | soundbar-barata-vs-caixa-bluetooth | guia | 563 | 0 | 1 | 1 | 3 | 1200 | reescrito: 1014 palavras, fontes primárias e foto licenciada |
 | 17 | 48 | dock-usb-c-notebook-o-que-nao-economizar | guia | 603 | 0 | 1 | 1 | 2 | 1200 | reescrito: 936 palavras, fontes primárias e foto licenciada |
-| 18 | 48 | dualsense-vs-xbox-vs-8bitdo-no-pc | comparativo | 572 | 0 | 3 | 1 | 1 | 1200 | pendente |
+| 18 | 48 | dualsense-vs-xbox-vs-8bitdo-no-pc | comparativo | 572 | 0 | 3 | 1 | 1 | 1200 | reescrito: 929 palavras, fontes primárias e foto licenciada |
 | 19 | 48 | legion-go-s-steamos | review | 597 | 0 | 1 | 1 | 3 | 1200 | pendente |
 | 20 | 49 | anbernic-rg35xx-h-barato | review | 544 | 0 | 2 | 1 | 3 | 1200 | pendente |
 | 21 | 49 | microsoft-storm-0940-artex-ia-agentica-ataques | noticia | 626 | 1 | 2 | 1 | 0 | 1920 | pendente |
