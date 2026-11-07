@@ -2276,6 +2276,16 @@
       "slug": "govbr-email-recuperacao-duas-etapas",
       "updated_at": "2026-11-06T20:54:09Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfagtVdFglW"
+    },
+    "instagram-edits-mac-editor": {
+      "article_url": "https://www.thezero.com.br/noticia/instagram-edits-mac-editor",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/instagram-edits-mac-editor.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/instagram-edits-mac-editor.png",
+      "pr": 484,
+      "commit": "4459661a379cff557b62a66413f9064745baf6af",
+      "ig": "https://www.instagram.com/p/Dfb-B8rm9GF/",
+      "slug": "instagram-edits-mac-editor",
+      "updated_at": "2026-11-07T10:29:34Z"
     }
   }
 }
