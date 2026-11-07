@@ -24,7 +24,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 18 | 48 | dualsense-vs-xbox-vs-8bitdo-no-pc | comparativo | 572 | 0 | 3 | 1 | 1 | 1200 | reescrito: 929 palavras, fontes primárias e foto licenciada |
 | 19 | 48 | legion-go-s-steamos | review | 597 | 0 | 1 | 1 | 3 | 1200 | pendente |
 | 20 | 49 | anbernic-rg35xx-h-barato | review | 544 | 0 | 2 | 1 | 3 | 1200 | pendente |
-| 21 | 49 | microsoft-storm-0940-artex-ia-agentica-ataques | noticia | 626 | 1 | 2 | 1 | 0 | 1920 | pendente |
+| 21 | 49 | microsoft-storm-0940-artex-ia-agentica-ataques | noticia | 626 | 1 | 2 | 1 | 0 | 1920 | reescrito: 906 palavras, fontes primárias e licença da foto confirmada |
 | 22 | 50 | braco-articulado-mesa-sem-dor | guia | 576 | 0 | 2 | 1 | 3 | 1200 | pendente |
 | 23 | 50 | cadeira-gamer-vs-escritorio-ate-1500 | guia | 484 | 0 | 3 | 1 | 2 | 1200 | pendente |
 | 24 | 50 | msi-claw-8-ai-bateria-jogos | review | 559 | 0 | 2 | 1 | 3 | 1200 | pendente |
