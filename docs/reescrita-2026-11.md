@@ -28,7 +28,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 22 | 50 | braco-articulado-mesa-sem-dor | guia | 576 | 0 | 2 | 1 | 3 | 1200 | reescrito: fontes primárias, limites de ergonomia e foto licenciada |
 | 23 | 50 | cadeira-gamer-vs-escritorio-ate-1500 | guia | 484 | 0 | 3 | 1 | 2 | 1200 | pendente |
 | 24 | 50 | msi-claw-8-ai-bateria-jogos | review | 559 | 0 | 2 | 1 | 3 | 1200 | pendente |
-| 25 | 50 | switch-oled-usado-o-que-checar | guia | 541 | 1 | 0 | 1 | 2 | 1200 | pendente |
+| 25 | 50 | switch-oled-usado-o-que-checar | guia | 998 | 8 | 1 | 1 | 1 | 1800 | reescrito: inspeção documentada, conta e console distintos, CDC e foto licenciada |
 | 26 | 50 | torchtpu-codigo-aberto-pytorch-roda-nativo-tpu-google | noticia | 659 | 1 | 2 | 1 | 0 | 2048 | pendente |
 | 27 | 51 | action-cam-barata-vs-celular-estabilizado | guia | 561 | 0 | 4 | 1 | 1 | 1200 | pendente |
 | 28 | 51 | apple-notes-vs-notion-vs-obsidian | guia | 573 | 1 | 0 | 1 | 2 | 1200 | pendente |
