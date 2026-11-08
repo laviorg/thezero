@@ -31,7 +31,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 25 | 50 | switch-oled-usado-o-que-checar | guia | 998 | 8 | 1 | 1 | 1 | 1800 | reescrito: inspeção documentada, conta e console distintos, CDC e foto licenciada |
 | 26 | 50 | torchtpu-codigo-aberto-pytorch-roda-nativo-tpu-google | noticia | 659 | 1 | 2 | 1 | 0 | 2048 | pendente |
 | 27 | 51 | action-cam-barata-vs-celular-estabilizado | guia | 561 | 0 | 4 | 1 | 1 | 1200 | pendente |
-| 28 | 51 | apple-notes-vs-notion-vs-obsidian | guia | 573 | 1 | 0 | 1 | 2 | 1200 | pendente |
+| 28 | 51 | apple-notes-vs-notion-vs-obsidian | guia | 1008 | 6 | 1 | 1 | 1 | 1800 | reescrito: offline e sync documentados, custo datado e foto licenciada |
 | 29 | 51 | block-dessa-modelo-voz-local-treinado-so-fala | noticia | 599 | 1 | 3 | 1 | 0 | 2000 | pendente |
 | 30 | 51 | controle-original-vs-generico-console | guia | 649 | 0 | 3 | 1 | 1 | 1200 | pendente |
 | 31 | 51 | fibra-500-mb-vs-1-gb | guia | 613 | 0 | 2 | 1 | 2 | 1200 | pendente |
