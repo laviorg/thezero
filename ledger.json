@@ -2353,6 +2353,16 @@
       "slug": "perplexity-teammates-max-creditos-permissoes",
       "updated_at": "2026-11-08T18:19:09Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DffYjo9GyjL"
+    },
+    "openai-gpt-6-cyber-falhas-acesso-restrito": {
+      "article_url": "https://www.thezero.com.br/noticia/openai-gpt-6-cyber-falhas-acesso-restrito",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-gpt-6-cyber-falhas-acesso-restrito.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/openai-gpt-6-cyber-falhas-acesso-restrito.png",
+      "pr": 502,
+      "commit": "f139f096954192b7e30358b92a05eb40b2dd005a",
+      "ig": "https://www.instagram.com/p/Dffx4gak-zc/",
+      "slug": "openai-gpt-6-cyber-falhas-acesso-restrito",
+      "updated_at": "2026-11-08T22:00:23Z"
     }
   }
 }
