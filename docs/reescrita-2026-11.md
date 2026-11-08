@@ -33,7 +33,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 27 | 51 | action-cam-barata-vs-celular-estabilizado | guia | 561 | 0 | 4 | 1 | 1 | 1200 | pendente |
 | 28 | 51 | apple-notes-vs-notion-vs-obsidian | guia | 1008 | 6 | 1 | 1 | 1 | 1800 | reescrito: offline e sync documentados, custo datado e foto licenciada |
 | 29 | 51 | block-dessa-modelo-voz-local-treinado-so-fala | noticia | 599 | 1 | 3 | 1 | 0 | 2000 | pendente |
-| 30 | 51 | controle-original-vs-generico-console | guia | 649 | 0 | 3 | 1 | 1 | 1200 | pendente |
+| 30 | 51 | controle-original-vs-generico-console | guia | 946 | 9 | 1 | 1 | 1 | 1800 | reescrito: licença e conexão por console, CDC e foto licenciada |
 | 31 | 51 | fibra-500-mb-vs-1-gb | guia | 613 | 0 | 2 | 1 | 2 | 1200 | pendente |
 | 32 | 51 | garantia-estendida-quando-recusar | guia | 611 | 0 | 2 | 1 | 3 | 1200 | pendente |
 | 33 | 51 | modelo-menor-ou-pro | guia | 487 | 1 | 1 | 1 | 5 | 1200 | pendente |
