@@ -2309,6 +2309,16 @@
       "slug": "anatel-mosaico-instabilidade-seguranca-php",
       "updated_at": "2026-11-07T21:28:36Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfdJcjAFtKa"
+    },
+    "sonicwall-sonicos-saml-mfa-cve-2026-19868": {
+      "article_url": "https://www.thezero.com.br/noticia/sonicwall-sonicos-saml-mfa-cve-2026-19868",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/sonicwall-sonicos-saml-mfa-cve-2026-19868.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/sonicwall-sonicos-saml-mfa-cve-2026-19868.png",
+      "pr": 494,
+      "commit": "d3c65482f7b0685754f7c628e44a522c0270f4dd",
+      "ig": "https://www.instagram.com/p/DfeoSJzG-Mh/",
+      "slug": "sonicwall-sonicos-saml-mfa-cve-2026-19868",
+      "updated_at": "2026-11-08T11:17:16Z"
     }
   }
 }
