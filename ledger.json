@@ -2331,6 +2331,16 @@
       "slug": "workos-agente-artex-dados-vendas-suporte",
       "updated_at": "2026-11-08T11:28:16Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dfepicjm3jJ"
+    },
+    "github-copilot-dashboard-chat-agentes-metricas": {
+      "article_url": "https://www.thezero.com.br/noticia/github-copilot-dashboard-chat-agentes-metricas",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/github-copilot-dashboard-chat-agentes-metricas.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/github-copilot-dashboard-chat-agentes-metricas.png",
+      "pr": 498,
+      "commit": "ee55e9083e5a9f37d4c9480ce1cb5c9e877d97bf",
+      "ig": "https://www.instagram.com/p/Dfe-aFDl5Rn/",
+      "slug": "github-copilot-dashboard-chat-agentes-metricas",
+      "updated_at": "2026-11-08T14:30:36Z"
     }
   }
 }
