@@ -41,7 +41,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 35 | 51 | segunda-tela-vertical-codigo | guia | 566 | 1 | 0 | 1 | 4 | 1200 | reescrito 09/11: retrato, montagem, escala e ergonomia documentados, preço BR datado e foto licenciada; slug/date preservados |
 | 36 | 52 | apple-watch-se-vs-galaxy-watch-fitness | guia | 628 | 0 | 2 | 1 | 2 | 1200 | pendente |
 | 37 | 52 | kimi-k3-1-pro-pesos-abertos-1-milhao-tokens | noticia | 628 | 1 | 3 | 1 | 0 | 1200 | pendente |
-| 38 | 52 | kindle-android-notas-mao-caneta | noticia | 640 | 1 | 3 | 1 | 0 | 1920 | pendente |
+| 38 | 52 | kindle-android-notas-mao-caneta | noticia | 953 | 6 | 7 | 1 | 0 | 1800 | reescrito (PR individual; CI completo antes do merge) |
 | 39 | 52 | notebook-usado-empresarial-checklist | guia | 803 | 0 | 0 | 1 | 2 | 1200 | pendente |
 | 40 | 52 | pasta-termica-quando-trocar | guia | 605 | 1 | 0 | 1 | 2 | 1200 | pendente |
 | 41 | 53 | ayaneo-pocket-s-android-emulacao | review | 578 | 0 | 3 | 1 | 4 | 1200 | pendente |
