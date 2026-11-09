@@ -38,7 +38,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 32 | 51 | garantia-estendida-quando-recusar | guia | 967 | 6 | 1 | 1 | 1 | 1800 | reescrito: seguro e CDC distintos, complemento documentado e foto licenciada |
 | 33 | 51 | modelo-menor-ou-pro | guia | 487 | 1 | 1 | 1 | 5 | 1200 | pendente |
 | 34 | 51 | odin-2-vs-retroid-pocket-5 | comparativo | 600 | 0 | 2 | 1 | 3 | 1200 | pendente |
-| 35 | 51 | segunda-tela-vertical-codigo | guia | 566 | 1 | 0 | 1 | 4 | 1200 | pendente |
+| 35 | 51 | segunda-tela-vertical-codigo | guia | 566 | 1 | 0 | 1 | 4 | 1200 | reescrito 09/11: retrato, montagem, escala e ergonomia documentados, preço BR datado e foto licenciada; slug/date preservados |
 | 36 | 52 | apple-watch-se-vs-galaxy-watch-fitness | guia | 628 | 0 | 2 | 1 | 2 | 1200 | pendente |
 | 37 | 52 | kimi-k3-1-pro-pesos-abertos-1-milhao-tokens | noticia | 628 | 1 | 3 | 1 | 0 | 1200 | pendente |
 | 38 | 52 | kindle-android-notas-mao-caneta | noticia | 640 | 1 | 3 | 1 | 0 | 1920 | pendente |
