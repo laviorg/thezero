@@ -40,7 +40,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 34 | 51 | odin-2-vs-retroid-pocket-5 | comparativo | 600 | 0 | 2 | 1 | 3 | 1200 | pendente |
 | 35 | 51 | segunda-tela-vertical-codigo | guia | 566 | 1 | 0 | 1 | 4 | 1200 | reescrito 09/11: retrato, montagem, escala e ergonomia documentados, preço BR datado e foto licenciada; slug/date preservados |
 | 36 | 52 | apple-watch-se-vs-galaxy-watch-fitness | guia | 1012 | 8 | 1 | 1 | 1 | 1800 | reescrito: compatibilidade por geração, saúde e bateria documentadas, foto licenciada; slug/data preservados |
-| 37 | 52 | kimi-k3-1-pro-pesos-abertos-1-milhao-tokens | noticia | 628 | 1 | 3 | 1 | 0 | 1200 | pendente |
+| 37 | 52 | kimi-k3-1-pro-pesos-abertos-1-milhao-tokens | noticia | 925 | 8 | 9 | 1 | 0 | 1800 | reescrito (PR individual; CI completo antes do merge) |
 | 38 | 52 | kindle-android-notas-mao-caneta | noticia | 953 | 6 | 7 | 1 | 0 | 1800 | reescrito (PR individual; CI completo antes do merge) |
 | 39 | 52 | notebook-usado-empresarial-checklist | guia | 803 | 0 | 0 | 1 | 2 | 1200 | pendente |
 | 40 | 52 | pasta-termica-quando-trocar | guia | 605 | 1 | 0 | 1 | 2 | 1200 | pendente |
