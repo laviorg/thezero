@@ -2364,6 +2364,16 @@
       "slug": "openai-gpt-6-cyber-falhas-acesso-restrito",
       "updated_at": "2026-11-08T22:00:38Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dffx5wcgcn0"
+    },
+    "anatel-rue-espectro-transferencia-compartilhamento": {
+      "article_url": "https://www.thezero.com.br/noticia/anatel-rue-espectro-transferencia-compartilhamento",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/anatel-rue-espectro-transferencia-compartilhamento.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/anatel-rue-espectro-transferencia-compartilhamento.png",
+      "pr": 504,
+      "commit": "8e0ad1ea5a25974f24bff0c0d1e903b3d4c5a260",
+      "ig": "https://www.instagram.com/p/DfhOgVRFxyJ/",
+      "slug": "anatel-rue-espectro-transferencia-compartilhamento",
+      "updated_at": "2026-11-09T11:29:43Z"
     }
   }
 }
