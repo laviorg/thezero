@@ -1,54 +1,75 @@
 ---
-title: "Modelo menor ou Pro: quando o barato resolve"
-excerpt: "O modelo menor resolve e-mail, resumo e classificação. O Pro entra quando a tarefa é longa, se contradiz ou mexe em código de verdade. Pagar o caro para uma legenda é desperdício."
+title: "Modelo menor ou Pro: compare acerto, tempo e custo antes de pagar mais"
+seoTitle: "Modelo de IA menor ou Pro: como escolher sem confundir plano"
+excerpt: "Pro pode ser plano ou modo, não sinônimo de modelo maior. Compare tarefas reais, revisão e cobrança; preço de token sozinho não mede o custo do trabalho."
 category: ia
 subcategory: modelos
 format: guia
 date: "2026-09-12T13:30:00-03:00"
-kicker: "Modelo · custo"
+kicker: "IA · custo e qualidade"
 author: "nicholas"
-cover: "/covers/reviews/modelo-menor-ou-pro.webp"
-coverAlt: "Cartaz editorial do The Zero em azul-marinho, com a marca da casa e faixa azul de Modelos, para o guia sobre Modelo menor ou Pro."
+cover: "/images/posts/modelo-menor-ou-pro/cover.jpg"
+coverAlt: "Notebook prateado com tela preta, calculadora, caderno aberto com caneta azul e parte de uma jarra sobre mesa de madeira."
+coverCredit: "Jakub Zerdzicki / Pexels; mesa de trabalho ilustrativa, não interface de IA, cobrança real ou teste de modelos"
+cover_source: real
 ---
 
-Use o modelo menor para tarefa curta e bem definida. Suba para o Pro, ou para o modelo de ponta, só quando o menor errou, contradisse o próprio texto ou não cabe o material. Assinar o plano mais caro para legenda e lista é pagar fila de quem precisa do modelo grande.
+**Escolha a opção mais econômica que cumpra os critérios da tarefa, não a mais barata em qualquer situação.** Um modelo rápido pode bastar para organizar um texto fornecido; outro trabalho pode exigir mais capacidade, fontes melhores ou revisão especializada. O nome Pro, sozinho, não resolve essa decisão e nem sempre identifica um modelo diferente.
 
-Modelo menor aqui é o rápido e barato: o padrão dos planos grátis e o “mini” dos pagos. Pro é o que a empresa chama de raciocínio, avançado ou frontier. O nome muda todo trimestre. A diferença de conta, não.
+Este guia compara documentação dos fornecedores consultada em **9 de novembro de 2026**. Não rodamos um benchmark próprio, não medimos velocidade e não prometemos que um modelo acerte toda tradução, planilha ou análise. A escolha depende do produto, da versão, das ferramentas disponíveis e do resultado que você consegue verificar.
 
-<Verdict overrated="modo Pro ligado o dia inteiro" underrated="subir de modelo só depois que o barato falhou" />
+*Mesa de trabalho em foto de Jakub Zerdzicki / [Pexels](https://www.pexels.com/photo/computer-with-financial-calculator-16139628/), sob [licença Pexels](https://www.pexels.com/license/). Imagem ilustrativa, não mostra interface, fatura ou teste de IA.*
 
-## O que o menor aguenta
+## Separe plano, modelo e esforço
 
-E-mail de uma tela. Resumo de uma ata que você colou. Classificar mensagem em “responde / espera / ignora”. Tradução de parágrafo. Variante de título. Fórmula de planilha. Extração simples: data, valor, nome de um trecho curto.
+Plano é a forma de contratar um serviço, com acesso e limites próprios. Modelo é o sistema selecionado para executar o pedido. Nível de esforço ou modo de raciocínio é uma configuração suportada por determinados modelos. Tratar os três como a mesma coisa dificulta entender o que muda ao pagar mais.
 
-Ele é rápido e cabe no [plano grátis que ainda serve ao expediente](/noticia/ia-gratis-para-trabalho-2026). Se a resposta veio certa, pare. Não rode de novo no modelo caro “para confirmar” por hábito.
+Na [documentação de raciocínio da OpenAI](https://developers.openai.com/api/docs/guides/reasoning), por exemplo, o modo `pro` da API é separado do nível de esforço. Ele executa mais trabalho e pode consumir mais tokens, cobrados pelas taxas do modelo escolhido. Isso não significa que toda opção chamada Pro em qualquer aplicativo funcione assim.
 
-Diga o formato. “Cinco linhas, sem saudação, em português” faz mais pelo resultado do que trocar de modelo. Contexto curto e claro ganha de modelo gigante com pedido vago — a mesma tese de [contexto e prompt](/noticia/contexto-maior-que-prompt).
+Também não presumimos que modelo econômico seja exclusivo de plano grátis, nem que um plano pago deixe todos os modelos disponíveis sem limite. A [orientação de seleção da OpenAI](https://developers.openai.com/api/docs/guides/model-selection?site_locale=en) avisa que disponibilidade, ferramentas e limites variam por produto e versão.
 
-## Quando o Pro se paga
+## Defina o que conta como resposta certa
 
-Texto longo em que o menor esquece a restrição no meio. Várias fontes que precisam ser cruzadas sem inventar a ponte. Código em que o arquivo vizinho importa e o menor alucina uma função que não existe. Tarefa em que a primeira resposta veio confiante e errada, e você já mostrou o erro.
+Antes de comparar, escreva os critérios. Num resumo de reunião, nomes, decisões e pendências precisam corresponder ao documento. Numa classificação, estabeleça categorias e o que fazer quando faltam informações. Em código, use testes e confira se a alteração preservou o restante do programa.
 
-Aí sim o modelo grande. Uma vez. Se ele também errar, o problema é o pedido ou a falta de fonte, não a fatura.
+A [documentação da Anthropic](https://platform.claude.com/docs/en/about-claude/models/choosing-a-model) apresenta dois caminhos: começar por eficiência em tarefas bem delimitadas ou por capacidade em trabalhos complexos, para depois reduzir custo. Os dois dependem de avaliação com os pedidos e dados reais do uso pretendido. Não existe obrigação de deixar o modelo barato errar em produção antes de considerar outro.
 
-Preço: plano em dólar no cartão brasileiro paga IOF e spread. Uma alta ou um corte lá fora, como o [Opus 5.5 mais barato](/noticia/opus-55-preco-cyber), não obriga você a mudar de ferramenta no mesmo dia. Olhe a fatura do mês, não o gráfico de benchmark.
+Nossa sugestão é experimentar com material sem dados sensíveis e casos que incluam exceções: documento incompleto, nomes parecidos, instruções conflitantes ou ausência de uma informação exigida. Um teste só com exemplos fáceis pode esconder justamente a falha que dá trabalho depois.
 
-No celular, o Pro gasta teto mais rápido e a tela nem mostra a diferença numa legenda. Deixe o pesado para o computador, na tarefa que travou. A comparação de app está em [ChatGPT e Gemini](/noticia/chatgpt-vs-gemini-no-celular).
+## Meça trabalho concluído, não texto bonito
 
-## Um jeito simples de decidir
+Compare as opções nos mesmos casos e registre acertos, tempo de espera e tempo de revisão. Uma resposta mais longa ou mais confiante não é automaticamente melhor. Se você precisou corrigir valores e refazer a formatação, esse trabalho entra na conta.
 
-Escreva a tarefa em uma frase. Se a frase tem “reescreve”, “traduz”, “lista”, “classifica”, comece no menor. Se a frase tem “cruza estes três PDFs”, “acha o bug neste módulo”, “não invente número”, comece no maior — ou nem comece na IA, se a fonte oficial é uma página só.
+A [aula de avaliação da Claude Academy](https://academy.claude.com/courses/introduction-to-evals/when-to-use-what-model) demonstra o conceito de custo por tarefa concluída: somar o gasto de todas as chamadas e dividir pelas tarefas que atenderam ao critério. Chamadas erradas também custam. O exemplo da aula usa uma empresa fictícia e modelos de agosto de 2026; não é resultado nosso nem ranking atual universal.
 
-Não mande dado sensível para nenhum dos dois. O tamanho do modelo não cria sigilo. O que fica de fora do chat está no [checklist](/noticia/o-que-nao-colar-no-chat-de-ia).
+Para uso individual, dá para aplicar a ideia sem escrever um programa: guarde o mesmo conjunto de pedidos, revise pelas mesmas regras e anote onde cada opção exigiu retrabalho. Repita quando mudar o pedido ou a versão. Um resultado isolado não garante o comportamento no próximo caso.
 
-## Veredito
+## Preço de API não é mensalidade do aplicativo
 
-Menor por padrão. Pro quando o menor falhou numa tarefa que justifica o custo. Um plano, não três. Benchmark de lançamento não entra na conta do almoço.
+Na [tabela da OpenAI](https://developers.openai.com/api/docs/pricing), em **9 de novembro**, as taxas Standard de contexto curto eram **US$ 0,10 por milhão de tokens de entrada e US$ 0,50 de saída para GPT-6 Luna**, contra **US$ 2 e US$ 10 para GPT-6.1 Sol**. Não são preços de assinatura do ChatGPT.
 
-<Rule>
-Modelo caro é exceção. Se o barato acertou, a tarefa acabou.
-</Rule>
+Num cálculo ilustrativo somando várias chamadas de contexto curto, cada uma dentro de 272 mil tokens de entrada, com **1 milhão de tokens de entrada não armazenada em cache e 100 mil tokens de saída faturados** no total, isso resulta em US$ 0,15 no Luna e US$ 3 no Sol. A conta não prova qualidade equivalente ou economia real do projeto. Não inclui ferramentas, armazenamento, tentativas extras e outros encargos aplicáveis; tokens adicionais de raciocínio também precisam ser considerados conforme o uso.
 
-Mais em [Modelos](/ia/modelos) e [Reviews](/reviews).
+A tabela distingue contexto curto de longo acima de 272 mil tokens de entrada, cache e modalidades de processamento. Portanto, não transporte o exemplo para qualquer chamada. A [central de cobrança da OpenAI](https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform) confirma sistemas separados para ChatGPT e API. Créditos promocionais eventualmente elegíveis não tornam toda utilização da API parte da mensalidade.
 
-The Zero.
+## O que isso significa no Brasil
+
+Para um autônomo ou uma pequena empresa, compare o gasto total efetivo em reais com o tempo que o resultado economiza depois da revisão. Não convertemos a tabela em dólar numa fatura brasileira: moeda cobrada, conversão e encargos do meio de pagamento dependem da contratação concreta. Uma economia por token pode desaparecer se o fluxo gerar várias tentativas ou muito retrabalho.
+
+Não aumente a assinatura só porque uma resposta falhou. Confira primeiro se havia fonte suficiente, ferramenta adequada e critério claro. Mas também não culpe sempre o usuário: um modelo mais capaz continua podendo errar. Quando o resultado afeta dinheiro, cliente ou decisão importante, preservar revisão pesa mais que insistir até aparecer uma resposta convincente.
+
+## Capacidade não é política de privacidade
+
+Trocar de modelo não comprova que dados do cliente podem ser enviados. Nosso [guia do que não colar no chat de IA](/noticia/o-que-nao-colar-no-chat-de-ia) ajuda a avaliar esse limite antes do teste.
+
+As condições variam por serviço: a [OpenAI informa que não treina com dados do ChatGPT Business por padrão](https://help.openai.com/en/articles/8798634-managing-data-sharing-and-privacy-in-chatgpt-business). Isso é compromisso daquele ambiente, não autorização para enviar qualquer documento nem regra automaticamente aplicável a toda conta pessoal. Escolha capacidade e custo dentro das condições de tratamento de dados que o trabalho permite.
+
+## Fontes
+
+- [OpenAI: seleção de modelos](https://developers.openai.com/api/docs/guides/model-selection?site_locale=en).
+- [OpenAI: esforço e modo de raciocínio](https://developers.openai.com/api/docs/guides/reasoning).
+- [OpenAI: preços de API](https://developers.openai.com/api/docs/pricing).
+- [OpenAI: cobrança de ChatGPT e API](https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform).
+- [Anthropic: escolha e comparação de modelos](https://platform.claude.com/docs/en/about-claude/models/choosing-a-model).
+- [Claude Academy: custo por tarefa concluída](https://academy.claude.com/courses/introduction-to-evals/when-to-use-what-model).
+- [OpenAI: dados no ChatGPT Business](https://help.openai.com/en/articles/8798634-managing-data-sharing-and-privacy-in-chatgpt-business).

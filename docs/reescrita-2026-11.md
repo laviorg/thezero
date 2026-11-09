@@ -36,7 +36,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 30 | 51 | controle-original-vs-generico-console | guia | 946 | 9 | 1 | 1 | 1 | 1800 | reescrito: licença e conexão por console, CDC e foto licenciada |
 | 31 | 51 | fibra-500-mb-vs-1-gb | guia | 993 | 7 | 1 | 1 | 1 | 1800 | reescrito: upload e medição documentados, oferta datada e foto licenciada |
 | 32 | 51 | garantia-estendida-quando-recusar | guia | 967 | 6 | 1 | 1 | 1 | 1800 | reescrito: seguro e CDC distintos, complemento documentado e foto licenciada |
-| 33 | 51 | modelo-menor-ou-pro | guia | 487 | 1 | 1 | 1 | 5 | 1200 | pendente |
+| 33 | 51 | modelo-menor-ou-pro | guia | 487 | 1 | 1 | 1 | 5 | 1200 | reescrito 09/11: plano/modelo/esforço, avaliação e custo por tarefa; sete fontes; foto Pexels; slug/data preservados |
 | 34 | 51 | odin-2-vs-retroid-pocket-5 | comparativo | 600 | 0 | 2 | 1 | 3 | 1200 | pendente |
 | 35 | 51 | segunda-tela-vertical-codigo | guia | 566 | 1 | 0 | 1 | 4 | 1200 | reescrito 09/11: retrato, montagem, escala e ergonomia documentados, preço BR datado e foto licenciada; slug/date preservados |
 | 36 | 52 | apple-watch-se-vs-galaxy-watch-fitness | guia | 628 | 0 | 2 | 1 | 2 | 1200 | pendente |
