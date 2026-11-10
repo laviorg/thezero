@@ -45,7 +45,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 39 | 52 | notebook-usado-empresarial-checklist | guia | 1154 | 9 | 1 | 1 | 1 | 1800 | reescrito 10/11: estados Absolute, retirada Autopilot, bateria e CDC documentados; foto licenciada; slug/date preservados |
 | 40 | 52 | pasta-termica-quando-trocar | guia | 1142 | 8 | 1 | 1 | 1 | 1800 | reescrito 10/11: diagnóstico e reaplicação documentados, CDC e foto licenciada; slug/date preservados |
 | 41 | 53 | ayaneo-pocket-s-android-emulacao | review | 578 | 0 | 3 | 1 | 4 | 1200 | pendente |
-| 42 | 53 | carregamento-sem-fio-calor-e-bateria | guia | 582 | 0 | 3 | 1 | 2 | 1200 | pendente |
+| 42 | 53 | carregamento-sem-fio-calor-e-bateria | guia | 981 | 8 | 1 | 1 | 1 | 1800 | reescrito 10/11: calor, Qi2 e compatibilidade documentados, CDC e foto licenciada; slug/date preservados |
 | 43 | 53 | celular-barato-whatsapp-e-banco | guia | 566 | 0 | 3 | 1 | 2 | 1200 | pendente |
 | 44 | 53 | celular-para-idoso-whatsapp-facil | guia | 624 | 1 | 0 | 1 | 4 | 1200 | pendente |
 | 45 | 53 | galaxy-s25-vs-iphone-16-pra-quem | comparativo | 649 | 0 | 2 | 1 | 5 | 1200 | pendente |
