@@ -1,0 +1,70 @@
+---
+title: "Ceia Lumi leva IA em português à indústria, mas licença pública ainda pede atenção"
+seoTitle: "Ceia Lumi: português, pesos disponíveis e pendências da licença"
+excerpt: "Modelo da UFG deriva do Nemotron e já oferece pesos. Divulgação à indústria não elimina custo de operação, validação técnica ou termos de uso."
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-11-10T03:49:00-03:00"
+kicker: "IA · Brasil"
+author: "nicholas"
+cover: "/images/posts/ceia-lumi-portugues-pesos-licenca/cover.jpg"
+coverAlt: "Gabinete de servidor com frente perfurada e indicadores luminosos, sobre prateleira sob iluminação azul."
+coverCredit: "panumas nikhomkhai / Pexels; foto de arquivo capturada em 2015 e publicada em 2023, ilustrativa, não equipamento do Ceia ou teste do Lumi"
+cover_source: real
+---
+
+O **Ceia Lumi**, modelo de linguagem do Centro de Excelência em Inteligência Artificial da Universidade Federal de Goiás, ganhou [divulgação da Embrapii voltada à indústria em 9 de novembro](https://embrapii.org.br/ia-brasileira-para-a-industria-ja-e-realidade/). A proposta é oferecer uma base em português para empresas criarem aplicações próprias. Os pesos estão disponíveis, mas acesso ao download, autorização de uso e custo de colocar o sistema em produção são questões diferentes.
+
+Não é um modelo surgido nesta semana: o [histórico do repositório oficial](https://huggingface.co/ceia-br/lumi-4b) registra uma publicação em **29 de outubro** e a versão **v0.2 em 6 de novembro**. A notícia é a apresentação à indústria de uma alternativa brasileira cujo cartão técnico já permite examinar tanto o desenvolvimento quanto as pendências.
+
+*Foto de arquivo de panumas nikhomkhai / [Pexels](https://www.pexels.com/photo/computer-server-in-data-center-room-17489163/), sob [licença Pexels](https://www.pexels.com/license/). Capturada em 2015 e publicada em 2023, ilustra infraestrutura: não mostra equipamento da UFG nem uma execução do Lumi.*
+
+## Brasileiro não significa treinado do zero no Brasil
+
+Segundo o cartão do Ceia, o Lumi tem cerca de **4 bilhões de parâmetros** e parte do **NVIDIA Nemotron 3 Nano 4B**. A equipe declara pré-treinamento continuado em 50 bilhões de tokens, combinado com destilação de conhecimento usando o Nemotron 3.5 Lightning como professor. Depois houve ajuste supervisionado com dados de conversa e instruções.
+
+Pré-treinamento continuado é uma etapa adicional sobre um modelo existente. Destilação usa um modelo professor no processo de desenvolver outro. Isso não apaga o trabalho brasileiro de seleção de dados e adaptação ao português, mas impede descrever o Lumi como tecnologia sem componentes estrangeiros ou inteiramente criada do zero pela universidade.
+
+A equipe lista conjuntos em português e multilíngues, além de dados educacionais, sintéticos e traduzidos produzidos pelo Ceia. Também informa seleção de conteúdo em português com um classificador de qualidade educacional. São descrições dos autores, não uma auditoria nossa da origem ou da qualidade de cada documento.
+
+O checkpoint distribuído é **instruct**, ajustado para seguir instruções. A expressão “modelo-base” na comunicação à indústria deve ser entendida como ponto de partida para aplicações, não como prova de que o arquivo publicado seja um checkpoint bruto anterior ao ajuste de conversa.
+
+## A licença não se resolve com a palavra gratuito
+
+A Embrapii chama o projeto de “open source” e destaca a oferta gratuita às empresas. Na consulta de **10 de novembro**, porém, o repositório público mantinha o campo de licença como pendência no README e não apresentava arquivo LICENSE entre os arquivos listados. Isso é uma lacuna documental concreta, não uma acusação de uso irregular.
+
+Há informação adicional no [Banco Brasileiro de Soluções de IA para a Gestão Pública, BBSIA](https://bancobrasileiro.ia.br/modelos/ceia-lumi): o catálogo afirma ter recebido do Ceia, por e-mail em 8 de novembro, a indicação de licença MIT. O próprio BBSIA ressalva que o cartão público ainda não a declara. É relato do catálogo, não confirmação recebida pelo The Zero nem texto de licença publicado pelo projeto.
+
+Também existe a camada do modelo de origem. O [cartão oficial da NVIDIA](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16) remete à [NVIDIA Nemotron Open Model License](https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/). Ela permite uso comercial e obras derivadas sob condições, incluindo fornecer cópia da licença na redistribuição e preservar avisos aplicáveis.
+
+Nossa leitura é não transformar a pendência em proibição comercial absoluta, nem o download em autorização irrestrita. Uma empresa precisa confirmar os termos da contribuição do Ceia e da base utilizada antes de incorporar ou redistribuir o modelo em produto. Este resumo não substitui análise jurídica do caso.
+
+## Modo de raciocínio e ferramentas têm limites explícitos
+
+O cartão atual manda manter **thinking desativado** nesta versão. Aprendizado por reforço, treinamento com recompensas verificáveis e validação do modo de raciocínio aparecem como próximos passos. A documentação também deixa pendente esclarecer se chamadas de ferramentas foram incluídas no pós-treinamento e na avaliação.
+
+Por isso, não tratamos o Lumi como agente pronto para executar tarefas empresariais. Gerar texto em português, chamar uma ferramenta corretamente e realizar uma operação com segurança são resultados diferentes. O próprio projeto avisa que o modelo pode produzir conteúdo incorreto, enviesado ou sem sustentação.
+
+Os autores informam contexto de 8.192 tokens **durante o treinamento continuado**. Esse número não deve ser confundido com uma janela de inferência certificada. O cartão ainda pede acrescentar comprimento de contexto validado, versões de execução testadas e parâmetros de geração recomendados.
+
+Há exemplos com vLLM e API compatível com o formato da OpenAI, mas o Ceia os identifica como modelos de configuração que exigem validar ambiente e chat template. Não instalamos o Lumi, medimos velocidade ou confirmamos uma configuração mínima de computador. Tampouco convertimos o porte de 4B em promessa de que ele roda bem em qualquer notebook.
+
+## O que isso significa no Brasil
+
+O valor potencial está em permitir adaptação ao português e mais escolha sobre onde executar aplicações. Isso não comprova economia. Mesmo sem tarifa pelo download, uma implantação envolve máquina, energia, manutenção, integração e revisão das respostas. Não cotamos servidor, assinatura em reais ou custo por tarefa; a economia frente a uma API precisa ser medida na carga da empresa.
+
+Nossa sugestão é começar por tarefas de resultado verificável e material que possa ser usado, registrando a revisão dos pesos, configuração, acertos e falhas. O [guia sobre escolher entre modelo menor e Pro](https://www.thezero.com.br/noticia/modelo-menor-ou-pro) ajuda a organizar essa comparação, sem certificar o desempenho do Lumi.
+
+Hospedagem própria também não produz conformidade automática com a LGPD. A [ANPD orienta identificar bases legais e finalidades, registrar operações e adotar medidas de proteção](https://www.gov.br/anpd/pt-br/acesso-a-informacao/perguntas-frequentes). Isso vale ao adaptar o modelo com dados pessoais e ao organizar acesso às respostas, mesmo sem mandar pedidos para um serviço externo.
+
+A contribuição do Ceia merece ser avaliada pelo que está documentado: adaptação de uma base existente, pesos disponíveis e foco no português. Para virar ferramenta confiável na indústria, faltam confirmar termos públicos, validar a execução escolhida e medir qualidade no trabalho real. Nacionalidade e gratuidade anunciada não substituem essas verificações.
+
+## Fontes
+
+- [Embrapii: divulgação do Ceia Lumi à indústria em 9 de novembro](https://embrapii.org.br/ia-brasileira-para-a-industria-ja-e-realidade/).
+- [Ceia/UFG: cartão, histórico, arquivos e limites do Lumi-4B](https://huggingface.co/ceia-br/lumi-4b).
+- [BBSIA: classificação e relato sobre licença ainda não declarada no cartão público](https://bancobrasileiro.ia.br/modelos/ceia-lumi).
+- [NVIDIA: cartão do Nemotron 3 Nano 4B utilizado como base](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16).
+- [NVIDIA Nemotron Open Model License: permissões e condições](https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/).
+- [ANPD: bases legais, governança e medidas de proteção de dados pessoais](https://www.gov.br/anpd/pt-br/acesso-a-informacao/perguntas-frequentes).
