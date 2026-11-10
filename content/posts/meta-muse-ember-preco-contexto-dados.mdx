@@ -1,0 +1,81 @@
+---
+title: "Meta lança Muse Ember com tarifa menor, mas contexto longo muda a conta"
+seoTitle: "Muse Ember: preço por tokens, contexto longo e cuidado com dados"
+excerpt: "Modelo da Meta mira tarefas repetidas de agentes. Acima de 200 mil tokens de entrada, a tarifa maior vale para o pedido inteiro, não só para o excedente."
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-11-10T07:51:00-03:00"
+kicker: "IA · custo por tarefa"
+author: "nicholas"
+cover: "/images/posts/meta-muse-ember-preco-contexto-dados/cover.jpg"
+coverAlt: "Notebook com editor de código aberto à esquerda e caneca de café sobre mesa à direita, em iluminação escura."
+coverCredit: "Daniil Komov / Pexels; foto de arquivo publicada em 2025, ilustrativa, não interface Muse Ember ou teste do modelo"
+cover_source: real
+---
+
+A Meta apresentou em **9 de novembro o Muse Ember**, modelo voltado a tarefas repetidas de agentes, como classificar pedidos, extrair informações, chamar ferramentas e fazer pequenas alterações em código. A [promessa do lançamento](https://research.meta.ai/blog/muse-ember) é reduzir o custo dessas etapas. Para quem vai contratar no Brasil, porém, o valor anunciado por milhão de tokens não conta toda a história.
+
+O Ember oferece janela de cerca de 1 milhão de tokens, mas a [tabela oficial de cobrança](https://dev.meta.ai/docs/pricing-rate-limits) separa pedidos com até **200 mil tokens de entrada** dos que ultrapassam esse limite. Na segunda faixa, entrada e saída custam mais, e a tarifa se aplica ao pedido inteiro. Não é apenas um adicional sobre o trecho excedente.
+
+*Foto de arquivo de Daniil Komov / [Pexels](https://www.pexels.com/photo/laptop-with-code-displayed-and-coffee-mug-nearby-34803976/), sob [licença Pexels](https://www.pexels.com/license/). Publicada em 2025, ilustra programação: não mostra o Muse Ember nem uma execução ou teste do modelo.*
+
+## O que foi lançado
+
+A [documentação do Ember](https://dev.meta.ai/docs/muse-ember) identifica o modelo como `muse-ember-1.0`. Ele recebe texto, imagens, vídeo, áudio e PDF e devolve texto. A janela informada é de 1.048.576 tokens, com saída máxima de 524.288 tokens. Esses são limites de capacidade, não garantia de que uma resposta longa estará correta ou de que cada detalhe de um documento será recuperado.
+
+O esforço de raciocínio vai de mínimo a máximo, com máximo como padrão. Isso importa ao comparar tempo, consumo e qualidade: trocar apenas o nome do modelo sem registrar a configuração torna a comparação menos útil.
+
+A Meta oferece Ember na Model API e no Muse Code. A documentação recomenda usá-lo para trabalho delimitado e repetitivo, reservando Muse Spark ou Muse Wonder para problemas mais difíceis. O lançamento é de serviço hospedado; não é apresentado como pacote de pesos para baixar e executar em qualquer computador.
+
+Não instalamos o modelo nem testamos precisão em português, velocidade, chamadas de ferramentas ou desempenho em documentos brasileiros. Os exemplos de uso abaixo são critérios de avaliação, não resultados observados pelo The Zero.
+
+## A faixa de preço depende de toda a entrada
+
+Na consulta de **10 de novembro**, a cobrança da API é esta, em dólares por milhão de tokens:
+
+| Uso | Até 200 mil tokens de entrada | Acima de 200 mil |
+| --- | --- | --- |
+| Entrada sem cache | US$ 0,10 | US$ 0,30 |
+| Entrada em cache | US$ 0,004 | US$ 0,012 |
+| Saída | US$ 0,50 | US$ 1,50 |
+
+A Meta explica que tokens em cache também contam para determinar a faixa. Ao continuar uma conversa armazenada, o histórico incluído no pedido participa da entrada. Um pedido que ultrapassa 200 mil tokens recebe a tarifa de contexto longo integralmente, inclusive na saída, e não só nos tokens acima do limite.
+
+Cache é desconto para a parte reconhecida como prefixo reutilizado, não uma promessa de que toda conversa repetida será cobrada nessa tarifa. A documentação manda conferir os tokens efetivamente servidos do cache na resposta. Busca na web, quando usada pela ferramenta correspondente, tem cobrança adicional de US$ 2,50 por mil consultas, além dos tokens.
+
+Por isso, a janela de 1 milhão não é um convite financeiro para anexar tudo em cada chamada. Selecionar material relevante e acompanhar o crescimento do histórico pode importar tanto quanto a tarifa básica.
+
+## Benchmark não vira desconto garantido na empresa
+
+A Meta divulga vantagem de inteligência por dólar frente a modelos concorrentes. Seu gráfico usa resultados da Artificial Analysis e custos por tarefa calculados com preços de tabela; o próprio material distingue avaliações externas de índices internos. A [VentureBeat também examina essa comparação e a mudança de faixa de preço](https://venturebeat.com/technology/metas-proprietary-muse-ember-nearly-matches-claude-haiku-5-5-at-1-3-the-estimated-per-task-cost).
+
+Isso não demonstra economia na sua fila de atendimento ou no seu repositório. Uma tarefa pode consumir várias chamadas, gerar resposta inadequada, exigir correção ou acabar encaminhada a outro modelo. A unidade relevante é trabalho concluído com qualidade aceitável, não apenas o preço de um milhão de tokens.
+
+Nossa sugestão é comparar um conjunto fixo de casos, com respostas verificáveis, registrando configuração, consumo, tempo e erros. Para documentos, inclua perguntas cuja resposta esteja longe do começo e casos em que a informação não existe. Para ferramentas, confira parâmetros e necessidade de confirmação antes de qualquer efeito. O [guia sobre modelo menor ou Pro](https://www.thezero.com.br/noticia/modelo-menor-ou-pro) ajuda a organizar essa escolha sem presumir que menor ou maior sempre vence.
+
+## API e assinatura não têm o mesmo padrão de dados
+
+Na Model API, o Ember está disponível apenas em **Standard mode**, sem variante Contributor. A página de preços diz que conteúdo nesse modo não é usado para treinar modelos da Meta. Isso não significa, por si só, retenção zero: os [termos do serviço](https://dev.meta.ai/legal/terms-of-service) preveem processamento e retenção para finalidades descritas, incluindo segurança e revisão de possíveis violações.
+
+No Muse Code por assinatura, o padrão é Contributor, e o usuário pode mudar a configuração. Nesse modo, os termos permitem uso do conteúdo para treinamento e proíbem enviar informação sensível, confidencial ou pessoal. A mudança para Standard vale prospectivamente; não retira automaticamente direitos sobre conteúdo já enviado no modo anterior.
+
+Logo, a frase “Ember não treina com seus dados” precisa vir acompanhada da modalidade de acesso e configuração. Antes de usar código interno ou contratos, confirme o produto, os termos e a autorização para compartilhar o material.
+
+## O que isso significa no Brasil
+
+Não verificamos uma assinatura ou tarifa em reais. Para orçamento brasileiro, entram câmbio da cobrança, tributos aplicáveis, volume, ferramentas adicionais e trabalho de revisão. Não calculamos economia ou conversão fictícia a partir de uma cotação que não consultamos.
+
+A [política geográfica da Meta](https://dev.meta.ai/legal/geographic-use-policy) não lista o Brasil entre os territórios restritos consultados, mas afirma que acesso depende de habilitação e pode variar por serviço e jurisdição. Isso não comprova que toda conta brasileira já tenha Ember liberado. Não tentamos criar conta nem contratar acesso.
+
+Para dados pessoais, a [ANPD orienta identificar bases legais, finalidades e medidas de proteção](https://www.gov.br/anpd/pt-br/acesso-a-informacao/perguntas-frequentes). Tarifa baixa e exclusão de treinamento não tornam qualquer envio adequado. Nossa leitura: Ember merece uma avaliação delimitada, com controle de histórico e dados, antes de virar padrão de produção. O lançamento reduz a barreira de experimentar; não elimina a obrigação de conferir o resultado e a conta.
+
+## Fontes
+
+- [Meta: anúncio e ressalvas das avaliações do Muse Ember](https://research.meta.ai/blog/muse-ember).
+- [Meta: documentação do modelo, limites e modalidades de acesso](https://dev.meta.ai/docs/muse-ember).
+- [Meta: preços, contexto longo, cache e ferramentas](https://dev.meta.ai/docs/pricing-rate-limits).
+- [VentureBeat: análise do lançamento e custo estimado por tarefa](https://venturebeat.com/technology/metas-proprietary-muse-ember-nearly-matches-claude-haiku-5-5-at-1-3-the-estimated-per-task-cost).
+- [Meta: termos, Standard, Contributor e retenção](https://dev.meta.ai/legal/terms-of-service).
+- [Meta: política geográfica de acesso](https://dev.meta.ai/legal/geographic-use-policy).
+- [ANPD: bases legais e cuidados no tratamento de dados pessoais](https://www.gov.br/anpd/pt-br/acesso-a-informacao/perguntas-frequentes).
