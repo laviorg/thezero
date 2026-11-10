@@ -43,7 +43,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 37 | 52 | kimi-k3-1-pro-pesos-abertos-1-milhao-tokens | noticia | 925 | 8 | 9 | 1 | 0 | 1800 | reescrito (PR individual; CI completo antes do merge) |
 | 38 | 52 | kindle-android-notas-mao-caneta | noticia | 953 | 6 | 7 | 1 | 0 | 1800 | reescrito (PR individual; CI completo antes do merge) |
 | 39 | 52 | notebook-usado-empresarial-checklist | guia | 803 | 0 | 0 | 1 | 2 | 1200 | pendente |
-| 40 | 52 | pasta-termica-quando-trocar | guia | 605 | 1 | 0 | 1 | 2 | 1200 | pendente |
+| 40 | 52 | pasta-termica-quando-trocar | guia | 1142 | 8 | 1 | 1 | 1 | 1800 | reescrito 10/11: diagnóstico e reaplicação documentados, CDC e foto licenciada; slug/date preservados |
 | 41 | 53 | ayaneo-pocket-s-android-emulacao | review | 578 | 0 | 3 | 1 | 4 | 1200 | pendente |
 | 42 | 53 | carregamento-sem-fio-calor-e-bateria | guia | 582 | 0 | 3 | 1 | 2 | 1200 | pendente |
 | 43 | 53 | celular-barato-whatsapp-e-banco | guia | 566 | 0 | 3 | 1 | 2 | 1200 | pendente |
