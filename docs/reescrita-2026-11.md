@@ -42,7 +42,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 36 | 52 | apple-watch-se-vs-galaxy-watch-fitness | guia | 1012 | 8 | 1 | 1 | 1 | 1800 | reescrito: compatibilidade por geração, saúde e bateria documentadas, foto licenciada; slug/data preservados |
 | 37 | 52 | kimi-k3-1-pro-pesos-abertos-1-milhao-tokens | noticia | 925 | 8 | 9 | 1 | 0 | 1800 | reescrito (PR individual; CI completo antes do merge) |
 | 38 | 52 | kindle-android-notas-mao-caneta | noticia | 953 | 6 | 7 | 1 | 0 | 1800 | reescrito (PR individual; CI completo antes do merge) |
-| 39 | 52 | notebook-usado-empresarial-checklist | guia | 803 | 0 | 0 | 1 | 2 | 1200 | pendente |
+| 39 | 52 | notebook-usado-empresarial-checklist | guia | 1154 | 9 | 1 | 1 | 1 | 1800 | reescrito 10/11: estados Absolute, retirada Autopilot, bateria e CDC documentados; foto licenciada; slug/date preservados |
 | 40 | 52 | pasta-termica-quando-trocar | guia | 605 | 1 | 0 | 1 | 2 | 1200 | pendente |
 | 41 | 53 | ayaneo-pocket-s-android-emulacao | review | 578 | 0 | 3 | 1 | 4 | 1200 | pendente |
 | 42 | 53 | carregamento-sem-fio-calor-e-bateria | guia | 582 | 0 | 3 | 1 | 2 | 1200 | pendente |
