@@ -45,6 +45,64 @@ Antes de publicar, o job baixa o JPEG (inclusive com o user-agent do crawler da 
 
 O ledger fica na branch **`social-ledger`**, arquivo `ledger.json`. Além disso, o job olha as últimas publicações do Instagram e do Threads. Se a legenda já contém `/noticia/<slug>`, o slug conta como publicado e o permalink entra no ledger. As duas checagens cobrem reexecução do workflow e falha entre o post e a gravação do ledger.
 
+## Reels (Short do YouTube no Instagram)
+
+Cada matéria pode ter um Reels: o mesmo arquivo MP4 produzido para o Short do
+YouTube, sem conversão nem download. O fluxo é manual em duas pontas e
+automático no meio:
+
+1. Quem produz o Short sobe o MP4 e os créditos das imagens como assets da
+   release `social-reels`:
+
+   ```bash
+   GITHUB_TOKEN=<token do repo> python3 scripts/social/upload_reel.py \
+       --slug <slug-da-materia> --file /caminho/para/short.mp4 \
+       --credits-file /caminho/para/creditos.txt
+   ```
+
+   O script valida o MP4 (ftyp real, até 100 MB), cria a release
+   `social-reels` na primeira vez e substitui o asset se o slug já tiver um.
+   A release é marcada como prerelease: aparece na página de releases com o
+   rótulo "Pre-release", mas nunca toma o selo "Latest".
+
+   O arquivo de créditos é obrigatório para o Reels sair: a legenda publicada
+   é a `caption_ig` + os créditos no texto. Uma linha por imagem, no formato
+   TASL (https://creativecommons.org/reusing-cc-licensed-content/): autor,
+   fonte (URL da imagem) e licença de cada uma; título quando houver. Toda
+   licença CC exige atribuição; domínio público/CC0 não exige, mas o crédito
+   continua sendo boa prática e entra do mesmo jeito. Se a soma passar de
+   2200 caracteres (limite do Instagram), a publicação falha pedindo créditos
+   mais curtos.
+
+2. Dispare o workflow social-post com o mesmo slug (Actions -> social-post ->
+   Run workflow). O `run.py` procura `<slug>.mp4` e `<slug>.credits.txt` na
+   release; achando os dois, publica o Reels e grava o permalink no campo
+   `reel` do ledger. Faltando qualquer um, o Reels não sai (a rotina de
+   imagem segue igual).
+
+Sem arquivo na release, o merge na `main` não tenta Reels. O Reels é
+independente do post de imagem: um pode existir sem o outro, e a deduplicação
+ignora mídias `VIDEO` ao procurar o permalink da imagem (os dois usam a mesma
+legenda).
+
+Hospedagem e limites (fonte oficial: docs.github.com, "About releases"):
+até 1000 assets por release, cada arquivo abaixo de 2 GiB, sem limite de
+tamanho total nem de banda. Os assets ficam fora do histórico git (não inflam
+o clone). Não há poda
+automática: nenhum asset é removido enquanto não houver política de retenção
+aprovada e verificação de que nenhum asset em processamento/retry seria
+removido; até lá, o crescimento é monitorado (1000 assets ~ mais de um mês de
+Reels) e a limpeza é manual. Os permalinks dos Reels já publicados não dependem
+dos assets. A URL pública
+`github.com/<repo>/releases/download/social-reels/<slug>.mp4` responde 302 para
+a CDN do GitHub e devolve o MP4 como `application/octet-stream`, inclusive
+para o user-agent do crawler da Meta (verificado com um asset público real;
+cada objeto pode variar). O aceite final do crawler da Meta (redirect
+incluído) só se confirma na primeira publicação real. Se um dia fizer sentido
+desacoplar do GitHub, a alternativa natural é um bucket R2 na conta Cloudflare
+que já serve o site - exige criar o bucket e o token na conta, então ficou
+fora deste PR.
+
 ## Secrets
 
 Em **Settings → Secrets and variables → Actions → New repository secret**.

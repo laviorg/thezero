@@ -26,12 +26,27 @@ from github_api import (
     pr_for_commit,
 )
 from deploy_watch import DeployGuard
-from http_wait import ARTICLE_TIMEOUT_S, IMAGE_TIMEOUT_S, assert_meta_can_fetch, wait_until_ready
-from ledger import empty_ledger, entry_complete, resolve_existing
+from http_wait import (
+    ARTICLE_TIMEOUT_S,
+    IMAGE_TIMEOUT_S,
+    assert_meta_can_fetch,
+    assert_meta_can_fetch_video,
+    wait_until_ready,
+)
+from ledger import empty_ledger, entry_complete, reel_complete, resolve_existing
 from mdx_meta import is_draft_mdx
 from package_parse import SLUG_RE, parse_social_package, validate_package
-from post_api import list_recent_ig, list_recent_threads, post_instagram, post_threads, refresh_threads_token
+from post_api import (
+    list_recent_ig,
+    list_recent_threads,
+    post_instagram,
+    post_instagram_reel,
+    post_threads,
+    refresh_threads_token,
+)
 from redact import redact
+from package_parse import IG_CAPTION_MAX
+from reels import fetch_reel_credits, reel_asset_exists, reel_raw_url
 
 ASSETS_BRANCH = "social-assets"
 LEDGER_BRANCH = "social-ledger"
@@ -318,6 +333,8 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
         "detail": "",
         "pr": None,
         "image": "",
+        "reel": "",
+        "reel_detail": "",
     }
     try:
         mdx_path = root / item["path"]
@@ -342,7 +359,14 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
             return outcome
 
         url = article_url(slug)
-        existing = resolve_existing(slug, url, ledger, recent.get("ig") or [], recent.get("threads") or [])
+        # O Reels leva a mesma legenda do post de imagem; sem este filtro um
+        # Reels recente seria confundido com o post de imagem na deduplicação.
+        ig_images = [
+            post
+            for post in (recent.get("ig") or [])
+            if str(post.get("media_type") or "IMAGE").upper() != "VIDEO"
+        ]
+        existing = resolve_existing(slug, url, ledger, ig_images, recent.get("threads") or [])
         outcome["ig"] = str(existing.get("ig") or "")
         outcome["threads"] = str(existing.get("threads") or "")
         stored = ledger.get("posts", {}).get(slug) if isinstance(ledger.get("posts"), dict) else None
@@ -408,6 +432,48 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
                 save_ledger(repo, tokens["github"], secrets, slug, fields)
             ledger.setdefault("posts", {})[slug] = {**existing, **fields, "ig": outcome["ig"], "threads": outcome["threads"]}
 
+        # Reels: o Short da matéria (MP4 na release social-reels) vira
+        # Reels no Instagram. Sem o arquivo, nada acontece.
+        stored_entry = ledger.get("posts", {}).get(slug) if isinstance(ledger.get("posts"), dict) else None
+        if reel_complete(stored_entry if isinstance(stored_entry, dict) else None):
+            outcome["reel"] = str(stored_entry.get("reel") or "")
+            outcome["reel_detail"] = "reels já consta no ledger."
+        else:
+            video_url = reel_raw_url(repo, f"{slug}.mp4")
+            if not reel_asset_exists(video_url, secrets):
+                outcome["reel_detail"] = "vídeo do Short ainda não está na release social-reels."
+            elif os.environ.get("SOCIAL_DRY_RUN") == "1":
+                outcome["reel_detail"] = f"dry-run: reels pendente em {video_url}"
+            elif not tokens.get("meta") or not tokens.get("ig_user"):
+                outcome["reel_detail"] = "reels pendente, mas META_PAGE_TOKEN/IG_USER_ID não foram carregados."
+            else:
+                try:
+                    # O formato aprovado da legenda inclui os créditos das
+                    # imagens no texto; sem o arquivo de créditos, não publica.
+                    credits = fetch_reel_credits(reel_raw_url(repo, f"{slug}.credits.txt"), secrets)
+                    if not credits or not credits.strip():
+                        raise RuntimeError("sem <slug>.credits.txt na release; a legenda do Reels exige os créditos no texto.")
+                    caption = package["caption_ig"].strip() + "\n\nCréditos das imagens: " + credits.strip()
+                    if len(caption) > IG_CAPTION_MAX:
+                        raise RuntimeError(
+                            f"legenda com créditos passa de {IG_CAPTION_MAX} caracteres ({len(caption)}); encurte os créditos."
+                        )
+                    wait_until_ready(video_url, "mp4", IMAGE_TIMEOUT_S, secrets)
+                    assert_meta_can_fetch_video(video_url, secrets)
+                    outcome["reel"] = post_instagram_reel(
+                        tokens["meta"],
+                        tokens["ig_user"],
+                        video_url,
+                        caption,
+                        secrets,
+                    )
+                    save_ledger(repo, tokens["github"], secrets, slug, {"reel": outcome["reel"]})
+                    ledger.setdefault("posts", {}).setdefault(slug, {})["reel"] = outcome["reel"]
+                    outcome["reel_detail"] = "reels publicado."
+                except Exception as exc:  # noqa: BLE001
+                    outcome["status"] = "failed"
+                    outcome["reel_detail"] = f"reels falhou: {redact(str(exc), secrets)}"
+
         if os.environ.get("SOCIAL_DRY_RUN") == "1":
             return outcome
 
@@ -420,7 +486,9 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
             outcome["ig"],
             outcome["threads"],
         )
-        outcome["status"] = "posted"
+        # Um Reels que falhou não vira "posted" por causa do comentário.
+        if outcome["status"] != "failed":
+            outcome["status"] = "posted"
         outcome["detail"] = note_text
         if number and "comentário publicado" not in note_text and "já estava" not in note_text:
             outcome["status"] = "failed"
@@ -450,6 +518,10 @@ def summary_lines(outcomes: list[dict]) -> list[str]:
         lines.append(f"- threads: {threads}")
         if item.get("image"):
             lines.append(f"- image: {item['image']}")
+        if item.get("reel"):
+            lines.append(f"- reels: {item['reel']}")
+        if item.get("reel_detail"):
+            lines.append(f"- reels detalhe: {item['reel_detail']}")
         if item.get("detail"):
             lines.append(f"- detalhe: {item['detail']}")
         lines.append("")
@@ -503,6 +575,7 @@ def main() -> int:
         # SOCIAL PACKAGE (ou com ledger completo) não exige os secrets.
         ledger = load_ledger(repo, github_token, secrets)
         needs_network = False
+        needs_reel = False
         prepared: list[tuple[dict, dict | None, str]] = []
         for item in articles:
             pr = lookup_pr(repo, item["commit"], github_token, secrets)
@@ -515,11 +588,16 @@ def main() -> int:
             stored = ledger.get("posts", {}).get(item["slug"]) if isinstance(ledger.get("posts"), dict) else None
             if not entry_complete(stored if isinstance(stored, dict) else None):
                 needs_network = True
+            elif not reel_complete(stored if isinstance(stored, dict) else None) and reel_asset_exists(
+                reel_raw_url(repo, f"{item['slug']}.mp4"), secrets
+            ):
+                needs_reel = True
 
         recent = {"ig": [], "threads": []}
-        if needs_network:
+        if needs_network or needs_reel:
             tokens["meta"] = require_env("META_PAGE_TOKEN", secrets)
             tokens["ig_user"] = require_env("IG_USER_ID", secrets)
+        if needs_network:
             tokens["threads_user"] = require_env("THREADS_USER_ID", secrets)
             current_threads = require_env("THREADS_TOKEN", secrets)
             tokens["threads"] = threads_token_for_run(current_threads, secrets)
