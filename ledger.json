@@ -2465,6 +2465,17 @@
       "updated_at": "2026-11-11T21:28:02Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfnciKelGuE",
       "story": "https://www.instagram.com/stories/hello.the.zero/4028313992917661775"
+    },
+    "garmin-fenix-9-beta-escalada-alerta": {
+      "article_url": "https://www.thezero.com.br/noticia/garmin-fenix-9-beta-escalada-alerta",
+      "pr": 456,
+      "commit": "effea7e69d405811f7388847bf6a86ca21fcc814",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/garmin-fenix-9-beta-escalada-alerta.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/garmin-fenix-9-beta-escalada-alerta.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/garmin-fenix-9-beta-escalada-alerta-story.jpg",
+      "ig": "https://www.instagram.com/p/Dfndq4slCGj/",
+      "slug": "garmin-fenix-9-beta-escalada-alerta",
+      "updated_at": "2026-11-11T21:37:42Z"
     }
   }
 }
