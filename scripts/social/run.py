@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Publica matérias novas no Instagram e no Threads depois do merge na main.
+"""Publica matérias novas no Instagram (feed + Story) e no Threads depois do merge.
 
-X está cancelado: threads_x vai só para o Threads. O compose_cmd do PR não é
-executado; a arte sai de compose_ig_post.py.
+X não roda neste workflow (não há secrets da API no repositório); o box
+publica no @hello_the_zero à parte. O compose_cmd do PR não é executado;
+a arte sai de compose_ig_post.py. Só arquivo novo em content/posts/.
 """
 
 from __future__ import annotations
@@ -16,6 +17,7 @@ import tempfile
 import time
 from pathlib import Path
 
+from captions import finalize_ig_caption, finalize_threads_text
 from compose_ig_post import compose, write_jpeg
 from git_branch import GitPushError, commit_paths, prepare_branch, push_head
 from github_api import (
@@ -30,7 +32,15 @@ from http_wait import ARTICLE_TIMEOUT_S, IMAGE_TIMEOUT_S, assert_meta_can_fetch,
 from ledger import empty_ledger, entry_complete, resolve_existing
 from mdx_meta import is_draft_mdx
 from package_parse import SLUG_RE, parse_social_package, validate_package
-from post_api import list_recent_ig, list_recent_threads, post_instagram, post_threads, refresh_threads_token
+from post_api import (
+    is_scope_error,
+    list_recent_ig,
+    list_recent_threads,
+    post_instagram,
+    post_instagram_story,
+    post_threads,
+    refresh_threads_token,
+)
 from redact import redact
 
 ASSETS_BRANCH = "social-assets"
@@ -235,11 +245,18 @@ def save_ledger(repo: str, token: str, secrets: list[str], slug: str, fields: di
     _with_branch(repo, LEDGER_BRANCH, token, secrets, mutate)
 
 
-def publish_assets(repo: str, token: str, secrets: list[str], slug: str, png: Path, jpg: Path) -> None:
+def publish_assets(
+    repo: str,
+    token: str,
+    secrets: list[str],
+    slug: str,
+    files: dict[str, Path],
+) -> None:
     def mutate(dest: Path, state: str) -> bool:
-        shutil.copyfile(png, dest / f"{slug}.png")
-        shutil.copyfile(jpg, dest / f"{slug}.jpg")
-        paths = [f"{slug}.png", f"{slug}.jpg"]
+        paths: list[str] = []
+        for name, src in files.items():
+            shutil.copyfile(src, dest / name)
+            paths.append(name)
         readme = dest / "README.md"
         if state == "missing" or not readme.is_file():
             readme.write_text(ASSETS_README.format(repo=repo), encoding="utf-8")
@@ -249,25 +266,58 @@ def publish_assets(repo: str, token: str, secrets: list[str], slug: str, png: Pa
     _with_branch(repo, ASSETS_BRANCH, token, secrets, mutate)
 
 
-def ensure_comment(repo: str, token: str, secrets: list[str], number: int | None, slug: str, ig: str, threads: str) -> str:
+def ensure_comment(
+    repo: str,
+    token: str,
+    secrets: list[str],
+    number: int | None,
+    slug: str,
+    ig: str,
+    threads: str,
+    story: str = "",
+) -> str:
     if not number:
         return "publicado sem PR associado para comentar."
     if not ig or not threads:
         return ""
-    body = comment_body(slug, ig, threads)
+    body = comment_body(slug, ig, threads, story)
     comments = list_comments(repo, number, token, secrets)
-    if comment_exists(comments, slug, ig, threads):
+    if comment_exists(comments, slug, ig, threads, story):
         return "comentário já estava no PR."
     post_comment(repo, number, body, token, secrets)
     return f"comentário publicado no PR #{number}."
 
 
-def render_art(root: Path, cover: Path, hook: str, summary: str, slug: str) -> tuple[Path, Path]:
+def out_dir_for(root: Path) -> Path:
     out_dir = Path(os.environ.get("SOCIAL_OUT_DIR") or (root / "social-out"))
     out_dir.mkdir(parents=True, exist_ok=True)
+    return out_dir
+
+
+def render_art(root: Path, cover: Path, hook: str, summary: str, slug: str) -> tuple[Path, Path]:
+    out_dir = out_dir_for(root)
     png = compose(cover, hook, summary, out_dir / f"{slug}.png", size="1x1")
     jpg = write_jpeg(png, out_dir / f"{slug}.jpg")
     return png, jpg
+
+
+def render_story_art(root: Path, cover: Path, hook: str, summary: str, slug: str, url: str) -> tuple[Path, Path]:
+    out_dir = out_dir_for(root)
+    host_path = url.replace("https://", "").replace("http://", "").removeprefix("www.")
+    footer = f"Link na bio\n{host_path}"
+    png = compose(cover, hook, summary, out_dir / f"{slug}-story.png", size="9x16", footer=footer)
+    jpg = write_jpeg(png, out_dir / f"{slug}-story.jpg")
+    return png, jpg
+
+
+def story_footer_error(exc: BaseException, secrets: list[str]) -> str:
+    detail = redact(str(exc), secrets)
+    if is_scope_error(exc):
+        return (
+            "Story não publicado: o token do Instagram não tem permissão para "
+            f"media_type=STORIES ({detail}). O feed e o Threads seguem válidos."
+        )
+    return f"Story não publicado: {detail}"
 
 
 def threads_token_for_run(current: str, secrets: list[str], refresh=None) -> str:
@@ -305,6 +355,7 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
             "status": "failed",
             "ig": "",
             "threads": "",
+            "story": "",
             "detail": f"slug inválido: {slug}.",
             "pr": None,
             "image": "",
@@ -315,6 +366,7 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
         "status": "skipped",
         "ig": "",
         "threads": "",
+        "story": "",
         "detail": "",
         "pr": None,
         "image": "",
@@ -345,6 +397,7 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
         existing = resolve_existing(slug, url, ledger, recent.get("ig") or [], recent.get("threads") or [])
         outcome["ig"] = str(existing.get("ig") or "")
         outcome["threads"] = str(existing.get("threads") or "")
+        outcome["story"] = str(existing.get("story") or "")
         stored = ledger.get("posts", {}).get(slug) if isinstance(ledger.get("posts"), dict) else None
         if (
             os.environ.get("SOCIAL_DRY_RUN") != "1"
@@ -360,53 +413,97 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
                     "article_url": url,
                     "ig": outcome["ig"],
                     "threads": outcome["threads"],
+                    "story": outcome["story"],
                     "pr": number or "",
                     "commit": item["commit"],
                 },
             )
 
-        if not entry_complete(existing):
+        need_feed = not entry_complete(existing)
+        need_story = not str(outcome["story"] or "").strip()
+        if need_feed or need_story:
             cover = resolve_cover(root, package["cover_path"])
-            png, jpg = render_art(root, cover, package["hook"], package["summary"], slug)
+            files: dict[str, Path] = {}
+            png = jpg = story_png = story_jpg = None
+            if need_feed:
+                png, jpg = render_art(root, cover, package["hook"], package["summary"], slug)
+                files[f"{slug}.png"] = png
+                files[f"{slug}.jpg"] = jpg
+            if need_story:
+                story_png, story_jpg = render_story_art(
+                    root, cover, package["hook"], package["summary"], slug, url
+                )
+                files[f"{slug}-story.png"] = story_png
+                files[f"{slug}-story.jpg"] = story_jpg
             if os.environ.get("SOCIAL_DRY_RUN") == "1":
                 outcome["status"] = "skipped"
-                outcome["detail"] = f"dry-run: {png} {jpg}"
+                outcome["detail"] = "dry-run: " + " ".join(str(path) for path in files.values())
                 return outcome
-            publish_assets(repo, tokens["github"], secrets, slug, png, jpg)
-            image_url = raw_asset(repo, f"{slug}.jpg")
-            outcome["image"] = image_url
-            wait_until_ready(image_url, "jpeg", IMAGE_TIMEOUT_S, secrets)
-            assert_meta_can_fetch(image_url, secrets)
-            wait_until_ready(url, "article", ARTICLE_TIMEOUT_S, secrets, on_tick=DeployGuard(repo, tokens["github"], secrets))
+            publish_assets(repo, tokens["github"], secrets, slug, files)
+            if jpg is not None:
+                image_url = raw_asset(repo, f"{slug}.jpg")
+                outcome["image"] = image_url
+                wait_until_ready(image_url, "jpeg", IMAGE_TIMEOUT_S, secrets)
+                assert_meta_can_fetch(image_url, secrets)
+            if story_jpg is not None:
+                story_image_url = raw_asset(repo, f"{slug}-story.jpg")
+                wait_until_ready(story_image_url, "jpeg", IMAGE_TIMEOUT_S, secrets)
+                assert_meta_can_fetch(story_image_url, secrets)
+            if need_feed:
+                wait_until_ready(url, "article", ARTICLE_TIMEOUT_S, secrets, on_tick=DeployGuard(repo, tokens["github"], secrets))
 
             fields = {
                 "article_url": url,
-                "image_jpg": image_url,
-                "image_png": raw_asset(repo, f"{slug}.png"),
                 "pr": number or "",
                 "commit": item["commit"],
             }
-            if not outcome["ig"]:
+            if jpg is not None:
+                fields["image_jpg"] = raw_asset(repo, f"{slug}.jpg")
+                fields["image_png"] = raw_asset(repo, f"{slug}.png")
+            if story_jpg is not None:
+                fields["story_image_jpg"] = raw_asset(repo, f"{slug}-story.jpg")
+
+            if need_feed and not outcome["ig"]:
                 outcome["ig"] = post_instagram(
                     tokens["meta"],
                     tokens["ig_user"],
-                    image_url,
-                    package["caption_ig"].strip(),
+                    raw_asset(repo, f"{slug}.jpg"),
+                    finalize_ig_caption(package),
                     secrets,
                 )
                 fields["ig"] = outcome["ig"]
                 save_ledger(repo, tokens["github"], secrets, slug, fields)
-            if not outcome["threads"]:
+            if need_feed and not outcome["threads"]:
                 outcome["threads"] = post_threads(
                     tokens["threads"],
                     tokens["threads_user"],
-                    image_url,
-                    package["threads_x"].strip(),
+                    raw_asset(repo, f"{slug}.jpg"),
+                    finalize_threads_text(package),
                     secrets,
                 )
                 fields["threads"] = outcome["threads"]
                 save_ledger(repo, tokens["github"], secrets, slug, fields)
-            ledger.setdefault("posts", {})[slug] = {**existing, **fields, "ig": outcome["ig"], "threads": outcome["threads"]}
+            if need_story and not outcome["story"]:
+                try:
+                    outcome["story"] = post_instagram_story(
+                        tokens["meta"],
+                        tokens["ig_user"],
+                        raw_asset(repo, f"{slug}-story.jpg"),
+                        secrets,
+                    )
+                    fields["story"] = outcome["story"]
+                    save_ledger(repo, tokens["github"], secrets, slug, fields)
+                except Exception as exc:  # noqa: BLE001 — Story não derruba feed/Threads
+                    warning = story_footer_error(exc, secrets)
+                    note(f"::warning::{warning}", secrets)
+                    outcome["detail"] = warning
+            ledger.setdefault("posts", {})[slug] = {
+                **existing,
+                **fields,
+                "ig": outcome["ig"],
+                "threads": outcome["threads"],
+                "story": outcome["story"],
+            }
 
         if os.environ.get("SOCIAL_DRY_RUN") == "1":
             return outcome
@@ -419,14 +516,19 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
             slug,
             outcome["ig"],
             outcome["threads"],
+            outcome["story"],
         )
-        outcome["status"] = "posted"
-        outcome["detail"] = note_text
-        if number and "comentário publicado" not in note_text and "já estava" not in note_text:
-            outcome["status"] = "failed"
-            outcome["detail"] = note_text or "não consegui comentar no PR."
-        if not number:
-            outcome["detail"] = "publicado, mas não achei o PR para comentar."
+        if outcome["ig"] and outcome["threads"]:
+            outcome["status"] = "posted"
+            parts = [part for part in (note_text, outcome["detail"]) if part]
+            outcome["detail"] = " ".join(parts)
+            if number and "comentário publicado" not in note_text and "já estava" not in note_text:
+                outcome["status"] = "failed"
+                outcome["detail"] = note_text or "não consegui comentar no PR."
+            if not number:
+                outcome["detail"] = "publicado, mas não achei o PR para comentar."
+                outcome["status"] = "failed"
+        elif outcome["detail"] and "Story não publicado" in outcome["detail"]:
             outcome["status"] = "failed"
         return outcome
     except Exception as exc:  # noqa: BLE001
@@ -444,9 +546,11 @@ def summary_lines(outcomes: list[dict]) -> list[str]:
     for item in outcomes:
         ig = item["ig"] or "—"
         threads = item["threads"] or "—"
+        story = item.get("story") or "—"
         lines.append(f"### {item['slug']}")
         lines.append(f"- status: {item['status']}")
         lines.append(f"- ig: {ig}")
+        lines.append(f"- story: {story}")
         lines.append(f"- threads: {threads}")
         if item.get("image"):
             lines.append(f"- image: {item['image']}")
