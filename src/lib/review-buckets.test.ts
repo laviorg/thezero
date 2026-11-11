@@ -35,14 +35,11 @@ const UNBUCKETED = [
 ];
 
 const CASES: Record<string, ReviewBucketSlug | null> = {
-  "switch-2-hype-vs-frame-rate": "consoles",
   "switch-2-vs-steam-deck-oled-preco-brasil": "consoles",
   "ps5-slim-vale-a-pena-2026-brasil": "consoles",
   "controle-original-vs-generico-console": "consoles",
   "ssd-no-ps5-upgrade": "consoles",
-  "steam-deck-oled-brasil-preco-doi": "consoles-portateis",
   "legion-go-vs-rog-ally": "consoles-portateis",
-  "rog-ally-x-brasil-preco-desempenho": "consoles-portateis",
   "zeenix-lite-portatil-barato": "consoles-portateis",
   "windows-no-handheld-vs-steamos": "consoles-portateis",
   "acessorios-steam-deck-dock-case-sd": "acessorios",
