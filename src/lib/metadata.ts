@@ -6,6 +6,7 @@ import {
   toMetaDescription,
 } from "./seo.ts";
 import { absoluteUrl, site } from "./site.ts";
+import { resolveSocialImage } from "./social-image.ts";
 import {
   BRAND_NAME,
   TITLE_SEPARATOR,
@@ -63,8 +64,14 @@ export function buildPageMetadata({
   const socialTitle = ogTitle
     ? composePageTitle(ogTitle, includesBrand(ogTitle) ? "never" : brand)
     : documentTitle;
-  const image = imagePath
-    ? ogImageMeta(absoluteUrl(imagePath), imageAlt ?? socialTitle)
+  const described = imagePath
+    ? resolveSocialImage({
+        imagePath,
+        alt: imageAlt ?? socialTitle,
+      })
+    : undefined;
+  const image = described
+    ? ogImageMeta(absoluteUrl(described.path), described.alt, described)
     : undefined;
 
   return {
@@ -101,9 +108,7 @@ export function buildPageMetadata({
       card: "summary_large_image",
       title: socialTitle,
       description: metaDescription,
-      ...(image
-        ? { images: [{ url: image.url, alt: image.alt }] }
-        : {}),
+      ...(image ? { images: [image] } : {}),
     },
   };
 }

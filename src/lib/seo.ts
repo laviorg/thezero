@@ -30,13 +30,17 @@ export function assetUrl(src?: string) {
   return absoluteUrl(src);
 }
 
-export function ogImageMeta(url: string, alt: string) {
+export function ogImageMeta(
+  url: string,
+  alt: string,
+  size?: { width?: number; height?: number; type?: string },
+) {
   return {
     url,
-    width: 1200,
-    height: 630,
+    width: size?.width ?? 1200,
+    height: size?.height ?? 630,
     alt,
-    type: "image/png" as const,
+    type: size?.type ?? "image/png",
   };
 }
 
