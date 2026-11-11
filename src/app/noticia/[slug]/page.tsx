@@ -32,12 +32,12 @@ import {
 } from "@/lib/posts";
 import {
   HOME_CRUMB_LABEL,
-  articleOgImagePath,
   coverAlt,
   toMetaDescription,
 } from "@/lib/seo";
+import { articleSocialImage } from "@/lib/social-image";
 import { absoluteUrl, site } from "@/lib/site";
-import { articleHeadline, articleSchemaHeadline } from "@/lib/titles";
+import { articleSchemaHeadline } from "@/lib/titles";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -61,9 +61,8 @@ export async function generateMetadata({
     ? getSubcategory(post.category, post.subcategory)
     : undefined;
 
-  const headline = articleHeadline(post);
   const url = absoluteUrl(post.href);
-  const ogPath = articleOgImagePath(post.slug);
+  const social = articleSocialImage(post);
   const profile = resolveAuthor(post.authorSlug) ?? resolveAuthor(post.author);
   const authorUrl = profile ? absoluteUrl(profile.href) : absoluteUrl("/autores");
   const base = buildPageMetadata({
@@ -72,8 +71,8 @@ export async function generateMetadata({
     path: post.href,
     type: "article",
     brand: "auto",
-    imagePath: ogPath,
-    imageAlt: headline,
+    imagePath: social.path,
+    imageAlt: social.alt,
     noIndex: Boolean(post.noindex),
   });
 

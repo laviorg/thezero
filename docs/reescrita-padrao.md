@@ -15,5 +15,12 @@ Lista priorizada (mais fraco primeiro): `docs/reescrita-2026-11.md`. Trabalhe de
 10. **Fino demais para salvar?** Marque `noindex: true` no frontmatter e registre no doc de reescrita (ou 301 para peça de fundo do mesmo assunto em `src/lib/redirects.ts`).
 11. Cada lote: branch → `npm run check:posts` + `npm run build` passam → PR → merge squash. Excerpt ≤160 caracteres.
 
+## Discover
+
+1. **Assunto quente do dia.** Prioridade ao que foi publicado em poucas horas, com ângulo brasileiro.
+2. **Título concreto.** Gera curiosidade e diz o que muda para o leitor, sem exagero.
+3. **Visual próprio além da capa.** Toda matéria traz pelo menos um: tabela comparativa, gráfico ou card de preço em R$. Só com dados reais e linkados. Sem imagem gerada fingindo foto.
+4. **Capa.** Quando houver foto ou print próprio de teste, eles ficam no lugar da arte de divulgação.
+
 ## Modelo de seções (lote 1 como referência)
 Ex.: `content/posts/antivirus-windows-2026-precisa-pagar.mdx` — corpo original + `## No Brasil` + `## Nossa leitura` + `## Veredito` + `Fontes:`.

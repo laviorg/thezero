@@ -316,19 +316,30 @@ describe("image size", () => {
 });
 
 describe("articleImages", () => {
-  it("lists the cover before the on-domain card and keeps card dimensions", () => {
+  it("lists the cover, the derived crops, and the on-domain card", () => {
     const images = articleImages({
       slug: "gemini-hackeou-tres-empresas-teste",
       title: "Manchete",
       cover: "/images/posts/gemini-hackeou-tres-empresas-teste/cover.jpg",
       coverAlt: "Gemini — cobertura sobre o incidente em teste",
     });
-    assert.equal(images.length, 2);
+    assert.equal(images.length, 5);
     assert.match(images[0]?.url ?? "", /gemini-hackeou-tres-empresas-teste\/cover\.jpg$/);
     assert.equal(images[0]?.caption, "Gemini — cobertura sobre o incidente em teste");
-    assert.ok((images[0]?.width ?? 0) > 0);
-    assert.match(images[1]?.url ?? "", /\/noticia\/gemini-hackeou-tres-empresas-teste\/opengraph-image$/);
+    assert.equal(images[0]?.width, 2400);
+    assert.equal(images[0]?.height, 1349);
+    assert.match(images[1]?.url ?? "", /\/cover\.16x9\.webp$/);
     assert.equal(images[1]?.width, 1200);
-    assert.equal(images[1]?.height, 630);
+    assert.equal(images[1]?.height, 675);
+    assert.match(images[2]?.url ?? "", /\/cover\.4x3\.webp$/);
+    assert.equal(images[2]?.width, 1200);
+    assert.equal(images[2]?.height, 900);
+    assert.match(images[3]?.url ?? "", /\/cover\.1x1\.webp$/);
+    assert.equal(images[3]?.width, 1200);
+    assert.equal(images[3]?.height, 1200);
+    assert.match(images[4]?.url ?? "", /\/noticia\/gemini-hackeou-tres-empresas-teste\/opengraph-image$/);
+    assert.equal(images[4]?.caption, "Manchete");
+    assert.equal(images[4]?.width, 1200);
+    assert.equal(images[4]?.height, 630);
   });
 });
