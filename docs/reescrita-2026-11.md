@@ -47,7 +47,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 41 | 53 | ayaneo-pocket-s-android-emulacao | review | 578 | 0 | 3 | 1 | 4 | 1200 | pendente |
 | 42 | 53 | carregamento-sem-fio-calor-e-bateria | guia | 981 | 8 | 1 | 1 | 1 | 1800 | reescrito 10/11: calor, Qi2 e compatibilidade documentados, CDC e foto licenciada; slug/date preservados |
 | 43 | 53 | celular-barato-whatsapp-e-banco | guia | 1029 | 8 | 1 | 1 | 1 | 1800 | reescrito 10/11: certificação, suporte, RAM e habilitação bancária documentados; foto licenciada; slug/date preservados |
-| 44 | 53 | celular-para-idoso-whatsapp-facil | guia | 624 | 1 | 0 | 1 | 4 | 1200 | pendente |
+| 44 | 53 | celular-para-idoso-whatsapp-facil | guia | 1070 | 8 | 1 | 1 | 1 | 1800 | reescrito 10/11: acessibilidade por pessoa/app, fim KaiOS e privacidade documentados; foto licenciada; slug/date preservados |
 | 45 | 53 | galaxy-s25-vs-iphone-16-pra-quem | comparativo | 649 | 0 | 2 | 1 | 5 | 1200 | reescrito 11/11: tela, câmera, USB, suporte e migração documentados; foto licenciada; slug/date preservados |
 | 46 | 53 | microfone-usb-sem-estudio | guia | 553 | 1 | 1 | 1 | 2 | 1200 | pendente |
 | 47 | 53 | mouse-gamer-leve-alem-do-marketing | guia | 563 | 0 | 3 | 1 | 2 | 1200 | reescrito 11/11: formato, peso contextualizado, polling/autonomia e homologação; slug/date preservados |
