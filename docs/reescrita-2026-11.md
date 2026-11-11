@@ -50,7 +50,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 44 | 53 | celular-para-idoso-whatsapp-facil | guia | 624 | 1 | 0 | 1 | 4 | 1200 | pendente |
 | 45 | 53 | galaxy-s25-vs-iphone-16-pra-quem | comparativo | 649 | 0 | 2 | 1 | 5 | 1200 | reescrito 11/11: tela, câmera, USB, suporte e migração documentados; foto licenciada; slug/date preservados |
 | 46 | 53 | microfone-usb-sem-estudio | guia | 553 | 1 | 1 | 1 | 2 | 1200 | pendente |
-| 47 | 53 | mouse-gamer-leve-alem-do-marketing | guia | 563 | 0 | 3 | 1 | 2 | 1200 | pendente |
+| 47 | 53 | mouse-gamer-leve-alem-do-marketing | guia | 563 | 0 | 3 | 1 | 2 | 1200 | reescrito 11/11: formato, peso contextualizado, polling/autonomia e homologação; slug/date preservados |
 | 48 | 53 | teclado-mecanico-ate-400-abnt | guia | 539 | 0 | 7 | 1 | 1 | 1200 | pendente |
 | 49 | 53 | troca-de-tela-original-vs-paralela | guia | 577 | 0 | 3 | 1 | 2 | 1200 | pendente |
 | 50 | 54 | capcut-world-ia-chatgpt-editpilot | noticia | 613 | 1 | 4 | 1 | 0 | 1920 | pendente |
