@@ -1,4 +1,4 @@
-"""Publica no Instagram e no Threads. Não há comando de X.
+"""Publica no Instagram (feed e Stories) e no Threads. Não há comando de X.
 
 O image_url precisa ser público. Quem chama este módulo entrega a URL
 (raw.githubusercontent.com da branch social-assets).
@@ -148,6 +148,62 @@ def _publish_with_retry(url: str, token: str, secrets: list[str], data: dict, wa
             print(f"media_publish ainda indisponível ({exc}); nova tentativa em {waits[attempt]}s", flush=True)
             sleep(waits[attempt])
             attempt += 1
+
+
+def is_scope_error(exc: BaseException | str) -> bool:
+    """True quando a Graph API recusa por permissão/escopo, não por falha transitória."""
+    text = str(exc).lower()
+    needles = (
+        "permission",
+        "permissions",
+        "insufficient",
+        "not authorized",
+        "oauthexception",
+        "(#10)",
+        "(#200)",
+        "capability",
+        "scopes",
+        "scope",
+    )
+    return any(item in text for item in needles)
+
+
+def post_instagram_story(token: str, user_id: str, image_url: str, secrets: list[str]) -> str:
+    """Publica um Story 9:16. Legenda da API é ignorada; o texto vai na arte."""
+    container = _request(
+        "POST",
+        f"{GRAPH}/{user_id}/media",
+        token,
+        secrets,
+        data={
+            "media_type": "STORIES",
+            "image_url": image_url,
+            "access_token": token,
+        },
+    )
+    container_id = container.get("id")
+    if not container_id:
+        raise RuntimeError(f"container do Story falhou: {_error_text(container, secrets)}")
+    _poll_status(
+        f"{GRAPH}/{container_id}",
+        token,
+        secrets,
+        "status_code",
+        {"FINISHED", "PUBLISHED"},
+    )
+    published = _publish_with_retry(
+        f"{GRAPH}/{user_id}/media_publish",
+        token,
+        secrets,
+        {"creation_id": container_id, "access_token": token},
+    )
+    media_id = published.get("id")
+    if not media_id:
+        raise RuntimeError(f"publish do Story falhou: {_error_text(published, secrets)}")
+    try:
+        return _permalink(f"{GRAPH}/{media_id}", token, secrets)
+    except RuntimeError:
+        return f"https://www.instagram.com/stories/hello.the.zero/{media_id}/"
 
 
 def post_instagram(token: str, user_id: str, image_url: str, caption: str, secrets: list[str]) -> str:
