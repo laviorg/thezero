@@ -7,6 +7,49 @@ export const PATH_REDIRECTS: { source: string; destination: string; status?: 301
   { source: "/noticia/iphone-18-pro-brasil-hoje-preco", destination: "/noticia/iphone-18-pro-vale-a-pena-brasil", status: 301 },
   { source: "/noticia/iphone-18-pro-abertura-variavel-nao-e-megapixel", destination: "/noticia/iphone-18-pro-vale-a-pena-brasil", status: 301 },
   { source: "/noticia/meta-muse-mac-agente-no-computador", destination: "/noticia/meta-anuncia-modelos-muse-wonder-full", status: 301 },
+  // Truncated off-site slugs. Only prefixes that match a single live post.
+  // `call-of-duty-modern-warfare` also prefixes the noindex announcement;
+  // the indexable canonical is the early-access story.
+  {
+    source: "/noticia/node-js-corrige-falha-brotli-exe",
+    destination: "/noticia/node-js-corrige-falha-brotli-execucao-remota",
+    status: 301,
+  },
+  {
+    source: "/noticia/block-dessa-modelo-voz",
+    destination: "/noticia/block-dessa-modelo-voz-local-treinado-so-fala",
+    status: 301,
+  },
+  {
+    source: "/noticia/claude-duet-",
+    destination: "/noticia/claude-duet-agente-anthropic",
+    status: 301,
+  },
+  {
+    source: "/noticia/openai-decisions-",
+    destination: "/noticia/openai-decisions-api-gpt-6-luna-decisoes-rapidas",
+    status: 301,
+  },
+  {
+    source: "/noticia/sidetrack-tiny-trains-desk",
+    destination: "/noticia/sidetrack-tiny-trains-desktop-steam",
+    status: 301,
+  },
+  {
+    source: "/noticia/geely-g",
+    destination: "/noticia/geely-google-gemini-maps-play-painel-2027",
+    status: 301,
+  },
+  {
+    source: "/noticia/call-of-duty-modern-warfare",
+    destination: "/noticia/call-of-duty-modern-warfare-4-acesso-antecipado",
+    status: 301,
+  },
+  {
+    source: "/noticia/honor",
+    destination: "/noticia/honor-win2-ventoinhas-bateria-10100-mah",
+    status: 301,
+  },
   { source: "/autor/nicholas-nishimura", destination: "/autores/nicholas", status: 301 },
   { source: "/autor/nicholas", destination: "/autores/nicholas", status: 301 },
   { source: "/autor", destination: "/autores", status: 301 },

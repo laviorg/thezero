@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { nextOpenGraphHeaders } from "./src/lib/opengraph-crawl";
 import { APEX_HOST, PATH_REDIRECTS } from "./src/lib/redirects";
 
 const cloudflareExport = process.env.CF_STATIC_EXPORT === "1";
@@ -26,6 +27,11 @@ const nextConfig: NextConfig = {
               ...(rule.status ? { statusCode: rule.status } : { permanent: true }),
             })),
           ];
+        },
+        async headers() {
+          // Static export ignores next.config headers. Cloudflare Pages
+          // gets the same tag from out/_headers.
+          return nextOpenGraphHeaders();
         },
       }
     : {}),
