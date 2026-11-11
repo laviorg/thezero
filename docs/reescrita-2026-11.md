@@ -52,7 +52,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 46 | 53 | microfone-usb-sem-estudio | guia | 553 | 1 | 1 | 1 | 2 | 1200 | reescrito 11/11: posição, ganho, USB/celular e devolução; sem teste próprio |
 | 47 | 53 | mouse-gamer-leve-alem-do-marketing | guia | 563 | 0 | 3 | 1 | 2 | 1200 | reescrito 11/11: formato, peso contextualizado, polling/autonomia e homologação; slug/date preservados |
 | 48 | 53 | teclado-mecanico-ate-400-abnt | guia | 539 | 0 | 7 | 1 | 1 | 1200 | reescrito 11/11: layout, tamanhos, switches, compatibilidade e custo total; slug/date preservados |
-| 49 | 53 | troca-de-tela-original-vs-paralela | guia | 577 | 0 | 3 | 1 | 2 | 1200 | pendente |
+| 49 | 53 | troca-de-tela-original-vs-paralela | guia | 577 | 0 | 3 | 1 | 2 | 1200 | reescrito 11/11: procedência, calibração, orçamento, direitos e privacidade; slug/date preservados |
 | 50 | 54 | capcut-world-ia-chatgpt-editpilot | noticia | 613 | 1 | 4 | 1 | 0 | 1920 | pendente |
 | 51 | 54 | claude-ajudou-a-entrar-na-openai-bounty | noticia | 529 | 4 | 0 | 1 | 0 | 1200 | pendente |
 | 52 | 54 | gerenciador-de-senhas-gratis-vs-pago | guia | 584 | 1 | 1 | 1 | 3 | 1200 | pendente |
