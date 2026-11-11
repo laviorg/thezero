@@ -2478,6 +2478,17 @@
       "updated_at": "2026-11-11T21:38:04Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfndsM8lFTf",
       "story": "https://www.instagram.com/stories/hello.the.zero/4028319066020427162"
+    },
+    "google-forms-gemini-analise-respostas": {
+      "article_url": "https://www.thezero.com.br/noticia/google-forms-gemini-analise-respostas",
+      "pr": 476,
+      "commit": "602720965d34383e5ebec2705bafca449d1bcddb",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-forms-gemini-analise-respostas.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-forms-gemini-analise-respostas.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-forms-gemini-analise-respostas-story.jpg",
+      "ig": "https://www.instagram.com/p/Dfne8gpHDzH/",
+      "slug": "google-forms-gemini-analise-respostas",
+      "updated_at": "2026-11-11T21:48:49Z"
     }
   }
 }
