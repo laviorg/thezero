@@ -2517,6 +2517,17 @@
       "updated_at": "2026-11-12T10:31:21Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dfo2LzolbET",
       "story": "https://www.instagram.com/stories/hello.the.zero/4028708271351432831"
+    },
+    "tridente-iii-cabos-submarinos-simulacao": {
+      "article_url": "https://www.thezero.com.br/noticia/tridente-iii-cabos-submarinos-simulacao",
+      "pr": 506,
+      "commit": "eb1800078df62240355fd1e637a05aeed852a976",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/tridente-iii-cabos-submarinos-simulacao.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/tridente-iii-cabos-submarinos-simulacao.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/tridente-iii-cabos-submarinos-simulacao-story.jpg",
+      "ig": "https://www.instagram.com/p/Dfo3Syfn1HH/",
+      "slug": "tridente-iii-cabos-submarinos-simulacao",
+      "updated_at": "2026-11-12T10:40:51Z"
     }
   }
 }
