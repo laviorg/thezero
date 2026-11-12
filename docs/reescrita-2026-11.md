@@ -56,7 +56,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 50 | 54 | capcut-world-ia-chatgpt-editpilot | noticia | 946 | 7 | 1 | 1 | 1 | 1800 | reescrito 12/11: anúncio e documentação atual separados, região/idioma/créditos e foto licenciada; slug/date preservados |
 | 51 | 54 | claude-ajudou-a-entrar-na-openai-bounty | noticia | 999 | 6 | 1 | 1 | 1 | 1800 | reescrito 12/11: duas falhas, escopo do bounty e ressalvas de acesso documentados; foto licenciada; slug/date preservados |
 | 52 | 54 | gerenciador-de-senhas-gratis-vs-pago | guia | 943 | 9 | 1 | 1 | 1 | 1800 | reescrito 12/11: preços anuais atualizados, FIDO2 gratuito, plataformas e recuperação corrigidos; capa licenciada; slug/date preservados |
-| 53 | 54 | tv-55-4k-ate-2500-o-que-nao-cair | guia | 693 | 0 | 2 | 1 | 3 | 1200 | pendente |
+| 53 | 54 | tv-55-4k-ate-2500-o-que-nao-cair | guia | 977 | 8 | 1 | 1 | 1 | 1800 | reescrito: frequência, modos e HDMI documentados, orçamento e CDC, foto licenciada; slug/date preservados |
 | 54 | 55 | capinha-e-pelicula-o-que-protege | guia | 630 | 0 | 3 | 1 | 2 | 1200 | pendente |
 | 55 | 55 | celular-bateria-que-dura-o-dia | guia | 555 | 0 | 4 | 1 | 2 | 1200 | pendente |
 | 56 | 55 | key-de-jogo-barata-risco-de-conta | guia | 548 | 0 | 4 | 1 | 2 | 1200 | pendente |
