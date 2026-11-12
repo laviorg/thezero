@@ -2543,6 +2543,17 @@
       "updated_at": "2026-11-12T10:51:16Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dfo4dh-mwvJ",
       "story": "https://www.instagram.com/stories/hello.the.zero/4028718293599357094"
+    },
+    "prisma-cpqd-funttel-data-centers": {
+      "article_url": "https://www.thezero.com.br/noticia/prisma-cpqd-funttel-data-centers",
+      "pr": 512,
+      "commit": "34d6413146ae2bf4b37bc12e54dc17080390f486",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/prisma-cpqd-funttel-data-centers.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/prisma-cpqd-funttel-data-centers.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/prisma-cpqd-funttel-data-centers-story.jpg",
+      "ig": "https://www.instagram.com/p/Dfo5lxvm0Y-/",
+      "slug": "prisma-cpqd-funttel-data-centers",
+      "updated_at": "2026-11-12T11:00:57Z"
     }
   }
 }
