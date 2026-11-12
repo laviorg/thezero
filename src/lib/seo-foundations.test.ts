@@ -10,8 +10,8 @@ import {
   selectRecentPublications,
 } from "./news-sitemap.ts";
 import { articleAuthorLd, isIndexableHub, toMetaDescription } from "./seo.ts";
-import { resolveSiteUrl, site } from "./site.ts";
-import { HOME_TITLE, composePageTitle } from "./titles.ts";
+import { absoluteUrl, resolveSiteUrl, site } from "./site.ts";
+import { ABOUT_DESCRIPTION, ABOUT_TITLE, HOME_TITLE, composePageTitle } from "./titles.ts";
 
 describe("site.social", () => {
   it("lists the live Instagram, YouTube, Threads, and X profiles", () => {
@@ -64,7 +64,7 @@ describe("articleAuthorLd", () => {
     const author = articleAuthorLd("The Zero");
     assert.equal(author["@type"], "Organization");
     assert.equal(author.name, "The Zero");
-    assert.equal("url" in author && author.url, site.url);
+    assert.equal("url" in author && author.url, `${site.url}/`);
   });
 
   it("does not point a named person at the organization page", () => {
@@ -186,6 +186,41 @@ describe("buildPageMetadata", () => {
     const composed = composePageTitle(core, "auto");
     assert.deepEqual(meta.title, { absolute: composed });
     assert.equal(composed.includes("The Zero"), false);
+  });
+
+  it("canonicalizes only the home with the trailing slash the site serves", () => {
+    assert.equal(absoluteUrl("/"), `${site.url}/`);
+    assert.equal(absoluteUrl("/"), "https://www.thezero.com.br/");
+    assert.equal(absoluteUrl("/sobre"), "https://www.thezero.com.br/sobre");
+    assert.equal(
+      absoluteUrl("/noticia/gemini-hackeou-tres-empresas-teste"),
+      "https://www.thezero.com.br/noticia/gemini-hackeou-tres-empresas-teste",
+    );
+
+    const home = buildPageMetadata({
+      title: HOME_TITLE,
+      description: site.description,
+      path: "/",
+      brand: "never",
+    });
+    assert.equal(home.alternates?.canonical, "https://www.thezero.com.br/");
+    assert.equal(home.openGraph?.url, "https://www.thezero.com.br/");
+    const homeLanguages = home.alternates?.languages;
+    assert.equal(
+      homeLanguages && "pt-BR" in homeLanguages ? homeLanguages["pt-BR"] : "",
+      "https://www.thezero.com.br/",
+    );
+
+    const about = buildPageMetadata({
+      title: ABOUT_TITLE,
+      description: ABOUT_DESCRIPTION,
+      path: "/sobre",
+      brand: "never",
+    });
+    assert.equal(about.alternates?.canonical, "https://www.thezero.com.br/sobre");
+    assert.equal(about.openGraph?.url, "https://www.thezero.com.br/sobre");
+    assert.equal(about.description, ABOUT_DESCRIPTION);
+    assert.notEqual(about.description, site.description);
   });
 
   it("keeps an absolute title when the brand is already in the core", () => {

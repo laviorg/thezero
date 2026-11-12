@@ -46,7 +46,7 @@ export default async function AuthorPage({ params }: Props) {
       url: absoluteUrl(author.href),
       description: author.bio,
       knowsAbout: author.beats,
-      worksFor: { "@type": "NewsMediaOrganization", name: site.name, url: site.url },
+      worksFor: { "@type": "NewsMediaOrganization", name: site.name, url: absoluteUrl("/") },
     },
   };
   return (

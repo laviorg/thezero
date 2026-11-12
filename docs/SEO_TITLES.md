@@ -60,7 +60,7 @@ misturar `|`, `-` e `·` no mesmo title.
 | --- | --- | --- |
 | Home | **dentro** do title, sem sufixo extra | Google pede marca + o que o site é. `The Zero · The Zero` é o erro a evitar. |
 | Editoria / subeditoria / busca / 404 | sempre ` · The Zero` | O núcleo é curto; a marca cabe e desambigua “IA” ou “Celulares” na SERP. |
-| Sobre | **dentro** do title | “Sobre o The Zero — …” já contém a marca. Sufixo dobraria. |
+| Sobre | **no sufixo** | “Quem somos e como trabalhamos \| The Zero” já contém a marca. A home é quem abre com “The Zero”. |
 | Matéria | sufixo **só se** o composto ficar ≤ 60 chars | Title longo + ` · The Zero` vira corte no meio de “The Z…”. A Google já mostra o nome do site ao lado. |
 
 `composePageTitle(core, "auto" | "always" | "never")` aplica isso. Se o núcleo
@@ -77,15 +77,15 @@ Núcleo = texto **sem** o sufixo. Document title = o que sai em `<title>`,
 ### Home (`/`)
 
 ```
-The Zero — o que funciona de verdade em tech
+The Zero: notícias de tecnologia do Brasil | Ruído zero, dado bruto
 ```
 
-- Title **absoluto** (marca + promessa). Sem ` · The Zero` extra.
+- Title **absoluto**, marca primeiro. Sem ` | The Zero` extra.
 - Não usar “Home”, “Início”, “Newsroom” nem só “The Zero”.
-- O H1 visual da home é a manchete do destaque. Isso é decisão de layout
-  de newsroom, não de SEO: não inventar um H1 escondido “The Zero” para
-  “alinhar”. A Google pode escolher a lead story como title link; o
-  document title continua sendo a identidade da casa.
+- O H1 visível continua a linha da marca: `The Zero — Ruído zero, dado bruto`.
+  O `<title>` carrega a query da casa; o H1 não vira a frase longa.
+- Canonical, `og:url`, JSON-LD e a `<loc>` do sitemap da home usam
+  `https://www.thezero.com.br/` (com barra). As outras páginas não ganham barra.
 
 ### Editoria (`/ia`, `/jogos`, …)
 
@@ -177,11 +177,15 @@ enorme é cortada com `fitTitle`, nunca vaza um title de 200 chars.
 ### Sobre (`/sobre`)
 
 ```
-Sobre o The Zero — newsroom de tech sem hype
+Quem somos e como trabalhamos | The Zero
 ```
 
-Absoluto. H1 continua sendo a frase de manifesto (“Se não dá pra testar…”).
-“Sobre · The Zero” é o tipo de title vago que a Google cita para *não* fazer.
+Title da página, não da marca: a marca fica no sufixo. A meta description
+fala de autoria, teste e fonte primária — não repete o slogan da home. O
+primeiro parágrafo linka “The Zero” para `/`. O H1 continua o manifesto
+(“Se não dá pra testar…”). “Sobre · The Zero” é o tipo de title vago que a
+Google cita para *não* fazer; “Sobre o The Zero…” fazia esta URL competir
+com a home na query da marca.
 
 ### Privacidade, contato, termos
 

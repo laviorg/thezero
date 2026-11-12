@@ -1,12 +1,14 @@
 import type { ArticleImage } from "@/lib/article-images";
 import {
-  articleAuthorLd,
-  organizationId,
-  publisherLogoUrl,
-  websiteId,
-} from "@/lib/seo";
-import { absoluteUrl, site } from "@/lib/site";
-import { ABOUT_TITLE, CONTACT_TITLE, HOME_TITLE } from "@/lib/titles";
+  aboutPageJsonLd,
+  homeWebPageJsonLd,
+  organizationJsonLd,
+  publisherJsonLd,
+  websiteJsonLd,
+} from "@/lib/entity-jsonld";
+import { articleAuthorLd, organizationId, websiteId } from "@/lib/seo";
+import { site } from "@/lib/site";
+import { CONTACT_TITLE } from "@/lib/titles";
 
 function jsonLdHtml(data: unknown) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
@@ -21,78 +23,14 @@ function JsonLd({ data }: { data: unknown }) {
   );
 }
 
-const publisher = {
-  "@type": "NewsMediaOrganization" as const,
-  "@id": organizationId,
-  name: site.name,
-  url: site.url,
-  logo: {
-    "@type": "ImageObject" as const,
-    url: publisherLogoUrl,
-    width: 512,
-    height: 512,
-  },
-};
+const publisher = publisherJsonLd;
 
 export function OrganizationJsonLd() {
-  return (
-    <JsonLd
-      data={{
-        "@context": "https://schema.org",
-        "@type": "NewsMediaOrganization",
-        "@id": organizationId,
-        name: site.name,
-        url: site.url,
-        logo: publisher.logo,
-        slogan: site.slogan,
-        description: site.description,
-        email: site.email,
-        sameAs: [
-          site.social.instagram,
-          site.social.youtube,
-          site.social.threads,
-          site.social.x,
-          site.social.pinterest,
-        ].filter((url) => url.startsWith("https://")),
-        inLanguage: site.language,
-        areaServed: {
-          "@type": "Country",
-          name: "Brasil",
-        },
-        publishingPrinciples: `${site.url}/politica-editorial`,
-        correctionsPolicy: `${site.url}/politica-editorial#correcoes`,
-        ethicsPolicy: `${site.url}/como-testamos`,
-        ownershipFundingInfo: `${site.url}/sobre#quem-publica`,
-        actionableFeedbackPolicy: `${site.url}/contato`,
-        masthead: `${site.url}/sobre`,
-        contactPoint: {
-          "@type": "ContactPoint",
-          contactType: "editorial",
-          email: site.email,
-          url: `${site.url}/contato`,
-          availableLanguage: ["Portuguese"],
-        },
-      }}
-    />
-  );
+  return <JsonLd data={organizationJsonLd()} />;
 }
 
 export function WebsiteJsonLd() {
-  return (
-    <JsonLd
-      data={{
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": websiteId,
-        name: site.name,
-        url: site.url,
-        slogan: site.slogan,
-        description: site.description,
-        inLanguage: site.language,
-        publisher: { "@id": organizationId },
-      }}
-    />
-  );
+  return <JsonLd data={websiteJsonLd()} />;
 }
 
 export function NewsArticleJsonLd({
@@ -224,21 +162,7 @@ export function ItemListJsonLd({
 }
 
 export function AboutPageJsonLd({ description }: { description: string }) {
-  return (
-    <JsonLd
-      data={{
-        "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "@id": `${site.url}/sobre#webpage`,
-        url: `${site.url}/sobre`,
-        name: ABOUT_TITLE,
-        description,
-        inLanguage: site.language,
-        isPartOf: { "@id": websiteId },
-        publisher: { "@id": organizationId },
-      }}
-    />
-  );
+  return <JsonLd data={aboutPageJsonLd(description)} />;
 }
 
 export function ContactPageJsonLd({ description }: { description: string }) {
@@ -343,21 +267,5 @@ export function BreadcrumbJsonLd({
 
 /** Home as the brand entity's page: WebPage about the newsroom at `/`. */
 export function HomePageJsonLd() {
-  const url = absoluteUrl("/");
-  return (
-    <JsonLd
-      data={{
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": `${url}#webpage`,
-        url,
-        name: HOME_TITLE,
-        description: site.description,
-        inLanguage: site.language,
-        isPartOf: { "@id": websiteId },
-        about: { "@id": organizationId },
-        publisher: { "@id": organizationId },
-      }}
-    />
-  );
+  return <JsonLd data={homeWebPageJsonLd()} />;
 }
