@@ -102,7 +102,7 @@ export function articleAuthorLd(author: string) {
       "@type": "Organization" as const,
       "@id": organizationId,
       name: site.name,
-      url: site.url,
+      url: absoluteUrl("/"),
     };
   }
   const profile = resolveAuthor(name);

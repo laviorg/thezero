@@ -1,12 +1,15 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { REVIEW_BUCKET_LIST } from "./review-buckets.ts";
+import { site } from "./site.ts";
 import {
+  ABOUT_DESCRIPTION,
   ABOUT_TITLE,
   AUTHORS_TITLE,
   CONTACT_TITLE,
   EDITORIAL_POLICY_TITLE,
   HEADLINE_MAX,
+  HOME_H1,
   HOME_TITLE,
   HOW_WE_TEST_TITLE,
   PRIVACY_TITLE,
@@ -30,6 +33,7 @@ import {
   titleLength,
   tutorialsPageTitle,
   valeAPenaPageTitle,
+  aboutPageTitle,
 } from "./titles.ts";
 
 describe("composePageTitle", () => {
@@ -40,6 +44,31 @@ describe("composePageTitle", () => {
   it("does not double the brand", () => {
     assert.equal(homePageTitle(), HOME_TITLE);
     assert.equal(composePageTitle(ABOUT_TITLE, "always"), ABOUT_TITLE);
+  });
+
+  it("gives the home the brand query and keeps /sobre about the page", () => {
+    assert.equal(
+      HOME_TITLE,
+      "The Zero: notícias de tecnologia do Brasil | Ruído zero, dado bruto",
+    );
+    assert.equal(homePageTitle(), HOME_TITLE);
+    assert.match(homePageTitle(), /^The Zero\b/u);
+    assert.ok(titleLength(homePageTitle()) <= TITLE_HARD_MAX);
+    assert.equal(HOME_H1, "The Zero — Ruído zero, dado bruto");
+    assert.match(HOME_H1, /The Zero/u);
+    assert.notEqual(HOME_H1, homePageTitle());
+
+    assert.equal(ABOUT_TITLE, "Quem somos e como trabalhamos | The Zero");
+    assert.equal(aboutPageTitle(), ABOUT_TITLE);
+    assert.equal(ABOUT_TITLE.startsWith("Sobre o The Zero"), false);
+    assert.notEqual(aboutPageTitle(), homePageTitle());
+
+    assert.notEqual(ABOUT_DESCRIPTION, site.description);
+    assert.equal(ABOUT_DESCRIPTION.includes("Ruído zero"), false);
+    assert.match(ABOUT_DESCRIPTION, /assin/u);
+    assert.match(ABOUT_DESCRIPTION, /testa/u);
+    assert.match(ABOUT_DESCRIPTION, /fonte/u);
+    assert.ok([...ABOUT_DESCRIPTION].length <= 155);
   });
 
   it("omits brand on long article cores so the claim survives", () => {

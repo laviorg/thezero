@@ -16,8 +16,20 @@ export const TITLE_SEPARATOR = " | ";
 
 export const BRAND_NAME = site.name;
 
-export const HOME_TITLE = "The Zero — Ruído zero, dado bruto";
-export const ABOUT_TITLE = "Sobre o The Zero — newsroom de tech sem hype";
+/** Visible home masthead. The document title can be longer; the H1 stays the brand. */
+export const HOME_H1 = "The Zero — Ruído zero, dado bruto";
+
+/**
+ * Document title of `/`. Brand first. 67 characters: under the hard cap of
+ * 70, and two over the ~65 SERP guide — cutting “tecnologia”, “Brasil” or
+ * the slogan would drop the query this page should own.
+ */
+export const HOME_TITLE =
+  "The Zero: notícias de tecnologia do Brasil | Ruído zero, dado bruto";
+export const ABOUT_TITLE = "Quem somos e como trabalhamos | The Zero";
+/** About meta description. Method and authorship, not the home tagline. */
+export const ABOUT_DESCRIPTION =
+  "Quem assina, como o The Zero testa e como citamos a fonte primária de cada número, data e afirmação.";
 export const PRIVACY_TITLE = "Privacidade no The Zero — dados, cookies e LGPD";
 export const CONTACT_TITLE = "Fale com a redação do The Zero";
 export const TERMS_TITLE = "Termos de uso do The Zero";

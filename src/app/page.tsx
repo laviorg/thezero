@@ -15,7 +15,7 @@ import {
   isNewsFormat,
 } from "@/lib/posts";
 import { absoluteUrl, site } from "@/lib/site";
-import { HOME_TITLE, homePageTitle } from "@/lib/titles";
+import { HOME_H1, HOME_TITLE, homePageTitle } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -26,22 +26,28 @@ import Link from "next/link";
  */
 export const dynamic = "force-static";
 
+const homeMetadata = buildPageMetadata({
+  title: HOME_TITLE,
+  description: site.description,
+  path: "/",
+  brand: "never",
+  imagePath: "/opengraph-image",
+  imageAlt: homePageTitle(),
+});
+
+// Next rewrites a root canonical and og:url to the bare origin (no slash).
+// The served URL is `https://www.thezero.com.br/`, so those two tags are
+// written below instead of through the Metadata API.
+const { url: _homeOgUrl, ...homeOpenGraph } = homeMetadata.openGraph ?? {};
+
 export const metadata: Metadata = {
-  ...buildPageMetadata({
-    title: HOME_TITLE,
-    description: site.description,
-    path: "/",
-    brand: "never",
-    imagePath: "/opengraph-image",
-    imageAlt: homePageTitle(),
-  }),
+  ...homeMetadata,
   alternates: {
-    canonical: "/",
-    languages: { "pt-BR": "/", "x-default": "/" },
     types: {
       "application/rss+xml": "/rss.xml",
     },
   },
+  openGraph: homeOpenGraph,
 };
 
 export default function HomePage() {
@@ -68,6 +74,10 @@ export default function HomePage() {
 
   return (
     <PageShell>
+      <link rel="canonical" href={absoluteUrl("/")} />
+      <link rel="alternate" hrefLang="pt-BR" href={absoluteUrl("/")} />
+      <link rel="alternate" hrefLang="x-default" href={absoluteUrl("/")} />
+      <meta property="og:url" content={absoluteUrl("/")} />
       <HomePageJsonLd />
       <ItemListJsonLd
         name={`Últimas no ${site.name}`}
@@ -80,7 +90,7 @@ export default function HomePage() {
         <div>
           <p className="eyebrow page-kicker">Newsroom · Brasil</p>
           <h1 className="mt-1 text-xl font-extrabold tracking-tight text-balance sm:text-2xl">
-            {HOME_TITLE}
+            {HOME_H1}
           </h1>
         </div>
         <time className="text-[0.7rem] tracking-wide text-muted uppercase">
