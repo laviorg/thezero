@@ -2491,6 +2491,17 @@
       "updated_at": "2026-11-11T21:49:12Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dfne9ofjxZu",
       "story": "https://www.instagram.com/stories/hello.the.zero/4028324689450144702"
+    },
+    "gemini-omni-1-2-flash-video": {
+      "article_url": "https://www.thezero.com.br/noticia/gemini-omni-1-2-flash-video",
+      "pr": 486,
+      "commit": "4b9b15f7a76c7c0a035dc2e10efed426186f6fed",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-omni-1-2-flash-video.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-omni-1-2-flash-video.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-omni-1-2-flash-video-story.jpg",
+      "ig": "https://www.instagram.com/p/Dfoz72gk4fj/",
+      "slug": "gemini-omni-1-2-flash-video",
+      "updated_at": "2026-11-12T10:11:30Z"
     }
   }
 }
