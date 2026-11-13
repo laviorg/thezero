@@ -16,7 +16,7 @@ export const TITLE_SEPARATOR = " | ";
 
 export const BRAND_NAME = site.name;
 
-/** Visible home masthead. The document title can be longer; the H1 stays the brand. */
+/** Home H1 kept in the DOM for SEO and visually hidden. The document title can be longer; the H1 stays the brand. */
 export const HOME_H1 = "The Zero — Ruído zero, dado bruto";
 
 /**

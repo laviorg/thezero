@@ -5,7 +5,6 @@ import { ReviewRail } from "@/components/news/review-rail";
 import { SectionHeading } from "@/components/news/section-heading";
 import { PageShell } from "@/components/layout/page-shell";
 import { categoryList } from "@/lib/categories";
-import { formatToday } from "@/lib/format";
 import { buildPageMetadata } from "@/lib/metadata";
 import {
   getFeaturedPost,
@@ -86,21 +85,12 @@ export default function HomePage() {
           url: absoluteUrl(post.href),
         }))}
       />
-      <div className="newsroom-masthead flex flex-wrap items-end justify-between gap-3 border-b border-border pb-4">
-        <div>
-          <p className="eyebrow page-kicker">Newsroom · Brasil</p>
-          <h1 className="mt-1 text-xl font-extrabold tracking-tight text-balance sm:text-2xl">
-            {HOME_H1}
-          </h1>
-        </div>
-        <time className="text-[0.7rem] tracking-wide text-muted uppercase">
-          {formatToday()}
-        </time>
-      </div>
+      {/* Brand H1 stays in the DOM for SEO; visually hidden so the home starts with the featured story. */}
+      <h1 className="sr-only">{HOME_H1}</h1>
 
       {featured ? (
         useRail ? (
-          <section className="newsroom-lead mt-6 grid gap-7 border-b border-border pb-8 lg:grid-cols-12 lg:gap-8 xl:gap-10">
+          <section className="newsroom-lead grid gap-7 border-b border-border pb-8 lg:grid-cols-12 lg:gap-8 xl:gap-10">
             <div className="lg:col-span-8">
               <ArticleCard post={featured} layout="lead" headingLevel="h2" />
             </div>
@@ -126,7 +116,7 @@ export default function HomePage() {
             </div>
           </section>
         ) : (
-          <section className="mt-6 max-w-4xl border-b border-border pb-8">
+          <section className="max-w-4xl border-b border-border pb-8">
             <ArticleCard post={featured} layout="lead" headingLevel="h2" />
           </section>
         )
