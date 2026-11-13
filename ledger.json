@@ -2569,6 +2569,17 @@
       "updated_at": "2026-11-12T17:17:35Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfpkrEIFEZO",
       "story": "https://www.instagram.com/stories/hello.the.zero/4028912730425376278"
+    },
+    "claude-sheets-beta-limites-brasil": {
+      "article_url": "https://www.thezero.com.br/noticia/claude-sheets-beta-limites-brasil",
+      "pr": 524,
+      "commit": "2c4dc578fa36d94a0b776e32f6e62b335a9d0bd0",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/claude-sheets-beta-limites-brasil.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/claude-sheets-beta-limites-brasil.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/claude-sheets-beta-limites-brasil-story.jpg",
+      "ig": "https://www.instagram.com/p/DfqnMbZjdHX/",
+      "slug": "claude-sheets-beta-limites-brasil",
+      "updated_at": "2026-11-13T02:58:41Z"
     }
   }
 }
