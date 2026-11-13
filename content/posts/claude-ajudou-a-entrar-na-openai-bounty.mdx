@@ -1,58 +1,65 @@
 ---
-title: "Claude ajudou a achar o buraco na OpenAI. Bounty: US$ 6.500"
-seoTitle: "Claude achou buraco na OpenAI. Bounty: US$ 6.500"
-excerpt: "Pesquisadores da Hacktron usaram a IA da Anthropic para mapear uma brecha de SSO na rival. A OpenAI corrigiu o buraco em 14 horas."
+title: "Claude e o caso OpenAI: duas falhas, um bounty e os limites do relato"
+seoTitle: "Claude e OpenAI: o que o caso Hacktron demonstrou"
+excerpt: "Relato de julho, divulgado em setembro, encadeou falhas de imagem e identidade. Prêmio de US$ 6.500 não cobriu os testes no fórum Discourse."
 category: ia
 subcategory: seguranca
 date: "2026-09-18"
 featured: false
-kicker: "Bug Bounty · Segurança"
+kicker: "Segurança · pesquisa e limites"
 author: "nicholas"
-cover: "/images/posts/claude-openai/cover.jpg"
-coverAlt: "Ilustração sobre o caso OpenAI e Claude analisado pela Hacktron"
-coverCredit: "The Guardian"
+cover: "/images/posts/claude-ajudou-a-entrar-na-openai-bounty/cover.jpg"
+coverAlt: "Mãos sobre o teclado de um notebook com código colorido na tela e outro monitor com texto de programação ao fundo."
+coverCredit: "Mikhail Nilov/Pexels. Foto ilustrativa de 2021, não da equipe Hacktron nem dos sistemas envolvidos."
 ---
 
-A ironia já vem empacotada e pronta para consumo: pesquisadores usaram a IA da Anthropic para encontrar uma porta dos fundos na OpenAI. A equipe da Hacktron AI botou o modelo Claude para analisar a arquitetura, mapeou um caminho até contas de funcionários da empresa, reportou o buraco de forma responsável e embolsou um cheque de US$ 6.500 pelo bug bounty.
+Pesquisadores da Hacktron relataram ter combinado duas falhas para alcançar contas de funcionários da OpenAI e demonstrar acesso a um repositório interno com ajuda de modelos Claude. O caso ocorreu em julho de 2026 e foi divulgado em setembro. Não foi uma invasão autônoma de uma IA contra outra, nem prova de que todos os usuários do ChatGPT tiveram suas informações roubadas.
 
-A OpenAI corrigiu o lado dela em cerca de 14 horas. O mercado acordou com as manchetes do [Guardian](https://www.theguardian.com/technology/2026/sep/18/openai-hacked-anthropic-claude-chatbot) e da [Forbes](https://www.forbes.com/sites/siladityaray/2026/09/18/security-researchers-hacked-into-openai-using-anthropics-claude/), mas o detalhe técnico é muito mais mundano — e útil para a defesa corporativa — do que o pânico sugere.
+Esta matéria, originalmente publicada em 18 de setembro, foi revisada em 12 de novembro. O [relatório da Hacktron](https://www.hacktron.ai/blog/hacking-openai) permite separar o que a equipe diz ter demonstrado, o impacto que considerava possível e os limites do prêmio de US$ 6.500. A cifra não representou uma autorização retroativa para qualquer teste: o próprio relato registra que a OpenAI excluía o fórum hospedado pela Discourse do escopo de seu programa.
 
-![Ilustração / foto de imprensa sobre o caso OpenAI × Claude](/images/posts/claude-openai/cover.jpg)
+## Duas falhas, responsabilidades diferentes
 
-*The Guardian — crédito da capa. Watermark The Zero é aplicado pelo componente do site; não precisa “assar” na imagem remota.*
+A primeira parte envolvia o processamento de imagens no fórum community.openai.com, que usava Discourse. Arquivos HEIC e HEIF passavam por ferramentas de conversão e pela biblioteca libheif. Segundo a Hacktron, esse caminho permitiu comprometer o ambiente do fórum.
 
-<Verdict overrated="Meme de 'IA invadiu IA'" underrated="Divulgação responsável com patch em 14 horas" />
+A segunda parte estava no login compartilhado da OpenAI. A [SecurityWeek, que ouviu a empresa](https://www.securityweek.com/ai-built-exploit-and-sign-in-flaw-opened-path-to-internal-openai-code/), descreve permissões excessivas em tokens usados no acesso ao fórum. Esses tokens permitiam alcançar contas associadas de ChatGPT e Codex. O problema não era simplesmente descobrir a senha de um funcionário.
 
-## O caminho da pedra (sem receita de bolo)
+Essa distinção muda a leitura do episódio. Corrigir uma biblioteca de imagens e limitar as permissões de uma sessão são intervenções em componentes diferentes. A OpenAI informou à publicação que restringiu as permissões dos tokens de login da comunidade e revogou tokens e sessões afetados. Isso é mais específico que dizer apenas que “a empresa corrigiu o buraco”.
 
-Segundo o relatório publicado pela Hacktron em setembro de 2026, a cadeia do ataque explorou erros que a TI conhece bem:
+## O que foi demonstrado e o que era hipótese
 
-1. **Upload de imagem** no fórum comunitário da OpenAI (baseado em Discourse). O problema estava no pipeline de processamento do arquivo, não é um truque novo.
-2. **Misconfiguração de SSO** no lado da OpenAI. Isso permitiu pivotar o comprometimento do fórum da comunidade para dentro da infraestrutura crítica.
-3. **Acesso real:** os pesquisadores conseguiram acesso a contas ChatGPT/Codex de funcionários e subiram um pull request inofensivo via integração apenas para provar o impacto.
+A Hacktron afirma que usou uma conta de funcionário, cujo Codex estava conectado à organização da OpenAI no GitHub, para abrir uma proposta de alteração em um README. Segundo a equipe, a intenção era comprovar o acesso sem ler código interno, e os testes foram interrompidos depois da demonstração.
 
-Eles pararam por aí e reportaram. A OpenAI esclareceu que o prêmio de US$ 6.500 cobriu o achado do lado deles (a falha de identidade e SSO). Testar o Discourse hospedado no domínio da comunidade estava tecnicamente fora do escopo do programa. O Discourse foi notificado, aplicou o patch rápido e isolou o processamento de imagens.
+Há uma ressalva importante. A SecurityWeek registra que a análise da OpenAI identificou leituras limitadas de metadados e commits de repositórios privados, seguidas pelo pull request de demonstração. As duas descrições não devem ser comprimidas na afirmação absoluta de que nenhuma informação privada foi acessada. Tampouco sustentam dizer que todo o código da empresa foi extraído.
 
-![Capa / asset do post da Hacktron sobre o caso](/images/posts/claude-openai/hacktron.webp)
+O acesso a outros conectores, como Slack e e-mail, apareceu como possibilidade no relato dos pesquisadores. A OpenAI disse à SecurityWeek que a Hacktron não verificou acesso real a mensagens de funcionários no Slack. Alcance potencial e vazamento comprovado são coisas distintas.
 
-*Hacktron AI — asset do blog. Fonte primária do relato.*
+| Ponto do caso | O que as fontes sustentam |
+|---|---|
+| Contas e repositório | A equipe relata acesso e abertura de um pull request; a resposta da OpenAI acrescenta leituras limitadas de metadados e commits |
+| Slack e outros conectores | Impacto teórico não equivale a comprovação de leitura de mensagens |
+| Recompensa | US$ 6.500 pelo achado do lado da OpenAI, não pelos testes no fórum Discourse |
+| Tempo de resposta | A Hacktron relata confirmação da correção da OpenAI cerca de 14 horas após o envio inicial |
 
-## Nada de Exterminador do Futuro
+## O cuidado com os avisos técnicos
 
-Esqueça a narrativa barata da IA maligna vencendo o laboratório rival. Isso é pesquisa de segurança clássica com humanos no volante e modelos recentes operando como copilotos para mastigar dados. Também não espere payloads soltos por aqui — o foco é arquitetura de segurança, não um tutorial para script kiddies.
+O [aviso de segurança da Discourse](https://github.com/discourse/discourse/security/advisories/GHSA-vhm9-85gw-x335), publicado em 28 de julho, descreve execução remota de código por upload de uma imagem HEIF malformada. Também informa correções na imagem de contêiner e isolamento adicional do processamento de imagens como defesa em profundidade.
 
-A lição principal? O que antes exigia meses de expertise escassa, agora leva dias com um time reduzido usando a IA certa.
+Mas o [aviso original da libheif associado ao CVE citado](https://github.com/strukturag/libheif/security/advisories/GHSA-hg7q-rjr2-8x46) descreve uma leitura fora dos limites da memória, com possibilidade de falha do programa ou exposição de informação. Essa descrição, isoladamente, não é a mesma coisa que execução de código no servidor. É preciso distinguir o registro da biblioteca do impacto documentado na aplicação e do encadeamento descrito pela Hacktron.
 
-A defesa precisa recalcular a rota. Menos "ninguém vai se dar a esse trabalho" e mais sandbox blindado em tudo que processa arquivo de usuário, tempo de resposta cirúrgico e um SSO que não entregue a chave do castelo inteiro por causa de um fórum comprometido. No fim das contas, a empresa que vende o futuro foi lembrada por um modelo concorrente de que pipeline de imagem e SSO frouxo ainda são falhas de 2014.
+Também seria errado transformar um número de versão mencionado em julho ou setembro numa receita universal de atualização em novembro. Quem administra o serviço precisa conferir os avisos atuais do fornecedor e da distribuição, inclusive correções incorporadas a pacotes. Esta revisão não realizou exploração, examinou servidores nem verificou a instalação de qualquer leitor.
 
-<Rule>
-Reporte. Pare de testar. Cobre o patch. Não transforme jornalismo em manual de invasão. Se a sua infraestrutura aceita upload de arquivos e o seu SSO compartilha sessão com serviços internos, o "caso OpenAI" já é o seu checklist de hoje.
-</Rule>
+## O prêmio não substitui o escopo
 
-## Fontes
+O [anúncio do programa de bug bounty da OpenAI](https://openai.com/index/bug-bounty-program/) explica a parceria com a Bugcrowd e remete às regras de participação. A existência de um programa não autoriza testar todos os serviços que exibem a mesma marca.
 
-- [Hacktron — Hacking OpenAI](https://www.hacktron.ai/blog/hacking-openai)
-- [The Guardian — OpenAI ‘ethically hacked’ with help of Anthropic’s Claude](https://www.theguardian.com/technology/2026/sep/18/openai-hacked-anthropic-claude-chatbot)
-- [Forbes — Security Researchers Hacked Into OpenAI Using Anthropic’s Claude](https://www.forbes.com/sites/siladityaray/2026/09/18/security-researchers-hacked-into-openai-using-anthropics-claude/)
+No caso, a Hacktron registra o pagamento em 1º de setembro e a ressalva da OpenAI: a recompensa reconhecia a falha do lado da empresa, não as ações contra a Discourse. Para pesquisadores brasileiros, essa é uma lição prática: conferir alvo permitido, técnicas aceitas e forma de comunicação antes de qualquer teste. “Recebeu recompensa” não é sinônimo de “toda a atividade estava autorizada”.
 
-The Zero.
+## O que isso significa
+
+Para empresas no Brasil que conectam fóruns, ferramentas de trabalho e assistentes a um login central, a pergunta útil é quanto uma sessão pode alcançar se um componente falhar. A conveniência de entrar uma vez não deveria entregar permissões desnecessárias aos serviços conectados.
+
+As [orientações do CERT.br](https://cert.br/docs/ransomware/proteger/) recomendam manter sistemas atualizados, gerir vulnerabilidades e conceder apenas os acessos necessários. Embora o documento trate de prevenção contra ransomware, esses princípios ajudam a organizar uma defesa em camadas. Autenticação multifator continua importante, mas não substitui limitar sessões e integrações.
+
+Nossa leitura é que o caso vale mais como discussão de fronteiras de confiança do que como disputa entre marcas de IA. O ganho de velocidade relatado pela Hacktron não é um teste controlado que demonstre a superioridade universal de um modelo. Antes de conectar novos arquivos e serviços a um chat, vale consultar nosso [guia sobre informações que não devem ser enviadas a ferramentas de IA](https://www.thezero.com.br/noticia/o-que-nao-colar-no-chat-de-ia). Menos dados e permissões desnecessários significam menos caminhos a revisar quando algo dá errado.
+
+Fontes: [Hacktron, relato original](https://www.hacktron.ai/blog/hacking-openai) · [SecurityWeek, resposta da OpenAI](https://www.securityweek.com/ai-built-exploit-and-sign-in-flaw-opened-path-to-internal-openai-code/) · [Discourse, aviso de segurança](https://github.com/discourse/discourse/security/advisories/GHSA-vhm9-85gw-x335) · [libheif, aviso original](https://github.com/strukturag/libheif/security/advisories/GHSA-hg7q-rjr2-8x46) · [OpenAI, programa de recompensas](https://openai.com/index/bug-bounty-program/) · [CERT.br, defesa em camadas](https://cert.br/docs/ransomware/proteger/).
