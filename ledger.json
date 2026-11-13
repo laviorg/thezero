@@ -2608,6 +2608,17 @@
       "updated_at": "2026-11-13T11:12:10Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfrfpM8EdI5",
       "story": "https://www.instagram.com/stories/hello.the.zero/4029453588242078323"
+    },
+    "samsung-galeria-google-fotos-cota-exclusao": {
+      "article_url": "https://www.thezero.com.br/noticia/samsung-galeria-google-fotos-cota-exclusao",
+      "pr": 540,
+      "commit": "e33ab13af8e3dffb9adffd4570b8ef6eb47d6698",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/samsung-galeria-google-fotos-cota-exclusao.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/samsung-galeria-google-fotos-cota-exclusao.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/samsung-galeria-google-fotos-cota-exclusao-story.jpg",
+      "ig": "https://www.instagram.com/p/DfrfsA6oLT2/",
+      "slug": "samsung-galeria-google-fotos-cota-exclusao",
+      "updated_at": "2026-11-13T11:12:20Z"
     }
   }
 }
