@@ -2725,6 +2725,17 @@
       "updated_at": "2026-11-13T17:42:29Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfsMUDrFIde",
       "story": "https://www.instagram.com/stories/hello.the.zero/4029650035893845629"
+    },
+    "gemini-4-hydrogen-busca-gratis-auto": {
+      "article_url": "https://www.thezero.com.br/noticia/gemini-4-hydrogen-busca-gratis-auto",
+      "pr": 561,
+      "commit": "fbc16b44dfe08009bb2630cbf47ce737cd921928",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-4-hydrogen-busca-gratis-auto.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-4-hydrogen-busca-gratis-auto.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-4-hydrogen-busca-gratis-auto-story.jpg",
+      "ig": "https://www.instagram.com/p/DfsujdADrHV/",
+      "slug": "gemini-4-hydrogen-busca-gratis-auto",
+      "updated_at": "2026-11-13T22:41:26Z"
     }
   }
 }
