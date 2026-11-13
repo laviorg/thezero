@@ -59,7 +59,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 53 | 54 | tv-55-4k-ate-2500-o-que-nao-cair | guia | 977 | 8 | 1 | 1 | 1 | 1800 | reescrito: frequência, modos e HDMI documentados, orçamento e CDC, foto licenciada; slug/date preservados |
 | 54 | 55 | capinha-e-pelicula-o-que-protege | guia | 630 | 0 | 3 | 1 | 2 | 1200 | reescrito em 12/11; fontes, tabela e capa licenciada |
 | 55 | 55 | celular-bateria-que-dura-o-dia | guia | 555 | 0 | 4 | 1 | 2 | 1200 | reescrito individual; Draft até build completo; 13/11 |
-| 56 | 55 | key-de-jogo-barata-risco-de-conta | guia | 548 | 0 | 4 | 1 | 2 | 1200 | pendente |
+| 56 | 55 | key-de-jogo-barata-risco-de-conta | guia | 548 | 0 | 4 | 1 | 2 | 1200 | reescrito individual; Draft até build completo; 13/11 |
 | 57 | 55 | pre-venda-de-jogo-desconto-depois | guia | 536 | 0 | 4 | 1 | 2 | 1200 | pendente |
 | 58 | 55 | roteador-wifi-6-barato-modem-operadora | guia | 683 | 1 | 0 | 1 | 3 | 1200 | pendente |
 | 59 | 55 | tomada-inteligente-economia-ou-hype | guia | 568 | 1 | 3 | 1 | 1 | 1200 | pendente |
