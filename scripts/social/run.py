@@ -30,7 +30,8 @@ from github_api import (
 from deploy_watch import DeployGuard
 from http_wait import ARTICLE_TIMEOUT_S, IMAGE_TIMEOUT_S, assert_meta_can_fetch, wait_until_ready
 from ledger import empty_ledger, entry_complete, resolve_existing
-from mdx_meta import is_draft_mdx
+from headline import headline_for_art
+from mdx_meta import frontmatter_value, is_draft_mdx
 from package_parse import SLUG_RE, parse_social_package, validate_package
 from post_api import (
     is_scope_error,
@@ -423,15 +424,21 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
         need_story = not str(outcome["story"] or "").strip()
         if need_feed or need_story:
             cover = resolve_cover(root, package["cover_path"])
+            hook_art = headline_for_art(
+                package["hook"],
+                frontmatter_value(text, "title"),
+                package.get("summary") or frontmatter_value(text, "excerpt"),
+            )
+            print(f"headline: {hook_art}", flush=True)
             files: dict[str, Path] = {}
             png = jpg = story_png = story_jpg = None
             if need_feed:
-                png, jpg = render_art(root, cover, package["hook"], package["summary"], slug)
+                png, jpg = render_art(root, cover, hook_art, package["summary"], slug)
                 files[f"{slug}.png"] = png
                 files[f"{slug}.jpg"] = jpg
             if need_story:
                 story_png, story_jpg = render_story_art(
-                    root, cover, package["hook"], package["summary"], slug, url
+                    root, cover, hook_art, package["summary"], slug, url
                 )
                 files[f"{slug}-story.png"] = story_png
                 files[f"{slug}-story.jpg"] = story_jpg
