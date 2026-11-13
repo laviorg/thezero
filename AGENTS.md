@@ -43,7 +43,7 @@ Limites das APIs: `caption_ig` até 2200 caracteres, `threads_x` até 500. Os do
 - slug: meu-slug
 - url: https://www.thezero.com.br/noticia/meu-slug
 - cover_path: public/images/posts/meu-slug/cover.jpg
-- hook: Uma frase curta para a arte
+- hook: Uma frase completa para a arte (sujeito e verbo, 6–12 palavras, como alguém falaria; sem dois-pontos no meio e sem travessão)
 - summary: Uma ou duas frases sob o título da arte
 - caption_ig: |
   Legenda do Instagram.
@@ -54,7 +54,7 @@ Limites das APIs: `caption_ig` até 2200 caracteres, `threads_x` até 500. Os do
 
   https://www.thezero.com.br/noticia/meu-slug
 - compose_cmd: |
-  python3 scripts/social/compose_ig_post.py --cover public/images/posts/meu-slug/cover.jpg --hook "Uma frase curta para a arte" --summary "Uma ou duas frases sob o título da arte" --out social-out/meu-slug.png --size 1x1
+  python3 scripts/social/compose_ig_post.py --cover public/images/posts/meu-slug/cover.jpg --hook "Uma frase completa para a arte" --summary "Uma ou duas frases sob o título da arte" --out social-out/meu-slug.png --size 1x1
 ```
 
 Campos de várias linhas usam `|` e ficam indentados, como no exemplo. Não coloque token, senha ou secret no corpo do PR.
