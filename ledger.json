@@ -2697,6 +2697,17 @@
       "ig": "https://www.instagram.com/p/Dfrl5EGF047/",
       "slug": "alexa-compras-brasil-historico-precos",
       "updated_at": "2026-11-13T12:06:32Z"
+    },
+    "whatsapp-texto-visualizacao-unica-beta": {
+      "article_url": "https://www.thezero.com.br/noticia/whatsapp-texto-visualizacao-unica-beta",
+      "pr": 551,
+      "commit": "23d3df0b53fc67ea23a00e9df7ac130a4615aea9",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/whatsapp-texto-visualizacao-unica-beta.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/whatsapp-texto-visualizacao-unica-beta.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/whatsapp-texto-visualizacao-unica-beta-story.jpg",
+      "ig": "https://www.instagram.com/p/DfrmBb3jkR6/",
+      "slug": "whatsapp-texto-visualizacao-unica-beta",
+      "updated_at": "2026-11-13T12:07:38Z"
     }
   }
 }
