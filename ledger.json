@@ -2751,6 +2751,17 @@
       "updated_at": "2026-11-13T22:42:14Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfsunZqD_1K",
       "story": "https://www.instagram.com/stories/hello.the.zero/4029800909479858752"
+    },
+    "razer-soma-pro-haptics-brasil": {
+      "article_url": "https://www.thezero.com.br/noticia/razer-soma-pro-haptics-brasil",
+      "pr": 563,
+      "commit": "74fa350cc175b67a8d9fb43d24a5371f6ae753fe",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/razer-soma-pro-haptics-brasil.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/razer-soma-pro-haptics-brasil.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/razer-soma-pro-haptics-brasil-story.jpg",
+      "ig": "https://www.instagram.com/p/DfuV0D8E1R-/",
+      "slug": "razer-soma-pro-haptics-brasil",
+      "updated_at": "2026-11-14T13:43:43Z"
     }
   }
 }
