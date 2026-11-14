@@ -65,7 +65,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 59 | 55 | tomada-inteligente-economia-ou-hype | guia | 1010 | 8 | 1 | 1 | 1 | 1800 | reescrito 14/11: consumo, corrente/tensão e agenda offline documentados; foto licenciada ilustrativa; slug/date preservados |
 | 60 | 56 | ayn-odin-2-setup-emulacao | guia | 754 | 0 | 2 | 1 | 4 | 1200 | reescrito 14/11: pastas, permissões e backup documentados; limites de fontes antigas e direitos autorais; foto licenciada; slug/date preservados |
 | 61 | 56 | ea-fecha-bioware-cancela-mass-effect-400-demissioes | noticia | 641 | 2 | 2 | 1 | 0 | 3840 | reescrito 14/11: confirmação oficial separada de estimativas de cortes, aquisição documentada e catálogo/idiomas BR; foto licenciada; slug/date preservados |
-| 62 | 56 | retroid-pocket-5-custo-beneficio | review | 582 | 0 | 4 | 1 | 4 | 1200 | pendente |
+| 62 | 56 | retroid-pocket-5-custo-beneficio | review | 966 | 0 | 4 | 1 | 4 | 1200 | reescrito 14/11: versões RAM documentadas, compatibilidade sem promessa universal e custo de importação; análise sem teste próprio/foto licenciada ilustrativa; slug/date preservados |
 | 63 | 56 | steam-vs-epic-vs-xbox-pc-preco | guia | 565 | 0 | 4 | 1 | 3 | 1200 | pendente |
 | 64 | 57 | ia-gratis-para-trabalho-2026 | guia | 562 | 1 | 2 | 1 | 4 | 1200 | pendente |
 | 65 | 57 | ipad-10-vs-tablet-android-gap-de-apps | comparativo | 606 | 0 | 4 | 1 | 2 | 1200 | pendente |
