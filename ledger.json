@@ -2777,6 +2777,17 @@
       "updated_at": "2026-11-14T13:46:05Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfuWEEaFNPU",
       "story": "https://www.instagram.com/stories/hello.the.zero/4030255838061389290"
+    },
+    "weixin-pay-pix-turistas-chineses-brasil": {
+      "article_url": "https://www.thezero.com.br/noticia/weixin-pay-pix-turistas-chineses-brasil",
+      "pr": 570,
+      "commit": "6dd7a4e1b6de799b4460d0c7ea1b39236a87ba5e",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/weixin-pay-pix-turistas-chineses-brasil.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/weixin-pay-pix-turistas-chineses-brasil.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/weixin-pay-pix-turistas-chineses-brasil-story.jpg",
+      "ig": "https://www.instagram.com/p/DfuwdzLCSLQ/",
+      "slug": "weixin-pay-pix-turistas-chineses-brasil",
+      "updated_at": "2026-11-14T17:36:35Z"
     }
   }
 }
