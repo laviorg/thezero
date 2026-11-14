@@ -64,7 +64,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 58 | 55 | roteador-wifi-6-barato-modem-operadora | guia | 1081 | 9 | 1 | 1 | 1 | 1800 | reescrito 13/11: diagnóstico, portas, AP/bridge e limites de cobertura documentados; foto licenciada; slug/date preservados |
 | 59 | 55 | tomada-inteligente-economia-ou-hype | guia | 568 | 1 | 3 | 1 | 1 | 1200 | pendente |
 | 60 | 56 | ayn-odin-2-setup-emulacao | guia | 754 | 0 | 2 | 1 | 4 | 1200 | pendente |
-| 61 | 56 | ea-fecha-bioware-cancela-mass-effect-400-demissioes | noticia | 641 | 2 | 2 | 1 | 0 | 3840 | pendente |
+| 61 | 56 | ea-fecha-bioware-cancela-mass-effect-400-demissioes | noticia | 641 | 2 | 2 | 1 | 0 | 3840 | reescrito 14/11: confirmação oficial separada de estimativas de cortes, aquisição documentada e catálogo/idiomas BR; foto licenciada; slug/date preservados |
 | 62 | 56 | retroid-pocket-5-custo-beneficio | review | 582 | 0 | 4 | 1 | 4 | 1200 | pendente |
 | 63 | 56 | steam-vs-epic-vs-xbox-pc-preco | guia | 565 | 0 | 4 | 1 | 3 | 1200 | pendente |
 | 64 | 57 | ia-gratis-para-trabalho-2026 | guia | 562 | 1 | 2 | 1 | 4 | 1200 | pendente |
