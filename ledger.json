@@ -2764,6 +2764,17 @@
       "updated_at": "2026-11-14T13:44:07Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DfuV1TzGyxD",
       "story": "https://www.instagram.com/stories/hello.the.zero/4030254855453122086"
+    },
+    "qssr-spider-man-2-ps5-cinco-jogos": {
+      "article_url": "https://www.thezero.com.br/noticia/qssr-spider-man-2-ps5-cinco-jogos",
+      "pr": 565,
+      "commit": "f8d5d7bc3d79eb3a105b38306974e12cb2983658",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/qssr-spider-man-2-ps5-cinco-jogos.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/qssr-spider-man-2-ps5-cinco-jogos.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/qssr-spider-man-2-ps5-cinco-jogos-story.jpg",
+      "ig": "https://www.instagram.com/p/DfuWCo9l-4u/",
+      "slug": "qssr-spider-man-2-ps5-cinco-jogos",
+      "updated_at": "2026-11-14T13:45:45Z"
     }
   }
 }
