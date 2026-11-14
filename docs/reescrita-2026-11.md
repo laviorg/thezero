@@ -62,7 +62,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 56 | 55 | key-de-jogo-barata-risco-de-conta | guia | 548 | 0 | 4 | 1 | 2 | 1200 | reescrito individual; Draft até build completo; 13/11 |
 | 57 | 55 | pre-venda-de-jogo-desconto-depois | guia | 1022 | 7 | 1 | 1 | 1 | 1800 | reescrito 13/11: acesso, descontos e reembolso por plataforma documentados; foto licenciada; slug/date preservados |
 | 58 | 55 | roteador-wifi-6-barato-modem-operadora | guia | 1081 | 9 | 1 | 1 | 1 | 1800 | reescrito 13/11: diagnóstico, portas, AP/bridge e limites de cobertura documentados; foto licenciada; slug/date preservados |
-| 59 | 55 | tomada-inteligente-economia-ou-hype | guia | 568 | 1 | 3 | 1 | 1 | 1200 | pendente |
+| 59 | 55 | tomada-inteligente-economia-ou-hype | guia | 1010 | 8 | 1 | 1 | 1 | 1800 | reescrito 14/11: consumo, corrente/tensão e agenda offline documentados; foto licenciada ilustrativa; slug/date preservados |
 | 60 | 56 | ayn-odin-2-setup-emulacao | guia | 754 | 0 | 2 | 1 | 4 | 1200 | pendente |
 | 61 | 56 | ea-fecha-bioware-cancela-mass-effect-400-demissioes | noticia | 641 | 2 | 2 | 1 | 0 | 3840 | pendente |
 | 62 | 56 | retroid-pocket-5-custo-beneficio | review | 582 | 0 | 4 | 1 | 4 | 1200 | pendente |
