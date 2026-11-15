@@ -1,0 +1,58 @@
+---
+title: "Meta abre os pesos do Muse Spark Open, com 816B parâmetros; rodar em casa exige dois Mac Studios"
+seoTitle: "Muse Spark Open: Meta libera modelo aberto de 816B"
+excerpt: "Meta liberou os pesos do Muse Spark Open, modelo multimodal de 816B parâmetros e contexto de 1 milhão de tokens, de graça para muitos desenvolvedores."
+category: ia
+subcategory: modelos
+date: "2026-10-16T17:05:00-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "nicholas"
+cover: "/images/posts/meta-muse-spark-open-modelo-aberto/cover.jpg"
+coverAlt: "Linhas finas azuis fluindo em ondas paralelas sobre uma superfície clara, formando uma faixa larga com pequenas setas e pontos ao longo dos traços"
+coverCredit: "Meta / Divulgação"
+---
+
+A Meta liberou na quinta-feira (15) os pesos do [Muse Spark Open](https://research.meta.ai/blog/muse-spark-open), seu novo modelo de IA multimodal com 816 bilhões de parâmetros, dos quais 42 bilhões ativos, e janela de contexto de 1 milhão de tokens. Segundo a empresa, é o modelo americano de pesos abertos mais capaz até agora, feito para programação e trabalho com agentes: tarefas longas, engenharia de software complexa e raciocínio em várias etapas.
+
+O download está liberado no [Hugging Face](https://huggingface.co/collections/meta-models/muse-spark-open), em versões BF16 e NVFP4, e também no Amazon SageMaker AI, no Google Cloud Model Garden e no Microsoft Foundry Models. Quem preferir API encontra o modelo em Baseten, Fireworks AI, Groq, Modal, Nebius, OpenRouter e Together AI.
+
+![Linhas finas azuis fluindo em ondas paralelas sobre uma superfície clara, formando uma faixa larga com pequenas setas e pontos ao longo dos traços](/images/posts/meta-muse-spark-open-modelo-aberto/cover.jpg)
+
+*Meta / Divulgação. Arte oficial de divulgação do Muse Spark Open no blog de pesquisa da Meta.*
+
+<Verdict overrated="a ideia de supercomputador pessoal: rodar o modelo inteiro em casa pede dois Mac Studios com M5 Ultra, um hardware que quase ninguém tem" underrated="os kernels Helion ajustáveis no SGLang, que aceleram o modelo em GPUs Nvidia e AMD sem trocar de hardware" />
+
+## O que o Muse Spark Open entrega
+
+O modelo roda nos motores de inferência mais usados: SGLang, vLLM, TensorRT-LLM, Hugging Face Transformers, Apple MLX, llama.cpp e Unsloth, com otimizações para chips AMD, Apple, Intel e Nvidia. Na versão aberta, a Meta inclui kernels de GPU Helion, que se ajustam sozinhos e entregam, segundo a empresa, ganhos de 1,03x a 3,95x por kernel em GPUs Nvidia e AMD e 3% de melhora ponta a ponta na AMD MI350.
+
+Para mostrar do que o modelo é capaz em tarefas de agente, a Meta diz ter testado fluxos inteiros rodando no próprio computador com o Muse Code, sua ferramenta de programação: correções de bugs, recursos novos e build completo do Ice Cubes, um cliente de Mastodon de código aberto para iOS, além de edição de ponta a ponta no DaVinci Resolve, com o modelo revendo quadro a quadro para escolher os melhores momentos e recortar o vídeo na vertical.
+
+A licença é a Muse Model License, com termos comerciais limitados. Na prática, muitos desenvolvedores podem usar o modelo de graça, mas quem pretende uso comercial em escala precisa ler as condições antes.
+
+## Dois Mac Studios viram um supercomputador
+
+A parte mais curiosa do anúncio é a parceria com a Apple, [incomum entre as duas empresas](https://www.theguardian.com/technology/2026/oct/16/meta-releases-muse-spark-open-a-new-open-weight-ai-model). Com a versão mais recente do MLX, o Muse Spark Open roda em dois Mac Studios com chip M5 Ultra. Cada máquina tem até 512 GB de memória unificada, o que permite à GPU integrada usar esse espaço para os pesos, e largura de banda de 1,2 TB/s, suficiente para ler a fatia de memória que cada token exige. Juntos, os dois computadores se comportam como uma máquina só com 1 TB de memória unificada, e o MLX baixa os pesos direto do Hugging Face.
+
+É a primeira vez que um modelo dessa classe roda em desktop, sem datacenter. O porém é o preço dessa brincadeira: duas estações de trabalho topo de linha.
+
+## A corrida contra os modelos abertos da China
+
+O lançamento mira o território que os chineses dominam. Qwen, da Alibaba, Kimi K3, da Moonshot AI, e os modelos GLM, da Z.ai, eram até aqui as referências em pesos abertos, segundo o [The Guardian](https://www.theguardian.com/technology/2026/oct/16/meta-releases-muse-spark-open-a-new-open-weight-ai-model). A Meta afirma que o Muse Spark Open rivaliza com eles e, em alguns casos, os supera.
+
+"É o modelo americano de pesos abertos mais capaz até hoje", escreveu Alexandr Wang, chefe de IA da Meta, no X. A estreia vem dias depois de a empresa anunciar seu [novo modelo fechado](https://www.thezero.com.br/noticia/meta-anuncia-modelos-muse-wonder-full), que ela diz competir com as versões mais avançadas de ChatGPT e Claude. A estratégia ficou clara: atacar nos dois fronts, o fechado para o grande público e o aberto para os desenvolvedores que hoje constroem em cima de modelos chineses.
+
+## O que isso significa no Brasil
+
+O modelo está disponível para download gratuito no Hugging Face e nas APIs internacionais, sem restrição de região anunciada. Para o desenvolvedor brasileiro, o caminho realista é a API: rodar o modelo inteiro em casa exige dois Mac Studios com M5 Ultra, configuração fora do alcance da maioria. As versões quantizadas em NVFP4 e o suporte a llama.cpp e Unsloth abrem espaço para experimentos em hardware mais modesto, mas a Meta não detalha requisitos mínimos para essas rotas.
+
+Para empresas, pesos abertos têm um apelo concreto na era da LGPD: dá para rodar e ajustar o modelo com dados próprios, sem mandar nada para servidor de terceiro. Na dúvida sobre quando um modelo grande faz falta, vale ler nosso guia sobre [quando um modelo menor resolve](https://www.thezero.com.br/noticia/modelo-menor-ou-pro). E quem quer montar uma caixa de ferramentas sem custo pode conferir as [IAs grátis que ainda servem para trabalhar](https://www.thezero.com.br/noticia/ia-gratis-para-trabalho-2026).
+
+<Rule>Peso aberto no Hugging Face é só o começo: modelo bom é o que cabe na sua máquina e na sua licença.</Rule>
+
+## Fontes
+
+- [research.meta.ai — Introducing Muse Spark Open, The Most Capable US Open-Weight Model to Date](https://research.meta.ai/blog/muse-spark-open)
+- [theguardian.com — Meta releases Muse Spark Open, a new 'open-weight' AI model](https://www.theguardian.com/technology/2026/oct/16/meta-releases-muse-spark-open-a-new-open-weight-ai-model)
+- [huggingface.co — Muse Spark Open, coleção meta-models](https://huggingface.co/collections/meta-models/muse-spark-open)

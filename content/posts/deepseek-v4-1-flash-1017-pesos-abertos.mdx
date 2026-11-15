@@ -1,0 +1,56 @@
+---
+title: "DeepSeek solta o V4.1-Flash-1017 aberto: mais rápido, mais enxuto e com API de busca"
+seoTitle: "DeepSeek V4.1-Flash-1017: modelo aberto mais rápido"
+seoDescription: "A DeepSeek liberou o V4.1-Flash-1017 com pesos abertos, prometendo tarefas mais rápidas e respostas mais curtas pelo mesmo preço por token."
+excerpt: "A atualização de sábado (17) já roda no site, no app e na API. Pesos abertos sob licença MIT, preço por token mantido e duas APIs de busca novas. Os números de benchmark, por ora, são todos da própria empresa."
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-10-18T08:12:00-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "nicholas"
+cover: "/images/posts/deepseek-v4-1-flash-1017-pesos-abertos/cover.jpg"
+coverAlt: "Logotipo da DeepSeek, uma baleia azul estilizada, sobre fundo branco"
+coverCredit: "DeepSeek"
+---
+
+DeepSeek solta o V4.1-Flash-1017 aberto: mais rápido, mais enxuto e com API de busca.
+
+A DeepSeek atualizou neste sábado (17) o modelo que roda em seu site, aplicativo e API: o **V4.1-Flash-1017**, versão pontual da linha Flash, a mais enxuta da família. Segundo a empresa, a atualização traz "melhor desempenho em benchmarks, conclusão mais rápida de tarefas e respostas mais curtas do que a versão anterior", informou [O Globo](https://oglobo.globo.com/economia/tecnologia/noticia/2026/10/17/deepseek-atualiza-modelo-de-ia-e-intensifica-disputa-com-concorrentes-dos-eua.ghtml). Os pesos estão abertos no Hugging Face e no ModelScope, sob licença MIT — uso comercial, modificação e redistribuição liberados, detalha o [IA.com.br](https://ia.com.br/noticias/deepseek-abre-o-v41-flash-1017-e-corta-custo-por-tarefa-sem-mexer-no-preco-do-token).
+
+![Logotipo da DeepSeek, uma baleia azul estilizada, sobre fundo branco](/images/posts/deepseek-v4-1-flash-1017-pesos-abertos/cover.jpg)
+
+*DeepSeek*
+
+<Verdict overrated="Vencer Claude e GPT: por enquanto, só nas tabelas da própria DeepSeek" underrated="Custo por tarefa menor com o preço do token parado" />
+
+## O que chegou
+
+É a terceira versão do Flash em menos de três meses. Quem usa a API não precisa mudar nada — o identificador `deepseek-flash` já aponta para o modelo novo — mas também não tem escolha: o nome continua o mesmo com outro modelo por trás, lembra o IA.com.br. O sistema é uma mistura de especialistas com **552 bilhões de parâmetros**, dos quais cerca de 8 bilhões trabalham por vez, e lê texto e imagens na mesma conversa.
+
+Nas tabelas publicadas pela própria empresa, os ganhos sobre a versão de setembro são amplos: no Terminal-Bench 4.0, que mede tarefas de linha de comando, a nota subiu de 31,2 para 42,3; no Apex Bench v1.1, de 64,6 para 72,1; e o modelo marca 77,0 no DeepSWE v1.1, que testa a resolução de problemas reais em repositórios de código. A DeepSeek também diz que o modelo supera rivais maiores, como Claude Opus 5 e GPT-5.6 Sol, em tarefas de agente. Vale o asterisco levantado pelo IA.com.br: os números são todos da casa, os rivais escolhidos já não são os topo de linha, e os testes independentes publicados até agora são pilotos pequenos.
+
+## A conta que interessa
+
+O preço por token não mudou: US$ 0,30 por milhão de tokens de entrada e US$ 1,20 por milhão de saída no horário de pico, metade disso fora do pico. A economia prometida vem de outro lugar: o modelo escreve menos para chegar ao resultado, o que reduz o custo por tarefa — para quem mantém agentes ligados o dia inteiro, o número que pesa na fatura. A DeepSeek chama a atualização de "melhoria de Pareto". Pela tabela comparada do IA.com.br, o GPT-6 Luna, da OpenAI, segue mais barato por token (US$ 0,10 e US$ 0,50).
+
+A segunda novidade é de produto: as APIs **Search** e **Fetch** abrem a desenvolvedores o mecanismo de busca que a DeepSeek usa internamente, a US$ 0,75 por mil chamadas bem-sucedidas em cada uma, cobradas à parte dos tokens. Com isso, a empresa passa a vender também a ferramenta do agente, não só o modelo.
+
+Aberto não quer dizer leve: o checkpoint vem em 48 partes em FP8, mais de 500 GB de pesos — trabalho para servidor com várias placas, não para o notebook de casa.
+
+## O que isso significa no Brasil
+
+Os preços são cotados em dólar e nenhum dos testes divulgados mede desempenho em português — quem atende clientes no idioma precisa medir por conta própria, aponta o IA.com.br. As recomendações práticas são: rodar o mesmo lote de tarefas reais, em português, no Flash e no modelo usado hoje; deixar para o horário fora de pico o que puder esperar, quando o preço cai pela metade; e incluir as chamadas de Search e Fetch na conta antes de ligar um agente com busca. Para tirar mais de qualquer modelo, o guia [por que contexto vale mais que prompt em IA](https://www.thezero.com.br/noticia/contexto-maior-que-prompt) continua valendo.
+
+<Rule>
+DeepSeek V4.1-Flash-1017 já roda no site, app e API, com pesos abertos sob licença MIT. Preço por token mantido; promessa de custo por tarefa menor. Benchmarks, por ora, só da própria empresa.
+</Rule>
+
+## Fontes
+
+- [O Globo — DeepSeek atualiza modelo de IA e intensifica disputa com concorrentes dos EUA (17/10/2026)](https://oglobo.globo.com/economia/tecnologia/noticia/2026/10/17/deepseek-atualiza-modelo-de-ia-e-intensifica-disputa-com-concorrentes-dos-eua.ghtml)
+- [IA.com.br — DeepSeek abre o V4.1-Flash-1017 e corta custo por tarefa sem mexer no preço do token (17/10/2026)](https://ia.com.br/noticias/deepseek-abre-o-v41-flash-1017-e-corta-custo-por-tarefa-sem-mexer-no-preco-do-token)
+- [MarkTechPost — DeepSeek Just Released V4.1-Flash-1017, Scores 77.0 on DeepSWE, Opens Search API (17/10/2026)](https://www.marktechpost.com/2026/10/17/deepseek-just-released-v4-1-flash-1017-scores-77-0-on-deepswe-opens-search-api/)
+
+The Zero.

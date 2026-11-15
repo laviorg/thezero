@@ -1,0 +1,64 @@
+---
+title: "Apache MINA 3 tem falha crítica sem correção planejada; projeto recomenda migrar para 2.2.x"
+seoTitle: "Apache MINA 3: falha crítica não terá patch no ramo inativo"
+excerpt: "CVE-2026-118636 afeta o JavaNativeMessageDecoder do ramo 3.0. O risco depende de expor o decodificador a dados de origem não confiável."
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-10-31T23:36:34-03:00"
+featured: false
+kicker: "Aplicativos · segurança digital"
+author: "nicholas"
+cover: "/images/posts/apache-mina-3-falha-sem-correcao/cover.jpg"
+coverAlt: "Foto ilustrativa de racks cinza com servidores pretos, cabos e espaços vazios, caixas à esquerda, coluna branca à direita e tubulações amarelas acima; fundo ampliado e desfocado"
+coverCredit: "Alexis Lê-Quôc / Wikimedia Commons / CC BY-SA 2.0; foto ilustrativa de 2007, não mostra exploração da falha, redimensionada com fundo ampliado e desfocado; adaptação sob CC BY-SA 2.0"
+---
+
+O **Apache MINA 3** tem uma vulnerabilidade crítica de desserialização sem correção planejada para o ramo afetado. O [aviso publicado em 31 de outubro](https://www.openwall.com/lists/oss-security/2026/10/31/3), identificado como **CVE-2026-118636**, informa que a linha 3.0 está inativa e recomenda usar a versão mais recente do **ramo 2.2.x**. Não é um anúncio de patch para o MINA 3: a resposta indicada pelo projeto é mudar de linha.
+
+O componente atingido é o **JavaNativeMessageDecoder**, no módulo de codecs do MINA 3. Segundo o comunicado, uma aplicação que coloca esse decodificador diante de um interlocutor não confiável fica exposta à execução remota de código por cadeias de objetos Java. O [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-118636) reproduz a descrição e registra a pontuação **CVSS 3.1 de 9,8**, fornecida pela Apache Software Foundation.
+
+![Foto ilustrativa de racks cinza com servidores pretos, cabos e espaços vazios, caixas à esquerda, coluna branca à direita e tubulações amarelas acima; fundo ampliado e desfocado](/images/posts/apache-mina-3-falha-sem-correcao/cover.jpg)
+*Servidores em foto ilustrativa de 2007; não mostra uma exploração da vulnerabilidade. [Alexis Lê-Quôc / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Half_filled_server_racks.jpg), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Redimensionada com fundo ampliado e desfocado; adaptação sob a mesma licença.*
+
+<Verdict overrated="esperar um patch para uma linha que o mantenedor declarou inativa" underrated="identificar o componente e a origem dos dados antes de planejar a migração para o ramo mantido" />
+
+## O problema está no decodificador
+
+O **MINA** é um framework para desenvolver aplicações de rede em Java, com APIs assíncronas e orientadas a eventos para transportes como TCP/IP e UDP/IP, conforme a [apresentação oficial](https://mina.apache.org/mina-project/). O alerta não deve ser lido como uma falha genérica de qualquer servidor que carregue a marca Apache.
+
+A desserialização transforma uma sequência de bytes novamente em objetos. No caso descrito, **JavaNativeMessageDecoder chama `ObjectInputStream.readObject()` sem um filtro de classes**. Se a origem dos bytes não é confiável, a aplicação pode aceitar objetos que não deveria reconstruir.
+
+A execução de código citada no aviso envolve uma **gadget chain**, uma combinação de classes disponíveis na aplicação que produz uma ação indevida durante esse processamento. O ponto relevante para a triagem é a combinação entre o componente vulnerável e sua exposição a dados não confiáveis. O nome da dependência, sozinho, não descreve todo o caminho de ataque.
+
+## Ramo inativo muda a resposta
+
+O comunicado lista a faixa afetada como **3.0.0 até 3.0.0-M2** e traz a marcação **Unsupported When Assigned**: o software já estava sem suporte quando a vulnerabilidade recebeu o identificador. A [Rapid7](https://www.rapid7.com/db/vulnerabilities/cve-2026-118636/) também registra a ausência de correção planejada e a recomendação de usar a linha 2.2.x.
+
+Isso cria uma tarefa diferente de aplicar uma atualização dentro do mesmo ramo. O responsável precisa localizar onde a biblioteca é usada, identificar o decodificador e avaliar a transição com a aplicação. O fato de a linha recomendada ter número principal menor não a transforma em uma opção descontinuada: o próprio projeto aponta a 2.2.x como destino.
+
+Na página oficial, a versão **2.2.10** aparece como lançada em **17 de outubro de 2026**. Não é uma correção nova publicada junto deste alerta do dia 31. O aviso indica o ramo mantido; não promete que a troca de uma dependência, sem revisão e teste, preserve automaticamente o comportamento da aplicação.
+
+## Não confunda gravidade com ataque confirmado
+
+A pontuação crítica descreve a gravidade potencial da vulnerabilidade. Ela não informa quantas empresas foram atingidas nem prova que houve exploração contra uma aplicação específica.
+
+A [cobertura do SecNews](https://www.secnews.gr/en/745349/apache-mina-cve-2026-118636/) destaca que não havia relato de exploração ativa. O comunicado original também não apresenta vítimas, volume de ataques ou campanha identificada. Isso não elimina a necessidade de corrigir a exposição, mas impede transformar risco técnico em uma invasão confirmada.
+
+A decisão operacional começa pelo inventário da aplicação e pela origem das conexões entregues ao decodificador. A recomendação oficial é migrar para a versão mais recente da linha 2.2.x, não aguardar uma promessa de conserto do ramo 3 que o mantenedor explicitamente não fez.
+
+## O que isso significa no Brasil
+
+O **aviso técnico e os registros da vulnerabilidade são públicos**, permitindo que equipes brasileiras confiram o componente e as versões em suas aplicações sem depender de um comunicado regional. As fontes consultadas não apresentam contagem de instalações ou vítimas no Brasil.
+
+Para quem usa um serviço de terceiros, a pergunta útil ao fornecedor é se existe MINA 3 com esse decodificador exposto e qual é o plano de migração. Instalar proteção no computador do usuário não substitui corrigir a biblioteca do serviço: o [guia do The Zero sobre o papel do antivírus](https://www.thezero.com.br/noticia/antivirus-windows-2026-precisa-pagar) ajuda a separar essas camadas de responsabilidade.
+
+<Rule>Sem patch planejado no ramo inativo, a resposta é avaliar a migração indicada pelo mantenedor.</Rule>
+
+## Fontes
+
+- [openwall.com - Comunicado original do Apache MINA](https://www.openwall.com/lists/oss-security/2026/10/31/3)
+- [nvd.nist.gov - Registro CVE-2026-118636](https://nvd.nist.gov/vuln/detail/CVE-2026-118636)
+- [mina.apache.org - Framework e versões mantidas](https://mina.apache.org/mina-project/)
+- [rapid7.com - Registro da vulnerabilidade](https://www.rapid7.com/db/vulnerabilities/cve-2026-118636/)
+- [secnews.gr - Falha crítica no ramo inativo](https://www.secnews.gr/en/745349/apache-mina-cve-2026-118636/)

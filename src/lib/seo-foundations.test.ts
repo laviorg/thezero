@@ -10,8 +10,8 @@ import {
   selectRecentPublications,
 } from "./news-sitemap.ts";
 import { articleAuthorLd, isIndexableHub, toMetaDescription } from "./seo.ts";
-import { resolveSiteUrl, site } from "./site.ts";
-import { HOME_TITLE, composePageTitle } from "./titles.ts";
+import { absoluteUrl, resolveSiteUrl, site } from "./site.ts";
+import { ABOUT_DESCRIPTION, ABOUT_TITLE, HOME_TITLE, composePageTitle } from "./titles.ts";
 
 describe("site.social", () => {
   it("lists the live Instagram, YouTube, Threads, and X profiles", () => {
@@ -64,7 +64,7 @@ describe("articleAuthorLd", () => {
     const author = articleAuthorLd("The Zero");
     assert.equal(author["@type"], "Organization");
     assert.equal(author.name, "The Zero");
-    assert.equal("url" in author && author.url, site.url);
+    assert.equal("url" in author && author.url, `${site.url}/`);
   });
 
   it("does not point a named person at the organization page", () => {
@@ -135,12 +135,12 @@ describe("buildPageMetadata", () => {
       path: "/ia",
       brand: "always",
       imagePath: "/ia/opengraph-image",
-      imageAlt: "IA: ferramentas, modelos e limites · The Zero",
+      imageAlt: "IA: ferramentas, modelos e limites | The Zero",
     });
     const images = meta.twitter?.images;
     assert.ok(Array.isArray(images));
     const first = images[0];
-    assert.equal(typeof first === "object" && first && "alt" in first ? first.alt : "", "IA: ferramentas, modelos e limites · The Zero");
+    assert.equal(typeof first === "object" && first && "alt" in first ? first.alt : "", "IA: ferramentas, modelos e limites | The Zero");
   });
 
   it("emits an absolute www canonical for article paths", () => {
@@ -171,7 +171,7 @@ describe("buildPageMetadata", () => {
       brand: "always",
     });
     assert.equal(meta.title, "Ferramentas de IA");
-    assert.equal(meta.openGraph?.title, "Ferramentas de IA · The Zero");
+    assert.equal(meta.openGraph?.title, "Ferramentas de IA | The Zero");
   });
 
   it("drops the suffix when the composed title would pass 60", () => {
@@ -186,6 +186,41 @@ describe("buildPageMetadata", () => {
     const composed = composePageTitle(core, "auto");
     assert.deepEqual(meta.title, { absolute: composed });
     assert.equal(composed.includes("The Zero"), false);
+  });
+
+  it("canonicalizes only the home with the trailing slash the site serves", () => {
+    assert.equal(absoluteUrl("/"), `${site.url}/`);
+    assert.equal(absoluteUrl("/"), "https://www.thezero.com.br/");
+    assert.equal(absoluteUrl("/sobre"), "https://www.thezero.com.br/sobre");
+    assert.equal(
+      absoluteUrl("/noticia/gemini-hackeou-tres-empresas-teste"),
+      "https://www.thezero.com.br/noticia/gemini-hackeou-tres-empresas-teste",
+    );
+
+    const home = buildPageMetadata({
+      title: HOME_TITLE,
+      description: site.description,
+      path: "/",
+      brand: "never",
+    });
+    assert.equal(home.alternates?.canonical, "https://www.thezero.com.br/");
+    assert.equal(home.openGraph?.url, "https://www.thezero.com.br/");
+    const homeLanguages = home.alternates?.languages;
+    assert.equal(
+      homeLanguages && "pt-BR" in homeLanguages ? homeLanguages["pt-BR"] : "",
+      "https://www.thezero.com.br/",
+    );
+
+    const about = buildPageMetadata({
+      title: ABOUT_TITLE,
+      description: ABOUT_DESCRIPTION,
+      path: "/sobre",
+      brand: "never",
+    });
+    assert.equal(about.alternates?.canonical, "https://www.thezero.com.br/sobre");
+    assert.equal(about.openGraph?.url, "https://www.thezero.com.br/sobre");
+    assert.equal(about.description, ABOUT_DESCRIPTION);
+    assert.notEqual(about.description, site.description);
   });
 
   it("keeps an absolute title when the brand is already in the core", () => {
@@ -316,19 +351,30 @@ describe("image size", () => {
 });
 
 describe("articleImages", () => {
-  it("lists the cover before the on-domain card and keeps card dimensions", () => {
+  it("lists the cover, the derived crops, and the on-domain card", () => {
     const images = articleImages({
       slug: "gemini-hackeou-tres-empresas-teste",
       title: "Manchete",
       cover: "/images/posts/gemini-hackeou-tres-empresas-teste/cover.jpg",
       coverAlt: "Gemini — cobertura sobre o incidente em teste",
     });
-    assert.equal(images.length, 2);
+    assert.equal(images.length, 5);
     assert.match(images[0]?.url ?? "", /gemini-hackeou-tres-empresas-teste\/cover\.jpg$/);
     assert.equal(images[0]?.caption, "Gemini — cobertura sobre o incidente em teste");
-    assert.ok((images[0]?.width ?? 0) > 0);
-    assert.match(images[1]?.url ?? "", /\/noticia\/gemini-hackeou-tres-empresas-teste\/opengraph-image$/);
+    assert.equal(images[0]?.width, 2400);
+    assert.equal(images[0]?.height, 1349);
+    assert.match(images[1]?.url ?? "", /\/cover\.16x9\.webp$/);
     assert.equal(images[1]?.width, 1200);
-    assert.equal(images[1]?.height, 630);
+    assert.equal(images[1]?.height, 675);
+    assert.match(images[2]?.url ?? "", /\/cover\.4x3\.webp$/);
+    assert.equal(images[2]?.width, 1200);
+    assert.equal(images[2]?.height, 900);
+    assert.match(images[3]?.url ?? "", /\/cover\.1x1\.webp$/);
+    assert.equal(images[3]?.width, 1200);
+    assert.equal(images[3]?.height, 1200);
+    assert.match(images[4]?.url ?? "", /\/noticia\/gemini-hackeou-tres-empresas-teste\/opengraph-image$/);
+    assert.equal(images[4]?.caption, "Manchete");
+    assert.equal(images[4]?.width, 1200);
+    assert.equal(images[4]?.height, 630);
   });
 });

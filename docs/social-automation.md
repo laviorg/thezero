@@ -9,7 +9,7 @@ O workflow também aceita **Run workflow** com o input `slug`, para repetir uma 
 1. O push na `main` lista os `content/posts/*.mdx` adicionados no intervalo do push. `workflow_dispatch` usa o slug informado.
 2. O commit é ligado ao PR mergeado. O corpo é lido à prova de negrito, heading e bloco `|`. Sem `SOCIAL PACKAGE`, a matéria é ignorada. Pacote incompleto falha o job.
 3. `draft: true` não é publicado: a URL não existe em produção.
-4. `scripts/social/compose_ig_post.py` gera a arte **1080×1080** com a capa, o hook, o summary e o logo em `scripts/social/assets/`. O `compose_cmd` do PR não é executado.
+4. `scripts/social/compose_ig_post.py` gera a arte **1080×1080** (e a Story 9:16) com a capa, o título, o summary e o logo em `scripts/social/assets/`. O título da arte passa por `scripts/social/headline.py`: se o `hook` do pacote já for uma frase natural em PT-BR (sujeito e verbo, 5–14 palavras, sem rótulo de dois-pontos), ele entra na imagem; senão a frase é reescrita a partir do `title` da matéria. O `compose_cmd` do PR não é executado.
 5. A arte vai para a branch `social-assets` (`<slug>.png` e `<slug>.jpg`) e também para o artifact `ig-art-<run_id>`.
 6. O job espera a imagem responder 200 (até 3 min) e `https://www.thezero.com.br/noticia/<slug>` responder 200 (até 15 min).
 7. Confere o ledger e os posts recentes. Se o slug já saiu, não publica de novo.
@@ -35,7 +35,7 @@ A opção usada é a branch **`social-assets`**, com URL pública:
 
 Por que esta, e não gerar a imagem no build do site:
 
-- Hook e summary estão no corpo do PR, não no MDX. O build da Vercel não tem esses campos, a menos que a `main` ganhe outro commit — e esse commit reabriria o workflow.
+- Hook e summary estão no corpo do PR, não no MDX. O build do site não tem esses campos, a menos que a `main` ganhe outro commit — e esse commit reabriria o workflow.
 - A URL fica pronta assim que o job empurra a branch, sem esperar o deploy da matéria. O job ainda espera a matéria em si, porque a legenda aponta para ela.
 - O workflow só escuta a `main` e `workflow_dispatch`. Push em `social-assets` não o dispara. Push feito com `GITHUB_TOKEN` também não abre workflow novo.
 - O repositório é público, então a Meta baixa o arquivo sem autenticação.

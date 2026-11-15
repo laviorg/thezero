@@ -15,15 +15,19 @@ permissions:
   contents: write
   pull-requests: write
 
+# GitHub cancela runs *pendentes* no mesmo grupo mesmo com
+# cancel-in-progress: false. Um grupo por SHA (e slug no dispatch)
+# deixa cada merge terminar. O publicador só cobre matéria nova
+# (arquivo adicionado em content/posts/), não reescrita.
 concurrency:
-  group: social-post-${{ github.repository }}
+  group: social-post-${{ github.repository }}-${{ github.sha }}-${{ github.event.inputs.slug || github.event_name }}
   cancel-in-progress: false
 
 jobs:
   post:
-    name: Instagram e Threads
+    name: Instagram, Stories e Threads
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
     steps:
       - name: Checkout
         uses: actions/checkout@v4

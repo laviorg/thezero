@@ -1,9 +1,15 @@
 import {
-  MARK_PATH,
-  MARK_VIEWBOX,
-  WORDMARK_PATHS,
+  BRAND_ACCENT,
+  BRAND_ICON_BG,
+  BRAND_ICON_FG,
+  ICON_BG_PATH,
+  ICON_VIEWBOX,
+  MARK_ACCENT_PATHS,
+  MARK_PATHS,
   WORDMARK_VIEWBOX,
+  wordmarkElements,
 } from "@/components/brand/wordmark-paths";
+import { createElement, type ReactNode } from "react";
 import { ogPalette } from "@/lib/theme";
 
 const [, , viewW, viewH] = WORDMARK_VIEWBOX.split(" ").map(Number);
@@ -27,28 +33,33 @@ export function OgWordmark({
       height={height}
       viewBox={WORDMARK_VIEWBOX}
     >
-      {WORDMARK_PATHS.map((d) => (
-        <path key={d} d={d} fill={color} />
-      ))}
+      {wordmarkElements(createElement as never, { color }) as ReactNode[]}
     </svg>
   );
 }
 
+/** Ícone completo (fundo #09090B, zero branco, ponto azul) — simbolo.svg. */
 export function OgSplitO({
   size,
-  color = ogPalette.fg,
+  background = true,
 }: {
   size: number;
-  color?: string;
+  background?: boolean;
 }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
-      viewBox={MARK_VIEWBOX}
+      viewBox={ICON_VIEWBOX}
     >
-      <path d={MARK_PATH} fill={color} />
+      {background ? <path d={ICON_BG_PATH} fill={BRAND_ICON_BG} /> : null}
+      {MARK_PATHS.map((d) => (
+        <path key={d} d={d} fill={BRAND_ICON_FG} />
+      ))}
+      {MARK_ACCENT_PATHS.map((d) => (
+        <path key={d} d={d} fill={BRAND_ACCENT} />
+      ))}
     </svg>
   );
 }

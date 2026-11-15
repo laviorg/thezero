@@ -13,7 +13,7 @@ import {
 } from "@/lib/posts";
 import { fichas } from "@/lib/fichas";
 import { isIndexableHub } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 import { assertUniqueDocumentTitles } from "@/lib/title-audit";
 import type { MetadataRoute } from "next";
 
@@ -41,6 +41,8 @@ const STATIC_PAGE_SOURCES = [
   { path: "/ferramentas/bateria-portateis", file: "src/data/handhelds.json" },
   { path: "/ferramentas/custo-api-ia", file: "src/data/ai-api-prices.json" },
   { path: "/glossario", file: "src/data/glossary.json" },
+  { path: "/guias/consoles-portateis", file: "src/data/handhelds.json" },
+  { path: "/guias/modelos-ia-precos", file: "src/data/ai-api-prices.json" },
   { path: "/promessas", file: "src/app/promessas/page.tsx" },
 ] as const;
 
@@ -83,9 +85,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticEntries: MetadataRoute.Sitemap = [
     {
-      url: site.url,
+      url: absoluteUrl("/"),
       ...(contentFreshness ? { lastModified: contentFreshness } : {}),
-      alternates: languageAlternates(site.url),
+      alternates: languageAlternates(absoluteUrl("/")),
     },
     ...[
       ...STATIC_PAGE_SOURCES,

@@ -18,6 +18,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
+import { COVER_LOCK_HINT, coverLockProblems, coverLockRange } from "./check-cover-locks.mjs";
+import { hasRealCover, isProductCandidate } from "./audit-product-covers.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_DIR = path.join(ROOT, "content", "posts");
@@ -457,6 +459,24 @@ export function findMissingAccents(text) {
   return found;
 }
 
+/**
+ * Aviso (não falha): review, comparativo, vale a pena, guia ou texto sobre um
+ * produto sem `cover_source: real`. Mesma regra do scripts/audit-product-covers.mjs,
+ * respeitando as exceções de scripts/data/product-cover-audit.json.
+ */
+function productCoverWarning(slug, data) {
+  const format = typeof data.format === "string" ? data.format : "noticia";
+  if (format === "noticia") return null;
+  const title = typeof data.title === "string" ? data.title : "";
+  if (!isProductCandidate({ slug, format, title }) || hasRealCover(data)) return null;
+  let exc = {};
+  try {
+    exc = JSON.parse(fs.readFileSync(path.join(ROOT, "scripts/data/product-cover-audit.json"), "utf8"));
+  } catch {}
+  if (exc.notProduct?.[slug] || exc.noOfficialPhoto?.[slug]) return null;
+  return "matéria de produto sem foto real na capa (falta `cover_source: real`). Use a foto oficial do fabricante em public/images/posts/<slug>/cover.webp + cover.src.*, com `cover_locked: true` e `cover_source: real`, ou registre o motivo em scripts/data/product-cover-audit.json. Ver docs/cover-lock.md.";
+}
+
 async function checkPost(filePath, ctx) {
   const rel = path.relative(ROOT, filePath);
   const slug = path.basename(filePath).replace(/\.mdx?$/, "");
@@ -572,6 +592,9 @@ async function checkPost(filePath, ctx) {
   const warnings = [];
   const excerpt = typeof data.excerpt === "string" ? data.excerpt.trim() : "";
   const descriptionLength = [...excerpt].length;
+  const productWarning = productCoverWarning(slug, data);
+  if (productWarning) warnings.push(`${rel} (${slug}): AVISO: ${productWarning}`);
+
   if (descriptionLength > DESCRIPTION_WARN) {
     warnings.push(
       `${rel} (${slug}): AVISO: description tem ${descriptionLength} caracteres (passa de ${DESCRIPTION_WARN}).`,
@@ -671,7 +694,10 @@ function postsFromPaths(inputs) {
       continue;
     }
     if (isInside(path.join(PUBLIC_DIR, "images", "posts"), abs) || isInside(PUBLIC_DIR, abs)) {
-      const related = postsReferencingImage(abs);
+      // cover.src* é o original da capa travada: confere o post da pasta, não referência no texto.
+      const srcMatch = abs.match(/images[\\/]posts[\\/]([^\\/]+)[\\/]cover\.src[^\\/]*$/);
+      const srcPost = srcMatch ? path.join(ROOT, "content", "posts", `${srcMatch[1]}.mdx`) : null;
+      const related = srcPost && fs.existsSync(srcPost) ? [srcPost] : postsReferencingImage(abs);
       if (related.length === 0) {
         console.log(`Nenhum post referencia ${path.relative(ROOT, abs)}.`);
       }
@@ -962,6 +988,24 @@ Sem o arquivo, uma branch que adiciona matéria falha e pede o corpo.
 Aviso (não falha, exit 0): excerpt/description com mais de ${DESCRIPTION_WARN} caracteres.`);
 }
 
+function collectCoverLockErrors() {
+  if (process.env.SKIP_COVER_LOCK === "1") return [];
+  const range = coverLockRange();
+  if (!range) return [];
+  const env = range.allowAll ? { ...process.env, ALLOW_COVER_CHANGE: "1" } : process.env;
+  let problems;
+  try {
+    problems = coverLockProblems(range.base, range.head, env);
+  } catch {
+    return [];
+  }
+  if (problems.length === 0) return [];
+  return [
+    ...problems.map((p) => `capa travada (cover_locked) alterada sem autorização: ${p}`),
+    COVER_LOCK_HINT,
+  ];
+}
+
 async function main(argv = process.argv.slice(2)) {
   const flags = parseArgs(argv);
   argv = flags.rest;
@@ -1014,6 +1058,7 @@ async function main(argv = process.argv.slice(2)) {
 
   for (const line of warnings) console.log(line);
   reports.push(...collectFactCheckErrors(flags));
+  reports.push(...collectCoverLockErrors());
 
   if (reports.length === 0) {
     const warningNote =

@@ -1,0 +1,73 @@
+---
+title: "Google anuncia TPU 8tx e 8i Max: sistemas focam sigilo e contexto de IA"
+seoTitle: "TPU 8tx e 8i Max: o que muda nos sistemas de IA do Google"
+excerpt: "8tx protege dados em uso; 8i Max combina dois chips para ampliar recursos. Anúncio não prova preço menor, oferta local ou conformidade automática com LGPD."
+category: tecnologia
+subcategory: infraestrutura
+format: noticia
+date: "2026-11-09T11:51:00-03:00"
+kicker: "Infraestrutura · IA"
+author: "nicholas"
+cover: "/images/posts/google-tpu-8tx-8i-max-sistemas/cover.jpg"
+coverAlt: "Fileira de racks com portas metálicas perfuradas, cabos vermelhos e azuis visíveis à esquerda e corredor claro à direita."
+coverCredit: "Brett Sayles / Pexels; foto de arquivo ilustrativa, não instalação do Google, TPU 8tx ou TPU 8i Max"
+cover_source: real
+---
+
+O **Google anunciou em 9 de novembro os sistemas TPU 8tx e TPU 8i Max**, ampliando sua linha de infraestrutura para inteligência artificial. O primeiro se concentra em computação confidencial, para proteger dados e modelos durante o processamento. O segundo combina dois chips para aumentar recursos de processamento e movimentação de dados em aplicações com contextos extensos.
+
+A [publicação de Amin Vahdat no Google](https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/) faz uma distinção que importa: são **novos sistemas, não dois projetos de silício inteiramente novos**. Reunir processadores, memória, rede e armazenamento de outra forma pode mudar o comportamento de uma aplicação sem exigir uma nova geração de chips.
+
+*Foto de arquivo de Brett Sayles / [Pexels](https://www.pexels.com/photo/server-racks-on-data-center-5480781/), sob [licença Pexels](https://www.pexels.com/license/). Racks ilustrativos, não mostram data center do Google ou os sistemas anunciados.*
+
+## Duas respostas para gargalos diferentes
+
+As novidades se juntam aos TPU 8t e 8i, apresentados em abril. O Google posiciona o 8t para treinamento em grande escala e o 8i para inferência de baixa latência, isto é, a execução de modelos para produzir respostas. O 8tx acrescenta uma configuração de segurança, enquanto o 8i Max procura ampliar a capacidade para contextos longos e trabalho simultâneo.
+
+A cobertura especializada do [Data Center Dynamics](https://www.datacenterdynamics.com/en/news/google-expands-eighth-generation-tpu-portfolio-with-two-new-tpu-systems/) também destaca essa diferença entre chip e sistema. Não é uma peça que o consumidor instala no computador de casa para acelerar um chatbot. O anúncio trata da infraestrutura usada para treinar, adaptar e executar modelos.
+
+## O que a computação confidencial tenta proteger
+
+O TPU 8tx usa o mesmo silício do 8t, associado a processadores **AMD EPYC de quinta geração** e à rede Boardfly. Segundo o Google, a configuração mantém informações e pesos dos modelos protegidos e isolados mesmo quando estão em uso, não apenas quando armazenados ou transmitidos.
+
+A [AMD descreve a participação dos processadores hospedeiros](https://ir.amd.com/news-events/press-releases/detail/1304/amd-epyc-expands-its-leadership-at-the-foundation-of-ai): eles preparam dados, coordenam tarefas e comunicam-se com os aceleradores. A arquitetura usa recursos Secure Encrypted Virtualization, ou SEV, e verificação da identidade e configuração de segurança do acelerador antes de conceder acesso direto à memória protegida.
+
+Esse é o problema específico abordado: proteger o processamento e o caminho entre componentes. Não demonstramos aqui resistência a ataques, não auditamos o sistema e não tratamos a descrição comercial como garantia de que qualquer aplicação seja segura.
+
+Há outra fronteira. Se um aplicativo autorizado recebe um documento e envia seu conteúdo ao destinatário errado, a proteção da infraestrutura não define por ele quais divulgações são permitidas. Nossa leitura é que segurança do processamento e permissões da aplicação precisam ser avaliadas separadamente. O [guia sobre permissões que não devem ser dadas a agentes](/noticia/agente-ia-permissoes-que-nao-dar) explica esse segundo cuidado.
+
+## 8i Max aumenta recursos, não promete resposta correta
+
+O Google diz que o 8i Max reúne **dois chips TPU 8i em um único encapsulamento**. A comparação divulgada é com o 8i: dobro de capacidade de processamento, dobro de SRAM e dobro da largura de banda da memória HBM.
+
+SRAM é memória rápida no chip; largura de banda é a capacidade de movimentar dados. **Dobrar largura de banda não é a mesma coisa que dobrar a quantidade de memória disponível**, nem prova que todo pedido termine na metade do tempo. O resultado depende do modelo, do tamanho do contexto, da configuração e do gargalo real da tarefa.
+
+O caso descrito pelo Google envolve aplicações que examinam bases extensas de código ou horas de vídeo e múltiplas atividades em paralelo. Contexto maior pode permitir fornecer mais material ao modelo. Não comprova, por si só, que ele encontre a informação certa, siga todas as instruções ou deixe de errar. Não executamos comparação própria de velocidade ou qualidade.
+
+## Rede e software continuam fazendo parte da conta
+
+Para o 8tx, o Google anuncia latência até duas vezes menor que a do 8t ao adotar a rede de baixa latência do 8i. É uma alegação do fornecedor sobre essa comparação, não uma medição nossa nem promessa válida para qualquer serviço brasileiro que use IA.
+
+O anúncio também reúne software, incluindo TPU Sync, para organizar diferentes níveis de memória e armazenamento, e ferramentas para executar aplicações PyTorch em TPUs. Isso mostra por que avaliar só o nome do chip é insuficiente: transferência de dados, espera e organização do trabalho também podem limitar o uso do hardware.
+
+Não transportamos para os dois novos sistemas as métricas divulgadas para outros integrantes da família. Tampouco calculamos economia em reais a partir de expressões como melhor relação entre preço e desempenho.
+
+## O que isso significa no Brasil
+
+Para empresas brasileiras que lidam com dados pessoais, a proposta de proteger informação durante o processamento pode ser relevante. Mas **computação confidencial não é certificado automático de conformidade com a LGPD**. A [ANPD explica](https://www.gov.br/anpd/pt-br/acesso-a-informacao/perguntas-frequentes) que o tratamento exige identificar bases legais e finalidades e adotar medidas técnicas e administrativas. Dados sensíveis, como os de saúde, têm condições próprias.
+
+Se a operação envolver transferência internacional, também é necessário verificar os requisitos aplicáveis. O [regulamento da ANPD](https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd/resolucao-cd-anpd-no-19-de-23-de-agosto-de-2024) exige hipótese legal de tratamento e mecanismo válido de transferência, entre outras condições. O hardware não escolhe essas bases nem resolve a contratação pelo cliente. Não é orientação jurídica para um caso concreto.
+
+Na consulta de 9 de novembro, **não confirmamos preço específico ou oferta de 8tx e 8i Max em região brasileira**. A [tabela de preços de TPU](https://cloud.google.com/tpu/pricing) informa variação por produto, implantação e região; a [documentação de localidades](https://docs.cloud.google.com/compute/docs/regions-zones/tpu-regions-zones) também exige verificar disponibilidade por modelo e zona. Isso não equivale a dizer que uma empresa brasileira não possa contratar infraestrutura fora do país.
+
+Nossa leitura é que a decisão útil começa por três verificações: onde o trabalho será processado, quem poderá acessar seus dados e qual será o custo da configuração real. O anúncio oferece novas opções de infraestrutura. Não anuncia redução da assinatura do usuário, disponibilidade automática em São Paulo ou segurança completa de qualquer agente colocado sobre ela.
+
+## Fontes
+
+- [Google: anúncio de TPU 8tx e TPU 8i Max em 9/11/2026](https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/).
+- [AMD: EPYC de quinta geração e segurança no 8tx](https://ir.amd.com/news-events/press-releases/detail/1304/amd-epyc-expands-its-leadership-at-the-foundation-of-ai).
+- [Data Center Dynamics: sistemas e configurações, não novos chips do zero](https://www.datacenterdynamics.com/en/news/google-expands-eighth-generation-tpu-portfolio-with-two-new-tpu-systems/).
+- [Google Cloud: condições gerais de preço de TPU](https://cloud.google.com/tpu/pricing).
+- [Google Cloud: localidades por modelo e zona](https://docs.cloud.google.com/compute/docs/regions-zones/tpu-regions-zones).
+- [ANPD: bases legais, dados sensíveis e obrigações de tratamento](https://www.gov.br/anpd/pt-br/acesso-a-informacao/perguntas-frequentes).
+- [ANPD: regulamento de transferência internacional de dados](https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd/resolucao-cd-anpd-no-19-de-23-de-agosto-de-2024).

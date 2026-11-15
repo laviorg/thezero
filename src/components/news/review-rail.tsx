@@ -18,8 +18,8 @@ export function ReviewRail({ posts }: { posts: Post[] }) {
     >
       <SectionHeading
         id="secao-reviews"
-        eyebrow="Uso, não ficha"
         title="Reviews"
+        subtitle="Testado no uso real, com veredito: Comprar, Esperar ou Pular"
         href="/reviews"
         actionLabel="Ver reviews"
       />

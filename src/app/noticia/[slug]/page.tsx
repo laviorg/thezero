@@ -9,7 +9,7 @@ import { ArticleHeader } from "@/components/news/article-header";
 import { RelatedTools } from "@/components/news/related-tools";
 import { fichas } from "@/lib/fichas";
 import { relatedLinks } from "@/lib/related-links";
-import { ReadingMode } from "@/components/news/reading-mode";
+import { LegacyReadingCleanup } from "@/components/news/legacy-cleanup";
 import { Changelog } from "@/components/news/changelog";
 import { ArticlePager } from "@/components/news/article-pager";
 import { ArticleRail } from "@/components/news/article-rail";
@@ -32,12 +32,12 @@ import {
 } from "@/lib/posts";
 import {
   HOME_CRUMB_LABEL,
-  articleOgImagePath,
   coverAlt,
   toMetaDescription,
 } from "@/lib/seo";
+import { articleSocialImage } from "@/lib/social-image";
 import { absoluteUrl, site } from "@/lib/site";
-import { articleHeadline, articleSchemaHeadline } from "@/lib/titles";
+import { articleSchemaHeadline } from "@/lib/titles";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -61,9 +61,8 @@ export async function generateMetadata({
     ? getSubcategory(post.category, post.subcategory)
     : undefined;
 
-  const headline = articleHeadline(post);
   const url = absoluteUrl(post.href);
-  const ogPath = articleOgImagePath(post.slug);
+  const social = articleSocialImage(post);
   const profile = resolveAuthor(post.authorSlug) ?? resolveAuthor(post.author);
   const authorUrl = profile ? absoluteUrl(profile.href) : absoluteUrl("/autores");
   const base = buildPageMetadata({
@@ -72,8 +71,8 @@ export async function generateMetadata({
     path: post.href,
     type: "article",
     brand: "auto",
-    imagePath: ogPath,
-    imageAlt: headline,
+    imagePath: social.path,
+    imageAlt: social.alt,
     noIndex: Boolean(post.noindex),
   });
 
@@ -188,9 +187,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 credit={post.coverCredit}
                 priority
                 hero
+                contain={post.coverReal}
                 watermarkSize="default"
                 sizes="(min-width: 960px) 38vw, calc(100vw - 2rem)"
-                className="story-cover"
+                className={post.coverReal ? "story-cover story-cover--real" : "story-cover"}
               />
             ) : null}
           </div>
@@ -200,18 +200,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <PageShell width="article" className="story-body-shell">
         <div className="story-split">
           <div className="story-main">
-            <ReadingMode />
-            {post.format === "review" || post.format === "vale-a-pena" || post.updatedIso !== post.dateIso ? (
-              <Changelog
-                entries={
-                  post.changelog?.length
-                    ? [{ date: post.dateIso, note: "Publicada" }, ...post.changelog]
-                    : [
-                        { date: post.dateIso, note: "Publicada" },
-                        ...(post.updatedIso !== post.dateIso ? [{ date: post.updatedIso, note: "Atualizada" }] : []),
-                      ]
-                }
-              />
+            <LegacyReadingCleanup />
+            {post.changelog?.length ? (
+              <Changelog entries={[{ date: post.dateIso, note: "Publicada" }, ...post.changelog]} />
             ) : null}
             {post.veredito ? <VerdictCard data={post.veredito} /> : null}
             <ArticleBody

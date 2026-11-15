@@ -1,0 +1,46 @@
+---
+title: "OpenAI libera a Decisions API, que usa o GPT-6 Luna para decisões em milissegundos"
+seoTitle: "OpenAI Decisions API: GPT-6 Luna para decisões rápidas"
+seoDescription: "OpenAI lança a Decisions API, baseada no GPT-6 Luna: respostas de probabilidade, escolha ou nota até 10 vezes mais rápidas que a API Responses. Veja como funciona."
+excerpt: 'A API devolve probabilidade, escolha ou nota para perguntas com resposta fechada, até 10 vezes mais rápido que o Luna na API Responses. Já está aberta a todos.'
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-10-23T12:07:49-03:00"
+featured: false
+kicker: "IA · desenvolvedores"
+author: "nicholas"
+cover: "/images/posts/openai-decisions-api-gpt-6-luna-decisoes-rapidas/cover.jpg"
+coverAlt: "Sala de data center com fileiras de racks de servidores pretos, cabos azuis e piso elevado perfurado"
+coverCredit: "Carl Lender / Wikimedia Commons (CC BY 2.0); imagem ilustrativa"
+---
+
+A **OpenAI** tornou a **Decisions API** disponível para todos os clientes na quinta (22), segundo o [anúncio da empresa](https://openai.com/index/decisions-api). A API usa o **GPT-6 Luna** para responder perguntas de resposta fechada a partir de texto, imagens e dados estruturados, até **10 vezes mais rápido** que o mesmo Luna pela API Responses, de acordo com a OpenAI.
+
+## Para que serve
+
+Aplicativos e agentes tomam muitas decisões pequenas: classificar uma entrada, escolher para onde enviar um pedido, definir a próxima ação. Cada uma é simples, mas atraso e custo se somam. A Decisions API foca nesse tipo de pergunta. O desenvolvedor define a pergunta e as respostas permitidas, e a API devolve um de três tipos de resposta:
+
+- **predicate:** a probabilidade, de 0 a 1, de uma condição ser verdadeira, como um produto estar danificado.
+- **choice:** uma opção entre as que o desenvolvedor informou, com probabilidades e confiança.
+- **score:** uma nota numa escala de níveis, como a gravidade de um dano.
+
+Cada pedido pode ter até **400 perguntas**, o dobro do limite da versão beta, conforme a OpenAI. A [Unite.AI](https://www.unite.ai/openai-makes-decisions-api-generally-available-with-gpt-6-luna/) descreve a documentação técnica: o endpoint é `POST /v1/decisions` e hoje só aceita o `gpt-6-luna`.
+
+## O que mudou desde o beta
+
+A versão aberta ganhou integração nativa com o **GPT-Live**, cache de prompt para contexto repetido e opção de processar os dados dentro dos EUA ou da Europa (residência de inferência). Também aceita entrada em JSON e imagens dentro das perguntas, e a empresa melhorou a latência com mais capacidade em regiões da Ásia.
+
+A OpenAI cita testes de clientes. A Datadog diz ter obtido resposta 40 vezes mais rápida (p95) que modelos de ponta, com precisão parecida, ao avaliar o risco de comandos gerados por agentes. A Ramp relata resposta 4 vezes mais rápida e 30% mais barata que o Luna comum. A Sierra fala em menos de 280 ms (p95) e custo 90% menor por chamada. São números das próprias empresas, não de medição independente.
+
+## Concorrência
+
+O [TechCrunch](https://techcrunch.com/2026/10/22/openai-makes-its-jev-competitor-widely-available-as-decision-model-competition-heats-up/) conta que a OpenAI não treinou um modelo novo: reconfigurou o Luna para ganhar velocidade e baixar o custo. O produto responde ao **Jev**, da startup TypeSafe, que criou a categoria de "modelos de decisão". Segundo a reportagem, o modelo da OpenAI aparece em oitavo e em décimo quarto em dois rankings públicos, e o Jev segue como o mais consultado no OpenRouter. O próprio TechCrunch ressalta que não está claro o que faz um bom modelo de decisão além de "funcionar para você".
+
+## O que isso significa no Brasil
+
+A notícia é para quem desenvolve: a API serve para classificar mensagens, triar chamados ou rotear pedidos sem pagar o tempo de um modelo grande. A OpenAI não citou preço para o Brasil nem hospedagem local, e as regiões de residência de inferência citadas são só EUA e Europa. Quem não programa não precisa fazer nada, mas vai notar a ideia por trás: usar o modelo menor onde ele basta. O guia [Modelo menor ou Pro: quando o barato resolve](https://www.thezero.com.br/noticia/modelo-menor-ou-pro) mostra como decidir isso no uso diário.
+
+<Rule>
+A OpenAI abriu a todos a Decisions API, baseada no GPT-6 Luna. Ela responde perguntas fechadas com probabilidade, escolha ou nota, até 10 vezes mais rápido que o Luna na API Responses, com até 400 perguntas por pedido. Os números de ganho de velocidade vêm da OpenAI e de clientes. O produto concorre com o Jev, da TypeSafe. A residência de inferência citada é nos EUA e na Europa, sem informação para o Brasil.
+</Rule>

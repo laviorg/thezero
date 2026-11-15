@@ -24,6 +24,7 @@ type Row = {
   cover: string;
   coverAlt: string;
   coverCredit: string;
+  locked: boolean;
   featured: boolean;
   content: string;
 };
@@ -42,6 +43,7 @@ function rows(): Row[] {
         coverAlt: typeof parsed.data.coverAlt === "string" ? parsed.data.coverAlt : "",
         coverCredit:
           typeof parsed.data.coverCredit === "string" ? parsed.data.coverCredit : "",
+        locked: parsed.data.cover_locked === true && parsed.data.cover_source === "real",
         featured: Boolean(parsed.data.featured),
         content: parsed.content,
       };
@@ -69,6 +71,16 @@ describe("evergreen covers", () => {
       const photo = PHOTO_COVERS[post.slug];
       if (photo) {
         assert.equal(post.cover, photo, post.slug);
+        continue;
+      }
+      if (post.locked) {
+        // Foto real travada: fica em /images/posts/<slug>/, com crédito e o original .src ao lado.
+        assert.match(post.cover, new RegExp(`^/images/posts/${post.slug}/cover\\.(webp|jpe?g|png)$`), post.slug);
+        assert.notEqual(post.coverCredit.trim(), "", post.slug);
+        const dir = path.join(ROOT, "public", "images", "posts", post.slug);
+        assert.ok(fs.readdirSync(dir).some((f) => /^cover\.src\./.test(f)), `${post.slug} sem cover.src`);
+        const size = parseImageSize(fs.readFileSync(path.join(ROOT, "public", post.cover.replace(/^\//, ""))));
+        assert.ok(size && size.width >= 1200, post.slug);
         continue;
       }
       assert.equal(post.cover, `/covers/reviews/${post.slug}.webp`, post.slug);

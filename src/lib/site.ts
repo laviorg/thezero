@@ -1,5 +1,5 @@
 /**
- * Public host. Vercel already 308s the apex to www; canonicals, sitemaps and
+ * Public host. The apex already 308s to www; canonicals, sitemaps and
  * JSON-LD have to use the URL that returns 200 or Google treats the homepage
  * as an alternate and refuses the news sitemap when it only redirects.
  */
@@ -28,8 +28,9 @@ export const site = {
   locale: "pt_BR",
   language: "pt-BR",
   description:
-    "The Zero é o newsroom de tech do Brasil: o que funciona de verdade em IA, computadores, dispositivos, apps e jogos. Sem hype de lançamento.",
-  bio: "Demos, opinião, setup. O que funciona de verdade — e o que não.",
+    "The Zero é o newsroom de tech do Brasil. Ruído zero, dado bruto: IA, computadores, dispositivos, apps e jogos com teste, número e fonte.",
+  slogan: "Ruído zero, dado bruto",
+  bio: "Ruído zero, dado bruto.",
   email: "hello@thezero.com.br",
   social: {
     instagram: "https://www.instagram.com/hello.the.zero/",
@@ -49,8 +50,9 @@ export const site = {
 
 export function absoluteUrl(path = "/") {
   const base = site.url.replace(/\/$/, "");
-  if (!path || path === "/") return base;
+  // `/` is served as the origin with a trailing slash. Other paths stay
+  // unsuffixed so their canonicals do not move.
+  if (!path || path === "/") return `${base}/`;
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-// deploy-trigger: slogan removed

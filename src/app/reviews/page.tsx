@@ -67,7 +67,7 @@ export default function ReviewsPage() {
           { href: "/", label: HOME_CRUMB_LABEL },
           { label: "Reviews" },
         ]}
-        eyebrow="Uso, não ficha"
+        eyebrow="Testado no uso real · Comprar, Esperar ou Pular"
         title="Reviews"
         lede={DESCRIPTION}
         count={posts.length}

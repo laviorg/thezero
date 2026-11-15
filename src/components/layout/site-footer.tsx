@@ -13,6 +13,7 @@ export function SiteFooter() {
   return (
     <footer className="relative mt-auto overflow-hidden border-t border-border bg-bg">
       <SplitOMark
+        mono
         className="pointer-events-none absolute -top-16 -right-16 size-72 text-fg/[0.045]"
         aria-hidden
       />
@@ -23,10 +24,10 @@ export function SiteFooter() {
             className="inline-flex text-fg transition-colors hover:text-accent"
             aria-label="The Zero"
           >
-            <Wordmark className="h-8 w-auto" />
+            <Wordmark className="h-6 w-auto" />
           </Link>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-            {site.bio} Newsroom em pt-BR. Se não dá pra testar, medir ou
+            {site.bio} Newsroom de tech em pt-BR. Se não dá pra testar, medir ou
             discordar, não entra.
           </p>
           <p className="mt-4 text-[0.7rem] tracking-[0.14em] text-muted/80 uppercase">

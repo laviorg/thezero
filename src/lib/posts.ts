@@ -1,5 +1,17 @@
 import fs from "node:fs";
 import path from "node:path";
+/** Lido do disco (não via import) para os scripts node com alias-hooks continuarem resolvendo. */
+let revisionsCache: Record<string, { date: string; note: string }[]> | undefined;
+function readRevisions() {
+  if (!revisionsCache) {
+    try {
+      revisionsCache = JSON.parse(fs.readFileSync(path.join(process.cwd(), "src/data/revisions.json"), "utf8"));
+    } catch {
+      revisionsCache = {};
+    }
+  }
+  return revisionsCache!;
+}
 import matter from "gray-matter";
 import {
   CATEGORY_SLUGS,
@@ -73,6 +85,8 @@ export type PostFrontmatter = {
   cover?: string;
   coverAlt?: string;
   coverCredit?: string;
+  /** `cover_source: real`: foto de produto, mostrada inteira na página (sem recorte quadrado). */
+  coverReal?: boolean;
   /**
    * Orthogonal to editoria. Omitted frontmatter stays `noticia`.
    * Evergreen formats stay off the news stream. `review` | `guia` |
@@ -180,6 +194,7 @@ function parseFrontmatter(data: Record<string, unknown>, slug: string): PostFron
     cover: cover || undefined,
     coverAlt: coverAlt || undefined,
     coverCredit: coverCredit || undefined,
+    coverReal: data.cover_source === "real" || undefined,
     format,
     platform,
   };
@@ -199,9 +214,14 @@ function toPost(slug: string, raw: string): Post | null {
     ? getSubcategory(frontmatter.category, frontmatter.subcategory)
     : undefined;
 
-  /** dateModified: a entrada real mais recente do changelog, se houver. */
-  const lastChange = frontmatter.changelog?.length
-    ? frontmatter.changelog.map((e) => e.date).sort().at(-1)
+  /** Revisões reais: frontmatter `changelog` + histórico git (scripts/build-revisions.mjs). */
+  const gitRevisions = readRevisions()[slug] ?? [];
+  frontmatter.changelog = [...(frontmatter.changelog ?? []), ...gitRevisions.map(({ date, note }) => ({ date, note }))]
+    .filter((e) => new Date(e.date).getTime() > new Date(toIsoDate(frontmatter.date)).getTime())
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  /** dateModified: a revisão real mais recente, se houver. */
+  const lastChange = frontmatter.changelog.length
+    ? frontmatter.changelog.at(-1)!.date
     : undefined;
   const updated = lastChange ?? frontmatter.updated ?? frontmatter.date;
   const wordCount = countPostWords(content);
@@ -357,29 +377,48 @@ export function getFeaturedPost(posts = getNewsPosts()): Post | undefined {
   return selectMostRecentPublication(posts.filter(isNewsFormat));
 }
 
-export function getRelatedPosts(post: Post, limit = 3): Post[] {
-  const posts = getAllPosts().filter((item) => !item.noindex);
-  const sameSubcategory = post.subcategory
-    ? posts.filter(
-        (item) =>
-          item.slug !== post.slug &&
-          item.category === post.category &&
-          item.subcategory === post.subcategory,
-      )
-    : [];
-  const sameCategory = posts.filter(
-    (item) =>
-      item.slug !== post.slug &&
-      item.category === post.category &&
-      (!post.subcategory || item.subcategory !== post.subcategory),
-  );
-  const relevant = [...sameSubcategory, ...sameCategory];
-  if (relevant.length >= limit) return relevant.slice(0, limit);
+const RELATED_STOPWORDS = new Set([
+  "brasil", "preco", "vale", "pena", "hoje", "2026", "2025", "como", "quais",
+  "para", "com", "sem", "que", "nao", "ainda", "novo", "nova", "chega",
+]);
 
-  const extras = posts.filter(
-    (item) => item.slug !== post.slug && item.category !== post.category,
+function slugTokens(slug: string): Set<string> {
+  return new Set(
+    slug.split("-").filter((t) => t.length >= 3 && !RELATED_STOPWORDS.has(t)),
   );
-  return [...relevant, ...extras].slice(0, limit);
+}
+
+/**
+ * Related reading for an article. Topic overlap (shared slug terms) first,
+ * then same subcategory, then same category. Inside each tier, articles
+ * closest in publication date win, older and newer alike, so links spread
+ * across the archive instead of always pointing at the newest posts.
+ */
+export function getRelatedPosts(post: Post, limit = 3): Post[] {
+  const posts = getAllPosts().filter(
+    (item) => !item.noindex && item.slug !== post.slug,
+  );
+  const tokens = slugTokens(post.slug);
+  const time = Date.parse(post.dateIso) || 0;
+  const score = (item: Post) => {
+    let overlap = 0;
+    for (const t of slugTokens(item.slug)) if (tokens.has(t)) overlap += 1;
+    let value = Math.min(overlap, 3) * 10;
+    if (item.category === post.category) {
+      value += 5;
+      if (post.subcategory && item.subcategory === post.subcategory) value += 10;
+    }
+    return value;
+  };
+  return posts
+    .map((item) => ({
+      item,
+      score: score(item),
+      distance: Math.abs((Date.parse(item.dateIso) || 0) - time),
+    }))
+    .sort((a, b) => b.score - a.score || a.distance - b.distance)
+    .slice(0, limit)
+    .map((entry) => entry.item);
 }
 
 export function getAdjacentPosts(post: Post) {

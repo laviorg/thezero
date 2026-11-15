@@ -1,0 +1,22 @@
+{
+  "notProduct": {
+    "ea-sports-fc-27-vale-a-pena": "Jogo, não hardware; a capa já é a arte oficial da EA.",
+    "fonte-rtx-4060-e-4070-quantos-watts": "Guia de dimensionamento de fonte; não trata de um modelo de fonte específico.",
+    "ios-27-quais-iphones-e-como-atualizar": "Tutorial de software (iOS 27), não de produto.",
+    "one-ui-9-quais-galaxy-e-como-atualizar": "Tutorial de software (One UI 9), não de produto.",
+    "iphone-eua-vs-loja-br-conta-total": "Guia de custo de compra (imposto, câmbio), não de um modelo.",
+    "iphone-seminovo-brasil-o-que-checar": "Checklist de compra de usado, vale para qualquer modelo.",
+    "trocar-bateria-iphone-brasil-preco-risco": "Guia de serviço (troca de bateria), não de produto.",
+    "monitor-144hz-full-hd-vs-1440p": "Compara categorias de monitor, sem modelo específico.",
+    "motorola-vs-samsung-intermediario": "Compara marcas, sem modelo específico.",
+    "placa-mae-b650-barata-upgrade-ryzen": "Guia de categoria (chipset B650), sem modelo específico.",
+    "ssd-no-ps5-upgrade": "Guia de upgrade com SSD genérico; o produto do texto é a categoria SSD M.2.",
+    "steam-vs-epic-vs-xbox-pc-preco": "Compara lojas digitais, não produtos físicos.",
+    "teclado-mecanico-ate-400-abnt": "Guia de categoria; 'switch' é o tipo de tecla, não o console."
+  },
+  "noOfficialPhoto": {
+    "kingston-nv3-1tb-vale-a-pena-2026-brasil": "Site do fabricante bloqueou o download automatizado em 01/11/2026; cartaz editorial até obter foto oficial.",
+    "acer-nitro-v15-rtx-4060-vale-a-pena-2026-brasil": "Site do fabricante bloqueou o download automatizado em 01/11/2026; cartaz editorial até obter foto oficial.",
+    "galaxy-s25-vs-iphone-16-pra-quem": "11/11/2026: não foi verificada autorização de republicação/recorte das imagens oficiais. Samsung Mobile Press /terms restringe uso a pessoal, informativo e não comercial; Apple exige autorização expressa para suas fotos nas diretrizes de terceiros. Usada foto licenciada Yan Krukau/Pexels7793694, arquivo2021 ilustrativo de uso/troca de celular, explicitamente não S25/iPhone16 nem teste. Não implica indisponibilidade geral de foto ou endosso."
+  }
+}

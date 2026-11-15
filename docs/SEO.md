@@ -133,7 +133,7 @@ A diretiva `Host` é do Yandex; o Google ignora. O valor segue o origin canônic
 
 Achados de 23/09/2026 e o que o código passou a fazer. Não há número de posição aqui.
 
-O apex `https://thezero.com.br` já respondia **308** para `https://www.thezero.com.br` na Vercel. O HTML, o `robots.txt` e os dois sitemaps ainda anunciavam o apex. O Google via a home em www com canonical no apex, e o apex só redirecionava — daí “Página alternativa com tag canônica adequada” e a home fora do índice. O news sitemap enviado era o do apex (é o que o `robots.txt` listava); essa URL não devolve XML, devolve redirect. O Search Console marca isso como “Não foi possível buscar” / 0 páginas, mesmo com o XML válido em www.
+O apex `https://thezero.com.br` já respondia **308** para `https://www.thezero.com.br` na hospedagem anterior. O HTML, o `robots.txt` e os dois sitemaps ainda anunciavam o apex. O Google via a home em www com canonical no apex, e o apex só redirecionava — daí “Página alternativa com tag canônica adequada” e a home fora do índice. O news sitemap enviado era o do apex (é o que o `robots.txt` listava); essa URL não devolve XML, devolve redirect. O Search Console marca isso como “Não foi possível buscar” / 0 páginas, mesmo com o XML válido em www.
 
 O host público agora é **sempre** `https://www.thezero.com.br`:
 

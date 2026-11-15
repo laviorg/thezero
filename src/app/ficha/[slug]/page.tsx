@@ -51,7 +51,7 @@ export default async function FichaPage({ params }: { params: Promise<{ slug: st
             {fields.map(([k, v]) => (
               <tr key={k} className="border-b border-border last:border-0">
                 <th className="w-40 bg-surface px-4 py-2.5 font-mono text-[0.72rem] font-medium tracking-[0.06em] text-muted uppercase">{FIELD_LABELS[k] ?? k}</th>
-                <td className="px-4 py-2.5">{v.value ?? "—"}{v.source ? <> · <Link href={v.source} className="text-[0.75rem] text-muted underline">fonte</Link></> : null}</td>
+                <td className="px-4 py-2.5">{v.value ?? "—"}{v.source ? <> · {v.source.startsWith("http") ? <a href={v.source} rel="nofollow noopener" target="_blank" className="text-[0.75rem] text-muted underline">fonte</a> : <Link href={v.source} className="text-[0.75rem] text-muted underline">fonte</Link>}</> : null}</td>
               </tr>
             ))}
             <tr>

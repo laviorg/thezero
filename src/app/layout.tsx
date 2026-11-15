@@ -1,3 +1,4 @@
+import { HOME_TITLE } from "@/lib/titles";
 import { CompareHost } from "@/components/compare/compare-button";
 import { newsRobots } from "@/lib/seo";
 import { AdSenseScript } from "@/components/ads/adsense-script";
@@ -12,7 +13,7 @@ import { ThemeScript } from "@/components/theme/theme-script";
 import { adsenseClientId, getAdsensePubId } from "@/lib/adsense";
 import { getActiveReviewBuckets, getActiveSubcategories } from "@/lib/posts";
 import { categoryMenus } from "@/lib/site-nav";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 import { themeColor } from "@/lib/theme";
 import type { Metadata, Viewport } from "next";
 import { fontDisplay, fontMono, fontSans, fontSerif } from "@/lib/fonts";
@@ -31,8 +32,8 @@ const adsensePubId = getAdsensePubId();
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: site.name,
-    template: `%s · ${site.name}`,
+    default: HOME_TITLE,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,
@@ -65,14 +66,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: site.locale,
-    url: site.url,
+    url: absoluteUrl("/"),
     siteName: site.name,
-    title: site.name,
+    title: HOME_TITLE,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: site.name,
+    title: HOME_TITLE,
     description: site.description,
   },
   robots: newsRobots,

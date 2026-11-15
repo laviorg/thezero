@@ -1,0 +1,65 @@
+---
+title: "Cursor atualiza alerta sobre extensão Claude adulterada; falha no malware não dispensa limpeza"
+seoTitle: "Cursor: extensão Claude adulterada exige remediação"
+excerpt: "Aviso detalha versões 2.1.312 e 2.1.313 na loja do Cursor. A tentativa de acesso remoto podia falhar, mas persistência e dados exigem investigação."
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-10-31T07:36:30-03:00"
+featured: false
+kicker: "Aplicativos · segurança digital"
+author: "nicholas"
+cover: "/images/posts/cursor-extensao-claude-remediacao/cover.jpg"
+coverAlt: "Pessoa de costas com camisa xadrez vermelha inclinada diante de rack aberto, com cabos e notebook sobre o piso"
+coverCredit: "Derrick Coetzee / Wikimedia Commons / CC0; NERSC em 2011, foto ilustrativa recortada, não mostra o incidente"
+---
+
+O **Cursor atualizou em 30 de outubro** seu alerta sobre cópias adulteradas da extensão **Anthropic.claude-code**, nas versões **2.1.312 e 2.1.313**, distribuídas por sua loja de extensões. A falha no código malicioso dificultou a instalação completa do acesso remoto em muitas máquinas, mas a empresa orienta investigar e remover os vestígios mesmo assim.
+
+O [aviso oficial](https://cursor.com/blog/claude-code-extension-security-notice) delimita o problema aos pacotes identificados na loja do Cursor. As versões maliciosas não foram desenvolvidas pela Anthropic, e a empresa diz não ter evidência de que a distribuição oficial ou outras versões tenham sido afetadas. A distinção importa: o nome conhecido da extensão não torna equivalentes todas as suas origens de instalação.
+
+![Pessoa de costas com camisa xadrez vermelha inclinada diante de rack aberto, com cabos e notebook sobre o piso](/images/posts/cursor-extensao-claude-remediacao/cover.jpg)
+*Trabalho em rack no NERSC em 2011; foto ilustrativa, não mostra o incidente do Cursor. [Derrick Coetzee / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Technician_with_laptop_working_on_server_rack_at_NERSC.jpg), [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Recorte e redimensionamento.*
+
+<Verdict overrated="concluir que a máquina está segura só porque a tentativa de túnel remoto falhou" underrated="cruzar origem da extensão, versão instalada e vestígios de execução antes de encerrar o caso" />
+
+## O recorte do incidente
+
+Segundo o Cursor, os pacotes ficaram disponíveis em **29 de outubro**, entre aproximadamente **2h27 e 13h35 no horário do Pacífico**. O aviso cita Windows e macOS no recorte das versões afetadas e das orientações aos usuários.
+
+A atualização publicada em 30 de outubro, às 11h30 no horário do Pacífico, esclarece as versões e os indicadores de comprometimento. Portanto, não é um novo lançamento da extensão nem uma vulnerabilidade genérica em todo uso do Claude Code: é uma ocorrência de distribuição adulterada com versões e canal específicos.
+
+A [WIRED](https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems/), em reportagem de 30 de outubro, informa que o Cursor descreveu o total de downloads como de no máximo 5 mil usuários. Esse limite não é uma contagem de máquinas comprovadamente controladas pelo atacante. A reportagem também registra que o modo como o pacote malicioso entrou na loja continuava sem explicação pública completa.
+
+## Falha parcial não significa ausência de efeito
+
+O código coletava informações do computador e do usuário, incluindo nome da máquina, sistema operacional, arquitetura, diretórios, nomes de variáveis de ambiente, e-mail configurado no Git e IP público, conforme a análise do Cursor.
+
+Também tentava adicionar uma chave SSH não autorizada, ativar o serviço local e criar um túnel reverso. A empresa afirma que erros no código e a necessidade de privilégios administrativos impediam essa etapa em grande parte dos computadores Windows e macOS.
+
+Isso não apaga as outras ações. O aviso diz que a extensão adicionava a chave do atacante, instalava mecanismos de persistência e enviava informações da máquina. Desinstalar apenas a extensão pode deixar scripts independentes funcionando.
+
+É essa diferença que muda a resposta: impedir uma conexão não equivale a demonstrar que nada foi executado. A verificação precisa observar os vestígios descritos no comunicado, não apenas se o editor continua abrindo normalmente.
+
+## O que o Cursor fez e recomenda
+
+A empresa removeu os pacotes, interrompeu temporariamente a loja, auditou o acesso, trocou chaves e reconstruiu o marketplace antes de colocá-lo de volta no ar. Também trabalhou com o provedor de hospedagem para retirar o servidor do atacante, interrompendo as conexões para aquele destino.
+
+Para instalações dentro do recorte, o aviso oferece indicadores e ferramentas de remediação. As orientações incluem procurar evidências em registros, isolar máquinas com sinais de execução, remover chaves e persistência indevidas e avaliar a necessidade de reconstruir o ambiente.
+
+A recomendação também inclui trocar credenciais e sessões acessíveis a partir de máquinas afetadas, usando um sistema confiável. A lista de informações inicialmente coletadas não permite descartar acesso posterior a outros dados caso a porta dos fundos tenha funcionado.
+
+Esta matéria não executou os scripts nem verificou computadores de usuários. O material técnico original é o ponto de partida para a equipe responsável pelo ambiente, não uma comprovação de que qualquer leitor esteja comprometido.
+
+## O que isso significa no Brasil
+
+Desenvolvedores brasileiros que instalaram essas versões pela loja do Cursor entram no mesmo recorte técnico de verificação: origem, versão e horário da instalação importam mais do que o país da conta. O aviso não apresenta uma relação separada de afetados no Brasil.
+
+Quem baixou por outro canal não deve ser incluído automaticamente no incidente descrito. Já quem encontrou uma versão afetada não deve encerrar a checagem apenas removendo o item do editor. Nosso [guia de VS Code e Cursor para quem começa a programar](https://www.thezero.com.br/noticia/vs-code-vs-cursor-para-quem-comeca) explica as diferenças de ambiente; este alerta trata da segurança da distribuição de extensões.
+
+<Rule>A falha no acesso remoto limita uma etapa do ataque; não substitui verificar e remover os efeitos do pacote adulterado.</Rule>
+
+## Fontes
+
+- [Cursor: aviso de segurança e atualização dos indicadores](https://cursor.com/blog/claude-code-extension-security-notice)
+- [WIRED: extensão adulterada e limite de downloads informado pelo Cursor](https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems/)

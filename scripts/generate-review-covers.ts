@@ -8,7 +8,8 @@
  * Review-archive posters stay in `public/covers/reviews/`. Tutorials go to
  * `public/covers/tutoriais/`. A vale-a-pena without a press photo goes to
  * `public/covers/vale-a-pena/`. Anything already under `/images/` is left
- * alone.
+ * alone, and so is any post with `cover_locked: true` or `cover_source: real`
+ * (even with --force). See docs/cover-lock.md.
  *
  *   npm run covers
  *   npm run covers -- --slug rtx-4060-vs-5060-brasil
@@ -22,10 +23,11 @@ import type { ReactElement } from "react";
 import matter from "gray-matter";
 import sharp from "sharp";
 import {
-  MARK_PATH,
+  MARK_ACCENT_PATHS,
+  MARK_PATHS,
   MARK_VIEWBOX,
-  WORDMARK_PATHS,
   WORDMARK_VIEWBOX,
+  wordmarkElements,
 } from "../src/components/brand/wordmark-paths.ts";
 import { getCategory, getSubcategory } from "../src/lib/categories.ts";
 import { ogPalette } from "../src/lib/theme.ts";
@@ -110,6 +112,7 @@ type CoverPost = {
   category: string;
   subcategory?: string;
   cover?: string;
+  locked?: boolean;
 };
 
 function loadFonts(): OgFont[] {
@@ -146,7 +149,9 @@ function readEvergreen(): CoverPost[] {
       const { data } = matter(raw);
       const format = typeof data.format === "string" ? data.format : "noticia";
       const cover = typeof data.cover === "string" ? data.cover.trim() : "";
+      const locked = data.cover_locked === true || data.cover_source === "real";
       return {
+        locked,
         slug,
         file: path.join(POSTS_DIR, file),
         title: String(data.title ?? ""),
@@ -231,9 +236,7 @@ function wordmark(width: number, color: string) {
       height,
       viewBox: WORDMARK_VIEWBOX,
     },
-    ...WORDMARK_PATHS.map((d) =>
-      React.createElement("path", { key: d, d, fill: color }),
-    ),
+    ...(wordmarkElements(React.createElement as never, { color }) as ReactElement[]),
   );
 }
 
@@ -241,7 +244,12 @@ function splitMark(size: number, color: string) {
   return React.createElement(
     "svg",
     { width: size, height: size, viewBox: MARK_VIEWBOX },
-    React.createElement("path", { d: MARK_PATH, fill: color }),
+    ...MARK_PATHS.map((d) =>
+      React.createElement("path", { key: d, d, fill: color }),
+    ),
+    ...MARK_ACCENT_PATHS.map((d) =>
+      React.createElement("path", { key: d, d, fill: color }),
+    ),
   );
 }
 
@@ -461,8 +469,10 @@ async function main() {
   let largest = 0;
 
   for (const post of posts) {
+    // Capa travada (cover_locked: true / cover_source: real) nunca é regenerada,
+    // nem com --force. Ver docs/cover-lock.md.
     const hasForeignCover = Boolean(post.cover) && !isGeneratedCover(post.cover);
-    if (hasForeignCover) {
+    if (post.locked || hasForeignCover) {
       skippedPhoto += 1;
       continue;
     }

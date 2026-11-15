@@ -1,0 +1,65 @@
+---
+title: "OpenAI e Google apoiam sinal comum contra uso de sites no treino de IA; adoção ainda é futura"
+seoTitle: "OpenAI e Google apoiam sinal comum para treino de IA"
+excerpt: "Proposta usa robots.txt para comunicar preferências a várias empresas. OpenAI fala em próximos meses; Google mira 2027. Não é bloqueio técnico."
+category: ia
+subcategory: negocios-e-politica
+format: noticia
+date: "2026-10-30T16:35:13-03:00"
+featured: false
+kicker: "IA · negócios e política"
+author: "nicholas"
+cover: "/images/posts/openai-google-robots-treinamento-ia/cover.jpg"
+coverAlt: "Fileiras de racks pretos com equipamentos e cabos em sala clara com piso ventilado e luminárias no teto"
+coverCredit: "Carl Lender / Wikimedia Commons / CC BY 2.0; foto ilustrativa de 2015, recortada"
+---
+
+OpenAI e Google anunciaram em 30 de outubro apoio a um **sinal compartilhado em robots.txt** para que donos de sites comuniquem preferências sobre treinamento de inteligência artificial a várias empresas participantes de uma vez. A promessa é reduzir a manutenção de regras separadas para cada fornecedor. Não significa que o novo controle já esteja funcionando em todos os serviços.
+
+A [OpenAI prevê implementá-lo nos próximos meses](https://openai.com/index/helping-websites-express-ai-training-preferences), com detalhes em uma atualização futura. O [Google aponta 2027](https://developers.google.com/search/blog/2026/10/ai-training-control) para o suporte conjunto. As duas empresas dizem que os controles próprios continuarão existindo. Para uma editora brasileira, o anúncio é uma proposta de simplificação, não motivo para apagar hoje as regras já configuradas.
+
+![Fileiras de racks pretos com equipamentos e cabos em sala clara com piso ventilado e luminárias no teto](/images/posts/openai-google-robots-treinamento-ia/cover.jpg)
+*Foto ilustrativa de infraestrutura em 2015, não de instalações identificadas como pertencentes às empresas citadas. [Carl Lender / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Datacenter_Server_Racks_(22370909788)%2Ejpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Imagem recortada.*
+
+<Verdict overrated="tratar o anúncio como botão universal que já impede coleta e treinamento" underrated="separar preferência de uso, regras de coleta e data real de implementação" />
+
+## Uma preferência comum, não uma barreira
+
+O mecanismo aparece no [rascunho Machine-Readable Training Preference Signal](https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/), atualizado nesta sexta. Ele propõe o identificador `__usage_ai-training` em grupos comuns de robots.txt. A ideia é associar preferências de uso a caminhos do site sem criar uma nova gramática para o arquivo.
+
+A distinção importante está no próprio documento: **o identificador não é uma ordem de comportamento de coleta**. Preferências sobre uso do conteúdo e regras para o tráfego de robôs são independentes. Um consumidor pode usar a preferência para decidir o que buscar, mas esse efeito não é garantido pelo simples acréscimo do sinal.
+
+Há limites também para a abrangência. O rascunho diz que grupos genéricos com asterisco não devem ser interpretados como correspondendo ao novo identificador. Se ele não estiver presente, nenhuma preferência foi expressa por esse mecanismo. Regras específicas e acordos privados podem ter precedência nas condições descritas pelo documento.
+
+Isso não torna a proposta irrelevante. O ganho pretendido é evitar repetir a mesma escolha para uma lista crescente de empresas. Mas depende de quem adere e de como implementa, não apenas de publicar duas linhas no servidor.
+
+## Ainda não é um padrão aprovado
+
+O anúncio se apoia nas discussões do grupo AI Preferences, da IETF. Isso não equivale a dizer que a IETF aprovou esse mecanismo como padrão final. O registro do documento o classifica como **Internet-Draft individual**, sem endosso da organização e sem posição formal no processo de padronização.
+
+Essa diferença evita vender um rascunho como regra universal da internet. O texto é trabalho em andamento e pode mudar. A OpenAI descreve a iniciativa como voluntária e incentiva outras empresas a respeitá-la. O Google também fala em continuar o trabalho de refinamento e padronização.
+
+No caso do Google, quando o sinal comum recusar treinamento e não houver uma regra explícita de Google-Extended, o plano é interpretar a preferência como uma recusa para Google-Extended. As escolhas específicas da empresa continuarão funcionando em paralelo. O anúncio não fornece um dia de ativação dentro de 2027.
+
+## Busca e treinamento continuam diferentes
+
+A [documentação atual dos robôs da OpenAI](https://developers.openai.com/api/docs/bots) já permite escolhas independentes: GPTBot está ligado a conteúdo que pode ser usado no treinamento de modelos generativos; OAI-SearchBot serve para exibir sites nos resultados de busca do ChatGPT. Um site pode permitir busca e recusar treinamento.
+
+Há ainda visitas acionadas por usuários, identificadas como ChatGPT-User. A OpenAI informa que não são coleta automática da web e que as regras de robots.txt podem não se aplicar a essas visitas. Portanto, recusar treinamento não deve ser apresentado como impedir toda leitura por qualquer produto de IA.
+
+## O que isso significa no Brasil
+
+Donos de sites brasileiros já podem usar os controles separados documentados pela OpenAI para permitir presença na busca e recusar treinamento por GPTBot. Os anúncios não informam um lançamento exclusivo por país. A utilidade está na gestão do próprio site, não em uma configuração que o leitor de um chatbot possa escolher por todos os editores.
+
+Antes de uma mudança, vale registrar as regras existentes, identificar se a escolha é sobre coleta, treinamento ou presença em busca e conferir o calendário de cada fornecedor. Não há nestas fontes uma promessa de remuneração, uma licença geral de conteúdo brasileiro ou uma conclusão jurídica sobre direitos autorais no país.
+
+Para quem usa IA no computador, a discussão também não substitui controles locais de acesso. Nosso [guia de permissões para agentes de IA](https://www.thezero.com.br/noticia/agente-ia-permissoes-que-nao-dar) trata desse outro problema: o que o software pode abrir e executar, não quais dados um provedor pode usar para treinar modelos.
+
+<Rule>O sinal comum comunica uma escolha de treinamento; adesão futura e regras de coleta continuam sendo questões separadas.</Rule>
+
+## Fontes
+
+- [OpenAI: apoio a um sinal comum para preferências de treinamento](https://openai.com/index/helping-websites-express-ai-training-preferences)
+- [Google: planos de suporte ao controle compartilhado em 2027](https://developers.google.com/search/blog/2026/10/ai-training-control)
+- [IETF Datatracker: rascunho individual do sinal de preferência](https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/)
+- [OpenAI: documentação dos robôs e controles atuais](https://developers.openai.com/api/docs/bots)
