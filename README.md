@@ -28,7 +28,7 @@ npm run lint
 
 `NEXT_PUBLIC_ADSENSE_PUB_ID` é opcional e **só** liga o script de anúncio (`pub-` + 16 dígitos). Sem ela o site não carrega o script. O `/ads.txt` declara o vendedor Google (`pub-3679376723096233`) e o contato `hello@thezero.com.br`. Checklist: [`docs/ADSENSE.md`](docs/ADSENSE.md).
 
-`NEXT_PUBLIC_GA_MEASUREMENT_ID` é o measurement ID do GA4. Em **Production** no Vercel: `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-3H0Z0NNQ1J` (conta hello.shimenawa, propriedade The Zero, stream www.thezero.com.br). Sem ela — o caso de Preview e local — o site não carrega `gtag`. O script só entra depois do aceite de cookies de publicidade / estatística. Checklist: [`docs/ANALYTICS.md`](docs/ANALYTICS.md).
+`NEXT_PUBLIC_GA_MEASUREMENT_ID` é o measurement ID do GA4. Configurada como secret `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-3H0Z0NNQ1J` no GitHub (Settings → Secrets and variables → Actions), lida pela Action de deploy (conta hello.shimenawa, propriedade The Zero, stream www.thezero.com.br). Sem ela — o caso de builds locais — o site não carrega `gtag`. O script só entra depois do aceite de cookies de publicidade / estatística. Checklist: [`docs/ANALYTICS.md`](docs/ANALYTICS.md).
 
 ## Páginas
 
@@ -124,18 +124,16 @@ Arquitetura: `content/posts` → `src/lib/posts.ts` (gray-matter) → páginas e
 - `sitemap.ts`, Google News sitemap em `/news-sitemap.xml`, `robots.ts` e RSS em `/rss.xml`
 - JSON-LD `NewsMediaOrganization` + `WebSite` no layout; `NewsArticle` em cada matéria
 
-## Deploy (Vercel + Origin) para thezero.com.br
+## Deploy (Cloudflare Pages) para thezero.com.br
 
 1. Cria o repositório Origin com o nome **thezero** (Create repo no fluxo New Project, ou `origin repo create thezero` na tua máquina). Liga o mirror GitHub se quiseres CI extra.
-2. Importa o repo na [Vercel](https://vercel.com): framework Next.js, comando `npm run build`, output default.
-3. Environment variables: `NEXT_PUBLIC_SITE_URL=https://www.thezero.com.br`. Em Production, `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-3H0Z0NNQ1J` (ver [`docs/ANALYTICS.md`](docs/ANALYTICS.md)). Depois da aprovação no AdSense, `NEXT_PUBLIC_ADSENSE_PUB_ID=pub-…` (ver [`docs/ADSENSE.md`](docs/ADSENSE.md)).
-4. Domínio: adiciona `thezero.com.br` e `www.thezero.com.br` na Vercel. No DNS (Registro.br / Cloudflare):
-   - `A` / `CNAME` conforme o painel da Vercel (geralmente CNAME `www` → `cname.vercel-dns.com` e apex com os IPs que a Vercel mostrar).
-   - Redirect permanente do apex para `https://www.thezero.com.br`. O código também faz esse 308 se o pedido chegar na app. Não inverter.
-5. SSL a Vercel emite sozinha. Confirma `https://www.thezero.com.br/sitemap.xml` e `https://www.thezero.com.br/news-sitemap.xml` (os dois têm de responder 200, sem redirect) e o Rich Results da Google no JSON-LD da home e de uma matéria.
-6. Cada `git push` na branch de produção dispara o deploy. Preview deployments nas outras branches.
+2. O deploy é feito pela Action [`.github/workflows/deploy-cloudflare.yml`](.github/workflows/deploy-cloudflare.yml), a cada push na `main` ou por `workflow_dispatch`. O build é `npm run build:cloudflare`, que gera um site estático em `out/` e publica na Pages por **Direct Upload** (projeto `thezero-com-br`). Detalhes em [`docs/cloudflare.md`](docs/cloudflare.md).
+3. Secrets no GitHub (Settings → Secrets and variables → Actions): `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID` (obrigatórios para publicar), `NEXT_PUBLIC_SITE_URL=https://www.thezero.com.br`, `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-3H0Z0NNQ1J` (ver [`docs/ANALYTICS.md`](docs/ANALYTICS.md)) e, depois da aprovação no AdSense, `NEXT_PUBLIC_ADSENSE_PUB_ID=pub-…` (ver [`docs/ADSENSE.md`](docs/ADSENSE.md)).
+4. Domínio: `www.thezero.com.br` apontado para a Cloudflare (DNS no Registro.br). Redirect permanente do apex para `https://www.thezero.com.br`, via regra de zone da Cloudflare. Não inverter.
+5. Confirma `https://www.thezero.com.br/sitemap.xml` e `https://www.thezero.com.br/news-sitemap.xml` (os dois têm de responder 200, sem redirect) e o Rich Results da Google no JSON-LD da home e de uma matéria.
+6. Cada `git push` na `main` dispara o deploy pela Action.
 
-A configuração da Vercel continua no repo. O deploy na Cloudflare Pages (plano grátis, DNS do www no Registro.br) está em [`docs/cloudflare.md`](docs/cloudflare.md). O comando é `npm run build:cloudflare`; o `npm run build` segue sendo o build da Vercel.
+A hospedagem de produção é a Cloudflare Pages (plano grátis, DNS do www no Registro.br), detalhada em [`docs/cloudflare.md`](docs/cloudflare.md). O comando de deploy é `npm run build:cloudflare`; o `npm run build` segue disponível para build de servidor local.
 
 Loja (quando existir) fica em `https://loja.thezero.com.br`, fora desta app.
 

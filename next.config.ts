@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { nextOpenGraphHeaders } from "./src/lib/opengraph-crawl";
 import { APEX_HOST, PATH_REDIRECTS } from "./src/lib/redirects";
 
 const cloudflareExport = process.env.CF_STATIC_EXPORT === "1";
@@ -9,7 +10,7 @@ const nextConfig: NextConfig = {
   transpilePackages: ["next-mdx-remote"],
   ...(cloudflareExport ? { output: "export" as const } : {}),
   // Static export does not apply next.config redirects. The Cloudflare build
-  // writes the same rules to out/_redirects. The Vercel build keeps them here.
+  // writes the same rules to out/_redirects. The server build keeps them here.
   ...(!cloudflareExport
     ? {
         async redirects() {
@@ -27,6 +28,11 @@ const nextConfig: NextConfig = {
             })),
           ];
         },
+        async headers() {
+          // Static export ignores next.config headers. Cloudflare Pages
+          // gets the same tag from out/_headers.
+          return nextOpenGraphHeaders();
+        },
       }
     : {}),
   outputFileTracingIncludes: {
@@ -41,7 +47,6 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "www.estadao.com.br", pathname: "/**" },
       { protocol: "https", hostname: "imagens.estadao.com.br", pathname: "/**" },
       { protocol: "https", hostname: "statics.estadao.com.br", pathname: "/**" },
-      { protocol: "https", hostname: "thezero-blue.vercel.app", pathname: "/**" },
       { protocol: "https", hostname: "thezero.com.br", pathname: "/**" },
       { protocol: "https", hostname: "www.thezero.com.br", pathname: "/**" },
       { protocol: "https", hostname: "i.guim.co.uk", pathname: "/**" },

@@ -61,6 +61,22 @@ const G = {
   ramSoldada: { href: "/noticia/ram-soldada-notebook-arrependimento", label: "RAM soldada no notebook" },
   macVsWin: { href: "/noticia/macbook-air-m3-vs-notebook-windows-8-mil", label: "MacBook Air vs Windows até R$ 8 mil" },
   pc4mil: { href: "/noticia/pc-gamer-ate-4-mil-2026", label: "PC gamer até R$ 4 mil" },
+  antesBfGpu: {
+    href: "/noticia/antes-de-comprar-placa-de-video-black-friday-2026",
+    label: "Antes de comprar placa de vídeo na Black Friday 2026",
+  },
+  antesBfSsd: {
+    href: "/noticia/antes-de-comprar-ssd-black-friday-2026",
+    label: "Antes de comprar SSD na Black Friday 2026",
+  },
+  antesBfNote: {
+    href: "/noticia/antes-de-comprar-notebook-black-friday-2026",
+    label: "Antes de comprar notebook na Black Friday 2026",
+  },
+  antesBfConsole: {
+    href: "/noticia/antes-de-comprar-console-black-friday-2026",
+    label: "Antes de comprar console na Black Friday 2026",
+  },
 } satisfies Record<string, GuideLink>;
 
 const BF_CATEGORIES: CategoryBlock[] = [
@@ -88,7 +104,7 @@ const BF_CATEGORIES: CategoryBlock[] = [
       { id: "rtx-5070", why: "Degrau de 1440p alto; compare com a 5060 Ti 16 GB antes de pagar a diferença." },
       { id: "rx-9070-xt", why: "Faixa de 1440p alto e 4K com upscaling, pra quem já tem fonte e gabinete à altura." },
     ],
-    guides: [G.rtx4060vs5060, G.rx7600vs4060, G.rtx4070s, G.gpuUsada, G.fonte],
+    guides: [G.antesBfGpu, G.rtx4060vs5060, G.rx7600vs4060, G.rtx4070s, G.gpuUsada, G.fonte],
   },
   {
     category: "ssd",
@@ -112,7 +128,7 @@ const BF_CATEGORIES: CategoryBlock[] = [
       { id: "990pro-1tb", why: "Topo de linha PCIe 4.0; faz sentido em PS5 ou pra quem move arquivos grandes." },
       { id: "990pro-2tb", why: "Mesma linha em 2 TB, pra biblioteca grande de jogos." },
     ],
-    guides: [G.ssd1tb, G.pcie, G.ssdPs5, G.hdVsSsd],
+    guides: [G.antesBfSsd, G.ssd1tb, G.pcie, G.ssdPs5, G.hdVsSsd],
   },
   {
     category: "console",
@@ -138,7 +154,7 @@ const BF_CATEGORIES: CategoryBlock[] = [
       { id: "xbox-series-x", why: "Pra quem vive de Game Pass na TV." },
       { id: "steam-deck-oled", why: "PC portátil pra quem já tem biblioteca na Steam." },
     ],
-    guides: [G.ps5Slim, G.ps5VsX, G.switch2Deck, G.portatil, G.deck],
+    guides: [G.antesBfConsole, G.ps5Slim, G.ps5VsX, G.switch2Deck, G.portatil, G.deck],
   },
   {
     category: "notebook",
@@ -161,7 +177,7 @@ const BF_CATEGORIES: CategoryBlock[] = [
       { id: "nitro-v15-4060", why: "Degrau com RTX 4060 e 16 GB de RAM." },
       { id: "tuf-f16", why: "Tela de 16 polegadas e RTX 4050; confira a RAM antes de fechar." },
     ],
-    guides: [G.noteGamer, G.rtx3050vs4050, G.ramSoldada, G.macVsWin],
+    guides: [G.antesBfNote, G.noteGamer, G.rtx3050vs4050, G.ramSoldada, G.macVsWin],
   },
 ];
 
@@ -191,8 +207,8 @@ export const dealEvents: DealEvent[] = [
       "Guia da Black Friday 2026 no Brasil: como escolher placa de vídeo, SSD, console e notebook, como checar se o desconto é real e quais modelos acompanhar.",
     cover: "/images/pages/black-friday.png",
     coverAlt: "Arte com o texto Black Friday 2026 e a marca The Zero sobre fundo escuro",
-    updatedIso: "2026-10-14T20:00:00-03:00",
-    updatedLabel: "14 de outubro de 2026",
+    updatedIso: "2026-10-26T23:40:00-03:00",
+    updatedLabel: "26 de outubro de 2026",
     dateHeading: "Quando é a Black Friday 2026",
     dateText: [
       "No Brasil a Black Friday segue a data americana: a sexta-feira depois do Dia de Ação de Graças dos EUA, que em 2026 cai na quinta, 26 de novembro. A sexta é 27 de novembro de 2026.",

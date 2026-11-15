@@ -94,6 +94,21 @@ export default function EditorialPolicyPage() {
         foi verificada. Não há citação entre aspas sem a fala e a fonte.
       </p>
 
+      <h2 id="revisao">Como cada texto é revisado</h2>
+      <p>
+        Toda matéria passa pela revisão de Nicholas Nishimura antes de ir ao
+        ar. A revisão confere cada número, data, nome e citação na fonte
+        primária — a página da empresa, o documento oficial, a loja — e corta
+        o que não pôde ser verificado. O ângulo do texto é sempre a pergunta
+        do leitor brasileiro: o que muda para quem compra ou usa aqui.
+      </p>
+      <p>
+        Não publicamos comunicado de imprensa reescrito sem contexto. Notícia
+        sem ângulo próprio ou sem informação útil para o leitor no Brasil não
+        entra. Textos antigos que ficaram finos ou repetidos são fundidos no
+        guia mais completo do assunto, com redirecionamento permanente.
+      </p>
+
       <h2 id="correcoes">Correções</h2>
       <p>
         Erro de fato — preço, data, spec, nome, atribuição — é corrigido no

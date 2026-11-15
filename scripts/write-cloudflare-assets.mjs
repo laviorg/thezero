@@ -3,6 +3,7 @@ import path from "node:path";
 import { performance } from "node:perf_hooks";
 import { articleImageUrls } from "../src/lib/article-images.ts";
 import { getAllPosts } from "../src/lib/posts.ts";
+import { cloudflareOpenGraphHeaderBlock } from "../src/lib/opengraph-crawl.ts";
 import { PATH_REDIRECTS } from "../src/lib/redirects.ts";
 import {
   buildNewsSitemapXml,
@@ -18,7 +19,7 @@ const BYTE_LIMIT = 25 * 1024 * 1024;
 
 function redirectsFile() {
   // Pages only accepts a relative source. The apex host redirect stays in
-  // next.config for Vercel; on Pages it has to be a zone redirect rule.
+  // next.config for the server build; on Pages it has to be a zone redirect rule.
   const lines = [];
   for (const rule of PATH_REDIRECTS) {
     lines.push(`${rule.source} ${rule.destination} ${rule.status ?? 308}`);
@@ -55,10 +56,7 @@ function headersFile() {
   Content-Type: application/manifest+json; charset=utf-8
 /apple-icon
   Content-Type: image/png
-/opengraph-image
-  Content-Type: image/png
-/*/opengraph-image
-  Content-Type: image/png
+${cloudflareOpenGraphHeaderBlock()}
 `;
 }
 

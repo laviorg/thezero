@@ -21,7 +21,7 @@ function emptyQuery() {
 }
 
 /**
- * Static-export search. The Vercel page still renders on the server.
+ * Static-export search. The server build still renders the page on the server.
  * The Cloudflare build swaps `page.tsx` for `page.cloudflare.tsx`, which
  * mounts this island. The haystack is `postMatchesQuery`, the same function
  * `searchPosts` uses.

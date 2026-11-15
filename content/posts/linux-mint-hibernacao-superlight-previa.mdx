@@ -1,0 +1,61 @@
+---
+title: "Linux Mint prepara volta da hibernação e novo monitor de sistema, mas recursos ainda são prévia"
+seoTitle: "Linux Mint prepara hibernação e monitor Superlight"
+excerpt: "Boletim de outubro mostra modos de repouso, monitor Superlight e terminal Velocitty. Equipe avisa que novidades seguem em desenvolvimento."
+category: aplicativos
+subcategory: sistemas-operacionais
+date: "2026-11-01T01:35:40-03:00"
+featured: false
+kicker: "Aplicativos · sistemas operacionais"
+author: "nicholas"
+cover: "/images/posts/linux-mint-hibernacao-superlight-previa/cover.jpg"
+coverAlt: "Notebook preto aberto sobre mesa de madeira, com tela escura, teclado com botão vermelho e janela e radiador ao fundo"
+coverCredit: "Robert Kloosterhuis / Wikimedia Commons / CC BY 2.0; ThinkPad X220 em 2011, foto ilustrativa, redimensionada com margens desfocadas, não mostra as novidades do Mint"
+---
+
+O Linux Mint apresentou em seu [boletim de 31 de outubro](https://blog.linuxmint.com/?p=5093) um painel para configurar hibernação, um monitor de sistema chamado Superlight e o terminal Velocitty. A proposta é resolver tarefas comuns do desktop: preservar uma sessão quando a bateria acaba, descobrir o que ocupa memória ou disco e organizar comandos em abas. Há uma ressalva antes de procurar essas funções no computador: a equipe as descreve como prévias em desenvolvimento para a próxima versão.
+
+O anúncio não equivale a uma atualização estável já disponível. A [página oficial de downloads](https://linuxmint.com/download.php) ainda apresenta o Linux Mint 22.3. A cobertura da [Linuxiac](https://linuxiac.com/linux-mint-previews-new-terminal-system-monitor-and-hibernation-support/) também separa o boletim de desenvolvimento da entrega futura. Para o leitor brasileiro, a notícia útil está no que muda e no que ainda precisa esperar, não em instalar uma versão de teste para experimentar uma lista de promessas.
+
+![Notebook preto aberto sobre mesa de madeira, com tela escura, teclado com botão vermelho e janela e radiador ao fundo](/images/posts/linux-mint-hibernacao-superlight-previa/cover.jpg)
+*ThinkPad X220 fotografado em 2011, imagem ilustrativa que não mostra as novidades do Mint. [Robert Kloosterhuis / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ThinkPad_X220.jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Foto redimensionada, com margens ampliadas e desfocadas.*
+
+<Verdict overrated="Confundir uma prévia de desenvolvimento com recurso pronto para qualquer notebook" underrated="Saber se a sessão sobrevive quando a bateria termina" />
+
+## Hibernar não é apenas fechar a tampa
+
+O boletim parte de um problema conhecido: a suspensão mantém a sessão, mas continua consumindo energia. Se a bateria se esgota, o trabalho aberto pode desaparecer. Na hibernação, a sessão é gravada no disco e o computador é desligado, com a intenção de recuperá-la no retorno.
+
+A troca não é grátis em tempo. A equipe avisa que hibernar e restaurar pode demorar mais que reiniciar. Também explica que a configuração exige espaço de troca, ou swap, suficiente no armazenamento e não funciona automaticamente em toda instalação. Não há no anúncio uma promessa de compatibilidade universal nem uma medida única de espaço adequada a todos os computadores.
+
+A nova página **Sleep Modes**, dentro da ferramenta de administração do sistema, pretende tornar essa configuração mais simples. Ela também oferece sono híbrido, que suspende e salva a sessão no disco, e suspensão seguida de hibernação, descrita pelo projeto como a passagem para hibernar quando a bateria chega ao nível crítico. São alternativas com comportamentos diferentes, não nomes intercambiáveis para o mesmo botão.
+
+## Superlight mostra quem consome os recursos
+
+O novo monitor reúne gráficos de CPU, memória RAM, swap, GPU, rede e atividade de disco, além de temperatura e velocidade de ventoinhas. Também permite examinar aplicativos e processos, escolher colunas e mudar sua ordem. Segundo o projeto, essas escolhas ficam salvas.
+
+A parte de armazenamento tenta responder uma pergunta mais concreta que a porcentagem de disco cheio: o que está ocupando esse espaço? A demonstração separa arquivos, jogos da Steam e aplicativos Flatpak, com navegação por pastas e arquivos. Para máquinas com bateria, há estado, informações e histórico de carga e de entrada e saída de energia.
+
+Isso descreve o alcance da interface mostrada, não um teste de precisão ou de desempenho. O boletim não traz benchmark que permita dizer que o Superlight é mais leve ou mais rápido que outros monitores. A [Phoronix](https://www.phoronix.com/news/Linux-Mint-October-2026) também trata o conjunto como trabalho para uma versão futura.
+
+## Terminal, arquivos e pré-visualização
+
+Velocitty é a grafia usada pelo projeto para o novo terminal. Ele permite reorganizar abas, movê-las entre janelas e destacar uma aba em janela própria. As cores indicam situações como acesso de superusuário ou sessão remota, e abas personalizadas podem guardar nome, cor e comando inicial.
+
+O Nemo, gerenciador de arquivos, ganha um painel de pré-visualização acionado por **F7** ou pelo botão na barra de status. O suporte demonstrado inclui imagens, áudio e vídeo, com informações adicionais da mídia. Já o Unfold é um gerenciador de arquivos compactados para visualizar, criar e extrair conteúdo, baseado em 7zip e 7zip-RAR.
+
+## O que isso significa no Brasil
+
+A comunidade [Linux Mint Brasil mantém orientações e guias em português brasileiro](https://linuxmint.com.br/downloads/), além de informações sobre a versão 22.3. Esse é um apoio útil para quem quer entender a instalação atual sem confundir o boletim com uma atualização já entregue ao seu PC.
+
+O anúncio não apresenta um calendário separado para o Brasil. Quem depende da máquina para trabalhar pode esperar a versão estável e suas instruções, em vez de alterar o sistema apenas pela prévia. E salvar uma sessão no próprio disco não substitui uma cópia independente dos arquivos: o [guia sobre HD externo e SSD portátil para backup](https://www.thezero.com.br/noticia/hd-externo-vs-ssd-portatil) explica essa diferença.
+
+<Rule>Hibernação preserva a sessão; uma prévia não garante que ela já esteja disponível no seu Mint.</Rule>
+
+## Fontes
+
+- [Linux Mint Blog - Boletim de outubro de 2026](https://blog.linuxmint.com/?p=5093)
+- [Linux Mint - Página oficial de downloads](https://linuxmint.com/download.php)
+- [Linux Mint Brasil - Downloads e guias em português](https://linuxmint.com.br/downloads/)
+- [Linuxiac - Prévia de terminal, monitor e hibernação](https://linuxiac.com/linux-mint-previews-new-terminal-system-monitor-and-hibernation-support/)
+- [Phoronix - Novos aplicativos em desenvolvimento](https://www.phoronix.com/news/Linux-Mint-October-2026)

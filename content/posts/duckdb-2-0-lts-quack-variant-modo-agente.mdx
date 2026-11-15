@@ -1,0 +1,50 @@
+---
+title: "DuckDB 2.0 LTS vira servidor, ganha modo agente e lê arquivos em segundo plano"
+seoTitle: "DuckDB 2.0 LTS: servidor, modo agente e I/O assíncrono"
+seoDescription: "DuckDB 2.0.0 LTS chega com modo cliente-servidor via protocolo Quack, I/O assíncrono, tipo VARIANT, triggers e modo agente na CLI. Suporte até outubro de 2027."
+excerpt: 'Maior leva de novidades do banco analítico: quase 20 mil commits desde a versão 1.5. Como LTS, o 2.0 tem suporte garantido até pelo menos outubro de 2027.'
+category: tecnologia
+subcategory: infraestrutura
+format: noticia
+date: "2026-10-24T08:10:04-03:00"
+featured: false
+kicker: "Tecnologia · banco de dados"
+author: "nicholas"
+cover: "/images/posts/duckdb-2-0-lts-quack-variant-modo-agente/cover.jpg"
+coverAlt: "Pato cinnamon teal macho, de plumagem marrom-avermelhada, sobre uma pedra em área alagada. Imagem ilustrativa: a versão 2.0 do DuckDB leva o nome da espécie"
+coverCredit: "USFWS Pacific Region / Flickr (domínio público)"
+---
+
+O **DuckDB**, banco de dados analítico que roda dentro do próprio programa, sem servidor separado, ganhou no dia 21 de outubro sua versão **2.0.0 LTS**, batizada de **Cinnamon Teal** em homenagem a uma espécie de pato das Américas. Segundo o [anúncio oficial](https://duckdb.org/2026/10/21/announcing-duckdb-200), é a maior leva de novidades da história do projeto: quase 20 mil commits desde a versão 1.5. Por ser LTS, o 2.0 terá suporte até pelo menos **outubro de 2027**.
+
+## De embutido a servidor
+
+Desde o primeiro commit, em 2018, o DuckDB sempre foi um banco em processo: ele roda dentro do aplicativo que o chama. O 2.0 consolida o **protocolo Quack**, que permite rodar o DuckDB num esquema tradicional de cliente-servidor, e estreia o comando `CONNECT`, que aponta a sessão para um banco remoto em uma linha. O comando também funciona com PostgreSQL e MySQL, e um novo otimizador empurra a consulta para o servidor remoto em vez de puxar as tabelas pela rede. Na CLI, os atalhos `-serve` e `-connect` sobem um par servidor-cliente direto do terminal.
+
+## Leitura em segundo plano e JSON turbinado
+
+O 2.0 introduz **I/O assíncrono** na leitura de arquivos Parquet, CSV e do formato nativo. A camada de leitura passa a escalar de forma independente do processamento da consulta, com várias requisições em voo ao mesmo tempo, o que acelera de forma sensível consultas sobre armazenamento de objetos, como `s3://`.
+
+O tipo **VARIANT**, que guarda dados semiestruturados como JSON sem virar texto puro, vira cidadão de primeira classe. Introduzido na versão 1.5, ele agora detecta a estrutura comum dos dados e a fragmenta para comprimir bem e executar rápido, de ponta a ponta, inclusive na leitura e escrita de Parquet.
+
+## Modo agente na CLI
+
+Agentes de código como Claude Code, Codex e Cursor já dirigem a CLI do DuckDB no lugar do usuário. A CLI do 2.0 percebe quando está sendo operada por um agente e troca para o **modo agente**: tabelas em Markdown compacto, aviso claro de resultado truncado, consultas desgovernadas interrompidas mais cedo e erros em JSON. Consultas longas informam o custo previsto antes de rodar. Nos testes da equipe com o benchmark TPC-H, o modo agente cortou em 59% o volume de saída que o modelo precisava ler.
+
+## SQL novo por dentro e por fora
+
+O parser herdado do PostgreSQL, presente desde 2018, sai de cena. O novo parser **PEG**, estreado como opção na 1.5, vira o padrão e permite que extensões pendurem sintaxe nova na gramática, com mensagens de erro que indicam a posição exata do problema. Extensões também ganham a **C API v2** e a possibilidade de repositórios próprios: uma organização pode hospedar e assinar suas extensões com chaves RSA e instalá-las como se fossem oficiais.
+
+No SQL em si, chegam **triggers** com `BEFORE` e `AFTER`, por linha ou por instrução, com tabelas de transição e `MERGE` no corpo, úteis para auditoria e para manter visões materializadas de forma incremental. A leva inclui ainda `NEAREST` para buscas de similaridade por vetor, CTEs que modificam dados, esquemas aninhados e funções de mutação de JSON.
+
+## Migração pede cuidado
+
+A equipe lista quebras de compatibilidade pequenas, mas reais. A principal é o **formato de armazenamento**: arquivos criados pelo 2.0 não abrem em versões anteriores, embora o 2.0 leia e escreva arquivos antigos sem apagá-los para as versões velhas. Quem tem produção crítica deve testar num sistema paralelo e pode preferir esperar o primeiro patch, previsto para novembro. A sintaxe antiga de lambda com seta simples sai do padrão, o build passa a exigir compilador **C++17** e o macOS em Intel começa um desligamento gradual. As linhas antigas seguem vivas na transição: o 1.4 tem suporte até 17 de novembro de 2026 e o 1.5 foi estendido até março de 2027.
+
+## O que isso significa no Brasil
+
+O DuckDB é gratuito, de código aberto e virou ferramenta corriqueira de analistas e cientistas de dados por rodar no próprio notebook, sem servidor nem conta de nuvem. Para times brasileiros que cruzam planilhas e arquivos Parquet localmente, o 2.0 melhora exatamente os dois pontos que pesam no dia a dia: leitura mais rápida de arquivos grandes e um caminho simples para compartilhar o banco em rede quando a equipe cresce. Como o processamento acontece na sua máquina, memória é o primeiro gargalo. O guia [16 GB ou 32 GB de RAM em 2026: o que muda de verdade](https://www.thezero.com.br/noticia/ram-16-ou-32-gb-2026) mostra onde cada configuração começa a sufocar.
+
+<Rule>
+O DuckDB 2.0.0 LTS Cinnamon Teal chegou em 21/10 com protocolo Quack para modo cliente-servidor, I/O assíncrono, tipo VARIANT integrado, modo agente na CLI, triggers e um novo parser SQL extensível. O suporte vai até pelo menos outubro de 2027; arquivos criados no 2.0 não abrem em versões anteriores.
+</Rule>

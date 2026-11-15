@@ -1,0 +1,74 @@
+---
+title: "Kimi K3.1 Pro: contexto de 1 milhão não dispensa custo, licença e revisão"
+seoTitle: "Kimi K3.1 Pro: contexto, API e limites dos pesos abertos"
+seoDescription: "Pesos do Kimi K3.1 Pro já estão públicos. Entenda a licença própria, a cobrança por tokens e os limites do contexto de 1 milhão para empresas brasileiras."
+excerpt: "Pesos públicos não tornam a execução gratuita. Contexto de 1 milhão exige avaliar infraestrutura, licença, dados e cobrança da API."
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-10-25T08:15:00-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "nicholas"
+cover: "/images/posts/kimi-k3-1-pro-pesos-abertos-1-milhao-tokens/cover.jpg"
+coverAlt: "Notebook com editor de código aberto em ambiente escuro, iluminado em azul, com luzes desfocadas ao fundo."
+coverCredit: "Nemuel Sereti / Pexels; foto de arquivo ilustrativa, não interface Kimi nem teste de execução local"
+cover_source: real
+---
+
+O **Kimi K3.1 Pro**, apresentado pela Moonshot AI em 23 de outubro, combina janela de contexto de cerca de 1 milhão de tokens com uma arquitetura de mistura de especialistas. A proposta inclui programação, criação 3D e pesquisa financeira. Para quem pretende usá-lo no Brasil, porém, a escolha não termina no tamanho da janela: passa pela licença, pela cobrança e pelo destino dos dados.
+
+**Atualização de apuração em 9 de novembro de 2026:** o [repositório oficial no Hugging Face](https://huggingface.co/moonshotai/Kimi-K3.1-Pro) já oferece os pesos publicamente. O [anúncio original](https://www.kimi.ai/blog/kimi-k3-1-pro) prometia essa etapa até 4 de novembro. A promessa não deve continuar escrita como se ainda estivesse pendente. Esta é uma revisão da matéria de outubro, não um novo lançamento do modelo.
+
+*Foto de arquivo de Nemuel Sereti / [Pexels](https://www.pexels.com/photo/programming-code-on-laptop-screen-6424590/), sob [licença Pexels](https://www.pexels.com/license/). Ilustra programação: não mostra o Kimi nem um computador executando esse modelo.*
+
+## Um milhão de tokens é limite, não garantia de leitura perfeita
+
+A ficha da Moonshot informa **2,8 trilhões de parâmetros no total, 104 bilhões ativos por token e contexto de 1.048.576 tokens**. A seleção de especialistas explica por que o total e a quantidade ativada diferem. Não significa que só os parâmetros ativos determinem toda a memória necessária para hospedar o sistema.
+
+Tokens são unidades de processamento, não páginas ou palavras em proporção fixa. Uma base extensa de código pode caber na janela e ainda exigir seleção de arquivos, instruções claras e verificação das referências devolvidas. Não testamos a recuperação de informação em português nem medimos a precisão do modelo com documentos brasileiros.
+
+Nossa leitura é que contexto longo amplia o material que se pode fornecer, mas não certifica que cada detalhe será usado corretamente. O [guia sobre contexto e estruturação de pedidos](/noticia/contexto-maior-que-prompt) ajuda a separar quantidade de material de organização da tarefa.
+
+## Pesos públicos não são um aplicativo gratuito para qualquer notebook
+
+O repositório disponibiliza arquivos e orientações para implantação, com mecanismos como vLLM, SGLang e TokenSpeed. O [vLLM publicou suporte em 4 de novembro](https://vllm.ai/blog/2026-11-04-kimi-k31-pro), descrevendo otimizações para essa arquitetura e configurações de infraestrutura acelerada.
+
+Isso não comprova execução satisfatória em um notebook comum. Download, armazenamento, memória dos aceleradores, contexto e capacidade de atender pedidos são problemas diferentes. Não publicamos uma configuração mínima ou custo de servidor que não tenhamos verificado para a carga concreta.
+
+Há também diferença entre implantar os pesos sob sua responsabilidade e usar o serviço hospedado da Moonshot. A primeira opção dá outra forma de organizar a infraestrutura. A segunda evita montar a implantação, mas envolve as condições comerciais e de tratamento de conteúdo do serviço.
+
+## A licença tem condições próprias
+
+A [Kimi K3.1-Pro License](https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/main/LICENSE) permite uso, modificação, implantação e redistribuição sob condições. Portanto, pesos abertos não devem ser descritos como autorização comercial sem limites ou como sinônimo automático de qualquer definição de código aberto.
+
+Uma condição alcança empresas que operam negócios de modelo como serviço: se a receita agregada da licenciada e de suas afiliadas superar **US$ 20 milhões em qualquer período de 12 meses consecutivos**, é necessário acordo separado antes do uso comercial. A licença define o que considera modelo como serviço e exclui determinadas integrações em funcionalidades e mero repasse de pedidos.
+
+Outra condição exige exibir o nome do modelo em produtos comerciais com mais de 100 milhões de usuários ativos mensais ou mais de US$ 20 milhões de receita mensal. As cláusulas trazem exceções para uso interno, definido no documento, e acesso pelos produtos oficiais ou parceiros certificados. Elas não apagam as demais condições. Quem vai distribuir um serviço precisa ler o arquivo integral; este resumo não é orientação jurídica individual.
+
+## API tem entrada, saída e cache separados
+
+Na consulta de 9 de novembro, a [plataforma oficial em português](https://platform.kimi.ai/pt-br) lista o K3.1 Pro padrão a **US$ 2 por milhão de tokens de entrada e US$ 10 de saída**. O Highspeed aparece a US$ 4 e US$ 20, respectivamente. A Moonshot anuncia velocidade duas a três vezes maior para essa variante; não fizemos essa comparação.
+
+A [documentação de cobrança](https://platform.kimi.ai/docs/pricing/chat) separa entrada regular, gravação em cache e reutilização do cache. Não se deve cobrar o mesmo token como entrada regular e gravação ao mesmo tempo, nem presumir que toda entrada terá desconto. A validade do cache e a repetição efetiva do prefixo importam. Assinatura do aplicativo e consumo da API são produtos de cobrança distintos.
+
+Para um orçamento em reais, a tarifa em dólar não basta: entram o câmbio da cobrança, impostos aplicáveis e o uso medido. Não cotamos uma assinatura em reais nem estimamos economia sem histórico de consumo. Respostas longas e repetição de tarefas podem mudar a conta mesmo quando a tarifa por token parece atraente.
+
+## O que isso significa no Brasil
+
+A liberação dos pesos aumenta as opções de implantação, mas não autoriza enviar contratos ou bases pessoais indiscriminadamente. Os [termos da OpenPlatform](https://platform.kimi.ai/docs/agreement/modeluse) permitem determinados usos do conteúdo para manter e melhorar serviços e modelos, salvo acordo escrito diferente. Não presumimos que toda conta tenha retenção zero ou exclusão automática de treinamento.
+
+Para dados pessoais, a [ANPD](https://www.gov.br/anpd/pt-br/acesso-a-informacao/perguntas-frequentes) orienta verificar bases legais, finalidade e medidas de proteção. Hospedagem própria não produz conformidade automática; uso de API também exige avaliar contrato e fluxo dos dados.
+
+Nossa leitura: comece com material que possa ser usado, tarefas com resposta verificável e limites de gasto. Compare acerto, tempo e consumo na mesma carga antes de expandir. O anúncio de maior capacidade e os benchmarks da Moonshot não substituem essa avaliação. Não realizamos teste próprio de velocidade, segurança ou finanças. Contexto grande é uma opção técnica, não permissão para delegar uma decisão sem revisão.
+
+## Fontes
+
+- [Moonshot: anúncio original e alegações de desempenho](https://www.kimi.ai/blog/kimi-k3-1-pro).
+- [Hugging Face: ficha e pesos oficiais](https://huggingface.co/moonshotai/Kimi-K3.1-Pro).
+- [Licença Kimi K3.1-Pro integral](https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/main/LICENSE).
+- [vLLM: suporte e implantação](https://vllm.ai/blog/2026-11-04-kimi-k31-pro).
+- [Kimi: preços publicados na plataforma](https://platform.kimi.ai/pt-br).
+- [Kimi: regras de cobrança da API](https://platform.kimi.ai/docs/pricing/chat).
+- [OpenPlatform: termos sobre conteúdo e uso](https://platform.kimi.ai/docs/agreement/modeluse).
+- [ANPD: obrigações de tratamento de dados pessoais](https://www.gov.br/anpd/pt-br/acesso-a-informacao/perguntas-frequentes).

@@ -1,0 +1,66 @@
+---
+title: "GitHub inclui chat no painel do Copilot, mas uso não prova produtividade"
+seoTitle: "Copilot: painel inclui chat e agentes do VS Code"
+excerpt: "Painel passa a mostrar nove experiências e troca o rótulo de usuários passivos. Fases de adoção não mudam, e uma pessoa pode aparecer em vários recursos."
+category: ia
+subcategory: ferramentas
+format: noticia
+date: "2026-11-08T07:34:00-03:00"
+kicker: "Desenvolvimento · métricas"
+author: "nicholas"
+cover: "/images/posts/github-copilot-dashboard-chat-agentes-metricas/cover.jpg"
+coverAlt: "Pessoa vista de costas trabalhando diante de monitor e notebook com código colorido, numa mesa de escritório."
+coverCredit: "Mizuno K / Pexels; cena ilustrativa de programação, não mostra o painel do Copilot nem uma equipe avaliada pelo The Zero"
+cover_source: real
+---
+
+**O GitHub ampliou o painel de impacto do Copilot para incluir Copilot Chat e a janela Agents do VS Code no gráfico de adoção de agentes.** O [anúncio de 6 de novembro](https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/) informa que agora são nove experiências acompanhadas. Também troca o nome do grupo Passive users por Chat-first users, reconhecendo que pessoas ativas principalmente no chat não deveriam ser descritas como passivas.
+
+A mudança melhora a visibilidade, mas não altera as fases de adoção. Para equipes brasileiras que precisam justificar licenças e treinamento, a distinção importa: aparecer num recurso, entrar numa fase e produzir software melhor são perguntas diferentes. O painel ajuda a acompanhar uso; não resolve sozinho a avaliação de qualidade ou retorno financeiro.
+
+*Programação em foto de Mizuno K / [Pexels](https://www.pexels.com/photo/back-view-of-a-blond-woman-in-an-office-looking-at-two-computer-screens-with-multicoloured-code-12899189/), sob [licença Pexels](https://www.pexels.com/license/). Cena ilustrativa, não mostra a interface do Copilot nem uma equipe avaliada pela redação.*
+
+## O que entra no gráfico e no relatório
+
+Segundo o GitHub, o gráfico Agent adoption passa a mostrar chat e a janela de agentes do VS Code ao lado dos sete recursos anteriores. Os relatórios de uso de **28 dias**, nos níveis de empresa e organização, recebem as entradas `chat` e `vscode_agent` no campo `copilot_feature_engagement.totals_by_feature`.
+
+Não é uma ampliação retroativa de todos os períodos: relatórios anteriores à mudança continuam com os sete recursos originais. Essa diferença precisa acompanhar uma comparação histórica. Um gráfico com mais categorias pode descrever melhor a atividade sem significar que a equipe começou a usar mais ferramentas naquele dia.
+
+O [AIholics, em cobertura do anúncio](https://aiholics.com/copilot-impact-dashboard-chat-vs-code-agents-chat-first/), também chama atenção para a sobreposição: os totais por recurso não podem ser simplesmente somados. A fonte oficial explica que o chat inclui o uso capturado pelas métricas, inclusive modo agente; quem realiza edições por agente também pode aparecer na contagem de chat.
+
+## Dois dias em 28 não são uma nota de desempenho
+
+A regra de engajamento exige uso do recurso em **pelo menos dois dias dentro do período de 28 dias**. Uma pessoa pode preencher esse critério em mais de uma experiência. Contar três recursos usados não significa contar três profissionais diferentes.
+
+Chat e a janela Agents entram como engajamento, mas não passam a determinar a fase de adoção. O grupo agora chamado Chat-first users continua correspondendo a `No Cohort` na API, e o tamanho dos grupos não muda por causa da troca de nome. A [documentação de métricas](https://docs.github.com/en/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics) explica que as fases dependem das superfícies usadas e dos limiares de atividade, não apenas do volume bruto de ações.
+
+Nossa leitura é que esse rótulo não deve virar uma classificação de funcionários melhores ou piores. Quem usa muito chat pode ter um trabalho diferente de quem produz edições de código ou aciona outros agentes. O anúncio muda a descrição da atividade; não apresenta evidência de que uma pessoa ficou menos produtiva por permanecer fora de uma fase.
+
+## Quem pode ver e por que faltam dados
+
+O acesso exige a política Copilot usage metrics habilitada. O anúncio lista proprietários e responsáveis por cobrança de empresas, proprietários de organizações e pessoas com papel personalizado que conceda a permissão View Copilot Metrics. Não é um painel automaticamente disponível a qualquer usuário individual do editor.
+
+A documentação informa que os dados combinam telemetria do cliente e do servidor. Uma pessoa pode constar como ativa por sinais do servidor e ainda apresentar detalhamento vazio por recurso, linguagem ou linhas de código quando não há telemetria mais rica do editor. Configurações locais e bloqueios de rede podem contribuir para essa diferença.
+
+A [orientação para reconciliar relatórios](https://docs.github.com/en/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics) acrescenta que os dados de um dia podem levar **dois dias completos em UTC após o encerramento desse dia** para ficar disponíveis. Uma queda no período mais recente não prova abandono do produto. Antes de comparar equipes, é necessário conferir janela, nível de agregação e atualização dos dados.
+
+## Métrica de revisão também precisa de definição
+
+Em [outro anúncio, de 5 de novembro](https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate/), o GitHub detalhou a taxa de comentários de revisão tratados. O campo de comentários atendidos inclui aplicar uma sugestão, pedir a correção ao Copilot, editar o código ou responder que a correção virá em outro pull request. A avaliação entra na data do merge, não na data em que o comentário foi escrito.
+
+Esse é contexto para ler os números, não uma segunda novidade ocorrida hoje. Uma taxa maior pode indicar resposta ao feedback, mas não deve ser traduzida automaticamente como percentual de bugs corrigidos. Uma promessa de correção futura e uma alteração já incorporada não são o mesmo resultado técnico, embora possam entrar no mesmo indicador definido pelo fornecedor.
+
+## O que isso significa no Brasil
+
+Para um gestor daqui, o uso mais útil é encontrar necessidades de apoio: recursos pouco explorados, dificuldades de configuração ou treinamento que faça sentido para o trabalho realizado. Transformar contagem de chat em meta individual incentiva ações que aumentam o número sem necessariamente melhorar a entrega. Essa é nossa análise, não uma medição feita em empresas brasileiras.
+
+O próprio [guia do painel de impacto](https://docs.github.com/en/copilot/how-tos/administer-copilot/view-impact-dashboard) descreve o retorno potencial sobre investimento como estimativa direcional, não resultado financeiro exato. Não há base para converter um multiplicador de pull requests em economia garantida em reais. Compare custo efetivo das licenças, trabalho concluído, retrabalho e qualidade com critérios definidos pela equipe, sem tratar a aparência do gráfico como prova de causa.
+
+Antes de mudar compras ou cobrar adoção, preserve a definição e o período de cada indicador. Faça perguntas sobre como a ferramenta ajuda uma tarefa concreta. Nosso [guia de VS Code e Cursor para iniciantes](/noticia/vs-code-vs-cursor-para-quem-comeca) trata da escolha do editor; esta atualização lembra que adotar uma ferramenta e entender o código continuam sendo coisas diferentes. Não acessamos dados privados de equipes nem realizamos um teste de produtividade para esta matéria.
+
+## Fontes
+
+- [GitHub: chat e janela Agents no painel de impacto](https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/).
+- [GitHub: conceitos de métricas](https://docs.github.com/en/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics), [reconciliação de relatórios](https://docs.github.com/en/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics) e [painel de impacto](https://docs.github.com/en/copilot/how-tos/administer-copilot/view-impact-dashboard).
+- [GitHub: taxa de comentários tratados na revisão](https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate/).
+- [AIholics: cobertura independente do anúncio](https://aiholics.com/copilot-impact-dashboard-chat-vs-code-agents-chat-first/).
