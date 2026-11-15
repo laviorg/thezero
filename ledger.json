@@ -2842,6 +2842,17 @@
       "updated_at": "2026-11-15T13:48:58Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Dfw7LvzlFa_",
       "story": "https://www.instagram.com/stories/hello.the.zero/4030982075331323430"
+    },
+    "xbox-original-pc-25-jogos-brasil": {
+      "article_url": "https://www.thezero.com.br/noticia/xbox-original-pc-25-jogos-brasil",
+      "pr": 584,
+      "commit": "9d81ad20f865ac6cb3567cc2eaed86184d17d149",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/xbox-original-pc-25-jogos-brasil.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/xbox-original-pc-25-jogos-brasil.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/xbox-original-pc-25-jogos-brasil-story.jpg",
+      "ig": "https://www.instagram.com/p/DfxUA47F8bu/",
+      "slug": "xbox-original-pc-25-jogos-brasil",
+      "updated_at": "2026-11-15T17:25:44Z"
     }
   }
 }
