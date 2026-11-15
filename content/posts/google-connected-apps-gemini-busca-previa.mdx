@@ -1,0 +1,60 @@
+---
+title: "Google abre plataforma de apps para Gemini e Busca, mas prévia começa nos EUA"
+seoTitle: "Google Connected Apps: prévia une Gemini e Busca"
+seoDescription: "Connected Apps Platform permite integrar serviços ao Gemini e à Busca via MCP. Prévia começa com desenvolvedores dos EUA; Localiza está entre os parceiros."
+excerpt: 'Google unifica integrações para Gemini e Busca via MCP. A prévia começa nos EUA; Localiza está entre os parceiros já anunciados para o Gemini.'
+category: aplicativos
+subcategory: desenvolvimento
+format: noticia
+date: "2026-10-29T17:07:32-03:00"
+featured: false
+kicker: "Aplicativos · desenvolvimento"
+author: "nicholas"
+cover: "/images/posts/google-connected-apps-gemini-busca-previa/cover.jpg"
+coverAlt: "Arte ilustrativa com interfaces da Busca e do Gemini, ícones do Google ao centro e um cartão de reserva de jantar à direita"
+coverCredit: "Google / Divulgação. Arte ilustrativa das integrações"
+---
+
+O Google [anunciou na quarta-feira (28)](https://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/) a **Connected Apps Platform**, uma plataforma para empresas levarem seus serviços ao aplicativo Gemini e à Busca com uma mesma integração. A proposta é permitir que o usuário consulte dados da própria conta e realize ações durante a conversa, sem abrir cada aplicativo. A abertura, porém, ainda é limitada: a prévia começa com desenvolvedores dos Estados Unidos, segundo o TechCrunch.
+
+![Arte ilustrativa com interfaces da Busca e do Gemini, ícones do Google ao centro e um cartão de reserva de jantar à direita](/images/posts/google-connected-apps-gemini-busca-previa/cover.jpg)
+*Google / Divulgação. Arte ilustrativa mostra serviços conectados à Busca e ao Gemini.*
+
+<Verdict overrated="Tratar a prévia como uma loja de apps aberta para qualquer empresa" underrated="Uma integração servir à Busca e ao Gemini, com controle de publicação" />
+
+## Uma conexão, dois destinos
+
+Até aqui, criar essas conexões exigia trabalhar diretamente com o Google, relata o [9to5Google](https://9to5google.com/2026/10/28/gemini-google-connected-apps-platform/). A nova plataforma organiza o processo: o desenvolvedor registra, testa e envia seu aplicativo pelo **Google Connected Console**. Antes da análise, escolhe se o serviço aparecerá no Gemini, na Busca ou nos dois.
+
+Depois da publicação, o console mostra tráfego, latência e taxas de erro. Também permite controlar a identidade da marca, incluindo logos verificados e contas autenticadas. Isso não equivale a uma liberação automática: o anúncio prevê envio para análise e acesso à plataforma por etapas.
+
+Para quem usa os serviços, o desenho é conectar a conta uma vez e acessar seus dados e funções nos produtos compatíveis do Google, conforme a [documentação oficial](https://developers.google.com/connected-apps). O exemplo deixa de ser apenas uma resposta sobre um restaurante: uma integração pode oferecer uma ação dentro daquela conversa. O alcance depende do serviço conectado e das permissões concedidas.
+
+## Como o desenvolvedor integra seu serviço
+
+Há dois caminhos descritos pelo Google. O primeiro é um servidor remoto baseado em **MCP**, o Model Context Protocol. Ele expõe ferramentas e dados autorizados do serviço. A documentação também prevê interfaces interativas por meio de MCP Apps e aponta OAuth 2.1 como mecanismo de autorização para o Gemini interagir em nome do usuário.
+
+O segundo é o **Android MCP**, implementado com as APIs AppFunctions. Nesse caso, aplicativos Android disponibilizam funções para agentes e assistentes, com execução no próprio aparelho. É uma alternativa para serviços que precisam que a ação aconteça localmente, em vez de depender apenas de um servidor remoto.
+
+Esses caminhos importam para equipes que já mantêm aplicativos e contas de clientes: a plataforma não exige que todo serviço seja reconstruído como um chatbot. Exige, sim, uma integração que apresente as funções disponíveis e controle o acesso aos dados autorizados.
+
+## Parceiros chegam em ritmos diferentes
+
+O Google afirma que já lançou mais de 50 Connected Apps entre Gemini e Busca. Adobe, Experian, **Localiza** e Peloton estão entre os parceiros com integrações disponíveis no Gemini. A empresa planeja levá-las também à Busca nas próximas semanas e anuncia Calm para os dois produtos.
+
+Essa distinção evita uma expectativa errada: estar disponível no Gemini não significa já funcionar na Busca. O [TechCrunch](https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/) destaca que a Busca tem um conjunto menor de integrações e que o Google não informou quando a plataforma ficará disponível de forma mais ampla.
+
+## O que isso significa no Brasil
+
+A Localiza está entre os parceiros anunciados pelo Google, mas a entrada de novos desenvolvedores brasileiros ainda não tem prazo confirmado. A prévia começa nos Estados Unidos, segundo o TechCrunch, enquanto o Google promete ampliar mercados e participantes nos próximos meses. O anúncio também não detalha quais contas brasileiras podem usar cada integração.
+
+Para o usuário, conectar um serviço significa liberar acesso a funções e dados daquela conta. Antes de ativar uma conexão, convém conferir o que ela pode consultar e fazer, tema do guia [Agente de IA no PC: permissões que você não deve marcar](https://www.thezero.com.br/noticia/agente-ia-permissoes-que-nao-dar).
+
+<Rule>A plataforma unifica o desenvolvimento, mas não torna todas as integrações disponíveis para todos.</Rule>
+
+## Fontes
+
+- [Google — Build and manage Connected Apps in one place](https://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/)
+- [Google for Developers — Connected Apps Platform](https://developers.google.com/connected-apps)
+- [9to5Google — Connected Apps para Gemini e Busca](https://9to5google.com/2026/10/28/gemini-google-connected-apps-platform/)
+- [TechCrunch — Google abre Gemini e Busca a mais apps](https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/)

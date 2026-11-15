@@ -1,0 +1,46 @@
+---
+title: "Mistral lança Voxtral 3 com SDK para agentes de voz e fala em português do Brasil"
+seoTitle: "Mistral Voxtral 3: transcrição, voz e SDK de agentes de voz"
+seoDescription: "Mistral lançou o Voxtral 3: cinco modelos de transcrição e voz, 50 idiomas na transcrição, 35 na fala e um SDK que junta ouvir, raciocinar e falar em tempo real."
+excerpt: 'Mistral lança o Voxtral 3 com cinco modelos de fala e um SDK de agentes de voz em tempo real. Voz pronta em português do Brasil, a partir de US$ 0,0035 por minuto.'
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-10-26T10:07:47-03:00"
+featured: false
+kicker: "IA · voz"
+author: "nicholas"
+cover: "/images/posts/mistral-voxtral-3-agentes-de-voz/cover.jpg"
+coverAlt: "Arte abstrata em blocos azuis, azul-claro e um quadrado vermelho sobre fundo escuro, usada pela Mistral na divulgação do Voxtral 3. Imagem ilustrativa"
+coverCredit: "Divulgação/Mistral AI"
+---
+
+A francesa **Mistral** lançou o **Voxtral 3**, nova família de modelos de transcrição e geração de voz, junto com um **SDK para agentes de voz**. A ideia é juntar em um só fluxo em tempo real o que um atendente automático precisa fazer: ouvir, raciocinar, chamar sistemas e responder falando. Segundo a empresa, o conjunto está disponível pela API hospedada na Europa ou para instalação em infraestrutura própria.
+
+## Cinco modelos, três para ouvir e dois para falar
+
+Para transcrição são três modelos: **Voxtral Mini Transcribe 3** (áudio gravado), **Voxtral Small Transcribe 3** (mais preciso) e **Voxtral Mini Transcribe Realtime 3**, pensado para legendas ao vivo e agentes. Para fala, entram o **Voxtral TTS 3**, que converte texto pronto, e o **Voxtral TTS Realtime 3**, que gera voz durante a conversa.
+
+A cobertura de idiomas cresceu bastante. Os modelos de transcrição de áudio gravado passam de 13 para 50 idiomas, e a versão em tempo real cobre 45 línguas e dialetos. Na geração de voz, o salto é de nove para 35 idiomas e mais de 50 dialetos. As vozes prontas estão disponíveis em 18 idiomas, e o **português do Brasil** está na lista.
+
+A Mistral afirma que a versão Small supera Whisper, Scribe v2 e Gemini 3.5 Transcribe em testes próprios de transcrição multilíngue e identificação de quem fala. São avaliações da própria empresa, ainda sem reprodução independente.
+
+## Mais controle sobre a voz
+
+Na fala, o desenvolvedor pode usar etiquetas para 34 emoções e duas velocidades, além de definir como nomes e termos técnicos devem ser pronunciados. O modelo também usa o áudio de trocas anteriores para ajustar o tom da resposta. Instruções de estilo em linguagem comum não existem no lançamento.
+
+Há ainda o **Pro Voice**, que reproduz o estilo e a gama emocional de uma pessoa em vários idiomas a partir de cerca de 30 minutos de áudio.
+
+Na transcrição ao vivo, o modelo ganha identificação de quem está falando e detecção de fim de fala, útil para o agente decidir quando responder. Os dois recursos não rodam na mesma sessão. E há uma perda: os modelos novos não entregam mais carimbo de tempo por palavra, só por segmento, o que obriga quem faz legenda a usar outra ferramenta de alinhamento.
+
+## O SDK de agentes de voz
+
+O **Voice Agents SDK** foi construído sobre o LiveKit e liga transcrição, modelo de linguagem, chamada de ferramentas e voz em um único pipeline. O agente pode consultar informações, checar uma conta ou marcar um horário em sistemas da empresa, e o usuário pode interrompê-lo enquanto ele fala. Cada etapa usa um modelo separado, então dá para trocar o modelo de linguagem ou a voz sem reescrever o agente. O SDK roda em aplicações de navegador; integração com telefonia, no lançamento, é só para clientes corporativos.
+
+## Quanto custa
+
+A transcrição em lote do Mini custa US$ 0,0035 por minuto, e a versão em tempo real, US$ 0,008 por minuto. A geração de voz sai por US$ 13 por milhão de caracteres, valor que a Mistral compara com OpenAI TTS-1, Deepgram, ElevenLabs Flash e Gemini Flash.
+
+## O que isso significa no Brasil
+
+Para empresas e desenvolvedores brasileiros, o ponto central é ter voz pronta em português do Brasil num pacote que pode rodar em infraestrutura própria, o que ajuda em exigências de dados como a LGPD. Preços em dólar pesam no custo final de quem opera em reais. E, como todo agente que age em nome de alguém, ele precisa de limites: vale ler antes o nosso guia [Agente de IA no PC: permissões que você não deve marcar](https://www.thezero.com.br/noticia/agente-ia-permissoes-que-nao-dar).

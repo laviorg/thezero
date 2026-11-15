@@ -1,8 +1,8 @@
 ---
-title: "Microsoft: hackers ligados à China usaram agentes de IA em ataque à cadeia da ConnectWise"
-seoTitle: "Storm-0940 usou IA agêntica ARTEX em ataque à ConnectWise, diz Microsoft"
-seoDescription: "Microsoft detalha campanha do grupo Storm-0940, ligado à China, que usou o framework de IA agêntica ARTEX para tentar login em mais de 2.250 tenants após ataque à ConnectWise."
-excerpt: 'Grupo Storm-0940 usou o framework open source ARTEX para tentar login em mais de 2.250 tenants. Em vários casos, acesso privilegiado em menos de 3 horas.'
+title: "Microsoft liga Storm-0940 e agentes de IA ao ataque envolvendo a ConnectWise"
+seoTitle: "Storm-0940 e ARTEX: o que a Microsoft atribui ao ataque"
+seoDescription: "Microsoft descreve uso de ARTEX e abuso de aplicações OAuth. Tentativas contra tenants não equivalem a vazamento; revisão exige olhar identidades de aplicações."
+excerpt: "Campanha usou credenciais de aplicações para acessar ambientes Microsoft 365, segundo a empresa. Login, acesso a dados e exfiltração precisam ser separados."
 category: ia
 subcategory: seguranca
 format: noticia
@@ -11,26 +11,64 @@ featured: false
 kicker: "IA · segurança"
 author: "nicholas"
 cover: "/images/posts/microsoft-storm-0940-artex-ia-agentica-ataques/cover.jpg"
-coverAlt: "Prédio 92 da sede da Microsoft em Redmond, com o logotipo da empresa em primeiro plano e céu azul"
-coverCredit: "Coolcaesar / Wikimedia Commons (CC BY-SA 4.0)"
+coverAlt: "Fachada envidraçada e escadas de prédio sob céu azul, com árvores e letreiro Microsoft colorido em primeiro plano."
+coverCredit: "Coolcaesar / Wikimedia Commons, CC BY-SA 4.0; foto de 2016, redimensionada, recortes sob a mesma licença"
+cover_source: real
 ---
 
-A Microsoft publicou um alerta detalhado sobre uma campanha em que o grupo **Storm-0940**, que a empresa classifica como alinhado ao Estado chinês, usou um framework de IA agêntica chamado **ARTEX** para automatizar ataques contra centenas de organizações no mundo. A operação está ligada ao comprometimento da cadeia de suprimentos da **ConnectWise**, revelado em 16 de outubro, e marcou um salto de escala: depois do acesso inicial, o ator tentou login em **mais de 2.250 tenants** de clientes.
+A Microsoft atribuiu ao grupo Storm-0940, que classifica como alinhado ao Estado chinês, uma campanha que usou o framework de inteligência artificial ARTEX para acelerar ataques. O [relatório publicado em 21 de outubro](https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/) relaciona a atividade ao comprometimento de uma aplicação multicliente da ConnectWise e ao abuso de acessos já concedidos a integrações do Microsoft 365.
 
-O Storm-0940 atua desde 2021 com foco em roubo de dados, historicamente por pulverização de senhas e exploração de aplicações expostas na internet. A novidade, a partir de setembro de 2026, foi acoplar o ARTEX ao fluxo. O framework é open source, escrito em Go com interface Next.js, aceita qualquer modelo de IA e conduz um teste de invasão quase sem intervenção humana: do reconhecimento à exfiltração, os agentes acumulam ativos e vulnerabilidades num grafo. A interface e os relatórios saem em inglês por padrão, mas o framework pode ser alternado para coreano, mandarim, espanhol ou japonês. A Microsoft já observou atores de várias regiões usando a ferramenta, e reportes públicos de outubro a associam a vazamentos de dados pessoais em instituições financeiras da Coreia do Sul.
+O ponto central não é uma IA que quebra qualquer proteção. Segundo a Microsoft, credenciais de aplicações comprometidas permitiram autenticação em ambientes de clientes sem exigir um login interativo de usuário. A automação acelerou reconhecimento, tentativas de entrada e mudanças de privilégios. A investigação precisa distinguir exposição, autenticação e efetivo acesso a dados.
 
-## Velocidade de máquina
+*Prédio 92 da Microsoft em Redmond, fotografado em 2016 por Coolcaesar. [Arquivo e autoria no Wikimedia](https://en.m.wikipedia.org/wiki/File:Building92microsoft.jpg), sob [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Foto redimensionada; recortes desta imagem mantêm a mesma licença. É imagem de arquivo, não registro do ataque nem evidência de invasão da sede.*
 
-Os números mostram por que a Microsoft trata o caso como marco. Em várias organizações, o tempo entre a primeira tentativa e o **acesso privilegiado à nuvem foi menor que 3 horas**. O grupo abusava de aplicações OAuth já autorizadas pelo próprio cliente para entrar no Microsoft 365 sem login interativo e, em seguida, fazia reconhecimento via Microsoft Graph, trocava credenciais de aplicações e tentava elevar privilégios.
+<Verdict overrated="Concluir que todo ambiente com a aplicação sofreu vazamento" underrated="Investigar identidades de aplicações, permissões e o que ocorreu depois da autenticação" />
 
-Uma campanha paralela, entre 10 e 14 de outubro, mostra a mesma escala do outro lado: a infraestrutura do ator disparou pulverização de senhas contra 327 contas em oito organizações, gerando **mais de 151 mil falhas de login**, com pico de 2.900 tentativas por minuto em 11 de outubro. Quase 98% das tentativas caíram em bloqueio de conta e nenhuma autenticação foi concluída com sucesso. A Microsoft ressalva que a atividade não veio de comprometimento de seus próprios sistemas e que a presença de login do ator não significa, por si, dados acessados ou exfiltrados.
+## O que a investigação descreve
 
-Os setores visados vão de aeroespacial e defesa a energia, finanças, governo, semicondutores, tecnologia e organizações sem fins lucrativos. Agentes não dormem, não têm fim de semana e testam vários caminhos de invasão ao mesmo tempo — na leitura da Microsoft, é isso que permite escala exponencial com a mesma equipe.
+A Microsoft afirma observar uso do ARTEX pelo Storm-0940 desde setembro de 2026. O framework pode usar modelos de linguagem para automatizar tarefas de teste de invasão. Na campanha descrita, a empresa diz que ele acelerou varredura, reconhecimento, pulverização de senhas e abuso de aplicações OAuth em organizações alcançadas pela cadeia de fornecedores.
 
-## O que a empresa recomenda
+OAuth é o mecanismo pelo qual uma aplicação pode receber autorização para trabalhar com recursos de outra plataforma. Uma integração de backup, por exemplo, precisa de permissões para executar seu serviço. O risco aparece quando a identidade dessa aplicação é usada por terceiros ou possui poderes além do necessário. Trocar a senha pessoal de um funcionário não equivale a revisar essas identidades.
 
-A ConnectWise, cuja brecha envolveu o acesso não autorizado associado ao produto Cloud Backup, publicou o primeiro aviso em 16 de outubro e depois ampliou as divulgações e o guia de contenção. Foi nessa esteira que o Storm-0940 acelerou varredura, reconhecimento, pulverização de senhas e abuso de aplicações OAuth nas vítimas em cadeia. O alerta da Microsoft traz detecções prontas no Defender XDR e três frentes de ação: revisar logins de service principals, investigar mudanças inesperadas em credenciais ou privilégios de aplicações e seguir as orientações de contenção publicadas pela ConnectWise, preservando evidências para investigação. A embaixada da China negou envolvimento, segundo reportagens sobre o caso.
+Após o acesso não autorizado envolvendo a ConnectWise, o ator tentou autenticar-se em mais de 2.250 tenants, segundo a Microsoft. Tenant é o ambiente de uma organização na plataforma. Esse número representa tentativas de entrada, não uma contagem comprovada de empresas com arquivos ou mensagens roubados.
+
+## Velocidade não significa sucesso em toda tentativa
+
+A empresa relata casos em que o intervalo entre o início do direcionamento e o acesso privilegiado à nuvem foi inferior a três horas. Trata-se de observações de determinados ambientes, não de um prazo universal nem de uma medição de nossa redação.
+
+Também descreve uma campanha de pulverização de senhas entre 10 e 14 de outubro: 327 contas em oito organizações, mais de 151 mil falhas de login e pico de 2.900 falhas por minuto. Apesar do volume, a Microsoft não observou autenticação bem-sucedida nessa campanha específica. Não se deve somar tentativas fracassadas a outros episódios e apresentar tudo como invasões confirmadas.
+
+A [Huntress publicou sua investigação](https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access) em 16 de outubro e relatou uso de credenciais de aplicações da ConnectWise em ambientes de clientes. O texto também mostra por que encerrar o acesso original pode não bastar: credenciais ou permissões adicionadas a outras aplicações precisam ser investigadas separadamente.
+
+## O que ainda exige cautela na atribuição
+
+Uma análise da [Wiz sobre ARTEX em atividade real](https://www.wiz.io/blog/artex-in-the-wild-storm-0940-expands-targeting-of-it-and-software-vendors) descreve tentativas contra fornecedores de software e fluxos de identidade. Isso amplia o contexto técnico, mas não transforma toda tentativa automatizada em prova de autoria do mesmo grupo.
+
+Em [alerta publicado em 6 de novembro, a Okta](https://www.okta.com/blog/threat-intelligence/agentic-attack-tools-used-to-accelerate-reconnaissance-of-identi/) afirma que parte da atividade observada é consistente com o operador identificado pela Microsoft. A empresa ressalva, porém, não conseguir confirmar de forma independente que toda a atividade tenha usado especificamente o ARTEX. Essa diferença deve acompanhar a notícia, não desaparecer em um título genérico sobre hackers e IA.
+
+A Microsoft também declara que a atividade descrita não decorreu de comprometimento ou vulnerabilidade em seus próprios sistemas corporativos, produtos ou serviços. A presença de uma aplicação afetada, ou mesmo uma autenticação bem-sucedida, não demonstra sozinha acesso indevido ou exfiltração de dados.
 
 ## O que isso significa no Brasil
 
-Empresas brasileiras que rodam Microsoft 365 entram no mesmo mapa de alvos, porque o ataque não depende de país: depende de aplicação OAuth autorizada demais e senha reutilizada. A lição prática é conhecida e segue subaproveitada — autenticação em duas etapas em todas as contas, revisão periódica dos aplicativos com acesso ao tenant e senha única por serviço. Sobre o cuidado com permissões dadas a agentes e integrações, vale reler o nosso guia de [permissões que você não deve marcar para agentes de IA](https://www.thezero.com.br/noticia/agente-ia-permissoes-que-nao-dar).
+Para uma empresa brasileira que usa Microsoft 365 com serviços terceirizados, nossa leitura é que a revisão não pode terminar nas contas de pessoas. É preciso saber quais integrações têm acesso, quem responde por cada uma e quais permissões são necessárias ao serviço. Não identificamos nas fontes uma lista de vítimas brasileiras; não afirmamos que o país foi especificamente atingido.
+
+O [guia técnico de investigação e contenção da ConnectWise](https://www.connectwise.com/contentassets/10777cd3364d440c86ed5270a94a5f24/connectwise-cloud-backup-technical-investigation-and-remediation-guide-1.pdf) distingue medidas do fornecedor e configuração local do cliente. Desativar credenciais do lado do serviço não prova que todos os acessos, tokens ou alterações indevidas no ambiente de cada organização tenham sido eliminados.
+
+A orientação da Microsoft é preservar evidências e revisar logins de identidades de aplicações, mudanças em credenciais, permissões e atividade posterior. Não recomenda apagar aplicações como primeira resposta. Uma equipe autorizada deve coordenar contenção e investigação, sem atrasar uma medida urgente enquanto espera exportar registros.
+
+Para o gestor, a pergunta útil é quem pode executar e comprovar essa revisão. Pedir apenas para todos trocarem suas senhas deixa o problema das aplicações sem resposta. Também é importante registrar lacunas: falta de logs suficientes não prova que nada aconteceu. O guia da ConnectWise alerta que ativar coleta agora não recupera eventos que nunca foram registrados.
+
+Nosso [guia de permissões para agentes de IA](https://www.thezero.com.br/noticia/agente-ia-permissoes-que-nao-dar) ajuda a revisar o princípio de acesso mínimo. Neste caso, porém, a ação é de resposta a incidente em integrações corporativas, não de testar uma ferramenta ofensiva. Esta matéria não executou ataques nem verificou o ambiente de qualquer leitor.
+
+<Rule>
+A IA acelera o abuso de acessos existentes. A defesa precisa revisar o que aplicações podem fazer e o que fizeram, sem confundir tentativa, login e vazamento.
+</Rule>
+
+## Fontes
+
+- [Microsoft: campanha Storm-0940/ARTEX e orientações de investigação](https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/).
+- [ConnectWise: guia técnico de investigação e contenção](https://www.connectwise.com/contentassets/10777cd3364d440c86ed5270a94a5f24/connectwise-cloud-backup-technical-investigation-and-remediation-guide-1.pdf).
+- [Huntress: abuso de credenciais de fornecedor no Microsoft 365](https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access).
+- [Wiz: tentativas automatizadas contra fornecedores e identidades](https://www.wiz.io/blog/artex-in-the-wild-storm-0940-expands-targeting-of-it-and-software-vendors).
+- [Okta: alcance e limites de atribuição do alerta de 6 de novembro](https://www.okta.com/blog/threat-intelligence/agentic-attack-tools-used-to-accelerate-reconnaissance-of-identi/).
+- [SecurityWeek: cobertura da atribuição feita pela Microsoft](https://www.securityweek.com/china-apt-uses-ai-pentest-tool-artex-in-connectwise-attacks/).

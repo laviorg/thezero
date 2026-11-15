@@ -3,16 +3,13 @@ import { PageShell } from "@/components/layout/page-shell";
 import { AboutPageJsonLd } from "@/components/news/json-ld";
 import { buildPageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
-import { ABOUT_TITLE } from "@/lib/titles";
+import { ABOUT_DESCRIPTION, ABOUT_TITLE } from "@/lib/titles";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const aboutDescription =
-  "The Zero é o newsroom de tech do Brasil. Ruído zero, dado bruto: teste, número e fonte em IA, computadores, dispositivos, apps e jogos.";
-
 export const metadata: Metadata = buildPageMetadata({
   title: ABOUT_TITLE,
-  description: aboutDescription,
+  description: ABOUT_DESCRIPTION,
   path: "/sobre",
   brand: "never",
   imagePath: "/opengraph-image",
@@ -22,7 +19,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function AboutPage() {
   return (
     <PageShell width="narrow">
-      <AboutPageJsonLd description={aboutDescription} />
+      <AboutPageJsonLd description={ABOUT_DESCRIPTION} />
       <Wordmark className="mb-10 h-10 w-auto text-fg sm:h-12" />
       <p className="eyebrow page-kicker">Sobre</p>
       <h1 className="font-display mt-4 text-[clamp(2.4rem,7vw,4.6rem)] font-extrabold leading-[0.98] tracking-tight text-balance">
@@ -30,7 +27,7 @@ export default function AboutPage() {
       </h1>
       <div className="mt-10 space-y-6 text-lg leading-8 text-fg/90">
         <p>
-          The Zero é o newsroom de tech do Brasil pra quem já passou do unboxing
+          <Link href="/" className="text-accent">The Zero</Link> é o newsroom de tech do Brasil pra quem já passou do unboxing
           emocional. Tecnologia, IA, computadores, dispositivos, aplicativos e
           jogos. Opinião em uma frase. Nome de ferramenta, atalho, preço ou
           número. Ironia no hype — não hate bait.

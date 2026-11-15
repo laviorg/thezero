@@ -13,7 +13,7 @@ import { ThemeScript } from "@/components/theme/theme-script";
 import { adsenseClientId, getAdsensePubId } from "@/lib/adsense";
 import { getActiveReviewBuckets, getActiveSubcategories } from "@/lib/posts";
 import { categoryMenus } from "@/lib/site-nav";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 import { themeColor } from "@/lib/theme";
 import type { Metadata, Viewport } from "next";
 import { fontDisplay, fontMono, fontSans, fontSerif } from "@/lib/fonts";
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: site.locale,
-    url: site.url,
+    url: absoluteUrl("/"),
     siteName: site.name,
     title: HOME_TITLE,
     description: site.description,

@@ -261,7 +261,7 @@ export function SiteHeader({
         <Link
           href="/"
           className="site-header-brand flex items-center text-fg outline-none"
-          aria-label="The Zero — newsroom"
+          aria-label="The Zero"
         >
           <Wordmark className="h-6 w-auto sm:h-[29px]" />
         </Link>

@@ -1,0 +1,66 @@
+---
+title: "DeepSeek abre código do Super-agent, mas avisa que protótipo não está pronto para produção"
+seoTitle: "DeepSeek abre Super-agent como protótipo de pesquisa"
+excerpt: "Projeto MIT recebe pedidos pelo GitHub e pode devolver pull requests. Equipe alerta para bugs, limites de permissão e diferenças da versão interna."
+category: ia
+subcategory: agentes
+format: noticia
+date: "2026-11-01T09:35:34-03:00"
+featured: false
+kicker: "IA · agentes"
+author: "nicholas"
+cover: "/images/posts/deepseek-superagent-prototipo-codigo-aberto/cover.jpg"
+coverAlt: "Notebook preto aberto sobre mesa de madeira, com tela escura, teclado com botão vermelho e janela e radiador ao fundo"
+coverCredit: "Robert Kloosterhuis / Wikimedia Commons, CC BY 2.0; foto de arquivo de 2011, ilustrativa, redimensionada com margens desfocadas; não mostra o Super-agent"
+---
+
+A equipe DeepSeek Harness publicou em **31 de outubro** o código do [dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype/), um agente de programação que recebe pedidos pelo GitHub e pode responder com uma proposta de mudança de código. A ressalva aparece antes da apresentação: **é um protótipo de pesquisa, não um produto oficial da DeepSeek nem software pronto para produção**.
+
+O projeto tem licença MIT e trabalha com um repositório GitHub por instalação, com integração opcional ao Feishu, serviço de comunicação de equipes. Para desenvolvedores brasileiros, o interesse está em poder examinar e adaptar o código, sem confundir essa abertura com uma autorização para entregar acesso amplo a um sistema ainda experimental.
+
+![Notebook preto aberto sobre mesa de madeira, com tela escura, teclado com botão vermelho e janela e radiador ao fundo](/images/posts/deepseek-superagent-prototipo-codigo-aberto/cover.jpg)
+*[Robert Kloosterhuis / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ThinkPad_X220.jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). ThinkPad X220 em 2011, foto ilustrativa que não mostra o Super-agent; redimensionada com margens desfocadas.*
+
+<Verdict overrated="tratar código aberto de pesquisa como um funcionário pronto para receber todas as permissões" underrated="examinar os limites de autorização antes de deixar o agente aceitar trabalho" />
+
+## O que foi liberado
+
+O [README oficial](https://raw.githubusercontent.com/deepseek-ai/dsh-superagent-prototype/main/README.md) descreve um pacote para o DeepSeek Harness. Quando uma pessoa autorizada pede trabalho, ele cria uma tarefa, executa o pedido separadamente e responde na conversa original, por exemplo com um pull request. Um painel web destaca o que precisa de intervenção humana.
+
+Pull request é a proposta de alteração que uma equipe pode revisar antes de incorporar ao projeto. Produzir essa proposta é diferente de provar que a correção funciona ou de receber permissão automática para publicá-la. O The Zero não instalou o protótipo nem avaliou a qualidade do código produzido por ele.
+
+A [cobertura do The Next Web](https://thenextweb.com/news/deepseek-super-agent-open-source-coding-agent) também destaca o caráter experimental e o uso em um repositório. Não é um novo modelo de linguagem com pesos abertos: o material publicado aqui é uma aplicação de agente para organizar trabalho de programação.
+
+## Receber uma mensagem não basta para agir
+
+A [documentação de autorização](https://raw.githubusercontent.com/deepseek-ai/dsh-superagent-prototype/main/docs/002-authorization.md) distingue pedidos explícitos de oportunidades inferidas. Listas de pessoas permitidas e regras escritas pela equipe determinam quais mensagens podem virar trabalho. Comentários e documentos citados entram como contexto; não podem mudar essas permissões.
+
+Para iniciativas que o sistema deduz por conta própria, o padrão é **observe**. Nesse modo, uma decisão favorável fica registrada como algo que ele aceitaria, mas a tarefa não é iniciada. O modo **auto** permite aceitar uma oportunidade quando a avaliação encontra uma regra aplicável. Pedidos explícitos continuam seguindo suas próprias condições.
+
+Essa separação torna o teste inicial menos arriscado: a equipe pode olhar as decisões registradas antes de permitir iniciativa real. Não equivale a uma garantia de segurança. É o comportamento documentado pelo projeto, que ainda pede revisão e adaptação ao ambiente de quem pretende usá-lo.
+
+O [roteiro de instalação](https://raw.githubusercontent.com/deepseek-ai/dsh-superagent-prototype/main/SETUP.md) recomenda uma conta GitHub dedicada e, inicialmente, que pessoas façam os merges. Essa identidade separada também evita que comentários e propostas do agente apareçam como se fossem ações pessoais do operador.
+
+## O aviso de pesquisa muda a leitura do anúncio
+
+A equipe diz que parte significativa da engenharia foi feita por agentes de programação e avisa que o repositório pode conter bugs e práticas inconsistentes. O código foi adaptado para publicação e **não é idêntico à versão interna** nem implementa todas as ideias do texto de pesquisa que o acompanha.
+
+Isso limita o que se pode concluir de demonstrações ou descrições mais amplas. Uma capacidade discutida como direção futura não deve virar recurso disponível por inferência. Tampouco a palavra Super-agent informa a taxa de sucesso em corrigir bugs reais de uma equipe brasileira.
+
+A [licença MIT](https://raw.githubusercontent.com/deepseek-ai/dsh-superagent-prototype/main/LICENSE) permite uso, modificação e distribuição, inclusive comercial, com preservação dos avisos exigidos. O mesmo texto entrega o software sem garantia. Licença permissiva não transforma pesquisa em serviço gerenciado nem elimina a necessidade de configurar o ambiente.
+
+## O que isso significa no Brasil
+
+**O código está publicado para consulta e adaptação**, mas quem quiser executá-lo precisa preparar uma instalação do DeepSeek Harness, conta e acesso ao repositório, além de um provedor de modelo, conforme o roteiro oficial. Código liberado não significa operação sem custos: a licença do projeto não paga o processamento do modelo ou a infraestrutura escolhida.
+
+O caminho prudente é avaliar primeiro um projeto sem dados sensíveis, manter permissões estreitas e conferir decisões e alterações antes de ampliar a autonomia. O [guia do The Zero sobre contexto e restrições em IA](https://www.thezero.com.br/noticia/contexto-maior-que-prompt) ajuda a escrever limites de tarefa, sem substituir controles de acesso nem testes do software.
+
+<Rule>Código aberto permite inspecionar o agente; não dispensa decidir o que ele pode fazer.</Rule>
+
+## Fontes
+
+- [DeepSeek Harness Team - Repositório e aviso de protótipo](https://github.com/deepseek-ai/dsh-superagent-prototype/)
+- [DeepSeek Harness Team - Regras de autorização](https://raw.githubusercontent.com/deepseek-ai/dsh-superagent-prototype/main/docs/002-authorization.md)
+- [DeepSeek Harness Team - Instalação e pré-requisitos](https://raw.githubusercontent.com/deepseek-ai/dsh-superagent-prototype/main/SETUP.md)
+- [DeepSeek Harness Team - Licença MIT](https://raw.githubusercontent.com/deepseek-ai/dsh-superagent-prototype/main/LICENSE)
+- [The Next Web - Cobertura da abertura do código](https://thenextweb.com/news/deepseek-super-agent-open-source-coding-agent)

@@ -1,8 +1,8 @@
 ---
-title: "Kimi K3.1 Pro chega com 1 milhão de tokens de contexto e pesos abertos a caminho"
-seoTitle: "Kimi K3.1 Pro: contexto de 1M de tokens e pesos abertos em 4/11"
-seoDescription: "Moonshot AI lançou o Kimi K3.1 Pro: 2,8 trilhões de parâmetros, contexto de 1 milhão de tokens e versão Highspeed até 3x mais rápida. Pesos abertos chegam em 4 de novembro."
-excerpt: 'Modelo da Moonshot AI tem 2,8 trilhões de parâmetros, contexto de 1 milhão de tokens e pesos abertos até 4 de novembro. Já roda no app e na API.'
+title: "Kimi K3.1 Pro: contexto de 1 milhão não dispensa custo, licença e revisão"
+seoTitle: "Kimi K3.1 Pro: contexto, API e limites dos pesos abertos"
+seoDescription: "Pesos do Kimi K3.1 Pro já estão públicos. Entenda a licença própria, a cobrança por tokens e os limites do contexto de 1 milhão para empresas brasileiras."
+excerpt: "Pesos públicos não tornam a execução gratuita. Contexto de 1 milhão exige avaliar infraestrutura, licença, dados e cobrança da API."
 category: ia
 subcategory: modelos
 format: noticia
@@ -11,32 +11,64 @@ featured: false
 kicker: "IA · modelos"
 author: "nicholas"
 cover: "/images/posts/kimi-k3-1-pro-pesos-abertos-1-milhao-tokens/cover.jpg"
-coverAlt: "Arte oficial de divulgação do Kimi K3.1, com o logotipo do modelo sobre montanhas entre nuvens"
-coverCredit: "Moonshot AI / Kimi (divulgação)"
+coverAlt: "Notebook com editor de código aberto em ambiente escuro, iluminado em azul, com luzes desfocadas ao fundo."
+coverCredit: "Nemuel Sereti / Pexels; foto de arquivo ilustrativa, não interface Kimi nem teste de execução local"
+cover_source: real
 ---
 
-A Moonshot AI apresentou em 23 de outubro o **Kimi K3.1 Pro**, primeiro modelo da nova série K3.1 e o mais capaz da família de pesos abertos da empresa chinesa. São 2,8 trilhões de parâmetros no total, com 104 bilhões ativos por vez numa arquitetura de mistura de especialistas, e janela de contexto de **1 milhão de tokens**. O modelo já está disponível no kimi.ai, nos aplicativos, no Kimi Work, no Kimi Code e na API, e os pesos completos serão publicados até 4 de novembro.
+O **Kimi K3.1 Pro**, apresentado pela Moonshot AI em 23 de outubro, combina janela de contexto de cerca de 1 milhão de tokens com uma arquitetura de mistura de especialistas. A proposta inclui programação, criação 3D e pesquisa financeira. Para quem pretende usá-lo no Brasil, porém, a escolha não termina no tamanho da janela: passa pela licença, pela cobrança e pelo destino dos dados.
 
-Junto veio o **K3.1 Pro Highspeed**, variante que entrega de duas a três vezes a velocidade do modelo principal, pensada para interações mais responsivas. Quem usa Kimi Enterprise precisa pedir a liberação ao administrador: o acesso corporativo vem desligado por padrão.
+**Atualização de apuração em 9 de novembro de 2026:** o [repositório oficial no Hugging Face](https://huggingface.co/moonshotai/Kimi-K3.1-Pro) já oferece os pesos publicamente. O [anúncio original](https://www.kimi.ai/blog/kimi-k3-1-pro) prometia essa etapa até 4 de novembro. A promessa não deve continuar escrita como se ainda estivesse pendente. Esta é uma revisão da matéria de outubro, não um novo lançamento do modelo.
 
-## Números que a Moonshot quer ver testados
+*Foto de arquivo de Nemuel Sereti / [Pexels](https://www.pexels.com/photo/programming-code-on-laptop-screen-6424590/), sob [licença Pexels](https://www.pexels.com/license/). Ilustra programação: não mostra o Kimi nem um computador executando esse modelo.*
 
-O K3.1 Pro é uma versão pós-treinada do Kimi K3, com reforço de aprendizado aplicado em larga escala em centenas de domínios. Nos benchmarks citados pela empresa, ele encosta nos modelos proprietários mais fortes do momento:
+## Um milhão de tokens é limite, não garantia de leitura perfeita
 
-- **Terminal-Bench 4.0** (agentes de código em terminal): 65,7%, à frente do GPT-6 Astra (58,2%) e logo atrás do Claude Opus 5.5 (66,4%).
-- **BenchCAD** (reconstrução 3D com ferramentas): 92,7%, perto dos 96,2% do Opus 5.5.
-- **OfficeQA Pro v2** (análise fiscal de documentos financeiros reais): 64,4, melhor marca do teste.
+A ficha da Moonshot informa **2,8 trilhões de parâmetros no total, 104 bilhões ativos por token e contexto de 1.048.576 tokens**. A seleção de especialistas explica por que o total e a quantidade ativada diferem. Não significa que só os parâmetros ativos determinem toda a memória necessária para hospedar o sistema.
 
-Outro ponto de atenção da empresa foi a confiabilidade em finanças, área sensível a erro factual. A Moonshot também destaca a queda de alucinação: no seu bench interno mais duro, a taxa de afirmações incorretas caiu de 23,4% no K3 para 8,3% no K3.1 Pro. Vale a ressalva de sempre: todos esses números saíram da própria empresa. A VentureBeat ouviu a Artificial Analysis, empresa independente de testes, que projeta o K3.1 Pro como o novo líder entre os modelos de pesos abertos quando os pesos forem publicados, em 4 de novembro.
+Tokens são unidades de processamento, não páginas ou palavras em proporção fixa. Uma base extensa de código pode caber na janela e ainda exigir seleção de arquivos, instruções claras e verificação das referências devolvidas. Não testamos a recuperação de informação em português nem medimos a precisão do modelo com documentos brasileiros.
 
-## O porém: segurança dosada na versão aberta
+Nossa leitura é que contexto longo amplia o material que se pode fornecer, mas não certifica que cada detalhe será usado corretamente. O [guia sobre contexto e estruturação de pedidos](/noticia/contexto-maior-que-prompt) ajuda a separar quantidade de material de organização da tarefa.
 
-A parte mais incomum do anúncio está na seção de cibersegurança. A Moonshot conta que removeu deliberadamente dados relacionados a vulnerabilidades do treinamento do modelo aberto, para que a versão pública fique abaixo da fronteira ofensiva que o mesmo pipeline conseguiria produzir. No benchmark interno de exploração de falhas, o checkpoint sem essa limpeza resolve 90,5% das tarefas; o K3.1 Pro final, 81%. A justificativa da empresa é liberar capacidade boa para defesa — auditoria de código legado, por exemplo — sem empurrar a fronteira de ataque para qualquer um.
+## Pesos públicos não são um aplicativo gratuito para qualquer notebook
 
-## Código, 3D e finanças no mesmo pacote
+O repositório disponibiliza arquivos e orientações para implantação, com mecanismos como vLLM, SGLang e TokenSpeed. O [vLLM publicou suporte em 4 de novembro](https://vllm.ai/blog/2026-11-04-kimi-k31-pro), descrevendo otimizações para essa arquitetura e configurações de infraestrutura acelerada.
 
-Na prática, o modelo mira três frentes de trabalho. Em código, cobre de correções pontuais a projetos completos em Unity, Unreal e Godot, com geração de cenas Three.js e assets 3D. Em modelagem, escreve e executa scripts de Blender e CAD para criar peças paramétricas — e o recurso 3D Make, já no kimi.ai, permite pré-visualizar, baixar para impressão 3D ou exportar como vídeo. Em finanças, promete fluxos completos de análise, com ganhos de 7 a 11 pontos sobre o K3 nos testes internos de modelagem e pesquisa.
+Isso não comprova execução satisfatória em um notebook comum. Download, armazenamento, memória dos aceleradores, contexto e capacidade de atender pedidos são problemas diferentes. Não publicamos uma configuração mínima ou custo de servidor que não tenhamos verificado para a carga concreta.
+
+Há também diferença entre implantar os pesos sob sua responsabilidade e usar o serviço hospedado da Moonshot. A primeira opção dá outra forma de organizar a infraestrutura. A segunda evita montar a implantação, mas envolve as condições comerciais e de tratamento de conteúdo do serviço.
+
+## A licença tem condições próprias
+
+A [Kimi K3.1-Pro License](https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/main/LICENSE) permite uso, modificação, implantação e redistribuição sob condições. Portanto, pesos abertos não devem ser descritos como autorização comercial sem limites ou como sinônimo automático de qualquer definição de código aberto.
+
+Uma condição alcança empresas que operam negócios de modelo como serviço: se a receita agregada da licenciada e de suas afiliadas superar **US$ 20 milhões em qualquer período de 12 meses consecutivos**, é necessário acordo separado antes do uso comercial. A licença define o que considera modelo como serviço e exclui determinadas integrações em funcionalidades e mero repasse de pedidos.
+
+Outra condição exige exibir o nome do modelo em produtos comerciais com mais de 100 milhões de usuários ativos mensais ou mais de US$ 20 milhões de receita mensal. As cláusulas trazem exceções para uso interno, definido no documento, e acesso pelos produtos oficiais ou parceiros certificados. Elas não apagam as demais condições. Quem vai distribuir um serviço precisa ler o arquivo integral; este resumo não é orientação jurídica individual.
+
+## API tem entrada, saída e cache separados
+
+Na consulta de 9 de novembro, a [plataforma oficial em português](https://platform.kimi.ai/pt-br) lista o K3.1 Pro padrão a **US$ 2 por milhão de tokens de entrada e US$ 10 de saída**. O Highspeed aparece a US$ 4 e US$ 20, respectivamente. A Moonshot anuncia velocidade duas a três vezes maior para essa variante; não fizemos essa comparação.
+
+A [documentação de cobrança](https://platform.kimi.ai/docs/pricing/chat) separa entrada regular, gravação em cache e reutilização do cache. Não se deve cobrar o mesmo token como entrada regular e gravação ao mesmo tempo, nem presumir que toda entrada terá desconto. A validade do cache e a repetição efetiva do prefixo importam. Assinatura do aplicativo e consumo da API são produtos de cobrança distintos.
+
+Para um orçamento em reais, a tarifa em dólar não basta: entram o câmbio da cobrança, impostos aplicáveis e o uso medido. Não cotamos uma assinatura em reais nem estimamos economia sem histórico de consumo. Respostas longas e repetição de tarefas podem mudar a conta mesmo quando a tarifa por token parece atraente.
 
 ## O que isso significa no Brasil
 
-Para quem trabalha com IA no Brasil, a chegada do K3.1 Pro reforça uma tendência: os modelos abertos chineses seguem pressionando o custo da API e a régua de qualidade do que roda por conta própria. O contexto de 1 milhão de tokens muda o tipo de tarefa possível — dá para jogar um repositório inteiro, um contrato longo ou meses de planilhas numa única conversa, em vez de fatiar o material. Aproveitar bem essa janela gigante tem técnica, como mostra o nosso guia sobre [por que contexto vale mais que prompt e como estruturar o seu](https://www.thezero.com.br/noticia/contexto-maior-que-prompt).
+A liberação dos pesos aumenta as opções de implantação, mas não autoriza enviar contratos ou bases pessoais indiscriminadamente. Os [termos da OpenPlatform](https://platform.kimi.ai/docs/agreement/modeluse) permitem determinados usos do conteúdo para manter e melhorar serviços e modelos, salvo acordo escrito diferente. Não presumimos que toda conta tenha retenção zero ou exclusão automática de treinamento.
+
+Para dados pessoais, a [ANPD](https://www.gov.br/anpd/pt-br/acesso-a-informacao/perguntas-frequentes) orienta verificar bases legais, finalidade e medidas de proteção. Hospedagem própria não produz conformidade automática; uso de API também exige avaliar contrato e fluxo dos dados.
+
+Nossa leitura: comece com material que possa ser usado, tarefas com resposta verificável e limites de gasto. Compare acerto, tempo e consumo na mesma carga antes de expandir. O anúncio de maior capacidade e os benchmarks da Moonshot não substituem essa avaliação. Não realizamos teste próprio de velocidade, segurança ou finanças. Contexto grande é uma opção técnica, não permissão para delegar uma decisão sem revisão.
+
+## Fontes
+
+- [Moonshot: anúncio original e alegações de desempenho](https://www.kimi.ai/blog/kimi-k3-1-pro).
+- [Hugging Face: ficha e pesos oficiais](https://huggingface.co/moonshotai/Kimi-K3.1-Pro).
+- [Licença Kimi K3.1-Pro integral](https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/main/LICENSE).
+- [vLLM: suporte e implantação](https://vllm.ai/blog/2026-11-04-kimi-k31-pro).
+- [Kimi: preços publicados na plataforma](https://platform.kimi.ai/pt-br).
+- [Kimi: regras de cobrança da API](https://platform.kimi.ai/docs/pricing/chat).
+- [OpenPlatform: termos sobre conteúdo e uso](https://platform.kimi.ai/docs/agreement/modeluse).
+- [ANPD: obrigações de tratamento de dados pessoais](https://www.gov.br/anpd/pt-br/acesso-a-informacao/perguntas-frequentes).

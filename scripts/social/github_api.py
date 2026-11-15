@@ -85,14 +85,19 @@ def pr_for_commit(repo: str, sha: str, token: str, secrets: list[str]) -> dict |
     return search_merged_pr(repo, sha, token, secrets)
 
 
-def comment_body(slug: str, ig: str, threads: str) -> str:
-    return f"{MARKER}\nslug: {slug}\nig: {ig}\nthreads: {threads}\n"
+def comment_body(slug: str, ig: str, threads: str, story: str = "") -> str:
+    lines = [MARKER, f"slug: {slug}", f"ig: {ig}", f"threads: {threads}"]
+    if story:
+        lines.append(f"story: {story}")
+    return "\n".join(lines) + "\n"
 
 
-def comment_exists(comments: list[dict], slug: str, ig: str, threads: str) -> bool:
+def comment_exists(comments: list[dict], slug: str, ig: str, threads: str, story: str = "") -> bool:
     for comment in comments:
         body = str(comment.get("body") or "")
         if MARKER in body and f"slug: {slug}" in body and ig in body and threads in body:
+            if story and story not in body:
+                continue
             return True
     return False
 
