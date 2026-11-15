@@ -1,77 +1,76 @@
 ---
-title: "ROG Ally / Xbox Ally: TDP, bateria e configs que importam"
-excerpt: "No Ally e no Xbox Ally, o que muda a hora de jogo é o TDP, os watts do chip, não o nome do modo. 10 a 15 W alonga. 25 W ou mais pede tomada. A célula é que decide o tamanho da sessão: 40, 60 ou 80 Wh."
+title: "ROG Ally e Xbox Ally: como ajustar TDP sem prometer horas de bateria"
+seoTitle: "ROG Ally: TDP, bateria e ajustes por jogo"
+seoDescription: "Entenda a diferença entre potência do chip e consumo total no ROG Ally, como limitar FPS e por que watts não viram horas de bateria automaticamente."
+excerpt: "TDP não é o consumo do portátil inteiro. Confira modelo, limite de quadros e carregador antes de aumentar a potência ou estimar a bateria."
 category: computadores
 subcategory: pcs-portateis
 format: guia
 date: "2026-09-26T17:20:00-03:00"
+changelog:
+  - data: "2026-11-15T14:50:00-03:00"
+    nota: "Guia reescrito para separar potência do chip e consumo total, diferenciar modelos e orientar limites de quadros sem prometer autonomia não medida."
 kicker: "TDP · bateria"
 author: "nicholas"
-cover: "/images/posts/rog-ally-tdp-bateria-configs/cover.webp"
-coverAlt: "ASUS ROG Ally branco em ângulo, com a tela ligada e o grip direito visível."
-coverCredit: "ASUS / Divulgação"
+cover: "/images/posts/rog-ally-tdp-bateria-configs/arquivo-ally-2023.jpg"
+coverAlt: "ROG Ally original branco sobre suporte de loja, com janela do Windows e reflexo de luz na tela; selos identificam arquivo de 2023 e crédito CC BY-SA."
+coverCredit: "Foto: KKPCW (Kyu3) / Wikimedia Commons, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Arquivo de 2023 do Ally original em loja, não dos modelos Xbox Ally nem teste da reportagem. Recorte e selos adicionados; adaptação sob CC BY-SA 4.0."
+coverSource: "https://commons.wikimedia.org/wiki/File:ROG_ALLY_-_2.jpg"
 cover_locked: true
 cover_source: real
 ---
 
-No ROG Ally e no Xbox Ally, configure o watt, não o nome do modo. TDP, neste portátil, é o teto de energia do chip, em watts. Mais watt, mais fps possível, mais calor, menos minuto de bateria. O modo “Turbo” ou “Performance” só serve se você souber quantos watts ele esconde. O nome muda entre Ally, Ally X e Xbox Ally. O número não mente.
+No ROG Ally, aumentar a potência pode ajudar um jogo pesado, mas o número de watts do modo não representa o consumo do aparelho inteiro. Tela, memória e outros componentes também gastam energia. Por isso, dividir a capacidade da bateria pelo TDP não entrega uma previsão confiável de quantas horas você conseguirá jogar.
 
-A célula muda o tamanho da sessão no mesmo watt: 40 Wh no Ally original, 60 Wh no Xbox Ally, 80 Wh no Ally X e no Xbox Ally X.
+Esta revisão de 15 de novembro de 2026 reúne orientações documentadas pela ASUS, não medições próprias de autonomia. A recomendação é começar com um perfil equilibrado, definir uma meta de quadros e comparar o mesmo trecho de jogo antes de subir a potência. Não há configuração universal que transforme todos os Ally no mesmo portátil.
 
-<Verdict overrated="deixar no turbo porque o fps do menu subiu" underrated="15 W com limite de quadros e VRR ligado" />
+## Primeiro, identifique o modelo
 
-## Três faixas
+As fichas da fabricante distinguem capacidades que o nome parecido pode esconder:
 
-Perto de 10 W a 15 W: indie, emulação, jogo antigo, 2D. A ventoinha baixa. Numa célula de 40 Wh isso já é a diferença entre uma hora e pouco e uma sessão que atravessa um deslocamento. Em 80 Wh, a mesma faixa cobre a tarde de jogo leve. Não cubra lançamento atual.
+| Aparelho | Bateria nominal | O cuidado ao comparar |
+| --- | --- | --- |
+| ROG Ally original, de 2023 | 40 Wh | Não usar resultados do Ally X como promessa de duração |
+| ROG Ally X, de 2024 | 80 Wh | Bateria maior não elimina o consumo de tela e sistema |
+| ROG Xbox Ally, de 2025 | 60 Wh | Não copiar automaticamente limites do modelo X |
+| ROG Xbox Ally X, de 2025 | 80 Wh | Mesmo tamanho de bateria não implica mesma autonomia |
 
-Perto de 20 W a 25 W: jogo de PC recente em 720p ou 900p, preset baixo ou médio. É o meio honesto da Radeon desses aparelhos. A sessão cai para cerca de uma hora na célula pequena e alonga na de 80 Wh sem virar madrugada. Se o fps ainda falta, baixe a resolução antes de subir o watt.
+A [comparação oficial das gerações](https://rog.asus.com/us/articles/rog-ally/rog-ally-vs-rog-xbox-ally-and-rog-xbox-ally-x-all-the-improvements-in-the-newest-rog-gaming-handhelds/) também mostra processadores diferentes. Este guia cobre esses quatro modelos, não pretende incluir toda edição posterior da família e não recomenda comprar um aparelho apenas pela bateria.
 
-30 W ou o pico que o carregador segura: heat, barulho e tomada. Use plugado, em jogo que você mediu e viu ganho. No sofá, longe da parede, é o modo que esvazia a compra de uma bateria grande. A ASUS, no Ally original, separa o teto na bateria e na tomada. Leia o número na tela de controle, não a legenda do botão.
+No Brasil, a consulta de 15 de novembro à [categoria da Loja ASUS](https://br.store.asus.com/rog-xbox-ally-2.html) mostrava o Xbox Ally X de 24 GB e 1 TB por **R$ 8.999,10 à vista**, ou R$ 9.999 no total parcelado em 18 vezes. É referência daquela oferta, não preço de toda a família nem garantia de estoque por CEP. Para quem já tem um Ally, vale ajustar antes de tratar uma compra desse tamanho como solução automática.
 
-O Z2 A do Xbox Ally de entrada tem menos núcleo que o Z1 Extreme. Subir TDP não o transforma no modelo X. O Z2 Extreme do Xbox Ally X responde melhor ao watt alto e ainda esbarra em gráfico integrado.
+## TDP não é um relógio de bateria
 
-## Tela e o que não configurar
+Silent, Performance e Turbo mudam a potência disponibilizada ao processador. No [Ally X de 2024](https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-ally-x-2024/), a ASUS documenta 10 W, 15 W e 25 W, com Turbo de 30 W conectado à energia. Esses números não devem ser copiados como limites universais para os Xbox Ally.
 
-VRR, a taxa variável, deve ficar ligado nos modelos que têm. A tela acompanha o fps. Travar tudo em 120 Hz com o jogo em 40 fps não cria quadro. Limite o jogo a 40, 45 ou 60, estável, e deixe o VRR trabalhar.
+O [guia oficial de desempenho](https://rog.asus.com/us/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/) diferencia ainda potência sustentada e picos temporários nos controles manuais. Um valor visto nos primeiros segundos pode não ser mantido durante toda a partida. Prefira os perfis prontos antes de alterar vários limites de uma vez.
 
-RSR, o upscaler da AMD, desenha o jogo numa resolução menor e estica. Ajuda a 780M e os chips vizinhos a segurar 1080p na tela sem pedir 30 W. Não é nitidez nativa. É o acordo certo nesta categoria.
+Em análise de 2023 do Ally original, a [Digital Foundry](https://www.digitalfoundry.net/articles/digitalfoundry-2023-asus-rog-ally-vs-steam-deck-review?page=2) já separava o gasto do chip do consumo total. É evidência histórica dessa distinção, não um teste nosso nem uma previsão atual para os Xbox Ally. Firmware, jogo, brilho, desgaste e configuração impedem transformar aquele resultado numa tabela universal de horas.
 
-Brilho em 50% ou no que o ambiente pede. 100% o tempo todo come bateria sem entrar no TDP. Wi-Fi e Bluetooth que você não usa, desligue. Windows atualizando no meio da fase come mais do que 2 W de diferença. Pause a atualização antes de sair. Isso vale nos dois sistemas, o Ally clássico e a camada Xbox, porque os dois são Windows por baixo.
+## Um ajuste por vez, no jogo que você usa
 
-Armoury Crate, ou o centro de comando da leva Xbox, guarda o perfil por jogo. Um perfil de 15 W para o indie e outro de 25 W para o lançamento. Perfil único no turbo é preguiça cara.
+1. Atualize os componentes pelo Armoury Crate e os canais oficiais do Windows antes de comparar. Faça isso em casa, não já contando os minutos da viagem.
+2. Abra o Command Center e ative o monitor em tempo real. Confira FPS e bateria durante a partida, não só no menu.
+3. Comece no perfil equilibrado disponível no seu aparelho. Escolha um limite de quadros que o jogo consiga manter, em vez de deixá-lo trabalhar sem limite.
+4. Se faltar desempenho, reduza qualidade gráfica ou resolução e repita o mesmo trecho. Só depois experimente um perfil mais potente.
+5. Guarde a escolha por jogo e compare em condições semelhantes, inclusive conectado ou não ao carregador.
 
-Carregar e jogar pede fonte PD de verdade, na casa dos 65 W. Banco que só entrega 18 W não segura a sessão. A diferença entre Windows e SteamOS no colo, que também muda quanto tempo você fica no watt alto, está em [Windows no handheld](/noticia/windows-no-handheld-vs-steamos). Aqui basta não comprar mAh no escuro.
+O [suporte da ASUS](https://www.asus.com/global/support/faq/1050046/) lista limites de 30, 45, 60 e 90 FPS, além de Max, no controle documentado. Há ressalvas: o limitador exige tela cheia exclusiva e deve ser ativado antes de abrir o jogo. Se ele não surtir efeito, confira essas condições ou use o limitador do próprio título; não presuma economia porque o botão mudou.
 
-## Veredito
+## Imagem melhor não vem só de mais watts
 
-15 W como padrão, 25 W quando o jogo pede, 30 W só na tomada. Depois olhe se a sua célula é 40, 60 ou 80 Wh. Essa ordem explica a hora de jogo melhor do que o nome do modo na caixa.
+FSR, quando oferecido pelo jogo, e RSR, disponível pelo driver em condições compatíveis, renderizam em resolução menor e ampliam a imagem. Segundo a ASUS, o RSR não amplia um jogo que já esteja em 1080p na tela de 1080p. Não empilhe opções sem conferir qual está funcionando e como ficou a leitura de textos.
 
-<Rule>
-O watt decide o fps e o calor. A watt-hora decide a duração. O nome do modo não decide nenhum dos dois.
-</Rule>
+A tela com FreeSync pode ajudar na fluidez, mas não fabrica desempenho nem transforma qualquer oscilação em estabilidade. Limitar quadros e reduzir efeitos pesados continuam sendo escolhas diferentes de selecionar 120 Hz. Também não existe motivo para sacrificar a legibilidade com brilho baixo demais: ajuste ao ambiente, em vez de adotar uma porcentagem obrigatória.
 
-## Onde comprar
+## O que isso significa: prepare a sessão, não apenas o perfil
 
-**Publicidade.** Como participante do Programa de Associados da Amazon, sou remunerado pelas compras qualificadas efetuadas. Os links abaixo são de afiliado: não mudam o veredito nem a ordem das opções desta matéria, e o preço muda com loja, CEP e data.
+Para quem joga no transporte ou passa horas longe da tomada no Brasil, previsibilidade vale mais que um pico de FPS. Teste seu percurso de uso antes de depender dele: jogo local, atualizações concluídas, brilho confortável e perfil salvo. Não prometemos que 15 W atravessa uma tarde ou que Turbo dura uma hora.
 
-- **ROG Xbox Ally**: <a href="https://www.amazon.com.br/dp/B09C66FYCR?tag=thezero04-20" rel="sponsored nofollow" target="_blank">ver preço na Amazon</a>
-- **ROG Xbox Ally X** (vendido por ASUS OFICIAL MARKETPLACE; garantia depende do lojista): <a href="https://www.amazon.com.br/dp/B09CD6VNGC?tag=thezero04-20" rel="sponsored nofollow" target="_blank">ver preço na Amazon</a>
+O [guia de bateria da ASUS](https://rog.asus.com/articles/guides/how-to-extend-the-battery-life-of-your-rog-ally/) recomenda reduzir potência e limitar FPS, além de oferecer Battery Care com carga limitada a 80%. Esse cuidado reduz a carga disponível naquela saída; não é um modo que aumenta a autonomia imediata.
 
-## Onde comprar na KaBuM
+Para alimentação externa, confira a potência USB-PD exigida pelo modelo, cabo e eventual dock. A documentação do Ally original informa fonte de 65 W; isso não autoriza recomendar qualquer bateria anunciada como 65 W para toda a família. Nosso [guia de power bank para PC portátil](/noticia/power-bank-pc-portatil-wattagem) explica por que olhar apenas mAh não resolve. A melhor configuração é a que mantém seu jogo aceitável no tempo de uso necessário, não a que exibe o maior número.
 
-Este conteúdo tem links de afiliado da KaBuM: se você comprar por eles, o The Zero pode receber uma comissão, sem custo extra pra você. O preço e o estoque mudam com data e CEP; confira na loja antes de fechar.
-
-- **Dock Wavlink 6 em 1 (Steam Deck e ROG Ally, HDMI 4K)**: <a href="https://www.awin1.com/cread.php?awinmid=17729&awinaffid=3116936&ued=https%3A%2F%2Fwww.kabum.com.br%2Fproduto%2F999783%2Fwavlink-docking-station-6-em-1-steam-deck-rog-ally-4k-hdmi" rel="sponsored nofollow" target="_blank">ver na KaBuM</a>
-- **Película de vidro temperado para ROG Ally e Ally X**: <a href="https://www.awin1.com/cread.php?awinmid=17729&awinaffid=3116936&ued=https%3A%2F%2Fwww.kabum.com.br%2Fproduto%2F726765%2Fpelicula-de-vidro-temperado-9h-para-asus-rog-ally-e-ally-x" rel="sponsored nofollow" target="_blank">ver na KaBuM</a>
-
-## Guias relacionados
-
-No teste da casa, [ASUS ROG Ally (Z1 Extreme) em 2026: ainda vale no Brasil](/noticia/rog-xbox-ally-vale-a-pena-brasil).
-
-Ainda neste assunto, [Power bank para PC portátil: a wattagem que não mente](/noticia/power-bank-pc-portatil-wattagem).
-
-[PCs portáteis](/computadores/pcs-portateis) · [Reviews](/reviews)
+Fontes: [ASUS, bateria](https://rog.asus.com/articles/guides/how-to-extend-the-battery-life-of-your-rog-ally/), [ASUS, desempenho](https://rog.asus.com/us/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/), [suporte Ally](https://www.asus.com/global/support/faq/1050046/), [Ally original](https://www.asus.com/us/news/vl6jkykquqnzzsuc/), [Ally X 2024](https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-ally-x-2024/), [comparação de gerações](https://rog.asus.com/us/articles/rog-ally/rog-ally-vs-rog-xbox-ally-and-rog-xbox-ally-x-all-the-improvements-in-the-newest-rog-gaming-handhelds/) e [Digital Foundry, análise histórica](https://www.digitalfoundry.net/articles/digitalfoundry-2023-asus-rog-ally-vs-steam-deck-review?page=2).
 
 The Zero.
-
-Vai trazer um portátil de fora? Veja [como importar console portátil no Brasil: imposto, Remessa Conforme, garantia e Anatel](/noticia/importar-ayaneo-ou-ayn-brasil).
