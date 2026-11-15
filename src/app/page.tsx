@@ -135,8 +135,8 @@ export default function HomePage() {
       <section aria-label="Ofertas" className="border-b border-border py-5">
         <p className="text-[0.65rem] tracking-[0.2em] text-muted uppercase">Ofertas</p>
         <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <Link href="/menor-preco" className="font-medium hover:text-accent">
-            Menor preço do dia: placas de vídeo, SSDs e consoles checados na KaBuM →
+          <Link href="/precos-no-brasil" className="font-medium hover:text-accent">
+            Preços no Brasil: consoles, celulares e placas de vídeo, conferidos toda semana →
           </Link>
           <Link href="/black-friday" className="font-medium hover:text-accent">
             Black Friday 2026: o que vale comprar →

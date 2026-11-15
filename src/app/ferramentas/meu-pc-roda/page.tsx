@@ -30,7 +30,7 @@ export default function Page() {
       </ul>
       <p>
         Vai trocar de peça? Veja a <Link href="/ferramentas/calculadora-de-fonte">calculadora de fonte</Link> e o{" "}
-        <Link href="/menor-preco">menor preço do dia</Link>.
+        <Link href="/precos-no-brasil">tabela de preços no Brasil</Link>.
       </p>
     </ToolPage>
   );
