@@ -89,9 +89,9 @@ def refresh_threads_token(token: str, secrets: list[str] | None = None) -> str:
     return fresh
 
 
-def _poll_status(url: str, token: str, secrets: list[str], field: str, done: set[str]) -> None:
+def _poll_status(url: str, token: str, secrets: list[str], field: str, done: set[str], attempts: int = 30) -> None:
     last = ""
-    for _ in range(30):
+    for _ in range(attempts):
         data = _request(
             "GET",
             url,
@@ -111,14 +111,21 @@ def _poll_status(url: str, token: str, secrets: list[str], field: str, done: set
 
 def _permalink(url: str, token: str, secrets: list[str]) -> str:
     last_error = "permalink vazio"
-    for _ in range(5):
-        data = _request(
-            "GET",
-            url,
-            token,
-            secrets,
-            params={"fields": "permalink", "access_token": token},
-        )
+    for _ in range(8):
+        try:
+            data = _request(
+                "GET",
+                url,
+                token,
+                secrets,
+                params={"fields": "permalink", "access_token": token},
+            )
+        except RuntimeError as exc:  # mídia recém-publicada ainda não visível (code 24 / 9007): espera e repete
+            if not _media_not_ready(str(exc)):
+                raise
+            last_error = str(exc)
+            time.sleep(5)
+            continue
         permalink = str(data.get("permalink") or "").strip()
         if permalink:
             return permalink
@@ -133,7 +140,9 @@ PUBLISH_RETRY_WAITS_S = (10, 20, 30, 45, 60)
 def _media_not_ready(err: str) -> bool:
     """9007 / 'Media ID is not available': o container ainda não está publicável (transitório na Meta)."""
     low = err.lower()
-    return "9007" in low or "media id is not available" in low or "not ready" in low
+    return ("9007" in low or "media id is not available" in low or "not ready" in low
+            # Threads: container recém-criado ainda não propagado -> "The requested resource does not exist (code 24)"
+            or "(code 24)" in low or "requested resource does not exist" in low)
 
 
 def _publish_with_retry(url: str, token: str, secrets: list[str], data: dict, waits=None, sleep=time.sleep):
@@ -236,6 +245,43 @@ def post_instagram(token: str, user_id: str, image_url: str, caption: str, secre
     return _permalink(f"{GRAPH}/{media_id}", token, secrets)
 
 
+def post_instagram_reel(token: str, user_id: str, video_url: str, caption: str, secrets: list[str]) -> str:
+    """Publica um Reels: container com media_type=REELS e video_url público."""
+    container = _request(
+        "POST",
+        f"{GRAPH}/{user_id}/media",
+        token,
+        secrets,
+        data={
+            "media_type": "REELS",
+            "video_url": video_url,
+            "caption": caption,
+            "access_token": token,
+        },
+    )
+    container_id = container.get("id")
+    if not container_id:
+        raise RuntimeError(f"container do Reels falhou: {_error_text(container, secrets)}")
+    _poll_status(
+        f"{GRAPH}/{container_id}",
+        token,
+        secrets,
+        "status_code",
+        {"FINISHED", "PUBLISHED"},
+        attempts=100,  # vídeo processa mais devagar que imagem
+    )
+    published = _publish_with_retry(
+        f"{GRAPH}/{user_id}/media_publish",
+        token,
+        secrets,
+        {"creation_id": container_id, "access_token": token},
+    )
+    media_id = published.get("id")
+    if not media_id:
+        raise RuntimeError(f"publish do Reels falhou: {_error_text(published, secrets)}")
+    return _permalink(f"{GRAPH}/{media_id}", token, secrets)
+
+
 def post_threads(token: str, user_id: str, image_url: str, text: str, secrets: list[str]) -> str:
     container = _request(
         "POST",
@@ -259,12 +305,11 @@ def post_threads(token: str, user_id: str, image_url: str, text: str, secrets: l
         "status",
         {"FINISHED", "PUBLISHED"},
     )
-    published = _request(
-        "POST",
+    published = _publish_with_retry(
         f"{THREADS}/{user_id}/threads_publish",
         token,
         secrets,
-        data={"creation_id": container_id, "access_token": token},
+        {"creation_id": container_id, "access_token": token},
     )
     media_id = published.get("id")
     if not media_id:
@@ -279,7 +324,7 @@ def list_recent_ig(token: str, user_id: str, secrets: list[str], limit: int = 50
         token,
         secrets,
         params={
-            "fields": "permalink,timestamp,caption",
+            "fields": "permalink,timestamp,caption,media_type",
             "limit": str(limit),
             "access_token": token,
         },

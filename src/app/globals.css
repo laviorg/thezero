@@ -321,6 +321,27 @@ input {
     0 8px 28px rgb(0 0 0 / 0.16);
 }
 
+/* Compact thumbs in "Também nesta edição" / dense rails: ring only, no drop shadow. */
+.edition-rail-thumb .cover-frame {
+  box-shadow: inset 0 0 0 1px var(--tz-border);
+}
+
+.dark .edition-rail-thumb .cover-frame {
+  box-shadow: inset 0 0 0 1px rgb(238 242 248 / 0.1);
+}
+
+.article-card[data-layout="dense"]:hover .edition-rail-thumb .cover-frame {
+  box-shadow:
+    inset 0 0 0 1px var(--tz-border),
+    0 4px 14px rgb(17 24 39 / 0.1);
+}
+
+.dark .article-card[data-layout="dense"]:hover .edition-rail-thumb .cover-frame {
+  box-shadow:
+    inset 0 0 0 1px rgb(238 242 248 / 0.12),
+    0 4px 14px rgb(0 0 0 / 0.22);
+}
+
 .card-arrow {
   display: inline-block;
   margin-left: 0.35em;

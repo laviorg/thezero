@@ -56,6 +56,8 @@ function headersFile() {
   Content-Type: application/manifest+json; charset=utf-8
 /apple-icon
   Content-Type: image/png
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
 ${cloudflareOpenGraphHeaderBlock()}
 `;
 }

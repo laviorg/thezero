@@ -69,6 +69,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/precos-no-brasil" className="hover:text-accent">
+                Preços no Brasil
+              </Link>
+            </li>
+            <li>
               <Link href="/menor-preco" className="hover:text-accent">
                 Menor preço do dia
               </Link>
@@ -220,9 +225,9 @@ export function SiteFooter() {
               Termos
             </Link>
             {NEWSLETTER_ENABLED ? (
-              <a href="/newsletter" className="hover:text-accent">
+              <Link href="/newsletter" className="hover:text-accent">
                 Newsletter {NEWSLETTER_NAME}
-              </a>
+              </Link>
             ) : null}
             <FooterCookiesLink />
             <a href={`mailto:${site.email}`} className="hover:text-accent">

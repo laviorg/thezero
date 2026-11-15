@@ -13,6 +13,13 @@ def entry_complete(entry: dict | None) -> bool:
     return bool(str(entry.get("ig") or "").strip()) and bool(str(entry.get("threads") or "").strip())
 
 
+def reel_complete(entry: dict | None) -> bool:
+    """O Reels é independente: o post de imagem pode existir sem ele e vice-versa."""
+    if not entry:
+        return False
+    return bool(str(entry.get("reel") or "").strip())
+
+
 def text_matches_article(text: str, slug: str, article_url: str) -> bool:
     if not text:
         return False

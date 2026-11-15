@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { factCheckIssues } from "./check-posts.mjs";
+import { factCheckIssues, socialPackageIssues } from "./check-posts.mjs";
 
 const valid = `## FACT-CHECK
 - claim: A ficha lista 84 GB | source: https://www.nvidia.com/en-us/products/rtx-pro-5500/ | ok
@@ -67,5 +67,47 @@ describe("FACT-CHECK", () => {
   it("falha se o corpo do PR está vazio", () => {
     assert.match(factCheckIssues("")[0], /ausente/);
     assert.match(factCheckIssues("   ")[0], /ausente/);
+  });
+});
+
+describe("SOCIAL PACKAGE", () => {
+  const valid = `## SOCIAL PACKAGE
+- slug: exemplo-de-slug
+- url: https://www.thezero.com.br/noticia/exemplo-de-slug
+- cover_path: public/images/posts/exemplo-de-slug/cover.jpg
+- hook: Uma frase curta para a arte
+- summary: Uma ou duas frases sob o título da arte
+- caption_ig: |
+  Legenda do Instagram.
+- threads_x: |
+  Texto do Threads.
+`;
+
+  it("aceita bloco completo e consistente", () => {
+    assert.deepEqual(socialPackageIssues(valid, "exemplo-de-slug"), []);
+  });
+
+  it("falha se o bloco está ausente", () => {
+    const body = "## FACT-CHECK\n- claim: x | source: https://exemplo.com | ok\n";
+    assert.match(socialPackageIssues(body, "exemplo-de-slug")[0], /ausente/);
+  });
+
+  it("falha se falta campo obrigatório", () => {
+    const issues = socialPackageIssues(
+      "## SOCIAL PACKAGE\n- slug: exemplo-de-slug\n",
+      "exemplo-de-slug",
+    );
+    assert.equal(
+      issues.some((issue) => /campo obrigatório "hook"/.test(issue)),
+      true,
+    );
+  });
+
+  it("falha se o slug diverge do arquivo", () => {
+    const issues = socialPackageIssues(valid, "outro-slug");
+    assert.equal(
+      issues.some((issue) => /diferente do arquivo/.test(issue)),
+      true,
+    );
   });
 });

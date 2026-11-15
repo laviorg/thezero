@@ -5,7 +5,7 @@ Lista priorizada (mais fraco primeiro): `docs/reescrita-2026-11.md`. Trabalhe de
 ## Regras
 1. **Mantenha slug/URL e os fatos.** Não troque o nome do arquivo nem o `date`.
 2. **700–1100 palavras** de corpo. Corte enrolação, reescrita de release, clickbait e repetição.
-3. **Ângulo brasileiro real**: preço em R$, disponibilidade no Brasil, Anatel/Procon/CDC/LGPD/ANAC quando couber, e o que aquilo muda para o leitor daqui.
+3. **Ângulo brasileiro real**: preço em R$ lido em loja brasileira (ver "Preço em R$" no `AGENTS.md`), disponibilidade no Brasil, Anatel/Procon/CDC/LGPD/ANAC quando couber, e o que aquilo muda para o leitor daqui.
 4. **Seção de análise própria**: `## O que isso significa` (notícia) ou `## Nossa leitura` (guia), com opinião da casa.
 5. **2+ fontes citadas** com link externo real (linha `Fontes:` no fim, antes da navegação). Confira se o link abre.
 6. **1+ link interno** para um guia relevante (`/noticia/...`, `/black-friday`, `/menor-preco`).

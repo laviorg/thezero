@@ -2,6 +2,172 @@
 
 Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco primeiro.
 
+## Auditoria de 14/11/2026 (antes do novo pedido de revisão do AdSense)
+
+Critério de fraca: menos de 600 palavras, menos de 2 fontes externas de domínios diferentes, sem seção de análise própria (`O que isso significa`, `Nossa leitura`, `Veredito`, `<Verdict>` ou `<Rule>`) ou sem ângulo brasileiro (R$, Brasil, Anatel, Procon, Pix). Funda: 800+ palavras, 2+ fontes, análise, R$ e Brasil no texto e link interno.
+
+- Indexadas antes: 463. Fracas: 144. Fundas: 46.
+- `noindex: true` aplicado em 32: curtas e sem fontes, ou notícia estrangeira antiga sem ligação com o Brasil (política dos EUA, vazamento antigo, bastidor de empresa). Ficam no ar, fora do índice e fora do Leia também.
+- Indexadas depois: 431. Fracas que sobraram: 112, todas na fila abaixo.
+
+### Fila prioritária para a Instinct (trabalhe esta antes da tabela antiga)
+
+Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de problemas, depois as mais curtas. Mantenha slug e `date`, siga `docs/reescrita-padrao.md` e a regra de preço em R$ do `AGENTS.md`. Ao terminar, troque o status para `reescrito; PR #N`.
+
+| # | slug | formato | palavras | impressões 28d | o que falta | status |
+|---|---|---|---|---|---|---|
+| 1 | ios-27-quais-iphones-e-como-atualizar | tutorial | 965 | 162 | sem análise | pendente |
+| 2 | ps5-slim-vale-a-pena-2026-brasil | guia | 922 | 130 | sem 2 fontes | pendente |
+| 3 | importar-ayaneo-ou-ayn-brasil | guia | 2095 | 51 | sem análise | pendente |
+| 4 | desligar-historico-localizacao-google-android | tutorial | 1025 | 39 | sem 2 fontes, sem análise | pendente |
+| 5 | rog-ally-tdp-bateria-configs | guia | 871 | 21 | sem 2 fontes | pendente |
+| 6 | steam-deck-oled-vs-zeenix-pro | comparativo | 733 | 18 | sem 2 fontes | pendente |
+| 7 | pixel-no-brasil-quando-importar | comparativo | 651 | 16 | sem 2 fontes | pendente |
+| 8 | adrenalin-26-9-2-seis-jogos-recuo-rx-5000 | noticia | 1396 | 16 | sem ângulo BR | pendente |
+| 9 | ps-plus-extra-quem-joga-pouco | guia | 601 | 13 | sem 2 fontes | pendente |
+| 10 | rog-xbox-ally-vale-a-pena-brasil | guia | 2087 | 12 | sem 2 fontes, sem análise | pendente |
+| 11 | odin-2-vs-retroid-pocket-5 | comparativo | 622 | 11 | sem 2 fontes | pendente |
+| 12 | motorola-vs-samsung-intermediario | comparativo | 679 | 11 | sem 2 fontes | pendente |
+| 13 | cooler-torre-ou-water-cooler-aio | guia | 904 | 11 | sem 2 fontes | pendente |
+| 14 | macbook-air-m3-vs-notebook-windows-8-mil | comparativo | 809 | 10 | sem 2 fontes | pendente |
+| 15 | acer-nitro-v15-rtx-4060-vale-a-pena-2026-brasil | guia | 870 | 9 | sem 2 fontes | pendente |
+| 16 | rog-xbox-ally-vs-steam-deck-oled | comparativo | 876 | 9 | sem 2 fontes | pendente |
+| 17 | fonte-650w-80-plus-o-que-nao-economizar | guia | 980 | 9 | sem 2 fontes | pendente |
+| 18 | rtx-3050-vs-4050-notebook | comparativo | 928 | 7 | sem 2 fontes | pendente |
+| 19 | one-ui-9-quais-galaxy-e-como-atualizar | tutorial | 935 | 6 | sem 2 fontes, sem análise | pendente |
+| 20 | ps4-ainda-vale-2026-catalogo | guia | 610 | 6 | sem 2 fontes | pendente |
+| 21 | xbox-series-s-game-pass-e-netflix | guia | 697 | 6 | sem 2 fontes | pendente |
+| 22 | iphone-seminovo-brasil-o-que-checar | guia | 732 | 5 | sem 2 fontes | pendente |
+| 23 | amd-confirma-fsr-4-em-apus-2026 | noticia | 741 | 5 | sem 2 fontes | pendente |
+| 24 | antes-de-comprar-placa-de-video-black-friday-2026 | guia | 1368 | 5 | sem 2 fontes | pendente |
+| 25 | pause-point-android-outros-celulares | noticia | 602 | 4 | sem 2 fontes | pendente |
+| 26 | legion-go-s-steamos | review | 621 | 4 | sem 2 fontes | pendente |
+| 27 | zeenix-lite-portatil-barato | review | 697 | 4 | sem 2 fontes | pendente |
+| 28 | pcie-4-vs-5-ssd-vale-a-diferenca | guia | 937 | 4 | sem 2 fontes | pendente |
+| 29 | qual-console-portatil-comprar-2026-brasil | guia | 3301 | 4 | sem análise | pendente |
+| 30 | resgatar-jogos-gratis-epic-steam-prime-gaming | tutorial | 1227 | 3 | sem análise, sem ângulo BR | pendente |
+| 31 | celular-dual-sim-esim-brasil | guia | 633 | 3 | sem 2 fontes | pendente |
+| 32 | torchtpu-codigo-aberto-pytorch-roda-nativo-tpu-google | noticia | 658 | 3 | sem 2 fontes | pendente |
+| 33 | iphone-eua-vs-loja-br-conta-total | guia | 684 | 3 | sem 2 fontes | pendente |
+| 34 | xbox-series-x-vale-a-pena-2026-brasil | guia | 874 | 3 | sem 2 fontes | pendente |
+| 35 | hd-externo-vs-ssd-portatil | guia | 978 | 3 | sem 2 fontes | pendente |
+| 36 | android-studio-agentes-claude-codex-acp-rabbit-2 | noticia | 614 | 2 | sem 2 fontes | pendente |
+| 37 | jbl-junior-free-brasil | noticia | 677 | 2 | sem 2 fontes | pendente |
+| 38 | vivo-x500-pro-max-lancamento-global-preco-europa | noticia | 681 | 2 | sem 2 fontes | pendente |
+| 39 | switch-2-vs-steam-deck-oled-preco-brasil | comparativo | 699 | 2 | sem 2 fontes | pendente |
+| 40 | ssd-nvme-1tb-brasil-o-que-olhar | guia | 867 | 2 | sem 2 fontes | pendente |
+| 41 | e-titulo-2026-baixar-justificar-voto | tutorial | 1137 | 1 | sem 2 fontes, sem análise | pendente |
+| 42 | contexto-maior-que-prompt | guia | 1991 | 1 | sem análise, sem ângulo BR | pendente |
+| 43 | openai-gpt-61-terra-computer-use-metade-do-preco | noticia | 615 | 1 | sem 2 fontes | pendente |
+| 44 | siri-ai-portugues-ios-27-2 | noticia | 621 | 1 | sem 2 fontes | pendente |
+| 45 | jginyue-placa-pcie-chipset-b650-m2 | noticia | 623 | 1 | sem 2 fontes | pendente |
+| 46 | redmi-note-14-custo-beneficio | guia | 624 | 1 | sem 2 fontes | pendente |
+| 47 | windows-11-26h2-liberado-para-todos-como-atualizar | noticia | 634 | 1 | sem 2 fontes | pendente |
+| 48 | google-beam-uso-20-locais-familias-militares | noticia | 640 | 1 | sem 2 fontes | pendente |
+| 49 | hearken-lancamento-steam-preco-brasil | noticia | 667 | 1 | sem 2 fontes | pendente |
+| 50 | galaxy-a55-vs-edge-50-fusion | comparativo | 683 | 1 | sem 2 fontes | pendente |
+| 51 | galaxy-a16-ou-a26-entrada-samsung | guia | 691 | 1 | sem 2 fontes | pendente |
+| 52 | trocar-bateria-iphone-brasil-preco-risco | guia | 742 | 1 | sem 2 fontes | pendente |
+| 53 | switch-2-vale-a-pena-2026-brasil | guia | 757 | 1 | sem 2 fontes | pendente |
+| 54 | rx-7600-vs-rtx-4060-brasil | comparativo | 894 | 1 | sem 2 fontes | pendente |
+| 55 | placa-de-video-usada-brasil-checklist | guia | 942 | 1 | sem 2 fontes | pendente |
+| 56 | mini-pc-quando-substitui-o-desktop | guia | 946 | 1 | sem 2 fontes | pendente |
+| 57 | antes-de-comprar-notebook-black-friday-2026 | guia | 1224 | 1 | sem 2 fontes | pendente |
+| 58 | antes-de-comprar-ssd-black-friday-2026 | guia | 1438 | 1 | sem 2 fontes | pendente |
+| 59 | sony-ecm-ax10-microfone-audio-espacial-celular | noticia | 552 | 0 | <600 palavras | pendente |
+| 60 | openai-decisions-api-gpt-6-luna-decisoes-rapidas | noticia | 588 | 0 | <600 palavras | pendente |
+| 61 | nokia-ia-carajas-sem-internet | noticia | 596 | 0 | <600 palavras | pendente |
+| 62 | mistral-voxtral-3-agentes-de-voz | noticia | 602 | 0 | sem 2 fontes | pendente |
+| 63 | ayaneo-pocket-s-android-emulacao | review | 603 | 0 | sem 2 fontes | pendente |
+| 64 | block-dessa-modelo-voz-local-treinado-so-fala | noticia | 603 | 0 | sem 2 fontes | pendente |
+| 65 | game-pass-ultimate-vs-comprar-jogo | guia | 613 | 0 | sem 2 fontes | pendente |
+| 66 | fone-cancelamento-ruido-ate-800 | guia | 622 | 0 | sem 2 fontes | pendente |
+| 67 | samsung-galaxy-f70-5g-india | noticia | 624 | 0 | sem 2 fontes | pendente |
+| 68 | ipad-10-vs-tablet-android-gap-de-apps | comparativo | 625 | 0 | sem 2 fontes | pendente |
+| 69 | 5g-celular-intermediario-o-que-muda | guia | 630 | 0 | sem 2 fontes | pendente |
+| 70 | celular-ate-2-mil-brasil-2026 | guia | 635 | 0 | sem 2 fontes | pendente |
+| 71 | monitor-144hz-full-hd-vs-1440p | comparativo | 639 | 0 | sem 2 fontes | pendente |
+| 72 | anthropic-s1-ipo-nasdaq-ant-receita-prejuizo | noticia | 640 | 0 | sem 2 fontes | pendente |
+| 73 | meta-oferta-us-35-bilhoes-expansao-ia | noticia | 640 | 0 | sem 2 fontes | pendente |
+| 74 | undervolt-de-gpu | guia | 640 | 0 | sem 2 fontes | pendente |
+| 75 | usb-c-cabo-errado-2026 | guia | 642 | 0 | sem 2 fontes | pendente |
+| 76 | micron-g11-nand-400-camadas-densidade-dobro | noticia | 658 | 0 | sem 2 fontes | pendente |
+| 77 | airpods-vs-galaxy-buds-ecossistema-misto | comparativo | 661 | 0 | sem 2 fontes | pendente |
+| 78 | ssd-no-ps5-upgrade | guia | 665 | 0 | sem 2 fontes | pendente |
+| 79 | rtx-5090-mod-conector-8-pinos | noticia | 672 | 0 | sem 2 fontes | pendente |
+| 80 | ipad-mini-a20-pro-oled-85-polegadas | noticia | 677 | 0 | sem 2 fontes | pendente |
+| 81 | fone-tws-ate-300-audio-e-microfone | guia | 686 | 0 | sem 2 fontes | pendente |
+| 82 | ps5-vs-series-x-exclusivo-game-pass-preco | comparativo | 695 | 0 | sem 2 fontes | pendente |
+| 83 | fire-tv-stick-vs-chromecast-na-tv | guia | 702 | 0 | sem 2 fontes | pendente |
+| 84 | tablet-ate-1500-estudar-e-netflix | guia | 731 | 0 | sem 2 fontes | pendente |
+| 85 | kaist-microsoft-ia-ondas-cerebrais-nva | noticia | 739 | 0 | sem 2 fontes | pendente |
+| 86 | carregador-usb-c-rapido-sem-fritar-bateria | guia | 746 | 0 | sem 2 fontes | pendente |
+| 87 | agentes-ia-mensagens-texto-imessage-whatsapp | noticia | 748 | 0 | sem 2 fontes | pendente |
+| 88 | nvidia-amd-investem-us-4-bilhoes-meta-muse | noticia | 749 | 0 | sem 2 fontes | pendente |
+| 89 | sidetrack-tiny-trains-desktop-steam | noticia | 760 | 0 | sem 2 fontes | pendente |
+| 90 | kingston-nv3-1tb-vale-a-pena-2026-brasil | guia | 770 | 0 | sem 2 fontes | pendente |
+| 91 | duckdb-2-0-lts-quack-variant-modo-agente | noticia | 790 | 0 | sem 2 fontes | pendente |
+| 92 | celular-melhor-camera-ate-3-mil | guia | 814 | 0 | sem 2 fontes | pendente |
+| 93 | ultrabook-faculdade-bateria-tela-teclado | guia | 830 | 0 | sem 2 fontes | pendente |
+| 94 | wpg-ravelin-hoje-steam | noticia | 831 | 0 | sem 2 fontes | pendente |
+| 95 | gabinete-fluxo-de-ar-ate-400 | guia | 865 | 0 | sem 2 fontes | pendente |
+| 96 | rtx-4070-super-usada-vs-5070-nova | comparativo | 904 | 0 | sem 2 fontes | pendente |
+| 97 | placa-mae-b650-barata-upgrade-ryzen | guia | 924 | 0 | sem 2 fontes | pendente |
+| 98 | notebook-2-em-1-vale-a-pena | guia | 931 | 0 | sem 2 fontes | pendente |
+| 99 | fonte-rtx-4060-e-4070-quantos-watts | guia | 936 | 0 | sem 2 fontes | pendente |
+| 100 | ram-16-ou-32-gb-2026 | guia | 936 | 0 | sem 2 fontes | pendente |
+| 101 | pc-gamer-ate-4-mil-2026 | guia | 939 | 0 | sem 2 fontes | pendente |
+| 102 | rtx-4060-vs-5060-brasil | comparativo | 946 | 0 | sem 2 fontes | pendente |
+| 103 | all-in-one-escritorio-pequeno | guia | 947 | 0 | sem 2 fontes | pendente |
+| 104 | ryzen-5-7600-vs-core-i5-custo-brasil | comparativo | 959 | 0 | sem 2 fontes | pendente |
+| 105 | notebook-gamer-ate-7-mil-brasil | guia | 964 | 0 | sem 2 fontes | pendente |
+| 106 | pc-trabalho-remoto-configuracao-enxuta | guia | 990 | 0 | sem 2 fontes | pendente |
+| 107 | pc-edicao-de-video-ate-6-mil | guia | 995 | 0 | sem 2 fontes | pendente |
+| 108 | sony-ps5-upscaling-ia-qssr | noticia | 1054 | 0 | sem ângulo BR | pendente |
+| 109 | notebook-usado-empresarial-checklist | guia | 1072 | 0 | sem ângulo BR | pendente |
+| 110 | antes-de-comprar-console-black-friday-2026 | guia | 1084 | 0 | sem 2 fontes | pendente |
+| 111 | iphone-18-pro-vale-a-pena-brasil | vale-a-pena | 1106 | 0 | sem 2 fontes | pendente |
+| 112 | ddr4-vs-ddr5-ainda-vale-montar | guia | 1241 | 0 | sem 2 fontes | pendente |
+
+### Noindex aplicado em 14/11/2026
+
+| slug | formato | palavras | motivo |
+|---|---|---|---|
+| altman-amodei-senado-australia-quinta-canberra | noticia | 1189 | sem ângulo BR |
+| amazon-built-together-data-centers | noticia | 1020 | sem ângulo BR |
+| amd-ryzen-z3-vazamento | noticia | 1070 | sem ângulo BR |
+| america-gov-responde-hoje-transacao-depois | noticia | 1588 | sem ângulo BR |
+| anbernic-rg35xx-h-barato | review | 560 | <600 palavras, sem 2 fontes |
+| anthropic-claude-corte-washington-2-a-1 | noticia | 1304 | sem ângulo BR |
+| apple-macbook-pro-14-imac-m6-precos-brasil | noticia | 585 | <600 palavras, sem 2 fontes |
+| chatgpt-vs-gemini-no-celular | guia | 581 | <600 palavras, sem 2 fontes |
+| cnbc-jantar-trump-amodei-domingo | noticia | 992 | sem ângulo BR |
+| fone-com-fio-ainda-faz-sentido-2026 | guia | 580 | <600 palavras, sem 2 fontes |
+| gemini-4-carbon-acesso-restrito-fairwind-ciberseguranca | noticia | 552 | <600 palavras, sem 2 fontes |
+| google-deepmind-synthid-bio | noticia | 1131 | sem ângulo BR |
+| google-suncatcher-tpu-quinze-minutos | noticia | 916 | sem ângulo BR |
+| google-tpu-orbita-project-suncatcher | noticia | 1029 | sem ângulo BR |
+| gpd-win-mini-7-ryzen | review | 533 | <600 palavras, sem 2 fontes |
+| headset-ate-500-microfone | guia | 543 | <600 palavras, sem 2 fontes |
+| ia-gratis-para-trabalho-2026 | guia | 592 | <600 palavras, sem 2 fontes |
+| intel-nova-lake-4970k-bfc | noticia | 933 | sem ângulo BR |
+| jensen-huang-zero-por-cento-fim-do-mundo | noticia | 723 | sem ângulo BR |
+| legion-go-vs-rog-ally | comparativo | 595 | <600 palavras, sem 2 fontes |
+| msi-claw-8-ai-bateria-jogos | review | 585 | <600 palavras, sem 2 fontes |
+| nothing-phone-brasil-preco-updates | guia | 559 | <600 palavras, sem 2 fontes |
+| nscale-336-bi-antes-do-ipo-25-mil-gpus | noticia | 997 | sem ângulo BR |
+| nvidia-openshell-sentry-hugging-face | noticia | 1378 | sem ângulo BR |
+| openai-53-imagens-de-usuarios | noticia | 1347 | sem ângulo BR |
+| openai-agente-entrou-portal-medicare | noticia | 1169 | sem ângulo BR |
+| openai-pausa-modelos-capazes-furo-dns | noticia | 1633 | sem ângulo BR |
+| openai-segura-gpt-61-astra | noticia | 1505 | sem ângulo BR |
+| openai-unctadstat-16500-varreduras | noticia | 1061 | sem ângulo BR |
+| shopify-canvas-sidekick-ia | noticia | 941 | sem ângulo BR |
+| steam-vs-epic-vs-xbox-pc-preco | guia | 585 | <600 palavras, sem 2 fontes |
+| vivo-satelite-starlink-celular-d2d-whatsapp-maps-brasil | noticia | 576 | <600 palavras, sem 2 fontes |
+
+## Inventário de 03/11/2026
+
 | # | score | slug | formato | palavras | fontes | BR | análise | links int. | capa px | status |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | 44 | vs-code-vs-cursor-para-quem-comeca | guia | 500 | 0 | 1 | 1 | 2 | 1200 | reescrito; PR #458 mesclado em 03/11 |
@@ -66,7 +232,7 @@ Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco p
 | 60 | 56 | ayn-odin-2-setup-emulacao | guia | 754 | 0 | 2 | 1 | 4 | 1200 | reescrito 14/11: pastas, permissões e backup documentados; limites de fontes antigas e direitos autorais; foto licenciada; slug/date preservados |
 | 61 | 56 | ea-fecha-bioware-cancela-mass-effect-400-demissioes | noticia | 641 | 2 | 2 | 1 | 0 | 3840 | reescrito 14/11: confirmação oficial separada de estimativas de cortes, aquisição documentada e catálogo/idiomas BR; foto licenciada; slug/date preservados |
 | 62 | 56 | retroid-pocket-5-custo-beneficio | review | 966 | 0 | 4 | 1 | 4 | 1200 | reescrito 14/11: versões RAM documentadas, compatibilidade sem promessa universal e custo de importação; análise sem teste próprio/foto licenciada ilustrativa; slug/date preservados |
-| 63 | 56 | steam-vs-epic-vs-xbox-pc-preco | guia | 565 | 0 | 4 | 1 | 3 | 1200 | reescrito (14/11/2026): políticas de compra, reembolso e assinatura; custo em reais sem ranking universal |
+| 63 | 56 | steam-vs-epic-vs-xbox-pc-preco | guia | 565 | 0 | 4 | 1 | 3 | 1200 | reescrito; PR #573; noindex preservado |
 | 64 | 57 | ia-gratis-para-trabalho-2026 | guia | 562 | 1 | 2 | 1 | 4 | 1200 | pendente |
 | 65 | 57 | ipad-10-vs-tablet-android-gap-de-apps | comparativo | 606 | 0 | 4 | 1 | 2 | 1200 | pendente |
 | 66 | 57 | jginyue-placa-pcie-chipset-b650-m2 | noticia | 579 | 2 | 3 | 1 | 0 | 1672 | pendente |
