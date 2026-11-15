@@ -9,11 +9,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-const title = "Menor preço do dia: placas de vídeo, SSDs e consoles na KaBuM";
+const title = "Preços checados na KaBuM: placas de vídeo, SSDs e consoles";
 const description =
-  "Preço à vista de placas de vídeo, SSDs e consoles conferido todo dia na página da KaBuM, com data e hora de cada checagem e o menor valor já registrado.";
+  "Arquivo de preços à vista de placas de vídeo, SSDs e consoles lidos na página da KaBuM, com data e hora de cada checagem. Preços atuais na tabela semanal Preços no Brasil.";
 const cover = "/images/pages/menor-preco.png";
-const coverAlt = "Arte com o texto Menor preço do dia e a marca The Zero sobre fundo escuro";
+const coverAlt = "Arte com o texto Preços checados na KaBuM, arquivo até 16/10/2026, e a marca The Zero sobre fundo escuro";
 
 export const metadata: Metadata = buildPageMetadata({
   title,
@@ -41,12 +41,15 @@ export default function LowestPricePage() {
         dateModified={priceData.generatedAt}
         items={all.map((item) => ({ name: item.name, url: item.url }))}
       />
-      <Breadcrumbs items={[{ href: "/", label: "Newsroom" }, { label: "Menor preço do dia" }]} />
+      <Breadcrumbs items={[{ href: "/", label: "Newsroom" }, { label: "Preços checados na KaBuM" }]} />
       <p className="eyebrow page-kicker">Rastreador</p>
       <h1 className="page-title mt-3 font-extrabold text-balance">{title}</h1>
       <p className="lede mt-4">
-        Um robô do The Zero abre a página de cada produto na KaBuM todo dia de manhã e lê o preço que a própria
-        página informa. Sem estimativa, sem preço inventado: se a leitura falha, o item fica marcado.
+        Esta página guarda os preços que um robô do The Zero leu na página de cada produto na KaBuM. A checagem
+        automática está pausada: a última leitura é de{" "}
+        <time dateTime={priceData.generatedAt}>{formatBRT(priceData.generatedAt)}</time>, e os valores abaixo
+        podem não valer mais. Para preço atual, veja a tabela{" "}
+        <Link href="/precos-no-brasil">Preços no Brasil</Link>, conferida toda semana em lojas brasileiras.
       </p>
       <p className="mt-3 text-sm text-muted">
         Última atualização desta página: <time dateTime={priceData.generatedAt}>{formatBRT(priceData.generatedAt)}</time>.
@@ -125,8 +128,9 @@ export default function LowestPricePage() {
             for, ou se a página não abrir, o preço anterior fica com a data antiga e o item é marcado.
           </li>
           <li>
-            A checagem roda todo dia por volta das 06:15 (horário de Brasília). A página só é republicada quando algum
-            preço ou estoque muda, ou a cada 3 dias. Preço com mais de 48 horas aparece como desatualizado.
+            A checagem automática rodou todo dia de manhã até 16/10/2026 e está pausada desde então. Preço com mais de
+            48 horas aparece como desatualizado. Para valores atuais, use a tabela{" "}
+            <Link href="/precos-no-brasil">Preços no Brasil</Link>.
           </li>
           <li>
             &quot;Menor registrado&quot; é o menor preço que o nosso robô viu com o produto em estoque, desde que o item
