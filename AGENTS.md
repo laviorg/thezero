@@ -61,6 +61,12 @@ Campos de várias linhas usam `|` e ficam indentados, como no exemplo. Não colo
 
 A publicação automática está em [`docs/social-automation.md`](docs/social-automation.md).
 
+### Preço em R$
+
+Produto ou serviço vendido no Brasil leva o preço real em R$, lido na página do site oficial brasileiro da marca ou de loja grande brasileira (Amazon.com.br, KaBuM, Magalu, loja oficial no Mercado Livre). No texto vão a loja, o link e a data da consulta, e se é preço à vista, de tabela ou "a partir de". Oferta de vendedor parceiro (marketplace) diz quem vende. A mesma informação entra numa linha do `FACT-CHECK` com a URL da loja.
+
+Sem R$ só quando não existe venda nem preço no Brasil, e o texto diz isso ("sem venda oficial no Brasil até a data da consulta"). Conversão de dólar não substitui preço de loja quando o produto já é vendido aqui; quando não há preço local, a conversão só vale com PTAX linkada e rotulada como estimativa. Nunca invente preço. A tabela [`/precos-no-brasil`](docs/precos-no-brasil.md) serve de referência, mas o preço da matéria é conferido de novo na loja.
+
 ### CaixaCompra (afiliado)
 
 **Notícia nunca leva `<CaixaCompra>`** (desde 01/11/2026, P0 AdSense). CaixaCompra só em guia, review, comparativo, vale-a-pena, /black-friday, /prime-day, /11-11 e /menor-preco; máximo editorialmente ligado; Amazon `?tag=thezero04-20`; KaBuM só Awin; sem preço inventado. Notícia com intenção de compra linka o guia do assunto. Detalhe: [`docs/caixa-compra.md`](docs/caixa-compra.md). Limpeza de acervo: [`docs/acervo-limpeza-2026-11.md`](docs/acervo-limpeza-2026-11.md).

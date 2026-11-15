@@ -388,15 +388,31 @@ function slugTokens(slug: string): Set<string> {
   );
 }
 
+/** Internal article paths already linked in the body (relative or absolute). */
+export function linkedArticleHrefs(content: string): Set<string> {
+  const hrefs = new Set<string>();
+  const re = /(?:https?:\/\/(?:www\.)?thezero\.com\.br)?(\/noticia\/[a-z0-9-]+)/gi;
+  for (const match of content.matchAll(re)) hrefs.add(match[1].toLowerCase());
+  return hrefs;
+}
+
 /**
  * Related reading for an article. Topic overlap (shared slug terms) first,
  * then same subcategory, then same category. Inside each tier, articles
  * closest in publication date win, older and newer alike, so links spread
  * across the archive instead of always pointing at the newest posts.
+ * With no topical match at all, the newest articles fill the gap.
+ * `exclude` drops hrefs already linked in the body (the internal guide).
  */
-export function getRelatedPosts(post: Post, limit = 3): Post[] {
+export function getRelatedPosts(
+  post: Post,
+  limit = 3,
+  options: { exclude?: Set<string> } = {},
+): Post[] {
+  const exclude = options.exclude ?? new Set<string>();
   const posts = getAllPosts().filter(
-    (item) => !item.noindex && item.slug !== post.slug,
+    (item) =>
+      !item.noindex && item.slug !== post.slug && !exclude.has(item.href),
   );
   const tokens = slugTokens(post.slug);
   const time = Date.parse(post.dateIso) || 0;
@@ -411,11 +427,16 @@ export function getRelatedPosts(post: Post, limit = 3): Post[] {
     return value;
   };
   return posts
-    .map((item) => ({
-      item,
-      score: score(item),
-      distance: Math.abs((Date.parse(item.dateIso) || 0) - time),
-    }))
+    .map((item) => {
+      const itemTime = Date.parse(item.dateIso) || 0;
+      const value = score(item);
+      return {
+        item,
+        score: value,
+        // Tier 0 (no relation): newest first. Otherwise: closest in date.
+        distance: value === 0 ? -itemTime : Math.abs(itemTime - time),
+      };
+    })
     .sort((a, b) => b.score - a.score || a.distance - b.distance)
     .slice(0, limit)
     .map((entry) => entry.item);
