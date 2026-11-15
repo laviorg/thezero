@@ -62,7 +62,7 @@ export default function Page() {
         <li>Compatibilidade primeiro: processador e placa-mãe do mesmo soquete (AM4 ou AM5), memória do tipo que a placa aceita (DDR4 ou DDR5), sempre em dois pentes pra usar dual channel.</li>
         <li>Fonte com folga pela <Link href="/ferramentas/calculadora-de-fonte">calculadora de fonte</Link> e pela recomendação oficial da placa de vídeo.</li>
         <li>Links conferidos na KaBuM em {builds.checkedAt.split("-").reverse().join("/")}: a página abriu e o nome do produto bate com a tabela.</li>
-        <li>Preço não aparece aqui. Pra placas de vídeo e SSDs, o <Link href="/menor-preco">menor preço do dia</Link> mostra o valor checado com data e hora.</li>
+        <li>Preço não aparece aqui. Pra placas de vídeo e SSDs, a <Link href="/precos-no-brasil">tabela de preços no Brasil</Link> mostra o valor checado em loja, com link e data.</li>
       </ul>
       <p>
         Leia também: <Link href="/noticia/pc-gamer-ate-4-mil-2026">PC gamer até R$ 4 mil</Link> ·{" "}

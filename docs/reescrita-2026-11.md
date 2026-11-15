@@ -16,9 +16,9 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 
 | # | slug | formato | palavras | impressões 28d | o que falta | status |
 |---|---|---|---|---|---|---|
-| 1 | ios-27-quais-iphones-e-como-atualizar | tutorial | 965 | 162 | sem análise | pendente |
+| 1 | ios-27-quais-iphones-e-como-atualizar | tutorial | 965 | 162 | sem análise | reescrito 15/11; PR em revisão; publicação pendente |
 | 2 | ps5-slim-vale-a-pena-2026-brasil | guia | 922 | 130 | sem 2 fontes | reescrito 15/11; PR em revisão; publicação pendente |
-| 3 | importar-ayaneo-ou-ayn-brasil | guia | 2095 | 51 | sem análise | pendente |
+| 3 | importar-ayaneo-ou-ayn-brasil | guia | 2095 | 51 | sem análise | reescrito 15/11; PR em revisão; publicação pendente |
 | 4 | desligar-historico-localizacao-google-android | tutorial | 1025 | 39 | sem 2 fontes, sem análise | pendente |
 | 5 | rog-ally-tdp-bateria-configs | guia | 871 | 21 | sem 2 fontes | pendente |
 | 6 | steam-deck-oled-vs-zeenix-pro | comparativo | 733 | 18 | sem 2 fontes | pendente |
@@ -232,7 +232,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 60 | 56 | ayn-odin-2-setup-emulacao | guia | 754 | 0 | 2 | 1 | 4 | 1200 | reescrito 14/11: pastas, permissões e backup documentados; limites de fontes antigas e direitos autorais; foto licenciada; slug/date preservados |
 | 61 | 56 | ea-fecha-bioware-cancela-mass-effect-400-demissioes | noticia | 641 | 2 | 2 | 1 | 0 | 3840 | reescrito 14/11: confirmação oficial separada de estimativas de cortes, aquisição documentada e catálogo/idiomas BR; foto licenciada; slug/date preservados |
 | 62 | 56 | retroid-pocket-5-custo-beneficio | review | 966 | 0 | 4 | 1 | 4 | 1200 | reescrito 14/11: versões RAM documentadas, compatibilidade sem promessa universal e custo de importação; análise sem teste próprio/foto licenciada ilustrativa; slug/date preservados |
-| 63 | 56 | steam-vs-epic-vs-xbox-pc-preco | guia | 565 | 0 | 4 | 1 | 3 | 1200 | pendente |
+| 63 | 56 | steam-vs-epic-vs-xbox-pc-preco | guia | 565 | 0 | 4 | 1 | 3 | 1200 | reescrito; PR #573; noindex preservado |
 | 64 | 57 | ia-gratis-para-trabalho-2026 | guia | 562 | 1 | 2 | 1 | 4 | 1200 | pendente |
 | 65 | 57 | ipad-10-vs-tablet-android-gap-de-apps | comparativo | 606 | 0 | 4 | 1 | 2 | 1200 | pendente |
 | 66 | 57 | jginyue-placa-pcie-chipset-b650-m2 | noticia | 579 | 2 | 3 | 1 | 0 | 1672 | pendente |
@@ -511,7 +511,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 339 | 80 | control-resonant-hoje | noticia | 871 | 11 | 28 | 1 | 0 | 1920 | pendente |
 | 340 | 80 | e-titulo-atualizacao-eleicoes-2026-justificativa | noticia | 847 | 6 | 6 | 1 | 0 | 1563 | pendente |
 | 341 | 80 | google-play-cria-apps-ia-studio-android-sem-conta-dev | noticia | 857 | 6 | 6 | 1 | 0 | 1600 | pendente |
-| 342 | 80 | ios-27-quais-iphones-e-como-atualizar | tutorial | 946 | 3 | 4 | 0 | 2 | 1200 | pendente |
+| 342 | 80 | ios-27-quais-iphones-e-como-atualizar | tutorial | 946 | 3 | 4 | 0 | 2 | 1200 | reescrito 15/11; PR em revisão; publicação pendente |
 | 343 | 80 | nuvem-gratis-drive-onedrive-icloud | guia | 743 | 4 | 3 | 1 | 3 | 1200 | reescrito lote 1 |
 | 344 | 80 | nvidia-openshell-sentry-hugging-face | noticia | 1362 | 6 | 0 | 1 | 2 | 1800 | pendente |
 | 345 | 80 | openai-segura-gpt-61-astra | noticia | 1487 | 6 | 0 | 1 | 2 | 1920 | pendente |
@@ -578,7 +578,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 406 | 93 | fonte-650w-80-plus-o-que-nao-economizar | guia | 952 | 11 | 7 | 1 | 3 | 1200 | pendente |
 | 407 | 94 | pc-edicao-de-video-ate-6-mil | guia | 969 | 4 | 5 | 1 | 5 | 1200 | pendente |
 | 408 | 95 | antes-de-comprar-placa-de-video-black-friday-2026 | guia | 1241 | 8 | 5 | 1 | 8 | 1200 | pendente |
-| 409 | 95 | importar-ayaneo-ou-ayn-brasil | guia | 1949 | 4 | 12 | 1 | 7 | 1200 | pendente |
+| 409 | 95 | importar-ayaneo-ou-ayn-brasil | guia | 1949 | 4 | 12 | 1 | 7 | 1200 | reescrito 15/11; PR em revisão; publicação pendente |
 | 410 | 95 | qual-console-portatil-comprar-2026-brasil | guia | 3062 | 7 | 31 | 1 | 30 | 1200 | pendente |
 | 411 | 95 | rog-xbox-ally-vale-a-pena-brasil | guia | 1954 | 3 | 22 | 1 | 9 | 2400 | pendente |
 | 412 | 95 | steam-deck-oled-ainda-vale-a-pena-2026 | guia | 1892 | 6 | 10 | 1 | 11 | 1920 | pendente |
