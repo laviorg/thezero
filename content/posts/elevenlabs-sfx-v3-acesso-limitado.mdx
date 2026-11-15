@@ -1,0 +1,66 @@
+---
+title: "ElevenLabs lança SFX v3 para cenas com vários sons, mas acesso pela API ainda é limitado"
+seoTitle: "ElevenLabs SFX v3 chega com acesso limitado pela API"
+excerpt: "Modelo promete seguir melhor pedidos com sons combinados. Documentação mantém v2 como padrão e avisa que v3 pode não estar disponível em toda região."
+category: ia
+subcategory: ferramentas
+format: noticia
+date: "2026-10-30T21:35:13-03:00"
+featured: false
+kicker: "IA · ferramentas"
+author: "nicholas"
+cover: "/images/posts/elevenlabs-sfx-v3-acesso-limitado/cover.jpg"
+coverAlt: "Homem de cabelo castanho e camisa clara sorri de perfil em ambiente interno com fundo escuro e divisórias marrons"
+coverCredit: "Rafał Masłow / Wikimedia Commons / CC BY-SA 4.0; Mati Staniszewski em 2022, foto recortada"
+---
+
+A ElevenLabs anunciou o **SFX v3**, modelo que gera efeitos sonoros a partir de texto e promete lidar melhor com pedidos que combinam vários sons. O [anúncio foi publicado em 29 de outubro e atualizado no dia 30](https://elevenlabs.io/blog/sound-effects-v3). A empresa apresenta o modelo no ElevenCreative e na ElevenAPI, mas a documentação traz uma ressalva importante: o acesso à versão nova pela API ainda é limitado e pode não estar disponível em todas as regiões.
+
+Essa diferença importa para criadores e desenvolvedores brasileiros. A novidade não significa que qualquer conta já consiga usar o modelo nem que integrações existentes tenham sido atualizadas automaticamente. Na API, **o SFX v2 continua sendo o padrão**, segundo a [referência oficial do serviço](https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert).
+
+![Homem de cabelo castanho e camisa clara sorri de perfil em ambiente interno com fundo escuro e divisórias marrons](/images/posts/elevenlabs-sfx-v3-acesso-limitado/cover.jpg)
+*Mati Staniszewski, cofundador da ElevenLabs, em foto de 2022, não do anúncio. [Rafał Masłow / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mati_Staniszewski_(2022).jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Imagem recortada; adaptação sob a mesma licença.*
+
+<Verdict overrated="ler disponível na API como liberado para toda conta e região" underrated="conferir acesso, versão selecionada e direitos de uso antes de colocar um efeito em produção" />
+
+## O foco é uma cena, não um som isolado
+
+O exemplo escolhido pela ElevenLabs é uma torcida comemorando, uma bola caindo e a mesma torcida vaiando segundos depois. A promessa é que mais elementos de uma descrição desse tipo apareçam no áudio final, em vez de o resultado privilegiar apenas uma parte do pedido.
+
+A empresa também afirma ter melhorado sons com música e vocais e reduzido artefatos em fontes como gongos, sinos e assobios. Essas comparações são da fabricante. O anúncio cita testes de referência, mas não apresenta pontuações ou uma metodologia detalhada que permita avaliar o ganho de forma independente.
+
+A [cobertura da FrameSignal](https://framesignal.com/research/elevenlabs-sfx-v3-ai-sound-effects-whole-scene) destaca essa limitação: os ganhos apresentados vêm da própria ElevenLabs, enquanto o guia para desenvolvedores avisa que os resultados variam conforme o pedido. Não fizemos um teste comparativo do SFX v3.
+
+## Onde a versão nova aparece
+
+No ElevenCreative, o anúncio lista a aba Sound Effects, Flows, Studio e Music Editor como espaços para criar efeitos a partir de texto. A empresa também menciona o aplicativo móvel como uma forma de experimentar o modelo.
+
+Para quem desenvolve uma integração, a seleção é explícita: o campo `model_id` precisa receber `eleven_text_to_sound_v3`. O endpoint aceita tanto essa versão quanto `eleven_text_to_sound_v2`, que permanece como valor padrão. Assim, apenas omitir o campo não seleciona a novidade.
+
+A [documentação de capacidades](https://elevenlabs.io/docs/overview/capabilities/sound-effects) diz que contas sem acesso recebem o erro `Unknown model`. Não é uma prova, por si só, de que o nome foi digitado errado: pode ser uma restrição de acesso. A página não informa uma data em que todas as contas ou regiões passarão a receber a versão.
+
+## Precisão continua tendo limites
+
+O guia orienta descrever a ação, o ambiente, a atmosfera e a execução desejada, em vez de pedir apenas uma categoria ampla de som. Também recomenda comparar as duas versões usando os próprios pedidos, porque a resposta pode variar.
+
+Há uma limitação concreta: solicitar um número exato de repetições, como quatro batidas em um triângulo, nem sempre é seguido. Portanto, uma cena que depende de sincronismo ou de uma contagem rígida ainda exige escuta e ajuste. Melhor aderência ao texto não é garantia de edição final pronta.
+
+A geração chega a 30 segundos por efeito, segundo a documentação. Isso não significa produzir uma trilha completa de qualquer duração em uma única solicitação. O próprio guia diferencia elementos musicais curtos de produção musical completa, para a qual aponta outro serviço.
+
+## O que isso significa no Brasil
+
+Para integrar o SFX v3 em um produto brasileiro, é necessário selecionar a versão nova e verificar se a conta tem acesso. A documentação não identifica o Brasil como uma região liberada para todas as contas; também não oferece um cronograma brasileiro. O anúncio geral e a ressalva técnica precisam ser lidos juntos.
+
+O direito de usar o áudio comercialmente é outra questão. A [política oficial de publicação](https://elevenlabs.io/docs/help-center/legal/can-i-publish-the-content-i-generate-on-the-platform) diz que o plano gratuito não inclui licença comercial. Planos pagos incluem essa licença desde que não se trate de Beta Services, com observância dos direitos sobre o conteúdo, das leis e dos termos aplicáveis. Não basta conseguir gerar um arquivo para presumir todos esses direitos.
+
+Efeitos gerados tampouco substituem uma captação limpa de narração. Para quem grava a própria voz, nosso [guia de microfone USB para gravar sem estúdio](https://www.thezero.com.br/noticia/microfone-usb-sem-estudio) trata dessa etapa separada da produção de áudio.
+
+<Rule>O SFX v3 promete combinar mais sons; acesso, precisão e licença continuam precisando de checagem.</Rule>
+
+## Fontes
+
+- [ElevenLabs: anúncio do SFX v3](https://elevenlabs.io/blog/sound-effects-v3)
+- [ElevenLabs: capacidades, acesso e limites de efeitos sonoros](https://elevenlabs.io/docs/overview/capabilities/sound-effects)
+- [ElevenLabs: referência da API de geração de efeitos](https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert)
+- [ElevenLabs: política de publicação e licença comercial](https://elevenlabs.io/docs/help-center/legal/can-i-publish-the-content-i-generate-on-the-platform)
+- [FrameSignal: anúncio e ressalvas do SFX v3](https://framesignal.com/research/elevenlabs-sfx-v3-ai-sound-effects-whole-scene)

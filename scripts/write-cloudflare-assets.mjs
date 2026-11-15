@@ -3,6 +3,7 @@ import path from "node:path";
 import { performance } from "node:perf_hooks";
 import { articleImageUrls } from "../src/lib/article-images.ts";
 import { getAllPosts } from "../src/lib/posts.ts";
+import { cloudflareOpenGraphHeaderBlock } from "../src/lib/opengraph-crawl.ts";
 import { PATH_REDIRECTS } from "../src/lib/redirects.ts";
 import {
   buildNewsSitemapXml,
@@ -55,10 +56,7 @@ function headersFile() {
   Content-Type: application/manifest+json; charset=utf-8
 /apple-icon
   Content-Type: image/png
-/opengraph-image
-  Content-Type: image/png
-/*/opengraph-image
-  Content-Type: image/png
+${cloudflareOpenGraphHeaderBlock()}
 `;
 }
 

@@ -13,7 +13,7 @@ import {
 } from "@/lib/posts";
 import { fichas } from "@/lib/fichas";
 import { isIndexableHub } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 import { assertUniqueDocumentTitles } from "@/lib/title-audit";
 import type { MetadataRoute } from "next";
 
@@ -85,9 +85,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticEntries: MetadataRoute.Sitemap = [
     {
-      url: site.url,
+      url: absoluteUrl("/"),
       ...(contentFreshness ? { lastModified: contentFreshness } : {}),
-      alternates: languageAlternates(site.url),
+      alternates: languageAlternates(absoluteUrl("/")),
     },
     ...[
       ...STATIC_PAGE_SOURCES,

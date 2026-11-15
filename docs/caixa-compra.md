@@ -1,12 +1,17 @@
-# Regra permanente: CaixaCompra em notícia com intenção de compra
+# Regra permanente: CaixaCompra só em conteúdo evergreen
 
-Toda **notícia** com intenção de compra — hardware, preço, estoque, produto à venda no Brasil, ou lançamento que o leitor possa comprar já (ou uma alternativa editorialmente ligada) — **deve** ter 1–2 blocos `<CaixaCompra>` e disclosure **antes** do primeiro link afiliado.
+**Desde 01/11/2026 (pacote P0 AdSense): notícia (`format: noticia` ou sem format) NÃO leva `<CaixaCompra>` nem bloco “Onde olhar preço”.** CaixaCompra fica só em guias, reviews, comparativos, vale-a-pena, /black-friday, /prime-day, /11-11 e /menor-preco. Notícia com intenção de compra linka internamente para o guia/vale-a-pena do assunto.
+
+As regras abaixo valem para os formatos evergreen.
+
+
+Todo **guia/review/vale-a-pena** com intenção de compra — hardware, preço, estoque, produto à venda no Brasil, ou lançamento que o leitor possa comprar já (ou uma alternativa editorialmente ligada) — **deve** ter 1–2 blocos `<CaixaCompra>` e disclosure **antes** do primeiro link afiliado.
 
 ## Obrigatório
 
 1. **Disclosure antes do 1º link** — Amazon (`AMAZON_DISCLOSURE` / texto do Programa de Associados) e/ou KaBuM (`KABUM_DISCLOSURE`). O componente já marca “Publicidade”.
 2. **Produto editorialmente ligado** — o leitor precisa ver a ligação com a matéria. Sem “também veja notebook genérico”.
-3. **Máximo 2 caixas em notícia diária** — guias podem empilhar; notícia que vira vitrine dispara thin/affiliate spam.
+3. **Notícia: zero caixas** — guias podem empilhar; notícia que vira vitrine dispara thin/affiliate spam.
 4. **Href real** — Amazon `?tag=thezero04-20` (helper `amazonAffiliateUrl`); KaBuM **só** via Awin (`kabumAffiliateUrl`). Sem preço inventado; children só com nota de estoque/garantia/CEP.
 5. **Posição típica** — após a seção “O que isso significa no Brasil” (bloco `## Onde olhar preço`), antes de Rule/Fontes quando couber.
 6. **Sem fingir estoque** — se o produto da manchete não tem loja BR, afiliar **alternativa** alinhada ao texto (ex.: microfone USB-C na matéria do ECM-AX10), nunca o SKU inexistente.

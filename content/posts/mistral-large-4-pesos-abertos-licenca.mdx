@@ -1,0 +1,68 @@
+---
+title: "Mistral libera pesos do Large 4; licença exige acordo separado de empresas de modelo como serviço"
+seoTitle: "Mistral Large 4 tem pesos abertos, mas licença traz condição"
+excerpt: "Le Chonk pode ser baixado e hospedado na infraestrutura da empresa. Licença modificada exige acordo comercial para negócios de Model-as-a-Service."
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-10-30T08:35:34-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "nicholas"
+cover: "/images/posts/mistral-large-4-pesos-abertos-licenca/cover.jpg"
+coverAlt: "Ilustração em blocos de um monitor claro com símbolo laranja e vermelho no centro da tela, sobre fundo bege"
+coverCredit: "Mistral AI / Divulgação; ilustração oficial, não foto de equipamento"
+---
+
+A Mistral [liberou em 29 de outubro os pesos de uma versão melhorada do Mistral Large 4](https://mistral.ai/news/mistral-large-4-oss/), apelidado de Le Chonk. O modelo multimodal já havia entrado em prévia pública no começo do mês. O fato novo é o download para implantação e adaptação fora da API da empresa, acompanhado de uma condição de licença para negócios de **Model-as-a-Service**.
+
+A liberação não transforma toda forma de exploração comercial em uso sem acordo. A [licença publicada com o modelo](https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B/blob/main/LICENSE) exige contrato separado quando o licenciado ou suas afiliadas operam um negócio de modelo como serviço e pretendem usar o modelo comercialmente. Há exceções e definições no próprio texto, que importam antes de montar um produto.
+
+![Ilustração em blocos de um monitor claro com símbolo laranja e vermelho no centro da tela, sobre fundo bege](/images/posts/mistral-large-4-pesos-abertos-licenca/cover.jpg)
+*Mistral AI / Divulgação. Ilustração oficial do anúncio, não foto de equipamento.*
+
+<Verdict overrated="Ler pesos abertos como licença sem condição para qualquer negócio" underrated="Conferir a definição de modelo como serviço antes de oferecer acesso a terceiros" />
+
+## O que está sendo disponibilizado
+
+O [cartão do modelo no Hugging Face](https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B) descreve uma arquitetura de mistura de especialistas com cerca de um trilhão de parâmetros totais. A documentação apresenta aproximadamente **52 bilhões ativos por token** quando inclui embeddings e camadas de saída; o cartão separa 49 bilhões ativos sem esses componentes.
+
+A entrada aceita texto e imagens, com saída em texto. A janela de contexto anunciada é de **um milhão de tokens**. Esses números descrevem a arquitetura e a capacidade de entrada, não uma promessa de que qualquer arquivo desse tamanho será entendido sem erro.
+
+Há três níveis de esforço de raciocínio: baixo, médio e alto, sendo alto o padrão. A Mistral indica o modo baixo para tarefas simples, médio para o cotidiano e alto para casos difíceis. A escolha muda o equilíbrio entre trabalho de raciocínio e custo; não substitui avaliação na tarefa real.
+
+## A condição que acompanha os pesos
+
+A Mistral Ecosystem Open-Weight License é apresentada como uma versão modificada da MIT. Ela permite usar, copiar, modificar, distribuir, executar, ajustar e criar derivados, sujeita às condições do documento. Os avisos de direitos e permissão devem acompanhar cópias ou partes substanciais do modelo.
+
+A cláusula comercial trata de empresas que operam Model-as-a-Service. A definição envolve dar a terceiros acesso ao modelo ou derivados para inferência ou pós-treinamento, com controle relevante sobre entradas, parâmetros ou dados de treinamento.
+
+O texto exclui dessa definição produtos finais em que a capacidade do modelo esteja embutida apenas em funções específicas, assim como o simples repasse de pedidos a modelos hospedados por outros. Também diz que a exigência da cláusula não se aplica ao uso interno que não disponibiliza o modelo a terceiros nem ao uso por produtos oficiais da Mistral.
+
+Isso é um resumo das distinções escritas na licença, não parecer jurídico. Quem vai oferecer acesso comercial precisa comparar o desenho do próprio serviço com as definições, em vez de decidir só pelo rótulo aberto.
+
+## Cibersegurança é foco, não garantia
+
+A empresa destaca programação e defesa cibernética, com resultados de benchmarks e comparações de consumo de tokens. São medições divulgadas pela Mistral e não testes do The Zero. A [cobertura do TechCrunch](https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/) registra a aposta em organizações que querem implantar o sistema e controlar seus dados.
+
+O anúncio também diferencia a versão aberta de uma variante especializada em fluxos avançados de segurança, oferecida em prévia a parceiros empresariais sujeitos a avaliação e salvaguardas contratuais. Não se deve confundir esse acesso restrito com o download geral do Large 4.
+
+A própria Mistral reconhece potencial de uso indevido e diz que continuará ajustando proteções. Portanto, hospedar o modelo não torna permissões, revisão e segurança responsabilidades resolvidas por padrão.
+
+## O que isso significa no Brasil
+
+Os pesos estão publicados para download e a documentação oferece implantação própria, sem anúncio de uma etapa exclusiva de liberação para o Brasil. Para uma empresa brasileira, a escolha passa por infraestrutura, tratamento dos dados e enquadramento do serviço na licença, não apenas por acessar um chatbot.
+
+A Mistral oferece caminhos por API e ferramentas como vLLM e SGLang para infraestrutura própria. Baixar os pesos não elimina custo de computação nem significa que o modelo rode num computador comum. A notícia não recomenda comprar hardware ou dimensiona uma configuração sem teste.
+
+Antes de conectar um modelo a repositórios, sistemas internos ou documentos, estabeleça limites de acesso e revisão das ações. O guia [Permissões que não dar a um agente de IA](https://www.thezero.com.br/noticia/agente-ia-permissoes-que-nao-dar) organiza esses cuidados para além da escolha do modelo.
+
+<Rule>Ter os pesos dá controle de implantação; a licença e as permissões continuam definindo o que você pode fazer.</Rule>
+
+## Fontes
+
+- [Mistral — Liberação dos pesos do Large 4](https://mistral.ai/news/mistral-large-4-oss/)
+- [Hugging Face — Cartão oficial do modelo](https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B)
+- [Hugging Face — Licença oficial](https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B/blob/main/LICENSE)
+- [Mistral Docs — Arquitetura e recursos](https://docs.mistral.ai/models/mistral-large-4)
+- [TechCrunch — Pesos abertos e cibersegurança](https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/)

@@ -1,6 +1,6 @@
 name: social-post-retry
 
-# Re-executa os jobs que falharam no social-post (até 2 novas tentativas, com espera).
+# Re-executa social-post quando falha ou é cancelado (até 2 novas tentativas, com espera).
 on:
   workflow_run:
     workflows: [social-post]
@@ -12,14 +12,22 @@ permissions:
 
 jobs:
   retry:
-    if: github.event.workflow_run.conclusion == 'failure' && github.event.workflow_run.run_attempt < 3
+    if: >-
+      github.event.workflow_run.run_attempt < 3 &&
+      (github.event.workflow_run.conclusion == 'failure' ||
+       github.event.workflow_run.conclusion == 'cancelled')
     runs-on: ubuntu-latest
     steps:
-      - name: Esperar e re-executar jobs falhos
+      - name: Esperar e re-executar
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_ID: ${{ github.event.workflow_run.id }}
           ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+          CONCLUSION: ${{ github.event.workflow_run.conclusion }}
         run: |
           sleep $((120 * ATTEMPT))
-          gh run rerun "$RUN_ID" --failed -R "$GITHUB_REPOSITORY"
+          if [ "$CONCLUSION" = "cancelled" ]; then
+            gh run rerun "$RUN_ID" -R "$GITHUB_REPOSITORY"
+          else
+            gh run rerun "$RUN_ID" --failed -R "$GITHUB_REPOSITORY"
+          fi

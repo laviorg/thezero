@@ -1,0 +1,63 @@
+---
+title: "Entire chega a São Paulo para hospedar código; região local não encerra a análise de dados"
+seoTitle: "Entire oferece hospedagem de código em São Paulo"
+excerpt: "Plataforma do ex-CEO do GitHub abre região brasileira. Homepage lista São Paulo, mas documento de regiões ainda não inclui o país."
+category: aplicativos
+subcategory: desenvolvimento
+format: noticia
+date: "2026-10-31T14:35:58-03:00"
+featured: false
+kicker: "Aplicativos · desenvolvimento"
+author: "nicholas"
+cover: "/images/posts/entire-brasil-codigo-sao-paulo/cover.jpg"
+coverAlt: "Rio entre margens arborizadas à noite, com prédios iluminados ao fundo, torre alta à esquerda e rastros de luz junto aos trilhos"
+coverCredit: "Wilfredor / Wikimedia Commons / CC0; São Paulo em 2014, foto ilustrativa recortada e redimensionada, não mostra instalações da Entire"
+---
+
+A **Entire**, plataforma de desenvolvimento comandada pelo ex-CEO do GitHub **Thomas Dohmke**, passou a oferecer hospedagem de repositórios em **São Paulo em 30 de outubro**, segundo entrevista do executivo ao IT Forum. A [homepage oficial](https://entire.com) já lista **Brazil / São Paulo** entre as regiões. A expansão aproxima o armazenamento do código das equipes brasileiras, mas deixa perguntas sobre o alcance dessa residência de dados.
+
+Na [entrevista ao IT Forum](https://itforum.com.br/noticias/entire-ex-ceo-github-brasil-hospedar-codigo-sp/), Dohmke afirma que a região brasileira roda na Amazon Web Services. O desenvolvedor pode escolher uma região principal e replicar projetos em outras. Hospedar em São Paulo, portanto, não deve ser traduzido automaticamente como manter todo processamento e toda informação exclusivamente no Brasil.
+
+![Rio entre margens arborizadas à noite, com prédios iluminados ao fundo, torre alta à esquerda e rastros de luz junto aos trilhos](/images/posts/entire-brasil-codigo-sao-paulo/cover.jpg)
+*São Paulo e o Rio Pinheiros à noite, em 2014; foto ilustrativa, não mostra instalações da Entire. [Wilfredor / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vista_Panor%C3%A2mica_de_S%C3%A3o_Paulo_Noite.jpg), [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Recorte e redimensionamento.*
+
+<Verdict overrated="tratar uma região de armazenamento local como garantia automática de soberania e conformidade" underrated="conferir onde ficam código, histórico das sessões e processamento dos prestadores envolvidos" />
+
+## Código perto da equipe, sem abandonar o GitHub de saída
+
+A proposta da Entire é oferecer uma forja Git distribuída para equipes e agentes que produzem muitas operações em paralelo. A [página de hospedagem](https://entire.com/features/code-hosting) descreve tanto a criação de repositórios nativos quanto o espelhamento de projetos do GitHub. Esse segundo caminho permite avaliar a infraestrutura sem tratar uma migração completa como condição de entrada.
+
+A [documentação](https://docs.entire.io) também distingue o espelho regional do repositório que continua no GitHub como fonte principal. Isso importa porque ter uma cópia próxima não significa, por si só, transferir para ela a responsabilidade pelo projeto. A escolha da origem do código e das regiões de réplica precisa acompanhar o modo de trabalho da equipe.
+
+A empresa apresenta os Trails como alternativa ao fluxo tradicional de pull requests, com avaliações e revisões por agentes. Também armazena sessões ligadas às mudanças, para preservar pedidos e decisões que ajudam a explicar o código. A novidade vai além de trocar o endereço remoto do Git: muda o conjunto de informações reunidas ao redor de cada alteração.
+
+## O documento de regiões ainda ficou para trás
+
+Na consulta para esta matéria, a página [Hosting Regions](https://entire.com/regions), com vigência indicada em 19 de outubro, ainda lista União Europeia, Estados Unidos, Austrália, Índia, Reino Unido e Singapura, sem Brasil. A homepage, por outro lado, já exibe São Paulo. É uma inconsistência na documentação pública, não motivo para apagar a confirmação da expansão feita pelo CEO.
+
+O mesmo documento informa que alguns subprocessadores podem tratar dados fora da região selecionada e remete os detalhes à lista de prestadores. Por isso, a pergunta para uma empresa brasileira não termina em onde o repositório principal está hospedado. É preciso conferir também os serviços auxiliares e os termos aplicáveis ao próprio contrato.
+
+A [política de privacidade](https://entire.com/privacy) acrescenta uma distinção prática: revogar a autorização de importação ou sincronização interrompe importações futuras, mas não apaga automaticamente o conteúdo já recebido. Equipes que testarem um espelho precisam planejar a saída e a exclusão, além da entrada.
+
+## Velocidade anunciada pede contexto
+
+A Entire divulga um ganho de até 89 vezes sobre concorrentes em operações de Git, medido com o ForgeMark, seu próprio benchmark aberto. O site mostra 418 pushes por segundo para a plataforma e 4,7 para o GitHub nesse teste. São resultados de uma carga específica apresentada pelo fornecedor, não uma medida universal do tempo que qualquer brasileiro economizará.
+
+O IT Forum ressalta que os números não são diretamente comparáveis aos testes de uma nova arquitetura anunciada pelo GitHub. Misturar essas métricas produziria um placar sem a mesma régua. Para decidir sobre adoção, importam a carga real da equipe, a localização dos agentes e da integração contínua e o comportamento com os repositórios que serão usados.
+
+## O que isso significa no Brasil
+
+São Paulo já aparece como região de hospedagem na página oficial da Entire, e Dohmke confirmou ao IT Forum a operação na AWS brasileira. Para equipes locais, isso cria uma opção regional para código e espelhos, sem comprovar que todos os dados associados ficarão no país ou que qualquer exigência regulatória estará automaticamente atendida.
+
+Antes de conectar projetos de trabalho, a decisão deve incluir quais repositórios serão sincronizados, quem pode autorizar mudanças e como encerrar o teste. A localização do armazenamento não substitui essa delimitação. O guia de [permissões que não devem ser entregues a um agente de IA](https://www.thezero.com.br/noticia/agente-ia-permissoes-que-nao-dar) ajuda a separar acesso ao contexto de autorização para executar ações.
+
+<Rule>Escolher São Paulo como região é uma decisão de infraestrutura, não uma dispensa de conferir o caminho dos dados.</Rule>
+
+## Fontes
+
+- [entire.com — Plataforma e regiões anunciadas](https://entire.com)
+- [itforum.com.br — Entrevista com Thomas Dohmke sobre a chegada ao Brasil](https://itforum.com.br/noticias/entire-ex-ceo-github-brasil-hospedar-codigo-sp/)
+- [entire.com — Hosting Regions](https://entire.com/regions)
+- [entire.com — Code Hosting](https://entire.com/features/code-hosting)
+- [docs.entire.io — Documentação](https://docs.entire.io)
+- [entire.com — Privacy Policy](https://entire.com/privacy)

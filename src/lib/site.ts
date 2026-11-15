@@ -50,7 +50,9 @@ export const site = {
 
 export function absoluteUrl(path = "/") {
   const base = site.url.replace(/\/$/, "");
-  if (!path || path === "/") return base;
+  // `/` is served as the origin with a trailing slash. Other paths stay
+  // unsuffixed so their canonicals do not move.
+  if (!path || path === "/") return `${base}/`;
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 

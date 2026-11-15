@@ -65,6 +65,18 @@ const G = {
     href: "/noticia/antes-de-comprar-placa-de-video-black-friday-2026",
     label: "Antes de comprar placa de vídeo na Black Friday 2026",
   },
+  antesBfSsd: {
+    href: "/noticia/antes-de-comprar-ssd-black-friday-2026",
+    label: "Antes de comprar SSD na Black Friday 2026",
+  },
+  antesBfNote: {
+    href: "/noticia/antes-de-comprar-notebook-black-friday-2026",
+    label: "Antes de comprar notebook na Black Friday 2026",
+  },
+  antesBfConsole: {
+    href: "/noticia/antes-de-comprar-console-black-friday-2026",
+    label: "Antes de comprar console na Black Friday 2026",
+  },
 } satisfies Record<string, GuideLink>;
 
 const BF_CATEGORIES: CategoryBlock[] = [
@@ -116,7 +128,7 @@ const BF_CATEGORIES: CategoryBlock[] = [
       { id: "990pro-1tb", why: "Topo de linha PCIe 4.0; faz sentido em PS5 ou pra quem move arquivos grandes." },
       { id: "990pro-2tb", why: "Mesma linha em 2 TB, pra biblioteca grande de jogos." },
     ],
-    guides: [G.ssd1tb, G.pcie, G.ssdPs5, G.hdVsSsd],
+    guides: [G.antesBfSsd, G.ssd1tb, G.pcie, G.ssdPs5, G.hdVsSsd],
   },
   {
     category: "console",
@@ -142,7 +154,7 @@ const BF_CATEGORIES: CategoryBlock[] = [
       { id: "xbox-series-x", why: "Pra quem vive de Game Pass na TV." },
       { id: "steam-deck-oled", why: "PC portátil pra quem já tem biblioteca na Steam." },
     ],
-    guides: [G.ps5Slim, G.ps5VsX, G.switch2Deck, G.portatil, G.deck],
+    guides: [G.antesBfConsole, G.ps5Slim, G.ps5VsX, G.switch2Deck, G.portatil, G.deck],
   },
   {
     category: "notebook",
@@ -165,7 +177,7 @@ const BF_CATEGORIES: CategoryBlock[] = [
       { id: "nitro-v15-4060", why: "Degrau com RTX 4060 e 16 GB de RAM." },
       { id: "tuf-f16", why: "Tela de 16 polegadas e RTX 4050; confira a RAM antes de fechar." },
     ],
-    guides: [G.noteGamer, G.rtx3050vs4050, G.ramSoldada, G.macVsWin],
+    guides: [G.antesBfNote, G.noteGamer, G.rtx3050vs4050, G.ramSoldada, G.macVsWin],
   },
 ];
 

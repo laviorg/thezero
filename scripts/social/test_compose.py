@@ -44,6 +44,26 @@ class ComposeTest(unittest.TestCase):
             with Image.open(png) as image:
                 self.assertEqual(image.size, (1080, 1350))
 
+    def test_story_nine_by_sixteen(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cover = root / "cover.png"
+            Image.new("RGB", (1200, 800), (20, 40, 80)).save(cover)
+            png = compose(
+                cover,
+                "IoT: contratos até 2030",
+                "Anatel protege contratos elegíveis no Brasil.",
+                root / "story.png",
+                size="9x16",
+                footer="Link na bio\nwww.thezero.com.br/noticia/exemplo",
+            )
+            with Image.open(png) as image:
+                self.assertEqual(image.size, (1080, 1920))
+                self.assertEqual(image.format, "PNG")
+            jpg = write_jpeg(png, root / "story.jpg")
+            with Image.open(jpg) as image:
+                self.assertEqual(image.size, (1080, 1920))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -37,6 +37,13 @@ LOGO_BLACK = ASSETS / "logo-the-zero-black.png"
 SIZES = {
     "1x1": (1080, 1080),
     "4x5": (1080, 1350),
+    "9x16": (1080, 1920),
+}
+
+TYPE = {
+    "1x1": {"hook": 50, "summary": 28, "hook_lh": 58, "sum_lh": 36, "cta": 28, "cta_lh": 36},
+    "4x5": {"hook": 54, "summary": 32, "hook_lh": 62, "sum_lh": 40, "cta": 30, "cta_lh": 38},
+    "9x16": {"hook": 64, "summary": 36, "hook_lh": 74, "sum_lh": 46, "cta": 34, "cta_lh": 42},
 }
 
 
@@ -92,12 +99,19 @@ def compose(
     summary: str,
     out: Path,
     size: str = "1x1",
+    footer: str | None = None,
 ) -> Path:
+    if size not in SIZES:
+        raise ValueError(f"tamanho inválido: {size}")
+    typo = TYPE[size]
     width, height = SIZES[size]
     # ~12% sides, ~14% bottom — matches Extensões anti-crop lesson
     safe_x = max(130, int(width * 0.12))
     safe_bottom = max(150, int(height * 0.14))
     safe_top = max(80, int(height * 0.08))
+    if size == "9x16":
+        safe_bottom = max(safe_bottom, 280)
+        safe_top = max(safe_top, 160)
 
     base = _cover_fit(Image.open(resolve_cover_source(cover_path)), width, height)
     base = ImageEnhance.Brightness(base).enhance(0.90)
@@ -114,15 +128,22 @@ def compose(
     draw = ImageDraw.Draw(canvas)
 
     max_text_w = width - 2 * safe_x
-    hook_font = _font(50 if size == "1x1" else 54, bold=True)
-    sum_font = _font(28 if size == "1x1" else 32, bold=False)
+    hook_font = _font(typo["hook"], bold=True)
+    sum_font = _font(typo["summary"], bold=False)
+    cta_font = _font(typo["cta"], bold=True)
 
     hook_lines = _wrap(draw, hook, hook_font, max_text_w)
     sum_lines = _wrap(draw, summary, sum_font, max_text_w)
+    footer_lines: list[str] = []
+    if footer:
+        for raw in str(footer).splitlines():
+            footer_lines.extend(_wrap(draw, raw, cta_font, max_text_w))
 
-    line_h_hook = 58 if size == "1x1" else 62
-    line_h_sum = 36 if size == "1x1" else 40
-    block_h = len(hook_lines) * line_h_hook + 14 + len(sum_lines) * line_h_sum
+    line_h_hook = typo["hook_lh"]
+    line_h_sum = typo["sum_lh"]
+    line_h_cta = typo["cta_lh"]
+    footer_h = (16 + len(footer_lines) * line_h_cta) if footer_lines else 0
+    block_h = len(hook_lines) * line_h_hook + 14 + len(sum_lines) * line_h_sum + footer_h
 
     region = canvas.crop((width - 320, height - safe_bottom - 20, width - safe_x, height - 60))
     gray = region.convert("L")
@@ -152,6 +173,12 @@ def compose(
         draw.text((safe_x + 1, y + 1), line, font=sum_font, fill=(0, 0, 0, 140))
         draw.text((safe_x, y), line, font=sum_font, fill=(230, 230, 235, 255))
         y += line_h_sum
+    if footer_lines:
+        y += 16
+        for line in footer_lines:
+            draw.text((safe_x + 1, y + 1), line, font=cta_font, fill=(0, 0, 0, 140))
+            draw.text((safe_x, y), line, font=cta_font, fill=(255, 220, 80, 255))
+            y += line_h_cta
 
     canvas.alpha_composite(logo, (lx, ly))
 
@@ -183,8 +210,16 @@ def main() -> None:
     parser.add_argument("--summary", required=True)
     parser.add_argument("--out", required=True)
     parser.add_argument("--size", choices=list(SIZES), default="1x1")
+    parser.add_argument("--footer", default="", help="Linhas extras (ex.: Link na bio + URL) na arte 9:16.")
     args = parser.parse_args()
-    path = compose(Path(args.cover), args.hook, args.summary, Path(args.out), size=args.size)
+    path = compose(
+        Path(args.cover),
+        args.hook,
+        args.summary,
+        Path(args.out),
+        size=args.size,
+        footer=args.footer or None,
+    )
     print(path)
 
 

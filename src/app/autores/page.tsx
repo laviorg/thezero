@@ -38,7 +38,7 @@ function NicholasPersonJsonLd() {
     ...(NICHOLAS_PHOTO ? { image: absoluteUrl(NICHOLAS_PHOTO) } : {}),
     email: `mailto:${site.email}`,
     address: { "@type": "PostalAddress", addressLocality: "São Paulo", addressRegion: "SP", addressCountry: "BR" },
-    worksFor: { "@type": "NewsMediaOrganization", name: site.name, url: site.url },
+    worksFor: { "@type": "NewsMediaOrganization", name: site.name, url: absoluteUrl("/") },
     sameAs: NICHOLAS_SAME_AS,
   };
   return (
