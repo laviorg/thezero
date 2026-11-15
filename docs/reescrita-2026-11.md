@@ -18,7 +18,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 |---|---|---|---|---|---|---|
 | 1 | ios-27-quais-iphones-e-como-atualizar | tutorial | 965 | 162 | sem análise | reescrito 15/11; PR em revisão; publicação pendente |
 | 2 | ps5-slim-vale-a-pena-2026-brasil | guia | 922 | 130 | sem 2 fontes | pendente |
-| 3 | importar-ayaneo-ou-ayn-brasil | guia | 2095 | 51 | sem análise | pendente |
+| 3 | importar-ayaneo-ou-ayn-brasil | guia | 2095 | 51 | sem análise | reescrito 15/11; PR em revisão; publicação pendente |
 | 4 | desligar-historico-localizacao-google-android | tutorial | 1025 | 39 | sem 2 fontes, sem análise | pendente |
 | 5 | rog-ally-tdp-bateria-configs | guia | 871 | 21 | sem 2 fontes | pendente |
 | 6 | steam-deck-oled-vs-zeenix-pro | comparativo | 733 | 18 | sem 2 fontes | pendente |
@@ -578,7 +578,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 406 | 93 | fonte-650w-80-plus-o-que-nao-economizar | guia | 952 | 11 | 7 | 1 | 3 | 1200 | pendente |
 | 407 | 94 | pc-edicao-de-video-ate-6-mil | guia | 969 | 4 | 5 | 1 | 5 | 1200 | pendente |
 | 408 | 95 | antes-de-comprar-placa-de-video-black-friday-2026 | guia | 1241 | 8 | 5 | 1 | 8 | 1200 | pendente |
-| 409 | 95 | importar-ayaneo-ou-ayn-brasil | guia | 1949 | 4 | 12 | 1 | 7 | 1200 | pendente |
+| 409 | 95 | importar-ayaneo-ou-ayn-brasil | guia | 1949 | 4 | 12 | 1 | 7 | 1200 | reescrito 15/11; PR em revisão; publicação pendente |
 | 410 | 95 | qual-console-portatil-comprar-2026-brasil | guia | 3062 | 7 | 31 | 1 | 30 | 1200 | pendente |
 | 411 | 95 | rog-xbox-ally-vale-a-pena-brasil | guia | 1954 | 3 | 22 | 1 | 9 | 2400 | pendente |
 | 412 | 95 | steam-deck-oled-ainda-vale-a-pena-2026 | guia | 1892 | 6 | 10 | 1 | 11 | 1920 | pendente |
