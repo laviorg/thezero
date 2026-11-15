@@ -25,6 +25,15 @@ def _jpeg(response: requests.Response) -> bool:
     return ctype.startswith("image/") or ctype in {"application/octet-stream", "binary/octet-stream"}
 
 
+def _mp4(response: requests.Response) -> bool:
+    if response.status_code != 200:
+        return False
+    if len(response.content) < 12 or response.content[4:8] != b"ftyp":
+        return False
+    ctype = response.headers.get("content-type", "").split(";")[0].strip().lower()
+    return ctype.startswith("video/") or ctype in {"application/octet-stream", "binary/octet-stream"}
+
+
 def _article(response: requests.Response) -> bool:
     if response.status_code != 200:
         return False
@@ -44,7 +53,12 @@ def wait_until_ready(url: str, kind: str, timeout_s: int, secrets: list[str], on
                 allow_redirects=True,
                 headers={"User-Agent": "TheZeroSocial/1.0"},
             )
-            ready = _jpeg(response) if kind == "jpeg" else _article(response)
+            if kind == "jpeg":
+                ready = _jpeg(response)
+            elif kind == "mp4":
+                ready = _mp4(response)
+            else:
+                ready = _article(response)
             if ready:
                 return
             ctype = response.headers.get("content-type", "").split(";")[0].strip()
@@ -75,4 +89,21 @@ def assert_meta_can_fetch(url: str, secrets: list[str]) -> None:
         ctype = response.headers.get("content-type", "").split(";")[0].strip()
         raise RuntimeError(
             f"crawler da Meta não baixou a imagem ({response.status_code} {ctype})"
+        )
+
+
+def assert_meta_can_fetch_video(url: str, secrets: list[str]) -> None:
+    try:
+        response = requests.get(
+            url,
+            timeout=60,
+            allow_redirects=True,
+            headers={"User-Agent": META_CRAWLER_UA},
+        )
+    except requests.RequestException as exc:
+        raise RuntimeError(redact(f"crawler da Meta não baixou o vídeo: {exc}", secrets)) from None
+    if not _mp4(response):
+        ctype = response.headers.get("content-type", "").split(";")[0].strip()
+        raise RuntimeError(
+            f"crawler da Meta não baixou o vídeo ({response.status_code} {ctype})"
         )
