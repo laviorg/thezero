@@ -17,7 +17,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | # | slug | formato | palavras | impressões 28d | o que falta | status |
 |---|---|---|---|---|---|---|
 | 1 | ios-27-quais-iphones-e-como-atualizar | tutorial | 965 | 162 | sem análise | pendente |
-| 2 | ps5-slim-vale-a-pena-2026-brasil | guia | 922 | 130 | sem 2 fontes | pendente |
+| 2 | ps5-slim-vale-a-pena-2026-brasil | guia | 922 | 130 | sem 2 fontes | reescrito 15/11; PR em revisão; publicação pendente |
 | 3 | importar-ayaneo-ou-ayn-brasil | guia | 2095 | 51 | sem análise | pendente |
 | 4 | desligar-historico-localizacao-google-android | tutorial | 1025 | 39 | sem 2 fontes, sem análise | pendente |
 | 5 | rog-ally-tdp-bateria-configs | guia | 871 | 21 | sem 2 fontes | pendente |
@@ -369,7 +369,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 197 | 71 | nvidia-nega-fim-rtx-5090 | noticia | 594 | 4 | 5 | 1 | 0 | 1280 | pendente |
 | 198 | 71 | particledb-jepsen-falhas-versoes-testadas | noticia | 776 | 10 | 3 | 1 | 0 | 2000 | pendente |
 | 199 | 71 | pc-trabalho-remoto-configuracao-enxuta | guia | 969 | 1 | 2 | 1 | 7 | 1200 | pendente |
-| 200 | 71 | ps5-slim-vale-a-pena-2026-brasil | guia | 901 | 0 | 15 | 1 | 5 | 1200 | pendente |
+| 200 | 71 | ps5-slim-vale-a-pena-2026-brasil | guia | 901 | 0 | 15 | 1 | 5 | 1200 | reescrito 15/11; PR em revisão; publicação pendente |
 | 201 | 71 | romero-shooter-nova-editora-equipe-menor | noticia | 771 | 9 | 3 | 1 | 0 | 2000 | pendente |
 | 202 | 71 | ssd-no-ps5-upgrade | guia | 649 | 3 | 1 | 1 | 2 | 1200 | pendente |
 | 203 | 71 | switch-2-vale-a-pena-2026-brasil | guia | 706 | 1 | 8 | 1 | 8 | 1200 | pendente |
