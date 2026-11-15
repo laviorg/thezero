@@ -16,7 +16,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 
 | # | slug | formato | palavras | impressões 28d | o que falta | status |
 |---|---|---|---|---|---|---|
-| 1 | ios-27-quais-iphones-e-como-atualizar | tutorial | 965 | 162 | sem análise | pendente |
+| 1 | ios-27-quais-iphones-e-como-atualizar | tutorial | 965 | 162 | sem análise | reescrito 15/11; PR em revisão; publicação pendente |
 | 2 | ps5-slim-vale-a-pena-2026-brasil | guia | 922 | 130 | sem 2 fontes | pendente |
 | 3 | importar-ayaneo-ou-ayn-brasil | guia | 2095 | 51 | sem análise | pendente |
 | 4 | desligar-historico-localizacao-google-android | tutorial | 1025 | 39 | sem 2 fontes, sem análise | pendente |
@@ -511,7 +511,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 339 | 80 | control-resonant-hoje | noticia | 871 | 11 | 28 | 1 | 0 | 1920 | pendente |
 | 340 | 80 | e-titulo-atualizacao-eleicoes-2026-justificativa | noticia | 847 | 6 | 6 | 1 | 0 | 1563 | pendente |
 | 341 | 80 | google-play-cria-apps-ia-studio-android-sem-conta-dev | noticia | 857 | 6 | 6 | 1 | 0 | 1600 | pendente |
-| 342 | 80 | ios-27-quais-iphones-e-como-atualizar | tutorial | 946 | 3 | 4 | 0 | 2 | 1200 | pendente |
+| 342 | 80 | ios-27-quais-iphones-e-como-atualizar | tutorial | 946 | 3 | 4 | 0 | 2 | 1200 | reescrito 15/11; PR em revisão; publicação pendente |
 | 343 | 80 | nuvem-gratis-drive-onedrive-icloud | guia | 743 | 4 | 3 | 1 | 3 | 1200 | reescrito lote 1 |
 | 344 | 80 | nvidia-openshell-sentry-hugging-face | noticia | 1362 | 6 | 0 | 1 | 2 | 1800 | pendente |
 | 345 | 80 | openai-segura-gpt-61-astra | noticia | 1487 | 6 | 0 | 1 | 2 | 1920 | pendente |
