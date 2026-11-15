@@ -20,7 +20,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 2 | ps5-slim-vale-a-pena-2026-brasil | guia | 922 | 130 | sem 2 fontes | reescrito 15/11; PR em revisão; publicação pendente |
 | 3 | importar-ayaneo-ou-ayn-brasil | guia | 2095 | 51 | sem análise | reescrito 15/11; PR em revisão; publicação pendente |
 | 4 | desligar-historico-localizacao-google-android | tutorial | 1025 | 39 | sem 2 fontes, sem análise | reescrito 15/11; PR em revisão; publicação pendente |
-| 5 | rog-ally-tdp-bateria-configs | guia | 871 | 21 | sem 2 fontes | pendente |
+| 5 | rog-ally-tdp-bateria-configs | guia | 871 | 21 | sem 2 fontes | reescrito 15/11; PR em revisão; publicação pendente |
 | 6 | steam-deck-oled-vs-zeenix-pro | comparativo | 733 | 18 | sem 2 fontes | pendente |
 | 7 | pixel-no-brasil-quando-importar | comparativo | 651 | 16 | sem 2 fontes | pendente |
 | 8 | adrenalin-26-9-2-seis-jogos-recuo-rx-5000 | noticia | 1396 | 16 | sem ângulo BR | pendente |
@@ -272,7 +272,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 100 | 62 | galaxy-a55-vs-edge-50-fusion | comparativo | 660 | 0 | 6 | 1 | 2 | 1200 | pendente |
 | 101 | 62 | microsoft-abandona-nscale-essex | noticia | 609 | 4 | 2 | 1 | 0 | 1280 | pendente |
 | 102 | 62 | placa-mae-b650-barata-upgrade-ryzen | guia | 907 | 0 | 2 | 1 | 3 | 1200 | pendente |
-| 103 | 62 | rog-ally-tdp-bateria-configs | guia | 824 | 0 | 3 | 1 | 4 | 1200 | pendente |
+| 103 | 62 | rog-ally-tdp-bateria-configs | guia | 824 | 0 | 3 | 1 | 4 | 1200 | reescrito 15/11; PR em revisão; publicação pendente |
 | 104 | 62 | rtx-3050-vs-4050-notebook | comparativo | 901 | 0 | 2 | 1 | 3 | 1200 | pendente |
 | 105 | 63 | canva-craft-modelo-proprio-imagens-2k | noticia | 620 | 5 | 2 | 1 | 0 | 1920 | pendente |
 | 106 | 63 | claude-duet-agente-anthropic | noticia | 619 | 7 | 2 | 1 | 0 | 1920 | pendente |
