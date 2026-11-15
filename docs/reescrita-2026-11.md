@@ -19,7 +19,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 1 | ios-27-quais-iphones-e-como-atualizar | tutorial | 965 | 162 | sem análise | reescrito 15/11; PR em revisão; publicação pendente |
 | 2 | ps5-slim-vale-a-pena-2026-brasil | guia | 922 | 130 | sem 2 fontes | reescrito 15/11; PR em revisão; publicação pendente |
 | 3 | importar-ayaneo-ou-ayn-brasil | guia | 2095 | 51 | sem análise | reescrito 15/11; PR em revisão; publicação pendente |
-| 4 | desligar-historico-localizacao-google-android | tutorial | 1025 | 39 | sem 2 fontes, sem análise | pendente |
+| 4 | desligar-historico-localizacao-google-android | tutorial | 1025 | 39 | sem 2 fontes, sem análise | reescrito 15/11; PR em revisão; publicação pendente |
 | 5 | rog-ally-tdp-bateria-configs | guia | 871 | 21 | sem 2 fontes | pendente |
 | 6 | steam-deck-oled-vs-zeenix-pro | comparativo | 733 | 18 | sem 2 fontes | pendente |
 | 7 | pixel-no-brasil-quando-importar | comparativo | 651 | 16 | sem 2 fontes | pendente |
@@ -395,7 +395,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 223 | 73 | china-rtx-pro-5500-alibaba-bytedance | noticia | 1015 | 6 | 1 | 1 | 0 | 2000 | pendente |
 | 224 | 73 | cloudflare-compra-deno-workers-celld | noticia | 733 | 3 | 4 | 1 | 0 | 1999 | pendente |
 | 225 | 73 | crimson-desert-20403-hotfix-plataformas | noticia | 815 | 6 | 3 | 1 | 0 | 2000 | pendente |
-| 226 | 73 | desligar-historico-localizacao-google-android | tutorial | 1003 | 4 | 1 | 0 | 2 | 1200 | pendente |
+| 226 | 73 | desligar-historico-localizacao-google-android | tutorial | 1003 | 4 | 1 | 0 | 2 | 1200 | reescrito 15/11; PR em revisão; publicação pendente |
 | 227 | 73 | epic-games-launcher-ia-linux | noticia | 834 | 7 | 3 | 1 | 0 | 2000 | pendente |
 | 228 | 73 | framework-desktop-192gb-pre-venda | noticia | 1129 | 6 | 1 | 1 | 0 | 1716 | pendente |
 | 229 | 73 | geely-google-gemini-maps-play-painel-2027 | noticia | 649 | 4 | 5 | 1 | 0 | 1920 | pendente |
