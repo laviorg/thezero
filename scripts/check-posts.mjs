@@ -861,6 +861,80 @@ function factCheckIssues(body) {
   return issues;
 }
 
+const SOCIAL_PACKAGE_FIELDS = [
+  "slug",
+  "url",
+  "cover_path",
+  "hook",
+  "summary",
+  "caption_ig",
+  "threads_x",
+];
+
+/**
+ * @returns {string[]} problemas do bloco, sem prefixo de arquivo
+ */
+function socialPackageIssues(body, slug) {
+  const section = extractSection(body, "SOCIAL PACKAGE");
+  if (section == null) {
+    return [
+      "SOCIAL PACKAGE ausente: o corpo do PR não tem o bloco SOCIAL PACKAGE — a matéria não será publicada no Instagram/Threads.",
+    ];
+  }
+  const fields = {};
+  for (const raw of section.split("\n")) {
+    const match = raw.match(/^\s*[-*+]\s*([A-Za-z_][\w-]*)\s*:\s*(.*)$/);
+    if (match) fields[match[1].toLowerCase()] = match[2].trim();
+  }
+  const issues = [];
+  for (const key of SOCIAL_PACKAGE_FIELDS) {
+    if (!fields[key]) {
+      issues.push(`SOCIAL PACKAGE sem o campo obrigatório "${key}".`);
+    }
+  }
+  if (fields.slug && fields.slug !== slug) {
+    issues.push(
+      `SOCIAL PACKAGE com slug "${fields.slug}" diferente do arquivo (${slug}).`,
+    );
+  }
+  if (fields.url && !fields.url.includes(`/noticia/${slug}`)) {
+    issues.push(`SOCIAL PACKAGE: a url não contém /noticia/${slug}.`);
+  }
+  return issues;
+}
+
+function collectSocialPackageErrors(flags) {
+  const added = listAddedArticles();
+  if (added === null) {
+    if (flags.sawPrBodyFlag || process.env.GITHUB_EVENT_NAME === "pull_request") {
+      return ["SOCIAL PACKAGE: não consegui listar as matérias novas no git."];
+    }
+    return [];
+  }
+  if (added.length === 0) return [];
+  // loadFactCheckBody lê o corpo do PR (nome histórico; serve aos dois gates).
+  const loaded = loadFactCheckBody(flags);
+  const errors = [];
+  for (const rel of added) {
+    const slug = path.basename(rel).replace(/\.mdx?$/, "");
+    const prefix = `${rel} (${slug})`;
+    if (loaded.error) {
+      errors.push(`${prefix}: ${loaded.error}`);
+      continue;
+    }
+    if (loaded.missingContext) {
+      errors.push(
+        `${prefix}: SOCIAL PACKAGE obrigatório para matéria nova. Grave o corpo do PR e rode: npm run check:posts -- --pr-body-file <arquivo.md>`,
+      );
+      continue;
+    }
+    for (const issue of socialPackageIssues(loaded.body, slug)) {
+      errors.push(`${prefix}: ${issue}`);
+    }
+  }
+  return errors;
+}
+
 function listAddedArticles() {
   const isPostPath = (rel) => rel.endsWith(".mdx") || rel.endsWith(".md");
   if (process.env.GITHUB_EVENT_NAME === "pull_request" && process.env.GITHUB_EVENT_PATH) {
@@ -981,6 +1055,7 @@ Falhas (mensagem em português, exit 1):
   frontmatter obrigatório ausente ou inválido (title, excerpt, date, category; subcategory e format quando preenchidos)
   data de publicação inválida ou mais de ${MAX_FUTURE_DAYS} dias no futuro (Brasília)
   PR que adiciona matéria sem bloco FACT-CHECK, com o bloco vazio, ou com alguma linha sem URL de fonte primária ou sem ok
+  PR que adiciona matéria sem bloco SOCIAL PACKAGE, sem algum campo obrigatório (slug, url, cover_path, hook, summary, caption_ig, threads_x), ou com slug/url divergentes
 
 --pr-body-file <arquivo> lê o corpo do PR. No GitHub Actions o corpo vem do evento pull_request.
 Sem o arquivo, uma branch que adiciona matéria falha e pede o corpo.
@@ -1058,6 +1133,7 @@ async function main(argv = process.argv.slice(2)) {
 
   for (const line of warnings) console.log(line);
   reports.push(...collectFactCheckErrors(flags));
+  reports.push(...collectSocialPackageErrors(flags));
   reports.push(...collectCoverLockErrors());
 
   if (reports.length === 0) {
@@ -1110,5 +1186,6 @@ export {
   parsePublicationDate,
   resolvePublicAsset,
   saoPauloYmd,
+  socialPackageIssues,
 };
 // gatilho do check-posts em PRs só de src (sem efeito)
