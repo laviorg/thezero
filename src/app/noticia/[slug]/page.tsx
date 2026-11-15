@@ -1,7 +1,6 @@
 import { NewsletterBox } from "@/components/newsletter/newsletter-box";
 import { LONG_GUIDE_MIN_WORDS, injectNewsletterAfterThirdParagraph } from "@/lib/newsletter";
 import { VerdictCard } from "@/components/news/verdict-card";
-import Link from "next/link";
 import { ReadAlso } from "@/components/news/read-also";
 import { ArticleBody } from "@/components/news/article-body";
 import { ArticleDeskLinks } from "@/components/news/article-desk-links";
@@ -29,6 +28,7 @@ import {
   getAllPosts,
   getPostBySlug,
   getRelatedPosts,
+  linkedArticleHrefs,
 } from "@/lib/posts";
 import {
   HOME_CRUMB_LABEL,
@@ -110,9 +110,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const subcategory = post.subcategory
     ? getSubcategory(post.category, post.subcategory)
     : undefined;
-  const relatedPool = getRelatedPosts(post, 9);
-  const readAlso = relatedPool.slice(0, 5);
-  const related = relatedPool.slice(5);
+  // "Leia também": 3 do mesmo tema, sem repetir o que o texto já linka (guia interno).
+  const relatedPool = getRelatedPosts(post, 7, {
+    exclude: linkedArticleHrefs(post.content),
+  });
+  const readAlso = relatedPool.slice(0, 3);
+  const related = relatedPool.slice(3);
   const { newer, older } = getAdjacentPosts(post);
   const pageUrl = absoluteUrl(post.href);
   const kicker = category?.label ?? subcategory?.label ?? post.kicker ?? "The Zero";

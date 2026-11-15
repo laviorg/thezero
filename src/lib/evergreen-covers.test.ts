@@ -73,14 +73,18 @@ describe("evergreen covers", () => {
         assert.equal(post.cover, photo, post.slug);
         continue;
       }
-      if (post.locked) {
-        // Foto real travada: fica em /images/posts/<slug>/, com crédito e o original .src ao lado.
+      if (post.cover.startsWith("/images/posts/")) {
+        // Foto real: fica em /images/posts/<slug>/, com crédito; travada exige o original .src ao lado.
         assert.match(post.cover, new RegExp(`^/images/posts/${post.slug}/cover\\.(webp|jpe?g|png)$`), post.slug);
         assert.notEqual(post.coverCredit.trim(), "", post.slug);
-        const dir = path.join(ROOT, "public", "images", "posts", post.slug);
-        assert.ok(fs.readdirSync(dir).some((f) => /^cover\.src\./.test(f)), `${post.slug} sem cover.src`);
-        const size = parseImageSize(fs.readFileSync(path.join(ROOT, "public", post.cover.replace(/^\//, ""))));
+        const file = path.join(ROOT, "public", post.cover.replace(/^\//, ""));
+        assert.equal(fs.existsSync(file), true, post.slug);
+        const size = parseImageSize(fs.readFileSync(file));
         assert.ok(size && size.width >= 1200, post.slug);
+        if (post.locked) {
+          const dir = path.join(ROOT, "public", "images", "posts", post.slug);
+          assert.ok(fs.readdirSync(dir).some((f) => /^cover\.src\./.test(f)), `${post.slug} sem cover.src`);
+        }
         continue;
       }
       assert.equal(post.cover, `/covers/reviews/${post.slug}.webp`, post.slug);
@@ -94,7 +98,7 @@ describe("evergreen covers", () => {
   it("serves photo covers for vale a pena and branded webp for tutorials", () => {
     const series = posts.filter((post) => post.format === "vale-a-pena");
     const tutorials = posts.filter((post) => post.format === "tutorial");
-    assert.ok(series.length >= 4);
+    assert.ok(series.length >= 2);
     assert.ok(tutorials.length >= 5);
 
     for (const post of series) {

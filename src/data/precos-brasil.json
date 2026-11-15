@@ -1,0 +1,215 @@
+{
+ "checkedAt": "2026-11-14T23:40:00-03:00",
+ "items": [
+  {
+   "group": "consoles",
+   "name": "PlayStation 5 Pro (SSD 2 TB)",
+   "store": "KaBuM",
+   "seller": "KaBuM!",
+   "url": "https://www.kabum.com.br/produto/636960/console-playstation-5-pro-sony-ssd-2tb-com-controle-sem-fio-dualsense-branco-1000046552",
+   "price": 7399.0,
+   "priceNote": "à vista no Pix; a loja informava R$ 7.999 antes",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "consoles",
+   "name": "PlayStation 5 com leitor de discos (SSD 1 TB, com 2 jogos)",
+   "store": "KaBuM",
+   "seller": "KaBuM!",
+   "url": "https://www.kabum.com.br/produto/934759/console-sony-playstation-5-com-leitor-de-discos-ssd-1tb-controle-sem-fio-dualsense-2-jogos",
+   "price": 5114.07,
+   "priceNote": "à vista no Pix",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "consoles",
+   "name": "PlayStation 5 Edição Digital (SSD 825 GB, com 2 jogos digitais)",
+   "store": "KaBuM",
+   "seller": "KaBuM!",
+   "url": "https://www.kabum.com.br/produto/989702/console-sony-playstation-5-ssd-825gb-controle-sem-fio-dualsense-2-jogos-digitais-edicao-digital",
+   "price": 4230.57,
+   "priceNote": "à vista no Pix",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "consoles",
+   "name": "Nintendo Switch 2 (256 GB)",
+   "store": "KaBuM",
+   "seller": "KaBuM!",
+   "url": "https://www.kabum.com.br/produto/777177/console-nintendo-switch-2-256gb-preto-azul-e-vermelho",
+   "price": 4499.0,
+   "priceNote": "à vista no Pix",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "portateis",
+   "name": "ROG Xbox Ally X (24 GB, SSD 1 TB)",
+   "store": "KaBuM",
+   "seller": "Loja Asus (marketplace KaBuM)",
+   "url": "https://www.kabum.com.br/produto/957884/rog-xbox-ally-x-console-portatil-tela-7-touchscreen-120hz-amd-ryzen-ai-z2-extreme-24-gb-ram-1-tb-ssd-windows-11-home-black-rc73xa-nh012w",
+   "price": 8329.15,
+   "priceNote": "à vista no Pix",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "portateis",
+   "name": "Lenovo Legion Go S com SteamOS (32 GB, SSD 1 TB)",
+   "store": "KaBuM",
+   "seller": "Lenovo (marketplace KaBuM)",
+   "url": "https://www.kabum.com.br/produto/911036/lenovo-legion-go-s-amd-ryzen-z2-go-8-wuxga-32gb-1tb-ssd-steam-os-83l3002pbr",
+   "price": 5417.14,
+   "priceNote": "à vista no Pix",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "celulares",
+   "name": "iPhone 18 Pro",
+   "store": "Apple Store online",
+   "seller": "Apple",
+   "url": "https://www.apple.com/br/shop/buy-iphone",
+   "price": 11999.0,
+   "priceNote": "a partir de, preço de tabela",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "celulares",
+   "name": "iPhone Air (256 GB)",
+   "store": "Apple Store online",
+   "seller": "Apple",
+   "url": "https://www.apple.com/br/shop/buy-iphone/iphone-air",
+   "price": 10999.0,
+   "priceNote": "preço de tabela, em até 12x",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "celulares",
+   "name": "iPhone 17 (256 GB)",
+   "store": "Apple Store online",
+   "seller": "Apple",
+   "url": "https://www.apple.com/br/shop/buy-iphone/iphone-17",
+   "price": 8299.0,
+   "priceNote": "preço de tabela, em até 12x",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "celulares",
+   "name": "iPhone 17e",
+   "store": "Apple Store online",
+   "seller": "Apple",
+   "url": "https://www.apple.com/br/shop/buy-iphone",
+   "price": 5999.0,
+   "priceNote": "a partir de, preço de tabela",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "celulares",
+   "name": "Galaxy S26 Ultra (512 GB)",
+   "store": "Samsung Shop",
+   "seller": "Samsung",
+   "url": "https://shop.samsung.com/br/galaxy-s26-ultra-512gb/p",
+   "price": 8999.0,
+   "priceNote": "promoção; preço de tabela R$ 13.599",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "celulares",
+   "name": "Galaxy S26 Ultra (256 GB)",
+   "store": "Samsung Shop",
+   "seller": "Samsung",
+   "url": "https://shop.samsung.com/br/galaxy-s26-ultra/p",
+   "price": 11999.0,
+   "priceNote": "preço anunciado",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "celulares",
+   "name": "Galaxy S26 (512 GB)",
+   "store": "Samsung Shop",
+   "seller": "Samsung",
+   "url": "https://shop.samsung.com/br/galaxy-s26-512gb/p",
+   "price": 6432.22,
+   "priceNote": "promoção; preço de tabela R$ 9.399",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "celulares",
+   "name": "Galaxy S26 (256 GB)",
+   "store": "Samsung Shop",
+   "seller": "Samsung",
+   "url": "https://shop.samsung.com/br/galaxy-s26/p",
+   "price": 7799.0,
+   "priceNote": "preço anunciado",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "celulares",
+   "name": "Galaxy S25 (256 GB)",
+   "store": "Samsung Shop",
+   "seller": "Samsung",
+   "url": "https://shop.samsung.com/br/galaxy-s25-256gb/p",
+   "price": 5999.0,
+   "priceNote": "R$ 5.399,10 à vista",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "computadores",
+   "name": "iPad (A16), 128 GB, Wi-Fi",
+   "store": "Apple Store online",
+   "seller": "Apple",
+   "url": "https://www.apple.com/br/shop/buy-ipad/ipad",
+   "price": 5499.0,
+   "priceNote": "preço de tabela, em até 12x",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "computadores",
+   "name": "MacBook Air 13 polegadas (M5)",
+   "store": "Apple Store online",
+   "seller": "Apple",
+   "url": "https://www.apple.com/br/shop/buy-mac/macbook-air",
+   "price": 15999.0,
+   "priceNote": "a partir de, preço de tabela",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "placas",
+   "name": "GeForce RTX 5060 8 GB (Palit Infinity 2 OC)",
+   "store": "KaBuM",
+   "seller": "KaBuM!",
+   "url": "https://www.kabum.com.br/produto/988706/placa-de-video-palit-geforce-rtx-5060-8gb-infinity-2-oc-gddr7-128bits-ne75060v19p1-gb2063l",
+   "price": 3250.38,
+   "priceNote": "à vista no Pix",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "placas",
+   "name": "GeForce RTX 5070 12 GB (MSI Ventus 2X OC)",
+   "store": "KaBuM",
+   "seller": "KaBuM!",
+   "url": "https://www.kabum.com.br/produto/725587/placa-de-video-msi-geforce-rtx-5070-12g-ventus-2x-oc-12-gb-gddr7-28gbps-nvidia-geforce-rtx-5070-g5070-12v2c",
+   "price": 6099.99,
+   "priceNote": "à vista no Pix",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "placas",
+   "name": "Radeon RX 9060 XT 16 GB (ASUS Dual)",
+   "store": "KaBuM",
+   "seller": "Terabyte (marketplace KaBuM)",
+   "url": "https://www.kabum.com.br/produto/989003/placa-de-video-amd-radeon-asus-rx9060xt-dual-series-16gb-gddr6-90yv0lg2-m0na00",
+   "price": 4714.99,
+   "priceNote": "à vista no Pix",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  },
+  {
+   "group": "leitura",
+   "name": "Kindle 16 GB (modelo 2024)",
+   "store": "Amazon.com.br",
+   "seller": "Amazon.com.br",
+   "url": "https://www.amazon.com.br/dp/B0CP31L73X",
+   "price": 854.05,
+   "priceNote": "preço do dia; de R$ 899",
+   "checkedAt": "2026-11-14T23:40:00-03:00"
+  }
+ ]
+}

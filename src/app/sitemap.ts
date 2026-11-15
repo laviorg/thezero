@@ -33,6 +33,7 @@ const STATIC_PAGE_SOURCES = [
   { path: "/prime-day", file: "src/lib/deals.ts" },
   { path: "/11-11", file: "src/lib/deals.ts" },
   { path: "/menor-preco", file: "src/data/prices.json" },
+  { path: "/precos-no-brasil", file: "src/data/precos-brasil.json" },
   { path: "/ferramentas", file: "src/app/ferramentas/page.tsx" },
   { path: "/ferramentas/meu-pc-roda", file: "src/data/game-requirements.json" },
   { path: "/ferramentas/calculadora-de-fonte", file: "src/data/psu-components.json" },

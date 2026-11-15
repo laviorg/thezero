@@ -4,8 +4,9 @@ import { coverAlt } from "@/lib/seo";
 import Link from "next/link";
 
 /**
- * "Leia também": 3 a 5 matérias do mesmo assunto (subeditoria, depois
- * editoria), com capa e título. Sem a matéria atual e sem páginas noindex.
+ * "Leia também": 3 matérias do mesmo assunto (termos do slug, subeditoria,
+ * editoria; sem relação, as mais recentes), com capa e título. Sem a matéria
+ * atual, sem páginas noindex e sem matérias já linkadas no corpo do texto.
  */
 export function ReadAlso({ posts }: { posts: Post[] }) {
   if (posts.length === 0) return null;
