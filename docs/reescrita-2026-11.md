@@ -21,7 +21,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 3 | importar-ayaneo-ou-ayn-brasil | guia | 2095 | 51 | sem análise | reescrito 15/11; PR em revisão; publicação pendente |
 | 4 | desligar-historico-localizacao-google-android | tutorial | 1025 | 39 | sem 2 fontes, sem análise | reescrito 15/11; PR em revisão; publicação pendente |
 | 5 | rog-ally-tdp-bateria-configs | guia | 871 | 21 | sem 2 fontes | reescrito 15/11; PR em revisão; publicação pendente |
-| 6 | steam-deck-oled-vs-zeenix-pro | comparativo | 733 | 18 | sem 2 fontes | pendente |
+| 6 | steam-deck-oled-vs-zeenix-pro | comparativo | 733 | 18 | sem 2 fontes | reescrito 16/11; PR em revisão; publicação pendente |
 | 7 | pixel-no-brasil-quando-importar | comparativo | 651 | 16 | sem 2 fontes | pendente |
 | 8 | adrenalin-26-9-2-seis-jogos-recuo-rx-5000 | noticia | 1396 | 16 | sem ângulo BR | pendente |
 | 9 | ps-plus-extra-quem-joga-pouco | guia | 601 | 13 | sem 2 fontes | pendente |
@@ -290,7 +290,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 118 | 64 | jagex-anuncia-runescape-4-unreal-engine | noticia | 579 | 5 | 3 | 1 | 0 | 1920 | pendente |
 | 119 | 64 | jensen-huang-zero-por-cento-fim-do-mundo | noticia | 689 | 5 | 0 | 1 | 1 | 1600 | pendente |
 | 120 | 64 | minisforum-atomman-g1-pro-rx9060xt | noticia | 752 | 5 | 1 | 1 | 0 | 1600 | pendente |
-| 121 | 64 | steam-deck-oled-vs-zeenix-pro | comparativo | 717 | 0 | 9 | 1 | 2 | 1200 | pendente |
+| 121 | 64 | steam-deck-oled-vs-zeenix-pro | comparativo | 717 | 0 | 9 | 1 | 2 | 1200 | reescrito 16/11; PR em revisão; publicação pendente |
 | 122 | 64 | tablet-ate-1500-estudar-e-netflix | guia | 709 | 0 | 5 | 1 | 4 | 1200 | pendente |
 | 123 | 64 | trocar-bateria-iphone-brasil-preco-risco | guia | 712 | 0 | 8 | 1 | 4 | 1200 | pendente |
 | 124 | 64 | ultrabook-faculdade-bateria-tela-teclado | guia | 805 | 0 | 4 | 1 | 4 | 1200 | pendente |
