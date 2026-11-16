@@ -21,6 +21,7 @@ Ao lado da capa fica o original sem marca: `public/images/posts/<slug>/cover.src
 - `scripts/derive-covers.mjs`: não gera derivado público do `cover.src.*`.
 - `scripts/social/compose_ig_post.py` e, no box, `/workspace/ig-thezero/compose_ig_post.py` e `make_video.py`: se existir `cover.src.*` ao lado da capa, a arte usa esse arquivo e aplica a marca por cima dele. Nunca derivam de uma imagem já gerada.
 - No site, a marca do The Zero é aplicada por CSS (`WatermarkedPhoto`), não gravada no arquivo.
+- Nenhum texto gravado na capa: crédito e aviso de foto ilustrativa ficam no `coverCredit` (legenda abaixo da foto), nunca dentro da imagem.
 
 ## Checagem no CI
 
