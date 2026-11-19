@@ -2998,6 +2998,17 @@
       "updated_at": "2026-11-19T14:01:58Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Df7P2oPFsx1",
       "story": "https://www.instagram.com/stories/hello.the.zero/4033887723366865623"
+    },
+    "gemini-4-neon-preco-brasil-api-carbon": {
+      "article_url": "https://www.thezero.com.br/noticia/gemini-4-neon-preco-brasil-api-carbon",
+      "pr": 615,
+      "commit": "3420e8fd53080ce714be379a848ddb902f0328d2",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-4-neon-preco-brasil-api-carbon.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-4-neon-preco-brasil-api-carbon.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-4-neon-preco-brasil-api-carbon-story.jpg",
+      "ig": "https://www.instagram.com/p/Df8LtUglwo9/",
+      "slug": "gemini-4-neon-preco-brasil-api-carbon",
+      "updated_at": "2026-11-19T22:44:50Z"
     }
   }
 }
