@@ -1,0 +1,68 @@
+---
+title: "Gemini 4 Neon chega ao Pro; API custa mais que Carbon em promoção"
+seoTitle: "Gemini 4 Neon: preço no Brasil, API e limites de acesso"
+seoDescription: "Google oferece Neon nos planos Pro e Ultra. Veja preço brasileiro, cobrança da API e por que o novo modelo não é sempre mais barato que Carbon."
+excerpt: "Neon entra no Google AI Pro de R$ 96,99 mensais. Na API, a promessa de economia depende da comparação e do fim do desconto do Carbon."
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-11-19T17:18:00-03:00"
+kicker: "Gemini · custo real"
+author: "nicholas"
+cover: "/images/posts/gemini-4-neon-preco-brasil-api-carbon/cover.jpg"
+coverAlt: "Nome Google em letras brancas numa estrutura escura diagonal diante de um prédio e céu azul."
+coverCredit: "Foto: brionv / Wikimedia Commons, CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0/deed.en). Campus do Google em Mountain View, 28 de abril de 2006; arquivo recortado e redimensionado, com derivados sob a mesma licença. Não mostra o lançamento do Neon nem uma interface atual."
+coverSource: "https://commons.wikimedia.org/wiki/File:Google_Sign.jpg"
+cover_locked: true
+cover_source: real
+---
+
+O Google apresentou ao público brasileiro o **Gemini 4 Neon** em uma publicação de 19 de novembro. O modelo chega ao aplicativo Gemini para assinantes Pro e Ultra, ao Antigravity e à API paga. A proposta é ocupar o espaço entre Hydrogen e Carbon em programação, análise de documentos e tarefas complexas. Mas há uma diferença entre a promessa de eficiência e a conta cobrada agora: **a tarifa por token do Neon supera a do Carbon enquanto durar o desconto deste último**.
+
+No Brasil, a [página oficial de assinaturas](https://gemini.google/br/subscriptions/?hl=pt-BR) consultada em 19 de novembro lista **Google AI Pro por R$ 96,99 por mês**, com acesso ao Neon no aplicativo. Isso não transforma a assinatura em uma franquia irrestrita da API. Os caminhos de uso têm preços, limites e condições diferentes.
+
+O The Zero não testou o modelo. As capacidades abaixo vêm da documentação do Google e de avaliação independente identificada, não de uma comparação própria de respostas ou velocidade.
+
+## Onde o Neon está disponível
+
+Segundo o [anúncio em português](https://blog.google/intl/pt-br/novidades/tecnologia/apresentando-gemini-4-neon/), assinantes Pro e Ultra podem selecionar o Neon no menu de modelos do aplicativo. O Google também oferece acesso pelo AI Studio e pelo Antigravity. Para empresas, o anúncio cita Gemini para negócios; isso não torna qualquer conta corporativa elegível automaticamente.
+
+A página brasileira diferencia o Pro do **AI Plus, de R$ 24,99 mensais**, cujo acesso anunciado é ao Hydrogen. Assinar o plano pago mais barato, portanto, não equivale a contratar Neon. A página descreve limites baseados na complexidade dos pedidos, recursos usados e tamanho da conversa, com renovação periódica e teto semanal. Não há promessa de uso ilimitado.
+
+No [Antigravity](https://antigravity.google/blog/gemini-4-neon-in-google-antigravity/), a liberação é descrita como gradual para assinantes pagos Pro e Ultra. Já a [documentação da API](https://aistudio.google.com/docs/whats-new-gemini-4-neon) exige projeto no nível pago. Acesso ao AI Studio por assinatura e faturamento de uma aplicação pela API não devem ser tratados como a mesma contratação: confira a cota e o projeto usados antes de automatizar chamadas.
+
+## A comparação de preços tem uma data de virada
+
+A [tabela oficial da API](https://aistudio.google.com/docs/pricing) cobra pelo Neon **US$ 3 por milhão de tokens de entrada** e **US$ 15 por milhão de saída**, incluindo tokens de raciocínio. Entrada reaproveitada pelo cache implícito custa US$ 0,15 por milhão quando elegível. Não é uma mensalidade brasileira, nem o valor de uma conversa inteira.
+
+A mesma tabela mantém Carbon com desconto até **30 de novembro de 2026**: US$ 2 na entrada e US$ 10 na saída. A partir de 1º de dezembro, os valores publicados passam a US$ 4 e US$ 20. Assim, a posição relativa muda sem que o Neon altere a tarifa.
+
+| API, por milhão de tokens | Entrada | Saída, incluindo raciocínio | Condição publicada |
+| --- | --- | --- | --- |
+| Gemini 4 Neon | US$ 3 | US$ 15 | Tarifa consultada em 19/11 |
+| Gemini 4 Carbon | US$ 2 | US$ 10 | Desconto até 30/11/2026 |
+| Gemini 4 Carbon | US$ 4 | US$ 20 | Preço anunciado para 1º/12/2026 |
+
+Por unidade de token, Neon está **50% acima do Carbon promocional** e **25% abaixo do preço posterior anunciado**. Isso não decide sozinho qual conclui uma tarefa por menos dinheiro. Quantidade de tentativas, extensão do raciocínio e chamadas a ferramentas podem mudar o total. Serviços como busca também têm cobrança própria conforme as regras publicadas.
+
+Para o desenvolvedor brasileiro, comparar os R$ 96,99 do Pro diretamente com esses dólares seria misturar assinatura de aplicativo e consumo de infraestrutura. A API está tabelada em moeda estrangeira; a tabela acima não é uma oferta em reais nem inclui uma conversão estimada como se fosse preço local.
+
+## Contexto grande não significa resposta ilimitada
+
+O Neon tem uma janela unificada de **1.048.576 tokens**, compartilhada entre entrada, raciocínio e saída. A documentação descreve quatro níveis de raciocínio: low, medium, high e xhigh, com high como padrão. O nível xhigh pode aumentar tempo de resposta e consumo, não sendo uma opção economicamente neutra.
+
+Há ainda um limite de **65.536 tokens por resposta síncrona**. Saídas mais longas dependem dos mecanismos de execução em segundo plano ou continuação descritos pelo Google e continuam dentro da janela compartilhada. Divulgar apenas "um milhão de tokens" sem essas condições cria uma expectativa errada para quem pretende enviar documentos grandes e receber um relatório igualmente extenso.
+
+## O que os testes disponíveis realmente indicam
+
+A [Artificial Analysis](https://artificialanalysis.ai/articles/gemini-4-neon-intelligence-gain) atribui ao Neon em xhigh **61 pontos** no seu índice de inteligência, um ponto acima do Carbon em high. A publicação também relata custo por tarefa menor usando o preço não promocional do Carbon. É uma comparação com configurações e tarefas definidas, não prova de superioridade em qualquer trabalho.
+
+A própria análise destaca que o Neon custa mais por token do que o Carbon com desconto vigente. Esse detalhe importa mais para orçamento de curto prazo do que um slogan de economia. Resultados de benchmark não garantem qualidade jurídica brasileira, exatidão tributária ou ausência de erros em código produzido para uma empresa daqui.
+
+## O que isso significa
+
+O Neon amplia a opção de modelo avançado dentro do Pro, sem exigir que todo interessado suba ao Ultra. Para quem já paga, faz sentido procurar o seletor e comparar tarefas reais com os modelos disponíveis antes de mudar de plano. Para quem usa API, vale medir custo total por tarefa concluída, não só o preço de um milhão de tokens ou a posição em ranking.
+
+Nossa leitura: a novidade é útil quando entrega o resultado necessário com menos espera ou retrabalho. O lançamento não dispensa revisão humana, controles de orçamento ou cuidado com dados enviados. O [guia do que não colar em um chat de IA](/noticia/o-que-nao-colar-no-chat-de-ia) ajuda a separar um teste de produtividade da exposição desnecessária de informação.
+
+Fontes: [Google, anúncio brasileiro](https://blog.google/intl/pt-br/novidades/tecnologia/apresentando-gemini-4-neon/), [documentação Neon](https://aistudio.google.com/docs/whats-new-gemini-4-neon), [preços da API](https://aistudio.google.com/docs/pricing), [planos no Brasil](https://gemini.google/br/subscriptions/?hl=pt-BR) e [Artificial Analysis](https://artificialanalysis.ai/articles/gemini-4-neon-intelligence-gain).
