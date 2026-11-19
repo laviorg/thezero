@@ -1,0 +1,70 @@
+---
+title: "Sign2Shell expõe falhas em assinadores digitais; confira as correções"
+seoTitle: "Sign2Shell: falhas em extensões de assinatura digital"
+seoDescription: "Pesquisa aponta falhas em cinco extensões usadas no Brasil. Entenda versões corrigidas, divergência sobre CertiPlugin e cuidados no Windows."
+excerpt: "Cinco extensões somam cerca de 10 milhões de instalações. Pesquisa distingue quatro correções da mitigação no CertiPlugin; empresas contestam riscos."
+category: aplicativos
+subcategory: seguranca-digital
+format: noticia
+date: "2026-11-18T03:03:00-03:00"
+kicker: "Segurança · Certificação digital"
+author: "nicholas"
+cover: "/images/posts/sign2shell-extensoes-assinatura-digital-brasil/cover.jpg"
+coverAlt: "Mãos de uma pessoa de camisa clara sobre o teclado de um notebook cinza, com a tela vista de lado."
+coverCredit: "Foto: Israel Torres / Pexels (https://www.pexels.com/license/). Arquivo de julho de 2023, ilustrativo; não mostra as extensões, um ataque ou um teste da reportagem. Redimensionamento."
+coverSource: "https://www.pexels.com/photo/hands-on-laptop-keyboard-17810854/"
+cover_locked: true
+cover_source: real
+---
+
+Uma pesquisa publicada em 17 de novembro identificou falhas de execução remota de código em cinco extensões de assinatura digital usadas no Brasil. O conjunto, chamado **Sign2Shell**, envolve Lacuna Web PKI, Softplan Web Signer, Certisign WebSigner, Certisign CertiPlugin e BRy Assinatura Digital. Para quem assina notas, petições ou documentos de clientes no Windows, a providência é conferir o produto instalado e sua atualização, não concluir que todo certificado foi roubado.
+
+O [relatório de James Arnott, publicado no Am I Being Pwned, da Bay Area Labs](https://amibeingpwned.com/blog/how-we-hacked-brazil), atribui nota CVSS 3.1 de 9,6 às falhas. As extensões somariam aproximadamente 10,18 milhões de instalações nas lojas consultadas pelos autores. Isso não representa 10 milhões de vítimas confirmadas, nem necessariamente pessoas ou computadores únicos. Os pesquisadores dizem não ter investigado evidências de exploração real.
+
+## O problema estava na ponte com o Windows
+
+Esses produtos ligam o site ao programa instalado no computador que acessa o certificado. O navegador limita o que uma página pode fazer, mas o componente nativo precisa conversar com arquivos locais e dispositivos criptográficos. Segundo a pesquisa, as versões vulneráveis permitiam que uma página influenciasse qual biblioteca de código, uma DLL, esse programa carregaria.
+
+Carregar a biblioteca maliciosa permitia executar código com os direitos do usuário conectado, dentro do processo do fornecedor. Não é correto transformar isso em acesso automático de administrador a qualquer Windows. Ainda assim, arquivos e atividades disponíveis àquela conta poderiam ficar expostos.
+
+Os caminhos variavam. No Web PKI e no WebSigner da Certisign, os autores descrevem acionamento por página ou conteúdo incorporado, como um anúncio. No Softplan Web Signer, descrevem um link aberto diretamente. CertiPlugin e BRy envolviam também baixar um arquivo. A demonstração depende de Windows e do componente nativo instalado; não comprova o mesmo ataque em qualquer navegador, sistema ou celular.
+
+## Quais versões o estudo identifica
+
+A tabela resume os marcos de correção **atribuídos pelos pesquisadores às extensões**, não aos instaladores nativos. São referências históricas do relatório, não uma recomendação para instalar versões antigas deliberadamente.
+
+| Extensão | Primeira versão corrigida segundo o estudo | Ressalva |
+| --- | --- | --- |
+| Lacuna Web PKI | 2.18.0 | A tentativa anterior, 2.17.5, não bastava, segundo os autores |
+| Certisign WebSigner | 2.18.0 | Não confundir com CertiPlugin |
+| Softplan Web Signer | 2.18.3 | Softplan confirma essa correção para Chrome |
+| BRy Assinatura Digital | 2.2.8 | BRy relata atualizações posteriores até outubro |
+| Certisign CertiPlugin | Nenhuma classificada como correção completa | Estudo chama 1.15.1 de mitigação |
+
+Há um cuidado adicional: números de componentes diferentes não são comparáveis. Na consulta de 18 de novembro, o [histórico oficial da Lacuna](https://docs.lacunasoftware.com/pt-br/articles/web-pki/changelog) listava extensão web 2.19.1, enquanto a [página do Web PKI na Chrome Web Store](https://chromewebstore.google.com/detail/web-pki/dcngeagmmhegagicpcmpinaoklddcgon) mostrava 2.18.3. O mesmo histórico listava componente nativo do Windows 2.17.0 e biblioteca JavaScript 2.20.0.
+
+Portanto, encontrar 2.17.0 no aplicativo local não permite classificá-lo pela linha 2.17.5 da extensão. A divergência entre documentação e loja também impede usar um único número como versão universal. Confira nome, componente e navegador com o suporte oficial ou com a TI.
+
+## O que dizem as empresas
+
+Em [notas públicas reproduzidas pelo CISO Advisor](https://www.cisoadvisor.com.br/falha-em-extensoes-de-assinatura-digital-no-brasil/), a Lacuna afirma que o problema está plenamente corrigido. Seu changelog descreve restrições a caminhos de bibliotecas e correções na identificação da origem das solicitações. A Softplan confirma correção no Chrome em 27 de agosto, na versão 2.18.3, e atualização do Firefox após aprovação da Mozilla.
+
+A BRy informa distribuição automática de atualizações entre setembro e outubro, concluídas até 26 de outubro. Diz não ter registrado exploração, tentativas de ataque ou danos, e afirma que as chaves privadas de certificados A3 em dispositivos físicos não foram expostas.
+
+A Certisign declara que implementou correções para WebSigner e CertiPlugin, sem registro de exploração em ambiente real. Existe, portanto, uma discordância relevante: os pesquisadores classificam CertiPlugin 1.15.1 como mitigação por restrição dos sites autorizados, não eliminação do carregamento inseguro. A [loja do Chrome](https://chromewebstore.google.com/detail/certiplugin-chrome/chgajipdilbjolpgafadpdggjaeeapic) ainda mostrava 1.15.1 na consulta. Não fizemos auditoria para encerrar essa divergência.
+
+## Como conferir sem baixar uma falsa correção
+
+Abra o gerenciador de extensões do navegador e identifique quais desses produtos realmente usa. No Chrome, o [caminho oficial](https://support.google.com/chrome_webstore/answer/2664769?hl=pt-BR) é menu de três pontos, **Extensões > Gerenciar extensões**. Examine os detalhes e confirme a atualização nos canais do fornecedor. Não baixe um suposto reparo enviado por mensagem, anúncio ou site sem vínculo verificado.
+
+Verifique também o componente instalado no Windows. A própria [documentação da BRy](https://www.bry.com.br/blog/instalar-plugin-bry/) explica que seu funcionamento exige extensão e instalador complementar. Em computador gerenciado, peça à TI que confira ambos, em vez de alterar sozinho uma ferramenta necessária ao trabalho. Se não usa mais o produto, remover a extensão reduz uma entrada desnecessária.
+
+Uma instalação antiga merece atenção, mas não prova roubo de certificado. Na suspeita concreta de uso indevido, envolva a TI e a autoridade certificadora. O [ITI explica os tipos A1 e A3 e quem pode solicitar revogação](https://www.gov.br/iti/pt-br/acesso-a-informacao/perguntas-frequentes/certificacao-digital). Não compartilhe arquivos de certificado, senhas ou chaves com uma página que promete verificar a exposição.
+
+## O que isso significa
+
+Para um escritório brasileiro, o risco não termina no documento que está sendo assinado. Uma estação pode concentrar arquivos e responsabilidades de vários clientes. Por isso, inventariar extensões e aplicativos complementares é mais útil do que buscar apenas um antivírus novo. Nosso [guia sobre antivírus no Windows](/noticia/antivirus-windows-2026-precisa-pagar) ajuda a separar proteção básica de promessas comerciais, mas não substitui corrigir o assinador.
+
+A leitura prática é cobrar correção verificável por produto e componente. Atualização automática informada pelo fornecedor não dispensa conferir máquinas pouco usadas ou administradas pela empresa. Ao mesmo tempo, gravidade potencial não autoriza anunciar invasão em massa. Esta reportagem analisa documentos públicos; não executou ataques, instalou extensões ou testou certificados.
+
+Fontes: [pesquisa Sign2Shell](https://amibeingpwned.com/blog/how-we-hacked-brazil), [Lacuna](https://docs.lacunasoftware.com/pt-br/articles/web-pki/changelog), [notas dos fornecedores no CISO Advisor](https://www.cisoadvisor.com.br/falha-em-extensoes-de-assinatura-digital-no-brasil/), [ITI](https://www.gov.br/iti/pt-br/acesso-a-informacao/perguntas-frequentes/certificacao-digital).
