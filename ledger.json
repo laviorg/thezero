@@ -2930,6 +2930,17 @@
       "ig": "https://www.instagram.com/p/Df7OZvAl_z6/",
       "slug": "chrome-158-correcao-seguranca-versoes-canais",
       "updated_at": "2026-11-19T13:49:06Z"
+    },
+    "one-ui-9-5-beta-app-lock-brasil": {
+      "article_url": "https://www.thezero.com.br/noticia/one-ui-9-5-beta-app-lock-brasil",
+      "pr": 605,
+      "commit": "98de19c7f6fb34bb19c494164d16ccee2f3ccdc2",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/one-ui-9-5-beta-app-lock-brasil.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/one-ui-9-5-beta-app-lock-brasil.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/one-ui-9-5-beta-app-lock-brasil-story.jpg",
+      "ig": "https://www.instagram.com/p/Df7Oac9k7MX/",
+      "slug": "one-ui-9-5-beta-app-lock-brasil",
+      "updated_at": "2026-11-19T13:49:16Z"
     }
   }
 }
