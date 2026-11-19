@@ -1,55 +1,66 @@
 ---
-title: "AMD confirma FSR 4 com IA em APUs até o fim de 2026 e amplia upscaling para consoles portáteis"
-seoTitle: "AMD confirma FSR 4 com IA para APUs até o fim de 2026"
-excerpt: "A AMD confirmou que o upscaling FSR 4 por aprendizado de máquina chegará a APUs, notebooks gamers e consoles portáteis com RDNA 3.5 até o final de 2026."
+title: "FSR 4 em APUs: o que AMD e ASUS já liberaram e os limites"
+seoTitle: "FSR 4 em APUs: chips, drivers e limites nos portáteis"
+seoDescription: "FSR Upscaling 4.1 amplia suporte a APUs, mas SDK, driver e jogo não são a mesma coisa. Veja os limites e o impacto no Brasil."
+excerpt: "APUs entraram no alcance do FSR por aprendizado de máquina, mas modelo, driver e jogo ainda decidem se o recurso funciona."
 category: computadores
 subcategory: componentes
 date: "2026-10-07T20:38:00-03:00"
 featured: false
-kicker: "Computadores · componentes"
+kicker: "FSR · APUs"
 author: "nicholas"
 cover: "/images/posts/amd-confirma-fsr-4-em-apus-2026/cover.jpg"
-coverAlt: "Renderização em close de um processador AMD Ryzen AI Max Pro Series com substrato prateado sobre fundo escuro com reflexos esverdeados"
-coverCredit: "AMD / TechPowerUp / Divulgação"
+coverAlt: "ROG Xbox Ally branco com jogos na tela, apoiado em suporte de exposição com uma placa abaixo."
+coverCredit: "Foto: RuinDig/Yuki Uchida / Wikimedia Commons, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Xbox Ally básico no Tokyo Game Show, 27 de setembro de 2025. Arquivo, com recorte e redimensionamento; não demonstra FSR 4 nem um teste do The Zero."
+coverSource: "https://commons.wikimedia.org/wiki/File:Tokyo-Game-Show-2025_0111.jpg"
+cover_locked: true
+cover_source: real
+updated: "2026-11-19T15:20:00-03:00"
 ---
 
-A AMD vai liberar a sua tecnologia de reconstrução de imagem **FSR 4** para processadores com gráficos integrados (APUs) até o encerramento de 2026. A declaração foi feita por Jack Huynh, vice-presidente sênior e gerente geral do grupo de computação e gráficos da empresa, durante encontro com a imprensa sul-coreana em Seul, segundo apuração do [TechPowerUp](https://www.techpowerup.com/353477/amd-confirms-fsr-4-is-coming-to-apus-by-the-end-of-2026).
+**Atualizado em 19 de novembro de 2026:** o anúncio inicial foi sucedido por documentação de suporte a APUs e portáteis. Revimos a promessa genérica de chegada até o fim do ano: compatibilidade do chip, acesso ao software e funcionamento no jogo são etapas diferentes. Esta análise usa fontes documentais, sem testes próprios de imagem, desempenho ou bateria.
 
-A medida expande o alcance do algoritmo baseado em aprendizado de máquina para além das placas de vídeo dedicadas de desktop. O executivo destacou que o cronograma prevê levar o recurso diretamente para processadores móveis integrados, notebooks dedicados a jogos e consoles portáteis assim que a pilha de software da fabricante for otimizada para essas arquiteturas.
+O FSR por aprendizado de máquina deixou de ser uma discussão limitada às placas Radeon de desktop. A AMD anunciou, em outubro, a expansão do **FSR Upscaling 4.1** para famílias Ryzen com gráficos integrados. Em novembro, publicou detalhes do **4.1.2**, inclusive para desenvolvedores de Xbox Series X|S. Isso não significa que todo Ryzen, qualquer portátil ou todos os jogos ganharam o recurso automaticamente.
 
-![Renderização em close de um processador AMD Ryzen AI Max Pro Series com substrato prateado sobre fundo escuro com reflexos esverdeados](/images/posts/amd-confirma-fsr-4-em-apus-2026/cover.jpg)
+A notícia original, de 7 de outubro, repercutia uma declaração de Jack Huynh à imprensa sul-coreana sobre levar a tecnologia a APUs existentes e novos produtos. O [relato do The Elec](https://www.thelec.net/news/articleView.html?idxno=14477) ajuda a entender a intenção, mas não substitui a lista de compatibilidade e o canal de atualização de cada fabricante.
 
-*AMD / TechPowerUp / Divulgação. Processador da AMD com gráficos integrados, categoria que receberá suporte oficial ao FSR 4 até o fim do ano.*
+## O que entrou no suporte
 
-<Verdict overrated="acreditar que upscaling por aprendizado de máquina compensa sozinho a largura de banda limitada de memória compartilhada em APUs de entrada" underrated="levar a mesma solução de reconstrução gráfica pesada para computadores de mão sem exigir GPU dedicada" />
+No [anúncio de 20 de outubro](https://newsroom.amd.com/news/amd-fsr-upscaling-4-1-boosts-frames-image-quality/), a AMD incluiu Ryzen AI Max, Ryzen AI 9 e portáteis com Ryzen AI Z2 Extreme, Z2 Extreme e Z2 A. Também citou Radeon RX 6000. São famílias nomeadas, não uma autorização para instalar o recurso em qualquer APU antiga com a marca Ryzen.
 
-## O avanço do FSR 4 do RDNA 4 para chips RDNA 3.5
+As [notas do Adrenalin 26.10.1](https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-10-1.html) detalham Ryzen AI Max das séries 300 e 400 e Ryzen AI 9 das séries 300 e 400. A mesma página adverte que esse pacote **não oferece suporte a dispositivos portáteis de jogos** e orienta usar drivers fornecidos pelo fabricante do aparelho. Forçar o instalador de desktop não é o caminho recomendado aqui.
 
-Quando foi apresentado originalmente pela fabricante, o FSR 4 funcionava de forma restrita às placas de vídeo da linha **Radeon RX 9000**, baseadas na microarquitetura **RDNA 4** de desktop. Mais tarde, durante o verão do hemisfério norte, a AMD estendeu o suporte para placas dedicadas da geração anterior, a família **Radeon RX 7000**, construída sobre o padrão **RDNA 3**.
+| Situação documentada | O que permite concluir | O que não comprova |
+| --- | --- | --- |
+| Família de APU listada pela AMD | Existe suporte anunciado para aquela família | Que todos os notebooks já receberam o driver adequado |
+| Xbox Ally X e X20 no GPUOpen de 4/11 | Há caminho por Armoury Crate SE e driver indicado | Que o Ally branco básico recebeu a mesma liberação |
+| Ryzen Z2 A no SDK 2.4 | Desenvolvedores podem trabalhar com esse processador | Que a atualização de consumidor está disponível em toda unidade |
+| Xbox Series X\|S no GDK de outubro | Desenvolvedores podem integrar FSR Upscaling 4.1.2 | Que jogos já publicados passaram a usá-lo sem atualização |
 
-Apesar dessa abertura inicial para GPUs dedicadas mais antigas, chips com gráficos integrados continuavam sem acesso à novidade. Isso incluía designs como os processadores de codinome **Strix Halo**, que trazem núcleos gráficos na arquitetura **RDNA 3.5** e equipam estações móveis e plataformas compactas. Segundo Huynh, o foco atual dos engenheiros está em ajustar o fluxo de computação para que esses núcleos integrados executem a inferência de aprendizado de máquina sem sobrecarregar a largura de banda compartilhada com o processador central.
+## No Ally, o nome do modelo faz diferença
 
-| Plataforma de hardware | Arquitetura gráfica | Status do FSR 4 | Prazo confirmado |
-| --- | --- | --- | --- |
-| Radeon RX 9000 | RDNA 4 | Suporte nativo inicial | Lançamento original |
-| Radeon RX 7000 | RDNA 3 | Adicionado no verão de 2026 | Já disponível |
-| APUs e Strix Halo | RDNA 3.5 | Em otimização de software | Até o fim de 2026 |
-| Laptops e portáteis | Gráficos integrados | Confirmado por Jack Huynh | Até o fim de 2026 |
+A [documentação GPUOpen de 4 de novembro](https://gpuopen.com/learn/amd-fsr-upscaling-412-xbox/) explica que o SDK 2.4 atende Ryzen AI Z2 Extreme e Z2 A. Para experimentar o recurso nos **Xbox Ally X e X20**, aponta o driver 32.0.32015.7029 ou posterior, pelo Update Center do Armoury Crate SE. O texto ainda coloca o suporte do Xbox Ally básico em atualização posterior.
 
-## Foco direto em PCs de mão e notebooks compactos
+Há uma divergência na [página da ASUS sobre o preview](https://rog.asus.com/articles/rog-ally/amd-fsr-upscaling-41-is-coming-to-the-rog-xbox-ally-x-and-x20-in-preview/): o resumo inclui os três aparelhos, enquanto o corpo diz que o básico viria depois. Não tratamos esse resumo como confirmação suficiente para o modelo branco. O dono precisa conferir o modelo exato e as atualizações oferecidas pela ASUS, sem confundir suporte no SDK com driver já entregue.
 
-Ao citar textualmente os aparelhos móveis e portáteis (*handheld devices*), Huynh sinalizou a prioridade da AMD em atender a categoria de PCs portáteis para jogos. Esse segmento depende fortemente de eficiência energética e de resoluções de renderização internas mais baixas para manter taxas de quadros estáveis em telas pequenas sem esgotar baterias rapidamente.
+A ASUS também avisa que o canal Preview Updates pode conter instabilidade. Quem prioriza estabilidade pode esperar a chegada ao canal oficial. A existência de um preview não obriga o leitor a instalá-lo nem transforma o recurso em requisito para continuar usando o aparelho.
 
-Ao contrário de versões anteriores da tecnologia que utilizavam filtros espaciais ou temporais tradicionais, o FSR 4 depende de redes neurais para reconstruir detalhes finos e conter artefatos visuais. Levar essa rotina para chips integrados significa que plataformas como consoles compactos e notebooks finos poderão buscar melhor qualidade visual com menor consumo bruto de energia, desde que o silício dê conta das operações de inferência em tempo real.
+## Reconstrução não é geração de quadros
 
-## O que isso significa no Brasil
+O upscaling reconstrói uma imagem de saída a partir de uma resolução interna menor. No caminho descrito pelo GPUOpen para os portáteis, a atualização do driver permite substituir versões anteriores em jogos **DirectX 12 com FSR 3.1 ou mais recente**. Para Vulkan, a AMD exige integração nativa do SDK atual. Um botão no software não cria compatibilidade onde o jogo não oferece os dados necessários.
 
-A confirmação da AMD não altera preços nem define cronogramas específicos de lançamentos de notebooks no mercado brasileiro, já que se trata de uma atualização de software e de ecossistema técnico. Dispositivos equipados com APUs recentes da marca já são comercializados no país em canais de varejo e importação oficial, mas o consumidor local deve prestar atenção ao modelo exato da arquitetura gráfica interna antes de esperar compatibilidade imediata.
+A [página geral do FSR](https://www.amd.com/en/products/graphics/technologies/fidelityfx/super-resolution.html) separa Upscaling, geração de quadros e outras tecnologias. Portanto, suporte ao primeiro não comprova acesso automático a todo o pacote. Tampouco autoriza prometer uma porcentagem fixa de ganho, ausência de artefatos ou mais horas de bateria. São resultados que dependem de implementação, resolução, potência e cena.
 
-Usuários brasileiros que possuem ou planejam comprar notebooks compactos ou consoles portáteis baseados em APUs da fabricante receberão o recurso por meio de atualizações de drivers de vídeo até o fim de 2026, sem custo adicional de licença de software.
+## No Brasil, software não apaga o preço do aparelho
 
-<Rule>Upscaling por inteligência artificial só entrega valor real quando o hardware de baixo consumo consegue processar os modelos de inferência sem roubar a energia que a GPU precisa para rodar o jogo.</Rule>
+Em consulta de **19 de novembro**, o [Xbox Ally básico no KaBuM, vendido e entregue pela GIGANTEC](https://www.kabum.com.br/produto/957160/console-rog-xbox-ally-x-asus-ryzen-z2-branco-rc73ya-nh003w-bivolt), aparecia por **R$ 5.938,83 no Pix**, ou dez parcelas de R$ 631,79, com compra habilitada. A unidade identificada na página era a Z2 A, 16 GB e SSD de 512 GB, não o Ally X. Frete e entrega dependem de CEP e não foram verificados.
 
-## Fontes
+A [loja oficial ASUS](https://br.store.asus.com/rog-xbox-ally.html) indicava falta de estoque na mesma consulta. O valor do marketplace é referência datada de um vendedor, não preço mínimo nem recomendação de compra. Acima de R$ 5 mil, comprar apenas pela expectativa de uma atualização seria uma aposta cara, sobretudo quando as fontes divergem sobre sua liberação no modelo básico.
 
-- [techpowerup.com — AMD Confirms FSR 4 Is Coming to APUs by the End of 2026](https://www.techpowerup.com/353477/amd-confirms-fsr-4-is-coming-to-apus-by-the-end-of-2026)
+## O que isso significa
+
+A mudança relevante é ampliar a vida útil de hardware já vendido, não tornar todos os portáteis equivalentes. Para quem já tem um aparelho, o melhor primeiro passo é conferir atualização oficial e suporte dos jogos que realmente usa. Para quem vai comprar, tela, memória, biblioteca e assistência continuam pesando antes de um selo de upscaling.
+
+Nossa leitura: **compatibilidade anunciada é um começo, não um resultado de teste**. O avanço merece atenção, mas não justifica trocar de máquina ou pagar mais sem verificar o modelo e o software disponíveis. O [guia brasileiro do Xbox Ally](/noticia/rog-xbox-ally-vale-a-pena-brasil) ajuda a separar versões antes dessa decisão.
+
+Fontes: [AMD, expansão do FSR 4.1](https://newsroom.amd.com/news/amd-fsr-upscaling-4-1-boosts-frames-image-quality/), [AMD, driver 26.10.1](https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-10-1.html), [GPUOpen, FSR 4.1.2](https://gpuopen.com/learn/amd-fsr-upscaling-412-xbox/), [ASUS, preview nos portáteis](https://rog.asus.com/articles/rog-ally/amd-fsr-upscaling-41-is-coming-to-the-rog-xbox-ally-x-and-x20-in-preview/) e [KaBuM, oferta consultada](https://www.kabum.com.br/produto/957160/console-rog-xbox-ally-x-asus-ryzen-z2-branco-rc73ya-nh003w-bivolt).
