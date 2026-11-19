@@ -2907,6 +2907,17 @@
       "updated_at": "2026-11-17T17:42:48Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Df2fiEMmPVT",
       "story": "https://www.instagram.com/stories/hello.the.zero/4032549315113696292"
+    },
+    "meta-achados-brasil-android-pagamento": {
+      "article_url": "https://www.thezero.com.br/noticia/meta-achados-brasil-android-pagamento",
+      "pr": 602,
+      "commit": "b2a57583052364de68a87cd63e8d6b9ed7175844",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/meta-achados-brasil-android-pagamento.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/meta-achados-brasil-android-pagamento.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/meta-achados-brasil-android-pagamento-story.jpg",
+      "ig": "https://www.instagram.com/p/Df7OY-Yjmzg/",
+      "slug": "meta-achados-brasil-android-pagamento",
+      "updated_at": "2026-11-19T13:49:00Z"
     }
   }
 }
