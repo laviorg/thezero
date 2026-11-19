@@ -2946,6 +2946,17 @@
       "updated_at": "2026-11-19T13:49:44Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Df7OcUCGyCL",
       "story": "https://www.instagram.com/stories/hello.the.zero/4033881538294961551"
+    },
+    "sign2shell-extensoes-assinatura-digital-brasil": {
+      "article_url": "https://www.thezero.com.br/noticia/sign2shell-extensoes-assinatura-digital-brasil",
+      "pr": 600,
+      "commit": "500a0c17b05ac110aa56fdd89086a5f63598afde",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/sign2shell-extensoes-assinatura-digital-brasil.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/sign2shell-extensoes-assinatura-digital-brasil.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/sign2shell-extensoes-assinatura-digital-brasil-story.jpg",
+      "ig": "https://www.instagram.com/p/Df7Oe-TjCtI/",
+      "slug": "sign2shell-extensoes-assinatura-digital-brasil",
+      "updated_at": "2026-11-19T13:49:48Z"
     }
   }
 }
