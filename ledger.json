@@ -2918,6 +2918,17 @@
       "ig": "https://www.instagram.com/p/Df7OY-Yjmzg/",
       "slug": "meta-achados-brasil-android-pagamento",
       "updated_at": "2026-11-19T13:49:00Z"
+    },
+    "chrome-158-correcao-seguranca-versoes-canais": {
+      "article_url": "https://www.thezero.com.br/noticia/chrome-158-correcao-seguranca-versoes-canais",
+      "pr": 597,
+      "commit": "8cda0981159813f85672b4d16eeceae9e7299f55",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/chrome-158-correcao-seguranca-versoes-canais.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/chrome-158-correcao-seguranca-versoes-canais.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/chrome-158-correcao-seguranca-versoes-canais-story.jpg",
+      "ig": "https://www.instagram.com/p/Df7OZvAl_z6/",
+      "slug": "chrome-158-correcao-seguranca-versoes-canais",
+      "updated_at": "2026-11-19T13:49:06Z"
     }
   }
 }
