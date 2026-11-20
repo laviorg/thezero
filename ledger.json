@@ -3011,6 +3011,17 @@
       "updated_at": "2026-11-19T22:45:12Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Df8Lu8YHFlb",
       "story": "https://www.instagram.com/stories/hello.the.zero/4034151073732592765"
+    },
+    "gemini-mac-controla-apps-eua-permissoes": {
+      "article_url": "https://www.thezero.com.br/noticia/gemini-mac-controla-apps-eua-permissoes",
+      "pr": 620,
+      "commit": "d03d5356ff28929c6f2f4d70697e10ac6ff0c5b6",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-mac-controla-apps-eua-permissoes.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-mac-controla-apps-eua-permissoes.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gemini-mac-controla-apps-eua-permissoes-story.jpg",
+      "ig": "https://www.instagram.com/p/Df9ycktCcC6/",
+      "slug": "gemini-mac-controla-apps-eua-permissoes",
+      "updated_at": "2026-11-20T13:42:35Z"
     }
   }
 }
