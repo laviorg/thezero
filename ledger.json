@@ -3050,6 +3050,17 @@
       "updated_at": "2026-11-20T22:21:40Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/Df-t1swEZFD",
       "story": "https://www.instagram.com/stories/hello.the.zero/4034864027557927306"
+    },
+    "windows-11-bluetooth-estereo-48khz-microfone": {
+      "article_url": "https://www.thezero.com.br/noticia/windows-11-bluetooth-estereo-48khz-microfone",
+      "pr": 625,
+      "commit": "907d310a6436e0504d9edbb3c5446891944fc654",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/windows-11-bluetooth-estereo-48khz-microfone.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/windows-11-bluetooth-estereo-48khz-microfone.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/windows-11-bluetooth-estereo-48khz-microfone-story.jpg",
+      "ig": "https://www.instagram.com/p/DgAV6J2DFoI/",
+      "slug": "windows-11-bluetooth-estereo-48khz-microfone",
+      "updated_at": "2026-11-21T13:30:54Z"
     }
   }
 }
