@@ -1,0 +1,71 @@
+---
+title: "Windows 11 testa áudio estéreo a 48 kHz com microfone Bluetooth ativo"
+seoTitle: "Windows testa estéreo a 48 kHz com microfone Bluetooth"
+seoDescription: "Novidade está no canal Experimental e exige PC e fone compatíveis. Não é correção para todo Bluetooth nem estreia do estéreo durante chamadas."
+excerpt: "A prévia permite reprodução estéreo a 48 kHz enquanto o microfone do fone funciona. Exige LE Audio compatível no PC e no acessório."
+category: aplicativos
+subcategory: sistemas-operacionais
+format: noticia
+date: "2026-11-20T21:30:00-03:00"
+kicker: "Windows · Áudio"
+author: "nicholas"
+cover: "/images/posts/windows-11-bluetooth-estereo-48khz-microfone/cover.jpg"
+coverAlt: "Fone de ouvido preto com arco acolchoado sobre tecido cinza, ao lado de parte de um notebook prateado fechado."
+coverCredit: "Foto: SHVETS production / Pexels, licença Pexels (https://www.pexels.com/license/). Arquivo publicado em 3 de agosto de 2021. Ilustrativa, não demonstra Windows Insider nem comprova suporte a LE Audio nos aparelhos fotografados. Fonte: https://www.pexels.com/photo/black-headphones-beside-the-laptop-9052186/. Recorte e redimensionamento, sem texto acrescentado."
+cover_locked: true
+cover_source: real
+---
+
+A Microsoft começou a testar no Windows 11 uma opção para reproduzir áudio estéreo a 48 kHz enquanto o microfone do dispositivo Bluetooth está em uso. A mudança foi anunciada nesta sexta-feira, 20 de novembro, no canal Experimental do Windows Insider. Ela depende de hardware compatível e não resolve automaticamente o som de qualquer fone sem fio.
+
+O requisito central é a combinação: computador com suporte a Super Wideband Stereo e dispositivo Bluetooth LE Audio capaz de reproduzir a 48 kHz. Instalar uma versão de testes não acrescenta esses recursos a um rádio, codec ou fone incompatível. Também não há anúncio de liberação geral para todos os computadores brasileiros.
+
+## O que chegou à prévia
+
+As [notas oficiais da build 26340.10032](https://learn.microsoft.com/en-us/windows-insider/release-notes/experimental/preview-build-26340-10032) colocam a novidade entre as mudanças em distribuição gradual. A Microsoft cita uso em conversas durante jogos, chamadas, digitação por voz e chat de voz no Copilot. O objetivo declarado é manter a reprodução estéreo de faixa completa mesmo com o microfone do acessório aberto.
+
+A configuração indicada é "2 channels, 16 bit, 48000Hz", dentro de Sistema, Som, dispositivo de saída e opções de formato quando o microfone está ativo. O nome exibido pode variar com o idioma da interface. Trata-se do formato de reprodução nessa situação, não de uma promessa de que toda chamada passará a transmitir sua voz nessa qualidade.
+
+A [cobertura da Neowin](https://www.neowin.net/news/new-windows-11-experimental-builds-bring-better-bluetooth-le-audio-support/) também identifica o recurso na build Experimental. Mas a presença da atualização não basta para afirmar que o menu aparecerá imediatamente em todos os PCs: a própria documentação informa distribuição controlada e requisitos específicos.
+
+## Estéreo durante chamadas já existia em parte dos PCs
+
+O cuidado mais importante é não vender a notícia como a primeira vez que o Windows permite estéreo com microfone Bluetooth ativo. A [página de suporte da Microsoft sobre qualidade do LE Audio](https://support.microsoft.com/en-us/windows/hardware/bluetooth/configuring-bluetooth-le-audio-quality-settings-on-windows-11) já descreve essa possibilidade em alguns computadores com Windows 11 24H2 ou posterior, build 26100.4484 ou mais recente e drivers adequados.
+
+A novidade de hoje é a opção anunciada de dois canais, 16 bits e 48 kHz em configurações compatíveis da prévia. A documentação anterior sobre estéreo não prova que todo equipamento já suporte esse novo formato. Tampouco a nota de hoje torna inválidos os requisitos de hardware e drivers descritos pelo suporte.
+
+| O que conferir | Por que importa |
+| --- | --- |
+| Build e canal do Windows | O anúncio atual é do Experimental, não de uma atualização geral |
+| Suporte do PC a Super Wideband Stereo | É requisito explícito do novo formato |
+| LE Audio e reprodução a 48 kHz no acessório | Ter Bluetooth no nome não comprova compatibilidade |
+| Drivers do fabricante | O suporte depende também do rádio e do codec de áudio |
+| Microfone selecionado na chamada | Usar o microfone do notebook é uma situação diferente |
+
+Não fizemos teste de audição, latência ou compatibilidade para esta reportagem. Não há comparação própria entre fones nem medição de desempenho que permita escolher um modelo vencedor.
+
+## Bluetooth LE não é sinônimo de LE Audio
+
+A [orientação oficial para verificar compatibilidade](https://support.microsoft.com/en-us/windows/hardware/bluetooth/check-if-a-windows-11-device-supports-bluetooth-low-energy-audio) explica que nem todo PC anunciado como Bluetooth LE oferece LE Audio. É necessário suporte de hardware e drivers do fabricante para o rádio Bluetooth e o codec de áudio. O acessório também precisa oferecer o recurso.
+
+O suporte orienta procurar a opção de usar LE Audio quando disponível em Bluetooth e dispositivos. Se ela não aparece, o computador pode ter limitação de hardware ou driver ausente ou incompatível. Isso é uma triagem de LE Audio, não certificado isolado de suporte ao novo modo de 48 kHz.
+
+O [Bluetooth SIG descreve o LC3](https://www.bluetooth.com/blog/a-technical-overview-of-lc3/) como codec usado em perfis LE Audio, com diferentes taxas de amostragem, incluindo 48 kHz. Ter esse número no padrão não obriga todo produto a implementar a mesma combinação. Também não transforma a transmissão em áudio sem perdas nem garante microfone melhor em um aplicativo específico.
+
+## Não troque a estabilidade do PC só por esse menu
+
+O [guia de entrada no Windows Insider](https://learn.microsoft.com/en-us/windows-insider/get-started) exige uma instalação licenciada do Windows e descreve o vínculo da conta e a escolha de canal. Participar de uma prévia é uma decisão diferente de instalar uma atualização comum no computador de trabalho.
+
+As notas do Experimental alertam que recursos podem mudar, ser removidos ou nunca sair do programa. A Microsoft também registra investigação de um problema em que a velocidade da CPU mostrada no Gerenciador de Tarefas deixa de atualizar. É um indicador de que o ambiente continua em desenvolvimento, não uma recomendação de migração para qualquer usuário.
+
+Quem já participa e tem o conjunto compatível pode conferir a opção e enviar problemas pelo Hub de Comentários. Quem usa o notebook para trabalhar deve primeiro verificar a documentação e os drivers do fabricante, sem entrar no canal apenas esperando consertar um fone antigo.
+
+## O que isso significa no Brasil
+
+A melhora interessa a quem usa o mesmo fone para ouvir o jogo e conversar ou alterna música e reuniões no PC. Mas a decisão de compra continua dependendo da combinação completa, não de uma promessa genérica de "Bluetooth novo". O anúncio não apresenta uma lista de produtos brasileiros certificados para esse modo nem preço em R$ para contratar o recurso separadamente.
+
+Nossa leitura é que vale conferir o equipamento que você já tem antes de gastar com outro. Um fone novo, sozinho, não resolve um PC sem o suporte exigido. Da mesma forma, um computador compatível não muda a capacidade do acessório. Para avaliar o outro lado da chamada, nosso [guia de headsets e microfone](/noticia/headset-ate-500-microfone) ajuda a separar qualidade de captação de rótulo gamer.
+
+A novidade é concreta, mas estreita: reprodução estéreo a 48 kHz com o microfone ativo em uma prévia e com requisitos definidos. A promessa não é fim universal dos problemas de áudio Bluetooth no Windows.
+
+Fontes: [Microsoft: anúncio de 20 de novembro](https://blogs.windows.com/windows-insider/2026/11/20/announcing-new-builds-for-20-november-2026/), [notas da build 26340.10032](https://learn.microsoft.com/en-us/windows-insider/release-notes/experimental/preview-build-26340-10032), [suporte de qualidade LE Audio](https://support.microsoft.com/en-us/windows/hardware/bluetooth/configuring-bluetooth-le-audio-quality-settings-on-windows-11), [Bluetooth SIG](https://www.bluetooth.com/blog/a-technical-overview-of-lc3/) e [Neowin](https://www.neowin.net/news/new-windows-11-experimental-builds-bring-better-bluetooth-le-audio-support/).
