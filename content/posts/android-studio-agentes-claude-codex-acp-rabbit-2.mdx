@@ -1,50 +1,74 @@
 ---
-title: "Android Studio passa a rodar Claude, Codex e mais de 40 agentes de código"
-seoTitle: "Android Studio roda Claude, Codex e 40 agentes de IA"
-seoDescription: "O Android Studio Rabbit 2 saiu estável com Bring Your Own Agent: Claude Agent, Codex, Junie e Antigravity rodam no IDE, com acesso a emulador, build e Logcat."
-excerpt: 'O Google liberou o Bring Your Own Agent no Android Studio Rabbit 2: mais de 40 agentes de código, como Claude e Codex, usam emulador, build e Logcat.'
+title: "Android Studio aceita Claude e Codex: integração, custo e limites"
+seoTitle: "Claude e Codex no Android Studio: custo e cuidados"
+seoDescription: "BYOA conecta agentes ao Android Studio Rabbit 2. Veja a diferença para uma API, custos no Brasil e por que permissões e revisão continuam necessárias."
+excerpt: "Integração leva agentes ao emulador, build e Logcat. Plano contratado, contexto enviado e limites de permissão precisam ser conferidos separadamente."
 category: aplicativos
 subcategory: desenvolvimento
 format: noticia
 date: "2026-10-29T08:06:36-03:00"
+updated: "2026-11-21T15:40:00-03:00"
 featured: false
-kicker: "Aplicativos · desenvolvimento"
+kicker: "Android Studio · Desenvolvimento"
 author: "nicholas"
 cover: "/images/posts/android-studio-agentes-claude-codex-acp-rabbit-2/cover.jpg"
-coverAlt: "Janela do Android Studio com código Kotlin, pré-visualização de app e painel de assistente de IA, em captura de versão anterior usada como ilustração"
-coverCredit: "Google LLC / Wikimedia Commons (Apache 2.0). Captura ilustrativa de versão anterior do Android Studio"
+coverAlt: "Tela clara de notebook com editor de código, lista de arquivos à esquerda e parte do teclado iluminada em azul e rosa."
+coverCredit: "Foto: Daniil Komov / Pexels, licença Pexels (https://www.pexels.com/license/). Arquivo publicado em 19 de novembro de 2025. Ilustrativa de programação, mostra outro editor, não o Android Studio Rabbit 2, o BYOA ou um teste de Claude e Codex. Fonte: https://www.pexels.com/photo/laptop-with-code-editor-displaying-programming-code-34803985/. Recorte e redimensionamento, sem texto acrescentado."
+cover_locked: true
+cover_source: real
 ---
 
-O Google tornou estável, nesta quarta-feira (28), o recurso **Bring Your Own Agent** (BYOA, algo como "traga o seu próprio agente") no **Android Studio Rabbit 2**. Na prática, o IDE oficial do Android deixa de depender só do Gemini: quem programa pode escolher entre mais de 40 agentes de código, entre eles Claude Agent, da Anthropic, e Codex, da OpenAI. A novidade foi anunciada no Android Developer Summit.
+O Android Studio Rabbit 2 tornou estável o Bring Your Own Agent, ou BYOA, em 28 de outubro de 2026. O recurso permite usar agentes como Claude Agent, Codex, Junie e Google Antigravity dentro do ambiente de desenvolvimento do Android. O Google afirma que a integração aceita mais de 40 agentes compatíveis com o Agent Client Protocol, o ACP.
 
-## O que muda no Android Studio
+A mudança vai além de pedir trechos de código em um chat: o agente pode trabalhar com informações e ferramentas do projeto. Mas estar dentro do Android Studio não elimina a conta do fornecedor, a cobrança aplicável nem a necessidade de conferir o código. Para quem programa no Brasil, a escolha envolve integração, orçamento e o tratamento dado ao material do cliente.
 
-Segundo o blog oficial de desenvolvedores do Android, a lista inclui Claude Agent, Codex, Junie e o Antigravity, do próprio Google. O recurso aceita agentes compatíveis com o **Agent Client Protocol** (ACP), um protocolo aberto, segundo o Google.
+## O que ficou estável no Rabbit 2
 
-O ponto central é o acesso. De acordo com o Google, os agentes de terceiros usam as mesmas ferramentas do Android Studio: o Android Emulator, os sistemas de build e o Logcat. Também podem usar as "skills" do Android, pacotes de instruções para tarefas longas, como migrar telas em XML para Jetpack Compose ou atualizar para o Android Gradle Plugin 9.
+O [anúncio oficial de 28 de outubro](https://developer.android.com/blog/posts/ai-agents-android-studio-integration) descreve acesso a emulador, sistemas de build, Logcat e skills de Android. Essas skills são orientações especializadas para tarefas como migrar telas XML para Jetpack Compose ou atualizar o Android Gradle Plugin, não uma garantia de que qualquer migração terminará sem problemas.
 
-Para começar, o desenvolvedor abre a janela do agente, escolhe o agente desejado, autentica e envia o primeiro pedido. O mesmo caminho existe em Settings > Tools > AI > Agents. O Google diz que a escolha vale para quem precisa de um custo específico ou de um provedor que siga um contrato corporativo.
+O [registro da versão estável](https://androidstudio.googleblog.com/2026/10/android-studio-rabbit-2-now-available.html) confirma a data de lançamento do Rabbit 2. A abertura aos agentes já havia aparecido em uma [prévia de setembro](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio). Portanto, é importante distinguir o anúncio inicial em Canary da chegada à versão estável, em vez de apresentar tudo como novidade de novembro.
 
-## Outras novidades da versão
+Segundo o Google, o caminho para escolher um agente fica na janela do agente ou em Settings, Tools, AI, Agents. Depois vêm a autenticação e o primeiro pedido. Não testamos esse fluxo em uma instalação própria; nomes dos menus podem variar com o idioma e a versão.
 
-O Rabbit 2 traz mais itens, segundo a mesma publicação:
+## Agente, modelo e terminal não são a mesma opção
 
-- **Change Review:** como o agente escreve e refatora código mais rápido, o gargalo passa a ser a revisão. O recurso aponta correções recomendadas e monta um passeio guiado que agrupa as mudanças por tema, em vez de listar arquivos em ordem alfabética.
-- **Gerenciador de skills:** permite descobrir, instalar e controlar as skills do Android e do Firebase que o agente pode usar.
-- **LeakCanary com o agente:** a ferramenta de vazamento de memória passa a explicar a causa e sugerir mudanças de código dentro do Profiler.
-- **Emuladores de Android XR:** os emuladores para óculos de XR, de áudio e de display ficaram estáveis, com ambientes personalizáveis a partir de fotos 360 graus.
-- **Gemini Enterprise:** disponível desde o Rabbit 1, com controles de privacidade e registro de auditoria para equipes.
+A [página atual de IA no Android Studio](https://developer.android.com/ai-in-android) separa o agente integrado, modelos acessados com chaves de API e agentes externos compatíveis com ACP. A distinção muda quem conduz o trabalho e quais condições precisam ser verificadas.
 
-## Além do IDE: o Android CLI
+| Caminho | O que conferir antes de usar |
+| --- | --- |
+| Agente integrado com Gemini | Edição, cota disponível e compartilhamento de contexto |
+| Modelo acessado com chave de API | Provedor, cobrança por uso e configuração da chave |
+| Agente externo por BYOA | Compatibilidade ACP, autenticação, plano e permissões desse agente |
+| Agente no terminal com ferramentas Android | Configuração própria do fluxo CLI, sem presumir que é a sessão do IDE |
 
-O Google também levou a mesma abertura ao terminal. De acordo com o The New Stack, o **Android CLI** ganhou plugins oficiais para Claude Code e Codex, que cobrem criação de projeto, gerenciamento de emulador, inspeção de interface e a documentação do Android. A publicação descreve que os agentes passam a investigar bugs, testar mudanças e verificar as próprias correções, com acesso a dispositivos, profilers e relatórios de falhas em produção.
+O [guia oficial de escolha do fluxo](https://developer.android.com/ai-tools/guides/quickstart) esclarece um detalhe: o Android Studio inicia sua própria instância do agente via ACP. Ele não se conecta automaticamente a um agente que já esteja rodando no terminal. Não presuma, por isso, que uma conversa aberta fora do IDE continuará ali com o mesmo estado.
 
-O vice-presidente de produto do Android, Matthew McCullough, enfatizou no anúncio o objetivo de dar liberdade para escolher modelos e agentes, segundo o The New Stack.
+A [cobertura do Heise](https://www.heise.de/en/news/Android-developers-can-stray-Google-opens-Studio-to-Claude-GPT-and-more-11506605.html) também destaca o acesso às ferramentas do Android. Isso não constitui um comparativo independente de qualidade entre todos os agentes disponíveis.
 
-## O que ainda não está claro
+## No Brasil, comece pela conta que você realmente tem
 
-O blog do Google não informa preços nem regras de cobrança dos agentes: cada um segue as condições de quem o fornece, sem detalhes nas fontes consultadas. Também não há, nas fontes consultadas, dados de desempenho comparando os agentes dentro do IDE. A compatibilidade de cada um depende de suportar o ACP.
+O Google lista o Brasil na [disponibilidade do agente integrado](https://developer.android.com/studio/gemini/availability), com suporte ao inglês. Essa lista é do produto do Google: não confirma, sozinha, todas as condições de acesso de cada agente de terceiros.
 
-## O que isso significa no Brasil
+A página de ofertas apresenta uma opção sem assinatura para o agente integrado, com cota e tokens limitados. É uma entrada de **R$ 0 nessa modalidade**, não uma promessa de uso ilimitado de Claude, Codex ou qualquer modelo por API.
 
-A atualização é uma versão de software e chega a quem baixar o Android Studio estável, sem recorte regional nas fontes. O custo real para o desenvolvedor brasileiro vem do agente escolhido, cobrado normalmente em dólar. Antes de contratar um plano mais caro, vale comparar o que um modelo menor já resolve na rotina do código, como mostra o guia [Modelo menor ou Pro: quando o barato resolve](https://www.thezero.com.br/noticia/modelo-menor-ou-pro).
+A [comparação de edições](https://developer.android.com/studio/gemini/feature-comparison) distingue opção gratuita, chave de API e benefícios associados ao Google One. Já o BYOA permite entrar com o plano aceito pelo agente escolhido. Não trate uma assinatura de chat, uma licença empresarial e um saldo de API como créditos intercambiáveis sem conferir as regras do fornecedor.
+
+Não há uma mensalidade única em R$ para todos os agentes BYOA nas páginas consultadas em 21 de novembro. A análise de custo deve usar o plano e a moeda realmente cobrados, além da cota disponível. Não calculamos economia em reais nem ganho de produtividade, porque não fizemos um teste comparável dessa integração.
+
+## Permissões e dados precisam de revisão separada
+
+A [documentação de permissões do Android Studio](https://developer.android.com/studio/gemini/permissions) descreve controles para arquivos, diretórios externos, acesso à rede, comandos e servidores MCP. Também diferencia autorizações pontuais de permissões persistentes e diz que arquivos sensíveis exigem autorização específica.
+
+Isso não é motivo para conceder acesso amplo a tudo. Um pedido para corrigir um erro de interface não precisa virar autorização permanente para ler credenciais ou modificar diretórios sem relação com o trabalho. O [guia sobre permissões de agentes de IA](https://www.thezero.com.br/noticia/agente-ia-permissoes-que-nao-dar) ajuda a delimitar esse escopo.
+
+Outro ponto é a política do serviço que recebe o contexto. A [página de dados e privacidade do Gemini](https://developer.android.com/studio/gemini/data-and-privacy) distingue a edição gratuita de opções com chave pessoal, Google One ou Gemini Enterprise. No plano gratuito, código explicitamente inserido no chat pode ser usado no treinamento; as condições descritas para as outras opções são diferentes.
+
+Essas regras não devem ser transferidas automaticamente para Claude ou Codex. Antes de enviar um repositório de cliente, confira o contrato, o agente selecionado e o que será compartilhado. Uma garantia específica do Gemini Enterprise não é uma garantia genérica para toda integração do IDE.
+
+## O que isso significa
+
+Nossa leitura é que o BYOA é mais útil quando aproxima um agente já aprovado pela equipe das ferramentas que ajudam a verificar o resultado. Build, emulador e Logcat podem fornecer evidências melhores do que uma resposta de texto isolada, mas não tornam a mudança correta por definição.
+
+Comece por uma tarefa pequena, em uma cópia de trabalho versionada, com critério claro de sucesso. Revise o diff, execute os testes pertinentes e confira a interface quando houver alteração visual. O agente revisar o próprio código pode ajudar a encontrar problemas; não substitui a responsabilidade de quem publica o aplicativo.
+
+Fontes: [Google: agentes no Rabbit 2](https://developer.android.com/blog/posts/ai-agents-android-studio-integration), [versão estável](https://androidstudio.googleblog.com/2026/10/android-studio-rabbit-2-now-available.html), [guia de fluxos](https://developer.android.com/ai-tools/guides/quickstart), [comparação de edições](https://developer.android.com/studio/gemini/feature-comparison), [permissões](https://developer.android.com/studio/gemini/permissions), [dados e privacidade](https://developer.android.com/studio/gemini/data-and-privacy) e [Heise](https://www.heise.de/en/news/Android-developers-can-stray-Google-opens-Studio-to-Claude-GPT-and-more-11506605.html).
