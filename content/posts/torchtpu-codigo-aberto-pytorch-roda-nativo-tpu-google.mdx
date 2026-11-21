@@ -1,43 +1,74 @@
 ---
-title: "TorchTPU vira código aberto e faz o PyTorch rodar nativo nos TPUs do Google"
-seoTitle: "TorchTPU open source: PyTorch roda nativo nos TPUs do Google"
-seoDescription: "Google abriu o TorchTPU na PyTorch Conference 2026: stack nativa de PyTorch para TPUs, com Hugging Face, vLLM, SGLang, llm-d, TorchTitan, VeRL e Ray."
-excerpt: 'Anunciado na PyTorch Conference 2026, o TorchTPU faz o PyTorch rodar nativo nos TPUs do Google. Repositório já está aberto no GitHub.'
+title: "TorchTPU abre caminho nativo para PyTorch em TPUs, mas exige ajustes"
+seoTitle: "TorchTPU aberto: PyTorch em TPU não dispensa ajuste e conta"
+seoDescription: "Backend de Google e Meta aproxima PyTorch das TPUs. Entenda limites de migração, cobrança em R$ e regiões antes de mover uma carga brasileira."
+excerpt: "Código aberto reduz o atrito para levar PyTorch às TPUs. Não garante desempenho máximo, capacidade disponível ou economia na conta brasileira."
 category: tecnologia
 subcategory: infraestrutura
 format: noticia
 date: "2026-10-24T19:35:00-03:00"
+updated: "2026-11-20T23:30:00-03:00"
 featured: false
-kicker: "Tecnologia · infraestrutura de IA"
+kicker: "Tecnologia · Infraestrutura de IA"
 author: "nicholas"
 cover: "/images/posts/torchtpu-codigo-aberto-pytorch-roda-nativo-tpu-google/cover.jpg"
-coverAlt: "Placa TPU v4 do Google vista de cima, com quatro processadores sob dissipadores prateados, cabos coloridos de refrigeração líquida e fundo branco"
-coverCredit: "Google / Wikimedia Commons (CC BY 4.0)"
+coverAlt: "Placa verde vista de cima, com blocos metálicos prateados, tubos amarelos, vermelhos, azuis e verdes e conexões na lateral direita."
+coverCredit: "Foto de arquivo: Norman P. Jouppi, George Kurian, Sheng Li, Peter Ma, Rahul Nagarajan, Lifeng Nai, Nishant Patil, Suvinay Subramanian, Andy Swing, Brian Towles, Cliff Young, Xiang Zhou, Zongwei Zhou e David Patterson / Wikimedia Commons, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/deed.en). Fonte: https://commons.wikimedia.org/wiki/File:TPU_v4.png, datada de 4 de abril de 2023. Recorte e conversão para JPEG, sem texto acrescentado. Mostra uma placa TPU v4, não Ironwood nem demonstração de compatibilidade com TorchTPU."
+cover_locked: true
+cover_source: real
 ---
 
-O Google abriu o código do TorchTPU, sua stack nativa de PyTorch para os chips TPU. O anúncio saiu em 20 de outubro, durante a PyTorch Conference 2026, e coloca os TPUs no mesmo patamar de GPUs e CPUs dentro do framework mais usado para treinar e servir modelos de IA. O repositório já está público no GitHub, na organização google-pytorch.
+O Google abriu o TorchTPU, um backend desenvolvido com a equipe de PyTorch da Meta para executar modelos nas TPUs usando as APIs do framework. O anúncio ocorreu em 20 de outubro, na PyTorch Conference 2026. A mudança reduz o atrito de experimentar outro acelerador, mas não transforma qualquer projeto feito para GPU em uma aplicação otimizada para TPU.
 
-Até aqui, rodar PyTorch em TPU exigia camadas de adaptação que quebravam com frequência e afastavam equipes acostumadas ao ecossistema CUDA da Nvidia. O TorchTPU ataca justamente esse ponto: foi desenvolvido em parceria com o time de PyTorch da Meta e roda cargas de trabalho existentes com mudanças mínimas de código. Dá para depurar em modo eager, como em qualquer projeto PyTorch, e depois passar para o torch.compile quando a fase é produção, com ganho de desempenho e menor uso de memória.
+Esta atualização revê o anúncio original à luz da documentação disponível em 20 de novembro. Para equipes brasileiras, a decisão envolve compatibilidade, capacidade na região escolhida e custo efetivo na conta de nuvem. Código aberto não significa computação gratuita, preço único ou dados processados no Brasil.
 
-## Um ecossistema inteiro chegou junto
+## O que ficou aberto
 
-O anúncio não foi só da stack base. O Google listou integrações prontas com quase todo o arsenal open source de IA:
+O [anúncio do Google Cloud](https://cloud.google.com/blog/topics/ai-infrastructure/torchtpu-is-now-open-source-run-native-pytorch-on-tpus) apresenta o TorchTPU como uma opção nativa de PyTorch para treinamento e inferência. O [repositório público](https://github.com/google-pytorch/torch_tpu/) identifica a licença Apache 2.0 e reúne implementação de operadores, cache de compilação e exemplos de modelos distribuídos.
 
-- **Hugging Face**: a partir do Transformers v5, basta passar `device_map="tpu"` para rodar modelos abertos do Hub em TPU. A biblioteca Diffusers também roda nativa, com suporte a eager, torch.compile e paralelismo de tensores para modelos generativos grandes.
-- **vLLM**: desenvolvido com a Inferact, o backend nativo traz batching contínuo, quantização e paralelismo multi-chip para servir modelos em produção.
-- **SGLang**: em parceria com a RadixArk, acelera cargas agênticas e estruturadas, reaproveitando cache de KV entre requisições.
-- **llm-d 1.0**: lançado com Red Hat, IBM e uma comunidade de mais de 500 contribuidores de 25 organizações, o projeto entra no sandbox da CNCF e faz o roteamento de requisições entre réplicas em frotas de TPUs e GPUs no Kubernetes.
-- **Treinamento**: o TorchTitan, implementação de referência do PyTorch para treino distribuído, foi validado em até 8.192 TPUs Ironwood, com até 52% de aproveitamento de FLOPs no Qwen 3 8B.
-- **VeRL e Ray**: o framework de aprendizado por reforço ganhou backend de TPU integrado ao projeto oficial, e o Ray passa a orquestrar pipelines mistos de CPU, GPU e TPU na mesma rotina.
+O ponto técnico é permitir o uso da TPU como dispositivo do PyTorch, com execução eager, útil para inspecionar operações, e integração ao `torch.compile`, que compila trechos do modelo. Isso aproxima o fluxo de trabalho do que desenvolvedores já conhecem, sem exigir que abandonem o framework apenas para avaliar o hardware.
 
-Há ainda duas peças menores: o LiteRT, runtime de inferência em dispositivos, entrou para o ecossistema PyTorch com conversão em uma linha (`litert-torch.convert()`), e um conjunto de agentes para onboarding e diagnóstico em TPU, o TPU agent suite, está em preview no GitHub.
+Não é a primeira forma de executar PyTorch em TPU. A [explicação da equipe do PyTorch](https://pytorch.org/blog/introducing-torchtpu/) descreve o caminho anterior com PyTorch/XLA, baseado em Lazy Tensors desde 2020, e as dificuldades que motivaram o novo backend. O avanço está na integração e no modo de execução, não em tornar possível algo antes inexistente.
 
-## Por que isso mexe no tabuleiro
+## Trocar o dispositivo não entrega o melhor desempenho
 
-A disputa real aqui não é de benchmark, é de padrão. Durante anos, escolher PyTorch na prática significava escolher GPU Nvidia, porque era onde o software funcionava sem atrito. Com o TorchTPU upstream no próprio ecossistema PyTorch, o TPU deixa de ser um caminho exótico e vira opção de catálogo: mesmo código, mesmas ferramentas, outro fornecedor de computação.
+A documentação usa a mudança de `model.to("cuda")` para `model.to("tpu")` como exemplo da simplicidade pretendida para começar. No mesmo texto, porém, avisa que atingir o máximo da TPU exige trabalho adicional: formatos dos tensores, divisão do modelo entre chips e operadores podem ter sido escolhidos para outra arquitetura.
 
-Para o Google, é a peça que faltava para vender TPU para quem já tem código em produção. Para a Meta, Hugging Face, vLLM e companhia, é a garantia de que o ecossistema aberto não fica refém de um único chip. E para o mercado, mais concorrência de hardware tende a pressionar o custo por token, que hoje é o gargalo de qualquer operação de inferência em escala.
+Essa ressalva muda a leitura do anúncio. Um modelo executar sem grandes alterações é um primeiro teste de compatibilidade. Não comprova menor latência, maior velocidade ou custo inferior em produção. A documentação também registra limitações e desenvolvimento em andamento, incluindo suporte a dimensões dinâmicas e detalhes de execução distribuída.
 
-## O que isso significa no Brasil
+| Etapa | O que precisa ser confirmado |
+| --- | --- |
+| Fazer o modelo executar | Operadores, versões das bibliotecas e saídas corretas |
+| Melhorar a execução | Formatos dos tensores, compilação e distribuição entre chips |
+| Comparar custo | Trabalho concluído, tempo total e recursos cobrados |
+| Colocar em produção | Capacidade, região, recuperação de falhas e monitoramento |
 
-Para desenvolvedores e empresas brasileiras, o efeito prático é um só: workload de PyTorch que hoje roda em GPU na nuvem pode ser testado em TPU sem reescrever o projeto, o que abre espaço para comparar custo real de treino e inferência entre os dois caminhos. A ressalva importante é que TPU não se compra em loja: o acesso continua sendo via Google Cloud, em dólar, então a conta precisa considerar latência, região de dados e preço por hora de cada acelerador. Para times que estão decidindo onde gastar com IA, a lógica de começar barato e escalar só quando precisa continua valendo, como mostra o nosso guia sobre [quando o modelo menor resolve e quando vale subir para o Pro](https://www.thezero.com.br/noticia/modelo-menor-ou-pro).
+A tabela é um roteiro de avaliação, não resultado de benchmark. Não executamos treinamento, inferência ou comparação de hardware para esta matéria.
+
+## Integrações ajudam, mas não são um selo universal
+
+O Google anunciou suporte em ferramentas como Hugging Face Transformers, vLLM, SGLang, TorchTitan e Ray. Elas cobrem tarefas diferentes: servir um modelo, treinar, distribuir o trabalho e coordenar recursos não são a mesma etapa. Uma integração validada não garante que qualquer combinação de modelo, extensão e versão funcione sem ajustes.
+
+O [texto técnico sobre vLLM e SGLang](https://developers.googleblog.com/en/announcing-new-vllm-and-sglang-inference-engines-on-tpu/) explica que os dois motores já tinham caminhos para TPU baseados em JAX. Os novos backends atendem à demanda de desenvolver e depurar a execução no próprio PyTorch. Portanto, também aqui o anúncio não deve ser lido como estreia absoluta dessas ferramentas nas TPUs.
+
+A [cobertura independente da InfoQ](https://www.infoq.com/news/2026/10/google-meta-torchtpu/) chega ao cuidado prático: a troca de dispositivo pode colocar o modelo para rodar, mas otimização e capacidade disponível continuam entrando no orçamento da migração.
+
+## No Brasil, confira a conta em R$ e a localização
+
+A [tabela pública de preços de TPU](https://cloud.google.com/tpu/pricing) informa valores por chip/hora em dólar, variáveis conforme versão, região e modalidade. O Google também alerta que uma VM pode reunir vários chips e que o console apresenta cobrança em horas de VM. Comparar apenas o menor número da tabela pode subestimar a configuração necessária.
+
+Isso não significa que todo cliente brasileiro pague obrigatoriamente em dólar. A [documentação de faturamento do Google para o Brasil](https://support.google.com/cloud/answer/7522866?hl=en) prevê contas com pagamentos em reais. Já a [página de preços do Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/pricing-table) explica que os valores são mostrados na moeda da conta selecionada e podem incluir condições contratuais.
+
+Não verificamos uma cotação de configuração específica em conta brasileira; por isso, não publicamos um valor em R$ nem convertemos a tabela em oferta local. Antes de contratar, compare o preço do recurso exato na sua conta, quantidade de chips, duração e demais serviços usados. O nó em estado READY já acumula cobrança, segundo a página de preços, mesmo que o projeto ainda esteja em avaliação.
+
+A localização merece outra checagem. Na [tabela atual de TPUs do Compute Engine](https://docs.cloud.google.com/compute/docs/regions-zones/tpu-regions-zones), consultada em 20 de novembro, há Trillium v6e em Santiago, na zona `southamerica-west1-a`; São Paulo não aparece. A própria página avisa que outros serviços podem ter disponibilidade diferente. Não confunda presença comercial do Google no Brasil com execução desse recurso em território brasileiro.
+
+## O que isso significa
+
+Nossa leitura é que o TorchTPU amplia a possibilidade de comparar fornecedores de computação mantendo PyTorch como ponto de partida. Isso tem valor para quem já possui uma carga relevante e equipe capaz de medir o resultado. Não é motivo para migrar apenas porque o software ficou aberto.
+
+O teste útil começa pequeno e com critério: mesma tarefa, qualidade de saída comparável, tempo total e custo do trabalho concluído. Inclua o esforço de adaptar e operar a aplicação. Essa disciplina conversa com o nosso guia sobre [quando um modelo menor resolve e quando vale subir de categoria](https://www.thezero.com.br/noticia/modelo-menor-ou-pro): capacidade extra só faz sentido quando resolve um problema que justifica a conta.
+
+Para uma equipe brasileira, o ganho precisa aparecer no orçamento em R$ e nas condições reais de uso. Portabilidade de código é uma vantagem. Economia, disponibilidade e adequação da região ainda precisam ser demonstradas em cada projeto.
+
+Fontes: [Google Cloud](https://cloud.google.com/blog/topics/ai-infrastructure/torchtpu-is-now-open-source-run-native-pytorch-on-tpus), [PyTorch](https://pytorch.org/blog/introducing-torchtpu/), [repositório TorchTPU](https://github.com/google-pytorch/torch_tpu/), [InfoQ](https://www.infoq.com/news/2026/10/google-meta-torchtpu/), [preços de TPU](https://cloud.google.com/tpu/pricing) e [regiões no Compute Engine](https://docs.cloud.google.com/compute/docs/regions-zones/tpu-regions-zones).
