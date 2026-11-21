@@ -3089,6 +3089,17 @@
       "updated_at": "2026-11-21T13:49:27Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DgAYAgrFYbM",
       "story": "https://www.instagram.com/stories/hello.the.zero/4035330965731841643"
+    },
+    "getnet-mcp-pagamentos-ia-acesso-brasil": {
+      "article_url": "https://www.thezero.com.br/noticia/getnet-mcp-pagamentos-ia-acesso-brasil",
+      "pr": 632,
+      "commit": "19926a02343dc9ad4d24e9d820640db193e69383",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/getnet-mcp-pagamentos-ia-acesso-brasil.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/getnet-mcp-pagamentos-ia-acesso-brasil.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/getnet-mcp-pagamentos-ia-acesso-brasil-story.jpg",
+      "ig": "https://www.instagram.com/p/DgAw8nwEsgv/",
+      "slug": "getnet-mcp-pagamentos-ia-acesso-brasil",
+      "updated_at": "2026-11-21T17:27:10Z"
     }
   }
 }
