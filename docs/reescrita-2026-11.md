@@ -57,7 +57,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 39 | switch-2-vs-steam-deck-oled-preco-brasil | comparativo | 699 | 2 | sem 2 fontes | pendente |
 | 40 | ssd-nvme-1tb-brasil-o-que-olhar | guia | 867 | 2 | sem 2 fontes | pendente |
 | 41 | e-titulo-2026-baixar-justificar-voto | tutorial | 1137 | 1 | sem 2 fontes, sem análise | pendente |
-| 42 | contexto-maior-que-prompt | guia | 1991 | 1 | sem análise, sem ângulo BR | pendente |
+| 42 | contexto-maior-que-prompt | guia | 1991 | 1 | sem análise, sem ângulo BR | reescrito em 22/11/2026 |
 | 43 | openai-gpt-61-terra-computer-use-metade-do-preco | noticia | 615 | 1 | sem 2 fontes | pendente |
 | 44 | siri-ai-portugues-ios-27-2 | noticia | 621 | 1 | sem 2 fontes | pendente |
 | 45 | jginyue-placa-pcie-chipset-b650-m2 | noticia | 623 | 1 | sem 2 fontes | pendente |
@@ -532,7 +532,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 360 | 82 | hd-externo-vs-ssd-portatil | guia | 960 | 3 | 1 | 1 | 2 | 1200 | pendente |
 | 361 | 82 | windows-no-handheld-vs-steamos | guia | 704 | 4 | 4 | 1 | 3 | 1200 | reescrito lote 1 |
 | 362 | 83 | antes-de-comprar-console-black-friday-2026 | guia | 952 | 2 | 4 | 1 | 9 | 1200 | pendente |
-| 363 | 83 | contexto-maior-que-prompt | guia | 1900 | 6 | 1 | 1 | 8 | 1920 | pendente |
+| 363 | 83 | contexto-maior-que-prompt | guia | 1900 | 6 | 1 | 1 | 8 | 1920 | reescrito em 22/11/2026 |
 | 364 | 83 | fonte-rtx-4060-e-4070-quantos-watts | guia | 908 | 11 | 2 | 1 | 2 | 1200 | pendente |
 | 365 | 83 | graveyard-keeper-2-well-dweller-hoje | noticia | 650 | 10 | 6 | 1 | 3 | 1920 | pendente |
 | 366 | 83 | iphone-17-pro-leilao-receita-brasil | noticia | 953 | 5 | 23 | 1 | 0 | 1200 | pendente |
