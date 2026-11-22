@@ -1,8 +1,8 @@
 ---
-title: "OpenAI lança o GPT-6.1 Terra, modelo rápido para uso de computador com API pela metade do preço"
-seoTitle: "GPT-6.1 Terra: OpenAI lança modelo rápido com API mais barata"
-seoDescription: "OpenAI lançou o GPT-6.1 Terra, focado em uso de computador. API a US$ 1 por milhão de tokens de entrada, 50% abaixo do GPT-5.6 Terra e do GPT-6.1 Sol."
-excerpt: 'OpenAI lança o GPT-6.1 Terra, modelo rápido para uso de computador. A API custa US$ 1 por milhão de tokens de entrada, 50% menos que o GPT-5.6 Terra.'
+title: "GPT-6.1 Terra tem API mais barata, mas custo depende do uso"
+seoTitle: "GPT-6.1 Terra: preço da API e uso de computador"
+seoDescription: "Veja as tarifas do GPT-6.1 Terra, a diferença entre API e ChatGPT e por que preço menor por token não garante metade da fatura no Brasil."
+excerpt: "Modelo da OpenAI combina leitura de imagens e uso de computador. Tarifas por token menores não significam desconto igual na fatura brasileira."
 category: ia
 subcategory: modelos
 format: noticia
@@ -11,36 +11,64 @@ featured: false
 kicker: "IA · modelos"
 author: "nicholas"
 cover: "/images/posts/openai-gpt-61-terra-computer-use-metade-do-preco/cover.jpg"
-coverAlt: "Lupa sobre a tela de um navegador com o logotipo da OpenAI, sobre fundo roxo. Imagem ilustrativa, não é material do lançamento"
-coverCredit: "Jernej Furman / Wikimedia Commons (CC BY 2.0). Imagem ilustrativa"
+coverAlt: "Lupa amplia o logotipo da OpenAI na tela de um navegador, diante de fundo roxo."
+coverCredit: "Jernej Furman / Wikimedia Commons, CC BY 2.0. Foto de arquivo registrada em 22 de maio de 2023, recortada e redimensionada para exibição. Ilustrativa: não mostra a interface do GPT-6.1 Terra nem teste da redação."
+coverSource: "https://commons.wikimedia.org/wiki/File:OpenAI_logo_with_magnifying_glass_(52916339167).jpg"
 ---
 
-A **OpenAI** apresentou na segunda-feira (26) o **GPT-6.1 Terra**, um modelo rápido e barato voltado a tarefas do dia a dia no computador: escrever propostas, preencher formulários, interpretar desenhos técnicos e editar vídeos. A empresa diz que ele supera o GPT-5.6 Terra com folga e chega perto dos modelos maiores da família, o GPT-6 Astra e o GPT-6.1 Sol, por uma fração do custo.
+A OpenAI apresentou o GPT-6.1 Terra em 26 de outubro de 2026 como uma opção para interpretar imagens, escrever e operar interfaces de computador. O argumento comercial foi combinar essas tarefas com uma API mais barata. Isso pode interessar a empresas brasileiras que automatizam trabalho repetitivo, mas não equivale a prometer metade do gasto mensal com inteligência artificial.
 
-## O que muda no preço
+Esta revisão confere a documentação e os preços públicos em 22 de novembro. O lançamento continua sendo o de outubro. A distinção importa porque a comparação do anúncio não substitui a tabela vigente, as condições de cada requisição ou a cotação usada no pagamento.
 
-A OpenAI informa que os preços padrão da API do Terra são **50% menores** que os do GPT-5.6 Terra e do GPT-6.1 Sol. A tabela publicada é de **US$ 1 por milhão de tokens de entrada**, US$ 0,05 por milhão de tokens de entrada em cache e **US$ 5 por milhão de tokens de saída**. O modelo aparece na API como `gpt-6.1-terra`.
+## Preço do token não é preço da tarefa
 
-No ChatGPT Work e no Codex, a empresa afirma que o mesmo limite de uso do plano rende mais tarefas com o Terra do que com o GPT-5.6 Terra, e bem mais do que com o GPT-6.1 Sol ou o GPT-6 Astra. Ele está disponível desde já para usuários dos planos Plus, Pro, Enterprise e Edu.
+No [anúncio original](https://openai.com/index/introducing-gpt-6-1-terra/), a OpenAI apresentou as tarifas padrão como 50% inferiores às do GPT-5.6 Terra e do GPT-6.1 Sol. Na [tabela atual](https://developers.openai.com/api/docs/pricing), a entrada do Terra custa US$ 1 por milhão de tokens, contra US$ 2 nos dois modelos citados.
 
-## Uso de computador e visão
+A comparação não é idêntica em todas as rubricas. A saída do GPT-6.1 Terra custa US$ 5, contra US$ 10 no GPT-6.1 Sol e US$ 12 no GPT-5.6 Terra. Portanto, repetir um desconto uniforme de 50% para qualquer parte da conta seria impreciso.
 
-O foco do lançamento é o que a OpenAI chama de uso de computador com raciocínio visual. A empresa mediu o Terra no Agents' Last Exam, um conjunto de tarefas profissionais que inclui transformar desenhos de arquitetura em modelo 3D e revisar um filme animado cena a cena para criar um registro com marcação de tempo. Em esforço médio de raciocínio, o Terra marca 15 pontos percentuais a mais que o GPT-5.6 Terra, com cerca de um terço do custo, e empata com o GPT-6 Astra por um décimo do preço por token.
+Estes são os valores Standard do GPT-6.1 Terra para contexto curto, definido pela OpenAI como até 272 mil tokens de entrada por requisição. Cada preço é por milhão de tokens da respectiva categoria, não por tarefa concluída.
 
-Em comparação com o Claude Opus 5.5, da Anthropic, a OpenAI diz que, em esforço máximo, o Terra é mais de três vezes mais eficiente em tokens, com preço por token quatro vezes menor, o que daria um custo por tarefa cerca de nove vezes menor. Os números são da própria OpenAI, medidos em testes internos e benchmarks escolhidos pela empresa, sem verificação independente na divulgação.
+| Item | US$ por milhão de tokens |
+| --- | --- |
+| Entrada | 1,00 |
+| Cache lido | 0,05 |
+| Gravar cache por 30 minutos | 1,25 |
+| Saída | 5,00 |
 
-O Terra também é mais rápido: segundo a OpenAI, conclui tarefas mais de três vezes mais rápido que o GPT-6 Astra e o GPT-6.1 Sol.
+Cache lido e gravação de cache são cobranças diferentes. A [ficha do modelo](https://developers.openai.com/api/docs/models/gpt-6.1-terra) também informa US$ 2,50 para gravação com retenção de 12 horas. O valor reduzido de leitura não significa que guardar contexto seja grátis.
 
-## Menos erros e mais código
+Acima de 272 mil tokens de entrada, as tarifas de entrada e cache dobram e a de saída sobe 50% na requisição inteira. Batch, Flex e Fast têm tabelas próprias. Ferramentas e armazenamento também podem gerar cobranças: o valor do token isolado não resume o orçamento de uma automação.
 
-A empresa diz ter investido em reduzir erros factuais. Num teste interno com perguntas que induzem erro, a taxa de erro em esforço baixo caiu de 53,6% no GPT-5.6 Terra para 16,7% no GPT-6.1 Terra. Em esforço máximo, caiu 18 pontos, para 4,3%.
+## O que usar o computador quer dizer
 
-Em programação, no Terminal-Bench 4.0, que mede agentes de código na linha de comando, o Terra resolve 50,3% das tarefas em esforço máximo, mais que o dobro dos 21,5% publicados para o GPT-5.6 Terra. Para as tarefas de código mais complexas, a própria OpenAI recomenda continuar com o GPT-6.1 Sol e o GPT-6 Astra.
+A documentação identifica o modelo como `gpt-6.1-terra`. Ele recebe texto e imagens e produz texto; áudio e vídeo não são modalidades nativas suportadas nessa ficha. A descrição de tarefas como editar um vídeo pelo computador não deve ser confundida com uma promessa de receber ou gerar vídeo diretamente pelo modelo.
 
-## Segurança
+O uso de ferramentas requer a Responses API. Para uma equipe de desenvolvimento, isso significa que escolher o modelo é apenas parte da implementação. A integração precisa conectar as ações ao aplicativo e tratar o resultado. Contratar acesso à API não cria, sozinho, uma rotina pronta para operar o sistema da empresa.
 
-A OpenAI afirma que o Terra atinge o nível "Crítico" em cibersegurança no seu Preparedness Framework e mantém as proteções desenvolvidas para o GPT-6 Astra. Segundo a empresa, ele também tende a ficar mais dentro do escopo pedido e a admitir limitações, e mostrou boa resistência a instruções maliciosas em testes de injeção de comandos. O detalhamento está no system card do modelo.
+O programador [Simon Willison](https://simonwillison.net/2026/Oct/26/gpt-61-terra/) situou o Terra como opção intermediária e observou a utilidade de modelos mais baratos em tarefas repetitivas de computador. É uma leitura sobre posicionamento e custo, não uma comprovação independente de todos os resultados anunciados.
 
-## O que isso significa no Brasil
+## Benchmarks não garantem acerto no expediente
 
-O anúncio não fala de disponibilidade por país, e os preços da API estão em dólares. Para quem usa o ChatGPT no Brasil, a regra da própria OpenAI é o plano: Plus, Pro, Enterprise ou Edu. Na hora de escolher entre um modelo mais barato e um mais forte, nosso guia [Modelo menor ou Pro: quando o barato resolve](https://www.thezero.com.br/noticia/modelo-menor-ou-pro) ajuda a decidir.
+A OpenAI divulgou vantagem de 15 pontos percentuais sobre o GPT-5.6 Terra no Agents' Last Exam, em esforço médio de raciocínio e com cerca de um terço do custo. São resultados atribuídos ao fornecedor, em uma avaliação específica, não medições do The Zero nem previsão para qualquer atividade.
+
+O mesmo cuidado vale para a taxa de erro factual. No teste interno descrito pela empresa, em esforço baixo, ela caiu de 53,6% para 16,7%; em esforço máximo, o Terra marcou 4,3%. Isso não significa que o modelo erre apenas 4,3% das respostas dadas a brasileiros. Mudar perguntas, idioma, documentos e nível de esforço pode mudar o resultado e o custo.
+
+## No Brasil, o dólar continua na conta
+
+O Brasil aparece na [lista de países atendidos pela API](https://developers.openai.com/api/docs/supported-countries). A tabela pública consultada exibe tarifas em dólares, não uma oferta local em reais. Para dar escala ao gasto, a PTAX de venda de 19 de novembro, retornada na consulta ao [Banco Central](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@i,dataFinalCotacao=@f)?%40i=%2711-12-2026%27&%40f=%2711-22-2026%27&%24format=json&%24select=cotacaoVenda%2CdataHoraCotacao), foi de R$ 5,8889 por dólar.
+
+Nessa referência, US$ 1 de entrada corresponde a aproximadamente R$ 5,89 e US$ 5 de saída a R$ 29,44, sempre por milhão de tokens e nas condições Standard de contexto curto. São conversões estimadas, não preços finais cobrados no Brasil. Não incluem tributos, spread, tarifas do meio de pagamento ou serviços adicionais.
+
+A [central de cobrança da OpenAI](https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform) separa ChatGPT e API. A mensalidade do aplicativo não transforma o consumo da API na mesma conta; eventuais créditos promocionais têm condições próprias. Comparar um preço por token com uma assinatura mensal mistura produtos diferentes.
+
+## O que isso significa
+
+Para um comércio brasileiro que queira conferir fotos de catálogo e redigir descrições, o Terra pode merecer um teste limitado. A pergunta útil é quanto custa obter um cadastro correto, contando tentativas, revisão humana e integração. Uma resposta barata que exige refazer o trabalho pode sair pior que uma opção mais cara que acerta antes.
+
+Nossa leitura é começar com uma amostra conhecida e critérios de aprovação definidos. Compare qualidade em português, tempo de conferência e custo por resultado aceito. Mantenha a experiência separada de ações como alterar preços ou concluir pagamentos. Velocidade anunciada não é motivo para ampliar permissões.
+
+O guia [Modelo menor ou Pro: quando o barato resolve](https://www.thezero.com.br/noticia/modelo-menor-ou-pro) ajuda nessa escolha. O desconto por token é verificável; a economia no negócio depende do trabalho que realmente deixa de precisar de correção.
+
+*Sobre a capa: fotografia de arquivo de Jernej Furman, disponível no [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:OpenAI_logo_with_magnifying_glass_(52916339167).jpg) sob [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/deed.en). A imagem foi recortada e redimensionada para exibição.*
+
+Fontes: [OpenAI, anúncio](https://openai.com/index/introducing-gpt-6-1-terra/), [documentação do modelo](https://developers.openai.com/api/docs/models/gpt-6.1-terra), [preços](https://developers.openai.com/api/docs/pricing), [cobrança](https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform), [países atendidos](https://developers.openai.com/api/docs/supported-countries), [Banco Central](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@i,dataFinalCotacao=@f)?%40i=%2711-12-2026%27&%40f=%2711-22-2026%27&%24format=json&%24select=cotacaoVenda%2CdataHoraCotacao) e [Simon Willison](https://simonwillison.net/2026/Oct/26/gpt-61-terra/).
