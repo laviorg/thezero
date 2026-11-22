@@ -1,0 +1,74 @@
+---
+title: "WhatsApp detalha falha em anúncios e possível uso em golpes"
+seoTitle: "WhatsApp: falha em anúncios poderia expor IP no Android"
+seoDescription: "Aviso afeta WhatsApp e Business antigos no Android. Entenda a possível exposição de IP, os limites do relato e como atualizar com segurança."
+excerpt: "Aviso descreve possível exposição de IP em versões antigas no Android. Suspeita de uso com spam não confirma invasão geral ou vítimas no Brasil."
+category: aplicativos
+subcategory: comunicacao
+format: noticia
+date: "2026-11-22T10:57:13-03:00"
+kicker: "WhatsApp · Segurança"
+author: "nicholas"
+cover: "/images/posts/whatsapp-falha-anuncios-ip-android/cover.jpg"
+coverAlt: "Celular sobre tecido azul-escuro mostra a tela branca de boas-vindas do WhatsApp em inglês."
+coverCredit: "Rahul Shah / Pexels. Foto de arquivo, feita em 9 de janeiro de 2021 segundo a origem, com tela antiga de boas-vindas do WhatsApp. Imagem ilustrativa reduzida, com recortes de exibição; não mostra exploração da falha, versão de 2026 ou teste da redação. Licença Pexels."
+coverSource: "https://www.pexels.com/photo/a-mobile-phone-application-on-screen-display-6458061/"
+---
+
+Uma falha em versões antigas do WhatsApp e do WhatsApp Business para Android poderia expor informações de IP do aparelho ao exibir uma mensagem preparada para abusar de respostas a anúncios. Identificada como CVE-2026-23871, ela aparece no [boletim de novembro](https://www.whatsapp.com/security/advisories/2026). O [NVD](https://nvd.nist.gov/vuln/detail/cve-2026-23871) registra a publicação em 20 de novembro.
+
+O WhatsApp afirma que o problema pode ter sido usado com mensagens específicas de spam. A formulação importa: há suspeita de abuso, não uma confirmação de que todas as contas foram invadidas. O impacto descrito para essa falha é exposição de informação de IP, não acesso geral ao conteúdo das conversas.
+
+Para quem usa o aplicativo no Brasil, inclusive no atendimento de um pequeno negócio, a ação prática é conferir as atualizações pelos canais oficiais. A divulgação pública não deve ser confundida com uma promessa de que a correção chegou à loja exatamente em 20 de novembro.
+
+## O que o aviso realmente descreve
+
+Segundo o boletim, a validação de endereços externos nas respostas a anúncios era incompleta. No cenário descrito, uma mensagem preparada no contexto de Click to WhatsApp poderia carregar mídia de um endereço controlado pelo atacante quando fosse exibida na conversa, revelando informações de IP do dispositivo.
+
+O recorte técnico é específico. Não se deve transformá-lo em afirmação de que qualquer anúncio, contato comercial ou imagem recebida permite ler o histórico inteiro. Também não há base nesse aviso para concluir que o número de telefone foi transferido para outro aparelho ou que o invasor ganhou controle completo do celular.
+
+| Ponto | Informação do aviso |
+| --- | --- |
+| Apps | WhatsApp e WhatsApp Business para Android. |
+| Versões | Anteriores à 2.26.17.4, na descrição oficial. |
+| Dado exposto | Informações de IP do dispositivo. |
+| Cenário | Exibição de resposta preparada a anúncio, com mídia externa. |
+| Uso indevido | Possível abuso associado a mensagens específicas de spam. |
+
+A versão 2.26.17.4 é o limite informado para essa vulnerabilidade, não uma indicação da versão mais recente disponível hoje. Procurar um instalador antigo com esse número não é uma boa forma de atualizar. A referência deve ser a atualização oficial oferecida para o aplicativo instalado.
+
+## Suspeita de golpe não é uma medição de alcance
+
+Em declaração ao [SecurityWeek, publicada em 20 de novembro](https://www.securityweek.com/whatsapp-fixes-flaw-uncovered-while-disrupting-scam-campaign/), um porta-voz disse que a equipe encontrou o problema enquanto interrompia uma campanha de golpes. Segundo a declaração reproduzida pelo veículo, a empresa acredita que um golpista o usava para tornar sua mensagem mais convincente.
+
+Essa fala foi obtida pelo SecurityWeek, não pelo The Zero. O relato não informa quantas pessoas foram atingidas nem demonstra o sucesso das tentativas. As fontes consultadas também não confirmam vítimas brasileiras. Portanto, não seria correto apresentar o caso como uma campanha comprovadamente nacional ou estimar perdas financeiras.
+
+O NVD exibe pontuação CVSS 3.1 de 3,5, classificada como baixa, fornecida pela organização identificada no registro como Facebook, Inc. Na consulta, o NIST ainda não tinha apresentado avaliação própria. A [base europeia da ENISA](https://euvd.enisa.europa.eu/enisa/EUVD-2026-131648) também registra 3,5. A nota não determina se uma pessoa específica foi vítima.
+
+## Outras falhas têm condições diferentes
+
+O boletim oficial de novembro reúne cinco identificadores de vulnerabilidades. Não é correto descrever todo o documento como um pacote de apenas três falhas nem atribuir suspeita de exploração a todas elas.
+
+Entre os outros casos, a CVE-2026-102769 envolve tocar em uma mensagem preparada de detalhes de pedido, enviada por um cliente não oficial, no WhatsApp para Android anterior à versão 2.26.35.74. O aviso descreve possível exclusão de arquivos locais e, sob condição adicional de o usuário estar online no recebimento, vazamento de um bit de informação sobre a base de conversas. A empresa diz não ter visto exploração desse problema.
+
+Já a CVE-2026-44908 trata da verificação de certificados relacionada ao processamento confidencial da Meta AI, com condições e versões próprias em diferentes plataformas. Exigiria alguém posicionado dentro da infraestrutura da Meta. Segundo o fornecedor, o registro de transparência dos certificados confirma ausência de exploração. Não é o mesmo cenário de spam da falha de anúncios.
+
+## O cuidado brasileiro: atualização e confirmação do contato
+
+A [cartilha do CERT.br sobre celulares e tablets](https://cartilha.cert.br/fasciculos/celulares-e-tablets/fasciculo-celulares-e-tablets.pdf) recomenda manter sistema e aplicativos atualizados, usar lojas oficiais e conferir o desenvolvedor. Também orienta não instalar aplicativos recebidos por mensagens ou links. É uma referência geral de proteção, publicada em 2022, não um comunicado novo sobre essa CVE.
+
+Isso ajuda a evitar uma resposta contraproducente ao alerta: baixar uma suposta correção enviada por alguém na própria conversa. Se uma mensagem disser que sua conta precisa de reparo urgente, não use esse contato como autoridade para instalar outro aplicativo ou entregar códigos.
+
+O [fascículo do CERT.br sobre golpes, de março de 2026](https://cartilha.cert.br/fasciculos/golpes-evite-fraudes/fasciculo-golpes-evite-fraudes.pdf), reforça a confirmação da identidade, dos canais oficiais e dos dados antes de pagar ou transferir. Senhas e códigos de verificação não devem ser compartilhados. Esses cuidados continuam necessários depois de atualizar o app.
+
+Para pequenos negócios, o [guia sobre WhatsApp Business e aplicativo pessoal](/noticia/whatsapp-business-vs-app-pessoal) ajuda a organizar números e atendimento. A separação operacional não elimina a necessidade de atualizar os dois aplicativos quando ambos são usados.
+
+## O que isso significa
+
+A notícia pede correção e atenção, sem ampliar o alcance além da evidência. O aviso reconhece possível uso indevido de uma falha de IP; não publica um diagnóstico de invasão de todas as conversas. Atualizar reduz a exposição a falhas corrigidas, mas não torna confiável um pedido de dinheiro apenas porque ele chegou pelo WhatsApp.
+
+Não reproduzimos o problema nem testamos mensagens preparadas. A apuração se baseia no boletim do fornecedor, nos registros de vulnerabilidades e nos relatos identificados acima.
+
+Fontes: [WhatsApp, boletim de 2026](https://www.whatsapp.com/security/advisories/2026); [NVD, CVE-2026-23871](https://nvd.nist.gov/vuln/detail/cve-2026-23871); [ENISA, registro europeu](https://euvd.enisa.europa.eu/enisa/EUVD-2026-131648); [SecurityWeek, declaração do WhatsApp](https://www.securityweek.com/whatsapp-fixes-flaw-uncovered-while-disrupting-scam-campaign/); [CERT.br, celulares e tablets](https://cartilha.cert.br/fasciculos/celulares-e-tablets/fasciculo-celulares-e-tablets.pdf); [CERT.br, golpes e fraudes](https://cartilha.cert.br/fasciculos/golpes-evite-fraudes/fasciculo-golpes-evite-fraudes.pdf). Consultadas em 22/11/2026.
+
+Foto: [Rahul Shah / Pexels](https://www.pexels.com/photo/a-mobile-phone-application-on-screen-display-6458061/), sob a [Licença Pexels](https://www.pexels.com/license/). Arquivo de janeiro de 2021, com interface antiga, reduzido e recortado. Não é demonstração da vulnerabilidade nem teste da redação.
