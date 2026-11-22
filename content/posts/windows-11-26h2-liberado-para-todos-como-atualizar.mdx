@@ -1,8 +1,8 @@
 ---
-title: "Windows 11 26H2 chega a todos os PCs elegíveis: como atualizar e o que a Microsoft diz"
-seoTitle: "Windows 11 26H2 liberado para todos: como atualizar"
-seoDescription: "A Microsoft concluiu a liberação gradual do Windows 11 26H2 para PCs com 24H2 e 25H2. Veja como atualizar, o que muda e o que são as travas de compatibilidade."
-excerpt: 'A Microsoft concluiu a liberação gradual do Windows 11 26H2 para PCs com 24H2 e 25H2. A atualização é um pacote pequeno e vem pelo Windows Update.'
+title: "Windows 11 26H2 avança no automático: confira versão e suporte"
+seoTitle: "Windows 11 26H2: atualização automática e limites"
+seoDescription: "Confira quem recebe o Windows 11 26H2, os pré-requisitos, os prazos de suporte e os limites da distribuição automática."
+excerpt: "A distribuição automática do Windows 11 26H2 avança. Veja pré-requisitos, prazos de suporte e quando esperar a oferta compatível."
 category: aplicativos
 subcategory: sistemas-operacionais
 format: noticia
@@ -11,38 +11,64 @@ featured: false
 kicker: "Aplicativos · sistemas operacionais"
 author: "nicholas"
 cover: "/images/posts/windows-11-26h2-liberado-para-todos-como-atualizar/cover.jpg"
-coverAlt: "Notebook 2 em 1 azul com a tela mostrando o menu Iniciar do Windows 11, sobre fundo cinza. Foto ilustrativa, não é material do lançamento"
-coverCredit: "KK IN HK / Wikimedia Commons (CC BY-SA 4.0). Foto ilustrativa"
+coverAlt: "Notebook conversível com teclado azul e tela exibindo o menu Iniciar do Windows, sobre uma superfície cinza."
+coverCredit: "KK IN HK / Wikimedia Commons, CC BY-SA 4.0. Foto de arquivo de 15 de outubro de 2024; não registra o 26H2 nem teste da redação. Ícones desfocados na origem; imagem adaptada para exibição. Título na origem: Laptop PC. Origem: https://commons.wikimedia.org/wiki/File:Laptop_PC.jpg. Licença: https://creativecommons.org/licenses/by-sa/4.0/."
+coverSource: "https://commons.wikimedia.org/wiki/File:Laptop_PC.jpg"
 ---
 
-A **Microsoft** informou em um documento de suporte, atualizado em 21 de outubro segundo o Windows Latest, que a liberação gradual do **Windows 11 versão 26H2**, a "Atualização de 2026", chegou à **disponibilidade total** para PCs com o Windows 11 25H2 e 24H2. A atualização começou a ser distribuída em 29 de setembro, em fases, e a notícia da disponibilidade total só foi destacada nos últimos dias pela imprensa especializada. Agora, todo PC elegível nessas duas versões deveria recebê-la pelo Windows Update.
+O Windows 11 26H2 entrou em uma nova etapa de distribuição: a Microsoft começou a ampliar a entrega automática para computadores elegíveis com 24H2 ou 25H2 que não são gerenciados por departamentos de TI. Isso não significa que qualquer PC receberá a atualização imediatamente, nem que bloqueios de compatibilidade deixaram de existir.
 
-## Como a atualização funciona
+O [painel oficial de integridade da versão](https://learn.microsoft.com/en-us/windows/release-health/status-windows-11-26H2) registra essa mudança em 18 de novembro de 2026. Desde o fim de outubro, os dispositivos elegíveis já podiam procurar o 26H2 manualmente. A novidade é a expansão gradual da instalação automática, conforme as configurações do Windows Update. Esta revisão confere o cenário em 22 de novembro; não trata o lançamento de setembro como anúncio novo.
 
-Segundo a Microsoft, o 26H2 chega como um **pacote de habilitação** (*enablement package*) para dispositivos com 25H2 e 24H2. As três versões usam a mesma base de código e o mesmo ramo de manutenção, então muitos componentes já estão no PC por causa das atualizações mensais. O pacote só liga o que já está lá. A empresa descreve o processo como parecido com uma atualização mensal: download pequeno e uma reinicialização.
+## Quem recebe e quem precisa esperar
 
-O pacote é o KB5121794, e a Microsoft também oferece um assistente de instalação e imagens ISO oficiais, incluindo versões para AMD64 e ARM64, segundo o Windows Report e o Neowin. As ISOs mais recentes trazem o KB5127648 e saem pela ferramenta de criação de mídia. Elas servem para instalação limpa.
+Há diferenças entre disponibilidade geral, oferta para uma máquina específica e atualização comandada pela empresa. A tabela resume os caminhos documentados pela Microsoft:
 
-## Como atualizar
+| Situação do computador | O que conferir | Caminho indicado |
+| --- | --- | --- |
+| Windows 11 24H2 ou 25H2, sem gestão de TI | Pacotes em dia e oferta para o PC | Verificar o Windows Update |
+| PC com atualização bloqueada | Avisos e falhas conhecidas | Aguardar a oferta compatível, sem forçar a instalação |
+| Computador de empresa ou escola gerenciado | Política de implantação da organização | Seguir a orientação de TI |
+| Windows 11 26H1 | A versão usa outra base do sistema | Continuar nas atualizações próprias dessa versão |
 
-O caminho indicado pela Microsoft é Configurações, Windows Update, e então "Verificar se há atualizações". Para receber o mais cedo possível, a empresa orienta ligar a opção "Receber as atualizações mais recentes assim que estiverem disponíveis". Se o 26H2 não aparecer, pode ser que você já o tenha. Segundo o Windows Latest, dá para conferir em Configurações, Sistema, Sobre: a versão 26H2 aparece com a compilação 26300.
+A página do [26H1](https://support.microsoft.com/en-us/servicing/os/windows/2026/02/windows-11-version-26h1) é explícita: esses dispositivos não atualizam para a versão anual do segundo semestre de 2026, porque usam um núcleo diferente. Isso não autoriza concluir que todo computador ARM está fora do 26H2. O ponto documentado é a versão instalada, não uma proibição geral por arquitetura.
 
-A Microsoft diz que, durante a liberação, pode aplicar **travas de compatibilidade** (*safeguard holds*) em PCs com algum problema conhecido. O Windows Latest observa que isso só vale para PCs em 23H2 ou anteriores, porque 24H2, 25H2 e 26H2 são praticamente a mesma versão. É uma leitura do veículo, não uma afirmação da Microsoft.
+Também não é seguro tratar a ausência da oferta como prova de defeito. A distribuição é gradual e pode ter retenções de proteção, chamadas de *safeguard holds*. O [histórico oficial do 26H2](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/windows-11-version-26h2-update-history) mantém essa possibilidade para dispositivos com problemas de compatibilidade. Não há ali uma dispensa geral para quem já está no 24H2 ou 25H2.
 
-## O que muda
+## Pacote pequeno não elimina os pré-requisitos
 
-O 26H2 não traz recursos novos para o consumidor, segundo o Windows Latest, que o chamou de atualização "sem novidades". A Microsoft diz que recursos que vieram desativados por padrão no 25H2 passam a vir **ativados por padrão** no 26H2, e que a atualização inclui as melhorias de qualidade, confiabilidade e segurança mais recentes. O Neowin cita ganhos de desempenho, principalmente em máquinas com pouca memória, mas sem números.
+O [KB5121794](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5121794-feature-update-to-windows-11-version-26h2) descreve a atualização como um pacote de habilitação. As versões 24H2, 25H2 e 26H2 compartilham uma base; componentes recebidos nas atualizações mensais podem permanecer desativados até que esse pacote os habilite. A Microsoft prevê uma reinicialização nesse caminho.
 
-Instalar o 26H2 também **reinicia o ciclo de suporte**: são 24 meses para as edições Home e Pro e 36 meses para Enterprise e Education, segundo a Microsoft.
+Isso depende de preparação: o computador precisa estar no 24H2 ou 25H2, com o KB5124010, de 22 de setembro de 2026, ou uma atualização cumulativa posterior. Não é uma receita para instalar o pacote em qualquer versão antiga do Windows.
 
-## Empresas e escolas
+Download pequeno também não é garantia de conclusão em tantos minutos. A [FAQ brasileira do Windows Update](https://support.microsoft.com/pt-br/windows/deployment/updates-lifecycle/windows-update-faq) explica que o tempo depende da conexão, da rede e do tamanho da atualização. Não fizemos medição própria de instalação ou desempenho. Esta notícia não promete mais velocidade em jogos ou mais autonomia no notebook.
 
-Para clientes comerciais e de educação, a Microsoft diz que o 26H2 está disponível pelas ferramentas de gerenciamento de atualizações, como o Windows Autopatch e o centro de administração do Microsoft 365. As políticas e os anéis de atualização já em uso continuam valendo. A recomendação da empresa é começar por implantações direcionadas, para validar aplicativos, dispositivos e fluxos críticos antes de ampliar. Ela avisa que downloads nesses canais podem atrasar.
+## Como verificar no Windows em português
 
-## O que vem depois
+Antes de procurar o download, abra **Configurações > Sistema > Sobre**. Em Especificações do Windows, confira os campos de edição e versão, como mostra o [suporte da Microsoft](https://support.microsoft.com/pt-br/windows/experience/find-information-about-your-windows-device). Isso evita aplicar a orientação de um Home 24H2 a um Enterprise ou a um PC com 26H1.
 
-O Windows Latest afirma ter sido informado de que a Microsoft deve começar a instalar o 26H2 automaticamente nos próximos meses em PCs que estão perto do fim do suporte ou já passaram dele. A Microsoft não confirmou isso nas fontes consultadas, então vale tratar como informação não oficial.
+O [suporte brasileiro da Microsoft](https://support.microsoft.com/pt-br/windows/deployment/updates-lifecycle/install-windows-updates) orienta abrir Configurações, entrar no Windows Update e selecionar a verificação de atualizações. Se o 26H2 for oferecido para o dispositivo, use a opção de baixar e instalar. Salve o trabalho antes da reinicialização e mantenha uma cópia dos arquivos importantes.
 
-## O que isso significa no Brasil
+Para reduzir interrupções, acesse **Configurações > Windows Update > Opções avançadas > Horário ativo**. A [documentação em português](https://support.microsoft.com/pt-br/windows/deployment/updates-lifecycle/keep-your-pc-up-to-date-with-active-hours) permite ajustar esse horário automaticamente, conforme o uso, ou defini-lo manualmente. A FAQ também explica como agendar uma reinicialização. Não confunda organizar o horário com desligar permanentemente as atualizações de segurança.
 
-Os documentos da Microsoft não falam de datas ou regras específicas para o Brasil. O caminho pelo Windows Update é o mesmo em qualquer país. Antes de atualizar, vale fazer backup e conferir se o PC está em 24H2 ou 25H2. Se o seu PC é fraco e você quer ganhar fôlego, veja nosso guia [Windows 11 em PC fraco: o que desligar primeiro](https://www.thezero.com.br/noticia/windows-11-pc-fraco-o-que-desligar).
+Num computador gerenciado, não tente substituir a política da organização pela vontade de receber primeiro. A expansão automática anunciada começa pelos dispositivos não gerenciados; o calendário de uma empresa ou escola pode ser outro.
+
+## O suporte tem data final, não um cronômetro novo
+
+A [tabela de manutenção da Microsoft](https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information) lista 10 de outubro de 2028 como fim das atualizações do 26H2 Home e Pro, e 9 de outubro de 2029 para Enterprise e Education. Esses são marcos de calendário da versão. Instalar meses depois não acrescenta mais 24 ou 36 meses à data da compra ou da instalação.
+
+A edição também importa para quem ainda usa o 24H2. O [painel brasileiro dessa versão](https://learn.microsoft.com/pt-br/windows/release-health/status-windows-11-24h2) informa que Home e Pro chegaram ao fim das atualizações em 13 de outubro de 2026. Enterprise e Education seguem outro prazo. Olhar apenas o nome "Windows 11" não responde se aquela instalação ainda recebe manutenção.
+
+## Confira o problema atual, não um relato antigo
+
+Na consulta de 22 de novembro, o painel do 26H2 marcava o problema com determinados dispositivos USB Audio Class 1.0 como resolvido pelo KB5132061, de 10 de novembro. A falha de Área de Trabalho Remota para usuários não administradores, nas condições descritas pela Microsoft, também aparecia como resolvida.
+
+O problema de conexões de servidores vinculados do SQL Server continuava confirmado. Ele envolve consultas a bancos externos e aparece em várias versões do Windows, não apenas no 26H2. Para quem administra esse ambiente, a lista de problemas conhecidos é parte da decisão de implantação. Não há motivo para transformar esse caso específico em alerta de que todo PC doméstico está com o mesmo defeito.
+
+## O que isso significa
+
+Para o leitor no Brasil, a decisão útil é conferir versão, edição, suporte restante e a oferta efetiva do Windows Update. Os documentos consultados não anunciam um calendário brasileiro separado para essa expansão. O cuidado prático é escolher uma janela de manutenção, proteger o trabalho e respeitar as restrições do dispositivo ou da organização.
+
+Nossa leitura é que permanecer em uma edição sem atualizações por medo de qualquer mudança não é uma boa estratégia. Mas trocar isso por instalação forçada, ignorando um bloqueio, também não é. Se o problema principal é lentidão, o [guia de Windows 11 em PC fraco](https://www.thezero.com.br/noticia/windows-11-pc-fraco-o-que-desligar) trata de inicialização e espaço disponível. Atualizar a versão não transforma falta de memória ou armazenamento em desempenho novo.
+
+Fontes: [Microsoft: disponibilidade e problemas conhecidos](https://learn.microsoft.com/en-us/windows/release-health/status-windows-11-26H2); [histórico do 26H2](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/windows-11-version-26h2-update-history); [pacote KB5121794](https://support.microsoft.com/en-us/servicing/os/windows-11/2026/09/kb5121794-feature-update-to-windows-11-version-26h2); [26H1](https://support.microsoft.com/en-us/servicing/os/windows/2026/02/windows-11-version-26h1); [prazos por edição](https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information); [24H2 no Brasil](https://learn.microsoft.com/pt-br/windows/release-health/status-windows-11-24h2); [instalação de atualizações](https://support.microsoft.com/pt-br/windows/deployment/updates-lifecycle/install-windows-updates); [horário ativo](https://support.microsoft.com/pt-br/windows/deployment/updates-lifecycle/keep-your-pc-up-to-date-with-active-hours); [FAQ do Windows Update](https://support.microsoft.com/pt-br/windows/deployment/updates-lifecycle/windows-update-faq).
