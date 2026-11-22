@@ -1,0 +1,69 @@
+---
+title: "Inkling 2 Mini tem pesos abertos; rodar local exige mais que baixar 20 GB"
+seoTitle: "Inkling 2 Mini: pesos abertos, memória e custo no Brasil"
+excerpt: "Modelo da Thinking Machines reutiliza camadas e aceita texto e imagens. A documentação indica Macs com 32 GB ou mais, não qualquer notebook com espaço livre."
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-11-22T07:52:24-03:00"
+featured: false
+kicker: "IA · modelos"
+author: "nicholas"
+cover: "/images/posts/inkling-2-mini-pesos-abertos-memoria-brasil/cover.jpg"
+coverAlt: "Computador compacto de frente metálica perfurada e marca NVIDIA sobre uma mesa de madeira."
+coverCredit: "Daniel Lu / Wikimedia Commons, CC BY-SA 4.0. Foto de arquivo de 16/05/2026 de um NVIDIA DGX Spark, plataforma citada na documentação do modelo, não um teste da redação. Recorte e redução; a foto e estes recortes seguem sob CC BY-SA 4.0. Sem texto sobreposto ou endosso do fotógrafo. Fonte e licença nos links ao fim."
+---
+
+A **Thinking Machines Lab lançou o Inkling 2 Mini em 20 de novembro**, com pesos disponíveis para download e uma proposta de execução local. O modelo recebe texto e imagens e produz texto, incluindo código. A diferença técnica é reutilizar parte das próprias camadas três vezes por token, em vez de aumentar o tamanho do arquivo na mesma proporção do trabalho realizado.
+
+A promessa de caber em um computador pessoal precisa de contexto. O [anúncio da empresa](https://thinkingmachines.ai/news/inkling-2-mini/) informa cerca de **20 GB para o modelo**, mas a [documentação de hardware](https://thinkingmachines.ai/model-card/inkling-2-mini/) aponta Macs com Apple silicon e **32 GB ou mais de memória**. Ter 20 GB livres no SSD não transforma qualquer notebook em uma máquina adequada para executá-lo.
+
+## O que muda com as camadas em repetição
+
+O Inkling 2 Mini é um modelo de mistura de especialistas, ou MoE. Em vez de usar todos os parâmetros em cada etapa, seleciona partes da rede. Seu desenho tem 24 camadas, das quais as 12 centrais são executadas três vezes, compartilhando os mesmos pesos entre as passagens.
+
+Isso separa três números que não devem ser tratados como sinônimos. Segundo o model card oficial:
+
+| Medida | Inkling 2 Mini | Como interpretar |
+| --- | --- | --- |
+| Parâmetros totais | 26,4 bilhões | Tamanho da rede, não memória em gigabytes |
+| Parâmetros ativos declarados | 3,4 bilhões | Não corresponde a um arquivo de apenas 3,4 bilhões de parâmetros |
+| Ativações efetivas com as repetições | 5,4 bilhões por token | Contabiliza trabalho adicional nas camadas reutilizadas |
+| Contexto máximo declarado | Até 1 milhão de tokens | Limite da arquitetura, não garantia de caber em qualquer configuração local |
+| Formato do checkpoint | Cerca de 20 GB, em NVFP4 e MXFP8 | Exige programa compatível com o modelo e seus formatos |
+
+A [explicação técnica do Hugging Face](https://huggingface.co/blog/inkling2mini) descreve esse reaproveitamento de pesos e as ferramentas de execução. O ganho não equivale a triplicar toda a rede nem a instalar uma versão três vezes maior. Também não significa que processamento deixou de custar tempo e energia.
+
+## Resultados fortes, mas sem passe livre para qualquer tarefa
+
+A Thinking Machines informa 48,2% no DeepSWE v1.1, teste de tarefas de programação. É um resultado divulgado pela desenvolvedora, não uma medição do The Zero nem uma taxa de acerto que possa ser aplicada a qualquer projeto brasileiro.
+
+Na [avaliação da Artificial Analysis](https://artificialanalysis.ai/articles/inkling-2-mini), o modelo marcou 20 no Intelligence Index, no mesmo patamar do Qwen3.8 27B nessa comparação. A avaliadora também encontrou aproximadamente 38% mais tokens de saída que o Qwen, embora com menor uso de seu indicador de computação. Portanto, repetir camadas não garante respostas mais curtas em toda comparação com concorrentes.
+
+A própria empresa reconhece limites em conversas longas, cumprimento de instruções detalhadas e conhecimento factual. O model card alerta que o sistema pode apagar ou sobrescrever arquivos sem confirmação quando recebe ferramentas. Pesos abertos não dispensam revisão de código, cópias de segurança ou limites de permissão.
+
+## O computador brasileiro continua entrando na conta
+
+A documentação lista um NVIDIA DGX Spark e dispositivos Apple silicon com pelo menos 32 GB de memória. Para outras GPUs e plataformas, recomenda 32 GB ou mais de VRAM. São caminhos documentados, não uma certificação de desempenho idêntico em todos os equipamentos com essa capacidade.
+
+Memória unificada de um Mac e VRAM de uma placa de vídeo não são especificações intercambiáveis numa lista de compras. O checkpoint, o programa que o executa e a [memória de trabalho do contexto](https://huggingface.co/docs/transformers/main/en/kv_cache) precisam coexistir na máquina. Quanto da janela máxima será viável deve ser verificado na configuração efetivamente usada.
+
+Como referência de preço brasileiro, não recomendação de compra, a [Apple listava o Mac Studio com M5 Max, 36 GB e SSD de 512 GB por R$ 30.999](https://www.apple.com/br/mac-studio/specs/) em sua tabela oficial consultada em **22 de novembro de 2026**. A [loja brasileira mostrava esse preço inicial](https://www.apple.com/br/shop/buy-mac/mac-studio). Não é cotação de menor custo para o Inkling nem afirmação de que esse computador seja obrigatório; serve para mostrar por que a memória disponível importa no orçamento.
+
+Quem já possui hardware adequado enfrenta uma decisão diferente de quem teria de comprar uma máquina para experimentar um modelo. Não fizemos teste local ou cálculo de retorno financeiro, e o preço de um computador não deve ser confundido com o custo de uma licença ou de acesso por API.
+
+## Pesos para baixar não são uma API gratuita
+
+O [repositório oficial no Hugging Face](https://huggingface.co/thinkingmachines/Inkling-2-Mini) declara licença Apache 2.0. A empresa também publica uma [política de uso aceitável](https://thinkingmachines.ai/model-acceptable-use-policy/), com condições para usos e aplicações. Não se deve resumir esse conjunto a uma autorização irrestrita.
+
+Há execução por ferramentas locais e acesso hospedado no Tinker. A [tabela oficial do Tinker](https://tinker-docs.thinkingmachines.ai/tinker/models/models_and_pricing/) cobra por tokens; a disponibilização dos pesos não torna essa hospedagem gratuita. Esta notícia não apresenta uma cotação de API em reais nem converte dólar como se fosse preço brasileiro garantido.
+
+## O que isso significa
+
+Para desenvolvedores no Brasil, o lançamento amplia a possibilidade de experimentar programação e documentos no próprio equipamento. O melhor ponto de partida é uma tarefa pequena e verificável, não entregar uma pasta importante a um agente com permissão ampla só porque o modelo cabe na memória.
+
+A documentação declara suporte multilíngue geral, mas alerta para qualidade menor fora do inglês. Isso não comprova desempenho em português jurídico, atendimento brasileiro ou regras fiscais locais. Essas tarefas precisam de avaliação própria antes de chegar a clientes.
+
+A janela grande também não substitui escolher bons documentos e instruções. Nosso [guia sobre contexto e prompt](/noticia/contexto-maior-que-prompt) explica essa diferença. A leitura prática é tratar o Inkling 2 Mini como uma nova opção de implantação, com requisitos, limites e custos operacionais, não como prova de que qualquer notebook ganhou uma IA de ponta sem compromissos.
+
+Fontes: [anúncio, Thinking Machines](https://thinkingmachines.ai/news/inkling-2-mini/); [model card oficial](https://thinkingmachines.ai/model-card/inkling-2-mini/); [pesos no Hugging Face](https://huggingface.co/thinkingmachines/Inkling-2-Mini); [explicação técnica do Hugging Face](https://huggingface.co/blog/inkling2mini); [Artificial Analysis](https://artificialanalysis.ai/articles/inkling-2-mini); [uso aceitável](https://thinkingmachines.ai/model-acceptable-use-policy/); [preços do Tinker](https://tinker-docs.thinkingmachines.ai/tinker/models/models_and_pricing/); [Apple Brasil, especificações e preço de referência](https://www.apple.com/br/mac-studio/specs/). Fotografia: [Daniel Lu, arquivo original no Commons](https://commons.wikimedia.org/wiki/File:Nvidia_DGX_front_view_dllu.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en), com recorte e redução sob a mesma licença.
