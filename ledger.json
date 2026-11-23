@@ -3103,6 +3103,17 @@
       "updated_at": "2026-11-21T17:27:32Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DgAw98QGiMO",
       "story": "https://www.instagram.com/stories/hello.the.zero/4035440735188825232"
+    },
+    "whatsapp-falha-anuncios-ip-android": {
+      "article_url": "https://www.thezero.com.br/noticia/whatsapp-falha-anuncios-ip-android",
+      "pr": 642,
+      "commit": "70129c7d7ce70e54f42948d88bec8882ba01bf7a",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/whatsapp-falha-anuncios-ip-android.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/whatsapp-falha-anuncios-ip-android.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/whatsapp-falha-anuncios-ip-android-story.jpg",
+      "ig": "https://www.instagram.com/p/DgF_xAMmi5T/",
+      "slug": "whatsapp-falha-anuncios-ip-android",
+      "updated_at": "2026-11-23T18:12:53Z"
     }
   }
 }
