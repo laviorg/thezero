@@ -19,12 +19,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 /**
- * ISR curto: a home lê o MDX do disco (mesma fonte das matérias) e se
- * regenera a cada 5 min. Antes era force-static, e um deploy de produção
- * que falhava (timeout de build) congelava a "Últimas" por dias mesmo com
- * as matérias novas já no ar.
+ * Static HTML from the MDX shipped in this deploy. `/` has no `revalidate`,
+ * so a post merged to main is the hero on the next build. Posts are read
+ * from disk at build time, not through a data cache that could outlive the deploy.
  */
-export const revalidate = 300;
+export const dynamic = "force-static";
 
 const homeMetadata = buildPageMetadata({
   title: HOME_TITLE,
