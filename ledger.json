@@ -3131,6 +3131,17 @@
       "threads": "https://www.threads.com/@hello.the.zero/post/DgGabmAlPp1",
       "story": "https://www.instagram.com/stories/hello.the.zero/4037030472454949558",
       "reel": "https://www.instagram.com/reel/DgGbOABAlQ8/"
+    },
+    "gpt-62-sol-chatgpt-chat-planos-brasil": {
+      "article_url": "https://www.thezero.com.br/noticia/gpt-62-sol-chatgpt-chat-planos-brasil",
+      "pr": 656,
+      "commit": "7653f375f5f9f4813f43cb3437b612dc5285f23c",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gpt-62-sol-chatgpt-chat-planos-brasil.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gpt-62-sol-chatgpt-chat-planos-brasil.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/gpt-62-sol-chatgpt-chat-planos-brasil-story.jpg",
+      "ig": "https://www.instagram.com/p/DgIX744DGAi/",
+      "slug": "gpt-62-sol-chatgpt-chat-planos-brasil",
+      "updated_at": "2026-11-24T16:22:31Z"
     }
   }
 }
