@@ -3187,6 +3187,17 @@
       "threads": "https://www.threads.com/@hello.the.zero/post/DgLW8MrATme",
       "story": "https://www.instagram.com/stories/hello.the.zero/4038422522114542380",
       "reel": "https://www.instagram.com/reel/DgLZuIbB4QA/"
+    },
+    "quantum-act-criptografia-compras-publicas": {
+      "article_url": "https://www.thezero.com.br/noticia/quantum-act-criptografia-compras-publicas",
+      "pr": 669,
+      "commit": "c59aa40ae6474e732d3f48297f9aa66452b98a5d",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/quantum-act-criptografia-compras-publicas.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/quantum-act-criptografia-compras-publicas.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/quantum-act-criptografia-compras-publicas-story.jpg",
+      "ig": "https://www.instagram.com/p/DgLdXisDa2l/",
+      "slug": "quantum-act-criptografia-compras-publicas",
+      "updated_at": "2026-11-25T21:07:43Z"
     }
   }
 }
