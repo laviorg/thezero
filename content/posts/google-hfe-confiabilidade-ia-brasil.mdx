@@ -1,0 +1,78 @@
+---
+title: "Google testa se a IA acerta sempre, não apenas uma vez"
+seoTitle: "Humanity's First Exam testa a consistência da IA"
+excerpt: "HFE reúne 544 perguntas simples e variações. O resultado separa acerto ocasional de consistência, mas não mede a taxa de erro no seu trabalho."
+category: ia
+subcategory: modelos
+format: noticia
+date: "2026-11-25T03:20:00-03:00"
+kicker: "IA · Confiabilidade"
+author: "nicholas"
+featured: false
+cover: "/images/posts/google-hfe-confiabilidade-ia-brasil/cover.jpg"
+coverAlt: "Ilustração de uma fachada escura com a frase Dance While The Music Plays em letras luminosas de várias cores na janela."
+coverCredit: "Google DeepMind / HFE, CC BY 4.0; imagem sintética do teste"
+coverSource: "https://storage.googleapis.com/deepmind-media/papers/hfe_tech_paper.pdf"
+---
+
+Uma IA pode acertar uma pergunta e ainda ser pouco confiável quando precisa repetir o resultado. Essa é a diferença que o Google DeepMind quer medir com o **Humanity's First Exam (HFE)**, anunciado em 24 de novembro. O conjunto reúne 544 perguntas de texto e imagem, distribuídas em 20 habilidades básicas, e testa tanto novas tentativas quanto pequenas mudanças no enunciado.
+
+A proposta interessa a quem usa IA no trabalho no Brasil, mas exige uma ressalva: a nota não é uma previsão de quantas vezes um aplicativo vai errar uma planilha, um pedido ou um documento em português. O estudo selecionou tarefas para revelar pontos fracos. Não sorteou uma amostra representativa da rotina de cada usuário.
+
+<Verdict overrated="Tratar um acerto convincente como garantia de repetição" underrated="Conferir o mesmo tipo de tarefa com variações e respostas conhecidas" />
+
+## O que muda em relação ao placar tradicional
+
+Segundo o [anúncio do DeepMind](https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/), a intenção é olhar para a regularidade em questões simples, em vez de concentrar a avaliação apenas no limite de dificuldade que um modelo consegue superar. Isso inclui leitura de cores, contagem de objetos, regras de formatação e operações básicas.
+
+O [relatório técnico](https://storage.googleapis.com/deepmind-media/papers/hfe_tech_paper.pdf) organiza as perguntas em 136 famílias. Cada família tem um enunciado inicial e três variações que mantêm a habilidade exigida, mas podem trocar nomes, ordem das instruções ou elementos visuais. A resposta correta não precisa permanecer igual.
+
+Um exemplo usa a imagem reproduzida nesta página: o modelo deve identificar, em ordem, a cor da terceira letra de cada palavra do letreiro. A cena é uma ilustração do próprio teste, não uma fotografia produzida pela reportagem nem prova de que avaliamos um chatbot. A imagem integra os exemplos públicos do HFE.
+
+## Acertar uma vez e acertar toda a sequência são critérios diferentes
+
+No experimento do artigo científico, cada pergunta recebe seis respostas independentes. A partir delas, os pesquisadores calculam medidas distintas. A mais exigente combina quatro respostas por pergunta e as quatro perguntas da família: são 16 acertos necessários na sequência considerada pela métrica.
+
+| Medida do relatório | O que ela pergunta |
+| --- | --- |
+| pass@1 | Qual é a chance estimada de acertar uma tentativa? |
+| family pass@4 | Pelo menos uma das 16 respostas da família estará correta? |
+| family pass^4 | Todas as 16 respostas consideradas estarão corretas? |
+
+A tabela resume as definições do relatório, não um ensaio do The Zero. A pontuação é uma estimativa calculada com as amostras, não a execução de um teste novo com apenas 16 chamadas. Também não se deve confundir passar uma vez entre várias respostas com resolver todas as versões.
+
+Nos resultados publicados no relatório, GPT-6.2 Astra chega a 92,4% em family pass^4, GPT-6.2 Sol a 86,9% e Gemini 4 Neon a 85,8%. Os três alcançam 100% no critério de pelo menos um acerto na família. Isso evidencia como a pergunta feita ao placar altera a leitura do desempenho.
+
+## Por que o ranking do Kaggle tem outros números
+
+O [placar do Kaggle](https://www.kaggle.com/benchmarks/deepmind/hfe/leaderboard), consultado em 25 de novembro, mostra Astra com 90,7%, Sol com 87,5% e Neon com 85,6%. Não misturamos essas notas com as do relatório numa única classificação.
+
+A documentação do benchmark distingue a implementação do Kaggle da avaliação científica: são 16 modelos no placar, contra 18 no corpo principal do estudo, além de diferenças de configuração, esforço de raciocínio e amostragem. O Neon, por exemplo, aparece com esforço high no Kaggle e xhigh na tabela do relatório. Variações de resultado não demonstram, sozinhas, que um modelo melhorou ou piorou entre duas consultas.
+
+Há também um limite de independência: o Google produz o benchmark e modelos avaliados. As respostas são julgadas por um Gemini 3.1 Pro, embora o estudo descreva auditoria com outro fornecedor. Isso não invalida automaticamente o trabalho, mas faz parte do contexto necessário para interpretar a comparação.
+
+## O que isso significa no Brasil
+
+Para uma equipe brasileira, a aplicação útil é mudar a avaliação antes de contratar ou automatizar. Uma demonstração bem-sucedida não substitui um conjunto de casos em português com resposta conhecida, incluindo valores em reais, nomes, tabelas e formatos usados pela própria operação. Essa é nossa recomendação prática, não uma validação de português realizada pelo HFE.
+
+Separe tarefas que permitem revisão das que produzem consequência imediata. Ler um rascunho antes de enviar é diferente de deixar uma saída alimentar cadastro ou cobrança sem conferência. O benchmark não certifica um fluxo com ferramentas: no relatório, as perguntas são respondidas em uma única interação, sem busca ou execução de código.
+
+O custo também não termina na chamada ao modelo. Inclua revisão e retrabalho na decisão, sem transformar a maior nota em compra automática. Nosso [guia de preços de modelos de IA](https://www.thezero.com.br/guias/modelos-ia-precos) explica a estrutura de cobrança por tokens; confira a data de cada referência e a tabela atual do fornecedor antes de calcular uma contratação.
+
+Ao montar testes, evite enviar dados pessoais reais apenas por conveniência. Os princípios de necessidade e segurança do [artigo 6º da LGPD](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm) continuam relevantes. Um conjunto fictício com erros verificáveis pode avaliar a tarefa sem expor o cadastro de clientes.
+
+## O limite que precisa acompanhar a notícia
+
+Os autores reconhecem seleção adversarial das questões, uso de imagens sintéticas e avaliação humana restrita aos enunciados iniciais, não a todas as variações. Portanto, nem o melhor resultado equivale a uma garantia universal de confiabilidade.
+
+<Rule>
+Use o HFE para perguntar como o acerto se repete, não para transformar uma nota em promessa sobre qualquer trabalho.
+</Rule>
+
+## Fontes
+
+- [Google DeepMind: anúncio do Humanity's First Exam](https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/).
+- [Relatório técnico: método, resultados e limitações](https://storage.googleapis.com/deepmind-media/papers/hfe_tech_paper.pdf).
+- [Kaggle: implementação, exemplos e licença das imagens públicas](https://www.kaggle.com/benchmarks/deepmind/hfe) e [placar](https://www.kaggle.com/benchmarks/deepmind/hfe/leaderboard).
+- [LGPD: princípios do tratamento de dados pessoais](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm).
+- Imagem do exemplo público HFE: Google DeepMind, sem recorte; conversão para JPEG, sob [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
