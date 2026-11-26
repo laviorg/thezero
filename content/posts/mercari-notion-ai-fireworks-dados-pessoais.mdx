@@ -1,0 +1,67 @@
+---
+title: "Mercari relata possível exposição de chats do Notion AI em fornecedora"
+seoTitle: "Mercari: chats do Notion AI podem ter exposto dados pessoais"
+seoDescription: "Mercari identifica dados pessoais em registros do Notion AI envolvidos em incidente na Fireworks. Entenda os limites conhecidos e cuidados para equipes brasileiras."
+excerpt: "Registros do Notion AI incluíam informações pessoais e credenciais corporativas. Caso reforça limites de retenção zero e revisão de fornecedores."
+category: ia
+subcategory: seguranca
+format: noticia
+date: "2026-11-23T12:00:00-03:00"
+kicker: "IA · Dados pessoais"
+author: "nicholas"
+cover: "/images/posts/mercari-notion-ai-fireworks-dados-pessoais/cover.jpg"
+coverAlt: "Mãos com mangas azuis usam um notebook prateado ao lado de caderno, lápis e livro sobre mesa azul."
+coverCredit: "Monstera Production / Pexels (https://www.pexels.com/photo/woman-typing-on-laptop-keyboard-at-workspace-6282022/), licença Pexels (https://www.pexels.com/license/). Foto ilustrativa de trabalho em notebook, não mostra o Notion AI, uma pessoa afetada ou o incidente. Rotação e recorte."
+coverSource: "https://www.pexels.com/photo/woman-typing-on-laptop-keyboard-at-workspace-6282022/"
+cover_locked: true
+cover_source: real
+---
+
+A Mercari informou que textos digitados por funcionários no Notion AI e parte das respostas do assistente podem ter sido expostos após acesso não autorizado à Fireworks AI, empresa contratada pela Notion. Os registros incluem informações de clientes, parceiros, candidatos a vagas e trabalhadores do grupo japonês. A confirmação de que havia dados pessoais nesses registros não significa que a empresa tenha determinado todo o conteúdo efetivamente obtido por terceiros.
+
+O comunicado descreve o uso interno da ferramenta pela Mercari, Merpay e Mercoin. Não é um anúncio de invasão dos aplicativos de compras e pagamentos dessas empresas. A Mercari diz que não confirmou acesso indevido a seus próprios sistemas, exploração de vulnerabilidades nesses serviços ou entradas não autorizadas nas contas de clientes em decorrência deste caso.
+
+Para equipes brasileiras que usam IA no trabalho, a questão prática vai além da escolha do modelo: é preciso saber quais empresas recebem os textos, para quais finalidades e por quanto tempo eles ficam armazenados. As fontes consultadas não estabelecem um número de brasileiros afetados. A relevância local é de governança e resposta a incidentes, não uma confirmação de vazamento no Brasil.
+
+## O que estava nos registros
+
+Segundo a [Mercari](https://about.mercari.com/press/news/articles/20261120_incidentreport/), o conjunto investigado contém parte das entradas e respostas de 5 a 24 de outubro de 2026. A empresa apresentou grupos distintos de pessoas cujas informações estavam presentes:
+
+- **Clientes: 1.522 pessoas.** Identificador e, em alguns casos, contato ou uso do serviço.
+- **Contatos de parceiros: 571 pessoas.** Nome, telefone e e-mail.
+- **Candidatos a vagas: 169 pessoas.** Contato, nascimento e informações da seleção.
+- **Temporários, prestadores e ex-funcionários: 1.534 pessoas.** Contato profissional e informações de pessoal.
+
+Essas categorias não devem ser transformadas em uma contagem confirmada de pessoas únicas. O comunicado também menciona informações de funcionários atuais e dados de negócios sem atribuir uma quantidade a esses grupos.
+
+Entre os clientes, 1.061 registros continham apenas um identificador próprio da empresa, que não é o nome de acesso à conta. Outros 314 combinavam esse número com informações de utilização ou atendimento; 61 incluíam nome e e-mail; 86 tinham outras combinações. Portanto, não é correto afirmar que todos os 1.522 tiveram endereço, nome e telefone expostos.
+
+A Mercari não confirmou a presença de números de cartão, senhas de acesso dos clientes ou do identificador japonês My Number. Por outro lado, encontrou credenciais de sistemas de trabalho nos registros e afirma ter concluído sua invalidação e reemissão. Uma negativa sobre senhas de clientes não pode ser estendida às credenciais corporativas.
+
+## Por que ausência de identificação não significa anonimato
+
+A [Notion](https://www.notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor) informa que menos de 1% dos seus espaços de trabalho foram afetados. Esse percentual se refere a espaços, não à proporção de clientes da Mercari, mensagens ou pessoas no mundo. A investigação permanece em andamento.
+
+O fornecedor explica que, na grande maioria dos registros envolvidos, não havia metadados adicionais ligando a conversa a determinado usuário ou organização. Isso não apaga o que foi escrito dentro da conversa. Uma mensagem que contenha nome, e-mail ou detalhes de atendimento continua podendo identificar alguém mesmo sem uma etiqueta externa com o autor.
+
+A [central de ajuda da Notion](https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor) detalha que o texto das mensagens e respostas fazia parte do conjunto. As respostas podem reproduzir trechos de documentos consultados. A empresa distingue isso de afirmar que todos os anexos, todas as páginas do espaço ou todos os resultados de buscas internas tenham sido expostos. O alcance precisa ser examinado nos dados afetados de cada organização.
+
+## Retenção para análise não é a mesma coisa que inferência
+
+A Notion usava a Fireworks para tarefas de classificação relacionadas ao Insights, recurso de análise do uso de IA, e como fornecedora de inferência para modelos de pesos abertos. Segundo a empresa, a conexão foi encerrada em 3 de novembro e os dados foram apagados do ambiente da Fireworks em 4 de novembro. O Insights foi desativado durante a investigação.
+
+Na explicação sobre retenção zero de dados, a Notion separa pedidos enviados para gerar respostas de funções que precisam conservar histórico e realizar análises. A empresa também afirma que havia compromisso contratual de retenção zero com a Fireworks, mas que a investigação encontrou dados retidos nos pontos de acesso utilizados. A promessa comercial, sozinha, não demonstrou o comportamento efetivo de toda a cadeia.
+
+A [Fireworks](https://fireworks.ai/security-bulletins) atualizou seus boletins em 17 de novembro e passou a distinguir dois incidentes. Essa descrição mais recente não deve ser substituída pela conclusão preliminar de outubro de que não havia evidência de acesso a dados pessoais. A empresa afirma ter contido e corrigido os incidentes, enquanto descreve investigação pericial ainda em curso no segundo caso.
+
+## O que isso significa no Brasil
+
+Nossa leitura é que empresas precisam tratar o envio de dados para IA como uma operação com fornecedores e finalidades específicas, não como uma caixa única. A revisão deve identificar quem recebe entradas e respostas, distinguir análise de uso de geração de conteúdo e conferir se a exclusão realmente alcança os ambientes envolvidos.
+
+Se houver incidente com dados sujeitos à LGPD, não basta reproduzir o comunicado estrangeiro. A [ANPD](https://www.gov.br/anpd/pt-br/canais_atendimento/agente-de-tratamento/comunicado-de-incidente-de-seguranca-cis) orienta que o controlador avalie a ocorrência confirmada, a presença de dados pessoais sujeitos à lei e o potencial de risco ou dano relevante. A obrigação de comunicar depende desses critérios, não de uma manchete sobre qualquer falha de fornecedor.
+
+Para espaços identificados como afetados, a Notion oferece revisão dos registros dentro da própria conta e recomenda substituir credenciais encontradas, verificar atividades e avaliar dados pessoais presentes nas conversas. Isso não exige procurar cópias vazadas na internet nem transferir os registros para outra ferramenta de IA. A resposta útil começa por delimitar o que saiu, retirar o acesso das credenciais comprometidas e decidir como proteger as pessoas envolvidas.
+
+O guia do The Zero sobre [o que não colar no chat de IA](https://www.thezero.com.br/noticia/o-que-nao-colar-no-chat-de-ia) reúne cuidados com senhas, documentos e informações de clientes. Neste caso, a checagem precisa ir além de apagar nomes: detalhes combinados em uma conversa também podem identificar pessoas.
+
+Fontes: [Mercari, comunicado do incidente](https://about.mercari.com/press/news/articles/20261120_incidentreport/); [Notion, aviso de segurança](https://www.notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor); [Fireworks AI, boletins de segurança](https://fireworks.ai/security-bulletins); [ANPD, comunicação de incidente](https://www.gov.br/anpd/pt-br/canais_atendimento/agente-de-tratamento/comunicado-de-incidente-de-seguranca-cis).
