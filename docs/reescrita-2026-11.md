@@ -58,7 +58,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 40 | ssd-nvme-1tb-brasil-o-que-olhar | guia | 867 | 2 | sem 2 fontes | pendente |
 | 41 | e-titulo-2026-baixar-justificar-voto | tutorial | 1137 | 1 | sem 2 fontes, sem análise | pendente |
 | 42 | contexto-maior-que-prompt | guia | 1991 | 1 | sem análise, sem ângulo BR | reescrito em 22/11/2026 |
-| 43 | openai-gpt-61-terra-computer-use-metade-do-preco | noticia | 615 | 1 | sem 2 fontes | pendente |
+| 43 | openai-gpt-61-terra-computer-use-metade-do-preco | noticia | 615 | 1 | sem 2 fontes | reescrito em 22/11/2026 |
 | 44 | siri-ai-portugues-ios-27-2 | noticia | 621 | 1 | sem 2 fontes | pendente |
 | 45 | jginyue-placa-pcie-chipset-b650-m2 | noticia | 623 | 1 | sem 2 fontes | pendente |
 | 46 | redmi-note-14-custo-beneficio | guia | 624 | 1 | sem 2 fontes | pendente |
@@ -238,7 +238,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 66 | 57 | jginyue-placa-pcie-chipset-b650-m2 | noticia | 579 | 2 | 3 | 1 | 0 | 1672 | pendente |
 | 67 | 57 | micron-g11-nand-400-camadas-densidade-dobro | noticia | 664 | 2 | 2 | 1 | 0 | 1920 | pendente |
 | 68 | 57 | mistral-voxtral-3-agentes-de-voz | noticia | 602 | 1 | 5 | 1 | 0 | 1440 | pendente |
-| 69 | 57 | openai-gpt-61-terra-computer-use-metade-do-preco | noticia | 655 | 2 | 2 | 1 | 0 | 1920 | pendente |
+| 69 | 57 | openai-gpt-61-terra-computer-use-metade-do-preco | noticia | 655 | 2 | 2 | 1 | 0 | 1920 | reescrito em 22/11/2026 |
 | 70 | 58 | motorola-vs-samsung-intermediario | comparativo | 637 | 0 | 4 | 1 | 4 | 1200 | pendente |
 | 71 | 58 | nokia-ia-carajas-sem-internet | noticia | 569 | 4 | 1 | 1 | 0 | 4913 | pendente |
 | 72 | 58 | nothing-phone-brasil-preco-updates | guia | 533 | 0 | 11 | 1 | 2 | 1200 | pendente |
