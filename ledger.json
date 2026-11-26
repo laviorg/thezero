@@ -3227,6 +3227,17 @@
       "updated_at": "2026-11-26T13:47:30Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DgNPw3OFv2R",
       "story": "https://www.instagram.com/stories/hello.the.zero/4038953872206385315"
+    },
+    "inkling-2-mini-pesos-abertos-memoria-brasil": {
+      "article_url": "https://www.thezero.com.br/noticia/inkling-2-mini-pesos-abertos-memoria-brasil",
+      "pr": 639,
+      "commit": "0599e1b00987b78da08a81b1b44382fa06201d24",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/inkling-2-mini-pesos-abertos-memoria-brasil.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/inkling-2-mini-pesos-abertos-memoria-brasil.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/inkling-2-mini-pesos-abertos-memoria-brasil-story.jpg",
+      "ig": "https://www.instagram.com/p/DgNP6djCQpX/",
+      "slug": "inkling-2-mini-pesos-abertos-memoria-brasil",
+      "updated_at": "2026-11-26T13:48:38Z"
     }
   }
 }
