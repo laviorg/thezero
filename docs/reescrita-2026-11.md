@@ -62,7 +62,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 44 | siri-ai-portugues-ios-27-2 | noticia | 621 | 1 | sem 2 fontes | pendente |
 | 45 | jginyue-placa-pcie-chipset-b650-m2 | noticia | 623 | 1 | sem 2 fontes | pendente |
 | 46 | redmi-note-14-custo-beneficio | guia | 624 | 1 | sem 2 fontes | pendente |
-| 47 | windows-11-26h2-liberado-para-todos-como-atualizar | noticia | 634 | 1 | sem 2 fontes | reescrito em 22/11/2026; PR em revisão, sem merge |
+| 47 | windows-11-26h2-liberado-para-todos-como-atualizar | noticia | 634 | 1 | sem 2 fontes | reescrito em 22/11/2026 |
 | 48 | google-beam-uso-20-locais-familias-militares | noticia | 640 | 1 | sem 2 fontes | pendente |
 | 49 | hearken-lancamento-steam-preco-brasil | noticia | 667 | 1 | sem 2 fontes | pendente |
 | 50 | galaxy-a55-vs-edge-50-fusion | comparativo | 683 | 1 | sem 2 fontes | pendente |
@@ -282,7 +282,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 110 | 63 | ps5-vs-series-x-exclusivo-game-pass-preco | comparativo | 676 | 0 | 5 | 1 | 5 | 1200 | pendente |
 | 111 | 63 | sony-ecm-ax10-microfone-audio-espacial-celular | noticia | 556 | 8 | 3 | 1 | 0 | 1920 | pendente |
 | 112 | 63 | switch-2-vs-steam-deck-oled-preco-brasil | comparativo | 676 | 0 | 7 | 1 | 2 | 1200 | pendente |
-| 113 | 63 | windows-11-26h2-liberado-para-todos-como-atualizar | noticia | 629 | 4 | 2 | 1 | 0 | 1920 | reescrito em 22/11/2026; PR em revisão, sem merge |
+| 113 | 63 | windows-11-26h2-liberado-para-todos-como-atualizar | noticia | 629 | 4 | 2 | 1 | 0 | 1920 | reescrito em 22/11/2026 |
 | 114 | 63 | zeenix-lite-portatil-barato | review | 686 | 0 | 7 | 1 | 2 | 1200 | pendente |
 | 115 | 64 | apple-macbook-pro-14-imac-m6-precos-brasil | noticia | 602 | 2 | 15 | 1 | 0 | 1920 | pendente |
 | 116 | 64 | hearken-lancamento-steam-preco-brasil | noticia | 605 | 2 | 9 | 1 | 0 | 1920 | pendente |
