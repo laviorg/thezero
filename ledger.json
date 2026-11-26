@@ -3267,6 +3267,17 @@
       "updated_at": "2026-11-26T14:13:28Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DgNSvBQllWw",
       "story": "https://www.instagram.com/stories/hello.the.zero/4038966937673194044"
+    },
+    "appulse-pinball-tiro-pc-brasil": {
+      "article_url": "https://www.thezero.com.br/noticia/appulse-pinball-tiro-pc-brasil",
+      "pr": 673,
+      "commit": "036bee965e4216a825f526ded0ce65e9381a2ff3",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/appulse-pinball-tiro-pc-brasil.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/appulse-pinball-tiro-pc-brasil.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/appulse-pinball-tiro-pc-brasil-story.jpg",
+      "ig": "https://www.instagram.com/p/DgNbxi0F_Yj/",
+      "slug": "appulse-pinball-tiro-pc-brasil",
+      "updated_at": "2026-11-26T15:32:14Z"
     }
   }
 }
