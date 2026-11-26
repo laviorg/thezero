@@ -3240,6 +3240,17 @@
       "updated_at": "2026-11-26T13:49:04Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DgNP70Dkam6",
       "story": "https://www.instagram.com/stories/hello.the.zero/4038954645602253183"
+    },
+    "mercari-notion-ai-fireworks-dados-pessoais": {
+      "article_url": "https://www.thezero.com.br/noticia/mercari-notion-ai-fireworks-dados-pessoais",
+      "pr": 647,
+      "commit": "198191d49aa0d412ba84247c7078d89f3ae13022",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/mercari-notion-ai-fireworks-dados-pessoais.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/mercari-notion-ai-fireworks-dados-pessoais.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/mercari-notion-ai-fireworks-dados-pessoais-story.jpg",
+      "ig": "https://www.instagram.com/p/DgNSpdCF-Qu/",
+      "slug": "mercari-notion-ai-fireworks-dados-pessoais",
+      "updated_at": "2026-11-26T14:12:28Z"
     }
   }
 }
