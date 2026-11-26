@@ -1,74 +1,71 @@
 ---
-title: "SSD NVMe de 1 TB no Brasil: o que olhar antes do Pix"
-excerpt: "1 TB é o piso em 2026. O que separa um SSD honesto de um que engasga no meio do jogo é o tipo de memória, a garantia com nota e o preço por terabyte no dia."
+title: "SSD NVMe de 1 TB no Brasil: compatibilidade, memória e custo antes do Pix"
+seoTitle: "SSD NVMe de 1 TB: memória, garantia e preço no Brasil"
+seoDescription: "Antes de escolher SSD NVMe de 1 TB, confira slot, modelo, NAND, garantia e preço. Veja exemplo brasileiro sem confundir velocidade anunciada com teste."
+excerpt: "Slot, modelo exato e garantia importam mais que o maior número da caixa. Preço brasileiro precisa vir da unidade certa, não de outra capacidade."
 category: computadores
 subcategory: componentes
 format: guia
 date: "2026-09-10T18:20:00-03:00"
+updated: "2026-11-22T03:40:00-03:00"
 kicker: "Armazenamento · 1 TB"
 author: "nicholas"
-cover: "/covers/reviews/ssd-nvme-1tb-brasil-o-que-olhar.webp"
-coverAlt: "Cartaz editorial do The Zero em azul-marinho, com a marca da casa e faixa verde de Componentes, para o guia sobre SSD NVMe de 1 TB no Brasil."
+cover: "/images/posts/ssd-nvme-1tb-brasil-o-que-olhar/cover.jpg"
+coverAlt: "SSD Lexar preto instalado em uma placa adaptadora, com parafuso à esquerda, conector USB na borda inferior e componentes eletrônicos visíveis"
+coverCredit: "Foto: Przemek Leśniewski / Pexels, licença Pexels. SSD NVMe Lexar em placa adaptadora, imagem ilustrativa da categoria; não mostra os Kingston citados nem teste do The Zero. Fonte: https://www.pexels.com/photo/close-up-of-lexar-nvme-ssd-on-circuit-board-35984425/. Redimensionamento, sem texto acrescentado."
 ---
 
-Compre um SSD NVMe de 1 TB com memória TLC, garantia de verdade e nota no seu nome. Ignore o número enorme de leitura sequencial na caixa. Esse número quase não muda o tempo de abrir o Windows nem o jogo.
+Um **SSD NVMe de 1 TB** não é uma escolha segura só porque anuncia milhares de megabytes por segundo. Primeiro é preciso conferir se ele cabe no computador e se o slot aceita aquele protocolo. Depois entram o modelo exato, a carga de trabalho, a garantia e o preço brasileiro. A maior velocidade da caixa é apenas uma parte dessa conta.
 
-NVMe é o SSD que entra no conector M.2 da placa-mãe e fala pela pista PCIe, bem mais rápido que um HD e que a maioria dos SSDs de 2,5 polegada. Em 2026, 1 TB é o tamanho mínimo de um PC que guarda sistema, alguns jogos e trabalho. 512 GB enche no segundo AAA.
+Também não existe um piso universal de capacidade. Um terabyte pode atender quem guarda sistema, documentos e alguns jogos; pode ser insuficiente para uma biblioteca grande ou edição de vídeo. Comprar menos espaço do que você precisa não se resolve escolhendo uma interface mais rápida.
 
-<Verdict overrated="GB/s estampado na embalagem" underrated="TLC, TBW e nota fiscal" />
+## M.2 não significa automaticamente NVMe
 
-## TLC, QLC e o que acontece quando o cache acaba
+Na [explicação técnica da Kingston](https://www.kingston.com/en/ssd/ssd-faq), **M.2 é um formato**, enquanto NVMe é um protocolo usado com PCIe. Existem SSDs M.2 SATA e M.2 PCIe. O fato de uma placa encaixar fisicamente não substitui a confirmação de compatibilidade no manual do notebook ou da placa-mãe.
 
-TLC guarda três bits por célula. QLC guarda quatro. QLC é mais barato e, em arquivo grande e contínuo, fica lento quando o cache se esgota. O cache é uma área que o SSD finge ser mais rápida por um tempo. Copiar um jogo de 80 GB para um QLC cheio é o teste que a ficha não mostra.
+O número **2280** identifica uma placa de 22 mm de largura por 80 mm de comprimento. Um equipamento limitado a 2230 ou 2242 não passa a aceitar 2280 porque todos são chamados de M.2. Espessura, componentes em um ou dois lados e espaço para dissipador também podem importar.
 
-Para sistema e jogo, prefira TLC. QLC de marca boa serve para arquivo morto, filme e backup frio, não para o disco em que o jogo instala.
+Confira ainda o compartilhamento de conexões. A fabricante explica que alguns slots dividem pistas ou portas com outros dispositivos; a combinação usada pode desativar uma porta. Por isso, não há uma regra segura de que o primeiro slot é sempre o certo ou de que basta atualizar a BIOS para resolver qualquer falha de detecção.
 
-DRAM é uma memória cache própria do SSD. Modelos sem DRAM usam um pedaço da RAM do PC (HMB, host memory buffer). Num desktop com 16 GB ou mais, HMB de um controlador decente chega perto no uso normal. O problema é o SSD sem DRAM, sem HMB de verdade e com QLC. Esse combo aparece em oferta de marketplace.
+## NAND, DRAM e cache não são a mesma coisa
 
-TBW é terabytes written: quanto dado o fabricante diz que o disco aguenta escrever na garantia. Em 1 TB, algo na casa de 600 TBW já é folgado para jogo e escritório. Quem edita vídeo o dia inteiro olha TBW e parte para um modelo de endurance maior, ou para um segundo disco.
+O tipo de NAND ajuda a entender a proposta, mas não transforma uma sigla em veredito. **QLC não é sinônimo de produto defeituoso nem proibição de instalar jogos**. O que precisa ser avaliado é como o conjunto trabalha, incluindo controlador, firmware, quantidade de memória, cache e padrão de gravação.
 
-## O que a loja brasileira esconde no anúncio
+A [análise de cache do NV3 pelo TechPowerUp](https://www.techpowerup.com/review/kingston-nv3/6.html) mostra por que transferências longas precisam de atenção: a escrita pode começar rápida e cair depois da área de cache. Essa observação não autoriza prever o mesmo resultado numérico para qualquer capacidade ou revisão do produto.
 
-O anúncio mistura geração, dissipador e “até 7.000 MB/s”. Separe assim:
+DRAM dedicada e **HMB**, recurso que permite usar parte da memória do computador, também não são equivalentes ao cache de escrita na NAND. A ausência de DRAM não prova que todo SSD utilizará HMB, nem que todos terão o mesmo desempenho. O [review do Tom's Hardware](https://www.tomshardware.com/pc-components/ssds/kingston-nv3-ssd-review) registra diferentes controladores na família NV3, um motivo adicional para não extrapolar uma amostra para toda unidade à venda.
 
-- PCIe 4.0 de marca conhecida, TLC, chega para quase todo mundo. A briga com PCIe 5.0 está em [vale pagar a geração nova](/noticia/pcie-4-vs-5-ssd-vale-a-diferenca).
-- Dissipador incluso só importa se a placa-mãe não tapa o M.2. Muitos B650 já trazem chapa. Dois dissipadores empilhados entortam o conector.
-- Garantia de cinco anos no site do fabricante não vale sem nota. Guarde o PDF. Mercado Livre e grupos de oferta adoram unidade “paralela” com serial que a assistência recusa.
-- Preço por terabyte. Um 1 TB a um valor e um 2 TB com desconto por giga mudam a decisão se você instala mais de quatro jogos grandes.
+Se a ficha disser apenas **"3D NAND"**, não a reescreva como TLC. Essa é uma informação de estrutura da memória, não uma confirmação suficiente do tipo de célula. Quando esse detalhe for decisivo para a compra, procure documentação específica, em vez de completar o anúncio por palpite.
 
-Marcas que aparecem com nota em loja brasileira — Kingston, WD, Samsung, Crucial, XPG, Corsair — não são um ranking. São um filtro contra o no-name que troca de nome todo mês. Dentro da marca, leia o modelo. A linha de entrada da mesma empresa pode ser QLC.
+## Um exemplo de ficha bem identificada
 
-## Instalação que não vira suporte
+As páginas oficiais permitem separar duas propostas sem inventar benchmark:
 
-O slot M.2 certo é o que sai do processador, em geral o primeiro, perto do soquete. Slot ligado ao chipset também funciona; em placa barata ele divide banda com portas SATA. O manual diz qual SATA morre quando o segundo M.2 está ocupado. Leia antes de aparafusar.
+| Dado anunciado | Kingston NV3 de 1 TB, 2280 | Kingston KC3000 de 1024 GB |
+| --- | --- | --- |
+| Código | SNV3S/1000G | SKC3000S/1024G |
+| Interface | PCIe 4.0 x4, NVMe | PCIe 4.0 x4, NVMe |
+| Leitura/escrita sequencial, até | 6.000/4.000 MB/s | 7.000/6.000 MB/s |
+| NAND declarada | 3D, sem especificar TLC na ficha | 3D TLC |
+| DRAM dedicada | Não confirmada na ficha consultada | Sim |
+| Resistência anunciada | 320 TBW | 800 TBW |
 
-Parafuso folgado, SSD sem contato, placa que não dá boot: na maioria das vezes é encaixe, não defeito. Atualizar a BIOS da placa-mãe antes de um SSD muito novo evita a placa “não ver” o disco.
+Fontes: [NV3](https://www.kingston.com/br/ssd/nv3-nvme-pcie-ssd) e [KC3000](https://www.kingston.com/br/ssd/kc3000-nvme-m2-solid-state-drive). A tabela compara documentação, não resultados de testes da redação ou uma recomendação automática do mais caro.
 
-Não encha o SSD até 95%. Acima de uns 80% ocupados, o controlador tem menos espaço para organizar escrita e a máquina parece velha sem estar.
+**TBW não é uma data programada para o SSD morrer.** É uma referência de resistência de escrita que precisa ser lida junto da política de garantia. A [política da Kingston](https://www.kingston.com/en/company/warranty) inclui ambos na garantia condicional de cinco anos: vale o evento que ocorrer primeiro, prazo ou limite de desgaste indicado pela ferramenta da empresa. Também exige comprovante de compra e prevê restrições para canais não autorizados, nos limites legais aplicáveis.
 
-HD externo e SSD portátil resolvem outra tarefa — cópia e backup — e não substituem o NVMe interno. A diferença está em [HD externo contra SSD portátil](/noticia/hd-externo-vs-ssd-portatil).
+## Preço em reais: exemplo, não ranking de ofertas
 
-## O que não comprar
+Na consulta de **22 de novembro de 2026**, o [NV3 SNV3S/1000G na KaBuM](https://www.kabum.com.br/produto/621162/ssd-kingston-nv3-1-tb-m-2-2280-pcie-4-0-x4-nvme-leitura-6000-mb-s-gravacao-4000-mb-s-azul-snv3s-1000g), vendido e entregue pela própria loja, aparecia por **R$ 1.149,99 à vista no Pix**. A página mostrava também dez parcelas de R$ 135,29. Frete não foi calculado; entrega e valor final dependem da consulta do endereço.
 
-Antes de comprar, vale ver o preço checado no [tabela de preços no Brasil](https://www.thezero.com.br/precos-no-brasil) e o critério de SSD no [guia da Black Friday 2026](https://www.thezero.com.br/black-friday#ssd).
+Esse registro não significa menor preço do mercado ou recomendação de pagar esse valor. É um exemplo verificável da unidade de 1 TB, diferente de copiar o preço de 500 GB para o título de 1 TB. O KC3000 da tabela técnica estava esgotado na página da mesma loja consultada e não entra como oferta nem permite calcular uma diferença de custo atual.
 
-- SSD de 1 TB sem o tipo de NAND escrito em lugar nenhum.
-- Anúncio que só mostra “NVMe” e uma foto genérica.
-- Preço muito abaixo da Kingston ou WD do mesmo tamanho na mesma semana. Ou é QLC sem dizer, ou é golpe.
-- “2 TB” vendido por vendedor novo, com avaliação comprada. Capacidade falsa ainda existe. Confira no Gerenciamento de Disco do Windows e no CrystalDiskInfo depois de instalar. Se o número não bater, devolva na hora.
+Antes de pagar, compare unidades de capacidade adequada, vendedor identificado, prazo e garantia. Para a escolha entre gerações, o [guia de SSD PCIe 4.0 versus 5.0](/noticia/pcie-4-vs-5-ssd-vale-a-diferenca) discute outro eixo da decisão; trocar de geração não corrige incompatibilidade física ou falta de espaço.
 
-Formate como GPT e instale o Windows nele, não num HD que sobrou “porque ainda funciona”. O HD pode ser arquivo. Não pode ser o disco do sistema.
+## Nossa leitura
 
-## Veredito
+Priorize compatibilidade e capacidade suficiente. Para gravações longas frequentes, procure testes da capacidade e revisão pertinentes, não apenas uma taxa sequencial máxima. Para jogos e uso comum, não descarte um modelo apenas por uma sigla, mas também não aceite componentes omitidos como se estivessem confirmados.
 
-1 TB, TLC, marca que tem assistência no Brasil, nota no seu CPF ou CNPJ. PCIe 4.0 basta. Gaste a diferença de um PCIe 5.0 em capacidade: 2 TB TLC quando a promoção for real.
+A reserva de espaço e a necessidade de backup devem fazer parte do plano, sem prometer um percentual mágico de ocupação ou que uma marca nunca falhará. Mantenha outra cópia dos arquivos importantes. Garantia pode substituir uma unidade elegível; não é uma promessa de devolver seus dados.
 
-Se o orçamento só fecha com QLC, aceite que cópia grande vai engasgar e não use esse disco como único lugar dos seus arquivos.
-
-<Rule>
-Sequencial da caixa é marketing. TLC, TBW e nota fiscal são o produto.
-</Rule>
-
-O resto das peças está em [Componentes](/computadores/componentes). O arquivo evergreen fica em [Reviews](/reviews).
-
-The Zero.
+Fontes: [Kingston, FAQ técnico](https://www.kingston.com/en/ssd/ssd-faq); [NV3](https://www.kingston.com/br/ssd/nv3-nvme-pcie-ssd); [KC3000](https://www.kingston.com/br/ssd/kc3000-nvme-m2-solid-state-drive); [garantia](https://www.kingston.com/en/company/warranty); [TechPowerUp](https://www.techpowerup.com/review/kingston-nv3/6.html); [Tom's Hardware](https://www.tomshardware.com/pc-components/ssds/kingston-nv3-ssd-review); [KaBuM, NV3 de 1 TB](https://www.kabum.com.br/produto/621162/ssd-kingston-nv3-1-tb-m-2-2280-pcie-4-0-x4-nvme-leitura-6000-mb-s-gravacao-4000-mb-s-azul-snv3s-1000g).
