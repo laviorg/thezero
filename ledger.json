@@ -3214,6 +3214,17 @@
       "updated_at": "2026-11-26T13:32:41Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DgNOEftEf5i",
       "story": "https://www.instagram.com/stories/hello.the.zero/4038946426839341593"
+    },
+    "discord-recurso-anpd-lives-chamadas-individuais": {
+      "article_url": "https://www.thezero.com.br/noticia/discord-recurso-anpd-lives-chamadas-individuais",
+      "pr": 640,
+      "commit": "e7ab80187ffccfe65e39c3e302c2b32230416a10",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/discord-recurso-anpd-lives-chamadas-individuais.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/discord-recurso-anpd-lives-chamadas-individuais.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/discord-recurso-anpd-lives-chamadas-individuais-story.jpg",
+      "ig": "https://www.instagram.com/p/DgNPvk2lVv-/",
+      "slug": "discord-recurso-anpd-lives-chamadas-individuais",
+      "updated_at": "2026-11-26T13:47:08Z"
     }
   }
 }
