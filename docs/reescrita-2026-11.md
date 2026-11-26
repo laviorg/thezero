@@ -59,7 +59,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 41 | e-titulo-2026-baixar-justificar-voto | tutorial | 1137 | 1 | sem 2 fontes, sem análise | pendente |
 | 42 | contexto-maior-que-prompt | guia | 1991 | 1 | sem análise, sem ângulo BR | reescrito em 22/11/2026 |
 | 43 | openai-gpt-61-terra-computer-use-metade-do-preco | noticia | 615 | 1 | sem 2 fontes | reescrito em 22/11/2026 |
-| 44 | siri-ai-portugues-ios-27-2 | noticia | 621 | 1 | sem 2 fontes | pendente |
+| 44 | siri-ai-portugues-ios-27-2 | noticia | 621 | 1 | sem 2 fontes | reescrito em 22/11/2026 |
 | 45 | jginyue-placa-pcie-chipset-b650-m2 | noticia | 623 | 1 | sem 2 fontes | pendente |
 | 46 | redmi-note-14-custo-beneficio | guia | 624 | 1 | sem 2 fontes | pendente |
 | 47 | windows-11-26h2-liberado-para-todos-como-atualizar | noticia | 634 | 1 | sem 2 fontes | reescrito em 22/11/2026 |
@@ -337,7 +337,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 165 | 69 | galaxy-a16-ou-a26-entrada-samsung | guia | 659 | 1 | 8 | 1 | 3 | 1200 | pendente |
 | 166 | 69 | google-synthid-detector-global-ia | noticia | 727 | 7 | 3 | 1 | 0 | 1920 | pendente |
 | 167 | 69 | governo-pede-anpd-companheiros-ia | noticia | 657 | 5 | 2 | 1 | 1 | 1600 | pendente |
-| 168 | 69 | siri-ai-portugues-ios-27-2 | noticia | 625 | 3 | 4 | 1 | 0 | 1960 | pendente |
+| 168 | 69 | siri-ai-portugues-ios-27-2 | noticia | 625 | 3 | 4 | 1 | 0 | 1960 | reescrito em 22/11/2026 |
 | 169 | 70 | adrenalin-26-9-2-seis-jogos-recuo-rx-5000 | noticia | 1424 | 10 | 0 | 1 | 0 | 1800 | pendente |
 | 170 | 70 | anthropic-claude-corte-washington-2-a-1 | noticia | 1284 | 5 | 0 | 1 | 0 | 1800 | pendente |
 | 171 | 70 | applebees-senha-aplicativo-dados-expostos | noticia | 739 | 8 | 3 | 1 | 0 | 2000 | pendente |
