@@ -3253,6 +3253,17 @@
       "updated_at": "2026-11-26T14:12:46Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DgNSqWGlkAC",
       "story": "https://www.instagram.com/stories/hello.the.zero/4038966609259771004"
+    },
+    "google-workspace-mcp-cotas-cobranca-agentes": {
+      "article_url": "https://www.thezero.com.br/noticia/google-workspace-mcp-cotas-cobranca-agentes",
+      "pr": 665,
+      "commit": "7bc47c290f7392ff733a7bee17a8b89ca97d73f7",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-workspace-mcp-cotas-cobranca-agentes.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-workspace-mcp-cotas-cobranca-agentes.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/google-workspace-mcp-cotas-cobranca-agentes-story.jpg",
+      "ig": "https://www.instagram.com/p/DgNStYJIKBB/",
+      "slug": "google-workspace-mcp-cotas-cobranca-agentes",
+      "updated_at": "2026-11-26T14:13:06Z"
     }
   }
 }
