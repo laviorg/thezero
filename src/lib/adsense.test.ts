@@ -5,6 +5,7 @@ import {
   GOOGLE_ADS_TXT_CERT,
   adsenseClientId,
   buildAdsTxt,
+  getAdsensePubId,
   normalizeAdsensePubId,
 } from "./adsense.ts";
 import { site } from "./site.ts";
@@ -34,6 +35,20 @@ describe("normalizeAdsensePubId", () => {
 describe("adsenseClientId", () => {
   it("prefixes ca- for the AdSense script, not ads.txt", () => {
     assert.equal(adsenseClientId("pub-1234567890123456"), "ca-pub-1234567890123456");
+  });
+});
+
+describe("getAdsensePubId", () => {
+  it("falls back to the declared publisher ID when the env var is missing", () => {
+    assert.equal(getAdsensePubId(undefined), GOOGLE_ADS_PUB_ID);
+    assert.equal(getAdsensePubId(""), GOOGLE_ADS_PUB_ID);
+  });
+
+  it("prefers a valid env var over the fallback", () => {
+    assert.equal(
+      getAdsensePubId("ca-pub-1234567890123456"),
+      "pub-1234567890123456",
+    );
   });
 });
 

@@ -26,10 +26,13 @@ export function adsenseClientId(pubId: string): string {
 export function getAdsensePubId(
   raw = process.env.NEXT_PUBLIC_ADSENSE_PUB_ID,
 ): string | null {
-  return normalizeAdsensePubId(raw);
+  // Sem a env var o script e a meta `google-adsense-account` somem do HTML
+  // e o AdSense conclui que o código não foi adicionado ao site. O ID já é
+  // público no ads.txt, então ele é o fallback; a env var continua vencendo.
+  return normalizeAdsensePubId(raw) ?? GOOGLE_ADS_PUB_ID;
 }
 
-/** Publisher ID declared in ads.txt. The ad script still waits on the env var. */
+/** Publisher ID declared in ads.txt. Env var overrides; this is the fallback. */
 export const GOOGLE_ADS_PUB_ID = "pub-3679376723096233";
 
 export function buildAdsTxt(): string {
