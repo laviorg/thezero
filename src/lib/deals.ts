@@ -207,16 +207,16 @@ export const dealEvents: DealEvent[] = [
       "Black Friday 2026 no Brasil: preços de placa de vídeo, SSD, console e notebook checados na loja em 27/11, comparados com outubro, checklist de desconto falso e regras de importação.",
     cover: "/images/pages/black-friday-2026.jpg",
     coverAlt:
-      "Parede iluminada de tênis de corrida em prateleiras de acrílico com luz azul e placas de Total Black 50% numa loja do estado de São Paulo",
-    updatedIso: "2026-11-27T16:13:00-03:00",
-    updatedLabel: "27 de novembro de 2026, às 16h13 (Brasília)",
+      "Nintendo Switch 2 em modo portátil, tela apagada, em fotografia recortada sobre fundo claro",
+    updatedIso: "2026-11-27T17:04:00-03:00",
+    updatedLabel: "27 de novembro de 2026, às 17h04 (Brasília); revisão do Switch 2",
     dateHeading: "Quando é a Black Friday 2026",
     dateText: [
       "A Black Friday 2026 é nesta sexta-feira, 27 de novembro, um dia depois do Dia de Ação de Graças dos EUA. Muitas lojas estendem as ofertas pelo fim de semana até a Cyber Monday, segunda-feira, 30 de novembro. O calendário de cada loja é dela: confira no site da loja.",
     ],
     howTo: [
       "Compare o preço de hoje com o histórico do mesmo anúncio, não com o preço riscado. A tabela desta página traz o valor de outubro ou de meados de novembro ao lado do de hoje.",
-      "Abra pelo menos duas lojas grandes. Nesta sexta, o mesmo Switch 2 custava R$ 5.999 numa e R$ 4.001,11 na outra.",
+      "Abra pelo menos duas lojas e reconfirme modelo, vendedor e pagamento. O Switch 2 foi rechecado às 17h04 por R$ 4.199 no Pix na KaBuM; a comparação com a Amazon foi retirada por falta de reconfirmação.",
       "Veja quem vende e quem entrega: vendedor parceiro dentro da loja tem outra garantia, outro prazo e outra política de troca.",
       "Compare o preço à vista no Pix com o total parcelado. Juros escondidos no parcelamento comem o desconto.",
       "Desconfie de link recebido por WhatsApp, SMS ou e-mail. Digite o endereço da loja e pague só pelo checkout oficial. O Procon-SP mantém a lista Evite esses Sites.",
@@ -234,7 +234,7 @@ export const dealEvents: DealEvent[] = [
       },
       {
         q: "O que ficou mais barato e o que ficou mais caro nesta Black Friday?",
-        a: "Na KaBuM, comparando 16/10 com 27/11/2026, os SSDs Kingston caíram de 5% a 13% e a RTX 5060 da MSI caiu 10%. O Switch 2 subiu 40%, o PS5 Pro subiu 10% e a RTX 5070 Ti subiu 36%.",
+        a: "Na KaBuM, comparando 16/10 com 27/11/2026, os SSDs Kingston caíram de 5% a 13% e a RTX 5060 da MSI caiu 10%. Na rechecagem das 17h04, o Switch 2 estava por R$ 4.199, cerca de 2% abaixo dos R$ 4.299 do arquivo de outubro. Os registros iniciais do PS5 Pro e da RTX 5070 Ti indicam altas de 10% e 36%, sem nova checagem nesta revisão.",
       },
       {
         q: "Vale comprar placa de vídeo na Black Friday 2026?",
