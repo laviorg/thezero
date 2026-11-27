@@ -165,7 +165,7 @@ export function BlackFridayGuide({ event }: { event: DealEvent }) {
             <h1 className="bf-hero-title">{event.title}</h1>
             <p className="bf-hero-lede">{event.lede}</p>
             <p className="bf-hero-meta">
-              Checagem: <time dateTime={checkedAt}>{formatBRT(checkedAt)}</time> · por Nicholas Nishimura
+              Registros iniciais: <time dateTime={checkedAt}>{formatBRT(checkedAt)}</time>. Switch 2 rechecado às 17h04 · por Nicholas Nishimura
             </p>
           </div>
           <ol className="bf-dates" aria-label="Datas">
