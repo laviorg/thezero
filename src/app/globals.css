@@ -1749,6 +1749,32 @@ samp {
   border-bottom: 1px solid var(--tz-border);
 }
 
+@media (min-width: 768px) {
+  .bf-table {
+    table-layout: fixed;
+  }
+
+  .bf-col-product {
+    width: 44%;
+  }
+
+  .bf-col-price {
+    width: 15%;
+  }
+
+  .bf-col-ref {
+    width: 19%;
+  }
+
+  .bf-col-change {
+    width: 10%;
+  }
+
+  .bf-col-link {
+    width: 12%;
+  }
+}
+
 .bf-row + .bf-row {
   border-top: 1px solid var(--tz-border);
 }

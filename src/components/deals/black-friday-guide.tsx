@@ -53,6 +53,7 @@ const TOOLS = [
   { href: "/ferramentas/meu-pc-roda", label: "Meu PC roda?", text: "Antes da placa nova, veja o que falta." },
   { href: "/ferramentas/calculadora-de-fonte", label: "Calculadora de fonte", text: "Potência certa pra placa que você vai comprar." },
   { href: "/ferramentas/montar-pc", label: "Montar PC", text: "Peças compatíveis e orçamento por faixa." },
+  { href: "/reviews", label: "Reviews e comparativos", text: "Guias de compra por categoria." },
 ];
 
 function storeUrl(item: BfItem) {
@@ -184,7 +185,7 @@ export function BlackFridayGuide({ event }: { event: DealEvent }) {
         </div>
         <dl className="bf-stats">
           <div>
-            <dt>preços lidos hoje</dt>
+            <dt>produtos checados hoje</dt>
             <dd>{bfCheckedCount()}</dd>
           </div>
           <div>
@@ -253,6 +254,13 @@ export function BlackFridayGuide({ event }: { event: DealEvent }) {
             <h3 className="font-display text-[1.15rem] font-bold text-fg">{group.heading}</h3>
             <div className="bf-table-wrap">
               <table className="bf-table">
+                <colgroup>
+                  <col className="bf-col-product" />
+                  <col className="bf-col-price" />
+                  <col className="bf-col-ref" />
+                  <col className="bf-col-change" />
+                  <col className="bf-col-link" />
+                </colgroup>
                 <thead>
                   <tr>
                     <th scope="col">Produto</th>
