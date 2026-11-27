@@ -6,6 +6,7 @@ on:
     paths:
       - "content/posts/**"
       - "public/images/posts/**"
+      - "scripts/social/**"
       - "scripts/check-posts.mjs"
       - "scripts/check-posts.test.mjs"
       - "src/**"
@@ -34,6 +35,17 @@ jobs:
 
       - name: Instalar dependências
         run: npm ci
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Dependências do publicador
+        run: pip install -r scripts/social/requirements.txt
+
+      - name: Testes do publicador sem publicar
+        run: python3 -m unittest discover -s scripts/social -p 'test_*.py'
 
       - name: Testes do verificador
         run: node --test scripts/check-posts.test.mjs
