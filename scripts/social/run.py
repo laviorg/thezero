@@ -57,7 +57,7 @@ ASSETS_BRANCH = "social-assets"
 LEDGER_BRANCH = "social-ledger"
 ASSETS_README = """# social-assets
 
-Arte 1:1 gerada por `.github/workflows/social-post.yml`.
+Arte 4:5 gerada por `.github/workflows/social-post.yml`.
 
 Não editar à mão. Instagram e Threads baixam o JPEG:
 
@@ -304,18 +304,28 @@ def out_dir_for(root: Path) -> Path:
     return out_dir
 
 
-def render_art(root: Path, cover: Path, hook: str, summary: str, slug: str) -> tuple[Path, Path]:
+def social_date(text: str) -> str:
+    raw = frontmatter_value(text, "date")[:10]
+    try:
+        year, month, day = raw.split("-")
+        months = ("JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ")
+        return f"{int(day):02d} {months[int(month) - 1]} {year}"
+    except (ValueError, IndexError):
+        return ""
+
+
+def render_art(root: Path, cover: Path, hook: str, summary: str, slug: str, *, credit: str = "", category: str = "", date: str = "") -> tuple[Path, Path]:
     out_dir = out_dir_for(root)
-    png = compose(cover, hook, summary, out_dir / f"{slug}.png", size="1x1")
+    png = compose(cover, hook, summary, out_dir / f"{slug}.png", size="4x5", credit=credit, category=category, date=date)
     jpg = write_jpeg(png, out_dir / f"{slug}.jpg")
     return png, jpg
 
 
-def render_story_art(root: Path, cover: Path, hook: str, summary: str, slug: str, url: str) -> tuple[Path, Path]:
+def render_story_art(root: Path, cover: Path, hook: str, summary: str, slug: str, url: str, *, credit: str = "", category: str = "") -> tuple[Path, Path]:
     out_dir = out_dir_for(root)
     host_path = url.replace("https://", "").replace("http://", "").removeprefix("www.")
-    footer = f"Link na bio\n{host_path}"
-    png = compose(cover, hook, summary, out_dir / f"{slug}-story.png", size="9x16", footer=footer)
+    footer = host_path
+    png = compose(cover, hook, summary, out_dir / f"{slug}-story.png", size="9x16", footer=footer, credit=credit, category=category)
     jpg = write_jpeg(png, out_dir / f"{slug}-story.jpg")
     return png, jpg
 
@@ -458,12 +468,12 @@ def process(root: Path, repo: str, item: dict, secrets: list[str], tokens: dict,
             files: dict[str, Path] = {}
             png = jpg = story_png = story_jpg = None
             if need_feed:
-                png, jpg = render_art(root, cover, hook_art, package["summary"], slug)
+                png, jpg = render_art(root, cover, hook_art, package["summary"], slug, credit=frontmatter_value(text, "coverCredit"), category=frontmatter_value(text, "category"), date=social_date(text))
                 files[f"{slug}.png"] = png
                 files[f"{slug}.jpg"] = jpg
             if need_story:
                 story_png, story_jpg = render_story_art(
-                    root, cover, hook_art, package["summary"], slug, url
+                    root, cover, hook_art, package["summary"], slug, url, credit=frontmatter_value(text, "coverCredit"), category=frontmatter_value(text, "category")
                 )
                 files[f"{slug}-story.png"] = story_png
                 files[f"{slug}-story.jpg"] = story_jpg
