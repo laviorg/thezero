@@ -57,12 +57,12 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 39 | switch-2-vs-steam-deck-oled-preco-brasil | comparativo | 699 | 2 | sem 2 fontes | pendente |
 | 40 | ssd-nvme-1tb-brasil-o-que-olhar | guia | 867 | 2 | sem 2 fontes | pendente |
 | 41 | e-titulo-2026-baixar-justificar-voto | tutorial | 1137 | 1 | sem 2 fontes, sem análise | pendente |
-| 42 | contexto-maior-que-prompt | guia | 1991 | 1 | sem análise, sem ângulo BR | pendente |
-| 43 | openai-gpt-61-terra-computer-use-metade-do-preco | noticia | 615 | 1 | sem 2 fontes | pendente |
-| 44 | siri-ai-portugues-ios-27-2 | noticia | 621 | 1 | sem 2 fontes | pendente |
+| 42 | contexto-maior-que-prompt | guia | 1991 | 1 | sem análise, sem ângulo BR | reescrito em 22/11/2026 |
+| 43 | openai-gpt-61-terra-computer-use-metade-do-preco | noticia | 615 | 1 | sem 2 fontes | reescrito em 22/11/2026 |
+| 44 | siri-ai-portugues-ios-27-2 | noticia | 621 | 1 | sem 2 fontes | reescrito em 22/11/2026 |
 | 45 | jginyue-placa-pcie-chipset-b650-m2 | noticia | 623 | 1 | sem 2 fontes | pendente |
 | 46 | redmi-note-14-custo-beneficio | guia | 624 | 1 | sem 2 fontes | pendente |
-| 47 | windows-11-26h2-liberado-para-todos-como-atualizar | noticia | 634 | 1 | sem 2 fontes | pendente |
+| 47 | windows-11-26h2-liberado-para-todos-como-atualizar | noticia | 634 | 1 | sem 2 fontes | reescrito em 22/11/2026 |
 | 48 | google-beam-uso-20-locais-familias-militares | noticia | 640 | 1 | sem 2 fontes | pendente |
 | 49 | hearken-lancamento-steam-preco-brasil | noticia | 667 | 1 | sem 2 fontes | pendente |
 | 50 | galaxy-a55-vs-edge-50-fusion | comparativo | 683 | 1 | sem 2 fontes | pendente |
@@ -238,7 +238,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 66 | 57 | jginyue-placa-pcie-chipset-b650-m2 | noticia | 579 | 2 | 3 | 1 | 0 | 1672 | pendente |
 | 67 | 57 | micron-g11-nand-400-camadas-densidade-dobro | noticia | 664 | 2 | 2 | 1 | 0 | 1920 | pendente |
 | 68 | 57 | mistral-voxtral-3-agentes-de-voz | noticia | 602 | 1 | 5 | 1 | 0 | 1440 | pendente |
-| 69 | 57 | openai-gpt-61-terra-computer-use-metade-do-preco | noticia | 655 | 2 | 2 | 1 | 0 | 1920 | pendente |
+| 69 | 57 | openai-gpt-61-terra-computer-use-metade-do-preco | noticia | 655 | 2 | 2 | 1 | 0 | 1920 | reescrito em 22/11/2026 |
 | 70 | 58 | motorola-vs-samsung-intermediario | comparativo | 637 | 0 | 4 | 1 | 4 | 1200 | pendente |
 | 71 | 58 | nokia-ia-carajas-sem-internet | noticia | 569 | 4 | 1 | 1 | 0 | 4913 | pendente |
 | 72 | 58 | nothing-phone-brasil-preco-updates | guia | 533 | 0 | 11 | 1 | 2 | 1200 | pendente |
@@ -282,7 +282,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 110 | 63 | ps5-vs-series-x-exclusivo-game-pass-preco | comparativo | 676 | 0 | 5 | 1 | 5 | 1200 | pendente |
 | 111 | 63 | sony-ecm-ax10-microfone-audio-espacial-celular | noticia | 556 | 8 | 3 | 1 | 0 | 1920 | pendente |
 | 112 | 63 | switch-2-vs-steam-deck-oled-preco-brasil | comparativo | 676 | 0 | 7 | 1 | 2 | 1200 | pendente |
-| 113 | 63 | windows-11-26h2-liberado-para-todos-como-atualizar | noticia | 629 | 4 | 2 | 1 | 0 | 1920 | pendente |
+| 113 | 63 | windows-11-26h2-liberado-para-todos-como-atualizar | noticia | 629 | 4 | 2 | 1 | 0 | 1920 | reescrito em 22/11/2026 |
 | 114 | 63 | zeenix-lite-portatil-barato | review | 686 | 0 | 7 | 1 | 2 | 1200 | pendente |
 | 115 | 64 | apple-macbook-pro-14-imac-m6-precos-brasil | noticia | 602 | 2 | 15 | 1 | 0 | 1920 | pendente |
 | 116 | 64 | hearken-lancamento-steam-preco-brasil | noticia | 605 | 2 | 9 | 1 | 0 | 1920 | pendente |
@@ -337,7 +337,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 165 | 69 | galaxy-a16-ou-a26-entrada-samsung | guia | 659 | 1 | 8 | 1 | 3 | 1200 | pendente |
 | 166 | 69 | google-synthid-detector-global-ia | noticia | 727 | 7 | 3 | 1 | 0 | 1920 | pendente |
 | 167 | 69 | governo-pede-anpd-companheiros-ia | noticia | 657 | 5 | 2 | 1 | 1 | 1600 | pendente |
-| 168 | 69 | siri-ai-portugues-ios-27-2 | noticia | 625 | 3 | 4 | 1 | 0 | 1960 | pendente |
+| 168 | 69 | siri-ai-portugues-ios-27-2 | noticia | 625 | 3 | 4 | 1 | 0 | 1960 | reescrito em 22/11/2026 |
 | 169 | 70 | adrenalin-26-9-2-seis-jogos-recuo-rx-5000 | noticia | 1424 | 10 | 0 | 1 | 0 | 1800 | pendente |
 | 170 | 70 | anthropic-claude-corte-washington-2-a-1 | noticia | 1284 | 5 | 0 | 1 | 0 | 1800 | pendente |
 | 171 | 70 | applebees-senha-aplicativo-dados-expostos | noticia | 739 | 8 | 3 | 1 | 0 | 2000 | pendente |
@@ -532,7 +532,7 @@ Ordem: impressões no Google (28 dias até 11/11) primeiro, depois quantidade de
 | 360 | 82 | hd-externo-vs-ssd-portatil | guia | 960 | 3 | 1 | 1 | 2 | 1200 | pendente |
 | 361 | 82 | windows-no-handheld-vs-steamos | guia | 704 | 4 | 4 | 1 | 3 | 1200 | reescrito lote 1 |
 | 362 | 83 | antes-de-comprar-console-black-friday-2026 | guia | 952 | 2 | 4 | 1 | 9 | 1200 | pendente |
-| 363 | 83 | contexto-maior-que-prompt | guia | 1900 | 6 | 1 | 1 | 8 | 1920 | pendente |
+| 363 | 83 | contexto-maior-que-prompt | guia | 1900 | 6 | 1 | 1 | 8 | 1920 | reescrito em 22/11/2026 |
 | 364 | 83 | fonte-rtx-4060-e-4070-quantos-watts | guia | 908 | 11 | 2 | 1 | 2 | 1200 | pendente |
 | 365 | 83 | graveyard-keeper-2-well-dweller-hoje | noticia | 650 | 10 | 6 | 1 | 3 | 1920 | pendente |
 | 366 | 83 | iphone-17-pro-leilao-receita-brasil | noticia | 953 | 5 | 23 | 1 | 0 | 1200 | pendente |

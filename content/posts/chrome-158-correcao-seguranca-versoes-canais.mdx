@@ -1,69 +1,73 @@
 ---
-title: "Chrome 158 traz 204 correções; confira versão e canal antes de atualizar"
-seoTitle: "Chrome 158 corrige 204 falhas: versões e como atualizar"
-seoDescription: "Google libera Chrome 158 com seis falhas críticas corrigidas. Veja versões para computador e Android e por que o Extended Stable continua no 156."
-excerpt: "Chrome 158 chega com 204 correções, seis críticas. Confira versões, reinício e o pacote separado para quem usa o canal Extended Stable."
+title: "Chrome 158 recebe nova correção crítica; confira o número completo"
+seoTitle: "Chrome 158 corrige falha crítica: versões e como atualizar"
+seoDescription: "Pacote de 23 de novembro corrige falha crítica em Variations. Veja versões para Windows, Mac e Linux e por que reiniciar o Chrome."
+excerpt: "Chrome 158 ganhou outra correção crítica. Confira as versões completas do pacote de 23 de novembro e conclua o reinício no computador."
 category: aplicativos
 subcategory: seguranca-digital
 format: noticia
 date: "2026-11-17T20:59:57-03:00"
+updated: "2026-11-24T06:10:00-03:00"
 kicker: "Segurança · Navegadores"
 author: "nicholas"
 cover: "/images/posts/chrome-158-correcao-seguranca-versoes-canais/cover.jpg"
 coverAlt: "Celular preto com o símbolo colorido do Chrome na tela, apoiado sobre uma superfície vermelha."
-coverCredit: "Foto: Deepanker Verma / Pexels (https://www.pexels.com/license/). Imagem ilustrativa de arquivo, publicada em 2018; não mostra o Chrome 158 nem um teste de segurança. Redimensionamento."
+coverCredit: "Deepanker Verma / Pexels · foto ilustrativa de arquivo. Licença Pexels."
 coverSource: "https://www.pexels.com/photo/black-google-smartphone-on-box-1482061/"
 cover_locked: true
 cover_source: real
 ---
 
-O Google começou a distribuir nesta terça-feira, 17 de novembro, o [Chrome 158 para Windows, Mac e Linux](https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01699533288.html). O pacote reúne 204 correções de segurança, incluindo seis falhas classificadas como críticas. A recomendação prática é conferir o número completo na tela de atualização e reiniciar quando solicitado, sem presumir que uma atualização feita na semana passada encerrou o assunto.
+O Google liberou em 23 de novembro outro pacote do **Chrome 158**, agora com uma correção crítica no componente Variations. No canal Stable de computador, as versões anunciadas são **158.0.8127.88 ou .89 para Windows e Mac** e **158.0.8127.88 para Linux**. Portanto, ver apenas o número 158 na tela não basta para confirmar que essa correção chegou.
 
-Existe uma diferença importante para computadores administrados por empresas: o canal Extended Stable recebeu outro pacote e continua no Chrome 156. Assim, o número principal sozinho não permite concluir que todo computador com uma versão anterior ao 158 esteja sem a atualização destinada ao seu canal. É preciso separar o navegador pessoal do ambiente gerenciado pelo trabalho.
+Esta matéria, publicada originalmente em 17 de novembro, foi atualizada em 24 de novembro para separar o novo aviso do pacote inicial, que trouxe 204 correções. A [nota mais recente do Google](https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01734282054.html) prevê distribuição ao longo de dias ou semanas. Não há calendário separado para o Brasil nesse comunicado.
 
-## Quais versões o Google anunciou
+## Qual versão conferir agora
 
-O comunicado informa distribuição ao longo de dias ou semanas no computador. Já o [Chrome 158 para Android](https://chromereleases.googleblog.com/2026/11/chrome-for-android-update_0281314271.html) deve chegar ao Google Play nos próximos dias. Isso não significa que o botão de atualização aparecerá ao mesmo tempo para todas as pessoas no Brasil.
+O novo aviso trata de Windows, Mac e Linux. Ele não apresenta um número de versão para Android, iPhone, iPad ou ChromeOS. Usar a mesma tabela para todos os aparelhos daria ao leitor uma referência que a fonte não oferece.
 
-| Plataforma e canal | Versão anunciada em 17 de novembro |
+| Plataforma no canal Stable | Versão anunciada em 23 de novembro |
 | --- | --- |
-| Chrome Stable no Windows e Mac | 158.0.8127.36 ou 158.0.8127.37 |
-| Chrome Stable no Linux | 158.0.8127.36 |
-| Chrome para Android | 158.0.8127.42 |
-| Extended Stable no Windows e Mac | 156.0.8078.108 ou 156.0.8078.109 |
+| Windows | 158.0.8127.88 ou 158.0.8127.89 |
+| Mac | 158.0.8127.88 ou 158.0.8127.89 |
+| Linux | 158.0.8127.88 |
 
-A nota do Android diz que suas versões contêm as mesmas correções de segurança das correspondentes de desktop, salvo indicação contrária. Isso não autoriza usar esses números como referência de atualização para iPhone, iPad ou ChromeOS. Os avisos consultados tratam de plataformas específicas, não de um instalador único para qualquer aparelho.
+Esses são os números do pacote anunciado, não uma promessa de que todo computador brasileiro já recebeu a oferta. Quem ainda vê uma versão anterior deve consultar o mecanismo oficial de atualização e considerar a distribuição gradual, sem recorrer a instaladores enviados por mensagem ou encontrados em anúncios.
 
-## Seis críticas não significam seis ataques confirmados
+A comparação importante é com o número completo: o lançamento inicial do Stable 158 para computador, em 17 de novembro, usava finais .36 e .37. Permanecer naquele pacote não equivale a instalar a atualização de 23 de novembro, embora o número principal continue igual.
 
-As falhas críticas listadas pelo Google estão em WebView, GPU, Media, GarbageCollection, ANGLE e WebAudio. Entre os defeitos descritos há acesso a memória já liberada, escrita fora dos limites e estouro de buffer. São categorias de erro que justificam aplicar a correção, mas o resumo público não mostra, sozinho, a cadeia completa necessária para explorar cada problema.
+## O que se sabe sobre a falha crítica
 
-Na nota de 17 de novembro consultada pela reportagem, o Google não incluiu aviso de exploração ativa dessas falhas. Essa ausência não prova que nenhum ataque exista. Também não permite chamar o pacote de resposta a seis ataques em andamento. A severidade atribuída ao defeito e a evidência de exploração são informações diferentes.
+A vulnerabilidade é a **CVE-2026-134401**, descrita pelo Google como validação inadequada de entrada em Variations. O comunicado atribui o relato ao próprio Google, em 28 de agosto, e classifica a falha como crítica. Data do relato e data da publicação da correção são informações diferentes.
 
-O fabricante mantém parte dos detalhes restrita até que a maioria dos usuários esteja atualizada, incluindo casos em que outros projetos dependem de uma biblioteca ainda sem correção. Por isso, esta matéria não atribui uma nota CVSS ou um efeito técnico mais específico a cada CVE sem a respectiva documentação verificada. Não executamos ataques, benchmarks ou testes de proteção.
+O [registro oficial da CVE, fornecido pelo Chrome](https://cveawg.mitre.org/api/cve/CVE-2026-134401), acrescenta que o problema em versões anteriores a 158.0.8127.88 poderia permitir a um atacante remoto executar código fora da sandbox por meio de uma página HTML preparada. A sandbox é uma camada de isolamento; o impacto descrito não se limita, portanto, a uma falha visual ou ao fechamento de uma aba.
 
-## Como conferir no computador sem perder o reinício
+Isso é a descrição de uma possibilidade técnica, não a confirmação de que o computador do leitor foi invadido. A nota de 23 de novembro não informa exploração ativa. Também não usamos essa ausência para garantir que nenhum ataque exista. Severidade, capacidade de exploração e evidência de ataques em andamento são coisas distintas.
 
-A [Ajuda do Chrome em português](https://support.google.com/chrome/answer/95414?co=GENIE.Platform%3DDesktop&hl=pt-BR) orienta abrir o menu de três pontos, entrar em **Ajuda > Sobre o Google Chrome**, aguardar a verificação e selecionar **Reiniciar**, quando o botão aparecer. O número completo fica nessa mesma página.
+Parte dos detalhes pode permanecer restrita até que a maioria dos usuários receba a correção, segundo o Google. Não reproduzimos uma cadeia de exploração nem realizamos testes de ataque ou de eficácia da atualização.
 
-O Google informa que as guias e janelas comuns são reabertas automaticamente, mas as janelas anônimas não. Antes de reiniciar, vale concluir um envio, uma edição ou outra atividade que ainda dependa daquela janela. Baixar o pacote e deixá-lo aguardando reinício não é a mesma etapa que aplicar a atualização.
+## Como atualizar e concluir o reinício
 
-Para Linux, a orientação oficial é usar o gerenciador de pacotes. No Android, o caminho é verificar a disponibilidade pelo Google Play. Se o aparelho não recebeu o pacote, a distribuição gradual deve ser considerada; não recomendamos contornar essa espera com um instalador oferecido por mensagem ou anúncio.
+A [Ajuda do Chrome em português](https://support.google.com/chrome/answer/95414?hl=pt-BR) orienta abrir o menu de três pontos e entrar em **Ajuda > Sobre o Google Chrome**. O navegador verifica atualizações nessa página, que também mostra a série completa de números da versão. Quando aparecer o botão **Reiniciar**, é preciso concluir essa etapa para aplicar o pacote.
 
-Para quem usa o computador para trabalho, compras ou serviços bancários no Brasil, a prioridade é inserir essa conferência na rotina, não comprar um produto adicional como condição para atualizar o Chrome. A correção vem pelo mecanismo de distribuição do próprio navegador ou da plataforma, não por um aviso de cobrança em uma página.
+Antes disso, termine um pagamento, envio de formulário ou edição que ainda dependa da janela aberta. O Google informa que guias e janelas comuns são reabertas automaticamente após o reinício, mas janelas anônimas não são. Deixar o navegador aberto indefinidamente com o pacote baixado adia a aplicação da atualização.
 
-## Por que o Extended Stable continua no 156
+No Linux, a orientação oficial é usar o gerenciador de pacotes. Em computadores do trabalho, a instalação pode depender da administração de TI. Vale registrar o número completo e consultar o responsável, em vez de trocar de canal por conta própria para fazer a tela coincidir com a manchete.
 
-O [aviso separado do Extended Stable](https://chromereleases.googleblog.com/2026/11/extended-stable-update-for-desktop_01061812727.html) informa 79 correções de segurança no pacote 156.0.8078.108/.109 para Windows e Mac. Não é o mesmo conjunto numérico de 204 correções anunciado para o Stable 158, e esta matéria não apresenta os dois pacotes como equivalentes em todos os detalhes.
+## Não confunda o pacote novo com as 204 correções
 
-Em uma máquina do trabalho, a decisão de canal e o calendário de instalação podem depender da administração de TI. Nossa leitura é conferir com o responsável qual pacote está previsto antes de tentar trocar de canal para fazer o número coincidir com uma manchete. A existência de um ramo separado não dispensa atualização; muda a referência que precisa ser conferida.
+O [lançamento de 17 de novembro](https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01699533288.html) reuniu 204 correções, incluindo seis críticas. Já a nota de 23 de novembro lista uma correção de segurança. São comunicados de momentos diferentes, e não apresentamos o pacote novo como se repetisse as 204 falhas ou confirmasse 204 ataques.
 
-## E quem usa o Edge?
+O mesmo cuidado vale para outros canais e navegadores. O aviso novo do Stable não é uma tabela de atualização do Extended Stable. Quem usa esse ramo gerenciado precisa conferir o pacote destinado ao próprio canal, sem concluir que todo número principal menor indica abandono.
 
-Na consulta de 17 de novembro, as [notas de segurança do Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-relnotes-security) diziam que a Microsoft conhecia as correções recentes do Chromium e trabalhava para liberar uma atualização. Atualizar o Chrome não atualiza automaticamente outro navegador, mesmo quando ambos compartilham tecnologia de base.
+As [notas de segurança do Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-relnotes-security) registram atualizações próprias. A página consultada não oferece uma confirmação específica de correção desta CVE no Edge. Ter tecnologia Chromium em comum não autoriza copiar automaticamente o número do Chrome para outro navegador.
 
-A cobertura independente do [SmartScope](https://smartscope.blog/en/blog/chrome-158-stable-channel-update-158-0-8127-2026/) também diferencia Stable, Android e Extended Stable a partir dos comunicados do Google. Para o leitor, essa separação é mais útil do que tratar todo número menor como falha ou toda marca baseada em Chromium como já corrigida.
+## O que isso significa
 
-## Nossa leitura
+Para quem trabalha, faz compras ou acessa serviços bancários pelo computador no Brasil, a ação útil é simples: identificar o navegador e o canal usados, conferir a versão completa e terminar o reinício. Não é necessário comprar um produto adicional como condição para receber esse pacote pelo mecanismo oficial do Chrome.
 
-O ponto principal é verificar o produto e o canal realmente usados, aplicar o pacote oferecido pela fonte oficial e concluir o reinício necessário. O [guia sobre antivírus no Windows](/noticia/antivirus-windows-2026-precisa-pagar) trata de outra camada de proteção. Ela não substitui manter o navegador em dia, nem uma atualização transforma qualquer link ou arquivo em conteúdo confiável.
+Nossa leitura é que manchetes centradas apenas em “Chrome 158” perdem uma informação prática: atualizações de segurança continuam chegando dentro da mesma versão principal. A rotina precisa acompanhar esses pacotes menores, sem transformar cada aviso em prova de uma invasão já ocorrida.
+
+O [guia sobre antivírus no Windows](/noticia/antivirus-windows-2026-precisa-pagar) trata de outra camada de proteção. Ela não substitui atualizar o navegador. Da mesma forma, instalar a correção não transforma qualquer página, arquivo ou pedido de senha em algo confiável.
+
+Fontes: [Chrome Releases, 23/11](https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01734282054.html), [registro CVE](https://cveawg.mitre.org/api/cve/CVE-2026-134401), [Ajuda do Chrome](https://support.google.com/chrome/answer/95414?hl=pt-BR), [Chrome Releases, 17/11](https://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop_01699533288.html) e [Microsoft Edge](https://learn.microsoft.com/en-us/deployedge/microsoft-edge-relnotes-security).

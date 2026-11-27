@@ -1,0 +1,81 @@
+---
+title: "Google abre Workspace para agentes e separa cota grátis de cobrança MCP"
+seoTitle: "Workspace MCP: cota grátis e cobrança para agentes"
+excerpt: "Standard inclui 5 mil requisições diárias por projeto e produto. No Scaled, Gmail, Drive e Calendar terão cobrança MCP desde a primeira requisição."
+category: ia
+subcategory: agentes
+format: noticia
+date: "2026-11-25T09:55:00-03:00"
+featured: false
+kicker: "Workspace · Agentes"
+author: "nicholas"
+cover: "/images/posts/google-workspace-mcp-cotas-cobranca-agentes/cover.jpg"
+coverAlt: "Exemplo de diálogo do Gmail com remetente, destinatário externo e botões em inglês para recusar ou permitir o envio pelo agente."
+coverCredit: "Google / Reprodução; exemplo de interface"
+coverSource: "https://developers.google.com/workspace/guides/mcp-elicitation"
+---
+
+O Google anunciou em 24 de novembro a disponibilidade geral dos servidores MCP do Workspace e de uma interface de linha de comando, a gwscli. A novidade conecta agentes a serviços como Gmail e Drive, mas a decisão que exige atenção é comercial: o nível gratuito e o pago não tratam a franquia MCP da mesma maneira.
+
+Segundo a [documentação de cotas](https://developers.google.com/workspace/guides/quota-usage-tiers), o Standard inclui até 5 mil requisições por dia, por projeto e por produto. Ao optar pelo Scaled, essa franquia gratuita MCP deixa de existir para o projeto. A partir de 1º de abril de 2027, o uso dos servidores MCP de Gmail, Calendar e Drive nesse nível será cobrado desde a primeira requisição bem-sucedida.
+
+<Verdict overrated="Tratar o nível pago como a mesma franquia gratuita com espaço extra" underrated="Medir operações e permissões antes de escolher a cota do projeto" />
+
+## O que foi aberto
+
+O [anúncio oficial](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html) lista oito produtos na disponibilidade geral: Gmail, Drive, Docs, Sheets, Slides, Calendar, Chat e Tasks. Keep aparece como futuro acréscimo, não como recurso já entregue. O Google informa liberação em até duas semanas para os domínios Rapid Release e Scheduled Release.
+
+MCP é um protocolo que permite ao agente descobrir e chamar ferramentas externas. Nesse caso, os servidores são hospedados pelo Google. A CLI leva esse acesso ao terminal e pode ser usada por desenvolvedores ou por agentes de programação. Não é necessário confundir disponibilidade geral com autorização irrestrita: autenticação, permissões e políticas da organização continuam fazendo parte do acesso.
+
+A [página de configuração](https://developers.google.com/workspace/guides/configure-mcp-servers) também descreve um modo pessoal para conectar apenas a própria conta Google. Ele reúne criação do projeto, ativação dos serviços e configuração OAuth em uma página, sem verificação de aplicativo ou tela de consentimento separada nesse fluxo específico. Não equivale a dispensar essas etapas para um produto com vários usuários.
+
+## Gratuito não vira cobrança automática
+
+No Standard, não é preciso vincular uma conta de faturamento Google Cloud para começar. O uso dentro desse nível não gera cobrança na conta Cloud. Se a cota acabar, as requisições são limitadas até a janela se renovar; ultrapassar o teto não transforma o projeto automaticamente em cliente pagante.
+
+As 5 mil requisições diárias também não significam 5 mil tarefas completas. Algumas ferramentas MCP fazem várias chamadas internas e contam como mais de uma unidade. Um fluxo que busca arquivos, lê conteúdo e atualiza documentos precisa ser medido pelo consumo efetivo, não apenas pela quantidade de pedidos enviados pelo usuário.
+
+O Scaled exige adesão e conta de faturamento vinculada. A escolha vale para o projeto inteiro, não para um único serviço. Além disso, aderir permite solicitar aumento de cota, mas não concede automaticamente um limite maior. Essa distinção também foi destacada pela [cobertura da ORIENS](https://ai-oriens.com/en/news/google-workspace-mcp-gwscli/).
+
+## O preço depende da operação
+
+A [tabela de preços do Google](https://developers.google.com/workspace/guides/quota-pricing) divide as unidades em quatro categorias. Os valores abaixo são em dólares por mil unidades faturáveis, não mensalidades ou preços de assinatura do Workspace.
+
+| Categoria | Preço por mil unidades | Exemplos na documentação |
+| --- | --- | --- |
+| Light | US$ 0,10 | Metadados e consulta de permissões |
+| Medium | US$ 0,20 | Criar rascunhos e arquivos |
+| Plus | US$ 0,25 | Buscar arquivos e operações do Calendar |
+| Premium | US$ 0,50 | Ler conteúdo de arquivos e conversas completas |
+
+A cobrança MCP do Scaled começa por Gmail, Calendar e Drive em abril. Não estendemos esses preços automaticamente a todos os oito produtos. As APIs REST têm outra regra no nível pago: franquias diárias por serviço e categoria, com cobrança do excedente. Usar essa descrição de REST para explicar MCP produziria uma estimativa errada.
+
+## Fevereiro e abril são prazos diferentes
+
+Em 1º de fevereiro de 2027 entra em vigor a exigência de MCP para agentes que obtêm dados do Workspace, junto com o novo adendo de termos. A documentação explica o efeito técnico para agentes que continuarem chamando REST diretamente: eles ficam limitados às cotas Standard, independentemente do nível escolhido. Isso não é um anúncio de desligamento geral das APIs REST.
+
+Já 1º de abril inicia faturamento e aplicação das regras de cota descritas no cronograma. Projetos que mantêm limites superiores precisam tratar a adesão ao Scaled ou a exceção aplicável antes dessa data. A exceção de uso interno permite solicitar cotas REST maiores em projetos elegíveis da organização, mas não aumenta cotas MCP. Marcar um projeto como interno não é uma maneira de obter MCP ilimitado.
+
+## O que isso significa no Brasil
+
+Para uma equipe brasileira, o Standard significa custo adicional de acesso MCP de R$ 0 dentro das cotas, não uma promessa de operação inteira gratuita. Assinatura do agente, modelo de linguagem, infraestrutura e trabalho de integração são despesas separadas. Os preços do Scaled consultados em 25 de novembro estão publicados em dólares; não apresentamos conversão como se fosse tarifa brasileira final.
+
+Nossa leitura é começar pela medição de um fluxo concreto. Uma empresa que consulta poucos documentos pode caber no Standard. Outra que relê caixas postais repetidamente precisa identificar quantas unidades consome, quais entram em Premium e quem pode autorizar a mudança de nível. Ter cartão cadastrado não deveria substituir essa decisão.
+
+A governança merece o mesmo cuidado. O Google oferece confirmações orientadas por políticas, registros de auditoria e controles administrativos. A [documentação da CLI](https://developers.google.com/workspace/guides/workspace-cli) deixa claro que outras escritas podem ocorrer sem nova pergunta após a concessão dos escopos. Portanto, não há garantia de confirmação em toda ação. Nosso [guia de permissões para agentes](https://www.thezero.com.br/noticia/agente-ia-permissoes-que-nao-dar) ajuda a separar acesso necessário de acesso amplo demais.
+
+Também não tratamos MCP como vacina contra instruções maliciosas escondidas em mensagens ou arquivos. O próprio Google descreve esse risco na documentação. Conectar mais serviços só tem valor quando a equipe sabe quais dados entram no fluxo, quais ações estão permitidas e como interromper o acesso.
+
+<Rule>
+Escolha a cota pelo consumo medido e conceda acesso pelo trabalho necessário, não pelo número de serviços disponíveis.
+</Rule>
+
+## Fontes
+
+- [Google Workspace Updates: anúncio de 24/11, produtos e cronograma](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html).
+- [Google Developers: cotas, exceções e datas de aplicação](https://developers.google.com/workspace/guides/quota-usage-tiers).
+- [Google Developers: categorias de preço e diferença REST/MCP](https://developers.google.com/workspace/guides/quota-pricing).
+- [Google Developers: configuração e modo pessoal](https://developers.google.com/workspace/guides/configure-mcp-servers).
+- [Google Developers: CLI e confirmações](https://developers.google.com/workspace/guides/workspace-cli).
+- [ORIENS: cobertura independente do anúncio e das cotas](https://ai-oriens.com/en/news/google-workspace-mcp-gwscli/).
+- Capa: [exemplo de diálogo de aprovação MCP publicado pelo Google](https://developers.google.com/workspace/guides/mcp-elicitation), não uma captura de conta real ou teste nosso. Reprodução para uso informativo, conforme as [regras de uso de visuais de produto do Google](https://partnermarketinghub.withgoogle.com/brands/google/branding-guidelines/how-to-show-googles-brand/), com conversão do vetor e ajuste ao formato, sem alterar os dados do exemplo.

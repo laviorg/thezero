@@ -10,6 +10,8 @@ on:
       - "scripts/check-posts.test.mjs"
       - "src/**"
       - ".github/workflows/**"
+      - "package.json"
+      - "package-lock.json"
 
 permissions:
   contents: read
