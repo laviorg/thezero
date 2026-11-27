@@ -246,25 +246,13 @@
      "store": "KaBuM",
      "seller": "KaBuM!",
      "url": "https://www.kabum.com.br/produto/777177/console-nintendo-switch-2-256gb-preto-azul-e-vermelho",
-     "price": 5999.0,
-     "priceNote": "à vista no Pix; sem desconto anunciado",
+     "price": 4199.0,
+     "priceNote": "à vista no Pix; rechecado em 27/11 às 17h04, sem CEP e sem frete; riscado R$ 4.699",
      "available": true,
      "ref": {
       "price": 4299.0,
       "date": "2026-10-16"
      }
-    },
-    {
-     "name": "Nintendo Switch 2 (modelo nacional)",
-     "detail": "Console Nintendo Switch 2 - Modelo Nacional de Tomada",
-     "store": "Amazon",
-     "seller": "Amazon.com.br",
-     "url": "https://www.amazon.com.br/dp/B0F6D7MQQB",
-     "asin": "B0F6D7MQQB",
-     "price": 4001.11,
-     "priceNote": "preço da página; a Amazon mostra \"de R$ 4.599,90\"",
-     "available": true,
-     "ref": null
     },
     {
      "name": "Lenovo Legion Go S SteamOS 32 GB / 1 TB",

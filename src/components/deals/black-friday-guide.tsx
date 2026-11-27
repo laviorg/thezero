@@ -29,7 +29,7 @@ const CHECKLIST = [
   },
   {
     title: "Abra duas lojas grandes",
-    text: "O mesmo Switch 2 custava R$ 5.999 numa loja e R$ 4.001,11 em outra, na mesma tarde.",
+    text: "Compare o mesmo modelo, vendedor e forma de pagamento no mesmo horário. O Switch 2 foi rechecado às 17h04; o valor da Amazon foi retirado por falta de reconfirmação.",
   },
   {
     title: "Leia quem vende",
@@ -165,7 +165,7 @@ export function BlackFridayGuide({ event }: { event: DealEvent }) {
             <h1 className="bf-hero-title">{event.title}</h1>
             <p className="bf-hero-lede">{event.lede}</p>
             <p className="bf-hero-meta">
-              Checagem: <time dateTime={checkedAt}>{formatBRT(checkedAt)}</time> · por Nicholas Nishimura
+              Registros iniciais: <time dateTime={checkedAt}>{formatBRT(checkedAt)}</time>. Switch 2 rechecado às 17h04 · por Nicholas Nishimura
             </p>
           </div>
           <ol className="bf-dates" aria-label="Datas">
@@ -194,7 +194,7 @@ export function BlackFridayGuide({ event }: { event: DealEvent }) {
           </div>
           <div>
             <dt>Switch 2 na KaBuM desde 16/10</dt>
-            <dd className="bf-up">+40%</dd>
+            <dd className="bf-down">−2%</dd>
           </div>
           <div>
             <dt>dólar PTAX desde 16/10</dt>
@@ -239,8 +239,8 @@ export function BlackFridayGuide({ event }: { event: DealEvent }) {
         <p className="eyebrow page-kicker">Tabela da redação</p>
         <h2 className="bf-h2">Preços checados hoje, lado a lado com o passado</h2>
         <p className="bf-p">
-          Preço da página de cada produto em <time dateTime={checkedAt}>{formatBRT(checkedAt)}</time>, à vista no Pix
-          quando a loja mostra. A coluna &quot;Antes&quot; é o mesmo anúncio no nosso{" "}
+          Registros iniciais de <time dateTime={checkedAt}>{formatBRT(checkedAt)}</time>, à vista no Pix
+          quando a loja mostra. Switch 2 rechecado às 17h04 por R$ 4.199 no Pix, sem CEP e sem frete; comparação com a Amazon retirada por falta de reconfirmação. As demais linhas não foram rechecadas nesta revisão. A coluna &quot;Antes&quot; é o mesmo anúncio no nosso{" "}
           <Link href="/menor-preco">arquivo de outubro</Link> ou na{" "}
           <Link href="/precos-no-brasil">tabela de 16/11</Link>. Produto esgotado fica sem preço. Preço e estoque mudam a
           qualquer hora: vale o que a loja mostrar no checkout.
