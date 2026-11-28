@@ -75,3 +75,5 @@ Sem R$ só quando não existe venda nem preço no Brasil, e o texto diz isso ("s
 
 **Notícia nunca leva `<CaixaCompra>`** (desde 01/11/2026, P0 AdSense). CaixaCompra só em guia, review, comparativo, vale-a-pena, /black-friday, /prime-day, /11-11 e /menor-preco; máximo editorialmente ligado; Amazon `?tag=thezero04-20`; KaBuM só Awin; sem preço inventado. Notícia com intenção de compra linka o guia do assunto. Detalhe: [`docs/caixa-compra.md`](docs/caixa-compra.md). Limpeza de acervo: [`docs/acervo-limpeza-2026-11.md`](docs/acervo-limpeza-2026-11.md).
 
+**Prioridade desde 28/11/2026 (P0 AdSense): aprofundar o acervo.** Antes de pauta nova, trabalhe o lote do dia da fila [`docs/aprofundar-acervo-2026-11.md`](docs/aprofundar-acervo-2026-11.md) (~10 matérias/dia, um PR por matéria, mantendo slug, 800–1200 palavras, 2 fontes, link de guia com rota existente). Você mesmo faz o merge; a Mavi não revisa PR da Instinct.
+
