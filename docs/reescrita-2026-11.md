@@ -1,5 +1,7 @@
 # Reescrita do acervo — 2026-11 (P0 AdSense)
 
+> **Desde 28/11/2026 a fila vigente é [`docs/aprofundar-acervo-2026-11.md`](aprofundar-acervo-2026-11.md)** (recalculada da `main`, em lotes diários). Onde o slug está nas duas listas, vale a nova.
+
 Inventário: 413 posts indexados (fora noindex/301). Score 0–100, mais fraco primeiro.
 
 ## Auditoria de 14/11/2026 (antes do novo pedido de revisão do AdSense)
