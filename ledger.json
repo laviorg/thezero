@@ -3308,6 +3308,17 @@
       "updated_at": "2026-11-27T19:57:46Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DgQe7BbowVS",
       "story": "https://www.instagram.com/stories/hello.the.zero/4039864993348134741"
+    },
+    "starship-crafter-lancamento-pc-portugues": {
+      "article_url": "https://www.thezero.com.br/noticia/starship-crafter-lancamento-pc-portugues",
+      "pr": 689,
+      "commit": "64db42bf6eab12e673218e5827ca760a3316af5e",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/starship-crafter-lancamento-pc-portugues.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/starship-crafter-lancamento-pc-portugues.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/starship-crafter-lancamento-pc-portugues-story.jpg",
+      "ig": "https://www.instagram.com/p/DgRjZHtDuZn/",
+      "slug": "starship-crafter-lancamento-pc-portugues",
+      "updated_at": "2026-11-28T05:55:48Z"
     }
   }
 }
