@@ -3334,6 +3334,17 @@
       "updated_at": "2026-11-28T06:42:44Z",
       "threads": "https://www.threads.com/@hello.the.zero/post/DgRova-nHYg",
       "story": "https://www.instagram.com/stories/hello.the.zero/4040189621354601955"
+    },
+    "b3-open-brl-stablecoin-reais": {
+      "article_url": "https://www.thezero.com.br/noticia/b3-open-brl-stablecoin-reais",
+      "pr": 691,
+      "commit": "fdb1bf914970e041e51c48ee92c0e65956535f72",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/b3-open-brl-stablecoin-reais.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/b3-open-brl-stablecoin-reais.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/b3-open-brl-stablecoin-reais-story.jpg",
+      "ig": "https://www.instagram.com/p/DgR2YmbDUvw/",
+      "slug": "b3-open-brl-stablecoin-reais",
+      "updated_at": "2026-11-28T08:41:50Z"
     }
   }
 }
