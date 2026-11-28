@@ -1,4 +1,4 @@
-import { EventGuide } from "@/components/deals/event-guide";
+import { BlackFridayGuide } from "@/components/deals/black-friday-guide";
 import { dealEvent } from "@/lib/deals";
 import { buildPageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
@@ -15,5 +15,5 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function Page() {
-  return <EventGuide event={event} />;
+  return <BlackFridayGuide event={event} />;
 }

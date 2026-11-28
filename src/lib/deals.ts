@@ -92,7 +92,7 @@ const BF_CATEGORIES: CategoryBlock[] = [
       "Modelo com 8 GB e 16 GB do mesmo chip têm nomes quase iguais. Leia a memória no título do anúncio.",
     ],
     watch: [
-      "Anote hoje o preço à vista do modelo exato (com o código do fabricante) e compare na semana do evento.",
+      "Compare o preço de hoje com o de outubro na tabela desta página. O preço riscado da loja não é referência.",
       "Kit placa + fonte só compensa se a fonte do kit for de marca e potência que você usaria de qualquer jeito.",
       "Marketplace dentro da loja tem outra garantia e outro prazo. Veja quem vende e quem entrega.",
     ],
@@ -198,42 +198,59 @@ export const dealEvents: DealEvent[] = [
   {
     slug: "black-friday",
     path: "/black-friday",
-    title: "Black Friday 2026: o que vale comprar em placa de vídeo, SSD, console e notebook",
-    documentTitle: "Black Friday 2026: o que vale comprar em hardware e games",
-    kicker: "Guia de compra",
+    title: "Black Friday 2026: preços checados hoje e o que vale comprar em tech",
+    documentTitle: "Black Friday 2026: preços checados e o que vale comprar em tech",
+    kicker: "Black Friday 2026",
     lede:
-      "Critério antes de desconto. O que olhar em placa de vídeo, SSD, console e notebook, como saber se a oferta é real e quais modelos conferir na Black Friday 2026.",
+      "Preço à vista lido hoje nas lojas, comparado com o mesmo anúncio em outubro. O que caiu de verdade, o que subiu, como pegar desconto falso e o critério pra escolher placa de vídeo, SSD, console e notebook.",
     description:
-      "Guia da Black Friday 2026 no Brasil: como escolher placa de vídeo, SSD, console e notebook, como checar se o desconto é real e quais modelos acompanhar.",
-    cover: "/images/pages/black-friday.png",
-    coverAlt: "Arte com o texto Black Friday 2026 e a marca The Zero sobre fundo escuro",
-    updatedIso: "2026-10-26T23:40:00-03:00",
-    updatedLabel: "26 de outubro de 2026",
+      "Black Friday 2026 no Brasil: preços de placa de vídeo, SSD, console e notebook checados na loja em 27/11, comparados com outubro, checklist de desconto falso e regras de importação.",
+    cover: "/images/pages/black-friday-2026.jpg",
+    coverAlt:
+      "Nintendo Switch 2 em modo portátil, tela apagada, em fotografia recortada sobre fundo claro",
+    updatedIso: "2026-11-27T17:04:00-03:00",
+    updatedLabel: "27 de novembro de 2026, às 17h04 (Brasília); revisão do Switch 2",
     dateHeading: "Quando é a Black Friday 2026",
     dateText: [
-      "No Brasil a Black Friday segue a data americana: a sexta-feira depois do Dia de Ação de Graças dos EUA, que em 2026 cai na quinta, 26 de novembro. A sexta é 27 de novembro de 2026.",
-      "As lojas costumam começar ofertas dias ou semanas antes e estender até a Cyber Monday (30 de novembro de 2026). O calendário de cada loja é dela: confira no site da loja.",
+      "A Black Friday 2026 é nesta sexta-feira, 27 de novembro, um dia depois do Dia de Ação de Graças dos EUA. Muitas lojas estendem as ofertas pelo fim de semana até a Cyber Monday, segunda-feira, 30 de novembro. O calendário de cada loja é dela: confira no site da loja.",
     ],
     howTo: [
-      "Escolha o modelo exato agora, com o código do fabricante, e anote o preço à vista de hoje com data. Sem preço de referência, todo desconto parece bom.",
-      "Acompanhe o preço por algumas semanas, sempre do mesmo modelo e na mesma loja, e anote data e valor.",
-      "No dia, compare preço à vista, frete pro seu CEP, prazo de entrega e quem vende (loja ou marketplace).",
-      "Guarde print do anúncio e da página de pagamento. Se a entrega atrasar ou o produto vier diferente, o print é sua prova no Procon e no consumidor.gov.br.",
-      "Direito de arrependimento: compra online tem 7 dias pra desistir, pelo artigo 49 do Código de Defesa do Consumidor.",
+      "Compare o preço de hoje com o histórico do mesmo anúncio, não com o preço riscado. A tabela desta página traz o valor de outubro ou de meados de novembro ao lado do de hoje.",
+      "Abra pelo menos duas lojas e reconfirme modelo, vendedor e pagamento. O Switch 2 foi rechecado às 17h04 por R$ 4.199 no Pix na KaBuM; a comparação com a Amazon foi retirada por falta de reconfirmação.",
+      "Veja quem vende e quem entrega: vendedor parceiro dentro da loja tem outra garantia, outro prazo e outra política de troca.",
+      "Compare o preço à vista no Pix com o total parcelado. Juros escondidos no parcelamento comem o desconto.",
+      "Desconfie de link recebido por WhatsApp, SMS ou e-mail. Digite o endereço da loja e pague só pelo checkout oficial. O Procon-SP mantém a lista Evite esses Sites.",
+      "Guarde print do anúncio, do carrinho e do comprovante. Compra online pode ser desfeita em 7 dias a partir do recebimento (artigo 49 do Código de Defesa do Consumidor).",
     ],
     categories: BF_CATEGORIES,
     faq: [
       {
-        q: "Como saber se o desconto da Black Friday é real?",
-        a: "Anote o preço à vista do modelo exato semanas antes e compare. Desconto em cima de um preço que subiu na véspera não é desconto.",
+        q: "Quando é a Black Friday 2026?",
+        a: "Na sexta-feira, 27 de novembro de 2026. Muitas lojas estendem as ofertas até a Cyber Monday, segunda-feira, 30 de novembro.",
       },
       {
-        q: "Vale esperar a Black Friday pra comprar placa de vídeo?",
-        a: "Se a compra não é urgente, sim: acompanhar o preço por algumas semanas dá referência. Mas placa de vídeo depende de câmbio e estoque; se o modelo certo aparecer abaixo da sua referência antes, comprar antes também é uma boa decisão.",
+        q: "Como saber se o desconto da Black Friday é real?",
+        a: "Compare com o preço do mesmo anúncio semanas antes, não com o preço riscado da página. Na checagem de 27/11/2026, uma placa de vídeo exibia \"de R$ 3.411,75\" e 15% de desconto, mas custava R$ 1.999,99 em 16 de outubro e R$ 2.199,99 nesta sexta.",
+      },
+      {
+        q: "O que ficou mais barato e o que ficou mais caro nesta Black Friday?",
+        a: "Na KaBuM, comparando 16/10 com 27/11/2026, os SSDs Kingston caíram de 5% a 13% e a RTX 5060 da MSI caiu 10%. Na rechecagem das 17h04, o Switch 2 estava por R$ 4.199, cerca de 2% abaixo dos R$ 4.299 do arquivo de outubro. Os registros iniciais do PS5 Pro e da RTX 5070 Ti indicam altas de 10% e 36%, sem nova checagem nesta revisão.",
+      },
+      {
+        q: "Vale comprar placa de vídeo na Black Friday 2026?",
+        a: "Só se o modelo certo estiver abaixo do preço que você acompanhou. Na checagem de 27/11, a RTX 5060 estava mais barata que em outubro, mas placas de faixa alta estavam mais caras ou esgotadas. O dólar subiu 9,1% no período, segundo a PTAX do Banco Central.",
+      },
+      {
+        q: "Comprar importado na Black Friday compensa?",
+        a: "Depende do valor. Desde 12/05/2026, compra de pessoa física em site do Remessa Conforme até US$ 50 tem imposto de importação zero; acima disso, 60% com desconto de US$ 30. O ICMS de 17% a 20% vale nas duas faixas, segundo a Receita Federal. Faça a conta na calculadora antes de comparar com o preço nacional.",
       },
       {
         q: "Comprar em marketplace dentro da loja é seguro?",
         a: "Pode ser, mas a garantia, o prazo e a troca são do vendedor parceiro. Veja quem vende e quem entrega antes de pagar.",
+      },
+      {
+        q: "Posso devolver uma compra feita na Black Friday?",
+        a: "Sim. Compra feita fora da loja física, como pela internet, pode ser desfeita em até 7 dias a partir do recebimento, pelo artigo 49 do Código de Defesa do Consumidor, com devolução do valor pago.",
       },
     ],
   },

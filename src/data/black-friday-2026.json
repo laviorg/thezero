@@ -1,0 +1,349 @@
+{
+ "checkedAt": "2026-11-27T16:13:00-03:00",
+ "groups": [
+  {
+   "id": "gpu",
+   "heading": "Placas de vídeo",
+   "items": [
+    {
+     "name": "ASRock RX 7600 Challenger 8 GB",
+     "detail": "Placa de Vídeo RX 7600 Challenger ASRock AMD Radeon,  8GB GDDR6 - 90-GA41ZZ-00UANF",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/459144/placa-de-video-rx-7600-challenger-asrock-amd-radeon-8gb-gddr6-90-ga41zz-00uanf",
+     "price": 2199.99,
+     "priceNote": "à vista no Pix; a página mostra \"de R$ 3.411,75\"",
+     "available": true,
+     "ref": {
+      "price": 1999.99,
+      "date": "2026-10-16"
+     }
+    },
+    {
+     "name": "MSI RTX 5060 Shadow 2X 8 GB",
+     "detail": "Placa de Vídeo MSI RTX 5060 Shadow 2X OC NVIDIA GeForce, 8GB, GDDR7, 128-bit - 912-V537-038",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/1000741/placa-de-video-msi-rtx-5060-shadow-2x-oc-nvidia-geforce-8gb-gddr7-128-bit-912-v537-038",
+     "price": 3599.99,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 3999.99,
+      "date": "2026-10-16"
+     }
+    },
+    {
+     "name": "ASRock RX 9060 XT Challenger 16 GB",
+     "detail": "Placa De Vídeo Asrock Amd Radeon Rx 9060 Xt Challenger Oc 16gb Gddr6 128 Bits - 90-ga5qzz-00uanf",
+     "store": "KaBuM",
+     "seller": "FLER Equipamentos (marketplace KaBuM)",
+     "url": "https://www.kabum.com.br/produto/994308/gpu-asrock-rx-9060-xt-16gb-challenger-oc-gddr6-128-bits-2x-dp-1x-hdmi-90-ga5qzz-00uanf",
+     "price": 6123.71,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 5242.1,
+      "date": "2026-10-16"
+     }
+    },
+    {
+     "name": "Palit RTX 5070 Ti GamingPro-S 16 GB",
+     "detail": "Placa de Video Palit GeForce RTX 5070 Ti 16GB GamingPro-S GDDR7 256bits - NE7507T019T2-GB2031U",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/988703/placa-de-video-palit-geforce-rtx-5070-ti-16gb-gamingpro-s-gddr7-256bits-ne7507t019t2-gb2031u",
+     "price": 11004.48,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 8099.99,
+      "date": "2026-10-16"
+     }
+    },
+    {
+     "name": "MSI RTX 5060 Ti Ventus 2X 16 GB",
+     "detail": "Placa de Vídeo MSI RTX 5060 Ti 16G VENTUS 2X OC PLUS NVIDIA GeForce, 16GB GDDR7, 2617 MHz, FP4 and DLSS 4, Ray Tracing - G506T-16V2CP",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/777167/placa-de-video-msi-rtx-5060-ti-16g-ventus-2x-oc-plus-nvidia-geforce-16gb-gddr7-2617-mhz-fp4-and-dlss-4-ray-tracing-g506t-16v2cp",
+     "price": null,
+     "priceNote": "esgotado na checagem",
+     "available": false,
+     "ref": null
+    },
+    {
+     "name": "Gigabyte RTX 5070 Windforce 12 GB",
+     "detail": "Placa de Vídeo Gigabyte RTX 5070 WINDFORCE OC SFF 12G NVIDIA GeForce, 12GB GDDR7, 192bits, DLSS, Ray Tracing - 9VN5070WO-00-G10",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/714574/placa-de-video-gigabyte-rtx-5070-windforce-oc-sff-12g-nvidia-geforce-12gb-gddr7-192bits-dlss-ray-tracing-9vn5070wo-00-g10",
+     "price": null,
+     "priceNote": "esgotado na checagem",
+     "available": false,
+     "ref": null
+    },
+    {
+     "name": "ASRock RX 9070 XT Challenger 16 GB",
+     "detail": "Placa de Vídeo ASRock Radeon RX 9070 XT Challenger, AMD, 16GB - 90-GA61ZZ-00UANF",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/921271/placa-de-video-asrock-radeon-rx-9070-xt-challenger-amd-16gb-90-ga61zz-00uanf",
+     "price": null,
+     "priceNote": "esgotado na checagem",
+     "available": false,
+     "ref": null
+    }
+   ]
+  },
+  {
+   "id": "ssd",
+   "heading": "SSDs",
+   "items": [
+    {
+     "name": "Kingston A400 480 GB (SATA)",
+     "detail": "SSD Kingston A400, 480GB, 2.5\", SATA III, Leitura: 500 MB/s, Gravação: 450 MB/s, Preto - SA400S37/480G",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/85198/ssd-kingston-a400-480gb-sata-iii-2-5-leitura-500mb-s-gravacao-450mb-s-preto-sa400s37-480g",
+     "price": 624.99,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 659.99,
+      "date": "2026-10-16"
+     }
+    },
+    {
+     "name": "Kingston NV3 500 GB (NVMe)",
+     "detail": "SSD Kingston NV3, 500GB, M.2 2280, PCIe 4.0 x4, NVMe, Leitura: 5000 MB/s, Gravação: 3000 MB/s, Azul - SNV3S/500G",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/621161/ssd-kingston-nv3-500-gb-m-2-2280-pcie-4-0-x4-nvme-leitura-5000-mb-s-gravacao-3000-mb-s-azul-snv3s-500g",
+     "price": 749.99,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 799.99,
+      "date": "2026-10-16"
+     }
+    },
+    {
+     "name": "Kingston NV3 1 TB (NVMe)",
+     "detail": "SSD Kingston NV3, 1TB, M.2 2280, PCIe 4.0 x4, NVMe, Leitura: 6000 MB/s, Gravação: 4000 MB/s, Azul - SNV3S/1000G",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/621162/ssd-kingston-nv3-1-tb-m-2-2280-pcie-4-0-x4-nvme-leitura-6000-mb-s-gravacao-4000-mb-s-azul-snv3s-1000g",
+     "price": 999.99,
+     "priceNote": "à vista no Pix; a página mostra \"de R$ 1.352,93\"",
+     "available": true,
+     "ref": {
+      "price": 1149.99,
+      "date": "2026-10-16"
+     }
+    },
+    {
+     "name": "Samsung 990 Pro 1 TB",
+     "detail": "SSD Samsung 990 Pro 1TB, Nvme M.2 2280, Mz-v9p1t0b/am.",
+     "store": "KaBuM",
+     "seller": "marketplace KaBuM",
+     "url": "https://www.kabum.com.br/produto/464267/ssd-samsung-990-pro-1tb-nvme-m-2-2280-mz-v9p1t0b-am-",
+     "price": null,
+     "priceNote": "esgotado na checagem",
+     "available": false,
+     "ref": null
+    },
+    {
+     "name": "Samsung 990 Pro 2 TB",
+     "detail": "SSD Samsung 990 Pro 2TB, M.2 Nvme PCie 4.0, Leitura 7450MBps, Gravação 6900MBps - Mz-V9p2t0bw",
+     "store": "KaBuM",
+     "seller": "marketplace KaBuM",
+     "url": "https://www.kabum.com.br/produto/576204/ssd-samsung-990-pro-2tb-m-2-nvme-pcie-4-0-leitura-7450mbps-gravacao-6900mbps-mz-v9p2t0bw",
+     "price": null,
+     "priceNote": "esgotado na checagem",
+     "available": false,
+     "ref": null
+    }
+   ]
+  },
+  {
+   "id": "console",
+   "heading": "Consoles e portáteis",
+   "items": [
+    {
+     "name": "PS5 Slim Digital 825 GB (CFI-2114B)",
+     "detail": "Console Sony PlayStation 5 Edição Digital Slim, SSD 825GB, Controle DualSense, Astro's Playroom, Branco - CFI 2114B",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/1050570/console-sony-playstation-5-edicao-digital-slim-ssd-825gb-controle-dualsense-astro-s-playroom-branco-cfi-2114b",
+     "price": 4370.07,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 4370.07,
+      "date": "2026-10-16"
+     }
+    },
+    {
+     "name": "PS5 Digital 825 GB com 2 jogos digitais",
+     "detail": "PlayStation 5 Edição Digital (SSD 825 GB, com 2 jogos digitais)",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/989702/console-sony-playstation-5-ssd-825gb-controle-sem-fio-dualsense-2-jogos-digitais-edicao-digital",
+     "price": 4499.0,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 4649.07,
+      "date": "2026-11-16"
+     }
+    },
+    {
+     "name": "PS5 com leitor 1 TB com 2 jogos",
+     "detail": "PlayStation 5 com leitor de discos (SSD 1 TB, com 2 jogos)",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/934759/console-sony-playstation-5-com-leitor-de-discos-ssd-1tb-controle-sem-fio-dualsense-2-jogos",
+     "price": 4999.0,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 5114.07,
+      "date": "2026-11-16"
+     }
+    },
+    {
+     "name": "PS5 Slim com leitor 1 TB (CFI-2114A)",
+     "detail": "Console Playstation 5 Slim Sony 1TB Mídia Física Cfi-2114a",
+     "store": "KaBuM",
+     "seller": "Magalu (marketplace KaBuM)",
+     "url": "https://www.kabum.com.br/produto/953110/console-playstation-5-slim-sony-1tb-midia-fisica-cfi-2114a",
+     "price": 4875.08,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 4691.08,
+      "date": "2026-10-16"
+     }
+    },
+    {
+     "name": "PS5 Pro 2 TB",
+     "detail": "Console PlayStation 5 Pro Sony, SSD 2TB, Com Controle Sem Fio DualSense, Branco - 1000046552",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/636960/console-playstation-5-pro-sony-ssd-2tb-com-controle-sem-fio-dualsense-branco-1000046552",
+     "price": 7999.0,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 7299.0,
+      "date": "2026-10-16"
+     }
+    },
+    {
+     "name": "Nintendo Switch 2 256 GB",
+     "detail": "Console Nintendo Switch 2, 256GB, Preto, Azul e Vermelho",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/777177/console-nintendo-switch-2-256gb-preto-azul-e-vermelho",
+     "price": 4199.0,
+     "priceNote": "à vista no Pix; rechecado em 27/11 às 17h04, sem CEP e sem frete; riscado R$ 4.699",
+     "available": true,
+     "ref": {
+      "price": 4299.0,
+      "date": "2026-10-16"
+     }
+    },
+    {
+     "name": "Lenovo Legion Go S SteamOS 32 GB / 1 TB",
+     "detail": "Lenovo Legion Go S com SteamOS (32 GB, SSD 1 TB)",
+     "store": "KaBuM",
+     "seller": "Lenovo (marketplace KaBuM)",
+     "url": "https://www.kabum.com.br/produto/911036/lenovo-legion-go-s-amd-ryzen-z2-go-8-wuxga-32gb-1tb-ssd-steam-os-83l3002pbr",
+     "price": 4995.74,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 5417.14,
+      "date": "2026-11-16"
+     }
+    },
+    {
+     "name": "ROG Xbox Ally X 24 GB / 1 TB",
+     "detail": "ROG Xbox Ally X (24 GB, SSD 1 TB)",
+     "store": "KaBuM",
+     "seller": "Loja Asus (marketplace KaBuM)",
+     "url": "https://www.kabum.com.br/produto/957884/rog-xbox-ally-x-console-portatil-tela-7-touchscreen-120hz-amd-ryzen-ai-z2-extreme-24-gb-ram-1-tb-ssd-windows-11-home-black-rc73xa-nh012w",
+     "price": 8499.15,
+     "priceNote": "à vista no Pix",
+     "available": true,
+     "ref": {
+      "price": 8329.15,
+      "date": "2026-11-16"
+     }
+    },
+    {
+     "name": "Xbox Series X 1 TB",
+     "detail": "Console Xbox Series X, Microsoft, 1Tb, Controle Sem Fio - Preto",
+     "store": "KaBuM",
+     "seller": "marketplace KaBuM",
+     "url": "https://www.kabum.com.br/produto/209239/console-xbox-series-x-microsoft-1tb-controle-sem-fio-preto",
+     "price": null,
+     "priceNote": "esgotado na checagem",
+     "available": false,
+     "ref": null
+    },
+    {
+     "name": "Steam Deck OLED 512 GB",
+     "detail": "Console Portátil Valve Steam Deck Oled 512 Gb",
+     "store": "KaBuM",
+     "seller": "marketplace KaBuM",
+     "url": "https://www.kabum.com.br/produto/577296/console-portatil-valve-steam-deck-oled-512-gb",
+     "price": null,
+     "priceNote": "esgotado na checagem",
+     "available": false,
+     "ref": null
+    }
+   ]
+  },
+  {
+   "id": "notebook",
+   "heading": "Notebooks",
+   "items": [
+    {
+     "name": "ASUS TUF F16 · RTX 4050 · 8 GB",
+     "detail": "Notebook ASUS TUF Gaming F16 Intel Core 5 210H, RTX 4050, 8GB, 512GB  SSD, KeepOS,16.0\" FHD, Mecha Gray - FX607VU-RL054",
+     "store": "KaBuM",
+     "seller": "KaBuM!",
+     "url": "https://www.kabum.com.br/produto/1009200/notebook-asus-tuf-gaming-f16-intel-core-5-210h-rtx-4050-8gb-512gb-ssd-keepos-16-0-fhd-mecha-gray-fx607vu-rl054",
+     "price": 7199.0,
+     "priceNote": "à vista no Pix; a página mostra \"de R$ 11.110\"",
+     "available": true,
+     "ref": null
+    },
+    {
+     "name": "Acer Nitro V15 · RTX 4050",
+     "detail": "Notebook Gamer Acer Nitro V15, AMD Ryzen 7 7735HS, 8GB RAM, SSD 512GB, RTX 4050, Tela 15.6\" Full HD IPS 165Hz, Linux - ANV15-41-R6J0",
+     "store": "KaBuM",
+     "seller": "Acer (marketplace KaBuM)",
+     "url": "https://www.kabum.com.br/produto/1048035/notebook-gamer-acer-nitro-v15-anv15-41-r6j0-amd-ryzen-7-7735hs-8gb-ram-512gb-ssd-rtx-4050-linux-15-6-",
+     "price": null,
+     "priceNote": "esgotado na checagem",
+     "available": false,
+     "ref": null
+    },
+    {
+     "name": "Acer Nitro V15 · RTX 4060",
+     "detail": "Notebook Gamer Acer Nitro V15, Intel Core i7-13620H 13ª Geração, 16GB RAM, SSD 512GB, RTX 4060, Tela 15.6\" Full HD 165Hz, Linux - ANV15-52-790M",
+     "store": "KaBuM",
+     "seller": "Acer (marketplace KaBuM)",
+     "url": "https://www.kabum.com.br/produto/912258/notebook-gamer-acer-nitro-v15-intel-core-i7-13620h-13-geracao-16gb-ram-ssd-512gb-rtx-4060-tela-15-6-full-hd-165hz-linux-anv15-52-790m",
+     "price": null,
+     "priceNote": "esgotado na checagem",
+     "available": false,
+     "ref": null
+    }
+   ]
+  }
+ ]
+}
