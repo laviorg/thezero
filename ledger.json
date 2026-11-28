@@ -3350,6 +3350,17 @@
       "threads": "https://www.threads.com/@hello.the.zero/post/DgR2ao2lqX3",
       "story": "https://www.instagram.com/stories/hello.the.zero/4040249770408518833",
       "reel": "https://www.instagram.com/reel/DgSAe12o3d3/"
+    },
+    "asrock-taichi-aqua-360-lcd": {
+      "article_url": "https://www.thezero.com.br/noticia/asrock-taichi-aqua-360-lcd",
+      "pr": 692,
+      "commit": "6338eed858a13f210dd2ece3174076ec5e29e1eb",
+      "image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/asrock-taichi-aqua-360-lcd.jpg",
+      "image_png": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/asrock-taichi-aqua-360-lcd.png",
+      "story_image_jpg": "https://raw.githubusercontent.com/laviorg/thezero/social-assets/asrock-taichi-aqua-360-lcd-story.jpg",
+      "ig": "https://www.instagram.com/p/DgSKT8qElpB/",
+      "slug": "asrock-taichi-aqua-360-lcd",
+      "updated_at": "2026-11-28T11:35:55Z"
     }
   }
 }
