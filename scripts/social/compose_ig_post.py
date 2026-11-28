@@ -80,6 +80,24 @@ def _wrap(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.ImageFont, max_w
     return lines
 
 
+def _wrap_footer(draw, text, font, max_w):
+    """Preserve every URL character while wrapping inside the safe width."""
+    lines = []
+    for raw in str(text).splitlines():
+        for line in _wrap(draw, raw, font, max_w):
+            current = ""
+            for char in line:
+                trial = current + char
+                if current and draw.textlength(trial, font=font) > max_w:
+                    lines.append(current)
+                    current = char
+                else:
+                    current = trial
+            if current:
+                lines.append(current)
+    return lines
+
+
 def _cover_fit(cover: Image.Image, width: int, height: int) -> Image.Image:
     img = cover.convert("RGB")
     scale = max(width / img.width, height / img.height)
@@ -118,10 +136,12 @@ def compose(
 
     overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
-    start = int(height * 0.35)
+    # Fade starts transparent and eases in, avoiding a visible horizontal seam.
+    start = int(height * 0.15)
     for y in range(start, height):
-        t = (y - start) / max(1, height - start)
-        alpha = int(50 + 190 * (t ** 1.05))
+        t = (y - start) / max(1, height - 1 - start)
+        eased = t * t * (3 - 2 * t)
+        alpha = round(240 * eased)
         draw.line([(0, y), (width, y)], fill=(0, 0, 0, alpha))
 
     canvas = Image.alpha_composite(base.convert("RGBA"), overlay)
@@ -137,7 +157,7 @@ def compose(
     footer_lines: list[str] = []
     if footer:
         for raw in str(footer).splitlines():
-            footer_lines.extend(_wrap(draw, raw, cta_font, max_text_w))
+            footer_lines.extend(_wrap_footer(draw, raw, cta_font, max_text_w))
 
     line_h_hook = typo["hook_lh"]
     line_h_sum = typo["sum_lh"]
@@ -161,8 +181,20 @@ def compose(
     if ly < safe_top:
         ly = safe_top
 
-    y = ly - 28 - block_h
-    y = max(safe_top + int(height * 0.28), y)
+    min_y = safe_top + int(height * 0.28)
+    if footer:
+        available = ly - 28 - min_y
+        for cta_size in range(typo["cta"], 21, -1):
+            cta_font = _font(cta_size, bold=True)
+            line_h_cta = max(cta_size + 6, int(cta_size * 1.24))
+            footer_lines = _wrap_footer(draw, footer, cta_font, max_text_w)
+            footer_h = 16 + len(footer_lines) * line_h_cta
+            block_h = len(hook_lines) * line_h_hook + 14 + len(sum_lines) * line_h_sum + footer_h
+            if block_h <= available:
+                break
+        else:
+            raise ValueError("Rodapé não cabe na área segura; encurte o texto editorialmente")
+    y = max(min_y, ly - 28 - block_h)
 
     for line in hook_lines:
         draw.text((safe_x + 2, y + 2), line, font=hook_font, fill=(0, 0, 0, 160))
